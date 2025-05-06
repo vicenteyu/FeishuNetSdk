@@ -35,7 +35,7 @@ public record PostDocxV1DocumentsResponseDto
     {
         /// <summary>
         /// <para>文档的唯一标识。你可以将 `https://sample.feishu.cn/docx/` 与该标识拼接，并将 sample 替换为实际域名，生成文档的 URL 链接。如 `https://sample.feishu.cn/docx/doxbcmEtbFrbbq10nPNu8gabcef`。</para>
-        /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/f8dac29d8ea3f01f5a651e0445193213_W0CZqRcbHM.png?height=639&amp;lazyload=true&amp;width=2161)</para>
+        /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/83d2b3e64e1107d02cba307be8f4fc7f_2K8iBz6G8a.png?height=639&amp;lazyload=true&amp;width=2161)</para>
         /// <para>必填：否</para>
         /// <para>示例值：doxbcmEtbFrbbq10nPNu8gabcef</para>
         /// <para>最大长度：27</para>

@@ -15,7 +15,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 获取员工薪资标准 响应体
 /// <para>- 调用此接口来获取员工匹配的薪资标准信息</para>
-/// <para>- 请求时，可选传递员工的部门 ID、职级 ID 、序列 ID 等筛选条件，用于匹配薪资标准</para>
+/// <para>- 请求时，可选传递员工的部门 ID、职级 ID、职务ID 、序列 ID 等筛选条件，用于匹配薪资标准</para>
 /// <para>- 此接口将返回员工可匹配到的薪资标准全部信息，包括薪资标准表 ID、薪级薪等、薪资带宽、薪资标准值等</para>
 /// <para>接口ID：7182538601166028802</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/compensation_standard/match</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-27
+// Last Modified On : 2025-05-06
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -28201,7 +28201,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="initiator_id_list">
     /// <para>必填：否</para>
-    /// <para>休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如employment_id_list=6919733291281024522&amp;employment_id_list=6919733291281024523</para>
+    /// <para>休假发起人 ID 列表，最大 100 个，ID 类型与 user_id_type 一致。请注意：此接口为get请求，所以传入数组时需要满足get请求传入数组的规范，例如initiator_id_list=6919733291281024522&amp;initiator_id_list=6919733291281024523</para>
     /// <para>示例值：["6919733291281024526"]</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -30599,9 +30599,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【飞书人事】获取员工薪资标准</para>
     /// <para>接口ID：7182538601166028802</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/corehr-v1/compensation_standard/match</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>- 调用此接口来获取员工匹配的薪资标准信息</para>
-    /// <para>- 请求时，可选传递员工的部门 ID、职级 ID 、序列 ID 等筛选条件，用于匹配薪资标准</para>
+    /// <para>- 请求时，可选传递员工的部门 ID、职级 ID、职务ID 、序列 ID 等筛选条件，用于匹配薪资标准</para>
     /// <para>- 此接口将返回员工可匹配到的薪资标准全部信息，包括薪资标准表 ID、薪级薪等、薪资带宽、薪资标准值等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:compensation_standards:read</item>
@@ -30634,9 +30634,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>默认值：people_corehr_department_id</para>
     /// </param>
     /// <param name="employment_id">
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>雇员ID，可通过接口[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取</para>
     /// <para>示例值：7124293751317038636</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="reference_object_api">
     /// <para>必填：否</para>
@@ -30675,6 +30676,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>职务序列ID，可通过接口[【批量查询职务序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取</para>
     /// <para>示例值：7039313681989502508</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="job_id">
+    /// <para>必填：否</para>
+    /// <para>职务ID，可通过接口[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)</para>
+    /// <para>示例值：7342883436321097257</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="job_level_id">
@@ -30726,15 +30733,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     [HttpGet("/open-apis/corehr/v1/compensation_standards/match")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CompensationStandardsMatchResponseDto>> GetCorehrV1CompensationStandardsMatchAsync(
-        [PathQuery] string employment_id,
         [PathQuery] string reference_object_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "people_corehr_department_id",
+        [PathQuery] string? employment_id = null,
         [PathQuery] string? reference_object_api = null,
         [PathQuery] string? department_id = null,
         [PathQuery] string? work_location_id = null,
         [PathQuery] string? company_id = null,
         [PathQuery] string? job_family_id = null,
+        [PathQuery] string? job_id = null,
         [PathQuery] string? job_level_id = null,
         [PathQuery] string? employee_type_id = null,
         [PathQuery] string? recruitment_type = null,
@@ -39944,6 +39952,28 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string[] attachment_ids);
 
     /// <summary>
+    /// <para>【邮箱】将公共邮箱移至回收站</para>
+    /// <para>接口ID：7296319822873673730</para>
+    /// <para>接口文档：https://open.feishu.cn/document/mail-v1/public-mailbox/public_mailbox/remove_to_recycle_bin</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>将公共邮箱移至回收站</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:public_mailbox</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="public_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>公共邮箱地址</para>
+    /// <para>示例值：test_public_mailbox@xxx.xx</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/mail/v1/public_mailboxes/{public_mailbox_id}/remove_to_recycle_bin")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1PublicMailboxesByPublicMailboxIdRemoveToRecycleBinAsync(
+        [PathQuery] string public_mailbox_id,
+        [JsonContent] Mail.DeleteMailV1PublicMailboxesByPublicMailboxIdRemoveToRecycleBinBodyDto dto);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询流程实例列表</para>
     /// <para>接口ID：7296819819722571804</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/list</para>
@@ -47897,6 +47927,399 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/payroll/v1/payment_activitys/archive")]
     System.Threading.Tasks.Task<FeishuResponse> PostPayrollV1PaymentActivitysArchiveAsync(
         [JsonContent] Payroll.PostPayrollV1PaymentActivitysArchiveBodyDto dto);
+
+    /// <summary>
+    /// <para>【组织架构】查询可搜可见规则</para>
+    /// <para>接口ID：7442539768884543516</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/searchable-and-visible-rules/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>管理员视角查询可搜可见规则。用户需具备关联组织管理员权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="target_tenant_key">
+    /// <para>必填：是</para>
+    /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：test_key</para>
+    /// </param>
+    [HttpGet("/open-apis/directory/v1/collaboration_rules")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1CollaborationRulesResponseDto>> GetDirectoryV1CollaborationRulesAsync(
+        [PathQuery] string target_tenant_key,
+        [PathQuery] int? page_size = 100,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【组织架构】更新可搜可见规则</para>
+    /// <para>接口ID：7442539768884559900</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/searchable-and-visible-rules/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>管理员视角更新可搜可见规则。用户需具备关联组织管理员权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="collaboration_rule_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得</para>
+    /// <para>示例值：12121</para>
+    /// </param>
+    /// <param name="target_tenant_key">
+    /// <para>必填：是</para>
+    /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：test_key</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPut("/open-apis/directory/v1/collaboration_rules/{collaboration_rule_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutDirectoryV1CollaborationRulesByCollaborationRuleIdAsync(
+        [PathQuery] string collaboration_rule_id,
+        [PathQuery] string target_tenant_key,
+        [JsonContent] Directory.PutDirectoryV1CollaborationRulesByCollaborationRuleIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【组织架构】删除可搜可见规则</para>
+    /// <para>接口ID：7442539768884576284</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/searchable-and-visible-rules/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>管理员视角删除可搜可见规则。用户需具备关联组织管理员权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="collaboration_rule_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>规则ID，可通过[查询可搜可见规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_rule/list)获得</para>
+    /// <para>示例值：2121</para>
+    /// </param>
+    /// <param name="target_tenant_key">
+    /// <para>必填：是</para>
+    /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：test_key</para>
+    /// </param>
+    [HttpDelete("/open-apis/directory/v1/collaboration_rules/{collaboration_rule_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1CollaborationRulesByCollaborationRuleIdAsync(
+        [PathQuery] string collaboration_rule_id,
+        [PathQuery] string target_tenant_key);
+
+    /// <summary>
+    /// <para>【组织架构】管理员获取所有关联组织列表</para>
+    /// <para>接口ID：7442539768884592668</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/list-2</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在创建规则时，需要知道对方组织的tenant key，可通过该接口获取有效的tenant key。只允许关联组织管理员权限调用。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/directory/v1/collaboration_tenants")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1CollaborationTenantsResponseDto>> GetDirectoryV1CollaborationTenantsAsync(
+        [PathQuery] int? page_size = 100,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【组织架构】获取关联组织双方共享成员范围</para>
+    /// <para>接口ID：7442539768884609052</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/list-3</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在创建规则时，需要获取本组织以及对方组织人员、部门和用户组的ID，且这些实体都应该在关联组织的共享范围内。本接口可获取关联组织双方的共享范围下的人员、部门和用户组。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>必填：是</para>
+    /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：test_key</para>
+    /// </param>
+    /// <param name="target_department_id">
+    /// <para>必填：否</para>
+    /// <para>不填写该参数时，查询整个组织的分享范围，可填写该字段继续下钻查看指定部门下的子部门+成员。填写0分为两种情况，若组织分享的为全员则展示一级部门，否则展示分享的部门+成员；可以递归使用该接口实现整个分享范围的下钻查询</para>
+    /// <para>示例值：test_key</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="target_group_id">
+    /// <para>必填：否</para>
+    /// <para>获取用户组下的成员，填写该值后忽略target_department_id；可以通过本接口参数返回的用户组ID继续本接口查询</para>
+    /// <para>示例值：test_key</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="is_select_subject">
+    /// <para>必填：否</para>
+    /// <para>是否主体组织分享范围，默认是客体组织的分享范围</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    [HttpGet("/open-apis/directory/v1/share_entities")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1ShareEntitiesResponseDto>> GetDirectoryV1ShareEntitiesAsync(
+        [PathQuery] string target_tenant_key,
+        [PathQuery] string? target_department_id = null,
+        [PathQuery] string? target_group_id = null,
+        [PathQuery] bool? is_select_subject = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 100);
+
+    /// <summary>
+    /// <para>【关联组织】获取关联组织成员详情</para>
+    /// <para>接口ID：7442539768884625436</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/get-3</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取关联组织成员详情，需要对关联组织成员有权限才可以获取。</para>
+    /// <para>## 提示</para>
+    /// <para>使用 user_access_token 时，按照 admin 管理后台关联组织列表中针对用户设置的可见性规则进行校验，使用 tenant_access_token 时，按照应用互通界面中针对应用设置的可见性规则进行校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration.tenant:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对方关联组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    /// <param name="target_user_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>请求的关联组织用户ID，需要与target_user_id_type中填写的类型保持一致</para>
+    /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    /// <param name="target_user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户ID类型，可以在[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获取对应的用户ID</para>
+    /// <para>示例值：user_id</para>
+    /// <list type="bullet">
+    /// <item>user_id：以user_id来识别用户</item>
+    /// <item>union_id：以union_id来识别用户</item>
+    /// <item>open_id：以open_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：user_id</para>
+    /// </param>
+    [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/collaboration_users/{target_user_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserIdResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserIdAsync(
+        [PathQuery] string target_tenant_key,
+        [PathQuery] string target_user_id,
+        [PathQuery] string? target_user_id_type = "user_id");
+
+    /// <summary>
+    /// <para>【关联组织】获取可见关联组织的列表</para>
+    /// <para>接口ID：7442539768884641820</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>分页获取用户可见的关联列表。</para>
+    /// <para>## 提示</para>
+    /// <para>使用 user_access_token 时，按照 admin 管理后台关联组织列表中针对用户设置的可见性规则进行校验，使用 tenant_access_token 时，按照应用互通界面中针对应用设置的可见性规则进行校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration.tenant:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>单次请求的关联组织数量</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    [HttpGet("/open-apis/trust_party/v1/collaboration_tenants")]
+    System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsResponseDto>> GetTrustPartyV1CollaborationTenantsAsync(
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10);
+
+    /// <summary>
+    /// <para>【关联组织】获取关联组织部门详情</para>
+    /// <para>接口ID：7442539768884674588</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/get-2</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取对方的关联组织部门详情，需要对部门有可见性权限才可以获取。</para>
+    /// <para>## 提示</para>
+    /// <para>使用 user_access_token 时，按照 admin 管理后台关联组织列表中针对用户设置的可见性规则进行校验，使用 tenant_access_token 时，按照应用互通界面中针对应用设置的可见性规则进行校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration.tenant:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对方关联组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    /// <param name="target_department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对方关联组织的部门，需要与target_department_id_type中填写的值保持一致</para>
+    /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    /// <param name="target_department_id_type">
+    /// <para>必填：否</para>
+    /// <para>对方关联组织的入参部门类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：部门ID</item>
+    /// <item>open_department_id：部门open ID</item>
+    /// </list>
+    /// <para>默认值：department_id</para>
+    /// </param>
+    [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/collaboration_departments/{target_department_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentIdResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentIdAsync(
+        [PathQuery] string target_tenant_key,
+        [PathQuery] string target_department_id,
+        [PathQuery] string? target_department_id_type = "department_id");
+
+    /// <summary>
+    /// <para>【关联组织】获取关联组织详情</para>
+    /// <para>接口ID：7442539768884690972</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>基于组织tenant key获取关联组织详情，需要对对方组织有可见权限才可以获取。</para>
+    /// <para>## 提示</para>
+    /// <para>使用 user_access_token 时，按照 admin 管理后台关联组织列表中针对用户设置的可见性规则进行校验，使用 tenant_access_token 时，按照应用互通界面中针对应用设置的可见性规则进行校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration.tenant:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对方关联组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}")]
+    System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyAsync(
+        [PathQuery] string target_tenant_key);
+
+    /// <summary>
+    /// <para>【关联组织】获取关联组织的部门和成员信息</para>
+    /// <para>接口ID：7442539768884707356</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/visible_organization</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口会返回用户在外部部门下可见的下级部门、用户、用户组。</para>
+    /// <para>## 提示</para>
+    /// <para>使用 user_access_token 时，按照 admin 管理后台关联组织列表中针对用户设置的可见性规则进行校验；使用 tenant_access_token 时，按照应用互通界面中针对应用设置的可见性规则进行校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration.tenant:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对方关联组织的 tenant key。可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以自定义department_id来标识部门</item>
+    /// <item>open_department_id：以open_department_id来标识部门</item>
+    /// </list>
+    /// <para>默认值：department_id</para>
+    /// </param>
+    /// <param name="target_department_id">
+    /// <para>必填：否</para>
+    /// <para>请求关联组织的部门ID，0代表根部门，与target_group_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得</para>
+    /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：AQD9/Rn9eij9Pm39ED40/TIx6jupqdAcfLY%2B51xMvNU=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>请求的可见实体数量</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="group_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户组ID的类型</para>
+    /// <para>示例值：group_id</para>
+    /// <list type="bullet">
+    /// <item>group_id：group_id</item>
+    /// <item>open_group_id：以open_group_id来标识用户组</item>
+    /// </list>
+    /// <para>默认值：group_id</para>
+    /// </param>
+    /// <param name="target_group_id">
+    /// <para>必填：否</para>
+    /// <para>请求关联组织的用户组ID，与target_department_id二选一；可以从[获取关联组织的部门和成员信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/collaboration_tenant/visible_organization)中获得</para>
+    /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/visible_organization")]
+    System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationAsync(
+        [PathQuery] string target_tenant_key,
+        [PathQuery] string? department_id_type = "department_id",
+        [PathQuery] string? target_department_id = null,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 100,
+        [PathQuery] string? group_id_type = "group_id",
+        [PathQuery] string? target_group_id = null);
+
+    /// <summary>
+    /// <para>【组织架构】新增可搜可见规则</para>
+    /// <para>接口ID：7442539768884723740</para>
+    /// <para>接口文档：https://open.feishu.cn/document/trust_party-v1/searchable-and-visible-rules/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>管理员视角新增可搜可见规则。用户需具备关联组织管理员权限。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>trust_party:collaboration_rule:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="target_tenant_key">
+    /// <para>必填：是</para>
+    /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
+    /// <para>示例值：test_key</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/collaboration_rules")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1CollaborationRulesResponseDto>> PostDirectoryV1CollaborationRulesAsync(
+        [PathQuery] string target_tenant_key,
+        [JsonContent] Directory.PostDirectoryV1CollaborationRulesBodyDto dto);
 
     /// <summary>
     /// <para>【飞书低代码平台】发起流程</para>

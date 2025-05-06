@@ -23,7 +23,7 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdRawContent</td></tr>
 <tr><td rowspan="2">12</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>云文档</td><td>获取文档所有块</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
-<tr><td rowspan="2">13</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
+<tr><td rowspan="2">13</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
 <tr><td rowspan="2">14</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
@@ -707,7 +707,7 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">355</td><td rowspan="2">2024-12-24</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">355</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
 <tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-03-14</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1135,45 +1135,45 @@
 <tr><td colspan="3">PostPayrollV1DatasourceRecordsQuery</td></tr>
 <tr><td rowspan="2">568</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
-<tr><td rowspan="2">569</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
+<tr><td rowspan="2">569</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
-<tr><td rowspan="2">570</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
+<tr><td rowspan="2">570</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">571</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
+<tr><td rowspan="2">571</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">572</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
+<tr><td rowspan="2">572</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
-<tr><td rowspan="2">573</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
+<tr><td rowspan="2">573</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">574</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
+<tr><td rowspan="2">574</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">575</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td rowspan="2">575</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">576</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td rowspan="2">576</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">577</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
+<tr><td rowspan="2">577</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
-<tr><td rowspan="2">579</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
+<tr><td rowspan="2">579</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>
-<tr><td rowspan="2">580</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
+<tr><td rowspan="2">580</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">581</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
+<tr><td rowspan="2">581</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
-<tr><td rowspan="2">582</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td rowspan="2">582</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">583</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">583</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
-<tr><td rowspan="2">584</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取订阅状态</td></tr>
+<tr><td rowspan="2">584</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdEventSubscription</td></tr>
-<tr><td rowspan="2">585</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>取消订阅</td></tr>
+<tr><td rowspan="2">585</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>取消订阅</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribe</td></tr>
-<tr><td rowspan="2">586</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
+<tr><td rowspan="2">586</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">587</td><td rowspan="2">2025-04-24</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
+<tr><td rowspan="2">587</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
-<tr><td rowspan="2">588</td><td rowspan="2">2025-04-09</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
+<tr><td rowspan="2">588</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
 <tr><td rowspan="2">589</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
@@ -1181,4 +1181,28 @@
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">591</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBaseV2AppsByAppTokenRolesByRoleId</td></tr>
+<tr><td rowspan="2">592</td><td rowspan="2">2025-04-30</td><td>新增</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
+<tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
+<tr><td rowspan="2">593</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>查询可搜可见规则</td></tr>
+<tr><td colspan="3">GetDirectoryV1CollaborationRules</td></tr>
+<tr><td rowspan="2">594</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>更新可搜可见规则</td></tr>
+<tr><td colspan="3">PutDirectoryV1CollaborationRulesByCollaborationRuleId</td></tr>
+<tr><td rowspan="2">595</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>删除可搜可见规则</td></tr>
+<tr><td colspan="3">DeleteDirectoryV1CollaborationRulesByCollaborationRuleId</td></tr>
+<tr><td rowspan="2">596</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>管理员获取所有关联组织列表</td></tr>
+<tr><td colspan="3">GetDirectoryV1CollaborationTenants</td></tr>
+<tr><td rowspan="2">597</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>获取关联组织双方共享成员范围</td></tr>
+<tr><td colspan="3">GetDirectoryV1ShareEntities</td></tr>
+<tr><td rowspan="2">598</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织成员详情</td></tr>
+<tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserId</td></tr>
+<tr><td rowspan="2">599</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取可见关联组织的列表</td></tr>
+<tr><td colspan="3">GetTrustPartyV1CollaborationTenants</td></tr>
+<tr><td rowspan="2">600</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织部门详情</td></tr>
+<tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentId</td></tr>
+<tr><td rowspan="2">601</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织详情</td></tr>
+<tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKey</td></tr>
+<tr><td rowspan="2">602</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织的部门和成员信息</td></tr>
+<tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
+<tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
+<tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
 </tbody></table>

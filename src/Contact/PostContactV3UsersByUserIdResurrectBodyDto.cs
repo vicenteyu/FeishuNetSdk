@@ -72,7 +72,7 @@ public record PostContactV3UsersByUserIdResurrectBodyDto
     }
 
     /// <summary>
-    /// <para>如果用户正常状态时分配了席位，则可以通过该参数指定恢复后分配的席位 ID。</para>
+    /// <para>如果用户正常状态时分配了[席位](https://www.feishu.cn/hc/zh-CN/articles/548377434838)，则可以通过该参数指定恢复后分配的席位 ID。待分配席位 ID 获取方式参见[获取企业席位信息接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。</para>
     /// <para>**注意**：</para>
     /// <para>- 该字段需开通 **分配用户席位** 权限。</para>
     /// <para>必填：否</para>

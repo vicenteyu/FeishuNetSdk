@@ -80,9 +80,15 @@ public record PostAuthenV2OauthTokenBodyDto
     public string? CodeVerifier { get; set; }
 
     /// <summary>
-    /// <para>用于缩减 `user_access_token` 的权限范围。如果未指定，生成的 `user_access_token` 将包含用户授权时的所有权限。请务必注意该列表中不得包含重复项（错误码 20067）以及未授权项（错误码 20068）。</para>
-    /// <para>**说明**：</para>
-    /// <para>- 多次调用当前接口缩减不同的权限不会叠加。例如，第一调用该接口缩减了权限 A，则 `user_access_token` 不包含权限 A；第二次调用该接口缩减了权限 B，则 `user_access_token` 不包含权限 B。</para>
+    /// <para>该参数用于缩减 `user_access_token` 的权限范围。</para>
+    /// <para>例如：</para>
+    /// <para>1. 在[获取授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)时通过 `scope` 参数授权了 `contact:user.base:readonly contact:contact.base:readonly contact:user.employee:readonly` 三个权限。</para>
+    /// <para>2. 在当前接口可通过 `scope` 参数传入 `contact:user.base:readonly`，将 `user_access_token` 的权限缩减为 `contact:user.base:readonly` 这一个。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 如果不指定当前参数，生成的 `user_access_token` 将包含用户授权时的所有权限。</para>
+    /// <para>- 当前参数不能传入重复的权限，否则会接口调用会报错，返回错误码 20067。</para>
+    /// <para>- 当前参数不能传入未授权的权限（即[获取授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)时用户已授权范围外的其他权限），否则接口调用会报错，返回错误码 20068。</para>
+    /// <para>- 多次调用当前接口缩减权限的范围不会叠加。例如，用户授予了权限 A 和 B，第一次调用该接口缩减为权限 A，则 `user_access_token` 只包含权限 A；第二次调用该接口缩减为权限 B，则 `user_access_token` 只包含权限 B。</para>
     /// <para>- 生效的权限列表可通过本接口返回值 scope 查看。</para>
     /// <para>**格式要求：** 以空格分隔的 `scope` 列表</para>
     /// <para>**示例值：**`auth:user.id:read task:task:read`</para>

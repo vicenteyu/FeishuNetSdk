@@ -66,7 +66,7 @@ public record GetCompensationV1PlansResponseDto
         public string Description { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>薪资方案生效时间（毫秒级时间戳）</para>
+        /// <para>薪资方案生效时间</para>
         /// <para>必填：是</para>
         /// <para>示例值：2022-10-20</para>
         /// </summary>
