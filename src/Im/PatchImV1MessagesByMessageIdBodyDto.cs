@@ -32,8 +32,8 @@ public record PatchImV1MessagesByMessageIdBodyDto
 {
     /// <summary>
     /// <para>消息卡片的内容，支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片，需为 JSON 结构序列化后的字符串。</para>
-    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。</para>
-    /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，你需传入 `type` 和 `data` 参数。参考 [发送卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/send-feishu-card#461aa643-1)文档末尾的字段说明传值。</para>
+    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，参考下文传入参数。</para>
     /// <para>**注意**：</para>
     /// <para>- 更新的卡片消息最大不能超过 30 KB。若消息中包含大量样式标签，会使实际消息体长度大于你输入的请求体长度。</para>
     /// <para>- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>

@@ -37,6 +37,7 @@ public record PostSheetsV3SpreadsheetsBodyDto
     /// <para>- 调用开放平台接口获取：</para>
     /// <para>- 调用[获取我的空间（root folder）元数据](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/get-root-folder-meta)接口获取根目录（即根文件夹）的 token。</para>
     /// <para>- 继续调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)接口，获取根目录下文件夹的 token。</para>
+    /// <para>**提示**：要在知识库中创建电子表格，你需调用[创建知识空间节点](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/create)接口，并选择表格（sheet）类型。</para>
     /// <para>必填：否</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a92abcef</para>
     /// </summary>

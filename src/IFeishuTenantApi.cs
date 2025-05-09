@@ -11567,6 +11567,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:create</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -25755,6 +25756,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <list type="bullet">
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/index) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
+    /// <item>open_id：用户在某个应用中的身份[查询Open ID](https://open.larkoffice.com/api-explorer?apiName=batch_get_id&amp;project=contact&amp;resource=user&amp;version=v3)</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -45166,7 +45168,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的组件的 ID。对应 JSON 代码中的 `element_id` 属性，由开发者自定义。</para>
-    /// <para>示例值：elem_63529372</para>
+    /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPatch("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]
@@ -45201,7 +45203,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要删除的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
-    /// <para>示例值：elem_63529372</para>
+    /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpDelete("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]
@@ -45290,7 +45292,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>普通文本组件或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
-    /// <para>示例值：elem_63529372</para>
+    /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPut("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}/content")]
@@ -45385,7 +45387,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>要更新的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
-    /// <para>示例值：elem_63529372</para>
+    /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
     [HttpPut("/open-apis/cardkit/v1/cards/{card_id}/elements/{element_id}")]

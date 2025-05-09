@@ -6643,6 +6643,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:create</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>

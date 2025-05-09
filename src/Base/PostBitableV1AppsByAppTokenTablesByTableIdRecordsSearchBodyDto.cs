@@ -166,7 +166,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     }
 
     /// <summary>
-    /// <para>是否返回自动计算的字段。默认为 false，表示不返回。</para>
+    /// <para>是否自动计算并返回创建时间（created_time）、修改时间（last_modified_time）、创建人（created_by）、修改人（last_modified_by）这四类字段。默认为 false，表示不返回。</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>

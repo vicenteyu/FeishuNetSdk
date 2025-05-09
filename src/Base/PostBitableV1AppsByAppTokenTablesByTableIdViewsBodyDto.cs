@@ -34,7 +34,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto
     public string ViewName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>视图类型</para>
+    /// <para>视图类型，不填默认为表格视图。</para>
     /// <para>必填：否</para>
     /// <para>示例值：grid</para>
     /// <para>可选值：<list type="bullet">

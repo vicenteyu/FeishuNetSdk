@@ -44,7 +44,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <para>- 当 `type` 为 `append` 时，该字段仅支持容器类组件，为用于指定末尾添加的目标组件</para>
     /// <para>- 未填写默认为在卡片 body 末尾添加</para>
     /// <para>必填：否</para>
-    /// <para>示例值：elem_63529372</para>
+    /// <para>示例值：markdown_1</para>
     /// <para>最大长度：64</para>
     /// <para>最小长度：0</para>
     /// </summary>
@@ -74,7 +74,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <summary>
     /// <para>添加的组件列表。以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"示例文本\"}]</para>
+    /// <para>示例值：[{\"tag\":\"markdown\",\"element_id\":\"markdown_2\",\"content\":\"新增富文本组件示例文本\"}]</para>
     /// <para>最大长度：1000000</para>
     /// <para>最小长度：1</para>
     /// </summary>

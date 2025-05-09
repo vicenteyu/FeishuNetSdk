@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-10
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserApprovalsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -186,6 +186,35 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             /// </summary>
             [JsonPropertyName("approve_apply_time")]
             public string? ApproveApplyTime { get; set; }
+
+            /// <summary>
+            /// <para>唯一幂等键</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
+
+            /// <summary>
+            /// <para>更正流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("correct_process_id")]
+            public string[]? CorrectProcessId { get; set; }
+
+            /// <summary>
+            /// <para>撤销流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cancel_process_id")]
+            public string[]? CancelProcessId { get; set; }
+
+            /// <summary>
+            /// <para>发起流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("process_id")]
+            public string[]? ProcessId { get; set; }
         }
 
         /// <summary>
@@ -330,6 +359,14 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             /// </summary>
             [JsonPropertyName("approve_apply_time")]
             public string? ApproveApplyTime { get; set; }
+
+            /// <summary>
+            /// <para>唯一幂等键</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
         }
 
         /// <summary>
@@ -426,6 +463,35 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             /// </summary>
             [JsonPropertyName("reason")]
             public string? Reason { get; set; }
+
+            /// <summary>
+            /// <para>唯一幂等键</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
+
+            /// <summary>
+            /// <para>更正流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("correct_process_id")]
+            public string[]? CorrectProcessId { get; set; }
+
+            /// <summary>
+            /// <para>撤销流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cancel_process_id")]
+            public string[]? CancelProcessId { get; set; }
+
+            /// <summary>
+            /// <para>发起流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("process_id")]
+            public string[]? ProcessId { get; set; }
         }
 
         /// <summary>
@@ -489,6 +555,94 @@ public record PostAttendanceV1UserApprovalsQueryResponseDto
             /// </summary>
             [JsonPropertyName("approve_apply_time")]
             public string ApproveApplyTime { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>唯一幂等键</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1233432312</para>
+            /// </summary>
+            [JsonPropertyName("idempotent_id")]
+            public string? IdempotentId { get; set; }
+
+            /// <summary>
+            /// <para>更正流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("correct_process_id")]
+            public string[]? CorrectProcessId { get; set; }
+
+            /// <summary>
+            /// <para>撤销流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cancel_process_id")]
+            public string[]? CancelProcessId { get; set; }
+
+            /// <summary>
+            /// <para>发起流程实例 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("process_id")]
+            public string[]? ProcessId { get; set; }
+
+            /// <summary>
+            /// <para>出发地（只有一个）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("departure")]
+            public RegionPlace? Departure { get; set; }
+
+            /// <summary>
+            /// <para>出发地（只有一个）</para>
+            /// </summary>
+            public record RegionPlace
+            {
+                /// <summary>
+                /// <para>地理等级（国家｜省｜市｜区）</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：l1：国家级</para>
+                /// </summary>
+                [JsonPropertyName("region_level")]
+                public string? RegionLevel { get; set; }
+
+                /// <summary>
+                /// <para>地理id</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863333418483058189</para>
+                /// </summary>
+                [JsonPropertyName("region_id")]
+                public string? RegionId { get; set; }
+            }
+
+            /// <summary>
+            /// <para>目的地（可写多个）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("destinations")]
+            public RegionPlace[]? Destinations { get; set; }
+
+            /// <summary>
+            /// <para>交通工具（1 飞机，2 火车，3 汽车，4 高铁/动车，5 船，6 其他）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("transportation")]
+            public int[]? Transportation { get; set; }
+
+            /// <summary>
+            /// <para>出差类型(1:单程 2:往返)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("trip_type")]
+            public int? TripType { get; set; }
+
+            /// <summary>
+            /// <para>出差备注</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：出差备注</para>
+            /// </summary>
+            [JsonPropertyName("remarks")]
+            public string? Remarks { get; set; }
         }
 
         /// <summary>

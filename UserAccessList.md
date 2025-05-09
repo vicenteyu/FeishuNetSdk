@@ -43,7 +43,7 @@
 <tr><td colspan="3">PatchSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
 <tr><td rowspan="2">22</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>获取电子表格信息</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
-<tr><td rowspan="2">23</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
+<tr><td rowspan="2">23</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
 <tr><td rowspan="2">24</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
@@ -53,7 +53,7 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
 <tr><td rowspan="2">27</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
-<tr><td rowspan="2">28</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
+<tr><td rowspan="2">28</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>云文档</td><td>更新工作表属性</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2</td></tr>
 <tr><td rowspan="2">29</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>增加行列</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -135,7 +135,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
 <tr><td rowspan="2">68</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">69</td><td rowspan="2">2025-02-13</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
+<tr><td rowspan="2">69</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
@@ -171,7 +171,7 @@
 <tr><td colspan="3">GetBitableV1AppsByAppToken</td></tr>
 <tr><td rowspan="2">86</td><td rowspan="2">2024-10-17</td><td>&#10003;</td><td>多维表格</td><td>更新多维表格元数据</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppToken</td></tr>
-<tr><td rowspan="2">87</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
+<tr><td rowspan="2">87</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTables</td></tr>
 <tr><td rowspan="2">88</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>新增多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchCreate</td></tr>
@@ -195,7 +195,7 @@
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
 <tr><td rowspan="2">98</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>列出视图</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdViews</td></tr>
-<tr><td rowspan="2">99</td><td rowspan="2">2024-11-19</td><td>&#10003;</td><td>多维表格</td><td>新增视图</td></tr>
+<tr><td rowspan="2">99</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>多维表格</td><td>新增视图</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdViews</td></tr>
 <tr><td rowspan="2">100</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>删除视图</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
@@ -851,7 +851,7 @@
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
 <tr><td rowspan="2">426</td><td rowspan="2">2025-04-17</td><td>&#10003;</td><td>通讯录</td><td>搜索用户</td></tr>
 <tr><td colspan="3">GetSearchV1User</td></tr>
-<tr><td rowspan="2">427</td><td rowspan="2">2024-09-03</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
+<tr><td rowspan="2">427</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">428</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>获取文件元数据</td></tr>
 <tr><td colspan="3">PostDriveV1MetasBatchQuery</td></tr>
@@ -987,7 +987,7 @@
 <tr><td colspan="3">DeleteAcsV1VisitorsByVisitorId</td></tr>
 <tr><td rowspan="2">494</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
-<tr><td rowspan="2">495</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
+<tr><td rowspan="2">495</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
@@ -1181,28 +1181,28 @@
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">591</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBaseV2AppsByAppTokenRolesByRoleId</td></tr>
-<tr><td rowspan="2">592</td><td rowspan="2">2025-04-30</td><td>新增</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
+<tr><td rowspan="2">592</td><td rowspan="2">2025-04-30</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
-<tr><td rowspan="2">593</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>查询可搜可见规则</td></tr>
+<tr><td rowspan="2">593</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>查询可搜可见规则</td></tr>
 <tr><td colspan="3">GetDirectoryV1CollaborationRules</td></tr>
-<tr><td rowspan="2">594</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>更新可搜可见规则</td></tr>
+<tr><td rowspan="2">594</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>更新可搜可见规则</td></tr>
 <tr><td colspan="3">PutDirectoryV1CollaborationRulesByCollaborationRuleId</td></tr>
-<tr><td rowspan="2">595</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>删除可搜可见规则</td></tr>
+<tr><td rowspan="2">595</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>删除可搜可见规则</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1CollaborationRulesByCollaborationRuleId</td></tr>
-<tr><td rowspan="2">596</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>管理员获取所有关联组织列表</td></tr>
+<tr><td rowspan="2">596</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>管理员获取所有关联组织列表</td></tr>
 <tr><td colspan="3">GetDirectoryV1CollaborationTenants</td></tr>
-<tr><td rowspan="2">597</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>获取关联组织双方共享成员范围</td></tr>
+<tr><td rowspan="2">597</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>获取关联组织双方共享成员范围</td></tr>
 <tr><td colspan="3">GetDirectoryV1ShareEntities</td></tr>
-<tr><td rowspan="2">598</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织成员详情</td></tr>
+<tr><td rowspan="2">598</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>关联组织</td><td>获取关联组织成员详情</td></tr>
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserId</td></tr>
-<tr><td rowspan="2">599</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取可见关联组织的列表</td></tr>
+<tr><td rowspan="2">599</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>关联组织</td><td>获取可见关联组织的列表</td></tr>
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenants</td></tr>
-<tr><td rowspan="2">600</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织部门详情</td></tr>
+<tr><td rowspan="2">600</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>关联组织</td><td>获取关联组织部门详情</td></tr>
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentId</td></tr>
-<tr><td rowspan="2">601</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织详情</td></tr>
+<tr><td rowspan="2">601</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>关联组织</td><td>获取关联组织详情</td></tr>
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKey</td></tr>
-<tr><td rowspan="2">602</td><td rowspan="2">2025-04-29</td><td>新增</td><td>关联组织</td><td>获取关联组织的部门和成员信息</td></tr>
+<tr><td rowspan="2">602</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>关联组织</td><td>获取关联组织的部门和成员信息</td></tr>
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
-<tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>新增</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
+<tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
 <tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-10
 // ************************************************************************
 // <copyright file="PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -63,10 +63,10 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDt
                 /// <para>工作表的标题。更新的标题需符合以下规则：</para>
                 /// <para>- 长度不超过 100 个字符</para>
                 /// <para>- 不包含这些特殊字符：`/ \ ? * [ ] :`</para>
-                /// <para>必填：是</para>
+                /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("title")]
-                public string Title { get; set; } = string.Empty;
+                public string? Title { get; set; }
 
                 /// <summary>
                 /// <para>工作表的位置。从 0 开始计数。</para>
