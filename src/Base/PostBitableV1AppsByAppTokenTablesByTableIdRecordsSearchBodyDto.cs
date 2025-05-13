@@ -94,6 +94,12 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto
     public record FilterInfo
     {
         /// <summary>
+        /// 目前仅支持使用一层 children 参数，不支持再次嵌套使用。
+        /// </summary>
+        [JsonPropertyName("children")]
+        public FilterInfo[]? Children { get; set; }
+
+        /// <summary>
         /// <para>表示条件之间的逻辑连接词，该字段必填，请忽略左侧必填列的否</para>
         /// <para>必填：否</para>
         /// <para>示例值：and</para>

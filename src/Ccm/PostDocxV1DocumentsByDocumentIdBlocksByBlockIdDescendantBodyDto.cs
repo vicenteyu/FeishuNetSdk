@@ -54,6 +54,18 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantBodyDto
     public record Block
     {
         /// <summary>
+        /// <para>块 Id</para>
+        /// </summary>
+        [JsonPropertyName("block_id")]
+        public string? BlockId { get; set; }
+
+        /// <summary>
+        /// <para>定义块的上下级父子关系</para>
+        /// </summary>
+        [JsonPropertyName("children")]
+        public string[]? Children { get; set; }
+
+        /// <summary>
         /// <para>block 类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>
