@@ -77,7 +77,7 @@ namespace FeishuNetSdk.WebSocket
                 AppSecret = options.CurrentValue.AppSecret
             });
 
-            if (result?.IsSuccess != true || result?.Data?.Url == null)
+            if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
                 throw new TokenException(result?.Msg ?? "长连接出现异常");
 
             return result.Data.Url;
@@ -91,7 +91,7 @@ namespace FeishuNetSdk.WebSocket
             _wsClient.ServerConnected += ServerConnected;
             _wsClient.ServerDisconnected += ServerDisconnected;
             _wsClient.MessageReceived += MessageReceived;
-            _wsClient.Logger = (string s) => { logger.LogInformation("{s}", s); };
+            _wsClient.Logger = s => { logger.LogInformation("{s}", s); };
 
             await _wsClient.StartAsync();
         }
