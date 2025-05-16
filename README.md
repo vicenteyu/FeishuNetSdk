@@ -286,6 +286,36 @@ await tenantApi.PostImV1MessagesAsync("open_id", dto5);
 
 ```
 
+**（6）多维表格 查询记录 响应体 将查询结果转换为字符串值（3.3.7+）: SerializeFieldsToStringValue**
+```csharp
+var _app_token = "T2aFbYYOoxxxxxxxxxxxxxxxAbjn4g";
+var _table_id = "tbldE95HxxxxxxxxxxEVLCQ";
+//获取字段数据结构
+var fields = await tenantApi.GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(_app_token, _table_id);
+//查询记录
+var response = await tenantApi.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchAsync(_app_token, _table_id, new()
+{
+    AutomaticFields = true,
+    ViewId = "vewxxxxxxxxxxxx1u",
+});
+//对查询结果进行转换
+var serialize = response.Data?.Items?.Select(i => i.SerializeFieldsToStringValue(fields.Data?.Items, new BitableRecordSerializer("、")));
+
+```
+**说明：**
+
+1. 可以指定`BitableRecordSerializer`参数为数组值分隔符，默认`;`。
+1. 文本记录类型字段取值于`text`属性
+1. 人员类型字段取值于`name`属性
+1. 链接类型字段取值于`link`属性
+1. 附件类型字段取值于`file_token`属性
+1. 地理位置类型字段取值于`name`属性
+1. 群组类型字段取值于`name`属性
+1. 公式或查找引用类型也会根据对应类型按照上述属性取值
+1. 其余字段默认转换为`string`类型，其中 日期类型 为 Unix 时间戳，单位是毫秒，如有需要可自行转换为日期格式。
+1. 自定义序列化规则：继承 `BitableRecordSerializer` 分别重写 `xxxRecordToString` 方法。
+
+
 
 ### 文件上传示例
 参数类型 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。

@@ -458,5 +458,179 @@ namespace FeishuNetSdk
             }
             return Dto;
         }
+
+        /// <summary>
+        /// 多维表格的查询记录结果转为字符串值
+        /// </summary>
+        /// <param name="record">查询记录 响应体中的 AppTableRecord 对象</param>
+        /// <param name="tableFields">多维表字段信息数组</param>
+        /// <param name="serializer">序列化规则</param>
+        /// <returns></returns>
+        public static Dictionary<string, string?> SerializeFieldsToStringValue(this Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto.AppTableRecord record,
+            Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList[]? tableFields,
+            IBitableRecordSerializer serializer)
+        {
+            // 遍历 record 中的每个字段，将其转换为键值对，键为字段名，值为转换后的字符串值
+            return record.Fields
+                .Select(p => new
+                {
+                    p.Key,
+                    // 调用 GetFieldValueAsString 方法获取字段的字符串值
+                    Value = GetFieldValueAsString(p.Value, tableFields?.FirstOrDefault(k => k.FieldName == p.Key), serializer)
+                })
+                .ToDictionary(p => p.Key, p => p.Value);
+        }
+
+        // 该方法用于获取字段的字符串值
+        private static string? GetFieldValueAsString(object? value, Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList? field, IBitableRecordSerializer serializer)
+        {
+            // 如果值或字段信息为空，则返回 null
+            if (value is null) return null;
+
+            // 调用 ConvertFieldValueToStringByType 方法根据字段类型转换值为字符串
+            return ConvertFieldValueToStringByType(field?.Type, field?.UiType, value, serializer);
+        }
+
+        // 该方法根据字段类型将字段值转换为字符串
+        private static string? ConvertFieldValueToStringByType(int? type, string? uiType, object value, IBitableRecordSerializer serializer)
+        {
+            try
+            {
+                // 将值序列化为 JSON 字符串
+                string json = System.Text.Json.JsonSerializer.Serialize(value);
+                var jd = System.Text.Json.JsonDocument.Parse(json);
+                //Console.WriteLine($"type: {type}, ui_type: {uiType}, json: {json}");
+
+                string key = GetKey(uiType, type, jd);
+                object? record = null;
+
+                //Console.WriteLine($"key: {key}");
+                if (!serializer.TypePairs.TryGetValue(key, out var _type)) return null;
+                json = AdjustJsonIfArray(_type, jd, json);
+                //Console.WriteLine($"json: {json}");
+                record = System.Text.Json.JsonSerializer.Deserialize(json, _type);
+
+                if (record is null) return null;
+
+                string? result = null;
+                if (uiType is not null)
+                {
+                    result = HandleUiType(uiType, record, serializer);
+                }
+                else if (type is not null)
+                {
+                    result = HandleType(type.Value, record, serializer);
+                }
+                else
+                {
+                    result = HandleJsonValueKind(jd.RootElement.ValueKind, record, serializer);
+                }
+
+                //Console.WriteLine(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                // 可以根据实际情况进行日志记录等操作
+                Console.WriteLine($"Error in ConvertFieldValueToStringByType: {ex.Message}");
+                return null;
+            }
+        }
+
+        private static string GetKey(string? uiType, int? type, System.Text.Json.JsonDocument jd)
+        {
+            return uiType is not null
+                ? uiType
+                : type is not null
+                    ? $"Type{type}"
+                    : $"JsonValueKind{jd.RootElement.ValueKind}";
+        }
+
+        private static string AdjustJsonIfArray(Type _type, System.Text.Json.JsonDocument jd, string json)
+        {
+            if (_type.IsArray && jd.RootElement.ValueKind != System.Text.Json.JsonValueKind.Array)
+            {
+                json = $"[{json}]";
+            }
+            return json;
+        }
+
+        private static string? HandleUiType(string uiType, object record, IBitableRecordSerializer serializer)
+        {
+            return uiType switch
+            {
+                "Text" => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                "Email" => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                "Barcode" => serializer.BarcodeRecordToString(record as Base.Dtos.TextRecord[]),
+                "Number" => serializer.NumberRecordToString(record as decimal[]),
+                "Progress" => serializer.ProgressRecordToString(record as decimal[]),
+                "Currency" => serializer.CurrencyRecordToString(record as decimal[]),
+                "Rating" => serializer.RatingRecordToString(record as decimal[]),
+                "SingleSelect" => serializer.SingleSelectRecordToString(record as string[]),
+                "MultiSelect" => serializer.MultiSelectRecordToString(record as string[]),
+                "DateTime" => serializer.DateTimeRecordToString(record as ulong[]),
+                "Checkbox" => serializer.CheckboxRecordToString(record as bool[]),
+                "User" => serializer.UserRecordToString(record as Base.Dtos.UserRecord[]),
+                "GroupChat" => serializer.GroupChatRecordToString(record as Base.Dtos.GroupChatRecord[]),
+                "Stage" => serializer.StageRecordToString(record),
+                "Phone" => serializer.PhoneRecordToString(record as string[]),
+                "Url" => serializer.UrlRecordToString(record as Base.Dtos.UrlRecord[]),
+                "Attachment" => serializer.AttachmentRecordToString(record as Base.Dtos.AttachmentRecord[]),
+                "SingleLink" => serializer.SingleLinkRecordToString(record as Base.Dtos.LinkRecord),
+                "Formula" or "Lookup" when record is Base.Dtos.FormulaRecord f
+                => ConvertFieldValueToStringByType(f.Type, null, f.Value, serializer),
+                "DuplexLink" => serializer.DuplexLinkRecordToString(record as Base.Dtos.LinkRecord),
+                "Location" => serializer.LocationRecordToString(record as Base.Dtos.LocationRecord[]),
+                "CreatedTime" => serializer.CreatedTimeRecordToString(record as ulong[]),
+                "ModifiedTime" => serializer.ModifiedTimeRecordToString(record as ulong[]),
+                "CreatedUser" => serializer.UserRecordToString(record as Base.Dtos.UserRecord[]),
+                "ModifiedUser" => serializer.UserRecordToString(record as Base.Dtos.UserRecord[]),
+                "AutoNumber" => serializer.AutoNumberRecordToString(record as string[]),
+                "Button" => serializer.ButtonRecordToString(record),
+                _ => null
+            };
+        }
+
+        private static string? HandleType(int type, object record, IBitableRecordSerializer serializer)
+        {
+            return type switch
+            {
+                1 => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                2 => serializer.NumberRecordToString(record as decimal[]),
+                3 => serializer.SingleSelectRecordToString(record as string[]),
+                4 => serializer.MultiSelectRecordToString(record as string[]),
+                5 => serializer.DateTimeRecordToString(record as ulong[]),
+                7 => serializer.CheckboxRecordToString(record as bool[]),
+                11 => serializer.UserRecordToString(record as Base.Dtos.UserRecord[]),
+                13 => serializer.PhoneRecordToString(record as string[]),
+                15 => serializer.UrlRecordToString(record as Base.Dtos.UrlRecord[]),
+                17 => serializer.AttachmentRecordToString(record as Base.Dtos.AttachmentRecord[]),
+                19 or 20 when record is Base.Dtos.FormulaRecord f
+                => ConvertFieldValueToStringByType(f.Type, null, f.Value, serializer),
+                22 => serializer.LocationRecordToString(record as Base.Dtos.LocationRecord[]),
+                23 => serializer.GroupChatRecordToString(record as Base.Dtos.GroupChatRecord[]),
+                1001 => serializer.CreatedTimeRecordToString(record as ulong[]),
+                1002 => serializer.ModifiedTimeRecordToString(record as ulong[]),
+                1003 => serializer.CreatedUserRecordToString(record as Base.Dtos.UserRecord[]),
+                1004 => serializer.ModifiedUserRecordToString(record as Base.Dtos.UserRecord[]),
+                1005 => serializer.AutoNumberRecordToString(record as string[]),
+                _ => null
+            };
+        }
+
+        private static string? HandleJsonValueKind(System.Text.Json.JsonValueKind valueKind, object record, IBitableRecordSerializer serializer)
+        {
+            return valueKind switch
+            {
+                System.Text.Json.JsonValueKind.False
+                or System.Text.Json.JsonValueKind.True => serializer.CheckboxRecordToString(record as bool[]),
+                System.Text.Json.JsonValueKind.Number => serializer.NumberRecordToString(record as decimal[]),
+                System.Text.Json.JsonValueKind.String => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                System.Text.Json.JsonValueKind.Object when record is Base.Dtos.FormulaRecord f
+                => ConvertFieldValueToStringByType(f.Type, null, f.Value, serializer),
+                System.Text.Json.JsonValueKind.Array => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                _ => null
+            };
+        }
     }
 }

@@ -51,7 +51,7 @@ public class IgnoreStatusExceptionFilterAttribute : ApiFilterAttribute
                 bool isJson = context.HttpContext.ResponseMessage.Content.Headers.IsJsonContent();
 
                 context.Result = JsonSerializer.Deserialize(
-                    isJson ? content : $"{{\"msg\":\"{statusException.Message} - {content}\"}}",
+                    isJson ? content : JsonSerializer.Serialize(new { msg = $"{statusException.Message} - {content}" }),
                     context.ActionDescriptor.Return.DataType.Type);
             }
         }
