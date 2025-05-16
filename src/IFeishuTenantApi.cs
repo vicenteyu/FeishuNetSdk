@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-06
+// Last Modified On : 2025-05-16
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -3168,6 +3168,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.job_family:readonly</item>
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id">
@@ -22136,6 +22137,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/corehr-v1/employee/employment/patch</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>更新人事工作信息下的字段，如：工号、工作邮箱、雇佣类型、自定义字段等</para>
+    /// <para>暂不支持更新时间轴分组对象</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:employment:write</item>
@@ -44924,6 +44926,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:additional_job.compensation_type:write</item>
     /// <item>corehr:additional_job.job_level:write</item>
     /// <item>corehr:additional_job.job:write</item>
+    /// <item>corehr:additional_job.position:write</item>
     /// <item>corehr:additional_job.service_company:write</item>
     /// <item>corehr:additional_job.work_shift:write</item>
     /// </list></para>
@@ -44979,6 +44982,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:additional_job.compensation_type:write</item>
     /// <item>corehr:additional_job.job_level:write</item>
     /// <item>corehr:additional_job.job:write</item>
+    /// <item>corehr:additional_job.position:write</item>
     /// <item>corehr:additional_job.service_company:write</item>
     /// <item>corehr:additional_job.work_shift:write</item>
     /// </list></para>
@@ -47914,6 +47918,156 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? department_id_type = "people_corehr_department_id");
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】创建数据知识</para>
+    /// <para>接口ID：7441589456115892227</para>
+    /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在智能伙伴中添加单个数据知识</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>示例值：spring_dfasdf__c</para>
+    /// </param>
+    /// <param name="tenant_type">
+    /// <para>必填：否</para>
+    /// <para>应用环境，枚举值：</para>
+    /// <para>- `online`：线上环境（默认值）</para>
+    /// <para>- `dev`：开发环境；目前只支持 `dev`</para>
+    /// <para>示例值：dev</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/aily/v1/apps/{app_id}/data_assets")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdDataAssetsResponseDto>> PostAilyV1AppsByAppIdDataAssetsAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Aily.PostAilyV1AppsByAppIdDataAssetsBodyDto dto,
+        [PathQuery] string? tenant_type = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】删除数据知识</para>
+    /// <para>接口ID：7441589456115908611</para>
+    /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除智能伙伴的数据知识</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>示例值：spring_dfadsaf__c</para>
+    /// </param>
+    /// <param name="data_asset_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据知识ID，可通过在智能伙伴创建平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
+    /// <para>示例值：data_asset_dfadsafe</para>
+    /// </param>
+    /// <param name="tenant_type">
+    /// <para>必填：否</para>
+    /// <para>应用环境，枚举值：</para>
+    /// <para>- `online`：线上环境（默认值）</para>
+    /// <para>- `dev`：开发环境；目前只支持 `dev`</para>
+    /// <para>示例值：dev</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpDelete("/open-apis/aily/v1/apps/{app_id}/data_assets/{data_asset_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.DeleteAilyV1AppsByAppIdDataAssetsByDataAssetIdResponseDto>> DeleteAilyV1AppsByAppIdDataAssetsByDataAssetIdAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string data_asset_id,
+        [PathQuery] string? tenant_type = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】获取数据知识</para>
+    /// <para>接口ID：7441589456115924995</para>
+    /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取单个数据知识</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>示例值：spring_feafdsaf__c</para>
+    /// </param>
+    /// <param name="data_asset_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据知识ID，可通过在智能伙伴创建平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
+    /// <para>示例值：data_asset_dafefadsaf1</para>
+    /// </param>
+    /// <param name="with_data_asset_item">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据与知识项</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_connect_status">
+    /// <para>必填：否</para>
+    /// <para>结果是否包含数据知识连接状态</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="tenant_type">
+    /// <para>必填：否</para>
+    /// <para>应用环境，默认为线上环境，dev代表开发环境</para>
+    /// <para>示例值：dev</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_assets/{data_asset_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetsByDataAssetIdResponseDto>> GetAilyV1AppsByAppIdDataAssetsByDataAssetIdAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string data_asset_id,
+        [PathQuery] bool? with_data_asset_item = null,
+        [PathQuery] bool? with_connect_status = null,
+        [PathQuery] string? tenant_type = null);
+
+    /// <summary>
+    /// <para>【智能伙伴创建平台】上传文件用于数据知识管理</para>
+    /// <para>接口ID：7441589456115941379</para>
+    /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/upload_file</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>上传文件用于智能伙伴的数据知识管理</para>
+    /// <para>。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:data_asset:upload_file</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>示例值：spring_dsafdsaf__c</para>
+    /// </param>
+    /// <param name="tenant_type">
+    /// <para>必填：否</para>
+    /// <para>应用环境，枚举值：</para>
+    /// <para>- `online`：线上环境（默认值）</para>
+    /// <para>- `dev`：开发环境；目前只支持 `dev`</para>
+    /// <para>示例值：dev</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>需要上传的文件。仅支持上传 docx、txt、pdf、pptx 类型的文件。</para>
+    /// </param>
+    [HttpPost("/open-apis/aily/v1/apps/{app_id}/data_assets/upload_file")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdDataAssetsUploadFileResponseDto>> PostAilyV1AppsByAppIdDataAssetsUploadFileAsync(
+        [PathQuery] string app_id,
+        [FormDataContent] FormDataFile file,
+        [PathQuery] string? tenant_type = null);
 
     /// <summary>
     /// <para>【Payroll】封存发薪活动</para>

@@ -28,7 +28,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <summary>
     /// <para>添加组件的方式。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：insert_before</para>
+    /// <para>示例值：insert_after</para>
     /// <para>可选值：<list type="bullet">
     /// <item>insert_before：在目标组件前插入</item>
     /// <item>insert_after：在目标组件后插入</item>
@@ -74,7 +74,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <summary>
     /// <para>添加的组件列表。以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：[{\"tag\":\"markdown\",\"element_id\":\"markdown_2\",\"content\":\"新增富文本组件示例文本\"}]</para>
+    /// <para>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]</para>
     /// <para>最大长度：1000000</para>
     /// <para>最小长度：1</para>
     /// </summary>

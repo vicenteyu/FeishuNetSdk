@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-16
 // ************************************************************************
 // <copyright file="PatchContactV3UsersByUserIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -126,14 +126,6 @@ public record PatchContactV3UsersByUserIdResponseDto
         /// </summary>
         [JsonPropertyName("gender")]
         public int? Gender { get; set; }
-
-        /// <summary>
-        /// <para>头像的文件 Key。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
-        /// </summary>
-        [JsonPropertyName("avatar_key")]
-        public string? AvatarKey { get; set; }
 
         /// <summary>
         /// <para>用户头像信息。</para>

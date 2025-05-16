@@ -51,7 +51,7 @@ public record PostApprovalV4InstancesBodyDto
     /// <para>审批发起人所属部门 ID。如果用户只属于一个部门，可以不填。如果用户属于多个部门，不填值则默认选择部门列表第一个部门。获取方式参见[部门 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#9c02ed7a)。</para>
     /// <para>**说明**：</para>
     /// <para>- 不支持填写根部门。</para>
-    /// <para>- 需填写 open_department_id 类型的部门 ID。</para>
+    /// <para>- 需填写 department_id 类型的部门 ID。</para>
     /// <para>必填：否</para>
     /// <para>示例值：9293493ccacbdb9a</para>
     /// </summary>

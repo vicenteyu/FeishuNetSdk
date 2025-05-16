@@ -3285,8 +3285,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>关系</para>
                 /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-                /// <para>- object_api_name：dependent</para>
-                /// <para>- custom_api_name：relationship_with_dependent</para>
+                /// <para>- object_api_name：emergency_contact</para>
+                /// <para>- custom_api_name：relationship</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("relationship")]
@@ -3295,8 +3295,8 @@ public record PostCorehrV2EmployeesBatchGetResponseDto
                 /// <summary>
                 /// <para>关系</para>
                 /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
-                /// <para>- object_api_name：dependent</para>
-                /// <para>- custom_api_name：relationship_with_dependent</para>
+                /// <para>- object_api_name：emergency_contact</para>
+                /// <para>- custom_api_name：relationship</para>
                 /// </summary>
                 public record Enum
                 {

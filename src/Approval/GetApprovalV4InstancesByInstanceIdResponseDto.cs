@@ -93,7 +93,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     public string Status { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>用户的唯一标识 id</para>
+    /// <para>审批实例的唯一标识 id</para>
     /// <para>必填：是</para>
     /// <para>示例值：1234567</para>
     /// </summary>

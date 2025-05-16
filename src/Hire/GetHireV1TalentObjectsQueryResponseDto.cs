@@ -108,6 +108,7 @@ public record GetHireV1TalentObjectsQueryResponseDto
             /// <item>9：数字</item>
             /// <item>10：默认字段</item>
             /// <item>11：模块</item>
+            /// <item>12：日期</item>
             /// <item>13：附件</item>
             /// </list></para>
             /// </summary>
@@ -312,6 +313,7 @@ public record GetHireV1TalentObjectsQueryResponseDto
                 /// <item>9：数字</item>
                 /// <item>10：默认字段</item>
                 /// <item>11：模块</item>
+                /// <item>12：日期</item>
                 /// <item>13：附件</item>
                 /// </list></para>
                 /// </summary>

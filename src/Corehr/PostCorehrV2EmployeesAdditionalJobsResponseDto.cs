@@ -4,7 +4,7 @@
 // Created          : 2024-11-15
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-15
+// Last Modified On : 2025-05-16
 // ************************************************************************
 // <copyright file="PostCorehrV2EmployeesAdditionalJobsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -227,5 +227,21 @@ public record PostCorehrV2EmployeesAdditionalJobsResponseDto
         /// </summary>
         [JsonPropertyName("work_calendar_id")]
         public string? WorkCalendarId { get; set; }
+
+        /// <summary>
+        /// <para>岗位 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372680</para>
+        /// </summary>
+        [JsonPropertyName("position_id")]
+        public string? PositionId { get; set; }
+
+        /// <summary>
+        /// <para>人员子类型 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6890452208593372680</para>
+        /// </summary>
+        [JsonPropertyName("employee_subtype_id")]
+        public string? EmployeeSubtypeId { get; set; }
     }
 }

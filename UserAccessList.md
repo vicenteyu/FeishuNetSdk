@@ -1,7 +1,7 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2024-11-26</td><td>&#10003;</td><td>身份验证</td><td>获取用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
@@ -1205,4 +1205,12 @@
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
 <tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
 <tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
+<tr><td rowspan="2">604</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>创建数据知识</td></tr>
+<tr><td colspan="3">PostAilyV1AppsByAppIdDataAssets</td></tr>
+<tr><td rowspan="2">605</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>删除数据知识</td></tr>
+<tr><td colspan="3">DeleteAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
+<tr><td rowspan="2">606</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>获取数据知识</td></tr>
+<tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
+<tr><td rowspan="2">607</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>上传文件用于数据知识管理</td></tr>
+<tr><td colspan="3">PostAilyV1AppsByAppIdDataAssetsUploadFile</td></tr>
 </tbody></table>

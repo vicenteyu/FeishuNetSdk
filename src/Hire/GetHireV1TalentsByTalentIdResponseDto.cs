@@ -2443,7 +2443,7 @@ public record GetHireV1TalentsByTalentIdResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>SNS名称</para>
+            /// <para>社交平台</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">

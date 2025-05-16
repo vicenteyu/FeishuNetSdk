@@ -98,7 +98,6 @@ public record PostContactV3UsersResponseDto
 
         /// <summary>
         /// <para>手机号。</para>
-        /// <para>**注意**：接口返回的响应结果中不包含手机号，如需获取用户的手机号，可以调用获取用户信息接口进行查询。例如[获取单个用户信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/get)。</para>
         /// <para>必填：是</para>
         /// <para>示例值：13011111111</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-16
 // ************************************************************************
 // <copyright file="PutContactV3DepartmentsByDepartmentIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -110,16 +110,6 @@ public record PutContactV3DepartmentsByDepartmentIdBodyDto
     /// </summary>
     [JsonPropertyName("order")]
     public string? Order { get; set; }
-
-    /// <summary>
-    /// <para>部门绑定的单位自定义 ID 列表，当前只支持绑定一个单位。</para>
-    /// <para>- 了解单位信息参见[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/overview)。</para>
-    /// <para>- 调用[获取单位列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/unit/list)接口，可获取单位 ID。</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：custom_unit_id</para>
-    /// </summary>
-    [JsonPropertyName("unit_ids")]
-    public string[]? UnitIds { get; set; }
 
     /// <summary>
     /// <para>是否创建部门群。</para>

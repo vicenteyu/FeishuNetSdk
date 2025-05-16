@@ -806,14 +806,14 @@ public record GetHireV1OffersByOfferIdResponseDto
         public string? JobRequirementId { get; set; }
 
         /// <summary>
-        /// <para>offer 发送记录列表（灰度中，如需使用请联系客户经理申请灰度）</para>
+        /// <para>offer 发送记录列表</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("offer_send_record_list")]
         public OfferSendRecord[]? OfferSendRecordLists { get; set; }
 
         /// <summary>
-        /// <para>offer 发送记录列表（灰度中，如需使用请联系客户经理申请灰度）</para>
+        /// <para>offer 发送记录列表</para>
         /// </summary>
         public record OfferSendRecord
         {

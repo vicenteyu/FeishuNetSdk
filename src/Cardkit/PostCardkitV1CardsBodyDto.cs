@@ -38,7 +38,7 @@ public record PostCardkitV1CardsBodyDto
     /// <summary>
     /// <para>卡片 JSON 数据的内容。仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明 schema 为 2.0。以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"config\":{\"streaming_mode\":true,\"summary\":{\"content\":\"[生成中]\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\",\"element_id\":\"markdown_1\"}]}}</para>
+    /// <para>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"config\":{\"streaming_mode\":true,\"summary\":{\"content\":\"\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\",\"element_id\":\"markdown_1\"}]}}</para>
     /// <para>最大长度：3000000</para>
     /// <para>最小长度：1</para>
     /// </summary>
