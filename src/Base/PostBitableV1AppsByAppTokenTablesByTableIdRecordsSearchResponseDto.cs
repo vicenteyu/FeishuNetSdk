@@ -41,7 +41,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
         /// <para>示例值：/</para>
         /// </summary>
         [JsonPropertyName("fields")]
-        public object Fields { get; set; } = new();
+        public Dictionary<string, object?> Fields { get; set; } = [];
 
         /// <summary>
         /// <para>记录 ID</para>

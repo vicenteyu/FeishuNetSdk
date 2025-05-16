@@ -25,6 +25,17 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class FeishuNetSdkExtensions
     {
+        private static void HttpApiOptions(WebApiClientCore.HttpApiOptions option)
+        {
+            option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+            option.KeyValueSerializeOptions.IgnoreNullValues = true;
+        }
+
+        private static void HttpClientOptions(HttpClient option)
+        {
+            option.Timeout = TimeSpan.FromMinutes(5);
+        }
+
         /// <summary>
         /// 使用参数方式注册SDK
         /// </summary>
@@ -84,18 +95,10 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddWebApiClient()
                 .UseJsonFirstApiActionDescriptor();
 
-            services.AddHttpApi<IFeishuApi>();
-            services.AddHttpApi<IFeishuAppApi>();
-            services.AddHttpApi<IFeishuTenantApi>(option =>
-            {
-                option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                option.KeyValueSerializeOptions.IgnoreNullValues = true;
-            });
-            services.AddHttpApi<IFeishuUserApi>(option =>
-            {
-                option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
-                option.KeyValueSerializeOptions.IgnoreNullValues = true;
-            });
+            services.AddHttpApi<IFeishuApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
+            services.AddHttpApi<IFeishuAppApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
+            services.AddHttpApi<IFeishuTenantApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
+            services.AddHttpApi<IFeishuUserApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
 
             services.TryAddSingleton<IEventCallbackServiceProvider, EventCallbackServiceProvider>();
 
