@@ -299,9 +299,26 @@ var response = await tenantApi.PostBitableV1AppsByAppTokenTablesByTableIdRecords
     ViewId = "vewxxxxxxxxxxxx1u",
 });
 //对查询结果进行转换
-var serialize = response.Data?.Items?.Select(i => i.SerializeFieldsToStringValue(fields.Data?.Items, new BitableRecordSerializer("、")));
+var serialize = response.Data?.Items?.Select(i => i.SerializeFieldsToStringValue(fields.Data?.Items, new BitableRecordSerializer()));
 
 ```
+
+**自定义序列化规则**
+```csharp
+public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerializer(s)
+{
+    public override string AttachmentRecordToString(AttachmentRecord[]? record)
+    {
+        return JoinCollection(record?.Select(x => $"{x.Name}-{x.FileToken}"));
+    }
+
+    public override string TextRecordToString(TextRecord[]? record)
+    {
+        return JoinCollection(record?.Select(x => x.Type switch { "mention" => $"提及{x.Text}", "url" => $"链接{x.Link}", _ => x.Text }));
+    }
+}
+```
+
 **说明：**
 
 1. 可以指定`BitableRecordSerializer`参数为数组值分隔符，默认`;`。

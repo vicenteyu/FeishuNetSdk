@@ -11,6 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ************************************************************************
+using System.Text.Json;
+
 #pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
 namespace FeishuNetSdk
 #pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
@@ -20,7 +22,7 @@ namespace FeishuNetSdk
     /// </summary>
     public static class DtoExtensions
     {
-        static readonly System.Text.Json.JsonSerializerOptions options = new()
+        static readonly JsonSerializerOptions options = new()
         {
             DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
         };
@@ -54,7 +56,7 @@ namespace FeishuNetSdk
         public static Approval.PostApprovalV4InstancesBodyDto SetFormControls(this Approval.PostApprovalV4InstancesBodyDto Dto,
             object[] FormControls)
         {
-            Dto.Form = System.Text.Json.JsonSerializer.Serialize(FormControls);
+            Dto.Form = JsonSerializer.Serialize(FormControls);
 
             return Dto;
         }
@@ -66,7 +68,7 @@ namespace FeishuNetSdk
         /// <returns>序列化的控件数组</returns>
         public static Approval.Dtos.FormControlDto[]? GetFormControls(this Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto? Dto)
                 => Dto is null ? null
-                    : System.Text.Json.JsonSerializer.Deserialize<Approval.Dtos.FormControlDto[]>(Dto.Form);
+                    : JsonSerializer.Deserialize<Approval.Dtos.FormControlDto[]>(Dto.Form);
 
         /// <summary>
         /// 设置消息卡片内容
@@ -99,7 +101,7 @@ namespace FeishuNetSdk
         public static Im.PatchImV1MessagesByMessageIdBodyDto SetCardObject(this Im.PatchImV1MessagesByMessageIdBodyDto Dto,
             Im.Dtos.MessageCard CardObject)
         {
-            Dto.Content = System.Text.Json.JsonSerializer.Serialize(CardObject, CardObject.GetType(), options);
+            Dto.Content = JsonSerializer.Serialize(CardObject, CardObject.GetType(), options);
 
             return Dto;
         }
@@ -147,8 +149,8 @@ namespace FeishuNetSdk
         {
             return CardOrContent switch
             {
-                Im.Dtos.PostContent post => System.Text.Json.JsonSerializer.Serialize(post.Post, options),
-                _ => System.Text.Json.JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options)
+                Im.Dtos.PostContent post => JsonSerializer.Serialize(post.Post, options),
+                _ => JsonSerializer.Serialize(CardOrContent, CardOrContent.GetType(), options)
             };
         }
 
@@ -421,9 +423,7 @@ namespace FeishuNetSdk
         /// <returns></returns>
         public static Im.Dtos.TableElement SetRows(this Im.Dtos.TableElement Dto, IEnumerable<object> Rows)
         {
-            var data = System.Text.Json.JsonSerializer.Deserialize<Dictionary<string, object>[]>(
-                    System.Text.Json.JsonSerializer.Serialize(Rows))
-                ?? Array.Empty<Dictionary<string, object>>();
+            var data = JsonSerializer.Deserialize<Dictionary<string, object>[]>(JsonSerializer.Serialize(Rows)) ?? [];
 
             if (Dto.Columns.Length > 0)
             {
@@ -484,11 +484,9 @@ namespace FeishuNetSdk
         // 该方法用于获取字段的字符串值
         private static string? GetFieldValueAsString(object? value, Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList? field, IBitableRecordSerializer serializer)
         {
-            // 如果值或字段信息为空，则返回 null
-            if (value is null) return null;
-
-            // 调用 ConvertFieldValueToStringByType 方法根据字段类型转换值为字符串
-            return ConvertFieldValueToStringByType(field?.Type, field?.UiType, value, serializer);
+            return value is null
+                ? null
+                : ConvertFieldValueToStringByType(field?.Type, field?.UiType, value, serializer);
         }
 
         // 该方法根据字段类型将字段值转换为字符串
@@ -496,38 +494,17 @@ namespace FeishuNetSdk
         {
             try
             {
-                // 将值序列化为 JSON 字符串
-                string json = System.Text.Json.JsonSerializer.Serialize(value);
-                var jd = System.Text.Json.JsonDocument.Parse(json);
-                //Console.WriteLine($"type: {type}, ui_type: {uiType}, json: {json}");
+                string json = JsonSerializer.Serialize(value);
+                using var jd = JsonDocument.Parse(json);
+                string key = GetKey(uiType, type, jd.RootElement);
 
-                string key = GetKey(uiType, type, jd);
-                object? record = null;
-
-                //Console.WriteLine($"key: {key}");
                 if (!serializer.TypePairs.TryGetValue(key, out var _type)) return null;
-                json = AdjustJsonIfArray(_type, jd, json);
-                //Console.WriteLine($"json: {json}");
-                record = System.Text.Json.JsonSerializer.Deserialize(json, _type);
+                json = AdjustJsonIfArray(_type, jd.RootElement, json);
 
+                var record = JsonSerializer.Deserialize(json, _type);
                 if (record is null) return null;
 
-                string? result = null;
-                if (uiType is not null)
-                {
-                    result = HandleUiType(uiType, record, serializer);
-                }
-                else if (type is not null)
-                {
-                    result = HandleType(type.Value, record, serializer);
-                }
-                else
-                {
-                    result = HandleJsonValueKind(jd.RootElement.ValueKind, record, serializer);
-                }
-
-                //Console.WriteLine(result);
-                return result;
+                return GetSerializedValue(uiType, type, jd.RootElement.ValueKind, record, serializer);
             }
             catch (Exception ex)
             {
@@ -537,22 +514,84 @@ namespace FeishuNetSdk
             }
         }
 
-        private static string GetKey(string? uiType, int? type, System.Text.Json.JsonDocument jd)
+        private static string? GetSerializedValue(string? uiType, int? type, JsonValueKind valueKind, object record, IBitableRecordSerializer serializer)
+        {
+            if (uiType is not null)
+            {
+                return HandleUiType(uiType, record, serializer);
+            }
+            else if (type is not null)
+            {
+                return HandleType(type.Value, record, serializer);
+            }
+            else
+            {
+                return HandleJsonValueKind(valueKind, record, serializer);
+            }
+        }
+
+        private static string GetKey(string? uiType, int? type, JsonElement je)
         {
             return uiType is not null
                 ? uiType
                 : type is not null
                     ? $"Type{type}"
-                    : $"JsonValueKind{jd.RootElement.ValueKind}";
+                    : $"JsonValueKind{je.ValueKind}";
         }
 
-        private static string AdjustJsonIfArray(Type _type, System.Text.Json.JsonDocument jd, string json)
+        private static string AdjustJsonIfArray(Type _type, JsonElement je, string json)
         {
-            if (_type.IsArray && jd.RootElement.ValueKind != System.Text.Json.JsonValueKind.Array)
+            return _type.IsArray && je.ValueKind != JsonValueKind.Array
+                ? ConvertToJsonArray(je).GetRawText()
+                : json;
+        }
+
+        private static JsonElement ConvertToJsonArray(JsonElement element)
+        {
+            using var memoryStream = new MemoryStream();
+            using var jsonWriter = new Utf8JsonWriter(memoryStream);
+
+            jsonWriter.WriteStartArray();
+            WriteJsonElementToWriter(jsonWriter, element);
+            jsonWriter.WriteEndArray();
+            jsonWriter.Flush();
+
+            var jsonBytes = memoryStream.ToArray();
+            return JsonDocument.Parse(jsonBytes).RootElement;
+        }
+
+        private static void WriteJsonElementToWriter(Utf8JsonWriter writer, JsonElement element)
+        {
+            try
             {
-                json = $"[{json}]";
+                switch (element.ValueKind)
+                {
+                    case JsonValueKind.Object:
+                        writer.WriteRawValue(element.GetRawText());
+                        break;
+                    case JsonValueKind.String:
+                        writer.WriteStringValue(element.GetString());
+                        break;
+                    case JsonValueKind.Number:
+                        writer.WriteNumberValue(element.GetDouble());
+                        break;
+                    case JsonValueKind.True:
+                    case JsonValueKind.False:
+                        writer.WriteBooleanValue(element.GetBoolean());
+                        break;
+                    case JsonValueKind.Null:
+                        writer.WriteNullValue();
+                        break;
+                    default:
+                        // 其他情况，可根据需求扩展处理逻辑
+                        break;
+                }
             }
-            return json;
+            catch (Exception ex)
+            {
+                // 可以根据实际情况记录日志或进行其他处理
+                Console.WriteLine($"Error writing JSON element: {ex.Message}");
+            }
         }
 
         private static string? HandleUiType(string uiType, object record, IBitableRecordSerializer serializer)
@@ -618,17 +657,17 @@ namespace FeishuNetSdk
             };
         }
 
-        private static string? HandleJsonValueKind(System.Text.Json.JsonValueKind valueKind, object record, IBitableRecordSerializer serializer)
+        private static string? HandleJsonValueKind(JsonValueKind valueKind, object record, IBitableRecordSerializer serializer)
         {
             return valueKind switch
             {
-                System.Text.Json.JsonValueKind.False
-                or System.Text.Json.JsonValueKind.True => serializer.CheckboxRecordToString(record as bool[]),
-                System.Text.Json.JsonValueKind.Number => serializer.NumberRecordToString(record as decimal[]),
-                System.Text.Json.JsonValueKind.String => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
-                System.Text.Json.JsonValueKind.Object when record is Base.Dtos.FormulaRecord f
+                JsonValueKind.False
+                or JsonValueKind.True => serializer.CheckboxRecordToString(record as bool[]),
+                JsonValueKind.Number => serializer.NumberRecordToString(record as decimal[]),
+                JsonValueKind.String => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                JsonValueKind.Object when record is Base.Dtos.FormulaRecord f
                 => ConvertFieldValueToStringByType(f.Type, null, f.Value, serializer),
-                System.Text.Json.JsonValueKind.Array => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
+                JsonValueKind.Array => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
                 _ => null
             };
         }
