@@ -291,7 +291,7 @@ await tenantApi.PostImV1MessagesAsync("open_id", dto5);
 var _app_token = "T2aFbYYOoxxxxxxxxxxxxxxxAbjn4g";
 var _table_id = "tbldE95HxxxxxxxxxxEVLCQ";
 //获取字段数据结构
-var fields = await tenantApi.GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(_app_token, _table_id);
+var fields = await tenantApi.GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(_app_token, _table_id, page_size: 100);
 //查询记录
 var response = await tenantApi.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchAsync(_app_token, _table_id, new()
 {
@@ -321,6 +321,7 @@ public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerial
 
 **说明：**
 
+1. 建议获取字段数据结构的接口请求参数`page_size`设置为`100`（最大），避免字段不全。若超出`100`，则需要进行分页查询。
 1. 可以指定`BitableRecordSerializer`参数为数组值分隔符，默认`;`。
 1. 文本记录类型字段取值于`text`属性
 1. 人员类型字段取值于`name`属性
@@ -329,8 +330,9 @@ public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerial
 1. 地理位置类型字段取值于`name`属性
 1. 群组类型字段取值于`name`属性
 1. 公式或查找引用类型也会根据对应类型按照上述属性取值
-1. 其余字段默认转换为`string`类型，其中 日期类型 为 Unix 时间戳，单位是毫秒，如有需要可自行转换为日期格式。
+1. 其余字段默认拼接为`string`类型，其中 日期类型 为 Unix 时间戳，单位是毫秒，如有需要可自行转换为日期格式。
 1. 自定义序列化规则：继承 `BitableRecordSerializer` 分别重写 `xxxRecordToString` 方法。
+1. 查询记录暂不支持`流程`和`按钮`字段数据。
 
 
 
