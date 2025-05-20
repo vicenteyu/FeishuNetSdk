@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob%2flist</para>
 /// </summary>
-public record GetCorehrV2JobsResponseDto
+public record GetCorehrV2JobsResponseDto : IPageableResponse<GetCorehrV2JobsResponseDto.Job>
 {
     /// <summary>
     /// <para>查询的职务信息</para>

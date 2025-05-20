@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Approval;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/instance/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2flist</para>
 /// </summary>
-public record GetApprovalV4InstancesResponseDto
+public record GetApprovalV4InstancesResponseDto : IPageableResponse<string>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public string[]? Items => InstanceCodeList;
+
     /// <summary>
     /// <para>审批实例 Code 列表，默认以审批实例创建时间的先后顺序排列。</para>
     /// <para>必填：是</para>
@@ -35,7 +39,7 @@ public record GetApprovalV4InstancesResponseDto
     /// <para>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -43,5 +47,5 @@ public record GetApprovalV4InstancesResponseDto
     /// <para>示例值：false</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_publish_record%2fsearch</para>
 /// </summary>
-public record PostHireV1JobPublishRecordsSearchResponseDto
+public record PostHireV1JobPublishRecordsSearchResponseDto : IPageableResponse<PostHireV1JobPublishRecordsSearchResponseDto.WebsiteJobPost>
 {
     /// <summary>
     /// <para>职位广告发布记录列表</para>

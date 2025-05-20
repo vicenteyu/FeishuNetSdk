@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment%2flist</para>
 /// </summary>
-public record GetDriveV1FilesByFileTokenCommentsResponseDto
+public record GetDriveV1FilesByFileTokenCommentsResponseDto : IPageableResponse<GetDriveV1FilesByFileTokenCommentsResponseDto.FileComment>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

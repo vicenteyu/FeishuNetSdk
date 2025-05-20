@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/application/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftalent_tag%2flist</para>
 /// </summary>
-public record GetHireV1TalentTagsResponseDto
+public record GetHireV1TalentTagsResponseDto : IPageableResponse<GetHireV1TalentTagsResponseDto.TalentTag>
 {
     /// <summary>
     /// <para>标签列表</para>

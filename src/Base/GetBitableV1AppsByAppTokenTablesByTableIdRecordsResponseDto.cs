@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto
+public record GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto.AppTableRecord>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

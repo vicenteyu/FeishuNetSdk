@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Okr;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/period/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fperiod%2flist</para>
 /// </summary>
-public record GetOkrV1PeriodsResponseDto
+public record GetOkrV1PeriodsResponseDto : IPageableResponse<GetOkrV1PeriodsResponseDto.Period>
 {
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
@@ -68,7 +68,7 @@ public record GetOkrV1PeriodsResponseDto
         /// <summary>
         /// <para>英文名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：englishperiod</para>
+        /// <para>示例值：english period</para>
         /// </summary>
         [JsonPropertyName("en_name")]
         public string? EnName { get; set; }

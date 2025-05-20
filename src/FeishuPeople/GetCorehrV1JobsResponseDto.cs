@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob%2flist</para>
 /// </summary>
-public record GetCorehrV1JobsResponseDto
+public record GetCorehrV1JobsResponseDto : IPageableResponse<GetCorehrV1JobsResponseDto.Job>
 {
     /// <summary>
     /// <para>查询的职务信息</para>
@@ -125,7 +125,7 @@ public record GetCorehrV1JobsResponseDto
         /// <summary>
         /// <para>生效时间</para>
         /// <para>必填：是</para>
-        /// <para>示例值：2020-01-0100:00:00</para>
+        /// <para>示例值：2020-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("effective_time")]
         public string EffectiveTime { get; set; } = string.Empty;
@@ -133,7 +133,7 @@ public record GetCorehrV1JobsResponseDto
         /// <summary>
         /// <para>失效时间</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2021-01-0100:00:00</para>
+        /// <para>示例值：2021-01-01 00:00:00</para>
         /// </summary>
         [JsonPropertyName("expiration_time")]
         public string? ExpirationTime { get; set; }

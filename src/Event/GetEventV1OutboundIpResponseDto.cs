@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Event;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/event-subscription-guide/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuYDNxYjL2QTM24iN0EjN%2fevent-v1%2foutbound_ip%2flist</para>
 /// </summary>
-public record GetEventV1OutboundIpResponseDto
+public record GetEventV1OutboundIpResponseDto : IPageableResponse<string>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public string[]? Items => IpList;
+
     /// <summary>
     /// <para>outbound ip</para>
     /// <para>必填：否</para>

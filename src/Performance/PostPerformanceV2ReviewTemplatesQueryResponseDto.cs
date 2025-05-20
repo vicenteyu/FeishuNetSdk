@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Performance;
 /// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/review_template/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2freview_template%2fquery</para>
 /// </summary>
-public record PostPerformanceV2ReviewTemplatesQueryResponseDto
+public record PostPerformanceV2ReviewTemplatesQueryResponseDto : IPageableResponse<PostPerformanceV2ReviewTemplatesQueryResponseDto.ReviewTemplate>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ReviewTemplate[]? Items => ReviewTemplates;
+
     /// <summary>
     /// <para>评估模板信息</para>
     /// <para>必填：否</para>

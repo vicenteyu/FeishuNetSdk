@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Directory;
 /// <para>文档地址：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fcollaboration_tenant%2flist</para>
 /// </summary>
-public record GetDirectoryV1CollaborationTenantsResponseDto
+public record GetDirectoryV1CollaborationTenantsResponseDto : IPageableResponse<GetDirectoryV1CollaborationTenantsResponseDto.CollaborationTenant>
 {
     /// <summary>
     /// <para>对方的关联组织信息</para>

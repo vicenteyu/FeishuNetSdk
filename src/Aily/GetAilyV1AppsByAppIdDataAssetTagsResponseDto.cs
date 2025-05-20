@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Aily;
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-data_asset_tag%2flist</para>
 /// </summary>
-public record GetAilyV1AppsByAppIdDataAssetTagsResponseDto
+public record GetAilyV1AppsByAppIdDataAssetTagsResponseDto : IPageableResponse<GetAilyV1AppsByAppIdDataAssetTagsResponseDto.DataAssetTag>
 {
     /// <summary>
     /// <para>数据知识分类列表</para>

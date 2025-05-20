@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/comment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcomment%2flist</para>
 /// </summary>
-public record GetTaskV2CommentsResponseDto
+public record GetTaskV2CommentsResponseDto : IPageableResponse<GetTaskV2CommentsResponseDto.Comment>
 {
     /// <summary>
     /// <para>评论列表数据</para>

@@ -20,8 +20,12 @@ namespace FeishuNetSdk.Application.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/admin/obtain-the-apps-installed-by-an-organization</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuYDN3UjL2QzN14iN0cTN</para>
 /// </summary>
-public record GetApplicationV3AppListResponseDto
+public record GetApplicationV3AppListResponseDto : IPageableResponse<GetApplicationV3AppListResponseDto.App>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public App[]? Items => AppList;
+
     /// <summary>
     /// <para>下一个请求页应当给的起始位置</para>
     /// <para>必填：否</para>
@@ -48,7 +52,11 @@ public record GetApplicationV3AppListResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public int? HasMore { get; set; }
+    public int? HasMore1 { get; set; }
+
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public bool? HasMore { get { return HasMore1 == 1; } set { HasMore1 = value == true ? 1 : 0; } }
 
     /// <summary>
     /// <para>当前选择的版本语言</para>
@@ -62,7 +70,7 @@ public record GetApplicationV3AppListResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("app_list")]
-    public string? AppList { get; set; }
+    public App[]? AppList { get; set; }
 
     /// <summary></summary>
     public record App

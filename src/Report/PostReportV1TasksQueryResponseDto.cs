@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Report;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/report-v1/task/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2freport%2freport-v1%2ftask%2fquery</para>
 /// </summary>
-public record PostReportV1TasksQueryResponseDto
+public record PostReportV1TasksQueryResponseDto : IPageableResponse<PostReportV1TasksQueryResponseDto.Task>
 {
     /// <summary>
     /// <para>任务列表</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/authorization/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbp%2flist</para>
 /// </summary>
-public record GetCorehrV2BpsResponseDto
+public record GetCorehrV2BpsResponseDto : IPageableResponse<GetCorehrV2BpsResponseDto.Bp>
 {
     /// <summary>
     /// <para>HRBP 信息</para>

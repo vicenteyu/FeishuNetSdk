@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/advanced-permission/app-role/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-role%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenRolesResponseDto
+public record GetBitableV1AppsByAppTokenRolesResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenRolesResponseDto.AppRole>
 {
     /// <summary>
     /// <para>自定义角色列表</para>

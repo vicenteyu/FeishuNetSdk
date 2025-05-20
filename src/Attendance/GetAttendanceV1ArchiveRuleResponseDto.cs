@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Attendance;
 /// <para>文档地址：https://open.feishu.cn/document/attendance-v1/archive_rule/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2farchive_rule%2flist</para>
 /// </summary>
-public record GetAttendanceV1ArchiveRuleResponseDto
+public record GetAttendanceV1ArchiveRuleResponseDto : IPageableResponse<GetAttendanceV1ArchiveRuleResponseDto.ArchiveReportMeta>
 {
     /// <summary>
     /// <para>分页查询结果项</para>

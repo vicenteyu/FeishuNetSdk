@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/background_check_order/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fbackground_check_order%2flist</para>
 /// </summary>
-public record GetHireV1BackgroundCheckOrdersResponseDto
+public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetHireV1BackgroundCheckOrdersResponseDto.BackgroundCheckOrder>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

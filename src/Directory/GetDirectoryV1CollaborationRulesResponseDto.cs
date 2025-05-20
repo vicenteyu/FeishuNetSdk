@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Directory;
 /// <para>文档地址：https://open.feishu.cn/document/trust_party-v1/searchable-and-visible-rules/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fcollaboration_rule%2flist</para>
 /// </summary>
-public record GetDirectoryV1CollaborationRulesResponseDto
+public record GetDirectoryV1CollaborationRulesResponseDto : IPageableResponse<GetDirectoryV1CollaborationRulesResponseDto.CollaborationRule>
 {
     /// <summary>
     /// <para>规则列表</para>

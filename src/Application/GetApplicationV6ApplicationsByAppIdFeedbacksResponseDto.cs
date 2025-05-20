@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Application;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/application-feedback/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-feedback%2flist</para>
 /// </summary>
-public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto
+public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto : IPageableResponse<GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto.ApplicationFeedback>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ApplicationFeedback[]? Items => FeedbackLists;
+
     /// <summary>
     /// <para>应用的反馈列表</para>
     /// <para>必填：否</para>
@@ -194,7 +198,7 @@ public record GetApplicationV6ApplicationsByAppIdFeedbacksResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>

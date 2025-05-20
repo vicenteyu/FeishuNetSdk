@@ -19,8 +19,12 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_request_history</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_request_history</para>
 /// </summary>
-public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto
+public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto : IPageableResponse<GetCorehrV1LeavesLeaveRequestHistoryResponseDto.LeaveRequest>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public LeaveRequest[]? Items => LeaveRequestLists;
+
     /// <summary>
     /// <para>请假记录信息列表</para>
     /// <para>必填：否</para>

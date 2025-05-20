@@ -11,7 +11,6 @@
 // </copyright>
 // <summary>查询租户购买的付费方案 响应体</summary>
 // ************************************************************************
-using Microsoft.VisualBasic;
 namespace FeishuNetSdk.Application.Spec;
 /// <summary>
 /// 查询租户购买的付费方案 响应体
@@ -21,8 +20,12 @@ namespace FeishuNetSdk.Application.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/appstore-paid-info/query-an-app-tenant’s-paid-orders</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuETNwUjLxUDM14SM1ATN</para>
 /// </summary>
-public record GetPayV1OrderListResponseDto
+public record GetPayV1OrderListResponseDto : IPageableResponse<GetPayV1OrderListResponseDto.Order>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Order[]? Items => OrderList;
+
     /// <summary>
     /// <para>总订单数</para>
     /// <para>必填：否</para>

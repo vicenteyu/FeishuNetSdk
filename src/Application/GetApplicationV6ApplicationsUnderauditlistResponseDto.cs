@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Application;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/application/underauditlist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2funderauditlist</para>
 /// </summary>
-public record GetApplicationV6ApplicationsUnderauditlistResponseDto
+public record GetApplicationV6ApplicationsUnderauditlistResponseDto : IPageableResponse<GetApplicationV6ApplicationsUnderauditlistResponseDto.Application>
 {
     /// <summary>
     /// <para>待审核应用列表</para>
@@ -399,7 +399,7 @@ public record GetApplicationV6ApplicationsUnderauditlistResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>

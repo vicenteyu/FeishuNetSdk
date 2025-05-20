@@ -21,8 +21,12 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-dashboard/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-dashboard%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenDashboardsResponseDto
+public record GetBitableV1AppsByAppTokenDashboardsResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenDashboardsResponseDto.AppDashboard>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public AppDashboard[]? Items => Dashboards;
+
     /// <summary>
     /// <para>仪表盘信息</para>
     /// <para>必填：是</para>
@@ -58,7 +62,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
     /// <para>示例值：blknkqrP3RqUkcAW</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -66,5 +70,5 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto
     /// <para>示例值：false</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

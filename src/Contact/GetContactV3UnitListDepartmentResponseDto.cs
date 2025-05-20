@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/unit/list_department</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2funit%2flist_department</para>
 /// </summary>
-public record GetContactV3UnitListDepartmentResponseDto
+public record GetContactV3UnitListDepartmentResponseDto : IPageableResponse<GetContactV3UnitListDepartmentResponseDto.UnitDepartment>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public UnitDepartment[]? Items => Departmentlists;
+
     /// <summary>
     /// <para>单位绑定的部门列表。</para>
     /// <para>必填：是</para>
@@ -56,7 +60,7 @@ public record GetContactV3UnitListDepartmentResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
@@ -64,5 +68,5 @@ public record GetContactV3UnitListDepartmentResponseDto
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JdtW=</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 }

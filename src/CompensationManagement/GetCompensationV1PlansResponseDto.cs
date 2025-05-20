@@ -19,7 +19,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2fplan%2flist</para>
 /// </summary>
-public record GetCompensationV1PlansResponseDto
+public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensationV1PlansResponseDto.PlanDetail>
 {
     /// <summary>
     /// <para>薪资方案信息列表</para>
@@ -470,5 +470,5 @@ public record GetCompensationV1PlansResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

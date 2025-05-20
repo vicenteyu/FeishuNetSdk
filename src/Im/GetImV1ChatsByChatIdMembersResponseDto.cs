@@ -27,7 +27,7 @@ namespace FeishuNetSdk.Im;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat-member/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-members%2fget</para>
 /// </summary>
-public record GetImV1ChatsByChatIdMembersResponseDto
+public record GetImV1ChatsByChatIdMembersResponseDto : IPageableResponse<GetImV1ChatsByChatIdMembersResponseDto.ListMember>
 {
     /// <summary>
     /// <para>成员列表</para>

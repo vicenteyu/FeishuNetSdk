@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Search;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/search-v2/suite-search/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsearch-v2%2fmessage%2fcreate</para>
 /// </summary>
-public record PostSearchV2MessageResponseDto
+public record PostSearchV2MessageResponseDto : IPageableResponse<string>
 {
     /// <summary>
     /// <para>消息id列表</para>

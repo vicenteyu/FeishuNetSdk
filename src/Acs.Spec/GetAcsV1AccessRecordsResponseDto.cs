@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Acs.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/acs-v1/access_record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2faccess_record%2flist</para>
 /// </summary>
-public record GetAcsV1AccessRecordsResponseDto
+public record GetAcsV1AccessRecordsResponseDto : IPageableResponse<GetAcsV1AccessRecordsResponseDto.AccessRecord>
 {
     /// <summary>
     /// <para>-</para>
@@ -92,19 +92,19 @@ public record GetAcsV1AccessRecordsResponseDto
         /// </summary>
         [JsonPropertyName("is_door_open")]
         public bool? IsDoorOpen { get; set; }
-
-        /// <summary>
-        /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("page_token")]
-        public string? PageToken { get; set; }
-
-        /// <summary>
-        /// <para>是否还有更多项</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("has_more")]
-        public bool? HasMore { get; set; }
     }
+
+    /// <summary>
+    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("has_more")]
+    public bool? HasMore { get; set; }
 }

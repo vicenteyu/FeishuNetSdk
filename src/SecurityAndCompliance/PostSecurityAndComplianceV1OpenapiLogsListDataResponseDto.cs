@@ -19,7 +19,7 @@ namespace FeishuNetSdk.SecurityAndCompliance;
 /// <para>文档地址：https://open.feishu.cn/document/security_and_compliance-v1/openapi_log/list_data</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsecurity_and_compliance-v1%2fopenapi_log%2flist_data</para>
 /// </summary>
-public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto
+public record PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto : IPageableResponse<PostSecurityAndComplianceV1OpenapiLogsListDataResponseDto.OpenapiLog>
 {
     /// <summary>
     /// <para>openapi日志列表</para>

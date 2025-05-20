@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>文档地址：https://open.feishu.cn/document/payroll-v1/acct_item/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2facct_item%2flist</para>
 /// </summary>
-public record GetPayrollV1AcctItemsResponseDto
+public record GetPayrollV1AcctItemsResponseDto : IPageableResponse<GetPayrollV1AcctItemsResponseDto.AcctItem>
 {
     /// <summary>
     /// <para>算薪项列表</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/tripartite_agreement/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2ftripartite_agreement%2flist</para>
 /// </summary>
-public record GetHireV1TripartiteAgreementsResponseDto
+public record GetHireV1TripartiteAgreementsResponseDto : IPageableResponse<GetHireV1TripartiteAgreementsResponseDto.TripartiteAgreementInfo>
 {
     /// <summary>
     /// <para>三方协议信息</para>

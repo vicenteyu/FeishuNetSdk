@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Vc;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting/list_by_no</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting%2flist_by_no</para>
 /// </summary>
-public record GetVcV1MeetingsListByNoResponseDto
+public record GetVcV1MeetingsListByNoResponseDto : IPageableResponse<GetVcV1MeetingsListByNoResponseDto.Meeting>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Meeting[]? Items => MeetingBriefs;
+
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>

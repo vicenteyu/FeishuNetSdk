@@ -23,7 +23,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/location/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2flocation%2flist</para>
 /// </summary>
-public record GetHireV1LocationsResponseDto
+public record GetHireV1LocationsResponseDto : IPageableResponse<GetHireV1LocationsResponseDto.Location>
 {
     /// <summary>
     /// <para>地址和地点信息列表</para>

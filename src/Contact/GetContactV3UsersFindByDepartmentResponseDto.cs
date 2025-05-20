@@ -24,7 +24,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/find_by_department</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2ffind_by_department</para>
 /// </summary>
-public record GetContactV3UsersFindByDepartmentResponseDto
+public record GetContactV3UsersFindByDepartmentResponseDto : IPageableResponse<GetContactV3UsersFindByDepartmentResponseDto.User>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

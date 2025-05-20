@@ -19,7 +19,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/compensation-setting-and-adjustment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2fchange_reason%2flist</para>
 /// </summary>
-public record GetCompensationV1ChangeReasonsResponseDto
+public record GetCompensationV1ChangeReasonsResponseDto : IPageableResponse<GetCompensationV1ChangeReasonsResponseDto.ChangeReason>
 {
     /// <summary>
     /// <para>调薪原因信息列表</para>
@@ -124,5 +124,5 @@ public record GetCompensationV1ChangeReasonsResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

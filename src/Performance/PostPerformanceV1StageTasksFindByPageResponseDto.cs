@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Performance;
 /// <para>文档地址：https://open.feishu.cn/document/performance-v1/stage_task/find_by_page</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v1%2fstage_task%2ffind_by_page</para>
 /// </summary>
-public record PostPerformanceV1StageTasksFindByPageResponseDto
+public record PostPerformanceV1StageTasksFindByPageResponseDto : IPageableResponse<PostPerformanceV1StageTasksFindByPageResponseDto.StageTask>
 {
     /// <summary>
     /// <para>周期基本信息</para>

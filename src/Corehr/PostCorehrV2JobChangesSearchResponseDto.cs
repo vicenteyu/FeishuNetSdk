@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job_change/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_change%2fsearch</para>
 /// </summary>
-public record PostCorehrV2JobChangesSearchResponseDto
+public record PostCorehrV2JobChangesSearchResponseDto : IPageableResponse<PostCorehrV2JobChangesSearchResponseDto.JobChange>
 {
     /// <summary>
     /// <para>员工异动列表</para>

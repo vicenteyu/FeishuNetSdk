@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Vc;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/room_level/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2froom_level%2flist</para>
 /// </summary>
-public record GetVcV1RoomLevelsResponseDto
+public record GetVcV1RoomLevelsResponseDto : IPageableResponse<GetVcV1RoomLevelsResponseDto.RoomLevel>
 {
     /// <summary>
     /// <para>会议室层级列表</para>
@@ -60,7 +60,7 @@ public record GetVcV1RoomLevelsResponseDto
         /// <summary>
         /// <para>层级路径</para>
         /// <para>必填：否</para>
-        /// <para>示例值：[omb_8d020b12fe49e82847c2af3c193d5754,omb_8d020b12fe49e82847c2af3c193d5754]</para>
+        /// <para>示例值：[omb_8d020b12fe49e82847c2af3c193d5754, omb_8d020b12fe49e82847c2af3c193d5754]</para>
         /// </summary>
         [JsonPropertyName("path")]
         public string[]? Path { get; set; }

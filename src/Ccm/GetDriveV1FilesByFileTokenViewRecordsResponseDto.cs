@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file-view_record/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-view_record%2flist</para>
 /// </summary>
-public record GetDriveV1FilesByFileTokenViewRecordsResponseDto
+public record GetDriveV1FilesByFileTokenViewRecordsResponseDto : IPageableResponse<GetDriveV1FilesByFileTokenViewRecordsResponseDto.FileViewRecord>
 {
     /// <summary>
     /// <para>访问记录列表</para>

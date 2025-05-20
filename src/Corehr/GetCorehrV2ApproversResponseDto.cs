@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapprover%2flist</para>
 /// </summary>
-public record GetCorehrV2ApproversResponseDto
+public record GetCorehrV2ApproversResponseDto : IPageableResponse<GetCorehrV2ApproversResponseDto.ApproverInfo>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ApproverInfo[]? Items => ApproverLists;
+
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>

@@ -23,8 +23,12 @@ namespace FeishuNetSdk.Aily;
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-aily_message%2flist</para>
 /// </summary>
-public record GetAilyV1SessionsByAilySessionIdMessagesResponseDto
+public record GetAilyV1SessionsByAilySessionIdMessagesResponseDto : IPageableResponse<GetAilyV1SessionsByAilySessionIdMessagesResponseDto.AilyMessage>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public AilyMessage[]? Items => Messages;
+
     /// <summary>
     /// <para>消息列表</para>
     /// <para>必填：否</para>

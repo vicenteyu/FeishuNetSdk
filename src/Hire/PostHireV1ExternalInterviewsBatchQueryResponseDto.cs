@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/import-external-system-information/import-external-interview-info/batch_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_interview%2fbatch_query</para>
 /// </summary>
-public record PostHireV1ExternalInterviewsBatchQueryResponseDto
+public record PostHireV1ExternalInterviewsBatchQueryResponseDto : IPageableResponse<PostHireV1ExternalInterviewsBatchQueryResponseDto.ExternalInterview>
 {
     /// <summary>
     /// <para>外部面试列表</para>

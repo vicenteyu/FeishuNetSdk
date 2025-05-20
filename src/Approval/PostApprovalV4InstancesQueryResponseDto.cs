@@ -26,8 +26,12 @@ namespace FeishuNetSdk.Approval;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/query-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fquery</para>
 /// </summary>
-public record PostApprovalV4InstancesQueryResponseDto
+public record PostApprovalV4InstancesQueryResponseDto : IPageableResponse<PostApprovalV4InstancesQueryResponseDto.InstanceSearchItem>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public InstanceSearchItem[]? Items => InstanceLists;
+
     /// <summary>
     /// <para>查询结果中包含的审批实例总数</para>
     /// <para>必填：否</para>

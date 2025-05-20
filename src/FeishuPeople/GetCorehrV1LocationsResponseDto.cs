@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/location/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2flocation%2flist</para>
 /// </summary>
-public record GetCorehrV1LocationsResponseDto
+public record GetCorehrV1LocationsResponseDto : IPageableResponse<GetCorehrV1LocationsResponseDto.Location>
 {
     /// <summary>
     /// <para>查询的地点信息</para>

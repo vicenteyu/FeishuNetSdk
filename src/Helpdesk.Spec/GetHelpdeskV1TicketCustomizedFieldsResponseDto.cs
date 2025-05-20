@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Helpdesk.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/ticket-management/ticket_customized_field/list-ticket-customized-fields</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2fticket_customized_field%2flist-ticket-customized-fields</para>
 /// </summary>
-public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
+public record GetHelpdeskV1TicketCustomizedFieldsResponseDto : IPageableResponse<GetHelpdeskV1TicketCustomizedFieldsResponseDto.TicketCustomizedField>
 {
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -225,4 +225,8 @@ public record GetHelpdeskV1TicketCustomizedFieldsResponseDto
         [JsonPropertyName("dropdown_allow_multiple")]
         public bool? DropdownAllowMultiple { get; set; }
     }
+
+    /// <inheritdoc/>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get { return NextPageToken; } set { NextPageToken = value; } }
 }

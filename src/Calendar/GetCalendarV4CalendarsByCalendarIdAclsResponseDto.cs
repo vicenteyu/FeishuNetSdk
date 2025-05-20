@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Calendar;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-acl/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-acl%2flist</para>
 /// </summary>
-public record GetCalendarV4CalendarsByCalendarIdAclsResponseDto
+public record GetCalendarV4CalendarsByCalendarIdAclsResponseDto : IPageableResponse<GetCalendarV4CalendarsByCalendarIdAclsResponseDto.CalendarAcl>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public CalendarAcl[]? Items => Acls;
+
     /// <summary>
     /// <para>日历对应的访问控制列表。</para>
     /// <para>必填：否</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/workforce_plan/batch_v2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fworkforce_plan_detail%2fbatch_v2</para>
 /// </summary>
-public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto
+public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : IPageableResponse<PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto.WorkforcePlanDetailV2>
 {
     /// <summary>
     /// <para>编制规划方案 ID</para>

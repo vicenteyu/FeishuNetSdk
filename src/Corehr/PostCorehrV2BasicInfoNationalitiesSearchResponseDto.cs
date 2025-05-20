@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/basic_info-nationality/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-nationality%2fsearch</para>
 /// </summary>
-public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto
+public record PostCorehrV2BasicInfoNationalitiesSearchResponseDto : IPageableResponse<PostCorehrV2BasicInfoNationalitiesSearchResponseDto.Nationality>
 {
     /// <summary>
     /// <para>查询到的国籍列表</para>

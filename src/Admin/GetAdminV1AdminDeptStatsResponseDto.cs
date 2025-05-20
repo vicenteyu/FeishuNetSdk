@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Admin;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/admin-v1/data-report-management/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fadmin-v1%2fadmin_dept_stat%2flist</para>
 /// </summary>
-public record GetAdminV1AdminDeptStatsResponseDto
+public record GetAdminV1AdminDeptStatsResponseDto : IPageableResponse<GetAdminV1AdminDeptStatsResponseDto.AdminDeptStat>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

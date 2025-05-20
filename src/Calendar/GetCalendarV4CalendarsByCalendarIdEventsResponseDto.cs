@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Calendar;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2flist</para>
 /// </summary>
-public record GetCalendarV4CalendarsByCalendarIdEventsResponseDto
+public record GetCalendarV4CalendarsByCalendarIdEventsResponseDto : IPageableResponse<GetCalendarV4CalendarsByCalendarIdEventsResponseDto.CalendarEvent>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

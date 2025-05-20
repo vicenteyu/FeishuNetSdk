@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version//user/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2flist</para>
 /// </summary>
-public record GetContactV3UsersResponseDto
+public record GetContactV3UsersResponseDto : IPageableResponse<GetContactV3UsersResponseDto.User>
 {
     /// <summary>
     /// <para>是否有下一页数据</para>
@@ -78,6 +78,7 @@ public record GetContactV3UsersResponseDto
         /// <para>用户名</para>
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string Name { get; set; } = string.Empty;
@@ -85,7 +86,7 @@ public record GetContactV3UsersResponseDto
         /// <summary>
         /// <para>英文名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：SanZhang</para>
+        /// <para>示例值：San Zhang</para>
         /// </summary>
         [JsonPropertyName("en_name")]
         public string? EnName { get; set; }
@@ -93,7 +94,7 @@ public record GetContactV3UsersResponseDto
         /// <summary>
         /// <para>别名</para>
         /// <para>必填：否</para>
-        /// <para>示例值：AlexZhang</para>
+        /// <para>示例值：Alex Zhang</para>
         /// </summary>
         [JsonPropertyName("nickname")]
         public string? Nickname { get; set; }
@@ -117,7 +118,7 @@ public record GetContactV3UsersResponseDto
         /// <para>3. 国际电话区号前缀中必须包含加号 +</para>
         /// <para>4. Lark品牌中`mobile`非必填</para>
         /// <para>必填：是</para>
-        /// <para>示例值：13011111111(其他例子，中国大陆手机号:13011111111或+8613011111111,非中国大陆手机号:+41446681800)</para>
+        /// <para>示例值：13011111111 (其他例子，中国大陆手机号: 13011111111 或 +8613011111111, 非中国大陆手机号: +41446681800)</para>
         /// </summary>
         [JsonPropertyName("mobile")]
         public string Mobile { get; set; } = string.Empty;
@@ -557,7 +558,7 @@ public record GetContactV3UsersResponseDto
             /// <summary>
             /// <para>席位名称</para>
             /// <para>必填：否</para>
-            /// <para>示例值：旗舰版E5</para>
+            /// <para>示例值：旗舰版 E5</para>
             /// </summary>
             [JsonPropertyName("product_name")]
             public string? ProductName { get; set; }

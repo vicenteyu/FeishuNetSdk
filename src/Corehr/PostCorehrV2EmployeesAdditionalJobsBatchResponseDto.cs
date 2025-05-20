@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-additional_job/batch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2femployees-additional_job%2fbatch</para>
 /// </summary>
-public record PostCorehrV2EmployeesAdditionalJobsBatchResponseDto
+public record PostCorehrV2EmployeesAdditionalJobsBatchResponseDto : IPageableResponse<PostCorehrV2EmployeesAdditionalJobsBatchResponseDto.EmployeesAdditionalJob>
 {
     /// <summary>
     /// <para>兼职信息</para>

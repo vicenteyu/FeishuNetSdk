@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version//department/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2flist</para>
 /// </summary>
-public record GetContactV3DepartmentsResponseDto
+public record GetContactV3DepartmentsResponseDto : IPageableResponse<GetContactV3DepartmentsResponseDto.Department>
 {
     /// <summary>
     /// <para>是否有下一页数据</para>

@@ -19,8 +19,12 @@ namespace FeishuNetSdk.AppEngine;
 /// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object%2fsearch</para>
 /// </summary>
-public record PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto
+public record PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto : IPageableResponse<PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto.ObjectMeta>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ObjectMeta[]? Items => Objects;
+
     /// <summary>
     /// <para>搜索结果列表</para>
     /// <para>必填：否</para>
@@ -205,4 +209,8 @@ public record PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto
             public I18nLanguage<string>? Label { get; set; }
         }
     }
+
+    /// <inheritdoc/>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get { return NextPageToken; } set { NextPageToken = value; } }
 }

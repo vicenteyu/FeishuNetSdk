@@ -21,8 +21,12 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess%2flist</para>
 /// </summary>
-public record GetCorehrV2ProcessesResponseDto
+public record GetCorehrV2ProcessesResponseDto : IPageableResponse<string>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public string[]? Items => ProcessIds;
+
     /// <summary>
     /// <para>流程实例ID列表</para>
     /// <para>可通过[获取单个流程详情](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/get) 查询流程详情</para>

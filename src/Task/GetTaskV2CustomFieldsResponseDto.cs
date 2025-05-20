@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/custom_field/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2fcustom_field%2flist</para>
 /// </summary>
-public record GetTaskV2CustomFieldsResponseDto
+public record GetTaskV2CustomFieldsResponseDto : IPageableResponse<GetTaskV2CustomFieldsResponseDto.CustomField>
 {
     /// <summary>
     /// <para>返回的自定义字段列表</para>

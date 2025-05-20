@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcountry_region%2flist</para>
 /// </summary>
-public record GetCorehrV1CountryRegionsResponseDto
+public record GetCorehrV1CountryRegionsResponseDto : IPageableResponse<GetCorehrV1CountryRegionsResponseDto.CountryRegion>
 {
     /// <summary>
     /// <para>国家/地区信息</para>

@@ -22,8 +22,12 @@ namespace FeishuNetSdk.Contact.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/search-users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMTM4UjLzEDO14yMxgTN</para>
 /// </summary>
-public record GetSearchV1UserResponseDto
+public record GetSearchV1UserResponseDto : IPageableResponse<GetSearchV1UserResponseDto.User>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public User[]? Items => Users;
+
     /// <summary>
     /// <para>是否还有更多数据，当返回值为 true 时，表示存在下一页，即 page_token 不为空。</para>
     /// <para>必填：否</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/compensation-component-and-metric/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2fitem_category%2flist</para>
 /// </summary>
-public record GetCompensationV1ItemCategoriesResponseDto
+public record GetCompensationV1ItemCategoriesResponseDto : IPageableResponse<GetCompensationV1ItemCategoriesResponseDto.ItemCategory>
 {
     /// <summary>
     /// <para>薪资项分类信息列表</para>

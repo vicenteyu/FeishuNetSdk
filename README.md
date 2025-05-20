@@ -321,7 +321,7 @@ public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerial
 
 **说明：**
 
-1. 建议获取字段数据结构的接口请求参数`page_size`设置为`100`（最大），避免字段不全。若超出`100`，则需要进行分页查询。
+1. 建议获取字段数据结构的接口请求参数`page_size`设置为`100`（最大），避免字段不全。若超出`100`，则需要进行分页查询 或者使用 自动化分页汇总方法。
 1. 可以指定`BitableRecordSerializer`参数为数组值分隔符，默认`;`。
 1. 文本记录类型字段取值于`text`属性
 1. 人员类型字段取值于`name`属性
@@ -334,7 +334,28 @@ public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerial
 1. 自定义序列化规则：继承 `BitableRecordSerializer` 分别重写 `xxxRecordToString` 方法。
 1. 查询记录暂不支持`流程`和`按钮`字段数据。
 
+**（7）自动化分页汇总数据的扩展方法（3.3.8+）: GetAllPagesAsync**
 
+1. 需要 `响应体` 中带有 `HasMore` 和 `PageToken` 参数才可以使用。
+1. 返回数据类型为：`List<T>`，`T` 定义在响应体上。
+1. 如果页数较多，不建议使用此方法，由于没有缓存数据，出现异常只能重新获取。
+
+```csharp
+var _app_token = "T2aFbYYOoxxxxxxxxxxxxxxxAbjn4g";
+var _table_id = "tbldE95HxxxxxxxxxxEVLCQ";
+
+// 定义委托方法和入参，此示例中每次请求数量为`10`。
+Func<string?, Task<FeishuResponse<GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>>> apicall = (page_token)
+    => tenantApi.GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(_app_token, _table_id, page_size: 10, page_token: page_token);
+
+// 执行自动化分页汇总扩展方法。此示例中返回的数据类型`T`为：Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList
+var all_records = await apicall.GetAllPagesAsync<
+    Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList, 
+    Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>();
+
+Console.WriteLine(all_records);
+//List<AppTableFieldForList> (26 items) 显示汇总数量是`26`
+```
 
 ### 文件上传示例
 参数类型 `FormDataFile` 支持 `filePath`、`FileInfo`、`byte[]`、`Stream`。

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/basic_info-language/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-language%2fsearch</para>
 /// </summary>
-public record PostCorehrV2BasicInfoLanguagesSearchResponseDto
+public record PostCorehrV2BasicInfoLanguagesSearchResponseDto : IPageableResponse<PostCorehrV2BasicInfoLanguagesSearchResponseDto.Language>
 {
     /// <summary>
     /// <para>查询到的语言列表</para>

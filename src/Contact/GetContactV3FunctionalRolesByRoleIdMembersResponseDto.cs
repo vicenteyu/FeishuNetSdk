@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/functional_role-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2ffunctional_role-member%2flist</para>
 /// </summary>
-public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto
+public record GetContactV3FunctionalRolesByRoleIdMembersResponseDto : IPageableResponse<GetContactV3FunctionalRolesByRoleIdMembersResponseDto.FunctionalRoleMember>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public FunctionalRoleMember[]? Items => Members;
+
     /// <summary>
     /// <para>角色成员列表。</para>
     /// <para>必填：否</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Acs.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/acs-v1/user/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2facs-v1%2fuser%2flist</para>
 /// </summary>
-public record GetAcsV1UsersResponseDto
+public record GetAcsV1UsersResponseDto : IPageableResponse<GetAcsV1UsersResponseDto.User>
 {
     /// <summary>
     /// <para>-</para>

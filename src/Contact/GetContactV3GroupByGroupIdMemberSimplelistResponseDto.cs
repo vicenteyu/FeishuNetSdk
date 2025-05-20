@@ -23,8 +23,12 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group-member/simplelist</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup-member%2fsimplelist</para>
 /// </summary>
-public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
+public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto : IPageableResponse<GetContactV3GroupByGroupIdMemberSimplelistResponseDto.Memberlist>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Memberlist[]? Items => Memberlists;
+
     /// <summary>
     /// <para>成员列表。</para>
     /// <para>必填：是</para>
@@ -71,7 +75,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
     /// <para>示例值：TDRRV9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiJDGexPw=</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -79,5 +83,5 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

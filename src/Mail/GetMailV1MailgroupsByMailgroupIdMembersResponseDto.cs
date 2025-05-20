@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Mail;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/mail-v1/mail-group/mailgroup-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fmailgroup-member%2flist</para>
 /// </summary>
-public record GetMailV1MailgroupsByMailgroupIdMembersResponseDto
+public record GetMailV1MailgroupsByMailgroupIdMembersResponseDto : IPageableResponse<GetMailV1MailgroupsByMailgroupIdMembersResponseDto.MailgroupMember>
 {
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -91,7 +91,7 @@ public record GetMailV1MailgroupsByMailgroupIdMembersResponseDto
         /// <item>COMPANY：全员</item>
         /// <item>EXTERNAL_USER：外部用户</item>
         /// <item>MAIL_GROUP：邮件组</item>
-        /// <item>PUBLIC_MAILBOX：memberisapublicmailbox</item>
+        /// <item>PUBLIC_MAILBOX：member is a public mailbox</item>
         /// <item>OTHER_MEMBER：内部成员</item>
         /// </list></para>
         /// </summary>

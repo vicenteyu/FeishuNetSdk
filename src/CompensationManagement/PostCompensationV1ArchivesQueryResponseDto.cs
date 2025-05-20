@@ -19,7 +19,7 @@ namespace FeishuNetSdk.CompensationManagement;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-compensation/archive/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcompensation-v1%2farchive%2fquery</para>
 /// </summary>
-public record PostCompensationV1ArchivesQueryResponseDto
+public record PostCompensationV1ArchivesQueryResponseDto : IPageableResponse<PostCompensationV1ArchivesQueryResponseDto.ArchiveDetail>
 {
     /// <summary>
     /// <para>档案信息列表</para>
@@ -230,5 +230,5 @@ public record PostCompensationV1ArchivesQueryResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

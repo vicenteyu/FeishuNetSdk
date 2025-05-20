@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/docs/docx-v1/document-block/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fdocument-block-children%2fget</para>
 /// </summary>
-public record GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto
+public record GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto : IPageableResponse<GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto.Block>
 {
     /// <summary>
     /// <para>block 的 children 列表</para>

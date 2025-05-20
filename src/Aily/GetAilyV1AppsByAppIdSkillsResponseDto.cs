@@ -20,8 +20,12 @@ namespace FeishuNetSdk.Aily;
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/app-skill/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-skill%2flist</para>
 /// </summary>
-public record GetAilyV1AppsByAppIdSkillsResponseDto
+public record GetAilyV1AppsByAppIdSkillsResponseDto : IPageableResponse<GetAilyV1AppsByAppIdSkillsResponseDto.Skill>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Skill[]? Items => Skills;
+
     /// <summary>
     /// <para>技能列表</para>
     /// <para>必填：否</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_application_form/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer_application_form%2flist</para>
 /// </summary>
-public record GetHireV1OfferApplicationFormsResponseDto
+public record GetHireV1OfferApplicationFormsResponseDto : IPageableResponse<GetHireV1OfferApplicationFormsResponseDto.OfferApplyForm>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

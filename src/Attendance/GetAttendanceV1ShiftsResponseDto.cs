@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Attendance;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2flist</para>
 /// </summary>
-public record GetAttendanceV1ShiftsResponseDto
+public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendanceV1ShiftsResponseDto.Shift>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Shift[]? Items => ShiftLists;
+
     /// <summary>
     /// <para>班次列表</para>
     /// <para>必填：否</para>

@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/group/upgraded-group-announcement/chat-announcement-block/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fdocument-docx%2fdocx-v1%2fchat-announcement-block-children%2fget</para>
 /// </summary>
-public record GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto
+public record GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto : IPageableResponse<GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto.Block>
 {
     /// <summary>
     /// <para>Block 的 Children 列表</para>

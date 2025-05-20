@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/search_wiki</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuEzN0YjLxcDN24SM3QjN%2fsearch_wiki</para>
 /// </summary>
-public record PostWikiV1NodesSearchResponseDto
+public record PostWikiV1NodesSearchResponseDto : IPageableResponse<PostWikiV1NodesSearchResponseDto.Item>
 {
     /// <summary>
     /// <para>wiki 信息数组</para>

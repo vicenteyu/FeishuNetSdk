@@ -20,8 +20,12 @@ namespace FeishuNetSdk.Payroll;
 /// <para>文档地址：https://open.feishu.cn/document/payroll-v1/datasource_record/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fdatasource_record%2fquery</para>
 /// </summary>
-public record PostPayrollV1DatasourceRecordsQueryResponseDto
+public record PostPayrollV1DatasourceRecordsQueryResponseDto : IPageableResponse<PostPayrollV1DatasourceRecordsQueryResponseDto.DatasourceRecord>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public DatasourceRecord[]? Items => Records;
+
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
@@ -36,7 +40,7 @@ public record PostPayrollV1DatasourceRecordsQueryResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>数据记录列表</para>

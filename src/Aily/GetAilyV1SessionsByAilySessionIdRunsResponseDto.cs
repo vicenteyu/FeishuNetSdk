@@ -23,8 +23,12 @@ namespace FeishuNetSdk.Aily;
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session-run/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-run%2flist</para>
 /// </summary>
-public record GetAilyV1SessionsByAilySessionIdRunsResponseDto
+public record GetAilyV1SessionsByAilySessionIdRunsResponseDto : IPageableResponse<GetAilyV1SessionsByAilySessionIdRunsResponseDto.Run>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Run[]? Items => Runs;
+
     /// <summary>
     /// <para>运行列表</para>
     /// <para>必填：否</para>

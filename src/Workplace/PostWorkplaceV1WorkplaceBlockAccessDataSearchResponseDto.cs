@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Workplace;
 /// <para>文档地址：https://open.feishu.cn/document/workplace-v1/workplace_access_data/search-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fworkplace-v1%2fworkplace_block_access_data%2fsearch</para>
 /// </summary>
-public record PostWorkplaceV1WorkplaceBlockAccessDataSearchResponseDto
+public record PostWorkplaceV1WorkplaceBlockAccessDataSearchResponseDto : IPageableResponse<PostWorkplaceV1WorkplaceBlockAccessDataSearchResponseDto.BlockAccessData>
 {
     /// <summary>
     /// <para>工作台中block的访问数据</para>

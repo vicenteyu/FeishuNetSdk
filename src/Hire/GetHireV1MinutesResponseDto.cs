@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/interview/get-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fminutes%2fget</para>
 /// </summary>
-public record GetHireV1MinutesResponseDto
+public record GetHireV1MinutesResponseDto : IPageableResponse<GetHireV1MinutesResponseDto.GetHireV1MinutesResponseDtoMinutes.Sentence>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public GetHireV1MinutesResponseDtoMinutes.Sentence[]? Items => Minutes?.Sentences;
+
     /// <summary>
     /// <para>面试速记</para>
     /// <para>必填：否</para>

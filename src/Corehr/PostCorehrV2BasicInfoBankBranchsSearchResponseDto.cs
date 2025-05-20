@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/basic_info-bank/search-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-bank_branch%2fsearch</para>
 /// </summary>
-public record PostCorehrV2BasicInfoBankBranchsSearchResponseDto
+public record PostCorehrV2BasicInfoBankBranchsSearchResponseDto : IPageableResponse<PostCorehrV2BasicInfoBankBranchsSearchResponseDto.BankBranch>
 {
     /// <summary>
     /// <para>查询到的支行列表</para>

@@ -25,7 +25,7 @@ namespace FeishuNetSdk.Im;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/read_users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fread_users</para>
 /// </summary>
-public record GetImV1MessagesByMessageIdReadUsersResponseDto
+public record GetImV1MessagesByMessageIdReadUsersResponseDto : IPageableResponse<GetImV1MessagesByMessageIdReadUsersResponseDto.ReadUser>
 {
     /// <summary>
     /// <para>-</para>
@@ -78,7 +78,7 @@ public record GetImV1MessagesByMessageIdReadUsersResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>

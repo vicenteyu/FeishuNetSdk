@@ -22,8 +22,12 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/group/member_belong</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fgroup%2fmember_belong</para>
 /// </summary>
-public record GetContactV3GroupMemberBelongResponseDto
+public record GetContactV3GroupMemberBelongResponseDto : IPageableResponse<string>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public string[]? Items => GroupList;
+
     /// <summary>
     /// <para>用户组 ID 列表。</para>
     /// <para>**说明**：你可以调用[查询指定用户组](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/get)接口，通过用户组 ID 获取用户组的详细信息。</para>

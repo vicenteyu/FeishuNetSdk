@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/website/list-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fwebsite-channel%2flist</para>
 /// </summary>
-public record GetHireV1WebsitesByWebsiteIdChannelsResponseDto
+public record GetHireV1WebsitesByWebsiteIdChannelsResponseDto : IPageableResponse<GetHireV1WebsitesByWebsiteIdChannelsResponseDto.WebsiteChannelInfo>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public WebsiteChannelInfo[]? Items => WebsiteChannelLists;
+
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>

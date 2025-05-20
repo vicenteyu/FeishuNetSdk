@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Baike;
 /// <para>文档地址：https://open.feishu.cn/document/lingo-v1/entity/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fentity%2fsearch</para>
 /// </summary>
-public record PostLingoV1EntitiesSearchResponseDto
+public record PostLingoV1EntitiesSearchResponseDto : IPageableResponse<PostLingoV1EntitiesSearchResponseDto.Entity>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Entity[]? Items => Entities;
+
     /// <summary>
     /// <para>搜索结果</para>
     /// <para>必填：否</para>

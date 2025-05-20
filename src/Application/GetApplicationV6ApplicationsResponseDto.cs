@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Application;
 /// <para>文档地址：https://open.feishu.cn/document/application-v6/admin/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2flist</para>
 /// </summary>
-public record GetApplicationV6ApplicationsResponseDto
+public record GetApplicationV6ApplicationsResponseDto : IPageableResponse<GetApplicationV6ApplicationsResponseDto.Application>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Application[]? Items => AppLists;
+
     /// <summary>
     /// <para>应用列表</para>
     /// <para>必填：否</para>

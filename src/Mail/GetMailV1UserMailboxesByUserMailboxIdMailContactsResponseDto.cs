@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Mail;
 /// <para>文档地址：https://open.feishu.cn/document/mail-v1/user_mailbox-mail_contact/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-mail_contact%2flist</para>
 /// </summary>
-public record GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto
+public record GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto : IPageableResponse<GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto.MailContact>
 {
     /// <summary>
     /// <para>邮件联系人列表</para>

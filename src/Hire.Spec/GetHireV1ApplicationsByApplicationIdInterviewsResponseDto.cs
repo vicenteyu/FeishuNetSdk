@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/hire_internal/application-interview/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fapplication-interview%2flist</para>
 /// </summary>
-public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto
+public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto : IPageableResponse<GetHireV1ApplicationsByApplicationIdInterviewsResponseDto.Interview>
 {
     /// <summary>
     /// <para>分页标志</para>

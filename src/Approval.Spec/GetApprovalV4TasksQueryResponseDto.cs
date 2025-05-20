@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Approval.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2fquery</para>
 /// </summary>
-public record GetApprovalV4TasksQueryResponseDto
+public record GetApprovalV4TasksQueryResponseDto : IPageableResponse<GetApprovalV4TasksQueryResponseDto.Task>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Task[]? Items => Tasks;
+
     /// <summary>
     /// <para>任务列表</para>
     /// <para>必填：否</para>

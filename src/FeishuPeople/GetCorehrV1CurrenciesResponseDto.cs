@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/currency/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcurrency%2flist</para>
 /// </summary>
-public record GetCorehrV1CurrenciesResponseDto
+public record GetCorehrV1CurrenciesResponseDto : IPageableResponse<GetCorehrV1CurrenciesResponseDto.Currency>
 {
     /// <summary>
     /// <para>货币信息</para>

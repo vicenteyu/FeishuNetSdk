@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Search.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/search-v2/open-search/data_source/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsearch-v2%2fdata_source%2flist</para>
 /// </summary>
-public record GetSearchV2DataSourcesResponseDto
+public record GetSearchV2DataSourcesResponseDto : IPageableResponse<GetSearchV2DataSourcesResponseDto.DataSource>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

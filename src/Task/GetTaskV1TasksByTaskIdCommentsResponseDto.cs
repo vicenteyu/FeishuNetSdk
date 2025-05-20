@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task-comment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask-comment%2flist</para>
 /// </summary>
-public record GetTaskV1TasksByTaskIdCommentsResponseDto
+public record GetTaskV1TasksByTaskIdCommentsResponseDto : IPageableResponse<GetTaskV1TasksByTaskIdCommentsResponseDto.Comment>
 {
     /// <summary>
     /// <para>返回的评论列表</para>
@@ -39,6 +39,7 @@ public record GetTaskV1TasksByTaskIdCommentsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：举杯邀明月，对影成三人</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("content")]
         public string? Content { get; set; }
@@ -70,8 +71,9 @@ public record GetTaskV1TasksByTaskIdCommentsResponseDto
         /// <summary>
         /// <para>富文本评论内容。语法格式参见[Markdown模块](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/markdown-module)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：举杯邀明月，对影成三人&lt;atid=7058204817822318612&gt;&lt;/at&gt;</para>
+        /// <para>示例值：举杯邀明月，对影成三人&lt;at id=7058204817822318612&gt;&lt;/at&gt;</para>
         /// <para>最大长度：65536</para>
+        /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("rich_content")]
         public string? RichContent { get; set; }

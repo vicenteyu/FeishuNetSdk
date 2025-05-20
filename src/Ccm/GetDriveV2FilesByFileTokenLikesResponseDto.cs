@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/docs/drive-v1/like/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIzNzUjLyczM14iM3MTN%2fdrive-v2%2ffile-like%2flist</para>
 /// </summary>
-public record GetDriveV2FilesByFileTokenLikesResponseDto
+public record GetDriveV2FilesByFileTokenLikesResponseDto : IPageableResponse<GetDriveV2FilesByFileTokenLikesResponseDto.FileLike>
 {
     /// <summary>
     /// <para>云文档的点赞者列表</para>

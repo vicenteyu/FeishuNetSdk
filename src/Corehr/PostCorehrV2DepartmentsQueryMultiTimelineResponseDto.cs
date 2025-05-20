@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/department/query_multi_timeline</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_multi_timeline</para>
 /// </summary>
-public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto
+public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto : IPageableResponse<PostCorehrV2DepartmentsQueryMultiTimelineResponseDto.DepartmentTimeline>
 {
     /// <summary>
     /// <para>部门信息</para>

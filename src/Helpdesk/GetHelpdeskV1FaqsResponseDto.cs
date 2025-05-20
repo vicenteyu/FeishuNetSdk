@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Helpdesk;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/helpdesk-v1/faq-management/faq/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhelpdesk-v1%2ffaq%2flist</para>
 /// </summary>
-public record GetHelpdeskV1FaqsResponseDto
+public record GetHelpdeskV1FaqsResponseDto : IPageableResponse<GetHelpdeskV1FaqsResponseDto.Faq>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

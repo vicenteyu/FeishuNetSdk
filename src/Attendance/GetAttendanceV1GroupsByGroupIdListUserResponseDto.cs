@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Attendance;
 /// <para>文档地址：https://open.feishu.cn/document/attendance-v1/group/list_user</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fgroup%2flist_user</para>
 /// </summary>
-public record GetAttendanceV1GroupsByGroupIdListUserResponseDto
+public record GetAttendanceV1GroupsByGroupIdListUserResponseDto : IPageableResponse<GetAttendanceV1GroupsByGroupIdListUserResponseDto.UserBase>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public UserBase[]? Items => Users;
+
     /// <summary>
     /// <para>考勤组成员列表</para>
     /// <para>必填：否</para>

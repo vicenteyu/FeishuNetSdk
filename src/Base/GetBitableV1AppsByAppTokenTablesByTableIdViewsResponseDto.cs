@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-view%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto
+public record GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto.AppTableView>
 {
     /// <summary>
     /// <para>视图信息</para>

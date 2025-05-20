@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Mail;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/mail-v1/mail-group/mailgroup/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fmailgroup%2flist</para>
 /// </summary>
-public record GetMailV1MailgroupsResponseDto
+public record GetMailV1MailgroupsResponseDto : IPageableResponse<GetMailV1MailgroupsResponseDto.Mailgroup>
 {
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -68,7 +68,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <summary>
         /// <para>邮件组名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：testmailgroup</para>
+        /// <para>示例值：test mail group</para>
         /// </summary>
         [JsonPropertyName("name")]
         public string? Name { get; set; }
@@ -76,7 +76,7 @@ public record GetMailV1MailgroupsResponseDto
         /// <summary>
         /// <para>邮件组描述</para>
         /// <para>必填：否</para>
-        /// <para>示例值：mailgroupfortesting</para>
+        /// <para>示例值：mail group for testing</para>
         /// </summary>
         [JsonPropertyName("description")]
         public string? Description { get; set; }

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/location_data/search-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-country_region_subdivision%2fsearch</para>
 /// </summary>
-public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto
+public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto : IPageableResponse<PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchResponseDto.CountryRegionSubdivision>
 {
     /// <summary>
     /// <para>查询的省份/主要行政区信息</para>

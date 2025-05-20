@@ -26,8 +26,12 @@ namespace FeishuNetSdk.Approval;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2ftask%2fsearch</para>
 /// </summary>
-public record PostApprovalV4TasksSearchResponseDto
+public record PostApprovalV4TasksSearchResponseDto : IPageableResponse<PostApprovalV4TasksSearchResponseDto.TaskSearchItem>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public TaskSearchItem[]? Items => TaskLists;
+
     /// <summary>
     /// <para>查询结果中包含的审批任务总数</para>
     /// <para>必填：否</para>

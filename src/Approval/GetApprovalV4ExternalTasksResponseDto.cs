@@ -25,8 +25,12 @@ namespace FeishuNetSdk.Approval;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/external_task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2fexternal_task%2flist</para>
 /// </summary>
-public record GetApprovalV4ExternalTasksResponseDto
+public record GetApprovalV4ExternalTasksResponseDto : IPageableResponse<GetApprovalV4ExternalTasksResponseDto.ExternalTaskList>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ExternalTaskList[]? Items => Datas;
+
     /// <summary>
     /// <para>返回数据</para>
     /// <para>必填：否</para>

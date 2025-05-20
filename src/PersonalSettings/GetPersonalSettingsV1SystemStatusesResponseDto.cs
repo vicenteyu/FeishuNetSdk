@@ -19,7 +19,7 @@ namespace FeishuNetSdk.PersonalSettings;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/personal_settings-v1/system_status/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpersonal_settings-v1%2fsystem_status%2flist</para>
 /// </summary>
-public record GetPersonalSettingsV1SystemStatusesResponseDto
+public record GetPersonalSettingsV1SystemStatusesResponseDto : IPageableResponse<GetPersonalSettingsV1SystemStatusesResponseDto.SystemStatus>
 {
     /// <summary>
     /// <para>租户系统状态</para>
@@ -78,7 +78,7 @@ public record GetPersonalSettingsV1SystemStatusesResponseDto
             /// <summary>
             /// <para>英文名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Onbusinesstrip</para>
+            /// <para>示例值：On business trip</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -149,6 +149,8 @@ public record GetPersonalSettingsV1SystemStatusesResponseDto
         /// <para>优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：9</para>
+        /// <para>最小值：0</para>
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("priority")]
@@ -213,7 +215,7 @@ public record GetPersonalSettingsV1SystemStatusesResponseDto
                 /// <summary>
                 /// <para>英文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：AutodisplayBusinessTrip</para>
+                /// <para>示例值：Auto display Business Trip</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -265,7 +267,7 @@ public record GetPersonalSettingsV1SystemStatusesResponseDto
                 /// <summary>
                 /// <para>英文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Auto-displayaftertravelrequestisapproved.</para>
+                /// <para>示例值：Auto-display after travel request is approved.</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }

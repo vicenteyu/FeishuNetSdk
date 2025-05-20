@@ -594,7 +594,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
                 /// <para>地理等级（国家｜省｜市｜区）</para>
                 /// <para>l1：国家级；</para>
                 /// <para>l2：省级；</para>
-                /// <para>l3：市级</para>
+                /// <para>l3：市级；</para>
                 /// <para>l4：区/县级</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：l1</para>

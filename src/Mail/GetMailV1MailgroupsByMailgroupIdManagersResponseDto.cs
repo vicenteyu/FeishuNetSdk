@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Mail;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/mail-v1/mail-group/mailgroup-manager/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fmailgroup-manager%2flist</para>
 /// </summary>
-public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto
+public record GetMailV1MailgroupsByMailgroupIdManagersResponseDto : IPageableResponse<GetMailV1MailgroupsByMailgroupIdManagersResponseDto.MailgroupManager>
 {
     /// <summary>
     /// <para>邮件组管理员列表</para>

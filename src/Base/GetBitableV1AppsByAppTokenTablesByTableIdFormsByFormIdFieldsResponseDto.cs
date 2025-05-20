@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/form/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-form-field%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsResponseDto
+public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsResponseDto.AppTableFormField>
 {
     /// <summary>
     /// <para>表单问题信息</para>
@@ -84,7 +84,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>示例值：fld1lAbHh7</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -92,7 +92,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>总数</para>

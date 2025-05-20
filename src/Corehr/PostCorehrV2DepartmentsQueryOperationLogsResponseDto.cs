@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/department/query_operation_logs</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fquery_operation_logs</para>
 /// </summary>
-public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto
+public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableResponse<PostCorehrV2DepartmentsQueryOperationLogsResponseDto.OrganizationOpLog>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public OrganizationOpLog[]? Items => OpLogs;
+
     /// <summary>
     /// <para>操作日志列表</para>
     /// <para>必填：否</para>
@@ -161,4 +165,8 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
+
+    /// <inheritdoc/>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get { return NextPageToken; } set { NextPageToken = value; } }
 }

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Calendar;
 /// <para>文档地址：https://open.feishu.cn/document/calendar-v4/calendar-event/instances</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2finstances</para>
 /// </summary>
-public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto
+public record GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto : IPageableResponse<GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto.Instance>
 {
     /// <summary>
     /// <para>重复日程的日程 instance 列表。</para>

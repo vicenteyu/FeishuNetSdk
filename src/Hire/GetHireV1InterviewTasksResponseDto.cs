@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Hire;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/recruitment-process-follow-up/list-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2finterview_task%2flist</para>
 /// </summary>
-public record GetHireV1InterviewTasksResponseDto
+public record GetHireV1InterviewTasksResponseDto : IPageableResponse<GetHireV1InterviewTasksResponseDto.InterviewTask>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

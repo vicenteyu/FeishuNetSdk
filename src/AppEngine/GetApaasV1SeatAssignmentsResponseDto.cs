@@ -19,7 +19,7 @@ namespace FeishuNetSdk.AppEngine;
 /// <para>文档地址：https://open.feishu.cn/document/apaas-v1/seat_assignment/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fseat_assignment%2flist</para>
 /// </summary>
-public record GetApaasV1SeatAssignmentsResponseDto
+public record GetApaasV1SeatAssignmentsResponseDto : IPageableResponse<GetApaasV1SeatAssignmentsResponseDto.SeatAssignment>
 {
     /// <summary>
     /// <para>席位分配情况列表</para>

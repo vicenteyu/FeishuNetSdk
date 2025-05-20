@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Application;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/app-usage/department_overview</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-app_usage%2fdepartment_overview</para>
 /// </summary>
-public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto
+public record PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto : IPageableResponse<PostApplicationV6ApplicationsByAppIdAppUsageDepartmentOverviewResponseDto.ApplicationDepartmentAppUsage>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

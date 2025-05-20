@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fdepartment%2flist</para>
 /// </summary>
-public record GetCorehrV1DepartmentsResponseDto
+public record GetCorehrV1DepartmentsResponseDto : IPageableResponse<GetCorehrV1DepartmentsResponseDto.Department>
 {
     /// <summary>
     /// <para>查询的部门信息</para>

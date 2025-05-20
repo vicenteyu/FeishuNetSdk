@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/basic-infomation/location_data/search-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fbasic_info-district%2fsearch</para>
 /// </summary>
-public record PostCorehrV2BasicInfoDistrictsSearchResponseDto
+public record PostCorehrV2BasicInfoDistrictsSearchResponseDto : IPageableResponse<PostCorehrV2BasicInfoDistrictsSearchResponseDto.District>
 {
     /// <summary>
     /// <para>查询到的区/县列表</para>

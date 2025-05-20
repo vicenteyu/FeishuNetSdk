@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Application;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/application-v6/application/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication-app_version%2flist</para>
 /// </summary>
-public record GetApplicationV6ApplicationsByAppIdAppVersionsResponseDto
+public record GetApplicationV6ApplicationsByAppIdAppVersionsResponseDto : IPageableResponse<GetApplicationV6ApplicationsByAppIdAppVersionsResponseDto.ApplicationAppVersion>
 {
     /// <summary>
     /// <para>应用版本列表</para>

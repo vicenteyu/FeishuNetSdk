@@ -19,13 +19,18 @@ namespace FeishuNetSdk.Admin;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/admin-v1/badge/badge-grant/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fadmin-v1%2fbadge-grant%2flist</para>
 /// </summary>
-public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
+public record GetAdminV1BadgesByBadgeIdGrantsResponseDto : IPageableResponse<GetAdminV1BadgesByBadgeIdGrantsResponseDto.Grant>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Grant[]? Items => Grants;
+
     /// <summary>
     /// <para>授予名单列表</para>
     /// <para>必填：否</para>
-    /// <para>示例值：[{"grant_id":"g_uS4yux","badge_id":"m_DjMzaK","name":"授权给全员用户的周年授予名单","grant_type":1,"timezone":"Asia/Shanghai","is_grant_all":true,"rule_detail":{"anniversary":6,"effective_period":0}}]</para>
+    /// <para>示例值：[{ "grant_id": "g_uS4yux", "badge_id": "m_DjMzaK", "name": "授权给全员用户的周年授予名单", "grant_type": 1, "timezone": "Asia/Shanghai", "is_grant_all": true, "rule_detail": { "anniversary": 6, "effective_period": 0 } }]</para>
     /// <para>最大长度：50</para>
+    /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("grants")]
     public Grant[]? Grants { get; set; }
@@ -40,6 +45,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：g_49Z7CQ</para>
         /// <para>最大长度：64</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -49,6 +55,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：m_qTR2HM</para>
         /// <para>最大长度：64</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("badge_id")]
         public string? BadgeId { get; set; }
@@ -65,6 +72,8 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>授予名单类型</para>
         /// <para>必填：是</para>
         /// <para>示例值：0</para>
+        /// <para>最大值：1</para>
+        /// <para>最小值：0</para>
         /// <para>可选值：<list type="bullet">
         /// <item>0：手动选择有效期</item>
         /// <item>1：匹配系统入职时间</item>
@@ -78,6 +87,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
         /// <para>授予名单的生效时间对应的时区，用于检查RuleDetail的时间戳的取值是否规范，取值范围为TZ database name</para>
         /// <para>必填：是</para>
         /// <para>示例值：Asia/Shanghai</para>
+        /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string TimeZone { get; set; } = string.Empty;
@@ -114,6 +124,8 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// <para>入职周年日。根据入职时间发放类型勋章，需要配置该字段。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
+            /// <para>最大值：60</para>
+            /// <para>最小值：1</para>
             /// <para>默认值：1</para>
             /// </summary>
             [JsonPropertyName("anniversary")]
@@ -123,6 +135,8 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
             /// <para>有效期限。根据入职时间发放类型勋章，需要配置该字段。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
+            /// <para>最大值：2</para>
+            /// <para>最小值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：有效期为一年</item>
             /// <item>2：永久有效</item>
@@ -171,6 +185,7 @@ public record GetAdminV1BadgesByBadgeIdGrantsResponseDto
     /// <para>必填：否</para>
     /// <para>示例值：om5fn1</para>
     /// <para>最大长度：64</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

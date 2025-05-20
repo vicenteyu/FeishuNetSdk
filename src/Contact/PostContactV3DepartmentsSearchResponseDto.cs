@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/department/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fdepartment%2fsearch</para>
 /// </summary>
-public record PostContactV3DepartmentsSearchResponseDto
+public record PostContactV3DepartmentsSearchResponseDto : IPageableResponse<PostContactV3DepartmentsSearchResponseDto.Department>
 {
     /// <summary>
     /// <para>部门信息。</para>
@@ -248,5 +248,5 @@ public record PostContactV3DepartmentsSearchResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Vc;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting_list%2fget</para>
 /// </summary>
-public record GetVcV1MeetingListResponseDto
+public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingListResponseDto.MeetingInfo>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public MeetingInfo[]? Items => MeetingLists;
+
     /// <summary>
     /// <para>会议列表</para>
     /// <para>必填：否</para>

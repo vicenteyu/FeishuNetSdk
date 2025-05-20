@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/docs/bitable-v1/app-table-record/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table-record%2fsearch</para>
 /// </summary>
-public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto
+public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto : IPageableResponse<PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto.AppTableRecord>
 {
     /// <summary>
     /// <para>数组类型。record 结果。了解 record 数据结构，参考[数据结构](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bitable/development-guide/bitable-structure)。</para>

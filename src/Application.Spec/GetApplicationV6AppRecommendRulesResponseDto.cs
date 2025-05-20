@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Application.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/workplace-v1/app_recommend_rule/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapp_recommend_rule%2flist</para>
 /// </summary>
-public record GetApplicationV6AppRecommendRulesResponseDto
+public record GetApplicationV6AppRecommendRulesResponseDto : IPageableResponse<GetApplicationV6AppRecommendRulesResponseDto.AppRecommendRule>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public AppRecommendRule[]? Items => Rules;
+
     /// <summary>
     /// <para>推荐规则列表</para>
     /// <para>必填：否</para>

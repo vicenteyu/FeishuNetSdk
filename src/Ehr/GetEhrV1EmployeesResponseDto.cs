@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ehr;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/ehr-v1/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fehr%2fehr-v1%2femployee%2flist</para>
 /// </summary>
-public record GetEhrV1EmployeesResponseDto
+public record GetEhrV1EmployeesResponseDto : IPageableResponse<GetEhrV1EmployeesResponseDto.Employee>
 {
     /// <summary>
     /// <para>员工列表</para>

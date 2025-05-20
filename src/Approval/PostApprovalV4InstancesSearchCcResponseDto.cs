@@ -24,8 +24,12 @@ namespace FeishuNetSdk.Approval;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/search_cc</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fsearch_cc</para>
 /// </summary>
-public record PostApprovalV4InstancesSearchCcResponseDto
+public record PostApprovalV4InstancesSearchCcResponseDto : IPageableResponse<PostApprovalV4InstancesSearchCcResponseDto.CcSearchItem>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public CcSearchItem[]? Items => CcLists;
+
     /// <summary>
     /// <para>查询结果中包含的审批抄送总数</para>
     /// <para>必填：否</para>

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>文档地址：https://open.feishu.cn/document/payroll-v1/cost_allocation_plan/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fcost_allocation_plan%2flist</para>
 /// </summary>
-public record GetPayrollV1CostAllocationPlansResponseDto
+public record GetPayrollV1CostAllocationPlansResponseDto : IPageableResponse<GetPayrollV1CostAllocationPlansResponseDto.CostAllocationPlan>
 {
     /// <summary>
     /// <para>方案</para>

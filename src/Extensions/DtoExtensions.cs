@@ -467,7 +467,7 @@ namespace FeishuNetSdk
         /// <param name="serializer">序列化规则</param>
         /// <returns></returns>
         public static Dictionary<string, string?> SerializeFieldsToStringValue(this Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto.AppTableRecord record,
-            Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList[]? tableFields,
+            IEnumerable<Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList>? tableFields,
             IBitableRecordSerializer serializer)
         {
             // 遍历 record 中的每个字段，将其转换为键值对，键为字段名，值为转换后的字符串值
@@ -661,8 +661,7 @@ namespace FeishuNetSdk
         {
             return valueKind switch
             {
-                JsonValueKind.False
-                or JsonValueKind.True => serializer.CheckboxRecordToString(record as bool[]),
+                JsonValueKind.False or JsonValueKind.True => serializer.CheckboxRecordToString(record as bool[]),
                 JsonValueKind.Number => serializer.NumberRecordToString(record as decimal[]),
                 JsonValueKind.String => serializer.TextRecordToString(record as Base.Dtos.TextRecord[]),
                 JsonValueKind.Object when record is Base.Dtos.FormulaRecord f

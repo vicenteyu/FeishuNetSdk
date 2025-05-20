@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>文档地址：https://open.feishu.cn/document/payroll-v1/paygroup/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpaygroup%2flist</para>
 /// </summary>
-public record GetPayrollV1PaygroupsResponseDto
+public record GetPayrollV1PaygroupsResponseDto : IPageableResponse<GetPayrollV1PaygroupsResponseDto.Paygroup>
 {
     /// <summary>
     /// <para>薪资组列表</para>

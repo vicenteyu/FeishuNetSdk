@@ -21,7 +21,7 @@ namespace FeishuNetSdk.Base;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/advanced-permission/app-role-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-role-member%2flist</para>
 /// </summary>
-public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto
+public record GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto : IPageableResponse<GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto.AppRoleMember>
 {
     /// <summary>
     /// <para>协作者列表</para>

@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask%2flist</para>
 /// </summary>
-public record GetTaskV1TasksResponseDto
+public record GetTaskV1TasksResponseDto : IPageableResponse<GetTaskV1TasksResponseDto.Task>
 {
     /// <summary>
     /// <para>任务列表</para>

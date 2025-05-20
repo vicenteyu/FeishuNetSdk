@@ -10,6 +10,7 @@
 //     MIT
 // </copyright>
 // <summary>批量查询补充信息 响应体/summary>
+// ************************************************************************
 namespace FeishuNetSdk.Performance;
 /// <summary>
 /// 批量查询补充信息 响应体
@@ -18,8 +19,12 @@ namespace FeishuNetSdk.Performance;
 /// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/additional_information/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fadditional_information%2fquery</para>
 /// </summary>
-public record PostPerformanceV2AdditionalInformationsQueryResponseDto
+public record PostPerformanceV2AdditionalInformationsQueryResponseDto : IPageableResponse<PostPerformanceV2AdditionalInformationsQueryResponseDto.AdditionalInformation>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public AdditionalInformation[]? Items => AdditionalInformations;
+
     /// <summary>
     /// <para>补充信息列表</para>
     /// <para>必填：否</para>

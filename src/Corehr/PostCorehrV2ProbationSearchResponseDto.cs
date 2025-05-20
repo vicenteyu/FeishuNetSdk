@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/probation/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprobation%2fsearch</para>
 /// </summary>
-public record PostCorehrV2ProbationSearchResponseDto
+public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCorehrV2ProbationSearchResponseDto.ProbationInfo>
 {
     /// <summary>
     /// <para>查询的试用期信息</para>

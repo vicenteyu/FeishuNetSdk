@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Vc;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/room/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2froom%2fsearch</para>
 /// </summary>
-public record PostVcV1RoomsSearchResponseDto
+public record PostVcV1RoomsSearchResponseDto : IPageableResponse<PostVcV1RoomsSearchResponseDto.Room>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Room[]? Items => Rooms;
+
     /// <summary>
     /// <para>会议室列表</para>
     /// <para>必填：否</para>

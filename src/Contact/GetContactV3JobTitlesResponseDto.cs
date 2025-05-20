@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/contact-v3/job_title/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fjob_title%2flist</para>
 /// </summary>
-public record GetContactV3JobTitlesResponseDto
+public record GetContactV3JobTitlesResponseDto : IPageableResponse<GetContactV3JobTitlesResponseDto.JobTitle>
 {
     /// <summary>
     /// <para>职务列表。</para>

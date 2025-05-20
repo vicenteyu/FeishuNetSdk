@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/authorization/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fsecurity_group%2flist</para>
 /// </summary>
-public record GetCorehrV1SecurityGroupsResponseDto
+public record GetCorehrV1SecurityGroupsResponseDto : IPageableResponse<GetCorehrV1SecurityGroupsResponseDto.SecurityGroup>
 {
     /// <summary>
     /// <para>查询的用户角色信息</para>

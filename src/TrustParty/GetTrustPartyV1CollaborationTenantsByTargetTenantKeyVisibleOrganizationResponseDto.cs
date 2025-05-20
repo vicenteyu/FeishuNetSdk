@@ -21,8 +21,12 @@ namespace FeishuNetSdk.TrustParty;
 /// <para>文档地址：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/visible_organization</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftrust_party-v1%2fcollaboration_tenant%2fvisible_organization</para>
 /// </summary>
-public record GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationResponseDto
+public record GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationResponseDto : IPageableResponse<GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationResponseDto.CollaborationEntity>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public CollaborationEntity[]? Items => CollaborationEntityLists;
+
     /// <summary>
     /// <para>该部门下可见的部门、用户、用户组列表</para>
     /// <para>必填：否</para>

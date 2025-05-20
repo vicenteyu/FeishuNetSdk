@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Performance;
 /// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/review_template/query-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2findicator%2fquery</para>
 /// </summary>
-public record PostPerformanceV2IndicatorsQueryResponseDto
+public record PostPerformanceV2IndicatorsQueryResponseDto : IPageableResponse<PostPerformanceV2IndicatorsQueryResponseDto.Indicator>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Indicator[]? Items => Indicators;
+
     /// <summary>
     /// <para>评估项列表</para>
     /// <para>必填：否</para>

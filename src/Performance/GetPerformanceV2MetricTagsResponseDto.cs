@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Performance;
 /// <para>文档地址：https://open.feishu.cn/document/performance-v1/review_config/metric_template/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fmetric_tag%2flist</para>
 /// </summary>
-public record GetPerformanceV2MetricTagsResponseDto
+public record GetPerformanceV2MetricTagsResponseDto : IPageableResponse<GetPerformanceV2MetricTagsResponseDto.MetricTag>
 {
     /// <summary>
     /// <para>指标标签列表</para>

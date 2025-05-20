@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/contact-v3/work_city/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fwork_city%2flist</para>
 /// </summary>
-public record GetContactV3WorkCitiesResponseDto
+public record GetContactV3WorkCitiesResponseDto : IPageableResponse<GetContactV3WorkCitiesResponseDto.WorkCity>
 {
     /// <summary>
     /// <para>工作城市列表。</para>

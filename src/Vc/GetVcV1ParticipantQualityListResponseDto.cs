@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Vc;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting-room-data/get-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fparticipant_quality_list%2fget</para>
 /// </summary>
-public record GetVcV1ParticipantQualityListResponseDto
+public record GetVcV1ParticipantQualityListResponseDto : IPageableResponse<GetVcV1ParticipantQualityListResponseDto.ParticipantQuality>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public ParticipantQuality[]? Items => ParticipantQualityLists;
+
     /// <summary>
     /// <para>参会人参会质量列表</para>
     /// <para>必填：否</para>

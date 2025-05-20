@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Admin.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/audit_log/audit_data_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuQjM5YjL0ITO24CNykjN%2faudit_log%2faudit_data_get</para>
 /// </summary>
-public record GetAdminV1AuditInfosResponseDto
+public record GetAdminV1AuditInfosResponseDto : IPageableResponse<GetAdminV1AuditInfosResponseDto.AuditInfo>
 {
     /// <summary>
     /// <para>是否还有更多项</para>

@@ -21,8 +21,12 @@ namespace FeishuNetSdk.TrustParty;
 /// <para>文档地址：https://open.feishu.cn/document/trust_party-v1/-collaboraiton-organization/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftrust_party-v1%2fcollaboration_tenant%2flist</para>
 /// </summary>
-public record GetTrustPartyV1CollaborationTenantsResponseDto
+public record GetTrustPartyV1CollaborationTenantsResponseDto : IPageableResponse<GetTrustPartyV1CollaborationTenantsResponseDto.CollaborationTenant>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public CollaborationTenant[]? Items => TargetTenantLists;
+
     /// <summary>
     /// <para>关联组织列表</para>
     /// <para>必填：否</para>

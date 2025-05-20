@@ -19,7 +19,7 @@ namespace FeishuNetSdk.AppEngine;
 /// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-object-record/batch_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-object-record%2fbatch_query</para>
 /// </summary>
-public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQueryResponseDto
+public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQueryResponseDto : IPageableResponse<object>
 {
     /// <summary>
     /// <para>符合条件的记录列表</para>
@@ -27,7 +27,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBat
     /// <para>示例值：[{}]</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public string Items { get; set; } = string.Empty;
+    public object[]? Items { get; set; }
 
     /// <summary>
     /// <para>符合条件的记录数</para>
@@ -52,4 +52,8 @@ public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBat
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
+
+    /// <inheritdoc/>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get { return NextPageToken; } set { NextPageToken = value; } }
 }

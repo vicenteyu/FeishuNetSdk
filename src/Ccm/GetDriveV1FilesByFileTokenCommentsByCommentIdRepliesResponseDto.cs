@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/CommentAPI/list-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2ffile-comment-reply%2flist</para>
 /// </summary>
-public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
+public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto : IPageableResponse<GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto.FileCommentReply>
 {
     /// <summary>
     /// <para>回复列表</para>
@@ -202,5 +202,5 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 }

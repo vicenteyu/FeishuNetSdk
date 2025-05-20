@@ -23,7 +23,7 @@ namespace FeishuNetSdk.Im;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-moderation%2fget</para>
 /// </summary>
-public record GetImV1ChatsByChatIdModerationResponseDto
+public record GetImV1ChatsByChatIdModerationResponseDto : IPageableResponse<GetImV1ChatsByChatIdModerationResponseDto.ListModerator>
 {
     /// <summary>
     /// <para>群发言模式，可能值有：</para>

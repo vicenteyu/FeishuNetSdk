@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task-collaborator/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask-collaborator%2flist</para>
 /// </summary>
-public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto
+public record GetTaskV1TasksByTaskIdCollaboratorsResponseDto : IPageableResponse<GetTaskV1TasksByTaskIdCollaboratorsResponseDto.Collaborator>
 {
     /// <summary>
     /// <para>返回的执行者ID列表</para>

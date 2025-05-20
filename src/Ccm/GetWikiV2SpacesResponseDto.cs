@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/space/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace%2flist</para>
 /// </summary>
-public record GetWikiV2SpacesResponseDto
+public record GetWikiV2SpacesResponseDto : IPageableResponse<GetWikiV2SpacesResponseDto.Space>
 {
     /// <summary>
     /// <para>数据列表</para>

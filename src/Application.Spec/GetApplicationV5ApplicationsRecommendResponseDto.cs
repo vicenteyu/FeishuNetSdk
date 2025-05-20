@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Application.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/workplace-v1/app_recommend_rule/recommend</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v5%2fapplication%2frecommend</para>
 /// </summary>
-public record GetApplicationV5ApplicationsRecommendResponseDto
+public record GetApplicationV5ApplicationsRecommendResponseDto : IPageableResponse<GetApplicationV5ApplicationsRecommendResponseDto.Application>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Application[]? Items => AppList;
+
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>

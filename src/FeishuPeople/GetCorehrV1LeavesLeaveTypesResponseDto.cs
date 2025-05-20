@@ -19,8 +19,12 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_types</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_types</para>
 /// </summary>
-public record GetCorehrV1LeavesLeaveTypesResponseDto
+public record GetCorehrV1LeavesLeaveTypesResponseDto : IPageableResponse<GetCorehrV1LeavesLeaveTypesResponseDto.LeaveType>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public LeaveType[]? Items => LeaveTypeLists;
+
     /// <summary>
     /// <para>假期类型列表</para>
     /// <para>必填：否</para>

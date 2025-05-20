@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2femployee_type_enum%2flist</para>
 /// </summary>
-public record GetContactV3EmployeeTypeEnumsResponseDto
+public record GetContactV3EmployeeTypeEnumsResponseDto : IPageableResponse<GetContactV3EmployeeTypeEnumsResponseDto.EmployeeTypeEnum>
 {
     /// <summary>
     /// <para>人员类型的选项信息。</para>

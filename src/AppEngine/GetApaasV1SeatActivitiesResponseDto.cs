@@ -19,7 +19,7 @@ namespace FeishuNetSdk.AppEngine;
 /// <para>文档地址：https://open.feishu.cn/document/apaas-v1/seat_activity/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fseat_activity%2flist</para>
 /// </summary>
-public record GetApaasV1SeatActivitiesResponseDto
+public record GetApaasV1SeatActivitiesResponseDto : IPageableResponse<GetApaasV1SeatActivitiesResponseDto.SeatActivity>
 {
     /// <summary>
     /// <para>席位活跃情况列表</para>

@@ -24,7 +24,7 @@ namespace FeishuNetSdk.Im;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message-reaction/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage-reaction%2flist</para>
 /// </summary>
-public record GetImV1MessagesByMessageIdReactionsResponseDto
+public record GetImV1MessagesByMessageIdReactionsResponseDto : IPageableResponse<GetImV1MessagesByMessageIdReactionsResponseDto.MessageReaction>
 {
     /// <summary>
     /// <para>表情回复列表。</para>
@@ -117,7 +117,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
     /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
-    public bool HasMore { get; set; }
+    public bool? HasMore { get; set; }
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
@@ -125,5 +125,5 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto
     /// <para>示例值：YhljsPiGfUgnVAg9urvRFd-BvSqRL****</para>
     /// </summary>
     [JsonPropertyName("page_token")]
-    public string PageToken { get; set; } = string.Empty;
+    public string? PageToken { get; set; }
 }

@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Task;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task-reminder/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask-reminder%2flist</para>
 /// </summary>
-public record GetTaskV1TasksByTaskIdRemindersResponseDto
+public record GetTaskV1TasksByTaskIdRemindersResponseDto : IPageableResponse<GetTaskV1TasksByTaskIdRemindersResponseDto.Reminder>
 {
     /// <summary>
     /// <para>返回提醒时间设置列表</para>

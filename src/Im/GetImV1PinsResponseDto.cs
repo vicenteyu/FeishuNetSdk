@@ -25,7 +25,7 @@ namespace FeishuNetSdk.Im;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/pin/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fpin%2flist</para>
 /// </summary>
-public record GetImV1PinsResponseDto
+public record GetImV1PinsResponseDto : IPageableResponse<GetImV1PinsResponseDto.Pin>
 {
     /// <summary>
     /// <para>Pin 的操作信息</para>

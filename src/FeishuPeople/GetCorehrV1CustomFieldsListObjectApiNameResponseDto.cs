@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcustom_field%2flist_object_api_name</para>
 /// </summary>
-public record GetCorehrV1CustomFieldsListObjectApiNameResponseDto
+public record GetCorehrV1CustomFieldsListObjectApiNameResponseDto : IPageableResponse<GetCorehrV1CustomFieldsListObjectApiNameResponseDto.Object>
 {
     /// <summary>
     /// <para>对象列表</para>

@@ -19,8 +19,12 @@ namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/historic-version/meeting_room-v1/api-reference/obtain-meeting-room-list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuADOyUjLwgjM14CM4ITN</para>
 /// </summary>
-public record GetMeetingRoomRoomListResponseDto
+public record GetMeetingRoomRoomListResponseDto : IPageableResponse<GetMeetingRoomRoomListResponseDto.Room>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Room[]? Items => Rooms;
+
     /// <summary>
     /// <para>分页标记，存在下一页时返回</para>
     /// <para>必填：否</para>

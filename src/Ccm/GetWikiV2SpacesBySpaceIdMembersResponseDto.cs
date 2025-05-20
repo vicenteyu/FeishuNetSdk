@@ -19,8 +19,12 @@ namespace FeishuNetSdk.Ccm;
 /// <para>文档地址：https://open.feishu.cn/document/docs/wiki-v2/space-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fwiki-v2%2fspace-member%2flist</para>
 /// </summary>
-public record GetWikiV2SpacesBySpaceIdMembersResponseDto
+public record GetWikiV2SpacesBySpaceIdMembersResponseDto : IPageableResponse<GetWikiV2SpacesBySpaceIdMembersResponseDto.Member>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public Member[]? Items => Members;
+
     /// <summary>
     /// <para>空间成员列表</para>
     /// <para>必填：否</para>

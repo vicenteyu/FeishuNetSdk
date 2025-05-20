@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Baike;
 /// <para>文档地址：https://open.feishu.cn/document/lingo-v1/classification/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2flingo-v1%2fclassification%2flist</para>
 /// </summary>
-public record GetLingoV1ClassificationsResponseDto
+public record GetLingoV1ClassificationsResponseDto : IPageableResponse<GetLingoV1ClassificationsResponseDto.Classification>
 {
     /// <summary>
     /// <para>分类</para>

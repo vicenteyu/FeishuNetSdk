@@ -19,8 +19,12 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/leave/leave_balances</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fleave%2fleave_balances</para>
 /// </summary>
-public record GetCorehrV1LeavesLeaveBalancesResponseDto
+public record GetCorehrV1LeavesLeaveBalancesResponseDto : IPageableResponse<GetCorehrV1LeavesLeaveBalancesResponseDto.EmploymentLeaveBalance>
 {
+    /// <inheritdoc/>
+    [JsonIgnore]
+    public EmploymentLeaveBalance[]? Items => EmploymentLeaveBalanceLists;
+
     /// <summary>
     /// <para>员工假期余额信息列表</para>
     /// <para>必填：否</para>

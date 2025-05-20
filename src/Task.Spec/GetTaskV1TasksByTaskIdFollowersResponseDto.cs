@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Task.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/task-v1/task-follower/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2ftask-v1%2ftask-follower%2flist</para>
 /// </summary>
-public record GetTaskV1TasksByTaskIdFollowersResponseDto
+public record GetTaskV1TasksByTaskIdFollowersResponseDto : IPageableResponse<GetTaskV1TasksByTaskIdFollowersResponseDto.Follower>
 {
     /// <summary>
     /// <para>返回的关注人ID列表</para>
@@ -44,7 +44,6 @@ public record GetTaskV1TasksByTaskIdFollowersResponseDto
         /// </summary>
         [JsonPropertyName("id_list")]
         public string[]? IdList { get; set; }
-
     }
 
     /// <summary>

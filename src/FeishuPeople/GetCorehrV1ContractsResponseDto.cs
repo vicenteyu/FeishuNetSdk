@@ -19,7 +19,7 @@ namespace FeishuNetSdk.FeishuPeople;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/contract/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fcontract%2flist</para>
 /// </summary>
-public record GetCorehrV1ContractsResponseDto
+public record GetCorehrV1ContractsResponseDto : IPageableResponse<GetCorehrV1ContractsResponseDto.Contract>
 {
     /// <summary>
     /// <para>查询的合同信息</para>
