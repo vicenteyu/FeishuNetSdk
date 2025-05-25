@@ -26,9 +26,9 @@ namespace FeishuNetSdk.Payroll;
 public record PostPayrollV1DatasourceRecordsSaveResponseDto
 {
     /// <summary>
-    /// <para>变更的记录条数。变更包含新建或者更新记录两种操作。</para>
+    /// <para>变更的记录条数，变更包含新建或者更新记录两种操作。（该字段为数字类型）</para>
     /// <para>必填：是</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：120</para>
     /// </summary>
     [JsonPropertyName("affect_counts")]
     public string AffectCounts { get; set; } = string.Empty;

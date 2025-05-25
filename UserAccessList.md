@@ -29,7 +29,7 @@
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
 <tr><td rowspan="2">15</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">16</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
+<tr><td rowspan="2">16</td><td rowspan="2">2025-05-22</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">17</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
@@ -359,7 +359,7 @@
 <tr><td colspan="3">GetMeetingRoomFreebusyBatchGet</td></tr>
 <tr><td rowspan="2">180</td><td rowspan="2">2025-02-19</td><td>&#10003;</td><td>消息与群组</td><td>获取群信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatId</td></tr>
-<tr><td rowspan="2">181</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
+<tr><td rowspan="2">181</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>日历</td><td>添加日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendees</td></tr>
 <tr><td rowspan="2">182</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>删除日程参与人</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDelete</td></tr>
@@ -1129,11 +1129,11 @@
 <tr><td colspan="3">PostPayrollV1PaymentDetailQuery</td></tr>
 <tr><td rowspan="2">565</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>封存发薪活动</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentActivitysArchive</td></tr>
-<tr><td rowspan="2">566</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>创建 / 更新外部算薪数据</td></tr>
+<tr><td rowspan="2">566</td><td rowspan="2">2025-05-21</td><td>&#10003;</td><td>Payroll</td><td>创建 / 更新外部算薪数据</td></tr>
 <tr><td colspan="3">PostPayrollV1DatasourceRecordsSave</td></tr>
-<tr><td rowspan="2">567</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>批量查询外部算薪数据记录</td></tr>
+<tr><td rowspan="2">567</td><td rowspan="2">2025-05-21</td><td>&#10003;</td><td>Payroll</td><td>批量查询外部算薪数据记录</td></tr>
 <tr><td colspan="3">PostPayrollV1DatasourceRecordsQuery</td></tr>
-<tr><td rowspan="2">568</td><td rowspan="2">2025-03-18</td><td>&#10003;</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
+<tr><td rowspan="2">568</td><td rowspan="2">2025-05-21</td><td>&#10003;</td><td>Payroll</td><td>获取外部数据源配置信息</td></tr>
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
 <tr><td rowspan="2">569</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
@@ -1181,7 +1181,7 @@
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">591</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBaseV2AppsByAppTokenRolesByRoleId</td></tr>
-<tr><td rowspan="2">592</td><td rowspan="2">2025-04-30</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
+<tr><td rowspan="2">592</td><td rowspan="2">2025-05-20</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
 <tr><td rowspan="2">593</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>查询可搜可见规则</td></tr>
 <tr><td colspan="3">GetDirectoryV1CollaborationRules</td></tr>
@@ -1205,12 +1205,46 @@
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
 <tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
 <tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
-<tr><td rowspan="2">604</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>创建数据知识</td></tr>
+<tr><td rowspan="2">604</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建数据知识</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">605</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>删除数据知识</td></tr>
+<tr><td rowspan="2">605</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>删除数据知识</td></tr>
 <tr><td colspan="3">DeleteAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">606</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>获取数据知识</td></tr>
+<tr><td rowspan="2">606</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取数据知识</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">607</td><td rowspan="2">2025-05-14</td><td>新增</td><td>智能伙伴创建平台</td><td>上传文件用于数据知识管理</td></tr>
+<tr><td rowspan="2">607</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>上传文件用于数据知识管理</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssetsUploadFile</td></tr>
+<tr><td rowspan="2">608</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>删除部门</td></tr>
+<tr><td colspan="3">DeleteDirectoryV1DepartmentsByDepartmentId</td></tr>
+<tr><td rowspan="2">609</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>批量获取员工信息</td></tr>
+<tr><td colspan="3">PostDirectoryV1EmployeesMget</td></tr>
+<tr><td rowspan="2">610</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>创建部门</td></tr>
+<tr><td colspan="3">PostDirectoryV1Departments</td></tr>
+<tr><td rowspan="2">611</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>更新部门</td></tr>
+<tr><td colspan="3">PatchDirectoryV1DepartmentsByDepartmentId</td></tr>
+<tr><td rowspan="2">612</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>搜索部门</td></tr>
+<tr><td colspan="3">PostDirectoryV1DepartmentsSearch</td></tr>
+<tr><td rowspan="2">613</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>离职员工</td></tr>
+<tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
+<tr><td rowspan="2">614</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>搜索员工</td></tr>
+<tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
+<tr><td rowspan="2">615</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>创建员工</td></tr>
+<tr><td colspan="3">PostDirectoryV1Employees</td></tr>
+<tr><td rowspan="2">616</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>更新员工</td></tr>
+<tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeId</td></tr>
+<tr><td rowspan="2">617</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>批量获取员工列表</td></tr>
+<tr><td colspan="3">PostDirectoryV1EmployeesFilter</td></tr>
+<tr><td rowspan="2">618</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>批量获取部门列表</td></tr>
+<tr><td colspan="3">PostDirectoryV1DepartmentsFilter</td></tr>
+<tr><td rowspan="2">619</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>恢复离职员工</td></tr>
+<tr><td colspan="3">PostDirectoryV1EmployeesByEmployeeIdResurrect</td></tr>
+<tr><td rowspan="2">620</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>批量获取部门信息</td></tr>
+<tr><td colspan="3">PostDirectoryV1DepartmentsMget</td></tr>
+<tr><td rowspan="2">621</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>更新待离职成员为在职</td></tr>
+<tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdRegular</td></tr>
+<tr><td rowspan="2">622</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>更新在职员工为待离职</td></tr>
+<tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdToBeResigned</td></tr>
+<tr><td rowspan="2">623</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>转换员工 ID</td></tr>
+<tr><td colspan="3">PostDirectoryV1EmployeesIdconvert</td></tr>
+<tr><td rowspan="2">624</td><td rowspan="2">2025-05-23</td><td>新增</td><td>组织架构</td><td>转换部门 ID</td></tr>
+<tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
 </tbody></table>

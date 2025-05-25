@@ -63,24 +63,28 @@ public record PostPayrollV1DatasourceRecordsSaveBodyDto
         public int ActiveStatus { get; set; }
 
         /// <summary>
-        /// <para>记录的字段值列表。</para>
-        /// <para>1. 每条记录必需传入系统预置字段“payroll_period”、“employment_id”。</para>
-        /// <para>2. 其他自定义字段按照诉求传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合下面类型对应的约束。</para>
-        /// <para>3. 关于“payroll_period”，“employment_id”两个预置字段值的说明：</para>
-        /// <para>- payroll_period。代表算薪期间，精确到月，格式为“yyyy-mm” eg: "2024-01"</para>
-        /// <para>- employment_id。该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+        /// <para>需创建或者更新记录的具体字段值列表：</para>
+        /// <para>- 必传字段：</para>
+        /// <para>根据记录的数据源的数据写入维度属性，有不同的必传字段：</para>
+        /// <para>1. 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。</para>
+        /// <para>2. 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。</para>
+        /// <para>3. 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。</para>
+        /// <para>employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+        /// <para>- 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("field_values")]
         public DatasourceRecordField[] FieldValues { get; set; } = Array.Empty<DatasourceRecordField>();
 
         /// <summary>
-        /// <para>记录的字段值列表。</para>
-        /// <para>1. 每条记录必需传入系统预置字段“payroll_period”、“employment_id”。</para>
-        /// <para>2. 其他自定义字段按照诉求传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合下面类型对应的约束。</para>
-        /// <para>3. 关于“payroll_period”，“employment_id”两个预置字段值的说明：</para>
-        /// <para>- payroll_period。代表算薪期间，精确到月，格式为“yyyy-mm” eg: "2024-01"</para>
-        /// <para>- employment_id。该id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+        /// <para>需创建或者更新记录的具体字段值列表：</para>
+        /// <para>- 必传字段：</para>
+        /// <para>根据记录的数据源的数据写入维度属性，有不同的必传字段：</para>
+        /// <para>1. 算薪期间维度。“payroll_period”、“employment_id”字段必传，payroll_period格式：“2024-01”。</para>
+        /// <para>2. 数据发生日期维度（灰度中）。“occur_day”、“employment_id”字段必传。occur_day格式：“2024-01-02”。</para>
+        /// <para>3. 自定义数据周期维度（灰度中）。“custom_start”、“custom_end”、“employment_id”字段必传。custom_start、custom_end格式：“2024-01-02”。</para>
+        /// <para>employment_id为飞书人事中员工的基本信息id，可通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)获取</para>
+        /// <para>- 其他自定字段按照诉求可选传入，需保证写入的字段在配置中存在且启用。字段code不得重复传入，且字段的值需符合类型对应的约束。</para>
         /// </summary>
         public record DatasourceRecordField
         {

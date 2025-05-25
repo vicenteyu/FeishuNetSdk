@@ -58,7 +58,7 @@ public record PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto
         /// <para>**可选值有**：</para>
         /// <para>- true：是</para>
         /// <para>- false：否</para>
-        /// <para>**注意**：无法编辑群参与人的此字段。</para>
+        /// <para>**注意**：无法编辑会议室类型参与人的此字段。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// <para>默认值：false</para>

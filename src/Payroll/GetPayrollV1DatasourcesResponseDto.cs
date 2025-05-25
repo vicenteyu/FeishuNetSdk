@@ -4,7 +4,7 @@
 // Created          : 2025-03-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-21
+// Last Modified On : 2025-05-25
 // ************************************************************************
 // <copyright file="GetPayrollV1DatasourcesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -232,5 +232,20 @@ public record GetPayrollV1DatasourcesResponseDto : IPageableResponse<GetPayrollV
         /// </summary>
         [JsonPropertyName("i18n_description")]
         public I18nContent[]? I18nDescriptions { get; set; }
+
+        /// <summary>
+        /// <para>数据写入维度</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：算薪期间</item>
+        /// <item>2：数据发生日期。功能灰度中，如需创建该维度数据源配置，请申请灰度。</item>
+        /// <item>3：自定义数据周期。功能灰度中，如需创建该维度数据源配置，请申请灰度。</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("data_period_type")]
+        public int? DataPeriodType { get; set; }
     }
 }

@@ -96,7 +96,7 @@ public record GetImV1MessagesByMessageIdResponseDto
 
         /// <summary>
         /// <para>消息是否被撤回或删除。</para>
-        /// <para>- true：是</para>
+        /// <para>- true：是，如果是被撤回的消息，content 参数没有返回值。</para>
         /// <para>- false：否</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>

@@ -348,7 +348,7 @@ var _table_id = "tbldE95HxxxxxxxxxxEVLCQ";
 Func<string?, Task<FeishuResponse<GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>>> apicall = (page_token)
     => tenantApi.GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(_app_token, _table_id, page_size: 10, page_token: page_token);
 
-// 执行自动化分页汇总扩展方法。此示例中返回的数据类型`T`为：Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList
+// 执行自动化分页汇总扩展方法。此示例中返回的数据类型`T`为：`Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList`
 var all_records = await apicall.GetAllPagesAsync<
     Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.AppTableFieldForList, 
     Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>();

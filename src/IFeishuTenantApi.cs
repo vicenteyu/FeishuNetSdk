@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-16
+// Last Modified On : 2025-05-25
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -42640,6 +42640,181 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2PreHiresByPreHireIdTransitTaskBodyDto dto);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】启用/停用自定义组织</para>
+    /// <para>接口ID：7358017162446471172</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/active</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对自定义组织进行启用或停用操作</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/custom_orgs/active")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2CustomOrgsActiveAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgsActiveBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除自定义组织</para>
+    /// <para>接口ID：7358017162446487556</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/delete_org</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据传入的自定义组织 ID 删除相应自定义组织</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/custom_orgs/delete_org")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2CustomOrgsDeleteOrgAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgsDeleteOrgBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建自定义组织</para>
+    /// <para>接口ID：7358017162446503940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用指定信息创建自定义组织，接口内会做相关规则校验。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/custom_orgs")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CustomOrgsResponseDto>> PostCorehrV2CustomOrgsAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgsBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询自定义组织信息</para>
+    /// <para>接口ID：7358017162446520324</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据传入的筛选条件批量查询自定义组织信息。不传任何筛选条件，默认获得该租户下所有的自定义组织数据。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:read</item>
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/custom_orgs/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CustomOrgsQueryResponseDto>> PostCorehrV2CustomOrgsQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgsQueryBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新自定义组织信息</para>
+    /// <para>接口ID：7358017162446536708</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新一个自定义组织基础信息，不支持更新自动匹配规则，如需更新自动匹配规则请使用[更新匹配规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/update_rule)</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="org_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>自定义组织 ID</para>
+    /// <para>- 可从 [批量查询自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/query)的 org_id 字段中获取。</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据 client_token 是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/custom_orgs/{org_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2CustomOrgsByOrgIdAsync(
+        [PathQuery] string org_id,
+        [JsonContent] Corehr.PatchCorehrV2CustomOrgsByOrgIdBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新自定义组织的匹配规则</para>
+    /// <para>接口ID：7358017162446553092</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/update_rule</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新自定义组织的匹配规则。仅开启了「为组织设置自动匹配规则」的自定义组织类型可用。如需更新自定义组织基本信息可使用[更新自定义组织](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/custom_org/patch)</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/custom_orgs/update_rule")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2CustomOrgsUpdateRuleAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgsUpdateRuleBodyDto dto);
+
+    /// <summary>
     /// <para>【智能伙伴创建平台】获取智能伙伴消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/get</para>
@@ -42971,6 +43146,879 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/im/v2/url_previews/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PostImV2UrlPreviewsBatchUpdateAsync(
         [JsonContent] Im.PostImV2UrlPreviewsBatchUpdateBodyDto dto);
+
+    /// <summary>
+    /// <para>【主数据】根据主数据编码批量查询国家/地区</para>
+    /// <para>接口ID：7359131293821452290</para>
+    /// <para>接口文档：https://open.feishu.cn/document/mdm-v1/mdm-v3/country_region/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过mdmcode批量查询国家/地区信息。资源介绍请参考[概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/country_region/resource-definition)。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mdm:country_region:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="fields">
+    /// <para>必填：是</para>
+    /// <para>需要的查询字段集</para>
+    /// </param>
+    /// <param name="ids">
+    /// <para>必填：是</para>
+    /// <para>主数据编码集</para>
+    /// </param>
+    /// <param name="languages">
+    /// <para>必填：是</para>
+    /// <para>希望返回的语言种类，支持格式如下：</para>
+    /// <para>- 中文：zh-CN</para>
+    /// <para>- 英文：en-US</para>
+    /// <para>- 日文：ja-JP</para>
+    /// <para>对于多语文本字段，传入特定语言，将会返回对应语言文本</para>
+    /// </param>
+    [HttpGet("/open-apis/mdm/v3/batch_country_region")]
+    System.Threading.Tasks.Task<FeishuResponse<Mdm.GetMdmV3BatchCountryRegionResponseDto>> GetMdmV3BatchCountryRegionAsync(
+        [PathQuery] string[] fields,
+        [PathQuery] string[] ids,
+        [PathQuery] string[] languages);
+
+    /// <summary>
+    /// <para>【主数据】分页批量查询国家/地区</para>
+    /// <para>接口ID：7359131293821468674</para>
+    /// <para>接口文档：https://open.feishu.cn/document/mdm-v1/mdm-v3/country_region/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>分页批量查询国家/地区。资源介绍请参考[概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/country_region/resource-definition)。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mdm:country_region:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="languages">
+    /// <para>必填：是</para>
+    /// <para>希望返回的语言种类，支持格式如下：</para>
+    /// <para>- 中文：zh-CN</para>
+    /// <para>- 英文：en-US</para>
+    /// <para>- 日文：ja-JP</para>
+    /// <para>对于多语文本字段，传入特定语言，将会返回对应语言文本</para>
+    /// </param>
+    /// <param name="fields">
+    /// <para>必填：是</para>
+    /// <para>需要的查询字段集</para>
+    /// </param>
+    /// <param name="limit">
+    /// <para>必填：否</para>
+    /// <para>查询页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="offset">
+    /// <para>必填：否</para>
+    /// <para>查询起始位置</para>
+    /// <para>示例值：0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="return_count">
+    /// <para>必填：否</para>
+    /// <para>是否返回总数</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpGet("/open-apis/mdm/v3/country_regions")]
+    System.Threading.Tasks.Task<FeishuResponse<Mdm.GetMdmV3CountryRegionsResponseDto>> GetMdmV3CountryRegionsAsync(
+        [PathQuery] string[] languages,
+        [PathQuery] string[] fields,
+        [JsonContent] Mdm.GetMdmV3CountryRegionsBodyDto dto,
+        [PathQuery] int? limit = null,
+        [PathQuery] int? offset = null,
+        [PathQuery] bool? return_count = null,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
+    /// <para>【组织架构】删除部门</para>
+    /// <para>接口ID：7359428154233487364</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于删除部门。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:write</item>
+    /// <item>directory:department.delete:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>部门ID</para>
+    /// <para>示例值：weasdqwe</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    [HttpDelete("/open-apis/directory/v1/departments/{department_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1DepartmentsByDepartmentIdAsync(
+        [PathQuery] string department_id,
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】批量获取员工信息</para>
+    /// <para>接口ID：7359428154233520132</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/mget</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于批量根据员工的ID查询员工的详情。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.active_status:read</item>
+    /// <item>directory:employee.base.avatar:read</item>
+    /// <item>directory:employee.base.background_image:read</item>
+    /// <item>directory:employee.base.base:read</item>
+    /// <item>directory:employee.base.custom_field:read</item>
+    /// <item>directory:employee.base.data_source:read</item>
+    /// <item>directory:employee.base.department_path:read</item>
+    /// <item>directory:employee.base.department:read</item>
+    /// <item>directory:employee.base.dept_order:read</item>
+    /// <item>directory:employee.base.description:read</item>
+    /// <item>directory:employee.base.dotted_line_leaders:read</item>
+    /// <item>directory:employee.base.email:read</item>
+    /// <item>directory:employee.base.enterprise_email_alias:read</item>
+    /// <item>directory:employee.base.enterprise_email:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
+    /// <item>directory:employee.base.gender:read</item>
+    /// <item>directory:employee.base.geo:read</item>
+    /// <item>directory:employee.base.is_admin:read</item>
+    /// <item>directory:employee.base.is_primary_admin:read</item>
+    /// <item>directory:employee.base.is_resigned:read</item>
+    /// <item>directory:employee.base.leader_id:read</item>
+    /// <item>directory:employee.base.leader:read</item>
+    /// <item>directory:employee.base.mobile:read</item>
+    /// <item>directory:employee.base.name.another_name:read</item>
+    /// <item>directory:employee.base.name.name:read</item>
+    /// <item>directory:employee.base.resign_time:read</item>
+    /// <item>directory:employee.base.role:read</item>
+    /// <item>directory:employee.base.status:read</item>
+    /// <item>directory:employee.base.subscription_ids:read</item>
+    /// <item>directory:employee.work.base_work:read</item>
+    /// <item>directory:employee.work.employment_type:read</item>
+    /// <item>directory:employee.work.employment:read</item>
+    /// <item>directory:employee.work.extension_number:read</item>
+    /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_number:read</item>
+    /// <item>directory:employee.work.job_title:read</item>
+    /// <item>directory:employee.work.join_date:read</item>
+    /// <item>directory:employee.work.resign_date:read</item>
+    /// <item>directory:employee.work.resign_reason:read</item>
+    /// <item>directory:employee.work.resign_remark:read</item>
+    /// <item>directory:employee.work.resign_type:read</item>
+    /// <item>directory:employee.work.staff_status:read</item>
+    /// <item>directory:employee.work.work_country_or_region:read</item>
+    /// <item>directory:employee.work.work_place:read</item>
+    /// <item>directory:employee.work.work_station:read</item>
+    /// <item>directory:job_family.base:read</item>
+    /// <item>directory:job_family.path:read</item>
+    /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_title.base:read</item>
+    /// <item>directory:job_title.status:read</item>
+    /// <item>directory:place.base:read</item>
+    /// <item>directory:place.status:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees/mget")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesMgetResponseDto>> PostDirectoryV1EmployeesMgetAsync(
+        [JsonContent] Directory.PostDirectoryV1EmployeesMgetBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】创建部门</para>
+    /// <para>接口ID：7359428154233536516</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于在企业下创建部门</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:write</item>
+    /// <item>directory:department.create:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/departments")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsResponseDto>> PostDirectoryV1DepartmentsAsync(
+        [JsonContent] Directory.PostDirectoryV1DepartmentsBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】更新部门</para>
+    /// <para>接口ID：7359428154233552900</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于更新部门信息。仅更新显式传参的部分。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:write</item>
+    /// <item>directory:department.update:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>部门ID</para>
+    /// <para>示例值：h12921</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/directory/v1/departments/{department_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1DepartmentsByDepartmentIdAsync(
+        [PathQuery] string department_id,
+        [JsonContent] Directory.PatchDirectoryV1DepartmentsByDepartmentIdBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】搜索部门</para>
+    /// <para>接口ID：7359428154233569284</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于搜索部门信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:search</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/departments/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsSearchResponseDto>> PostDirectoryV1DepartmentsSearchAsync(
+        [JsonContent] Directory.PostDirectoryV1DepartmentsSearchBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】离职员工</para>
+    /// <para>接口ID：7359428154233602052</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于离职员工。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:write</item>
+    /// <item>directory:employee.resign:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>要离职的员工的ID。需要与查询参数中的employee_id_type类型保持一致</para>
+    /// <para>示例值：eesdasjd</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpDelete("/open-apis/directory/v1/employees/{employee_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1EmployeesByEmployeeIdAsync(
+        [PathQuery] string employee_id,
+        [JsonContent] Directory.DeleteDirectoryV1EmployeesByEmployeeIdBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【组织架构】搜索员工</para>
+    /// <para>接口ID：7359428154233618436</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于搜索员工信息。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:search</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.active_status:read</item>
+    /// <item>directory:employee.base.avatar:read</item>
+    /// <item>directory:employee.base.background_image:read</item>
+    /// <item>directory:employee.base.base:read</item>
+    /// <item>directory:employee.base.custom_field:read</item>
+    /// <item>directory:employee.base.data_source:read</item>
+    /// <item>directory:employee.base.department_path:read</item>
+    /// <item>directory:employee.base.department:read</item>
+    /// <item>directory:employee.base.dept_order:read</item>
+    /// <item>directory:employee.base.description:read</item>
+    /// <item>directory:employee.base.dotted_line_leaders:read</item>
+    /// <item>directory:employee.base.email:read</item>
+    /// <item>directory:employee.base.enterprise_email_alias:read</item>
+    /// <item>directory:employee.base.enterprise_email:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
+    /// <item>directory:employee.base.gender:read</item>
+    /// <item>directory:employee.base.geo:read</item>
+    /// <item>directory:employee.base.is_admin:read</item>
+    /// <item>directory:employee.base.is_primary_admin:read</item>
+    /// <item>directory:employee.base.is_resigned:read</item>
+    /// <item>directory:employee.base.leader_id:read</item>
+    /// <item>directory:employee.base.leader:read</item>
+    /// <item>directory:employee.base.mobile:read</item>
+    /// <item>directory:employee.base.name.another_name:read</item>
+    /// <item>directory:employee.base.name.name:read</item>
+    /// <item>directory:employee.base.resign_time:read</item>
+    /// <item>directory:employee.base.role:read</item>
+    /// <item>directory:employee.base.status:read</item>
+    /// <item>directory:employee.base.subscription_ids:read</item>
+    /// <item>directory:employee.work.base_work:read</item>
+    /// <item>directory:employee.work.employment_type:read</item>
+    /// <item>directory:employee.work.employment:read</item>
+    /// <item>directory:employee.work.extension_number:read</item>
+    /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_number:read</item>
+    /// <item>directory:employee.work.job_title:read</item>
+    /// <item>directory:employee.work.join_date:read</item>
+    /// <item>directory:employee.work.resign_date:read</item>
+    /// <item>directory:employee.work.resign_reason:read</item>
+    /// <item>directory:employee.work.resign_remark:read</item>
+    /// <item>directory:employee.work.resign_type:read</item>
+    /// <item>directory:employee.work.staff_status:read</item>
+    /// <item>directory:employee.work.work_country_or_region:read</item>
+    /// <item>directory:employee.work.work_place:read</item>
+    /// <item>directory:employee.work.work_station:read</item>
+    /// <item>directory:job_family.base:read</item>
+    /// <item>directory:job_family.path:read</item>
+    /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_title.base:read</item>
+    /// <item>directory:job_title.status:read</item>
+    /// <item>directory:place.base:read</item>
+    /// <item>directory:place.status:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 不相同。</item>
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesSearchResponseDto>> PostDirectoryV1EmployeesSearchAsync(
+        [JsonContent] Directory.PostDirectoryV1EmployeesSearchBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】创建员工</para>
+    /// <para>接口ID：7359428154233651204</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于在企业下创建员工，可以理解为员工入职。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:write</item>
+    /// <item>directory:employee.create:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesResponseDto>> PostDirectoryV1EmployeesAsync(
+        [JsonContent] Directory.PostDirectoryV1EmployeesBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】更新员工</para>
+    /// <para>接口ID：7359428154233667588</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于更新在职/离职员工的信息、冻结/恢复员工。未传递的参数不会进行更新。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:write</item>
+    /// <item>directory:employee.update:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>员工ID</para>
+    /// <para>示例值：eehsdna</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门ID类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：department_id</item>
+    /// <item>open_department_id：open_department_id</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/directory/v1/employees/{employee_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdAsync(
+        [PathQuery] string employee_id,
+        [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】批量获取员工列表</para>
+    /// <para>接口ID：7359428154233683972</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/filter</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于依据指定条件，批量获取符合条件的员工详情列表。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:list</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.active_status:read</item>
+    /// <item>directory:employee.base.avatar:read</item>
+    /// <item>directory:employee.base.background_image:read</item>
+    /// <item>directory:employee.base.base:read</item>
+    /// <item>directory:employee.base.custom_field:read</item>
+    /// <item>directory:employee.base.data_source:read</item>
+    /// <item>directory:employee.base.department_path:read</item>
+    /// <item>directory:employee.base.department:read</item>
+    /// <item>directory:employee.base.dept_order:read</item>
+    /// <item>directory:employee.base.description:read</item>
+    /// <item>directory:employee.base.dotted_line_leaders:read</item>
+    /// <item>directory:employee.base.email:read</item>
+    /// <item>directory:employee.base.enterprise_email_alias:read</item>
+    /// <item>directory:employee.base.enterprise_email:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
+    /// <item>directory:employee.base.gender:read</item>
+    /// <item>directory:employee.base.geo:read</item>
+    /// <item>directory:employee.base.is_admin:read</item>
+    /// <item>directory:employee.base.is_primary_admin:read</item>
+    /// <item>directory:employee.base.is_resigned:read</item>
+    /// <item>directory:employee.base.leader_id:read</item>
+    /// <item>directory:employee.base.leader:read</item>
+    /// <item>directory:employee.base.mobile:read</item>
+    /// <item>directory:employee.base.name.another_name:read</item>
+    /// <item>directory:employee.base.name.name:read</item>
+    /// <item>directory:employee.base.resign_time:read</item>
+    /// <item>directory:employee.base.role:read</item>
+    /// <item>directory:employee.base.status:read</item>
+    /// <item>directory:employee.base.subscription_ids:read</item>
+    /// <item>directory:employee.work.base_work:read</item>
+    /// <item>directory:employee.work.employment_type:read</item>
+    /// <item>directory:employee.work.employment:read</item>
+    /// <item>directory:employee.work.extension_number:read</item>
+    /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_number:read</item>
+    /// <item>directory:employee.work.job_title:read</item>
+    /// <item>directory:employee.work.join_date:read</item>
+    /// <item>directory:employee.work.resign_date:read</item>
+    /// <item>directory:employee.work.resign_reason:read</item>
+    /// <item>directory:employee.work.resign_remark:read</item>
+    /// <item>directory:employee.work.resign_type:read</item>
+    /// <item>directory:employee.work.staff_status:read</item>
+    /// <item>directory:employee.work.work_country_or_region:read</item>
+    /// <item>directory:employee.work.work_place:read</item>
+    /// <item>directory:employee.work.work_station:read</item>
+    /// <item>directory:job_family.base:read</item>
+    /// <item>directory:job_family.path:read</item>
+    /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_title.base:read</item>
+    /// <item>directory:job_title.status:read</item>
+    /// <item>directory:place.base:read</item>
+    /// <item>directory:place.status:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees/filter")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesFilterResponseDto>> PostDirectoryV1EmployeesFilterAsync(
+        [JsonContent] Directory.PostDirectoryV1EmployeesFilterBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】批量获取部门列表</para>
+    /// <para>接口ID：7359428154233700356</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/filter</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于依据指定条件，批量获取符合条件的部门详情列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:list</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/departments/filter")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsFilterResponseDto>> PostDirectoryV1DepartmentsFilterAsync(
+        [JsonContent] Directory.PostDirectoryV1DepartmentsFilterBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】恢复离职员工</para>
+    /// <para>接口ID：7359428234122821636</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/resurrect</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于恢复已离职的成员。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee:write</item>
+    /// <item>directory:employee.resurrect:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>员工ID</para>
+    /// <para>示例值：eedasdas</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门ID类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：department_id</item>
+    /// <item>open_department_id：open_department_id</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees/{employee_id}/resurrect")]
+    System.Threading.Tasks.Task<FeishuResponse> PostDirectoryV1EmployeesByEmployeeIdResurrectAsync(
+        [PathQuery] string employee_id,
+        [JsonContent] Directory.PostDirectoryV1EmployeesByEmployeeIdResurrectBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】批量获取部门信息</para>
+    /// <para>接口ID：7359428234122854404</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/mget</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于批量根据部门的ID查询部门的详情。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.base:read</item>
+    /// <item>directory:department.count:read</item>
+    /// <item>directory:department.custom_field:read</item>
+    /// <item>directory:department.data_source:read</item>
+    /// <item>directory:department.department_path:read</item>
+    /// <item>directory:department.external_id:read</item>
+    /// <item>directory:department.has_child:read</item>
+    /// <item>directory:department.leader:read</item>
+    /// <item>directory:department.name:read</item>
+    /// <item>directory:department.order_weight:read</item>
+    /// <item>directory:department.organization:read</item>
+    /// <item>directory:department.parent_id:read</item>
+    /// <item>directory:department.status:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <para>示例值：user_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门ID的类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/departments/mget")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsMgetResponseDto>> PostDirectoryV1DepartmentsMgetAsync(
+        [JsonContent] Directory.PostDirectoryV1DepartmentsMgetBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
     /// <para>【招聘】删除外部内推奖励</para>
@@ -45122,6 +46170,102 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
+    /// <para>【组织架构】更新待离职成员为在职</para>
+    /// <para>接口ID：7390661486131691522</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/regular</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于为待离职员工取消离职，将其更新为「在职」状态。取消离职时会清空离职信息。</para>
+    /// <para>使用user_access_token时默认为管理员用户，仅可操作「人事管理模式」的管理员可操作。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee.to_be_resigned:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>雇员ID</para>
+    /// <para>示例值：d2e1jas</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门ID类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    [HttpPatch("/open-apis/directory/v1/employees/{employee_id}/regular")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdRegularAsync(
+        [PathQuery] string employee_id,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【组织架构】更新在职员工为待离职</para>
+    /// <para>接口ID：7390661486131707906</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/to_be_resigned</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于为在职员工办理离职，将其更新为「待离职」状态。「待离职」员工不会自动离职，需要使用「离职员工」API操作离职和资源转交。</para>
+    /// <para>使用user_access_token时默认为管理员用户，仅可操作「人事管理模式」的管理员可操作。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee.to_be_resigned:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>员工ID</para>
+    /// <para>示例值：cad2cafa</para>
+    /// </param>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门ID类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：用来标识租户内一个唯一的部门</item>
+    /// <item>open_department_id：用来在具体某个应用中标识一个部门，同一个部门 在不同应用中的 open_department_id 相同。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/directory/v1/employees/{employee_id}/to_be_resigned")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdToBeResignedAsync(
+        [PathQuery] string employee_id,
+        [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdToBeResignedBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
     /// <para>【卡片】新增组件</para>
     /// <para>接口ID：7397253002364551171</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/create</para>
@@ -45273,7 +46417,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364649475</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/content</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。</para>
+    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。参考[流式更新 OpenAPI 调用指南](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/streaming-updates-openapi-overview)，了解流式更新文本的完整流程。</para>
     /// <para>## 输出效果说明</para>
     /// <para>若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。</para>
     /// <para>## 使用限制</para>
@@ -46812,6 +47956,65 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/talents/remove_to_folder")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1TalentsRemoveToFolderResponseDto>> PostHireV1TalentsRemoveToFolderAsync(
         [JsonContent] Hire.PostHireV1TalentsRemoveToFolderBodyDto dto);
+
+    /// <summary>
+    /// <para>【组织架构】转换员工 ID</para>
+    /// <para>接口ID：7419214646853107716</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/idconvert</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>转换员工 ID</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:employee.idconvert:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:employee.base.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="employee_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/employees/idconvert")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesIdconvertResponseDto>> PostDirectoryV1EmployeesIdconvertAsync(
+        [JsonContent] Directory.PostDirectoryV1EmployeesIdconvertBodyDto dto,
+        [PathQuery] string? employee_id_type = "open_id");
+
+    /// <summary>
+    /// <para>【组织架构】转换部门 ID</para>
+    /// <para>接口ID：7419214646853206020</para>
+    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/idconvert</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>转换部门 ID</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>directory:department.idconvert:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>directory:department.external_id:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门ID类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：department_id</item>
+    /// <item>open_department_id：open_department_id</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/directory/v1/departments/idconvert")]
+    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsIdconvertResponseDto>> PostDirectoryV1DepartmentsIdconvertAsync(
+        [JsonContent] Directory.PostDirectoryV1DepartmentsIdconvertBodyDto dto,
+        [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
     /// <para>【帐号】退出登录</para>
@@ -49567,6 +50770,52 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v2/enums/search")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EnumsSearchResponseDto>> PostCorehrV2EnumsSearchAsync(
         [JsonContent] Corehr.PostCorehrV2EnumsSearchBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询当前生效信息变更的自定义组织</para>
+    /// <para>接口ID：7458122701110624275</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内当前生效信息发生变更的自定义组织，即只有部门当前生效版本的生效时间在查询时间范围内，才返回该自定义组织id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:custom_org:read</item>
+    /// <item>corehr:custom_org:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>必填：是</para>
+    /// <para>组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看</para>
+    /// <para>示例值：custom_org_01</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/custom_orgs/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2CustomOrgsQueryRecentChangeResponseDto>> GetCorehrV2CustomOrgsQueryRecentChangeAsync(
+        [PathQuery] string object_api_name,
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
 
     /// <summary>
     /// <para>【多维表格】列出自定义角色</para>

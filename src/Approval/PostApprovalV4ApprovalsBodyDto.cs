@@ -127,6 +127,7 @@ public record PostApprovalV4ApprovalsBodyDto
 
     /// <summary>
     /// <para>审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list 最后一个元素。</para>
+    /// <para>**说明**：API 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("node_list")]
@@ -134,6 +135,7 @@ public record PostApprovalV4ApprovalsBodyDto
 
     /// <summary>
     /// <para>审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list 最后一个元素。</para>
+    /// <para>**说明**：API 方式不支持设置条件分支，如需设置条件分支请前往[飞书审批后台](https://www.feishu.cn/approval/admin/approvalList?devMode=on)创建审批定义。</para>
     /// </summary>
     public record ApprovalNode
     {

@@ -4,7 +4,7 @@
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2025-05-25
 // ************************************************************************
 // <copyright file="ApprovalInstanceTripGroupUpdateV4EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,6 +33,13 @@ public record ApprovalInstanceTripGroupUpdateV4EventBodyDto() : EventBodyDto("ap
     /// </summary>
     public record ObjectSuffix
     {
+        /// <summary>
+        /// <para>审批实例 Code。可调用[获取单个审批实例详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/get)接口，根据 Code 查询实例详情。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("instance_code")]
+        public string? InstanceCode { get; set; }
+
         /// <summary>
         /// <para>审批开始时间，秒级时间戳。</para>
         /// <para>必填：否</para>

@@ -121,9 +121,9 @@ public record GetCorehrV1CompensationStandardsMatchResponseDto
                 /// <para>必填：否</para>
                 /// <para>示例值：standard_value</para>
                 /// <para>可选值：<list type="bullet">
-                /// <item>standard_value：standard_value</item>
-                /// <item>bandwidth_and_standard_value：bandwidth_and_standard_value</item>
-                /// <item>bandwidth_upper_and_lower_limit：bandwidth_upper_and_lower_limit</item>
+                /// <item>standard_value：标准值</item>
+                /// <item>bandwidth_and_standard_value：上下限和标准值</item>
+                /// <item>bandwidth_upper_and_lower_limit：上下限</item>
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("api_name")]
