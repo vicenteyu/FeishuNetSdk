@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="GetMeetingRoomFreebusyBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,10 @@
 namespace FeishuNetSdk.MeetingRoom.Spec;
 /// <summary>
 /// 查询会议室忙闲 响应体
-/// <para>该接口用于获取指定会议室的忙闲日程实例列表。非重复日程只有唯一实例；重复日程可能存在多个实例，依据重复规则和时间范围扩展。建议查询区间为30天内。</para>
+/// <para>调用该接口获取指定会议室的忙碌、空闲日程信息。</para>
+/// <para>查询结果中：</para>
+/// <para>- 非重复日程只有唯一的实例信息。</para>
+/// <para>- 重复日程可能存在多个实例信息，根据日程重复规则和时间范围进行扩展。建议查询的时间区间为 30 天内。</para>
 /// <para>接口ID：6907569524100956161</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/meeting-room-event/query-room-availability</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIDOyUjLygjM14iM4ITN</para>
@@ -22,21 +25,21 @@ namespace FeishuNetSdk.MeetingRoom.Spec;
 public record GetMeetingRoomFreebusyBatchGetResponseDto
 {
     /// <summary>
-    /// <para>查询会议室忙闲的起始时间，与请求参数完全相同</para>
+    /// <para>查询会议室忙闲的起始时间。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("time_min")]
     public string? TimeMin { get; set; }
 
     /// <summary>
-    /// <para>查询会议室忙闲的结束时间，与请求参数完全相同</para>
+    /// <para>查询会议室忙闲的结束时间。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("time_max")]
     public string? TimeMax { get; set; }
 
     /// <summary>
-    /// <para>会议室忙闲列表</para>
+    /// <para>会议室忙闲信息列表。</para>
     /// <para>必填：否</para>
     /// <para>键名为 会议室 ID</para>
     /// </summary>
@@ -85,7 +88,7 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
         public record OrganizerInfoSuffix
         {
             /// <summary>
-            /// <para>组织者姓名</para>
+            /// <para>组织者姓名。使用应用身份创建的日程不会返回该信息。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]

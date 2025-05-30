@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PostCorehrV1JobsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -99,6 +99,14 @@ public record PostCorehrV1JobsResponseDto
         /// </summary>
         [JsonPropertyName("job_title")]
         public I18n[]? JobTitles { get; set; }
+
+        /// <summary>
+        /// <para>通道ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：4719519211875096301</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
 
         /// <summary>
         /// <para>职务序列 ID 列表</para>

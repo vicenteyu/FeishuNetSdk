@@ -94,7 +94,7 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
     public string? PageToken { get; set; }
 
     /// <summary>
-    /// <para>是否是全文评论</para>
+    /// <para>是否是全文评论（本接口不返回该参数）</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -102,7 +102,7 @@ public record PostDriveV1FilesByFileTokenCommentsResponseDto
     public bool? IsWhole { get; set; }
 
     /// <summary>
-    /// <para>局部评论的引用字段</para>
+    /// <para>局部评论的引用字段（本接口不返回该参数）</para>
     /// <para>必填：否</para>
     /// <para>示例值：划词评论引用内容</para>
     /// </summary>

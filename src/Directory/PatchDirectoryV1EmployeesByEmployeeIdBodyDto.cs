@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PatchDirectoryV1EmployeesByEmployeeIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -61,7 +61,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// <summary>
                 /// <para>默认值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：工位</para>
                 /// </summary>
                 [JsonPropertyName("default_value")]
                 public string DefaultValue { get; set; } = string.Empty;
@@ -69,7 +69,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// <summary>
                 /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：{"zh_cn":"张三"}</para>
+                /// <para>示例值：{"zh_cn":"工位1"}</para>
                 /// </summary>
                 [JsonPropertyName("i18n_value")]
                 public object? I18nValue { get; set; }
@@ -78,7 +78,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             /// <summary>
             /// <para>别名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：jack</para>
+            /// <para>示例值：Jack</para>
             /// </summary>
             [JsonPropertyName("another_name")]
             public string? AnotherName { get; set; }
@@ -106,9 +106,9 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public string? CustomEmployeeId { get; set; }
 
         /// <summary>
-        /// <para>员工的头像key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)。</para>
+        /// <para>员工的头像key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，上传时图片类型需要选择 用于设置头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：img_v2dadwqeqwdsa</para>
+        /// <para>示例值：dadwqeqwdsa</para>
         /// </summary>
         [JsonPropertyName("avatar_key")]
         public string? AvatarKey { get; set; }
@@ -193,9 +193,9 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         }
 
         /// <summary>
-        /// <para>背景图的key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)。</para>
+        /// <para>背景图的key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，上传时图片类型需要选择 用于发送消息</para>
         /// <para>必填：否</para>
-        /// <para>示例值：img_v2_qweasdqawqeq</para>
+        /// <para>示例值：qweasdqawqeq</para>
         /// </summary>
         [JsonPropertyName("background_image_key")]
         public string? BackgroundImageKey { get; set; }
@@ -260,7 +260,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             /// <summary>
             /// <para>默认值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：工位</para>
             /// </summary>
             [JsonPropertyName("default_value")]
             public string DefaultValue { get; set; } = string.Empty;
@@ -268,7 +268,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             /// <summary>
             /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
             /// <para>必填：否</para>
-            /// <para>示例值：{"zh_cn":"张三"}</para>
+            /// <para>示例值：{"zh_cn":"工位"}</para>
             /// </summary>
             [JsonPropertyName("i18n_value")]
             public object? I18nValue { get; set; }
@@ -301,7 +301,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         /// <summary>
         /// <para>员工类型</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：1 **可选值有**： &lt;md-enum&gt; &lt;md-enum-item key="0" &gt;未知&lt;/md-enum-item&gt; &lt;md-enum-item key="1" &gt;全职&lt;/md-enum-item&gt; &lt;md-enum-item key="2" &gt;实习&lt;/md-enum-item&gt; &lt;md-enum-item key="3" &gt;外包&lt;/md-enum-item&gt; &lt;md-enum-item key="4" &gt;劳务&lt;/md-enum-item&gt; &lt;md-enum-item key="5" &gt;顾问&lt;/md-enum-item&gt; &lt;/md-enum&gt;</para>
         /// </summary>
         [JsonPropertyName("employment_type")]
         public int? EmploymentType { get; set; }
@@ -315,9 +315,25 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public string? JobTitleId { get; set; }
 
         /// <summary>
+        /// <para>职级ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：asdfghjk</para>
+        /// </summary>
+        [JsonPropertyName("job_level_id")]
+        public string? JobLevelId { get; set; }
+
+        /// <summary>
+        /// <para>序列ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：qwertyui</para>
+        /// </summary>
+        [JsonPropertyName("job_family_id")]
+        public string? JobFamilyId { get; set; }
+
+        /// <summary>
         /// <para>离职日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：true</para>
+        /// <para>示例值：2022-10-10</para>
         /// <para>最大长度：20</para>
         /// <para>最小长度：0</para>
         /// </summary>
@@ -363,7 +379,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         /// <summary>
         /// <para>离职备注信息</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：个人原因</para>
         /// <para>最大长度：255</para>
         /// <para>最小长度：0</para>
         /// </summary>
@@ -446,7 +462,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// <summary>
                 /// <para>默认值</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：姓名字段</para>
                 /// </summary>
                 [JsonPropertyName("default_value")]
                 public string DefaultValue { get; set; } = string.Empty;
@@ -454,7 +470,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// <summary>
                 /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：{"zh_cn":"张三"}</para>
+                /// <para>示例值：{"zh_cn":"姓名字段"}</para>
                 /// </summary>
                 [JsonPropertyName("i18n_value")]
                 public object? I18nValue { get; set; }
@@ -487,7 +503,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                     /// <summary>
                     /// <para>默认值</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：网页标题</para>
                     /// </summary>
                     [JsonPropertyName("default_value")]
                     public string DefaultValue { get; set; } = string.Empty;
@@ -495,7 +511,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                     /// <summary>
                     /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
+                    /// <para>示例值：{"zh_cn":"网页标题"}</para>
                     /// </summary>
                     [JsonPropertyName("i18n_value")]
                     public object? I18nValue { get; set; }
@@ -574,17 +590,6 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// </summary>
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
-
-                /// <summary>
-                /// <para>人员类型</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>1：员工</item>
-                /// </list></para>
-                /// </summary>
-                [JsonPropertyName("user_type")]
-                public string UserType { get; set; } = string.Empty;
             }
         }
     }

@@ -4832,7 +4832,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
-    /// <para>- 仅支持更新未撤回的[共享卡片](ukTMukTMukTM/uAjNwUjLwYDM14CM2ATN)消息。你需在更新**前后**卡片的 config 属性中，均显式声明 =="update_multi":true==。如果更新**前后**的卡片存在非共享卡片，可能导致更新异常。</para>
+    /// <para>- 仅支持更新未撤回的卡片。</para>
+    /// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片）。</para>
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
@@ -44049,7 +44050,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7361618338575777820</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/authorization/remove_role_assign</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>移除用户被授权的指定角色及授权范围，已经存在授权可通过[查询单个用户授权](https://lark-oapi-tools-console.bytedance.net/document-mod/index?fullPath=%2FuAjLw4CM%2FukTMukTMukTM%2Freference%2Fcorehr-v1%2Fauthorization%2Fget_by_param)获得。或者在[飞书人事管理后台](https://people.feishu.cn/people/)里 -「设置」-「权限设置」中的查看已有用户授权信息。</para>
+    /// <para>移除用户被授权的指定角色及授权范围，已经存在授权可通过[查询单个用户授权](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/authorization/get_by_param)获得。或者在[飞书人事管理后台](https://people.feishu.cn/people/)里 -「设置」-「权限设置」中的查看已有用户授权信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:authorization:write</item>
     /// </list></para>

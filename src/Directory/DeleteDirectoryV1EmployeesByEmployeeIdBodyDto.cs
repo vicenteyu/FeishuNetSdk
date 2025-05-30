@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="DeleteDirectoryV1EmployeesByEmployeeIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -134,6 +134,14 @@ public record DeleteDirectoryV1EmployeesByEmployeeIdBodyDto
             /// </summary>
             [JsonPropertyName("survey_acceptor_employee_id")]
             public string? SurveyAcceptorEmployeeId { get; set; }
+
+            /// <summary>
+            /// <para>集成平台资源Owner</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：eehsdna</para>
+            /// </summary>
+            [JsonPropertyName("anycross_acceptor_employee_id")]
+            public string? AnycrossAcceptorEmployeeId { get; set; }
         }
     }
 }

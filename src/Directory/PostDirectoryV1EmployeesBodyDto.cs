@@ -106,9 +106,9 @@ public record PostDirectoryV1EmployeesBodyDto
         public string? CustomEmployeeId { get; set; }
 
         /// <summary>
-        /// <para>员工的头像key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)。</para>
+        /// <para>员工的头像key。获取图片的key请使用 [上传图片 - 服务端 API - 开发文档 - 飞书开放平台](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)，上传时图片类型需要选择 用于设置头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：iimg_v2_8abc397a-9950-44ea-9302-e1d8fe00858g</para>
+        /// <para>示例值：8abc397a-9950-44ea-9302-e1d8fe00858g</para>
         /// <para>最大长度：255</para>
         /// <para>最小长度：0</para>
         /// </summary>
@@ -343,6 +343,8 @@ public record PostDirectoryV1EmployeesBodyDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>10：多选枚举类型</item>
+            /// <item>11：人员列表</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("field_type")]

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobsByJobIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -99,6 +99,14 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         /// </summary>
         [JsonPropertyName("job_title")]
         public I18n[]? JobTitles { get; set; }
+
+        /// <summary>
+        /// <para>通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：4719519211875096301</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
 
         /// <summary>
         /// <para>职务序列 ID 列表</para>

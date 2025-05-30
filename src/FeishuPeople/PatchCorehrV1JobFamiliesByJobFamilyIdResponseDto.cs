@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -79,6 +79,14 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto
         public bool Active { get; set; }
 
         /// <summary>
+        /// <para>是否可被使用，true为可被使用，false为不可被使用</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("selectable")]
+        public bool? Selectable { get; set; }
+
+        /// <summary>
         /// <para>上级序列ID</para>
         /// <para>- 可通过[批量查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_family/batch_get)获取详情</para>
         /// <para>必填：否</para>
@@ -86,6 +94,13 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto
         /// </summary>
         [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
+
+        /// <summary>
+        /// <para>通道ID，详情可以参考[获取通道信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("pathway_ids")]
+        public string[]? PathwayIds { get; set; }
 
         /// <summary>
         /// <para>当前版本生效日期</para>
@@ -114,6 +129,13 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto
         /// </summary>
         [JsonPropertyName("code")]
         public string? Code { get; set; }
+
+        /// <summary>
+        /// <para>描述</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("description")]
+        public I18n[]? Descriptions { get; set; }
 
         /// <summary>
         /// <para>自定义字段（暂不支持该功能，可忽略）</para>

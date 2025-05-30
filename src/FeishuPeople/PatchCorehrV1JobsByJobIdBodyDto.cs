@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobsByJobIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -85,6 +85,14 @@ public record PatchCorehrV1JobsByJobIdBodyDto
     public I18n[]? JobTitles { get; set; }
 
     /// <summary>
+    /// <para>通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：4719519211875096301</para>
+    /// </summary>
+    [JsonPropertyName("pathway_id")]
+    public string? PathwayId { get; set; }
+
+    /// <summary>
     /// <para>职务序列 ID 列表。ID获取方式：</para>
     /// <para>- 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID</para>
     /// <para>必填：否</para>
@@ -121,18 +129,6 @@ public record PatchCorehrV1JobsByJobIdBodyDto
     /// </summary>
     [JsonPropertyName("effective_time")]
     public string? EffectiveTime { get; set; }
-
-    /// <summary>
-    /// <para>版本失效日期</para>
-    /// <para>- 填写格式：YYYY-MM-DD 00:00:00（系统会自动将时分秒改为00:00:00）</para>
-    /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了对象信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
-    /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>
-    /// <para>- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：2021-01-01 00:00:00</para>
-    /// </summary>
-    [JsonPropertyName("expiration_time")]
-    public string? ExpirationTime { get; set; }
 
     /// <summary>
     /// <para>自定义字段，格式参考：[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)岗位、职务、自定义组织模块</para>

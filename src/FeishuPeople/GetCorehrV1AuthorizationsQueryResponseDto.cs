@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="GetCorehrV1AuthorizationsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -112,6 +112,14 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                 }
 
                 /// <summary>
+                /// <para>状态，1表示角色启用，2表示角色停用</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("active_status")]
+                public int ActiveStatus { get; set; }
+
+                /// <summary>
                 /// <para>角色描述</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -139,6 +147,30 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
                 }
+
+                /// <summary>
+                /// <para>角色类型</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("group_type")]
+                public int GroupType { get; set; }
+
+                /// <summary>
+                /// <para>创建人</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：6967639606963471902</para>
+                /// </summary>
+                [JsonPropertyName("created_by")]
+                public string CreatedBy { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>更新时间</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("update_time")]
+                public string UpdateTime { get; set; } = string.Empty;
 
                 /// <summary>
                 /// <para>组织管理维度</para>
@@ -187,9 +219,9 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
             /// <summary>
             /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
             /// <para>json结构见响应体示例，其中：</para>
-            /// <para>orgKey：组织key</para>
+            /// <para>org_key：组织key</para>
             /// <para>org_name：组织名称</para>
-            /// <para>org_id_list：组织id</para>
+            /// <para>org_id_list：组织id，包含被删除/停用的组织id</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("assigned_organization_list")]
@@ -198,9 +230,9 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
             /// <summary>
             /// <para>指定管理对象列表，如果该值为null，则使用设置数据权限(grantor_rule_list)</para>
             /// <para>json结构见响应体示例，其中：</para>
-            /// <para>orgKey：组织key</para>
+            /// <para>org_key：组织key</para>
             /// <para>org_name：组织名称</para>
-            /// <para>org_id_list：组织id</para>
+            /// <para>org_id_list：组织id，包含被删除/停用的组织id</para>
             /// </summary>
             public record AssignedOrganization
             {

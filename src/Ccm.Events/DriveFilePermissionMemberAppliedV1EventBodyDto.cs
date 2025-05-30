@@ -4,7 +4,7 @@
 // Created          : 2024-12-08
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-08
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="DriveFilePermissionMemberAppliedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -89,6 +89,13 @@ public record DriveFilePermissionMemberAppliedV1EventBodyDto() : EventBodyDto("d
     /// </summary>
     [JsonPropertyName("application_department_list")]
     public string[]? ApplicationDepartmentList { get; set; }
+
+    /// <summary>
+    /// <para>权限申请备注</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("application_remark")]
+    public string? ApplicationRemark { get; set; }
 
     /// <summary>
     /// <para>申请的协作者权限</para>

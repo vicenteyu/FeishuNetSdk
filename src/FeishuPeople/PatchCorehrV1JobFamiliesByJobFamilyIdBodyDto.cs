@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -61,6 +61,14 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
     public bool? Active { get; set; }
 
     /// <summary>
+    /// <para>是否可被使用，true为可被使用，false为不可被使用</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("selectable")]
+    public bool? Selectable { get; set; }
+
+    /// <summary>
     /// <para>上级序列ID。ID获取方式：</para>
     /// <para>- 调用[【新建序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/create)[【查询租户的序列信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)等接口可以返回序列ID</para>
     /// <para>必填：否</para>
@@ -68,6 +76,13 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
     /// </summary>
     [JsonPropertyName("parent_id")]
     public string? ParentId { get; set; }
+
+    /// <summary>
+    /// <para>通道ID，详情可以参考[获取通道信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("pathway_ids")]
+    public string[]? PathwayIds { get; set; }
 
     /// <summary>
     /// <para>版本生效日期</para>
@@ -83,19 +98,6 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
     public string? EffectiveTime { get; set; }
 
     /// <summary>
-    /// <para>版本失效日期</para>
-    /// <para>- 填写格式：YYYY-MM-DD</para>
-    /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
-    /// <para>- 该接口只支持到最小单位为日</para>
-    /// <para>- 日期范围要求:1900-01-01～9999-12-31</para>
-    /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：2020-05-02 00:00:00</para>
-    /// </summary>
-    [JsonPropertyName("expiration_time")]
-    public string? ExpirationTime { get; set; }
-
-    /// <summary>
     /// <para>序列编码 (不能与其他记录的编码重复)</para>
     /// <para>- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准</para>
     /// <para>- 未开启自动编码时，不传值不会自动生成编码</para>
@@ -104,6 +106,13 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
     /// </summary>
     [JsonPropertyName("code")]
     public string? Code { get; set; }
+
+    /// <summary>
+    /// <para>描述</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("description")]
+    public I18n[]? Descriptions { get; set; }
 
     /// <summary>
     /// <para>自定义字段（该字段暂时不支持）</para>

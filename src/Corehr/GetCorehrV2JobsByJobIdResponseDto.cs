@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="GetCorehrV2JobsByJobIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -62,7 +62,7 @@ public record GetCorehrV2JobsByJobIdResponseDto
         public record I18n
         {
             /// <summary>
-            /// <para>语言</para>
+            /// <para>语言编码（IETF BCP 47）</para>
             /// <para>必填：是</para>
             /// <para>示例值：zh-CN</para>
             /// </summary>
@@ -70,9 +70,9 @@ public record GetCorehrV2JobsByJobIdResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>内容</para>
+            /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：中文示例</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -99,6 +99,14 @@ public record GetCorehrV2JobsByJobIdResponseDto
         /// </summary>
         [JsonPropertyName("job_title")]
         public I18n[]? JobTitles { get; set; }
+
+        /// <summary>
+        /// <para>通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：4719519211875096301</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
 
         /// <summary>
         /// <para>职务关联序列ID列表</para>

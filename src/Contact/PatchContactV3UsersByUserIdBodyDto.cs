@@ -102,7 +102,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     public int? Gender { get; set; }
 
     /// <summary>
-    /// <para>头像的文件 Key。你可以通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口，上传并获取头像文件 Key。</para>
+    /// <para>头像的文件 Key。你可以通过[上传图片](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/image/create)接口，上传并获取头像文件 Key，上传时图片类型需要选择 用于设置头像</para>
     /// <para>必填：否</para>
     /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
     /// </summary>

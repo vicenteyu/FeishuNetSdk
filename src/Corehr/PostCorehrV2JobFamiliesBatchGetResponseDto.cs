@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="PostCorehrV2JobFamiliesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -79,7 +79,15 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>上级序列</para>
+        /// <para>是否可被使用，true为可被使用，false为不可被使用</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("selectable")]
+        public bool? Selectable { get; set; }
+
+        /// <summary>
+        /// <para>上级序列 ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得</para>
         /// <para>必填：否</para>
         /// <para>示例值：4698020757495316313</para>
         /// </summary>
@@ -87,7 +95,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public string? ParentId { get; set; }
 
         /// <summary>
-        /// <para>通道ID</para>
+        /// <para>通道ID，详情可以参考[【获取通道信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("pathway_ids")]

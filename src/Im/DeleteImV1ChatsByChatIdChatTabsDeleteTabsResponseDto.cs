@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-05-31
 // ************************************************************************
 // <copyright file="DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -71,6 +71,7 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
         /// <item>file：文件</item>
         /// <item>files_resources：合并类型，包含文件、Doc文档、URL链接</item>
         /// <item>images_videos：合并类型，包含图片、视频</item>
+        /// <item>task：任务</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("tab_type")]
@@ -111,6 +112,14 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto
             /// </summary>
             [JsonPropertyName("meeting_minute")]
             public string? MeetingMinute { get; set; }
+
+            /// <summary>
+            /// <para>任务类型标签页对应的任务地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://bytedance.feishu.cn/client/todo/task_list?guid=fa03fb6d-344b-47d9-83e3-049e3b3da931</para>
+            /// </summary>
+            [JsonPropertyName("task")]
+            public string? Task { get; set; }
         }
 
         /// <summary>

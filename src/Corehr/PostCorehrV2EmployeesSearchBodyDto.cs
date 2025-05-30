@@ -227,6 +227,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
     /// <para>其他国籍ID列表，精准匹配查询</para>
     /// <para>- 字段权限要求</para>
     /// <para>- corehr:person.additional_nationalities:read : 读取员工其他国籍</para>
+    /// <para>- 可以调用[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口，获取对应数据。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// </summary>
@@ -235,6 +236,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>公民身份类型列表，精确匹配查询</para>
+    /// <para>-相关信息可以参考：[公民身份数据](https://bytedance.larkoffice.com/wiki/VEEaw1GyhiaNJAkQt4pc8HTxnKe)</para>
     /// <para>- 字段权限要求</para>
     /// <para>- corehr:person.citizenship_status:read : 读取员工公民身份</para>
     /// <para>必填：否</para>
@@ -338,7 +340,7 @@ public record PostCorehrV2EmployeesSearchBodyDto
 
     /// <summary>
     /// <para>岗位 ID 列表（含下级）</para>
-    /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+    /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/T8NjPznGe61S)</para>
     /// <para>- 字段权限要求：</para>
     /// <para>- corehr:employment.position:read : 读取员工岗位</para>
     /// <para>必填：否</para>
