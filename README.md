@@ -321,8 +321,8 @@ public class CustomBitableRecordSerializer(string s = "^") : BitableRecordSerial
 
 **说明：**
 
-1. 建议获取字段数据结构的接口请求参数`page_size`设置为`100`（最大），避免字段不全。若超出`100`，则需要进行分页查询 或者使用 自动化分页汇总方法。
-1. 可以指定`BitableRecordSerializer`参数为数组值分隔符，默认`;`。
+1. 建议获取字段数据结构的接口请求参数`page_size`设置为`100`（最大），避免字段不全。若超出`100`，则需要进行分页查询 或者使用 `自动化分页汇总` 方法。
+1. 可以指定`BitableRecordSerializer`构造参数为数组值分隔符，默认`;`。
 1. 文本记录类型字段取值于`text`属性
 1. 人员类型字段取值于`name`属性
 1. 链接类型字段取值于`link`属性
