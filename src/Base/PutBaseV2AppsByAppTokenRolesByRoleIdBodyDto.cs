@@ -4,7 +4,7 @@
 // Created          : 2025-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -149,8 +149,8 @@ public record PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto
                 /// <para>最大长度：50</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonPropertyName("values")]
-                public string[]? Values { get; set; }
+                [JsonPropertyName("value")]
+                public string[]? Value { get; set; }
             }
 
             /// <summary>
@@ -248,8 +248,8 @@ public record PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto
                 /// <para>最大长度：50</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonPropertyName("values")]
-                public string[]? Values { get; set; }
+                [JsonPropertyName("value")]
+                public string[]? Value { get; set; }
             }
 
             /// <summary>

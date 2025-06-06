@@ -31,7 +31,7 @@ public record CorehrProcessStatusUpdateV2EventBodyDto() : EventBodyDto("corehr.p
     /// <summary>
     /// <para>变更后状态</para>
     /// <para>**可选值有**：</para>
-    /// <para>1:发起/进行中,9:完成,2:拒绝,4:撤回,8:撤销</para>
+    /// <para>1:发起/进行中,9:完成,2:拒绝,4:撤回,8:撤销,15:撤销中</para>
     /// <para>必填：否</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：发起/进行中</item>
@@ -39,6 +39,7 @@ public record CorehrProcessStatusUpdateV2EventBodyDto() : EventBodyDto("corehr.p
     /// <item>2：拒绝</item>
     /// <item>4：撤回</item>
     /// <item>8：撤销</item>
+    /// <item>15：撤销中</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("status")]

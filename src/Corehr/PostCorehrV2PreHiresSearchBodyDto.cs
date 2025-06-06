@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-17
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -151,6 +151,14 @@ public record PostCorehrV2PreHiresSearchBodyDto
     /// </summary>
     [JsonPropertyName("key_word")]
     public string? KeyWord { get; set; }
+
+    /// <summary>
+    /// <para>是否外部人员</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("condition_worker")]
+    public bool? ConditionWorker { get; set; }
 
     /// <summary>
     /// <para>是否离职重聘，不填写则搜索全部数据。</para>

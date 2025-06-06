@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostTaskV2TasksResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -133,39 +133,6 @@ public record PostTaskV2TasksResponseDto
         public Member? Creator { get; set; }
 
         /// <summary>
-        /// <para>任务创建者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：assignee</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
-
-        /// <summary>
         /// <para>任务成员列表</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -260,39 +227,6 @@ public record PostTaskV2TasksResponseDto
             /// </summary>
             [JsonPropertyName("uploader")]
             public Member? Uploader { get; set; }
-
-            /// <summary>
-            /// <para>附件上传者</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>角色，可以是负责人（assginee）或者关注人（follower）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：assignee</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-            }
 
             /// <summary>
             /// <para>是否是封面图</para>
@@ -856,39 +790,6 @@ public record PostTaskV2TasksResponseDto
             public Member[]? MemberValues { get; set; }
 
             /// <summary>
-            /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>成员角色</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：editor</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-            }
-
-            /// <summary>
             /// <para>单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152</para>
@@ -953,6 +854,87 @@ public record PostTaskV2TasksResponseDto
             /// </summary>
             [JsonPropertyName("task_guid")]
             public string TaskGuid { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("assignee_related")]
+        public TaskAssignee[]? AssigneeRelateds { get; set; }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// </summary>
+        public record TaskAssignee
+        {
+            /// <summary>
+            /// <para>任务执行者的id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
+            /// <para>最大长度：100</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>会签任务中执行者完成的时间戳(ms)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1675742789470</para>
+            /// <para>最大长度：20</para>
+            /// </summary>
+            [JsonPropertyName("completed_at")]
+            public string? CompletedAt { get; set; }
+        }
+
+        /// <summary>
+        /// <para>正数协议任务提醒</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：10</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("positive_reminders")]
+        public Reminder[]? PositiveReminders { get; set; }
+
+        /// <summary>
+        /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
+        /// </summary>
+        public record Member
+        {
+            /// <summary>
+            /// <para>表示member的id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
+            /// <para>最大长度：100</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>成员的类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：user</para>
+            /// <para>默认值：user</para>
+            /// </summary>
+            [JsonPropertyName("type")]
+            public string? Type { get; set; }
+
+            /// <summary>
+            /// <para>成员角色</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：editor</para>
+            /// <para>最大长度：20</para>
+            /// </summary>
+            [JsonPropertyName("role")]
+            public string? Role { get; set; }
+
+            /// <summary>
+            /// <para>成员名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：张明德（明德）</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
         }
     }
 }

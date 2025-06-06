@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-17
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -1818,6 +1818,7 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
 
             /// <summary>
             /// <para>成本中心分摊信息</para>
+            /// <para>- 待废弃，建议使用cost_allocation</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cost_center_rates")]
@@ -1825,6 +1826,7 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
 
             /// <summary>
             /// <para>成本中心分摊信息</para>
+            /// <para>- 待废弃，建议使用cost_allocation</para>
             /// </summary>
             public record JobDataCostCenter
             {
@@ -1837,12 +1839,20 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
                 public string? CostCenterId { get; set; }
 
                 /// <summary>
-                /// <para>分摊比例</para>
+                /// <para>分摊比例(整数)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
                 [JsonPropertyName("rate")]
                 public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public decimal? NewRate { get; set; }
             }
 
             /// <summary>
@@ -2098,7 +2108,9 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             public CustomFieldData[]? CustomFields { get; set; }
 
             /// <summary>
-            /// <para>岗位 ID，如需获取具体值，请联系人员档案管理员</para>
+            /// <para>岗位 ID，可以通过[查询岗位信息]接口获取详情</para>
+            /// <para>- 部门的岗职模式会影响岗位数据，在职务模式和岗位模式下，岗位id是必填</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
             /// <para>必填：否</para>
             /// <para>示例值：6977976735715373452</para>
             /// </summary>
@@ -2489,6 +2501,131 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("service_company")]
             public string? ServiceCompany { get; set; }
+
+            /// <summary>
+            /// <para>通道</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7460865381179115052</para>
+            /// </summary>
+            [JsonPropertyName("pathway")]
+            public string? Pathway { get; set; }
+
+            /// <summary>
+            /// <para>默认成本中心</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("default_cost_center")]
+            public PreHireEmploymentInfoDefaultCostCenter? DefaultCostCenter { get; set; }
+
+            /// <summary>
+            /// <para>默认成本中心</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// </summary>
+            public record PreHireEmploymentInfoDefaultCostCenter
+            {
+                /// <summary>
+                /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6950635856373745165</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_id")]
+                public string? CostCenterId { get; set; }
+
+                /// <summary>
+                /// <para>生效日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2025-01-01</para>
+                /// </summary>
+                [JsonPropertyName("effective_time")]
+                public string? EffectiveTime { get; set; }
+
+                /// <summary>
+                /// <para>是否继承岗位/部门的默认成本中心</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：false</para>
+                /// </summary>
+                [JsonPropertyName("is_herit")]
+                public bool? IsHerit { get; set; }
+
+                /// <summary>
+                /// <para>继承来源</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：department</para>
+                /// </summary>
+                [JsonPropertyName("inherit_source")]
+                public string? InheritSource { get; set; }
+            }
+
+            /// <summary>
+            /// <para>成本分摊</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cost_allocation")]
+            public PreHireEmploymentInfoCostAllocation? CostAllocation { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// </summary>
+            public record PreHireEmploymentInfoCostAllocation
+            {
+                /// <summary>
+                /// <para>分摊生效日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2025-01-01</para>
+                /// </summary>
+                [JsonPropertyName("effective_time")]
+                public string? EffectiveTime { get; set; }
+
+                /// <summary>
+                /// <para>分摊失效日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2025-02-01</para>
+                /// </summary>
+                [JsonPropertyName("expiration_time")]
+                public string? ExpirationTime { get; set; }
+
+                /// <summary>
+                /// <para>成本分摊信息</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：50</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_rates")]
+                public JobDataCostCenter[]? CostCenterRates { get; set; }
+
+                /// <summary>
+                /// <para>成本分摊信息</para>
+                /// </summary>
+                public record JobDataCostCenter
+                {
+                    /// <summary>
+                    /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6950635856373745165</para>
+                    /// </summary>
+                    [JsonPropertyName("cost_center_id")]
+                    public string? CostCenterId { get; set; }
+
+                    /// <summary>
+                    /// <para>分摊比例(整数)</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：100</para>
+                    /// </summary>
+                    [JsonPropertyName("rate")]
+                    public int? Rate { get; set; }
+
+                    /// <summary>
+                    /// <para>分摊比例</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：50.2</para>
+                    /// </summary>
+                    [JsonPropertyName("new_rate")]
+                    public float? NewRate { get; set; }
+                }
+            }
         }
 
         /// <summary>
@@ -2519,6 +2656,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("offer_hr_id")]
             public string? OfferHrId { get; set; }
+
+            /// <summary>
+            /// <para>Offer hr 的 雇佣 ID,ID可以根据user_id_type转换成对应ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7032210902531327521</para>
+            /// </summary>
+            [JsonPropertyName("offer_hr_id_v2")]
+            public string? OfferHrIdV2 { get; set; }
 
             /// <summary>
             /// <para>入职方式，枚举值可查询[获取字段详情](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -2779,6 +2924,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("signing_type")]
             public string? SigningType { get; set; }
+
+            /// <summary>
+            /// <para>合同文件</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：\["6977976687350924833","6890452208593372141"\]</para>
+            /// </summary>
+            [JsonPropertyName("contract_file_ids")]
+            public string[]? ContractFileIds { get; set; }
         }
 
         /// <summary>

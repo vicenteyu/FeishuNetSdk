@@ -4,7 +4,7 @@
 // Created          : 2025-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostBaseV2AppsByAppTokenRolesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -65,7 +65,7 @@ public record PostBaseV2AppsByAppTokenRolesBodyDto
         public int TablePerm { get; set; }
 
         /// <summary>
-        /// <para>数据表名称</para>
+        /// <para>数据表名称（与下方 table_id 至少填写一项）。</para>
         /// <para>必填：否</para>
         /// <para>示例值：数据表1</para>
         /// <para>最大长度：50</para>
@@ -75,7 +75,7 @@ public record PostBaseV2AppsByAppTokenRolesBodyDto
         public string? TableName { get; set; }
 
         /// <summary>
-        /// <para>多维表格数据表的唯一标识。获取方式：</para>
+        /// <para>多维表格数据表的唯一标识。（与上方 table_name 至少填写一项）。获取方式：</para>
         /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
         /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
         /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
@@ -145,8 +145,8 @@ public record PostBaseV2AppsByAppTokenRolesBodyDto
                 /// <para>最大长度：50</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonPropertyName("values")]
-                public string[]? Values { get; set; }
+                [JsonPropertyName("value")]
+                public string[]? Value { get; set; }
             }
 
             /// <summary>
@@ -238,8 +238,8 @@ public record PostBaseV2AppsByAppTokenRolesBodyDto
                 /// <para>最大长度：50</para>
                 /// <para>最小长度：0</para>
                 /// </summary>
-                [JsonPropertyName("values")]
-                public string[]? Values { get; set; }
+                [JsonPropertyName("value")]
+                public string[]? Value { get; set; }
             }
 
             /// <summary>

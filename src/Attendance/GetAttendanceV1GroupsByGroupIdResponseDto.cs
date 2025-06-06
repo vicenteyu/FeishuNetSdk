@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="GetAttendanceV1GroupsByGroupIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -104,6 +104,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? OutPunchNeedApproval { get; set; }
 
     /// <summary>
+    /// <para>外勤打卡需审批，先打卡后审批（需要允许外勤打卡才能设置生效）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("out_punch_need_post_approval")]
+    public bool? OutPunchNeedPostApproval { get; set; }
+
+    /// <summary>
     /// <para>外勤打卡需填写备注（需要允许外勤打卡才能设置生效）</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
@@ -126,6 +134,22 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// </summary>
     [JsonPropertyName("out_punch_allowed_hide_addr")]
     public bool? OutPunchAllowedHideAddr { get; set; }
+
+    /// <summary>
+    /// <para>外勤打卡允许微调地址（需要允许外勤打卡才能设置生效）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("out_punch_allowed_adjust_addr")]
+    public bool? OutPunchAllowedAdjustAddr { get; set; }
+
+    /// <summary>
+    /// <para>微调范围，默认为 50 米</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：50</para>
+    /// </summary>
+    [JsonPropertyName("adjust_range")]
+    public int? AdjustRange { get; set; }
 
     /// <summary>
     /// <para>是否允许 PC 端打卡</para>
@@ -232,6 +256,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? HideStaffPunchTime { get; set; }
 
     /// <summary>
+    /// <para>是否隐藏打卡规则</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("hide_clock_in_rule")]
+    public bool? HideClockInRule { get; set; }
+
+    /// <summary>
     /// <para>是否开启人脸识别打卡</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
@@ -276,6 +308,83 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// </summary>
     [JsonPropertyName("replace_basic_pic")]
     public bool? ReplaceBasicPic { get; set; }
+
+    /// <summary>
+    /// <para>防作弊打卡配置（仅灰度租户有效）</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("anti_cheat_punch_config")]
+    public AntiCheatConfig? AntiCheatPunchConfig { get; set; }
+
+    /// <summary>
+    /// <para>防作弊打卡配置（仅灰度租户有效）</para>
+    /// </summary>
+    public record AntiCheatConfig
+    {
+        /// <summary>
+        /// <para>是否拦截疑似作弊打卡总开关；关闭时，其余防作弊开关都为关闭状态</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("intercept_suspected_cheat_punch")]
+        public bool InterceptSuspectedCheatPunch { get; set; }
+
+        /// <summary>
+        /// <para>是否校验疑似作弊软件打卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("check_cheat_software_punch")]
+        public bool? CheckCheatSoftwarePunch { get; set; }
+
+        /// <summary>
+        /// <para>是否校验疑似他人代打卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("check_buddy_punch")]
+        public bool? CheckBuddyPunch { get; set; }
+
+        /// <summary>
+        /// <para>是否校验疑似模拟 WI-FI 打卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("check_simulate_wifi_punch")]
+        public bool? CheckSimulateWifiPunch { get; set; }
+
+        /// <summary>
+        /// <para>是否校验更换设备打卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("check_change_device_punch")]
+        public bool? CheckChangeDevicePunch { get; set; }
+
+        /// <summary>
+        /// <para>同一考勤人员最多可绑定打卡设备数量上限</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：1</para>
+        /// </summary>
+        [JsonPropertyName("allow_change_device_num")]
+        public int? AllowChangeDeviceNum { get; set; }
+
+        /// <summary>
+        /// <para>疑似作弊打卡时的处理方式，开启拦截疑似作弊打卡时必填</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：使用人脸识别打卡</item>
+        /// <item>2：仅记录疑似作弊信息</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("suspected_cheat_handle_method")]
+        public int? SuspectedCheatHandleMethod { get; set; }
+    }
 
     /// <summary>
     /// <para>考勤机列表</para>
@@ -717,6 +826,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         /// </summary>
         [JsonPropertyName("early_minutes_as_lack")]
         public int? EarlyMinutesAsLack { get; set; }
+
+        /// <summary>
+        /// <para>班次中间请假，无需在离岗前或返岗后打卡（仅灰度租户有效，如需使用请联系技术支持）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("not_during_shift")]
+        public bool? NotDuringShift { get; set; }
     }
 
     /// <summary>
@@ -770,6 +887,14 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         /// </summary>
         [JsonPropertyName("early_minutes_as_lack")]
         public int? EarlyMinutesAsLack { get; set; }
+
+        /// <summary>
+        /// <para>班次中间外出，无需在离岗前或返岗后打卡（仅灰度租户有效，如需使用请联系技术支持）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("not_during_shift")]
+        public bool? NotDuringShift { get; set; }
     }
 
     /// <summary>
@@ -950,4 +1075,70 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// </summary>
     [JsonPropertyName("bind_default_user_ids")]
     public string[]? BindDefaultUserIds { get; set; }
+
+    /// <summary>
+    /// <para>加班打卡规则</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("overtime_clock_cfg")]
+    public GetAttendanceV1GroupsByGroupIdResponseDtoOvertimeClockCfg? OvertimeClockCfg { get; set; }
+
+    /// <summary>
+    /// <para>加班打卡规则</para>
+    /// </summary>
+    public record GetAttendanceV1GroupsByGroupIdResponseDtoOvertimeClockCfg
+    {
+        /// <summary>
+        /// <para>是否允许在非打卡时段申请打卡（仅灰度租户可用）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("allow_punch_approval")]
+        public bool? AllowPunchApproval { get; set; }
+
+        /// <summary>
+        /// <para>加班开始和结束需打卡(需灰度)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("need_clock_over_time_start_and_end")]
+        public bool? NeedClockOverTimeStartAndEnd { get; set; }
+    }
+
+    /// <summary>
+    /// <para>节假日id，（如果考勤组使用了自定义节假日，请用此参数传入节假日id）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：通过查询考勤组接口获取的new_calendar_id，例如7302191700771358252</para>
+    /// </summary>
+    [JsonPropertyName("new_calendar_id")]
+    public string? NewCalendarId { get; set; }
+
+    /// <summary>
+    /// <para>定位不准时是否允许申请打卡</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("allow_apply_punch")]
+    public bool? AllowApplyPunch { get; set; }
+
+    /// <summary>
+    /// <para>异常卡豁免配置</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("clock_in_abnormal_settings")]
+    public GetAttendanceV1GroupsByGroupIdResponseDtoClockInAbnormalSettings? ClockInAbnormalSettings { get; set; }
+
+    /// <summary>
+    /// <para>异常卡豁免配置</para>
+    /// </summary>
+    public record GetAttendanceV1GroupsByGroupIdResponseDtoClockInAbnormalSettings
+    {
+        /// <summary>
+        /// <para>在最晚下班打卡之前忽略异常卡（仅灰度租户有效）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("ignore_until_latest_clockout")]
+        public bool? IgnoreUntilLatestClockout { get; set; }
+    }
 }

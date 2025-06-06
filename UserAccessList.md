@@ -591,7 +591,7 @@
 <tr><td colspan="3">PostTaskV1TasksByTaskIdBatchDeleteCollaborator</td></tr>
 <tr><td rowspan="2">296</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>任务</td><td>获取执行者列表</td></tr>
 <tr><td colspan="3">GetTaskV1TasksByTaskIdCollaborators</td></tr>
-<tr><td rowspan="2">297</td><td rowspan="2">2024-08-22</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
+<tr><td rowspan="2">297</td><td rowspan="2">2025-06-04</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
 <tr><td colspan="3">PostTaskV2Tasks</td></tr>
 <tr><td rowspan="2">298</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>任务</td><td>获取任务详情</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuid</td></tr>
@@ -1015,7 +1015,7 @@
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2025-01-23</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2025-05-27</td><td><span style="color:red;">删除</span></td><td>飞书人事（企业版）</td><td>添加人员</td></tr>
 <tr><td colspan="3">PostCorehrV2Employees</td></tr>
 <tr><td rowspan="2">510</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标库信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
@@ -1175,11 +1175,11 @@
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
 <tr><td rowspan="2">588</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
-<tr><td rowspan="2">589</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
+<tr><td rowspan="2">589</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
-<tr><td rowspan="2">590</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
+<tr><td rowspan="2">590</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
-<tr><td rowspan="2">591</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
+<tr><td rowspan="2">591</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>更新自定义角色</td></tr>
 <tr><td colspan="3">PutBaseV2AppsByAppTokenRolesByRoleId</td></tr>
 <tr><td rowspan="2">592</td><td rowspan="2">2025-05-20</td><td>&#10003;</td><td>飞书人事</td><td>获取员工薪资标准</td></tr>
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
@@ -1243,8 +1243,8 @@
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdRegular</td></tr>
 <tr><td rowspan="2">622</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>更新在职员工为待离职</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdToBeResigned</td></tr>
-<tr><td rowspan="2">623</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>转换员工 ID</td></tr>
+<tr><td rowspan="2">623</td><td rowspan="2">2025-05-23</td><td><span style="color:red;">删除</span></td><td>组织架构</td><td>转换员工 ID</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesIdconvert</td></tr>
-<tr><td rowspan="2">624</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>转换部门 ID</td></tr>
+<tr><td rowspan="2">624</td><td rowspan="2">2025-05-23</td><td><span style="color:red;">删除</span></td><td>组织架构</td><td>转换部门 ID</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
 </tbody></table>

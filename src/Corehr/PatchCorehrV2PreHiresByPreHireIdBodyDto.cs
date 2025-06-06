@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-17
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -471,6 +471,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("year_resident_tax")]
             public string? YearResidentTax { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -622,6 +629,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// </summary>
                 [JsonPropertyName("issued_by")]
                 public string? IssuedBy { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("custom_fields")]
+                public ObjectFieldData[]? CustomFields { get; set; }
             }
 
             /// <summary>
@@ -892,6 +906,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 [JsonPropertyName("district_id_v2")]
                 public string? DistrictIdV2 { get; set; }
             }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -976,6 +997,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("bank_account_type")]
             public string? BankAccountType { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1037,6 +1065,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("issued_by")]
             public string? IssuedBy { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1390,6 +1425,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("is_primary")]
             public bool? IsPrimary { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1570,28 +1612,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05)</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
 
         /// <summary>
         /// <para>籍贯，可以通过[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)接口获取</para>
@@ -1904,14 +1924,16 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         }
 
         /// <summary>
-        /// <para>成本中心分摊信息（仅支持部门开通成本中心功能的租户）</para>
+        /// <para>成本中心分摊信息</para>
+        /// <para>- 待废弃，建议使用cost_allocation</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("cost_center_rates")]
         public JobDataCostCenter[]? CostCenterRates { get; set; }
 
         /// <summary>
-        /// <para>成本中心分摊信息（仅支持部门开通成本中心功能的租户）</para>
+        /// <para>成本中心分摊信息</para>
+        /// <para>- 待废弃，建议使用cost_allocation</para>
         /// </summary>
         public record JobDataCostCenter
         {
@@ -1930,6 +1952,14 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("rate")]
             public int? Rate { get; set; }
+
+            /// <summary>
+            /// <para>分摊比例</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：50.2</para>
+            /// </summary>
+            [JsonPropertyName("new_rate")]
+            public float? NewRate { get; set; }
         }
 
         /// <summary>
@@ -1938,28 +1968,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，该值是一个 string list 经转义后的字符串，具体参考请求体示例</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：[\"Sandy\"]</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
 
         /// <summary>
         /// <para>岗位id，如需获取具体值，请联系人员档案管理员</para>
@@ -2299,6 +2307,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("end_date")]
             public string? EndDate { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -2417,6 +2432,115 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// </summary>
         [JsonPropertyName("non_compete_covenant")]
         public bool? NonCompeteCovenant { get; set; }
+
+        /// <summary>
+        /// <para>通道</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7460865381179115052</para>
+        /// </summary>
+        [JsonPropertyName("pathway")]
+        public string? Pathway { get; set; }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("default_cost_center")]
+        public PrehireDefaultCostCenterUpdate? DefaultCostCenter { get; set; }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record PrehireDefaultCostCenterUpdate
+        {
+            /// <summary>
+            /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：6950635856373745165</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_id")]
+            public string CostCenterId { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>是否继承岗位/部门的默认成本中心</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_herit")]
+            public bool IsHerit { get; set; }
+        }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("cost_allocation")]
+        public PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdateCostAllocation? CostAllocation { get; set; }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdateCostAllocation
+        {
+            /// <summary>
+            /// <para>分摊生效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-01-01</para>
+            /// </summary>
+            [JsonPropertyName("effective_time")]
+            public string? EffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>分摊失效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-02-01</para>
+            /// </summary>
+            [JsonPropertyName("expiration_time")]
+            public string? ExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_rates")]
+            public JobDataCostCenter[]? CostCenterRates { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// </summary>
+            public record JobDataCostCenter
+            {
+                /// <summary>
+                /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6950635856373745165</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_id")]
+                public string? CostCenterId { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例(整数)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：100</para>
+                /// </summary>
+                [JsonPropertyName("rate")]
+                public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public float? NewRate { get; set; }
+            }
+        }
     }
 
     /// <summary>
@@ -2447,4 +2571,26 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     /// </summary>
     [JsonPropertyName("person_custom_update_fields")]
     public string[]? PersonCustomUpdateFields { get; set; }
+
+    /// <summary>
+    /// <para>自定义字段</para>
+    /// </summary>
+    public record ObjectFieldData
+    {
+        /// <summary>
+        /// <para>字段名</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：name</para>
+        /// </summary>
+        [JsonPropertyName("field_name")]
+        public string FieldName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：Sandy</para>
+        /// </summary>
+        [JsonPropertyName("value")]
+        public string Value { get; set; } = string.Empty;
+    }
 }

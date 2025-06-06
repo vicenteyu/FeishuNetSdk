@@ -4,7 +4,7 @@
 // Created          : 2025-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostBaseV2AppsByAppTokenRolesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -148,14 +148,14 @@ public record PostBaseV2AppsByAppTokenRolesResponseDto
                     public string? Operator { get; set; }
 
                     /// <summary>
-                    /// <para>条件的值。</para>
+                    /// <para>条件的值，可以是单个值或多个值的数组。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：["optbdVHf4q", "optrpd3eIJ"]</para>
                     /// <para>最大长度：50</para>
                     /// <para>最小长度：0</para>
                     /// </summary>
-                    [JsonPropertyName("values")]
-                    public string[]? Values { get; set; }
+                    [JsonPropertyName("value")]
+                    public string[]? Value { get; set; }
 
                     /// <summary>
                     /// <para>字段类型</para>
@@ -262,14 +262,14 @@ public record PostBaseV2AppsByAppTokenRolesResponseDto
                     public string? Operator { get; set; }
 
                     /// <summary>
-                    /// <para>条件的值，可以是单个值或多个值的数组。</para>
+                    /// <para>条件的值，可以是单个值或多个值的数组。详情参考[字段目标值（value）填写说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/record-filter-guide#3e0fd644)。</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：["optbdVHf4q", "optrpd3eIJ"]</para>
                     /// <para>最大长度：50</para>
                     /// <para>最小长度：0</para>
                     /// </summary>
-                    [JsonPropertyName("values")]
-                    public string[]? Values { get; set; }
+                    [JsonPropertyName("value")]
+                    public string[]? Value { get; set; }
 
                     /// <summary>
                     /// <para>字段类型</para>

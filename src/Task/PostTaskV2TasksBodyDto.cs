@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostTaskV2TasksBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -259,40 +259,6 @@ public record PostTaskV2TasksBodyDto
     /// </summary>
     [JsonPropertyName("members")]
     public Member[]? Members { get; set; }
-
-    /// <summary>
-    /// <para>任务成员列表，包括负责人和关注人。不填写表示任务无成员。单次请求支持最大50个成员（去重后）。</para>
-    /// <para>详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？ ”章节。</para>
-    /// </summary>
-    public record Member
-    {
-        /// <summary>
-        /// <para>表示member的id</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-        /// <para>最大长度：100</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>成员的类型，可以是user或者app。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：user</para>
-        /// <para>默认值：user</para>
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
-        /// <para>成员角色，可以是"assignee"或者"follower"。</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：assignee</para>
-        /// <para>最大长度：20</para>
-        /// </summary>
-        [JsonPropertyName("role")]
-        public string Role { get; set; } = string.Empty;
-    }
 
     /// <summary>
     /// <para>重复任务规则。如果设置，则该任务为“重复任务”。详见[任务功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/overview)中的“如何使用重复任务？”章节。</para>
@@ -628,30 +594,6 @@ public record PostTaskV2TasksBodyDto
         public Member[]? MemberValues { get; set; }
 
         /// <summary>
-        /// <para>人员类型的自定义字段值。可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当字段设为只不能多选时只能输入一个值。设为空数组表示设为空。</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员类型（默认user，可不填写）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-        }
-
-        /// <summary>
         /// <para>日期类型自定义字段值，可以输入一个表示日期的以毫秒为单位的时间戳字符串。设为空字符串表示设为空。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1698192000000</para>
@@ -683,5 +625,94 @@ public record PostTaskV2TasksBodyDto
         /// </summary>
         [JsonPropertyName("text_value")]
         public string? TextValue { get; set; }
+    }
+
+    /// <summary>
+    /// <para>如果希望设置任务来源为文档，则设置此字段</para>
+    /// <para>- 和extra互斥，同时设置时报错</para>
+    /// <para>- 和origin互斥，同时设置时报错</para>
+    /// <para>- 和custom_complete互斥，同时设置时报错</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("docx_source")]
+    public PostTaskV2TasksBodyDtoDocxSource? DocxSource { get; set; }
+
+    /// <summary>
+    /// <para>如果希望设置任务来源为文档，则设置此字段</para>
+    /// <para>- 和extra互斥，同时设置时报错</para>
+    /// <para>- 和origin互斥，同时设置时报错</para>
+    /// <para>- 和custom_complete互斥，同时设置时报错</para>
+    /// </summary>
+    public record PostTaskV2TasksBodyDtoDocxSource
+    {
+        /// <summary>
+        /// <para>任务关联的文档token，要求：如果使用tenant_access_token请求，则请求机器人有文档编辑权限；如果使用user_access_token，则请求用户有文档的编辑权限</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：OvZCdFYVHo5ArFxJKHjcnRbtnKd</para>
+        /// <para>最大长度：27</para>
+        /// <para>最小长度：27</para>
+        /// </summary>
+        [JsonPropertyName("token")]
+        public string Token { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>任务关联的文档block_id，要求block_id存在于token对应文档中、且block_id没有绑定过其他的任务</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：O6wwd22uIoG8acxwxGtbljaUcfc</para>
+        /// <para>最大长度：27</para>
+        /// <para>最小长度：27</para>
+        /// </summary>
+        [JsonPropertyName("block_id")]
+        public string BlockId { get; set; } = string.Empty;
+    }
+
+    /// <summary>
+    /// <para>正数协议每日提醒</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：10</para>
+    /// <para>最小长度：1</para>
+    /// </summary>
+    [JsonPropertyName("positive_reminders")]
+    public Reminder[]? PositiveReminders { get; set; }
+
+    /// <summary>
+    /// <para>人员类型的自定义字段值。可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当字段设为只不能多选时只能输入一个值。设为空数组表示设为空。</para>
+    /// </summary>
+    public record Member
+    {
+        /// <summary>
+        /// <para>表示member的id</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
+        /// <para>最大长度：100</para>
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string Id { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>成员的类型，可以是user或者app。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：user</para>
+        /// <para>默认值：user</para>
+        /// </summary>
+        [JsonPropertyName("type")]
+        public string? Type { get; set; }
+
+        /// <summary>
+        /// <para>成员角色，可以是"assignee"或者"follower"。</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：assignee</para>
+        /// <para>最大长度：20</para>
+        /// </summary>
+        [JsonPropertyName("role")]
+        public string? Role { get; set; }
+
+        /// <summary>
+        /// <para>成员名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：张明德（明德）</para>
+        /// </summary>
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
     }
 }

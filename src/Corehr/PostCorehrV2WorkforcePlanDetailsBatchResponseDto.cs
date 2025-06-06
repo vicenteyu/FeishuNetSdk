@@ -4,7 +4,7 @@
 // Created          : 2024-09-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-18
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -185,6 +185,14 @@ public record PostCorehrV2WorkforcePlanDetailsBatchResponseDto : IPageableRespon
             [JsonPropertyName("estimated_active_individuals")]
             public string? EstimatedActiveIndividuals { get; set; }
         }
+
+        /// <summary>
+        /// <para>是否为缺维度的明细行，true为缺维度明细行，false为非缺维度明细行</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_missing_dimension")]
+        public bool? IsMissingDimension { get; set; }
     }
 
     /// <summary>

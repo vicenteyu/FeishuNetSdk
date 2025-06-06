@@ -37,7 +37,7 @@ public record PostHireV1TalentsByTalentIdOnboardStatusBodyDto
     public int Operation { get; set; }
 
     /// <summary>
-    /// <para>入职时间，毫秒时间戳</para>
+    /// <para>入职时间，毫秒时间戳；当操作类型为入职的时候时必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：1676548784889</para>
     /// </summary>
@@ -45,7 +45,7 @@ public record PostHireV1TalentsByTalentIdOnboardStatusBodyDto
     public string? OnboardTime { get; set; }
 
     /// <summary>
-    /// <para>离职时间，毫秒时间戳</para>
+    /// <para>离职时间，毫秒时间戳；当操作类型为离职的时候时必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：1676548784890</para>
     /// </summary>

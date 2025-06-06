@@ -4,7 +4,7 @@
 // Created          : 2025-02-28
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-28
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -106,4 +106,20 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto
         [JsonPropertyName("dimension_ids")]
         public string[]? DimensionIds { get; set; }
     }
+
+    /// <summary>
+    /// <para>是否包含缺维度的明细行数据，true为包含缺维度明细行数据，false为仅获取所有维度都有值的明细行数据，默认为 false</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("include_missing_dimension_rows")]
+    public bool? IncludeMissingDimensionRows { get; set; }
+
+    /// <summary>
+    /// <para>是否过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，true为过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，false为不过滤在职、预增/预减人员、编制数、预估在职人数都为0的明细行，默认为 false</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("filter_all_zero_value_rows")]
+    public bool? FilterAllZeroValueRows { get; set; }
 }

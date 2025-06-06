@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-23
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostPerformanceV2ReviewDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -79,7 +79,7 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
         public string? ActivityId { get; set; }
 
         /// <summary>
-        /// <para>被评估人在该周期对应的后台评估模板 ID，详细信息请参考[获取评估模版配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query)</para>
+        /// <para>被评估人在该周期对应的后台评估模板 ID，详细信息请参考[获取评估模板配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/review_template/query)</para>
         /// <para>必填：否</para>
         /// <para>示例值：7343513161666707459</para>
         /// </summary>
@@ -255,7 +255,7 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                         public string? SubmitTime { get; set; }
 
                         /// <summary>
-                        /// <para>评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考[获取评估项配置](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)</para>
+                        /// <para>评估项 ID（不包含子评估项），option_id 或 score 有值的时候有值，详细信息请参考[获取评估项列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/performance-v2/indicator/query)</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：7343513161666707459</para>
                         /// </summary>
@@ -555,6 +555,14 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                         /// </summary>
                         [JsonPropertyName("multi_richtexts")]
                         public string[]? MultiRichtexts { get; set; }
+
+                        /// <summary>
+                        /// <para>该评估题是否是首要评估项</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：true</para>
+                        /// </summary>
+                        [JsonPropertyName("is_principal_review_item")]
+                        public bool? IsPrincipalReviewItem { get; set; }
                     }
                 }
 
@@ -712,6 +720,8 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                     /// <summary>
                     /// <para>评估人作为直属项目上级所在的项目</para>
                     /// <para>必填：否</para>
+                    /// <para>最大长度：10000</para>
+                    /// <para>最小长度：0</para>
                     /// </summary>
                     [JsonPropertyName("cooperation_projects")]
                     public CooperationProject[]? CooperationProjects { get; set; }
@@ -827,7 +837,86 @@ public record PostPerformanceV2ReviewDatasQueryResponseDto
                             [JsonPropertyName("reviewee_role")]
                             public CooperationUserRole? RevieweeRole { get; set; }
                         }
+
+                        /// <summary>
+                        /// <para>评估人项目角色</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：10000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("user_roles")]
+                        public CooperationUserRole[]? UserRoles { get; set; }
+
+                        /// <summary>
+                        /// <para>评估人项目角色</para>
+                        /// </summary>
+                        public record CooperationUserRole
+                        {
+                            /// <summary>
+                            /// <para>角色 ID</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：7213434603057807379</para>
+                            /// </summary>
+                            [JsonPropertyName("role_id")]
+                            public string? RoleId { get; set; }
+
+                            /// <summary>
+                            /// <para>名称</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("name")]
+                            public I18n? Name { get; set; }
+
+                            /// <summary>
+                            /// <para>名称</para>
+                            /// </summary>
+                            public record I18n
+                            {
+                                /// <summary>
+                                /// <para>中文</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：体验</para>
+                                /// </summary>
+                                [JsonPropertyName("zh_cn")]
+                                public string? ZhCn { get; set; }
+
+                                /// <summary>
+                                /// <para>英文</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：Interactive experience</para>
+                                /// </summary>
+                                [JsonPropertyName("en_us")]
+                                public string? EnUs { get; set; }
+                            }
+                        }
+
+                        /// <summary>
+                        /// <para>被评估人项目角色</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：10000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("underling_roles")]
+                        public CooperationUserRole[]? UnderlingRoles { get; set; }
                     }
+
+                    /// <summary>
+                    /// <para>评估依据的项目</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：10000</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("review_depend_projects")]
+                    public CooperationProject[]? ReviewDependProjects { get; set; }
+
+                    /// <summary>
+                    /// <para>共同参与的项目</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：10000</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("participated_projects")]
+                    public CooperationProject[]? ParticipatedProjects { get; set; }
                 }
 
                 /// <summary>

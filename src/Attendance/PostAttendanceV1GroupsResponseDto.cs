@@ -276,7 +276,7 @@ public record PostAttendanceV1GroupsResponseDto
         public bool? HideStaffPunchTime { get; set; }
 
         /// <summary>
-        /// <para>是否隐藏打卡规则</para>
+        /// <para>是否隐藏打卡规则（仅灰度租户有效，如需使用请联系技术支持）</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -869,7 +869,7 @@ public record PostAttendanceV1GroupsResponseDto
             public int? EarlyMinutesAsLack { get; set; }
 
             /// <summary>
-            /// <para>非班中离返岗。为true时，不产生班中离返岗</para>
+            /// <para>班次中间请假，无需在离岗前或返岗后打卡（仅灰度租户有效，如需使用请联系技术支持）</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>
@@ -930,7 +930,7 @@ public record PostAttendanceV1GroupsResponseDto
             public int? EarlyMinutesAsLack { get; set; }
 
             /// <summary>
-            /// <para>非班中离返岗。为true时，不产生班中离返岗</para>
+            /// <para>班次中间外出，无需在离岗前或返岗后打卡（仅灰度租户有效，如需使用请联系技术支持）</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// </summary>

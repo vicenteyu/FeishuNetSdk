@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostHireV1ApplicationsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -63,4 +63,16 @@ public record PostHireV1ApplicationsBodyDto
     /// </summary>
     [JsonPropertyName("application_preferred_city_code_list")]
     public string[]? ApplicationPreferredCityCodeList { get; set; }
+
+    /// <summary>
+    /// <para>投递方式</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：HR 寻访</item>
+    /// <item>2：候选人主动投递</item>
+    /// </list></para>
+    /// </summary>
+    [JsonPropertyName("delivery_type")]
+    public int? DeliveryType { get; set; }
 }

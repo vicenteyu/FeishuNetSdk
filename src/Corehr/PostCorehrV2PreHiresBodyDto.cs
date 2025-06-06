@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-17
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -556,6 +556,13 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("year_resident_tax")]
             public string? YearResidentTax { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -707,6 +714,13 @@ public record PostCorehrV2PreHiresBodyDto
                 /// </summary>
                 [JsonPropertyName("issued_by")]
                 public string? IssuedBy { get; set; }
+
+                /// <summary>
+                /// <para>自定义字段</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("custom_fields")]
+                public ObjectFieldData[]? CustomFields { get; set; }
             }
 
             /// <summary>
@@ -977,6 +991,13 @@ public record PostCorehrV2PreHiresBodyDto
                 [JsonPropertyName("district_id_v2")]
                 public string? DistrictIdV2 { get; set; }
             }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1061,6 +1082,13 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("bank_account_type")]
             public string? BankAccountType { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1122,6 +1150,13 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("issued_by")]
             public string? IssuedBy { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1475,6 +1510,13 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("is_primary")]
             public bool? IsPrimary { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -1681,28 +1723,6 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>person对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：custom_field_1__c</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
 
         /// <summary>
         /// <para>预计毕业日期</para>
@@ -1982,6 +2002,7 @@ public record PostCorehrV2PreHiresBodyDto
 
         /// <summary>
         /// <para>成本中心分摊信息</para>
+        /// <para>- 待废弃，建议使用cost_allocation</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("cost_center_rate")]
@@ -1989,6 +2010,7 @@ public record PostCorehrV2PreHiresBodyDto
 
         /// <summary>
         /// <para>成本中心分摊信息</para>
+        /// <para>- 待废弃，建议使用cost_allocation</para>
         /// </summary>
         public record JobDataCostCenter
         {
@@ -2007,6 +2029,14 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("rate")]
             public int? Rate { get; set; }
+
+            /// <summary>
+            /// <para>分摊比例</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：50.2</para>
+            /// </summary>
+            [JsonPropertyName("new_rate")]
+            public float? NewRate { get; set; }
         }
 
         /// <summary>
@@ -2023,28 +2053,6 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>pre_hire对象上的自定义字段，可以通过[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)接口获得</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，请转换为字符串数组的方式写入</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：[\"Sandy\"]</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
 
         /// <summary>
         /// <para>任职公司，可以通过[批量查询公司](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口获取</para>
@@ -2231,6 +2239,13 @@ public record PostCorehrV2PreHiresBodyDto
             /// </summary>
             [JsonPropertyName("end_date")]
             public string? EndDate { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("custom_fields")]
+            public ObjectFieldData[]? CustomFields { get; set; }
         }
 
         /// <summary>
@@ -2333,6 +2348,123 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("work_station")]
         public string? WorkStation { get; set; }
+
+        /// <summary>
+        /// <para>通道</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7460865381179115052</para>
+        /// </summary>
+        [JsonPropertyName("pathway")]
+        public string? Pathway { get; set; }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("default_cost_center")]
+        public PrehireDefaultCostCenterUpdate? DefaultCostCenter { get; set; }
+
+        /// <summary>
+        /// <para>默认成本中心</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record PrehireDefaultCostCenterUpdate
+        {
+            /// <summary>
+            /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：6950635856373745165</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_id")]
+            public string CostCenterId { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>是否继承岗位/部门的默认成本中心</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_herit")]
+            public bool IsHerit { get; set; }
+        }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("cost_allocation")]
+        public PostCorehrV2PreHiresBodyDtoOfferInfoCostAllocation? CostAllocation { get; set; }
+
+        /// <summary>
+        /// <para>成本分摊</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// </summary>
+        public record PostCorehrV2PreHiresBodyDtoOfferInfoCostAllocation
+        {
+            /// <summary>
+            /// <para>分摊生效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-01-01</para>
+            /// </summary>
+            [JsonPropertyName("effective_time")]
+            public string? EffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>分摊失效日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2025-02-01</para>
+            /// </summary>
+            [JsonPropertyName("expiration_time")]
+            public string? ExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：50</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("cost_center_rates")]
+            public JobDataCostCenter[]? CostCenterRates { get; set; }
+
+            /// <summary>
+            /// <para>成本分摊信息</para>
+            /// </summary>
+            public record JobDataCostCenter
+            {
+                /// <summary>
+                /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6950635856373745165</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_id")]
+                public string? CostCenterId { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例(整数)</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：100</para>
+                /// </summary>
+                [JsonPropertyName("rate")]
+                public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public float? NewRate { get; set; }
+            }
+        }
+
+        /// <summary>
+        /// <para>人才ID，仅支持飞书招聘人才 ID，可以通过飞书招聘[获取人才列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/list)接口获取，如果未使用飞书招聘请置空</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：8234698927348</para>
+        /// </summary>
+        [JsonPropertyName("talent_id")]
+        public string? TalentId { get; set; }
     }
 
     /// <summary>
@@ -2395,28 +2527,6 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
     }
 
     /// <summary>
@@ -2485,28 +2595,6 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("custom_fields")]
         public ObjectFieldData[]? CustomFields { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段</para>
-        /// </summary>
-        public record ObjectFieldData
-        {
-            /// <summary>
-            /// <para>字段名</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：name</para>
-            /// </summary>
-            [JsonPropertyName("field_name")]
-            public string FieldName { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：Sandy</para>
-            /// </summary>
-            [JsonPropertyName("value")]
-            public string Value { get; set; } = string.Empty;
-        }
     }
 
     /// <summary>
@@ -2526,4 +2614,26 @@ public record PostCorehrV2PreHiresBodyDto
     /// </summary>
     [JsonPropertyName("out_biz_id")]
     public string? OutBizId { get; set; }
+
+    /// <summary>
+    /// <para>自定义字段</para>
+    /// </summary>
+    public record ObjectFieldData
+    {
+        /// <summary>
+        /// <para>字段名</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：name</para>
+        /// </summary>
+        [JsonPropertyName("field_name")]
+        public string FieldName { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(123, 123.23, true, [\"id1\",\"id2\], 2006-01-02 15:04:05])</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：Sandy</para>
+        /// </summary>
+        [JsonPropertyName("value")]
+        public string Value { get; set; } = string.Empty;
+    }
 }

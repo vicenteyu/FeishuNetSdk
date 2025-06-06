@@ -567,7 +567,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             }
 
             /// <summary>
-            /// <para>抄送人的阅读状态，空值表示不支持已读未读。</para>
+            /// <para>抄送人的阅读状态</para>
             /// <para>必填：是</para>
             /// <para>示例值：READ</para>
             /// <para>可选值：<list type="bullet">

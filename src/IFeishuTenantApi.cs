@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-06-06
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4949,7 +4949,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 仅支持下载 100 MB 以内的资源文件。</para>
     /// <para>- 暂不支持获取表情包资源。</para>
-    /// <para>- 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。</para>
+    /// <para>- 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。如果请求时传入了合并转发消息或子消息的 ID、卡片消息 ID，则会返回错误码 234043。</para>
     /// <para>- 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
@@ -36097,6 +36097,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建任务时可以一并设置自定义字段值。但根据自定义字段的权限关系，任务只能添加`tasklists`字段设置的清单中关联的自定义字段的值。详见[自定义字段功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)中的介绍。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -37820,6 +37821,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:pre_hire.check_in_data:read</item>
     /// <item>corehr:pre_hire.company_manual_updated:read</item>
     /// <item>corehr:pre_hire.company_sponsored_visa:read</item>
+    /// <item>corehr:pre_hire.contract_file_id:read</item>
     /// <item>corehr:pre_hire.cost_center:read</item>
     /// <item>corehr:pre_hire.cost_center:write</item>
     /// <item>corehr:pre_hire.dotted_line_manager:read</item>
@@ -42168,7 +42170,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【飞书人事（企业版）】添加人员</para>
     /// <para>接口ID：7350663854198161410</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/create</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token</para>
     /// <para>支持在单个接口中进行人员全信息添加，包括人员的基本信息，雇佣信息，入职任职记录及其他分组信息</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:employee.add:write</item>
@@ -45766,6 +45768,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:pre_hire.check_in_data:read</item>
     /// <item>corehr:pre_hire.company_manual_updated:read</item>
     /// <item>corehr:pre_hire.company_sponsored_visa:read</item>
+    /// <item>corehr:pre_hire.contract_file_id:read</item>
     /// <item>corehr:pre_hire.cost_center:read</item>
     /// <item>corehr:pre_hire.cost_center:write</item>
     /// <item>corehr:pre_hire.dotted_line_manager:read</item>
@@ -47957,65 +47960,6 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/hire/v1/talents/remove_to_folder")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1TalentsRemoveToFolderResponseDto>> PostHireV1TalentsRemoveToFolderAsync(
         [JsonContent] Hire.PostHireV1TalentsRemoveToFolderBodyDto dto);
-
-    /// <summary>
-    /// <para>【组织架构】转换员工 ID</para>
-    /// <para>接口ID：7419214646853107716</para>
-    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/idconvert</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>转换员工 ID</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>directory:employee.idconvert:read</item>
-    /// </list></para>
-    /// <para>字段权限要求：<list type="bullet">
-    /// <item>directory:employee.base.external_id:read</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="employee_id_type">
-    /// <para>必填：否</para>
-    /// <para>用户 ID 类型</para>
-    /// <para>示例值：open_id</para>
-    /// <list type="bullet">
-    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
-    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
-    /// </list>
-    /// <para>默认值：open_id</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/directory/v1/employees/idconvert")]
-    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesIdconvertResponseDto>> PostDirectoryV1EmployeesIdconvertAsync(
-        [JsonContent] Directory.PostDirectoryV1EmployeesIdconvertBodyDto dto,
-        [PathQuery] string? employee_id_type = "open_id");
-
-    /// <summary>
-    /// <para>【组织架构】转换部门 ID</para>
-    /// <para>接口ID：7419214646853206020</para>
-    /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/idconvert</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>转换部门 ID</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>directory:department.idconvert:read</item>
-    /// </list></para>
-    /// <para>字段权限要求：<list type="bullet">
-    /// <item>directory:department.external_id:read</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="department_id_type">
-    /// <para>必填：否</para>
-    /// <para>部门ID类型</para>
-    /// <para>示例值：open_department_id</para>
-    /// <list type="bullet">
-    /// <item>department_id：department_id</item>
-    /// <item>open_department_id：open_department_id</item>
-    /// </list>
-    /// <para>默认值：open_department_id</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    [HttpPost("/open-apis/directory/v1/departments/idconvert")]
-    System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsIdconvertResponseDto>> PostDirectoryV1DepartmentsIdconvertAsync(
-        [JsonContent] Directory.PostDirectoryV1DepartmentsIdconvertBodyDto dto,
-        [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
     /// <para>【帐号】退出登录</para>
