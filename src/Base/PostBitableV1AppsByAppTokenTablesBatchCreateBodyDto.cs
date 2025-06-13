@@ -34,7 +34,7 @@ public record PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto
     public record ReqTable
     {
         /// <summary>
-        /// <para>数据表名称。</para>
+        /// <para>数据表名称。该字段必填。</para>
         /// <para>**注意**：</para>
         /// <para>- 名称中的首尾空格将会被默认去除。</para>
         /// <para>- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。</para>

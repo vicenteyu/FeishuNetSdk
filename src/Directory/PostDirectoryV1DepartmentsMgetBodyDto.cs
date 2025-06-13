@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Directory;
 public record PostDirectoryV1DepartmentsMgetBodyDto
 {
     /// <summary>
-    /// <para>部门ID</para>
+    /// <para>部门ID，与department_id_type类型保持一致</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

@@ -44,14 +44,14 @@ public record PostDirectoryV1DepartmentsBodyDto
         public string? CustomDepartmentId { get; set; }
 
         /// <summary>
-        /// <para>部门名称</para>
+        /// <para>部门名称，最多可输入 100 字</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18nText? Name { get; set; }
 
         /// <summary>
-        /// <para>部门名称</para>
+        /// <para>部门名称，最多可输入 100 字</para>
         /// </summary>
         public record I18nText
         {
@@ -73,7 +73,8 @@ public record PostDirectoryV1DepartmentsBodyDto
         }
 
         /// <summary>
-        /// <para>父部门ID。如果父部门为根部门，该参数值为 “0”</para>
+        /// <para>父部门ID，与department_id_type类型保持一致</para>
+        /// <para>。如果父部门为根部门，该参数值为 “0”</para>
         /// <para>必填：否</para>
         /// <para>示例值：h121900</para>
         /// </summary>
@@ -107,7 +108,7 @@ public record PostDirectoryV1DepartmentsBodyDto
             public int LeaderType { get; set; }
 
             /// <summary>
-            /// <para>部门负责人ID</para>
+            /// <para>部门负责人ID，与employee_id_type类型保持一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：u273y71</para>
             /// </summary>
@@ -305,7 +306,7 @@ public record PostDirectoryV1DepartmentsBodyDto
             public record UserValue
             {
                 /// <summary>
-                /// <para>人员ID</para>
+                /// <para>人员ID，与employee_id_type类型保持一致</para>
                 /// <para>必填：是</para>
                 /// <para>最大长度：100</para>
                 /// <para>最小长度：0</para>

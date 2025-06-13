@@ -4,7 +4,7 @@
 // Created          : 2024-11-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2025-06-13
 // ************************************************************************
 // <copyright file="PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -85,7 +85,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
         /// <item>3：审批被撤销，用户主动撤销审批，调整会进入已撤销状态。</item>
         /// <item>4：执行成功，调整已经执行成功。</item>
         /// <item>5：执行失败，调整已经执行失败。</item>
-        /// <item>6：待执行，调整依赖其他流程完成，等待执行。</item>
+        /// <item>6：待执行，调整依赖其他流程完成，等待执行。字节租户或者商业化租户且配置拆分审批流(合单) 才会触发，调整所在审批单执行生效依赖另一个同时发起的还处于审批中状态审批单的执行结果。</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("department_change_status")]
@@ -269,6 +269,14 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
                 /// </summary>
                 [JsonPropertyName("cost_center_id")]
                 public string? CostCenterId { get; set; }
+
+                /// <summary>
+                /// <para>成本中心版本ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6969828847121885087</para>
+                /// </summary>
+                [JsonPropertyName("cost_center_version_id")]
+                public string? CostCenterVersionId { get; set; }
 
                 /// <summary>
                 /// <para>成本中心名称</para>
@@ -553,6 +561,112 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
                 /// </summary>
                 [JsonPropertyName("target_value")]
                 public CustomFieldData? TargetValue { get; set; }
+            }
+
+            /// <summary>
+            /// <para>调整前后组织角色信息</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：1000</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("orgrole_infos")]
+            public OrgroleInfo[]? OrgroleInfos { get; set; }
+
+            /// <summary>
+            /// <para>调整前后组织角色信息</para>
+            /// </summary>
+            public record OrgroleInfo
+            {
+                /// <summary>
+                /// <para>角色ID</para>
+                /// <para>- 通过[【批量获取角色列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/security_group/list)获取角色其他信息</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：hrbp</para>
+                /// </summary>
+                [JsonPropertyName("role_id")]
+                public string RoleId { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>原组织角色</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：500</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("origin_orgroles")]
+                public OrgdraftOrgroleAssignment[]? OriginOrgroles { get; set; }
+
+                /// <summary>
+                /// <para>原组织角色</para>
+                /// </summary>
+                public record OrgdraftOrgroleAssignment
+                {
+                    /// <summary>
+                    /// <para>授权用户id</para>
+                    /// <para>- 通过[【批量获取员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/mget)获取员工其他信息。</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：6967286856077673994</para>
+                    /// </summary>
+                    [JsonPropertyName("grantee_id")]
+                    public string GranteeId { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>管理范围，组织角色为交叉角色时有值。</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：200</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("management_scopes")]
+                    public OrgroleAssignmentOrg[]? ManagementScopes { get; set; }
+
+                    /// <summary>
+                    /// <para>管理范围，组织角色为交叉角色时有值。</para>
+                    /// </summary>
+                    public record OrgroleAssignmentOrg
+                    {
+                        /// <summary>
+                        /// <para>组织ID</para>
+                        /// <para>- 当org_type为location时，可以通过[【通过地点 ID 批量获取地点信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/location/batch_get)获取地点的其他信息。</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：6967286856077673993</para>
+                        /// </summary>
+                        [JsonPropertyName("org_id")]
+                        public string OrgId { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>组织类型</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：department</para>
+                        /// <para>可选值：<list type="bullet">
+                        /// <item>department：部门</item>
+                        /// <item>location：地点</item>
+                        /// <item>custom_org_01：自定义组织</item>
+                        /// <item>custom_org_02：自定义组织</item>
+                        /// <item>custom_org_03：自定义组织</item>
+                        /// <item>custom_org_04：自定义组织</item>
+                        /// <item>custom_org_05：自定义组织</item>
+                        /// </list></para>
+                        /// </summary>
+                        [JsonPropertyName("org_type")]
+                        public string OrgType { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>组织名称</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：people</para>
+                        /// </summary>
+                        [JsonPropertyName("org_name")]
+                        public string? OrgName { get; set; }
+                    }
+                }
+
+                /// <summary>
+                /// <para>新组织角色</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：500</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("target_orgroles")]
+                public OrgdraftOrgroleAssignment[]? TargetOrgroles { get; set; }
             }
         }
     }

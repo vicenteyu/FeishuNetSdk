@@ -135,7 +135,7 @@
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
 <tr><td rowspan="2">68</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">69</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
+<tr><td rowspan="2">69</td><td rowspan="2">2025-06-11</td><td>&#10003;</td><td>消息与群组</td><td>更新应用发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
@@ -173,7 +173,7 @@
 <tr><td colspan="3">PutBitableV1AppsByAppToken</td></tr>
 <tr><td rowspan="2">87</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>多维表格</td><td>新增一个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTables</td></tr>
-<tr><td rowspan="2">88</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>新增多个数据表</td></tr>
+<tr><td rowspan="2">88</td><td rowspan="2">2025-06-09</td><td>&#10003;</td><td>多维表格</td><td>新增多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchCreate</td></tr>
 <tr><td rowspan="2">89</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>删除一个数据表</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableId</td></tr>
@@ -259,33 +259,33 @@
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">130</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
-<tr><td rowspan="2">131</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
+<tr><td rowspan="2">131</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
-<tr><td rowspan="2">132</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
+<tr><td rowspan="2">132</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2Spaces</td></tr>
-<tr><td rowspan="2">133</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
+<tr><td rowspan="2">133</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>添加知识空间成员</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">134</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
+<tr><td rowspan="2">134</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>删除知识空间成员</td></tr>
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">135</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
+<tr><td rowspan="2">135</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
 <tr><td rowspan="2">136</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>获取群内 Pin 消息</td></tr>
 <tr><td colspan="3">GetImV1Pins</td></tr>
-<tr><td rowspan="2">137</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
+<tr><td rowspan="2">137</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
-<tr><td rowspan="2">138</td><td rowspan="2">2024-09-19</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
+<tr><td rowspan="2">138</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesGetNode</td></tr>
-<tr><td rowspan="2">139</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
+<tr><td rowspan="2">139</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdNodes</td></tr>
-<tr><td rowspan="2">140</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动知识空间节点</td></tr>
+<tr><td rowspan="2">140</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>移动知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenMove</td></tr>
-<tr><td rowspan="2">141</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新知识空间节点标题</td></tr>
+<tr><td rowspan="2">141</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>更新知识空间节点标题</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitle</td></tr>
-<tr><td rowspan="2">142</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点副本</td></tr>
+<tr><td rowspan="2">142</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>创建知识空间节点副本</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopy</td></tr>
-<tr><td rowspan="2">143</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动云空间文档至知识空间</td></tr>
+<tr><td rowspan="2">143</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>移动云空间文档至知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesMoveDocsToWiki</td></tr>
-<tr><td rowspan="2">144</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
+<tr><td rowspan="2">144</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
 <tr><td colspan="3">GetWikiV2TasksByTaskId</td></tr>
 <tr><td rowspan="2">145</td><td rowspan="2">2024-09-18</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
 <tr><td colspan="3">PostWikiV1NodesSearch</td></tr>
@@ -889,7 +889,7 @@
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenDeleteSubscribe</td></tr>
 <tr><td rowspan="2">445</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>查询云文档事件订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenGetSubscribe</td></tr>
-<tr><td rowspan="2">446</td><td rowspan="2">2024-11-20</td><td>&#10003;</td><td>云文档</td><td>搜索云文档</td></tr>
+<tr><td rowspan="2">446</td><td rowspan="2">2025-06-09</td><td>&#10003;</td><td>云文档</td><td>搜索云文档</td></tr>
 <tr><td colspan="3">PostSuiteDocsApiSearchObject</td></tr>
 <tr><td rowspan="2">447</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadAll</td></tr>
@@ -1039,7 +1039,7 @@
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUploadReport</td></tr>
 <tr><td rowspan="2">520</td><td rowspan="2">2024-08-01</td><td>&#10003;</td><td>考勤打卡</td><td>删除归档报表行数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
-<tr><td rowspan="2">521</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
+<tr><td rowspan="2">521</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
@@ -1213,35 +1213,35 @@
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
 <tr><td rowspan="2">607</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>上传文件用于数据知识管理</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssetsUploadFile</td></tr>
-<tr><td rowspan="2">608</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>删除部门</td></tr>
+<tr><td rowspan="2">608</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>删除部门</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">609</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesMget</td></tr>
-<tr><td rowspan="2">610</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>创建部门</td></tr>
+<tr><td rowspan="2">610</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>创建部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1Departments</td></tr>
-<tr><td rowspan="2">611</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
+<tr><td rowspan="2">611</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
 <tr><td colspan="3">PatchDirectoryV1DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">612</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
+<tr><td rowspan="2">612</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsSearch</td></tr>
-<tr><td rowspan="2">613</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
+<tr><td rowspan="2">613</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">614</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>搜索员工</td></tr>
+<tr><td rowspan="2">614</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>搜索员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
-<tr><td rowspan="2">615</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
+<tr><td rowspan="2">615</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1Employees</td></tr>
-<tr><td rowspan="2">616</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>组织架构</td><td>更新员工</td></tr>
+<tr><td rowspan="2">616</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新员工</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">617</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesFilter</td></tr>
-<tr><td rowspan="2">618</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门列表</td></tr>
+<tr><td rowspan="2">618</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsFilter</td></tr>
-<tr><td rowspan="2">619</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>恢复离职员工</td></tr>
+<tr><td rowspan="2">619</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>恢复离职员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesByEmployeeIdResurrect</td></tr>
-<tr><td rowspan="2">620</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门信息</td></tr>
+<tr><td rowspan="2">620</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsMget</td></tr>
-<tr><td rowspan="2">621</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>更新待离职成员为在职</td></tr>
+<tr><td rowspan="2">621</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新待离职成员为在职</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdRegular</td></tr>
-<tr><td rowspan="2">622</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>更新在职员工为待离职</td></tr>
+<tr><td rowspan="2">622</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新在职员工为待离职</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdToBeResigned</td></tr>
 <tr><td rowspan="2">623</td><td rowspan="2">2025-05-23</td><td><span style="color:red;">删除</span></td><td>组织架构</td><td>转换员工 ID</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesIdconvert</td></tr>

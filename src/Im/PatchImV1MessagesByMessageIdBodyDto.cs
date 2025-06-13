@@ -14,13 +14,17 @@
 namespace FeishuNetSdk.Im;
 /// <summary>
 /// 更新应用发送的消息卡片 请求体
-/// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。如果你需要在用户与卡片进行交互后延迟更新卡片，或者通过用户 ID 更新部分成员接收到的卡片内容，可调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口。</para>
+/// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。</para>
 /// <para>## 前提条件</para>
 /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>## 使用场景</para>
+/// <para>- 本接口适用于场景卡片发送后，对卡片无条件直接更新的场景。</para>
+/// <para>- 如果你需要在用户与卡片进行交互后更新卡片，可参考[处理卡片回调](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/handle-card-callbacks)，选择在 3 秒内立即更新卡片、或 30 分钟内[延时更新卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)的方式。</para>
+/// <para>- 如果你需要仅更新部分成员接收到的卡片，你需调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口，指定用户的 open_id。</para>
 /// <para>## 注意事项</para>
 /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
 /// <para>- 仅支持更新未撤回的卡片。</para>
-/// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片）。</para>
+/// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片，卡片的更新对所有接收的用户可见）。</para>
 /// <para>## 使用限制</para>
 /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
 /// <para>- 仅支持更新 14 天内发送的消息。</para>

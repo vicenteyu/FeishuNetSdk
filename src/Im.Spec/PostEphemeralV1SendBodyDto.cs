@@ -23,7 +23,7 @@ namespace FeishuNetSdk.Im.Spec;
 public record PostEphemeralV1SendBodyDto
 {
     /// <summary>
-    /// <para>目标群 ID。群 ID 获取方式参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
+    /// <para>目标群 ID。仅支持群模式为对话的普通群，不支持话题群。群 ID 获取方式参见[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)。</para>
     /// <para>示例值：oc_5ad573a6411d72b8305fda3a9c1abcef</para>
     /// <para>必填：是</para>
     /// </summary>

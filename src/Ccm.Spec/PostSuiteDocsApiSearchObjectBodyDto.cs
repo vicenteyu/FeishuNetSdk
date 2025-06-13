@@ -58,7 +58,7 @@ public record PostSuiteDocsApiSearchObjectBodyDto
 
     /// <summary>
     /// <para>文件类型，支持以下枚举：</para>
-    /// <para>- `doc`：旧版文档</para>
+    /// <para>- `doc`：文档，包括旧版文档（doc）和新版文档（docx）</para>
     /// <para>- `sheet`：电子表格</para>
     /// <para>- `slides`：幻灯片</para>
     /// <para>- `bitable`：多维表格</para>

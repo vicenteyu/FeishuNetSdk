@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2025-06-13
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6907568030018469890</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message-card/delay-update-message-card</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用户点击卡片进行交互、你的服务端在收到并响应卡片的回调请求后，可调用该接口延时更新卡片。了解完整的卡片交互配置流程，可参考[配置卡片交互](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/configuring-card-interactions#1b37805e)。</para>
+    /// <para>用户点击卡片进行交互、你的服务端在收到并响应卡片的回调请求后，可调用该接口延时更新卡片。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
     /// <item>im:message:send_as_bot</item>
@@ -4827,13 +4827,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6946222931479543809</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message-card/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。如果你需要在用户与卡片进行交互后延迟更新卡片，或者通过用户 ID 更新部分成员接收到的卡片内容，可调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口。</para>
+    /// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用场景</para>
+    /// <para>- 本接口适用于场景卡片发送后，对卡片无条件直接更新的场景。</para>
+    /// <para>- 如果你需要在用户与卡片进行交互后更新卡片，可参考[处理卡片回调](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/handle-card-callbacks)，选择在 3 秒内立即更新卡片、或 30 分钟内[延时更新卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)的方式。</para>
+    /// <para>- 如果你需要仅更新部分成员接收到的卡片，你需调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口，指定用户的 open_id。</para>
     /// <para>## 注意事项</para>
     /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
     /// <para>- 仅支持更新未撤回的卡片。</para>
-    /// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片）。</para>
+    /// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片，卡片的更新对所有接收的用户可见）。</para>
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
@@ -41319,6 +41323,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:orgrole_info:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="process_id">
@@ -43256,7 +43261,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID</para>
+    /// <para>部门ID，与department_id_type类型保持一致</para>
     /// <para>示例值：weasdqwe</para>
     /// </param>
     /// <param name="department_id_type">
@@ -43439,7 +43444,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="department_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>部门ID</para>
+    /// <para>部门ID，与department_id_type类型保持一致</para>
     /// <para>示例值：h12921</para>
     /// </param>
     /// <param name="employee_id_type">
@@ -43730,7 +43735,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>员工ID</para>
+    /// <para>员工ID，与employee_id_type类型保持一致。</para>
     /// <para>示例值：eehsdna</para>
     /// </param>
     /// <param name="employee_id_type">
@@ -43938,7 +43943,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>员工ID</para>
+    /// <para>员工ID，与employee_id_type类型保持一致</para>
     /// <para>示例值：eedasdas</para>
     /// </param>
     /// <param name="employee_id_type">
@@ -46190,7 +46195,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>雇员ID</para>
+    /// <para>员工ID，与employee_id_type类型保持一致</para>
     /// <para>示例值：d2e1jas</para>
     /// </param>
     /// <param name="employee_id_type">
@@ -46226,7 +46231,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/to_be_resigned</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>本接口用于为在职员工办理离职，将其更新为「待离职」状态。「待离职」员工不会自动离职，需要使用「离职员工」API操作离职和资源转交。</para>
-    /// <para>使用user_access_token时默认为管理员用户，仅可操作「人事管理模式」的管理员可操作。</para>
+    /// <para>使用user_access_token时默认为管理员用户，仅「人事管理模式」的管理员可操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:employee.to_be_resigned:write</item>
     /// </list></para>
@@ -46237,7 +46242,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employee_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>员工ID</para>
+    /// <para>员工ID，与employee_id_type类型保持一致</para>
     /// <para>示例值：cad2cafa</para>
     /// </param>
     /// <param name="employee_id_type">
@@ -47893,6 +47898,298 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string @namespace,
         [PathQuery] string role_api_name,
         [JsonContent] AppEngine.PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchCreateAuthorizationBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询外派信息</para>
+    /// <para>接口ID：7418041559249354755</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-international_assignment/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询员工的外派信息：外派类型、外派地点、职务、职级、上级等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employees.international_assignment:read</item>
+    /// <item>corehr:employees.international_assignment:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.international_assignment.compensation_type:read</item>
+    /// <item>corehr:employment.international_assignment.compensation_type:write</item>
+    /// <item>corehr:employment.international_assignment.custom_field:read</item>
+    /// <item>corehr:employment.international_assignment.custom_field:write</item>
+    /// <item>corehr:employment.international_assignment.job_grade:read</item>
+    /// <item>corehr:employment.international_assignment.job_grade:write</item>
+    /// <item>corehr:employment.international_assignment.job_level:read</item>
+    /// <item>corehr:employment.international_assignment.job_level:write</item>
+    /// <item>corehr:employment.international_assignment.job:read</item>
+    /// <item>corehr:employment.international_assignment.job:write</item>
+    /// <item>corehr:employment.international_assignment.position:read</item>
+    /// <item>corehr:employment.international_assignment.position:write</item>
+    /// <item>corehr:employment.international_assignment.service_company:read</item>
+    /// <item>corehr:employment.international_assignment.service_company:write</item>
+    /// <item>corehr:employment.international_assignment.weekly_working_hours:read</item>
+    /// <item>corehr:employment.international_assignment.weekly_working_hours:write</item>
+    /// <item>corehr:employment.international_assignment.work_calendar:read</item>
+    /// <item>corehr:employment.international_assignment.work_calendar:write</item>
+    /// <item>corehr:employment.international_assignment.work_location:read</item>
+    /// <item>corehr:employment.international_assignment.work_location:write</item>
+    /// <item>corehr:employment.international_assignment.work_shift:read</item>
+    /// <item>corehr:employment.international_assignment.work_shift:write</item>
+    /// <item>corehr:employment.international_assignment.working_hours_type:read</item>
+    /// <item>corehr:employment.international_assignment.working_hours_type:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：200</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：123456</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="employment_ids">
+    /// <para>必填：否</para>
+    /// <para>雇佣ID</para>
+    /// <para>- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取详细信息</para>
+    /// <para>- 类型必须与 user_id_type 一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="international_assignment_ids">
+    /// <para>必填：否</para>
+    /// <para>外派 ID</para>
+    /// <para>- 指定外派记录 ID 查询时，请将 page_size 设为最大值，不返回 has_more 参数</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="effective_time">
+    /// <para>必填：否</para>
+    /// <para>外派开始日期</para>
+    /// <para>- 范围筛选，格式：yyyy-mm-dd~yyyy-mm-dd</para>
+    /// <para>示例值：- "2024-01-01~2024-02-02" - "~2024-02-02" - "2024-01-01~"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="expiration_time">
+    /// <para>必填：否</para>
+    /// <para>外派结束日期</para>
+    /// <para>- 范围筛选，格式：yyyy-mm-dd~yyyy-mm-dd</para>
+    /// <para>示例值：- "2024-01-01~2024-02-02" - "~2024-02-02" - "2024-01-01~"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="employment_status_list">
+    /// <para>必填：否</para>
+    /// <para>雇佣状态</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：employment</para>
+    /// <para>- custom_api_name：employment_status</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="work_location_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派工作地点</para>
+    /// <para>- 可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.work_location:read : 读取外派地点</para>
+    /// <para>- corehr:employment.international_assignment.work_location:write : 读写外派地点</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派部门</para>
+    /// <para>- 可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)获取</para>
+    /// <para>- 类型与 department_id_type 一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="direct_manager_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派直属上级</para>
+    /// <para>- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取</para>
+    /// <para>- 类型与 user_id_type 一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dotted_line_manager_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派虚线上级</para>
+    /// <para>- 可通过[【批量查询员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取</para>
+    /// <para>- 类型与 user_id_type 一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="position_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派岗位</para>
+    /// <para>- 功能灰度中，请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.position:read : 读取外派岗位</para>
+    /// <para>- corehr:employment.international_assignment.position:write : 读写外派岗位</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="job_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派职务</para>
+    /// <para>- 可通过[【批量查询职务】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/list)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.job:read : 读取外派职务</para>
+    /// <para>- corehr:employment.international_assignment.job:write : 读写外派职务</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="job_family_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派序列</para>
+    /// <para>- 可通过[【批量查询序列】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获取</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="job_level_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派职级</para>
+    /// <para>- 可通过[【批量查询职级】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.job_level:read : 读取外派职级</para>
+    /// <para>- corehr:employment.international_assignment.job_level:write : 读写外派职级</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="job_grade_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派职等</para>
+    /// <para>- 可通过[【查询职等】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.job_grade:read : 读取外派职等</para>
+    /// <para>- corehr:employment.international_assignment.job_grade:write : 读写外派职等</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="working_hours_type_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派工时制度</para>
+    /// <para>- 可通过[【批量查询工时制度】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/working_hours_type/list)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.working_hours_type:read : 读取外派工时制度</para>
+    /// <para>- corehr:employment.international_assignment.working_hours_type:write : 读写外派工时制度</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="service_company_list">
+    /// <para>必填：否</para>
+    /// <para>外派任职公司</para>
+    /// <para>- 可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)获取</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.service_company:read : 读取外派公司</para>
+    /// <para>- corehr:employment.international_assignment.service_company:write : 读写外派公司</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="weekly_working_hours_v2">
+    /// <para>必填：否</para>
+    /// <para>外派周工作时长</para>
+    /// <para>- 限制两位小数</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.weekly_working_hours:read : 读取外派周工作时长</para>
+    /// <para>- corehr:employment.international_assignment.weekly_working_hours:write : 读写外派周工作时长</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="work_shift_list">
+    /// <para>必填：否</para>
+    /// <para>外派排班类型</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：job_data</para>
+    /// <para>- custom_api_name：work_shift</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.work_shift:read : 读取外派排班类型</para>
+    /// <para>- corehr:employment.international_assignment.work_shift:write : 读写外派排班类型</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="compensation_type_list">
+    /// <para>必填：否</para>
+    /// <para>外派薪资类型</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：job_data</para>
+    /// <para>- custom_api_name：compensation_type</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.compensation_type:read : 读取外派薪资类型</para>
+    /// <para>- corehr:employment.international_assignment.compensation_type:write : 读写外派薪资类型</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="international_assignment_expected_end_date">
+    /// <para>必填：否</para>
+    /// <para>外派预计结束日期</para>
+    /// <para>- 范围筛选，格式：yyyy-mm-dd~yyyy-mm-dd</para>
+    /// <para>示例值：- "2024-01-01~2024-02-02" - "~2024-02-02" - "2024-01-01~"</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="international_assignment_status_list">
+    /// <para>必填：否</para>
+    /// <para>外派状态</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：international_assignment</para>
+    /// <para>- custom_api_name：international_assignment_status</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="international_assignment_type_list">
+    /// <para>必填：否</para>
+    /// <para>外派类型</para>
+    /// <para>- 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
+    /// <para>- object_api_name：international_assignment</para>
+    /// <para>- custom_api_name：international_assignment_type</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="work_calendar_id_list">
+    /// <para>必填：否</para>
+    /// <para>外派工作日历</para>
+    /// <para>- 可通过[【查询工作日历】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave/work_calendar)获取详细信息</para>
+    /// <para>- 需要以下权限点之一：</para>
+    /// <para>- corehr:employment.international_assignment.work_calendar:read : 读取外派工作日历</para>
+    /// <para>- corehr:employment.international_assignment.work_calendar:write : 读写外派工作日历</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    [HttpGet("/open-apis/corehr/v2/employees/international_assignments")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2EmployeesInternationalAssignmentsResponseDto>> GetCorehrV2EmployeesInternationalAssignmentsAsync(
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] int? page_size = 200,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string[]? employment_ids = null,
+        [PathQuery] string[]? international_assignment_ids = null,
+        [PathQuery] string? effective_time = null,
+        [PathQuery] string? expiration_time = null,
+        [PathQuery] string[]? employment_status_list = null,
+        [PathQuery] string[]? work_location_id_list = null,
+        [PathQuery] string[]? department_id_list = null,
+        [PathQuery] string[]? direct_manager_id_list = null,
+        [PathQuery] string[]? dotted_line_manager_id_list = null,
+        [PathQuery] string[]? position_id_list = null,
+        [PathQuery] string[]? job_id_list = null,
+        [PathQuery] string[]? job_family_id_list = null,
+        [PathQuery] string[]? job_level_id_list = null,
+        [PathQuery] string[]? job_grade_id_list = null,
+        [PathQuery] string[]? working_hours_type_id_list = null,
+        [PathQuery] string[]? service_company_list = null,
+        [PathQuery] float? weekly_working_hours_v2 = null,
+        [PathQuery] string[]? work_shift_list = null,
+        [PathQuery] string[]? compensation_type_list = null,
+        [PathQuery] string? international_assignment_expected_end_date = null,
+        [PathQuery] string[]? international_assignment_status_list = null,
+        [PathQuery] string[]? international_assignment_type_list = null,
+        [PathQuery] string[]? work_calendar_id_list = null);
 
     /// <summary>
     /// <para>【招聘】启用内推账户</para>
@@ -49886,6 +50183,159 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempResponseDto>> PostAttendanceV1UserDailyShiftsBatchCreateTempAsync(
         [PathQuery] string employee_type,
         [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto dto);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建外派信息</para>
+    /// <para>接口ID：7446683431818395651</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-international_assignment/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>为员工添加外派记录，包括外派信息、任职信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employees.international_assignment:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.international_assignment.compensation_type:write</item>
+    /// <item>corehr:employment.international_assignment.custom_field:write</item>
+    /// <item>corehr:employment.international_assignment.job_grade:write</item>
+    /// <item>corehr:employment.international_assignment.job_level:write</item>
+    /// <item>corehr:employment.international_assignment.job:write</item>
+    /// <item>corehr:employment.international_assignment.position:write</item>
+    /// <item>corehr:employment.international_assignment.service_company:write</item>
+    /// <item>corehr:employment.international_assignment.weekly_working_hours:write</item>
+    /// <item>corehr:employment.international_assignment.work_calendar:write</item>
+    /// <item>corehr:employment.international_assignment.work_location:write</item>
+    /// <item>corehr:employment.international_assignment.work_shift:write</item>
+    /// <item>corehr:employment.international_assignment.working_hours_type:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>幂等标识，服务端会忽略 client_token 重复的请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPost("/open-apis/corehr/v2/employees/international_assignments")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2EmployeesInternationalAssignmentsResponseDto>> PostCorehrV2EmployeesInternationalAssignmentsAsync(
+        [JsonContent] Corehr.PostCorehrV2EmployeesInternationalAssignmentsBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新外派信息</para>
+    /// <para>接口ID：7446683431818412035</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-international_assignment/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定的外派信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employees.international_assignment:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.international_assignment.compensation_type:write</item>
+    /// <item>corehr:employment.international_assignment.custom_field:write</item>
+    /// <item>corehr:employment.international_assignment.job_grade:write</item>
+    /// <item>corehr:employment.international_assignment.job_level:write</item>
+    /// <item>corehr:employment.international_assignment.job:write</item>
+    /// <item>corehr:employment.international_assignment.position:write</item>
+    /// <item>corehr:employment.international_assignment.service_company:write</item>
+    /// <item>corehr:employment.international_assignment.weekly_working_hours:write</item>
+    /// <item>corehr:employment.international_assignment.work_calendar:write</item>
+    /// <item>corehr:employment.international_assignment.work_location:write</item>
+    /// <item>corehr:employment.international_assignment.work_shift:write</item>
+    /// <item>corehr:employment.international_assignment.working_hours_type:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="international_assignment_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>外派ID</para>
+    /// <para>- 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取</para>
+    /// <para>示例值：7127921432117937708</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>幂等标识，服务端会忽略client_token重复的请求</para>
+    /// <para>示例值：12454646</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    [HttpPatch("/open-apis/corehr/v2/employees/international_assignments/{international_assignment_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PatchCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentIdResponseDto>> PatchCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentIdAsync(
+        [PathQuery] string international_assignment_id,
+        [JsonContent] Corehr.PatchCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentIdBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id");
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除外派信息</para>
+    /// <para>接口ID：7446683431818428419</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-international_assignment/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除某一条外派信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employees.international_assignment:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="international_assignment_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>外派ID</para>
+    /// <para>- 可通过[批量查询外派](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-international_assignment/list)获取</para>
+    /// <para>示例值：7127921432117937708</para>
+    /// </param>
+    [HttpDelete("/open-apis/corehr/v2/employees/international_assignments/{international_assignment_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentIdAsync(
+        [PathQuery] string international_assignment_id);
 
     /// <summary>
     /// <para>【多维表格】列出自动化流程</para>

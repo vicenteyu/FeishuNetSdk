@@ -73,7 +73,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
         }
 
         /// <summary>
-        /// <para>父部门ID</para>
+        /// <para>父部门ID,与department_id_type类型保持一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
@@ -107,7 +107,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
             public int LeaderType { get; set; }
 
             /// <summary>
-            /// <para>部门负责人ID</para>
+            /// <para>部门负责人ID,与employee_id_type类型保持一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：u273y71</para>
             /// </summary>
@@ -305,7 +305,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
             public record UserValue
             {
                 /// <summary>
-                /// <para>人员ID</para>
+                /// <para>人员ID，与employee_id_type类型保持一致</para>
                 /// <para>必填：是</para>
                 /// <para>最大长度：100</para>
                 /// <para>最小长度：0</para>

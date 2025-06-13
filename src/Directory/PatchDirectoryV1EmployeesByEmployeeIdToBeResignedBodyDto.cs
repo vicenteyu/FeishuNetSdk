@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 更新在职员工为待离职 请求体
 /// <para>本接口用于为在职员工办理离职，将其更新为「待离职」状态。「待离职」员工不会自动离职，需要使用「离职员工」API操作离职和资源转交。</para>
-/// <para>使用user_access_token时默认为管理员用户，仅可操作「人事管理模式」的管理员可操作。</para>
+/// <para>使用user_access_token时默认为管理员用户，仅「人事管理模式」的管理员可操作。</para>
 /// <para>接口ID：7390661486131707906</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/to_be_resigned</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fto_be_resigned</para>

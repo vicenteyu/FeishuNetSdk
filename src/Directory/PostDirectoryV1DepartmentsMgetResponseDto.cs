@@ -34,7 +34,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
     public record Department
     {
         /// <summary>
-        /// <para>部门ID</para>
+        /// <para>部门ID，与department_id_type类型保持一致</para>
         /// <para>必填：是</para>
         /// <para>示例值：h12921</para>
         /// <para>最大长度：64</para>
@@ -130,7 +130,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
             public int LeaderType { get; set; }
 
             /// <summary>
-            /// <para>部门负责人ID</para>
+            /// <para>部门负责人ID，与employee_id_type类型保持一致</para>
             /// <para>必填：是</para>
             /// <para>示例值：u273y71</para>
             /// </summary>
@@ -139,7 +139,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
         }
 
         /// <summary>
-        /// <para>父部门ID</para>
+        /// <para>父部门ID，与department_id_type类型保持一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：h12921</para>
         /// <para>最大长度：64</para>
@@ -364,7 +364,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
             public record UserValue
             {
                 /// <summary>
-                /// <para>人员ID</para>
+                /// <para>人员ID，与employee_id_type类型保持一致</para>
                 /// <para>必填：是</para>
                 /// <para>最大长度：100</para>
                 /// <para>最小长度：0</para>
@@ -390,7 +390,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
         public record DepartmentBaseInfo
         {
             /// <summary>
-            /// <para>部门ID</para>
+            /// <para>部门ID，与department_id_type类型保持一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>

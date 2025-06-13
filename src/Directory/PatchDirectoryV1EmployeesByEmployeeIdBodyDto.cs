@@ -47,14 +47,14 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public record UpsertName
         {
             /// <summary>
-            /// <para>员工的姓名</para>
+            /// <para>员工的姓名，最多可输入 64 字</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18nText Name { get; set; } = new();
 
             /// <summary>
-            /// <para>员工的姓名</para>
+            /// <para>员工的姓名，最多可输入 64 字</para>
             /// </summary>
             public record I18nText
             {
@@ -76,7 +76,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             }
 
             /// <summary>
-            /// <para>别名</para>
+            /// <para>别名，最多可输入 64 字</para>
             /// <para>必填：否</para>
             /// <para>示例值：Jack</para>
             /// </summary>
@@ -85,7 +85,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         }
 
         /// <summary>
-        /// <para>员工的手机号。注意：</para>
+        /// <para>员工的手机号，最多可输入 255 字。注意：</para>
         /// <para>1. 在企业内的在职员工中不可重复</para>
         /// <para>2. 未认证企业仅支持添加中国大陆手机号，通过飞书认证的企业允许添加海外手机号</para>
         /// <para>3. 国际电话区号前缀中必须包含加号 +</para>
@@ -160,7 +160,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public record UpsertUserDepartmentSortInfo
         {
             /// <summary>
-            /// <para>部门id</para>
+            /// <para>部门id，与department_id_type类型保持一致。</para>
             /// <para>必填：否</para>
             /// <para>示例值：eediasdjw</para>
             /// </summary>
@@ -219,7 +219,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public string? LeaderId { get; set; }
 
         /// <summary>
-        /// <para>员工的虚线上级ID。注意：</para>
+        /// <para>员工的虚线上级ID，与employee_id_type类型保持一致。注意：</para>
         /// <para>1. 不可成环，即A的上级是B，B的上级是A。</para>
         /// <para>2. 上级需要是一个在职的员工。</para>
         /// <para>必填：否</para>
@@ -283,7 +283,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public string? JobNumber { get; set; }
 
         /// <summary>
-        /// <para>分机号。企业内所有员工的分机号不可重复。</para>
+        /// <para>分机号，最多可输入 99 字。企业内所有员工的分机号不可重复。</para>
         /// <para>必填：否</para>
         /// <para>示例值：2854923</para>
         /// </summary>
@@ -583,7 +583,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             public record UserValue
             {
                 /// <summary>
-                /// <para>人员ID</para>
+                /// <para>人员ID，与employee_id_type类型保持一致。</para>
                 /// <para>必填：是</para>
                 /// <para>最大长度：100</para>
                 /// <para>最小长度：0</para>

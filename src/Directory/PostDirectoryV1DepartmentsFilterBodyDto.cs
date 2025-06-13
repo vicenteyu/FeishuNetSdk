@@ -102,6 +102,7 @@ public record PostDirectoryV1DepartmentsFilterBodyDto
     {
         /// <summary>
         /// <para>本次请求条数，最大100条</para>
+        /// <para>**默认值**：20</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>

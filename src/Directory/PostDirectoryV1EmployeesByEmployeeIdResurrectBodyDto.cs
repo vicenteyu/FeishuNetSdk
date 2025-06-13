@@ -36,7 +36,7 @@ public record PostDirectoryV1EmployeesByEmployeeIdResurrectBodyDto
     public record UpsertUserDepartmentSortInfo
     {
         /// <summary>
-        /// <para>部门id</para>
+        /// <para>部门id，与department_id_type类型保持一致</para>
         /// <para>必填：否</para>
         /// <para>示例值：easdiedqds</para>
         /// </summary>
