@@ -43,6 +43,9 @@ namespace FeishuNetSdk.WebSocket
     public class WssService(IFeishuApi feishuApi, IOptionsMonitor<FeishuNetSdkOptions> options, ILogger<WssService> logger, Services.IEventCallbackServiceProvider eventCallback) : BackgroundService
     {
         private WatsonWsClient? _wsClient = null;
+        private int _reconnectAttempts = 0;
+        private const int MaxReconnectAttempts = 10; // 最大重连次数
+        private const int ReconnectInterval = 5000; // 重连间隔（毫秒）
 
         private static readonly JsonSerializerOptions serializerOptions = new()
         {
@@ -66,47 +69,64 @@ namespace FeishuNetSdk.WebSocket
             {
                 await _wsClient.StopAsync();
             }
+            _wsClient = null;
             await base.StopAsync(cancellationToken);
         }
 
         private async Task<string> GetWssEndpointAsync()
         {
-            var result = await feishuApi.PostCallbackWsEndpointAsync(new()
+            try
             {
-                AppId = options.CurrentValue.AppId,
-                AppSecret = options.CurrentValue.AppSecret
-            });
+                var result = await feishuApi.PostCallbackWsEndpointAsync(new()
+                {
+                    AppId = options.CurrentValue.AppId,
+                    AppSecret = options.CurrentValue.AppSecret
+                });
 
-            if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
-                throw new TokenException(result?.Msg ?? "长连接出现异常");
+                if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
+                    throw new TokenException(result?.Msg ?? "长连接出现异常");
 
-            return result.Data.Url;
+                return result.Data.Url;
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "获取WSS端点时出现异常");
+                throw;
+            }
         }
 
         private async System.Threading.Tasks.Task StartConnectAsync()
         {
-            var endpoint = await GetWssEndpointAsync();
+            try
+            {
+                var endpoint = await GetWssEndpointAsync();
 
-            _wsClient = new WatsonWsClient(new Uri(endpoint));
-            _wsClient.ServerConnected += ServerConnected;
-            _wsClient.ServerDisconnected += ServerDisconnected;
-            _wsClient.MessageReceived += MessageReceived;
-            _wsClient.Logger = s => { logger.LogInformation("{s}", s); };
+                _wsClient = new WatsonWsClient(new Uri(endpoint));
+                _wsClient.ServerConnected += ServerConnected;
+                _wsClient.ServerDisconnected += ServerDisconnected;
+                _wsClient.MessageReceived += MessageReceived;
+                _wsClient.Logger = s => logger.LogInformation("{s}", s);
 
-            await _wsClient.StartAsync();
+                await _wsClient.StartAsync();
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex, "启动连接时出现异常");
+                await TryReconnectAsync();
+            }
         }
 
         private async void MessageReceived(object? sender, MessageReceivedEventArgs e)
         {
             if (sender is WatsonWsClient client && e.Data.Count > 0)
             {
-                var frame = Serializer.Deserialize<Frame>(e.Data.AsSpan());
-
-                var inJson = frame?.PayloadToJson() ?? throw new Exception("无法序列化消息");
-                logger.LogDebug("入参：{json}", inJson);
-
                 try
                 {
+                    var frame = Serializer.Deserialize<Frame>(e.Data.AsSpan());
+
+                    var inJson = frame?.PayloadToJson() ?? throw new Exception("无法序列化消息");
+                    logger.LogDebug("入参：{json}", inJson);
+
                     var result = await eventCallback.HandleAsync(inJson);
                     if (result.Success != true)
                     {
@@ -134,21 +154,34 @@ namespace FeishuNetSdk.WebSocket
                 }
                 catch (Exception ex)
                 {
-                    logger.LogError(ex, "事件执行异常");
+                    logger.LogError(ex, "处理消息时出现异常");
                 }
             }
         }
 
         private async void ServerDisconnected(object? sender, EventArgs e)
         {
-            logger.LogInformation("长连接已断开");
-
-            await StartConnectAsync();
+            logger.LogInformation("长连接已断开，尝试第{attempt}次重连，间隔{interval}毫秒", _reconnectAttempts + 1, ReconnectInterval);
+            await TryReconnectAsync();
         }
 
         private void ServerConnected(object? sender, EventArgs e)
         {
             logger.LogInformation("长连接已连接");
+        }
+
+        private async System.Threading.Tasks.Task TryReconnectAsync()
+        {
+            if (_reconnectAttempts < MaxReconnectAttempts)
+            {
+                _reconnectAttempts++;
+                await System.Threading.Tasks.Task.Delay(ReconnectInterval);
+                await StartConnectAsync();
+            }
+            else
+            {
+                logger.LogError("达到最大重连次数，停止重连");
+            }
         }
     }
 }

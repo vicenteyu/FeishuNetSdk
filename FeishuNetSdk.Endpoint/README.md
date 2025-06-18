@@ -33,6 +33,7 @@ PM> Install-Package FeishuNetSdk.Endpoint
 
 **（1）输入`应用凭证`的方式**
 ```csharp
+var builder = WebApplication.CreateBuilder();
 builder.Services
     .AddFeishuNetSdk(
         AppId: "cli_a*********013",
@@ -43,6 +44,7 @@ builder.Services
 
 **（2）配置终结点**
 ```csharp
+var app = builder.Build();
 //启用飞书事件回调地址服务
 app.UseFeishuEndpoint("/a/b/c/d");
 ```

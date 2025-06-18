@@ -1,0 +1,78 @@
+name: Publish NuGet Package
+
+# 定义触发条件，当创建 Git 标签（如 v*）时触发
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    env:
+      PROJECT_PATH: src/FeishuNetSdk.csproj  # 定义项目路径的环境变量
+
+    steps:
+      # 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 设置 .NET SDK 版本
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '8.0.x'  # 根据项目需求修改 .NET 版本
+
+      # 恢复依赖项
+      - name: Restore dependencies
+        run: dotnet restore $PROJECT_PATH
+
+      # 以 Release 配置构建项目
+      - name: Build project in Release configuration
+        run: dotnet build $PROJECT_PATH --configuration Release --no-restore
+
+      # 运行测试（可选但推荐）
+      - name: Run tests
+        run: dotnet test --no-build --verbosity normal
+
+      # 从 Git 标签中提取版本号
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG_NAME="${{ github.ref_name }}"
+          VERSION="${TAG_NAME#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      # 打包项目
+      - name: Pack project
+        run: dotnet pack $PROJECT_PATH --no-build --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
+
+      # 发布到 NuGet
+      - name: Publish to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+
+      # 发布到 GitHub Packages
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/vicenteyu/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
+
+      # 判断是否为预发布版本
+      - name: Determine prerelease status
+        id: prerelease_check
+        run: |
+          TAG_NAME="${{ github.ref_name }}"
+          if [[ "$TAG_NAME" == *"preview"* || "$TAG_NAME" == *"beta"* || "$TAG_NAME" == *"rc"* ]]; then
+            echo "prerelease=true" >> $GITHUB_OUTPUT
+          else
+            echo "prerelease=false" >> $GITHUB_OUTPUT
+          fi
+
+      # 创建 GitHub Release
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./nupkg/*.nupkg
+          body_path: changelog.md
+          prerelease: ${{ steps.prerelease_check.outputs.prerelease }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -36,6 +36,7 @@ PM> Install-Package FeishuNetSdk.WebSocket
 
 **（1）输入`应用凭证`的方式**
 ```csharp
+var builder = WebApplication.CreateBuilder();
 builder.Services
     .AddFeishuNetSdk(
         AppId: "cli_a*********013",
@@ -44,5 +45,4 @@ builder.Services
         VerificationToken: "WVrlO******************2EsMSJw")
     //添加飞书长连接服务
     .AddFeishuWebSocket();
-
 ```
