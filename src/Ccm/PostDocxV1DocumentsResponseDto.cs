@@ -26,12 +26,12 @@ public record PostDocxV1DocumentsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("document")]
-    public PostDocxV1DocumentsResponseDtoDocument? Document { get; set; }
+    public DocumentSuffix? Document { get; set; }
 
     /// <summary>
     /// <para>新建文档的文档信息</para>
     /// </summary>
-    public record PostDocxV1DocumentsResponseDtoDocument
+    public record DocumentSuffix
     {
         /// <summary>
         /// <para>文档的唯一标识。你可以将 `https://sample.feishu.cn/docx/` 与该标识拼接，并将 sample 替换为实际域名，生成文档的 URL 链接。如 `https://sample.feishu.cn/docx/doxbcmEtbFrbbq10nPNu8gabcef`。</para>
