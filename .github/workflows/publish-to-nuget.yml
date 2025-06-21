@@ -33,7 +33,7 @@ jobs:
 
       # 运行测试（可选但推荐）
       - name: Run tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --configuration Release --verbosity normal
 
       # 从 Git 标签中提取版本号
       - name: Extract version from tag
