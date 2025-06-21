@@ -436,7 +436,7 @@ public record PostAttendanceV1GroupsBodyDto
         }
 
         /// <summary>
-        /// <para>GPS 打卡的有效范围（历史无效字段）</para>
+        /// <para>GPS 打卡的有效范围</para>
         /// <para>必填：否</para>
         /// <para>示例值：300</para>
         /// </summary>
@@ -476,7 +476,7 @@ public record PostAttendanceV1GroupsBodyDto
             public int LocationType { get; set; }
 
             /// <summary>
-            /// <para>地址纬度</para>
+            /// <para>地址纬度（需配合gps_range使用）</para>
             /// <para>必填：否</para>
             /// <para>示例值：30.28994</para>
             /// </summary>
@@ -484,7 +484,7 @@ public record PostAttendanceV1GroupsBodyDto
             public float? Latitude { get; set; }
 
             /// <summary>
-            /// <para>地址经度</para>
+            /// <para>地址经度（需配合gps_range使用）</para>
             /// <para>必填：否</para>
             /// <para>示例值：120.04509</para>
             /// </summary>

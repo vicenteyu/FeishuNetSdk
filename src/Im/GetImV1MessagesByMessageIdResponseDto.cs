@@ -190,7 +190,9 @@ public record GetImV1MessagesByMessageIdResponseDto
         {
             /// <summary>
             /// <para>消息内容，JSON 结构序列化后的字符串，不同消息类型（`msg_type`）对应不同内容。</para>
-            /// <para>**注意**：卡片消息内容与在卡片搭建工具中获取的卡片 JSON 不一致，暂不支持返回原始卡片 JSON</para>
+            /// <para>**注意**：</para>
+            /// <para>- 卡片消息内容与在卡片搭建工具中获取的卡片 JSON 不一致，暂不支持返回原始卡片 JSON。</para>
+            /// <para>- 暂不支持返回 JSON 2.0 卡片的具体内容。</para>
             /// <para>必填：是</para>
             /// <para>示例值：{\"text\":\"test content\"}</para>
             /// </summary>

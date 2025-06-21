@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2025-06-21
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2791,11 +2791,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6946222931479543809</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message-card/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>调用该接口，通过消息 ID（message_id）更新指定的消息卡片内容。</para>
+    /// <para>通过消息 ID（message_id）更新指定的消息卡片内容。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 使用场景</para>
-    /// <para>- 本接口适用于场景卡片发送后，对卡片无条件直接更新的场景。</para>
+    /// <para>- 本接口适用于卡片发送后，对卡片无条件直接更新的场景。</para>
     /// <para>- 如果你需要在用户与卡片进行交互后更新卡片，可参考[处理卡片回调](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/handle-card-callbacks)，选择在 3 秒内立即更新卡片、或 30 分钟内[延时更新卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)的方式。</para>
     /// <para>- 如果你需要仅更新部分成员接收到的卡片，你需调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口，指定用户的 open_id。</para>
     /// <para>## 注意事项</para>
@@ -2804,6 +2804,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片，卡片的更新对所有接收的用户可见）。</para>
     /// <para>## 使用限制</para>
     /// <para>- 不支持更新[批量发送的消息](https://open.feishu.cn/document/ukTMukTMukTM/ucDO1EjL3gTNx4yN4UTM)。</para>
+    /// <para>- 不支持更新[仅特定人可见的卡片](https://open.feishu.cn/document/ukTMukTMukTM/uETOyYjLxkjM24SM5IjN)。</para>
     /// <para>- 仅支持更新 14 天内发送的消息。</para>
     /// <para>- 单条消息更新频控为 5 QPS。</para>
     /// <para>权限要求：<list type="bullet">
@@ -5856,9 +5857,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968541699</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增一个数据表，默认仅包含索引字段，也可以指定更多字段。最多支持新增 100 个数据表。</para>
+    /// <para>新增一个数据表，支持传入数据表名称、视图名称和字段。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>每个多维表格中，数据表与仪表盘的总数量上限为 100。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -5887,7 +5890,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：6960166873968558083</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>新增多个数据表，仅可指定数据表名称。最多支持新增 100 个数据表。</para>
+    /// <para>新增多个数据表，仅可指定数据表名称。</para>
+    /// <para>## 前提条件</para>
+    /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>每个多维表格中，数据表与仪表盘的总数量上限为 100。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:create</item>
     /// <item>bitable:app</item>
@@ -14296,6 +14303,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>minutes:minutes</item>
     /// <item>minutes:minutes:readonly</item>
+    /// <item>minutes:minutes.statistics:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -14304,7 +14312,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="minute_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>妙记唯一标识。可从妙记链接中获取，一般为链接中最后一串字符</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==</para>
     /// <para>示例值：obcnq3b9jl72l83w4f14xxxx</para>
     /// </param>
     /// <param name="user_id_type">
@@ -14334,6 +14342,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>minutes:minutes</item>
     /// <item>minutes:minutes:readonly</item>
+    /// <item>minutes:minutes.basic:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -14342,7 +14351,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="minute_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>妙记唯一标识。可从妙记链接中获取，一般为链接中最后一串字符</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==</para>
     /// <para>示例值：obcnq3b9jl72l83w4f14xxxx</para>
     /// </param>
     /// <param name="user_id_type">
@@ -19022,7 +19031,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="minute_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>妙记唯一标识</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==</para>
     /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
     /// </param>
     /// <param name="need_speaker">
@@ -19067,7 +19076,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="minute_token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>妙记唯一标识</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==</para>
     /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
     /// </param>
     /// <param name="access_token">用户凭证</param>
@@ -23782,5 +23791,37 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string role_id,
         [JsonContent] Base.PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto dto);
+
+    /// <summary>
+    /// <para>【云文档】转换为文档块</para>
+    /// <para>接口ID：7514526156452954140</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/convert</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>将 HTML/Markdown 格式的内容转换为文档块</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docx:document.block:convert</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/docx/documents/blocks/convert")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxDocumentsBlocksConvertResponseDto>> PostDocxDocumentsBlocksConvertAsync(
+        UserAccessToken access_token,
+        [JsonContent] Ccm.PostDocxDocumentsBlocksConvertBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id");
 }
 

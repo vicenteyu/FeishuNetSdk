@@ -469,7 +469,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段 value</para>
+                /// <para>自定义字段 value （值为人员ID的自定义字段 value 暂不支持ID转换，会以 people_admin_id 类型返回）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：value</para>
                 /// </summary>
@@ -720,7 +720,7 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
                 public string? ObjectId { get; set; }
 
                 /// <summary>
-                /// <para>自定义字段Value</para>
+                /// <para>自定义字段Value（值为人员ID的自定义字段 value 暂不支持ID转换，会以 people_admin_id 类型返回）</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：value</para>
                 /// </summary>

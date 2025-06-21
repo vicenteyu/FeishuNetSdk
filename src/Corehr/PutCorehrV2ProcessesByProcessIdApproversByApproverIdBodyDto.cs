@@ -52,7 +52,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
     public bool? SystemApproval { get; set; }
 
     /// <summary>
-    /// <para>通过原因，长度限制为500</para>
+    /// <para>通过原因</para>
     /// <para>**默认值**：""</para>
     /// <para>必填：否</para>
     /// <para>示例值：原因自定义字符串</para>
@@ -249,7 +249,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             public record FieldVariableValueToFileForWrite
             {
                 /// <summary>
-                /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
+                /// <para>通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
                 /// </summary>
@@ -464,7 +464,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public record FieldVariableValueToFileForWrite
                 {
                     /// <summary>
-                    /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
+                    /// <para>通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
                     /// </summary>

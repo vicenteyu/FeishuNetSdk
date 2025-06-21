@@ -14,9 +14,11 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 新增一个数据表 请求体
-/// <para>新增一个数据表，默认仅包含索引字段，也可以指定更多字段。最多支持新增 100 个数据表。</para>
+/// <para>新增一个数据表，支持传入数据表名称、视图名称和字段。</para>
 /// <para>## 前提条件</para>
 /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+/// <para>## 使用限制</para>
+/// <para>每个多维表格中，数据表与仪表盘的总数量上限为 100。</para>
 /// <para>接口ID：6960166873968541699</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fcreate</para>
@@ -63,8 +65,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>**注意**：</para>
         /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
-        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引字段。</para>
-        /// <para>- 索引字段仅支持以下类型：</para>
+        /// <para>- 数据表的第一个字段为索引字段。索引字段仅支持以下类型：</para>
         /// <para>- 1：多行文本</para>
         /// <para>- 2：数字</para>
         /// <para>- 5：日期</para>
@@ -83,8 +84,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>**注意**：</para>
         /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
-        /// <para>- 如果指定了本字段，将会创建一个包含初始字段的数据表、且默认第一个字段为索引字段。</para>
-        /// <para>- 索引字段仅支持以下类型：</para>
+        /// <para>- 数据表的第一个字段为索引字段。索引字段仅支持以下类型：</para>
         /// <para>- 1：多行文本</para>
         /// <para>- 2：数字</para>
         /// <para>- 5：日期</para>
@@ -261,7 +261,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <summary>
                 /// <para>单向关联、双向关联字段中关联的数据表的名字</para>
                 /// <para>必填：否</para>
-                /// <para>示例值："table2"</para>
+                /// <para>示例值：table2</para>
                 /// </summary>
                 [JsonPropertyName("table_name")]
                 public string? TableName { get; set; }
@@ -269,7 +269,7 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 /// <summary>
                 /// <para>双向关联字段中关联的数据表中对应的双向关联字段的名字</para>
                 /// <para>必填：否</para>
-                /// <para>示例值："table1-双向关联"</para>
+                /// <para>示例值：table1-双向关联</para>
                 /// </summary>
                 [JsonPropertyName("back_field_name")]
                 public string? BackFieldName { get; set; }

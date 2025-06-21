@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Cardkit;
 /// <summary>
 /// 更新组件 请求体
-/// <para>更新卡片实体中的指定组件为新组件。支持传入多个组件。</para>
+/// <para>更新卡片实体中的指定组件为新组件。</para>
 /// <para>## 使用限制</para>
 /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>

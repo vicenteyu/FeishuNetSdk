@@ -66,9 +66,9 @@ public record PostEphemeralV1SendBodyDto
     public string MsgType { get; set; } = "interactive";
 
     /// <summary>
-    /// <para>消息卡片的内容。支持卡片 JSON 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片。</para>
-    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)。示例值可参考下文的请求体示例。</para>
-    /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，你需传入 `type` 和 `data` 参数。参考 [发送卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/send-feishu-card#461aa643-1)文档末尾的字段说明传值。</para>
+    /// <para>消息卡片的内容。支持[卡片 JSON](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure) 或[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板。</para>
+    /// <para>- 要使用卡片 JSON，参考[卡片 JSON 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。示例值可参考下文的请求体示例。</para>
+    /// <para>- 要使用[搭建工具](https://open.feishu.cn/cardkit?from=open_docs)构建的卡片模板，你需传入 `type` 和 `data` 参数。详情参考下文示例。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("card")]
