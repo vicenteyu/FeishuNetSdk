@@ -1,0 +1,27 @@
+namespace FeishuNetSdk.Tests.HumanAuthentication.Spec;
+
+/// <summary>
+/// 测试 上传人脸基准图片 响应体
+/// <para>接口ID：6940461543747272732</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/human_authentication-v1/upload-facial-reference-image</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fhuman_authentication-v1%2fface%2fupload-facial-reference-image</para>
+/// </summary>
+[TestClass]
+public class Test_PostFaceVerifyV1UploadFaceImageResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{ 
+    "code": 0, 
+    "msg": "ok", 
+    "data": {
+        "face_uid": "ou_3a85bc15f186865bf03d9fa522878a53"
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.HumanAuthentication.Spec.PostFaceVerifyV1UploadFaceImageResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

@@ -1,0 +1,27 @@
+namespace FeishuNetSdk.Tests.Attendance;
+
+/// <summary>
+/// 测试 查询排班表 请求体
+/// <para>接口ID：7044467124773552129</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_daily_shift/query</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_daily_shift%2fquery</para>
+/// </summary>
+[TestClass]
+public class Test_PostAttendanceV1UserDailyShiftsQueryBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "user_ids": [
+        "abd754f7"
+    ],
+    "check_date_from": 20190817,
+    "check_date_to": 20190820
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Attendance.PostAttendanceV1UserDailyShiftsQueryBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

@@ -1,0 +1,28 @@
+namespace FeishuNetSdk.Tests.Corehr;
+
+/// <summary>
+/// 测试 撤销异动 响应体
+/// <para>接口ID：7449328616456585235</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job_change/revoke</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_change%2frevoke</para>
+/// </summary>
+[TestClass]
+public class Test_PostCorehrV2JobChangesByJobChangeIdRevokeResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "result": true,
+        "message": "成功"
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Corehr.PostCorehrV2JobChangesByJobChangeIdRevokeResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

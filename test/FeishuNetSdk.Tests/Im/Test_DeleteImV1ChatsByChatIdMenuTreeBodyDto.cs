@@ -1,0 +1,25 @@
+namespace FeishuNetSdk.Tests.Im;
+
+/// <summary>
+/// 测试 删除群菜单 请求体
+/// <para>接口ID：7174746098262654980</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/group/chat-menu_tree/delete</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fchat-menu_tree%2fdelete</para>
+/// </summary>
+[TestClass]
+public class Test_DeleteImV1ChatsByChatIdMenuTreeBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "chat_menu_top_level_ids": [
+        "6936075528890826780"
+    ]
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Im.DeleteImV1ChatsByChatIdMenuTreeBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

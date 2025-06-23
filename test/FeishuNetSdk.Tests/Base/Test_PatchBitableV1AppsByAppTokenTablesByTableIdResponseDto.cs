@@ -1,0 +1,27 @@
+namespace FeishuNetSdk.Tests.Base;
+
+/// <summary>
+/// 测试 更新数据表 响应体
+/// <para>接口ID：7182466310810402817</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/patch</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fpatch</para>
+/// </summary>
+[TestClass]
+public class Test_PatchBitableV1AppsByAppTokenTablesByTableIdResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "name": "新的数据表名称"
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Base.PatchBitableV1AppsByAppTokenTablesByTableIdResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

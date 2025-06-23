@@ -1,0 +1,32 @@
+namespace FeishuNetSdk.Tests.Im;
+
+/// <summary>
+/// 测试 修改标签 请求体
+/// <para>接口ID：7315032956271296516</para>
+/// <para>文档地址：https://open.feishu.cn/document/tenant-tag/patch</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fgroup%2fim-v2%2ftag%2fpatch</para>
+/// </summary>
+[TestClass]
+public class Test_PatchImV2TagsByTagIdBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "patch_tag": {
+        "id": "716168xxxxx",
+        "name": "标签名称",
+        "i18n_names": [
+            {
+                "locale": "zh_cn",
+                "name": "标签2"
+            }
+        ]
+    }
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Im.PatchImV2TagsByTagIdBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

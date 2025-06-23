@@ -1,0 +1,23 @@
+namespace FeishuNetSdk.Tests.AppEngine;
+
+/// <summary>
+/// 测试 查询人工任务可退回的位置 请求体
+/// <para>接口ID：7446337145820381188</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/flow/user-task/rollback_points</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fuser_task%2frollback_points</para>
+/// </summary>
+[TestClass]
+public class Test_PostApaasV1UserTasksByTaskIdRollbackPointsBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "operator_user_id": "1234"
+}
+""";
+        var result = Deserialize<FeishuNetSdk.AppEngine.PostApaasV1UserTasksByTaskIdRollbackPointsBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

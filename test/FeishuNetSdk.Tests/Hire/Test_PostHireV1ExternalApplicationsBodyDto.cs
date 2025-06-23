@@ -1,0 +1,33 @@
+namespace FeishuNetSdk.Tests.Hire;
+
+/// <summary>
+/// 测试 创建外部投递 请求体
+/// <para>接口ID：6992822583076388867</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/import-external-system-information/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fexternal_application%2fcreate</para>
+/// </summary>
+[TestClass]
+public class Test_PostHireV1ExternalApplicationsBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "external_id": "729557715718",
+    "job_recruitment_type": 1,
+    "job_title": "高级 Java",
+    "resume_source": "内推",
+    "stage": "简历初筛",
+    "talent_id": "6960663240925956459",
+    "termination_reason": "不合适",
+    "delivery_type": 1,
+    "modify_time": 1618500278645,
+    "create_time": 1618500278644,
+    "termination_type": "HR 主动终止"
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Hire.PostHireV1ExternalApplicationsBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

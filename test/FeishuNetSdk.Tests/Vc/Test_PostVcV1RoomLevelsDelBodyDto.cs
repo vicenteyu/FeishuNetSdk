@@ -1,0 +1,24 @@
+namespace FeishuNetSdk.Tests.Vc;
+
+/// <summary>
+/// 测试 删除会议室层级 请求体
+/// <para>接口ID：7160517357592002563</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/room_level/del</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2froom_level%2fdel</para>
+/// </summary>
+[TestClass]
+public class Test_PostVcV1RoomLevelsDelBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "room_level_id": "omb_4ad1a2c7a2fbc5fc9570f38456931293",
+    "delete_child": false
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Vc.PostVcV1RoomLevelsDelBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

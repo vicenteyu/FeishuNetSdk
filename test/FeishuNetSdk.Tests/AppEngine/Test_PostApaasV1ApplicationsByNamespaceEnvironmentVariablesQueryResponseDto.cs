@@ -1,0 +1,47 @@
+namespace FeishuNetSdk.Tests.AppEngine;
+
+/// <summary>
+/// 测试 查询环境变量列表 响应体
+/// <para>接口ID：7385474062586298370</para>
+/// <para>文档地址：https://open.feishu.cn/document/apaas-v1/application-environment_variable/query</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fapplication-environment_variable%2fquery</para>
+/// </summary>
+[TestClass]
+public class Test_PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "items": [
+            {
+                "api_name": "globalParam_0b410b17704",
+                "label": {
+                    "zh_cn": "示例文本",
+                    "en_us": "Sample text"
+                },
+                "description": "Sample text",
+                "value": "[1757083131077684,1757085362739239,1757083720703032]",
+                "is_encrypted": false,
+                "object_api_name": "_user",
+                "object_label": {
+                    "zh_cn": "示例文本",
+                    "en_us": "Sample text"
+                },
+                "created_at": 1718350902019,
+                "updated_at": 1718350902019,
+                "type": "lookup"
+            }
+        ],
+        "total": 1
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.AppEngine.PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQueryResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

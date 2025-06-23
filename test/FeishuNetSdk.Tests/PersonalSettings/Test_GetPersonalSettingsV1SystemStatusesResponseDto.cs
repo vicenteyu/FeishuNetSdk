@@ -1,0 +1,57 @@
+namespace FeishuNetSdk.Tests.PersonalSettings;
+
+/// <summary>
+/// 测试 获取系统状态 响应体
+/// <para>接口ID：7161608966368755715</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/personal_settings-v1/system_status/list</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpersonal_settings-v1%2fsystem_status%2flist</para>
+/// </summary>
+[TestClass]
+public class Test_GetPersonalSettingsV1SystemStatusesResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "items": [
+            {
+                "system_status_id": "7101214603622940633",
+                "title": "出差",
+                "i18n_title": {
+                    "zh_cn": "出差",
+                    "en_us": "On business trip",
+                    "ja_jp": "出張中"
+                },
+                "icon_key": "GeneralBusinessTrip",
+                "color": "BLUE",
+                "priority": 1,
+                "sync_setting": {
+                    "is_open_by_default": true,
+                    "title": "出差期间自动开启",
+                    "i18n_title": {
+                        "zh_cn": "出差期间自动开启",
+                        "en_us": "Auto display Business Trip",
+                        "ja_jp": "出張中に自動的にオンにする"
+                    },
+                    "explain": "出差审批通过后，将自动开启并优先展示该状态。",
+                    "i18n_explain": {
+                        "zh_cn": "出差审批通过后，该状态将自动开启并优先展示",
+                        "en_us": "Auto-display after travel request is approved.",
+                        "ja_jp": "申請が承認されると、このステータスが優先的に表示されます"
+                    }
+                }
+            }
+        ],
+        "page_token": "GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==",
+        "has_more": true
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.PersonalSettings.GetPersonalSettingsV1SystemStatusesResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

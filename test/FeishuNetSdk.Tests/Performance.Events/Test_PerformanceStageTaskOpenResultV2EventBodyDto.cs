@@ -1,0 +1,45 @@
+namespace FeishuNetSdk.Tests.Performance.Events;
+
+/// <summary>
+/// 测试 绩效结果开通 事件体
+/// <para>接口ID：7351374599659831300</para>
+/// <para>文档地址：https://open.feishu.cn/document/performance-v1/stage_task/events/open_result</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fperformance-v2%2fstage_task%2fevents%2fopen_result</para>
+/// </summary>
+[TestClass]
+public class Test_PerformanceStageTaskOpenResultV2EventBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "schema": "2.0",
+    "header": {
+        "event_id": "5e3702a84e847582be8db7fb73283c02",
+        "event_type": "performance.stage_task.open_result_v2",
+        "create_time": "1608725989000",
+        "token": "rvaYgkND1GOiu5MM0E1rncYC6PLtF7JV",
+        "app_id": "cli_9f5343c580712544",
+        "tenant_key": "2ca1d211f64f6438"
+    },
+    "event": {
+        "items": [
+            {
+                "user_id": {
+                    "union_id": "on_8ed6aa67826108097d9ee143816345",
+                    "user_id": "e33ggbyz",
+                    "open_id": "ou_84aad35d084aa403a838cf73ee18467"
+                },
+                "semester_id": "7343576973861453844",
+                "activity_id": "7343577163150393363",
+                "open_time": "1704038400000"
+            }
+        ]
+    }
+}
+""";
+        var result = Deserialize<EventV2Dto<FeishuNetSdk.Performance.Events.PerformanceStageTaskOpenResultV2EventBodyDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

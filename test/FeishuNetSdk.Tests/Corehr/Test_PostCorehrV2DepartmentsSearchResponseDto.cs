@@ -1,0 +1,94 @@
+namespace FeishuNetSdk.Tests.Corehr;
+
+/// <summary>
+/// 测试 搜索部门信息 响应体
+/// <para>接口ID：7211423970042200068</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/organization-management/department/search</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fdepartment%2fsearch</para>
+/// </summary>
+[TestClass]
+public class Test_PostCorehrV2DepartmentsSearchResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "items": [
+            {
+                "id": "4719456877659520852",
+                "version_id": "6890452208593372611",
+                "department_name": [
+                    {
+                        "lang": "zh-CN",
+                        "value": "中文示例"
+                    }
+                ],
+                "sub_type": {
+                    "enum_name": "phone_type",
+                    "display": [
+                        {
+                            "lang": "zh-CN",
+                            "value": "中文示例"
+                        }
+                    ]
+                },
+                "parent_department_id": "4719456877659520111",
+                "manager": "6893013238632416777",
+                "tree_order": "001000",
+                "list_order": "001000-001000",
+                "code": "D00000456",
+                "is_root": false,
+                "is_confidential": false,
+                "effective_date": "2020-05-01",
+                "expiration_date": "2020-05-02",
+                "active": true,
+                "description": [
+                    {
+                        "lang": "zh-CN",
+                        "value": "中文示例"
+                    }
+                ],
+                "custom_fields": [
+                    {
+                        "custom_api_name": "name",
+                        "name": {
+                            "zh_cn": "自定义姓名",
+                            "en_us": "Custom Name"
+                        },
+                        "type": 1,
+                        "value": "\"231\""
+                    }
+                ],
+                "staffing_model": {
+                    "enum_name": "position",
+                    "display": [
+                        {
+                            "lang": "zh-CN",
+                            "value": "中文示例"
+                        }
+                    ]
+                },
+                "cost_center_id": "7142384817131652652",
+                "created_time": "2020-05-01 00:00:00",
+                "updated_time": "2020-05-02 00:00:00",
+                "created_by": "6893013238632416777",
+                "updated_by": "6893013238632416777",
+                "record_created_time": "2020-05-01 00:00:00",
+                "record_updated_time": "2020-05-02 00:00:00",
+                "record_created_by": "6893013238632416777",
+                "record_updated_by": "6893013238632416777"
+            }
+        ],
+        "page_token": "eyJldV9uYyI6IlswLFwiNjk2MTI4Njg0NjA5Mzc4ODY4MC03MjExMDM0ODcxMjA3OTUzOTc1XCJdIn0",
+        "has_more": true
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Corehr.PostCorehrV2DepartmentsSearchResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

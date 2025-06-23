@@ -1,0 +1,26 @@
+namespace FeishuNetSdk.Tests.Corehr;
+
+/// <summary>
+/// 测试 启用/停用地点 请求体
+/// <para>接口ID：7420421437192945667</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/organization-management/location/active</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2flocation%2factive</para>
+/// </summary>
+[TestClass]
+public class Test_PostCorehrV2LocationsActiveBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "location_id": "1616161616",
+    "effective_time": "2020-01-01",
+    "active": true,
+    "operation_reason": "业务操作"
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Corehr.PostCorehrV2LocationsActiveBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

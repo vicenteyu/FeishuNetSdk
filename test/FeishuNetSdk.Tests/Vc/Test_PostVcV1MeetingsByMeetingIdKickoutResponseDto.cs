@@ -1,0 +1,33 @@
+namespace FeishuNetSdk.Tests.Vc;
+
+/// <summary>
+/// 测试 移除参会人 响应体
+/// <para>接口ID：6997003722790633474</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting/kickout</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting%2fkickout</para>
+/// </summary>
+[TestClass]
+public class Test_PostVcV1MeetingsByMeetingIdKickoutResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "kickout_results": [
+            {
+                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                "user_type": 1,
+                "result": 1
+            }
+        ]
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Vc.PostVcV1MeetingsByMeetingIdKickoutResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}
