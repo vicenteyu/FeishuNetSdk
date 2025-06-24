@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostContactV3UsersBatchGetIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 通过手机号或邮箱获取用户 ID 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Contact;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetContactV3DepartmentsByDepartmentIdChildrenResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取子部门列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Contact;
 
 /// <summary>

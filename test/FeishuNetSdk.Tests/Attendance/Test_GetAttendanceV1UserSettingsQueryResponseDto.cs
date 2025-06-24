@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetAttendanceV1UserSettingsQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 批量查询用户人脸识别信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Attendance;
 
 /// <summary>

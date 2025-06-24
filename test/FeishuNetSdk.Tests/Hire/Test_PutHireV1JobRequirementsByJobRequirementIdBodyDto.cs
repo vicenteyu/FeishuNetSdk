@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PutHireV1JobRequirementsByJobRequirementIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 更新招聘需求 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Hire;
 
 /// <summary>

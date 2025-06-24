@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetCorehrV2CostCentersQueryRecentChangeResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询当前生效信息发生变更的成本中心 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>

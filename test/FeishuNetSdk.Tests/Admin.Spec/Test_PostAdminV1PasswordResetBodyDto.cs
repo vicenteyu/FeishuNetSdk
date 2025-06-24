@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostAdminV1PasswordResetBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 重置用户的企业邮箱密码 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Admin.Spec;
 
 /// <summary>

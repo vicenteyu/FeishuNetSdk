@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostApprovalOpenapiV1IdGetResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询审批 ID（专用） 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Approval.Spec;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostCorehrV2CustomOrgsDeleteOrgBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 删除自定义组织 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>

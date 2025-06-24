@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PutBaikeV1EntitiesByEntityIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 更新免审词条 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Baike;
 
 /// <summary>

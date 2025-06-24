@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostAilyV1AppsByAppIdKnowledgesAskBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 执行数据知识问答 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Aily;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdContactsRangeSuggestResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取应用版本中开发者申请的通讯录权限范围 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Application;
 
 /// <summary>

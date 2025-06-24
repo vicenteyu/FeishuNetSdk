@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询角色成员信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.AppEngine;
 
 /// <summary>

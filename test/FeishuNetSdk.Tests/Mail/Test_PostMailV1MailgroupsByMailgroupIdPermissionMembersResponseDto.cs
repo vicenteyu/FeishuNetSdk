@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostMailV1MailgroupsByMailgroupIdPermissionMembersResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 创建邮件组权限成员 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Mail;
 
 /// <summary>

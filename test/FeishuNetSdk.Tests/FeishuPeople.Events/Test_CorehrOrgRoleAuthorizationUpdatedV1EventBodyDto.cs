@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_CorehrOrgRoleAuthorizationUpdatedV1EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 【事件】组织角色授权变更 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.FeishuPeople.Events;
 
 /// <summary>

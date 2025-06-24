@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostAilyV1SessionsByAilySessionIdRunsByRunIdCancelResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 取消运行 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Aily;
 
 /// <summary>

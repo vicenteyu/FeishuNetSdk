@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostJssdkTicketGetResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取 JSAPI 临时授权凭证 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Auth.Spec;
 
 /// <summary>

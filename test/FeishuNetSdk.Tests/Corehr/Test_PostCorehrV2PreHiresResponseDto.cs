@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostCorehrV2PreHiresResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 直接创建待入职 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>

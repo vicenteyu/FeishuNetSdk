@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PutMailV1MailgroupsByMailgroupIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 修改邮件组全部信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Mail;
 
 /// <summary>

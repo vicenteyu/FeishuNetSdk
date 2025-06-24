@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetCorehrV1SubdivisionsBySubdivisionIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询单条省份/行政区信息 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.FeishuPeople;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostCorehrV2LocationsBatchGetBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 通过地点 ID 批量获取地点信息 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>

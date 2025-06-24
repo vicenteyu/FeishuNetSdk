@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostVcV1ExportsParticipantListResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 导出参会人明细 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Vc;
 
 /// <summary>

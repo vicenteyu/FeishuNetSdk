@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostOkrV1PeriodsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 创建 OKR 周期 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Okr;
 
 /// <summary>

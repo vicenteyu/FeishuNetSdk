@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 通过过期时间获取发放记录 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Attendance;
 
 /// <summary>

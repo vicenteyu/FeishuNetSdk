@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostAttendanceV1ArchiveRuleDelReportBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 删除归档报表行数据 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Attendance;
 
 /// <summary>

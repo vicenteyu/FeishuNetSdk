@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_CorehrJobDataCreatedV1EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 任职信息创建 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.FeishuPeople.Events;
 
 /// <summary>

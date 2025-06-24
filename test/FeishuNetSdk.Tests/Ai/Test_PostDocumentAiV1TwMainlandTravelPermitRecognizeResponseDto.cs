@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostDocumentAiV1TwMainlandTravelPermitRecognizeResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 识别文件中的台湾居民来往大陆通行证 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Ai;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostHireV1ReferralAccountReconciliationResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 内推账户提现数据对账 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Hire;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetCorehrV2CustomOrgsQueryRecentChangeResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询当前生效信息变更的自定义组织 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>

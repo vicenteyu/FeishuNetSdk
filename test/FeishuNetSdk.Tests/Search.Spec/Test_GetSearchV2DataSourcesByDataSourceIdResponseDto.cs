@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetSearchV2DataSourcesByDataSourceIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取数据源 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Search.Spec;
 
 /// <summary>

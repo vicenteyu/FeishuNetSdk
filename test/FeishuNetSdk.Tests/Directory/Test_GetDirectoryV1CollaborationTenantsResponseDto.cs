@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetDirectoryV1CollaborationTenantsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 管理员获取所有关联组织列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Directory;
 
 /// <summary>

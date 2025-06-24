@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PatchHelpdeskV1CategoriesByIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 更新知识库分类详情 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Helpdesk;
 
 /// <summary>

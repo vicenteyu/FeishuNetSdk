@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_MomentsPostStatisticsUpdatedV1EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 帖子统计数据变更 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Moments.Events;
 
 /// <summary>

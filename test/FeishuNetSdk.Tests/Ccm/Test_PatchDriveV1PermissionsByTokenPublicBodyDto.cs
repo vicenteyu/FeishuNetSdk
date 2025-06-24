@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PatchDriveV1PermissionsByTokenPublicBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 更新云文档权限设置 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Ccm;
 
 /// <summary>

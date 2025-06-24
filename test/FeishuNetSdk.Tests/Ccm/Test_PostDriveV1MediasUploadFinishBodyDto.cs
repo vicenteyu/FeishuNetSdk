@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostDriveV1MediasUploadFinishBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 分片上传素材-完成上传 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Ccm;
 
 /// <summary>

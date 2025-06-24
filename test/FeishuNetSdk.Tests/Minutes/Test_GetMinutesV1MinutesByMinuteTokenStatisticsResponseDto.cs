@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取妙记统计数据 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Minutes;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostDrivePermissionMemberPermittedBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 判断协作者是否有某权限 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Ccm.Spec;
 
 /// <summary>

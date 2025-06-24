@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostHireV1ExternalReferralRewardsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 导入外部内推奖励 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Hire;
 
 /// <summary>

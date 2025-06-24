@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_VcMeetingJoinMeetingV1EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 加入会议 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Vc.Events;
 
 /// <summary>

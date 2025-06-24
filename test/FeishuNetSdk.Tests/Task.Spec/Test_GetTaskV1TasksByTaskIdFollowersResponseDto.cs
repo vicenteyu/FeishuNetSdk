@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetTaskV1TasksByTaskIdFollowersResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取关注人列表 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Task.Spec;
 
 /// <summary>

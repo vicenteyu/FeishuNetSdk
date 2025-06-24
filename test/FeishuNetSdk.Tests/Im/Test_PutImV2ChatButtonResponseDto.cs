@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PutImV2ChatButtonResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 更新消息流卡片按钮 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Im;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetImV2BizEntityTagRelationResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询实体与标签的绑定关系 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Im;
 
 /// <summary>

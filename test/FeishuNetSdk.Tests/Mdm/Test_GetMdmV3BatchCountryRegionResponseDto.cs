@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetMdmV3BatchCountryRegionResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 根据主数据编码批量查询国家/地区 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Mdm;
 
 /// <summary>

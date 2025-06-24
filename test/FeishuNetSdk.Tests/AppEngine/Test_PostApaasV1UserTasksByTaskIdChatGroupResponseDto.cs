@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostApaasV1UserTasksByTaskIdChatGroupResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 基于人工任务发起群聊 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.AppEngine;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostCardkitV1CardsByCardIdBatchUpdateBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 批量更新卡片实体 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Cardkit;
 
 /// <summary>

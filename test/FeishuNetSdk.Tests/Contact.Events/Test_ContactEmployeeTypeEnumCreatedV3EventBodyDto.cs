@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_ContactEmployeeTypeEnumCreatedV3EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 新建人员类型 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Contact.Events;
 
 /// <summary>

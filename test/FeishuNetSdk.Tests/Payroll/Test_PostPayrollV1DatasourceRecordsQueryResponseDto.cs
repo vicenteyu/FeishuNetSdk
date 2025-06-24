@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostPayrollV1DatasourceRecordsQueryResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 批量查询外部算薪数据记录 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Payroll;
 
 /// <summary>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_DeleteHireV1ExternalApplicationsByExternalApplicationIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 删除外部投递 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Hire;
 
 /// <summary>

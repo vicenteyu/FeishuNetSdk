@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostApprovalV4ExternalInstancesCheckResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 校验三方审批实例 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Approval;
 
 /// <summary>

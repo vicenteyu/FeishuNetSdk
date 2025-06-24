@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 删除日程参与人 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Calendar;
 
 /// <summary>
