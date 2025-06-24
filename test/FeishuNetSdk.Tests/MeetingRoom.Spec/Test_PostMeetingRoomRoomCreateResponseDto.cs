@@ -17,7 +17,7 @@ public class Test_PostMeetingRoomRoomCreateResponseDto : TestBase
     "code":0,
     "msg":"success",
     "data":{
-        "room_id":"omb_8d020b12fe49e82847c2af3c193d5754",
+        "room_id":"omb_8d020b12fe49e82847c2af3c193d5754"
     }
 }
 """;

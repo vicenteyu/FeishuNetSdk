@@ -20,7 +20,7 @@ public class Test_PostAuthV3TenantAccessTokenInternalResponseDto : TestBase
     "expire": 7200
 }
 """;
-        var result = Deserialize<FeishuResponse<FeishuNetSdk.Auth.Spec.PostAuthV3TenantAccessTokenInternalResponseDto>>(json);
+        var result = Deserialize<FeishuNetSdk.Auth.Spec.PostAuthV3TenantAccessTokenInternalResponseDto>(json);
         Assert.IsNotNull(result);
     }
 }

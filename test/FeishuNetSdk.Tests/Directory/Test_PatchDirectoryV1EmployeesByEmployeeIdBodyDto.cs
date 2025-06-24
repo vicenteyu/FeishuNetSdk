@@ -31,7 +31,7 @@ public class Test_PatchDirectoryV1EmployeesByEmployeeIdBodyDto : TestBase
         "avatar_key": "8abc397a-9950-44ea-9302-e1d8fe00858g",
         "email": "zhangsan@test.com",
         "enterprise_email": "zhangsan@test.com",
-        "gender": "1",
+        "gender": 1,
         "employee_order_in_departments": [
             {
                 "department_id": "0",
@@ -57,8 +57,8 @@ public class Test_PatchDirectoryV1EmployeesByEmployeeIdBodyDto : TestBase
         "job_number": "2845435",
         "extension_number": "2845435",
         "join_date": "2022-10-10",
-        "employment_type": "1",
-        "staff_status": "",
+        "employment_type": 1,
+        "staff_status": 1,
         "job_title_id": "wqedsaqw",
         "resign_reason": "",
         "resign_type": "",
@@ -96,6 +96,7 @@ public class Test_PatchDirectoryV1EmployeesByEmployeeIdBodyDto : TestBase
                         "ids": [
                             "27al2hef"
                         ]
+                    }
                 ],
                 "field_key": "C-1000001"
             }

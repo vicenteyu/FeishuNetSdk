@@ -42,7 +42,7 @@ public class Test_GetHelpdeskV1CategoriesResponseDto : TestBase
                         "helpdesk_id": "123456",
                         "language": "en_us"
                     }
-                ],
+                ]
             }
         ]
     }

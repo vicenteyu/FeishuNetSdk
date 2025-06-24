@@ -35,7 +35,7 @@ public class Test_PostImV1MessagesMergeForwardResponseDto : TestBase
             },
             "body": {
                 "content": "Merged and Forwarded Message"
-            },
+            }
         },
         "invalid_message_id_list": [
             "om_61244dab1ef11257621dcd7g0e256651"

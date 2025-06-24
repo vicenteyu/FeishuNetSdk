@@ -23,7 +23,6 @@ public class Test_PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRe
           "创建日期": 1674206443000,
           "截止日期": 1674206443000
         },
-        "id": "recusyQbB0fVL5",
         "record_id": "recusyQbB0fVL5"
       },
       {
@@ -32,7 +31,6 @@ public class Test_PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateRe
           "创建日期": 1674206443000,
           "截止日期": 1674206443000
         },
-        "id": "recusyQbB0CJjX",
         "record_id": "recusyQbB0CJjX"
       }
     ]

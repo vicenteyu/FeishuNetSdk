@@ -42,7 +42,7 @@ public class Test_PutContactV3DepartmentsByDepartmentIdResponseDto : TestBase
                     "leaderID": "ou_357368f98775f04bea02afc6b1d33478",
                     "leaderType": 1
                 }
-            ],
+            ]
         }
     }
 }

@@ -13,7 +13,7 @@ public class Test_GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto : 
     public void TestDto()
     {
         var json = """
-{
+{"data":{"items":[{
     "fields": {
         "索引": "索引列多行文本类型",
         "多行文本": "多行文本内容1",
@@ -107,7 +107,7 @@ public class Test_GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto : 
         "进度": "0.66",
         "评分":"3"
     }
-}
+}]}}
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Base.GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto>>(json);
         Assert.IsNotNull(result);

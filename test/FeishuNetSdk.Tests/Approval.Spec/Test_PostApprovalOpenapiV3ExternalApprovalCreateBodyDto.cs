@@ -29,9 +29,7 @@ public class Test_PostApprovalOpenapiV3ExternalApprovalCreateBodyDto : TestBase
         "action_callback_key":"gfdqedvsadfgfsd",
         "enable_mark_readed": false,
         "enable_quick_operate": false,
-        "allow_batch_operate": false,
-        "key": "",
-        "token":""
+        "allow_batch_operate": false
     },
     "i18n_resources":[
      {

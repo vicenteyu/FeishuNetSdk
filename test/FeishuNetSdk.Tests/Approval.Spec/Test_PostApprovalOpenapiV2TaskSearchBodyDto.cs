@@ -25,7 +25,7 @@ public class Test_PostApprovalOpenapiV2TaskSearchBodyDto : TestBase
     "task_start_time_to": 1547654251506,
     "locale": "zh-CN",
     "offset": 0,
-    "limit": 50,
+    "limit": 50
 }
 """;
         var result = Deserialize<FeishuNetSdk.Approval.Spec.PostApprovalOpenapiV2TaskSearchBodyDto>(json);

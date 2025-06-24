@@ -13,27 +13,6 @@ public class Test_PostWikiV2SpacesBySpaceIdNodesResponseDto : TestBase
     public void TestDto()
     {
         var json = """
-// 实体节点
-{
-    "code": 0,
-    "msg": "success",
-    "data": {
-        "node": {
-            "space_id": "6946843325487906839",
-            "node_token": "wikcnKQ1k3p******8Vabcef",
-            "obj_token": "doccnzAaO******8g9Spprd",
-            "obj_type": "doc",
-            "parent_node_token": "wikcnKQ1k3p******8Vabcef",
-            "node_type": "origin",
-            "origin_node_token": "",
-            "origin_space_id": "",
-            "has_child": false,
-            "title": ""
-        }
-    }
-}
-
-// 快捷方式节点
 {
     "code": 0,
     "msg": "success",

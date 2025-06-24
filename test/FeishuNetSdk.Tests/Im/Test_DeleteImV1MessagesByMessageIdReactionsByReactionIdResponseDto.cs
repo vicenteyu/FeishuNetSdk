@@ -27,6 +27,7 @@ public class Test_DeleteImV1MessagesByMessageIdReactionsByReactionIdResponseDto 
             "emoji_type": "SMILE"
         }
     }
+}
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Im.DeleteImV1MessagesByMessageIdReactionsByReactionIdResponseDto>>(json);
         Assert.IsNotNull(result);

@@ -55,7 +55,7 @@ public class Test_GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResp
                 "相关部门":[
                     "研发"
                 ],
-                "多行文本":[ // text_field_as_array 为true时的结构
+                "多行文本":[
                     {
                         "text":"hello",
                         "type":"text"

@@ -107,10 +107,6 @@ public class Test_PutLingoV1DraftsByDraftIdBodyDto : TestBase
                 "token": "boxbcEcmKiD3SGHvgqWTpvdc7jc"
             }
         ]
-    },
-    "outer_info": {
-        "provider": "星云",
-        "outer_id": "client_653****98d"
     }
 }
 """;

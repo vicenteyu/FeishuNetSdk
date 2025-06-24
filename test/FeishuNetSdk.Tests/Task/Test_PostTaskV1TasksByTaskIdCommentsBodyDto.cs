@@ -16,7 +16,7 @@ public class Test_PostTaskV1TasksByTaskIdCommentsBodyDto : TestBase
 {
     "content":"多喝水，少吃肉",
     "rich_content":"富文本评论[飞书开放平台](https://open.feishu.cn)",
-    "parent_id":0
+    "parent_id":"0"
 }
 """;
         var result = Deserialize<FeishuNetSdk.Task.PostTaskV1TasksByTaskIdCommentsBodyDto>(json);

@@ -13,7 +13,7 @@ public class Test_PatchImV1MessagesByMessageIdBodyDto : TestBase
     public void TestDto()
     {
         var json = """
-{  // 使用卡片 JSON 示例
+{
     "content": "{\"elements\":[{\"tag\":\"div\",\"text\":{\"content\":\"This is the plain text\",\"tag\":\"plain_text\"}}],\"header\":{\"template\":\"blue\",\"title\":{\"content\":\"This is the title\",\"tag\":\"plain_text\"}}}"
 }
 """;

@@ -18,7 +18,7 @@ public class Test_PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseD
     "data": {
         "revision": 80,
         "spreadsheetToken": "shtcngNygNfuqhxTBf588jabcef",
-        "updateRange": "Q7PlXT!H7:H7"
+        "updatedRange": "Q7PlXT!H7:H7"
     },
     "msg": "success"
 }

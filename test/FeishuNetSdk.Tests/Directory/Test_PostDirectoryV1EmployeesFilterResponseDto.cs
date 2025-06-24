@@ -18,30 +18,13 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
     "msg": "success",
     "data":
     {
-        "employees":
-        [
+        "employees":[
             {
                 "base_info":
                 {
                     "employee_id": "sddasdeqwe",
                     "name":
                     {
-                        "last_name":
-                        {
-                            "default_value": "张三",
-                            "i18n_value":
-                            {
-                                "zh_cn": "张三"
-                            }
-                        },
-                        "first_name":
-                        {
-                            "default_value": "张三",
-                            "i18n_value":
-                            {
-                                "zh_cn": "张三"
-                            }
-                        },
                         "name":
                         {
                             "default_value": "张三",
@@ -72,13 +55,9 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                             "leaders":
                             [
                                 {
-                                    "leader_type": "1",
+                                    "leader_type": 1,
                                     "leader_id": "u273y71"
                                 }
-                            ],
-                            "hrbps":
-                            [
-                                "eefasdqw"
                             ],
                             "parent_department_id": "h12921",
                             "name":
@@ -94,7 +73,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                             [
                                 {
                                     "field_key": "C-1000001",
-                                    "field_type": "1",
+                                    "field_type": 1,
                                     "text_value":
                                     {
                                         "default_value": "张三",
@@ -122,8 +101,8 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                         [
                                             "1"
                                         ],
-                                        "enum_name": 1,
-                                        "enum_type": "1"
+                                        "enum_name": "1",
+                                        "enum_type": 1
                                     },
                                     "user_values":
                                     [
@@ -132,7 +111,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                             [
                                                 "1"
                                             ],
-                                            "user_type": "1"
+                                            "user_type": 1
                                         }
                                     ]
                                 }
@@ -179,7 +158,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                     [
                         {
                             "field_key": "C-1000001",
-                            "field_type": "1",
+                            "field_type": 1,
                             "text_value":
                             {
                                 "default_value": "张三",
@@ -208,7 +187,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                     "1"
                                 ],
                                 "enum_name": "选项结果名称",
-                                "enum_type": "1"
+                                "enum_type": 1
                             },
                             "user_values":
                             [
@@ -217,7 +196,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                     [
                                         "1"
                                     ],
-                                    "user_type": "1"
+                                    "user_type": 1
                                 }
                             ]
                         }
@@ -292,17 +271,6 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                     "join_date": "2007-03-20",
                     "employment_type": 1,
                     "staff_status": 1,
-                    "positions":
-                    [
-                        {
-                            "position_code": "PO18890",
-                            "position_name": "总经理",
-                            "leader_id": "2e1cf73b",
-                            "leader_position_code": "e71b94gb",
-                            "is_main_position": true,
-                            "department_id": "D100"
-                        }
-                    ],
                     "job_title":
                     {
                         "job_title_id": "od-4e6ac4d14bcd5071a37a39de902c7141",

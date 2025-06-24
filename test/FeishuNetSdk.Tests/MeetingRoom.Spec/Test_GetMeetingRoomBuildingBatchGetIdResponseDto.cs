@@ -20,11 +20,11 @@ public class Test_GetMeetingRoomBuildingBatchGetIdResponseDto : TestBase
         "buildings":[
             {
                 "building_id":"omb_8ec170b937536a5d87c23b418b83f9bb",
-                "custom_bulding_id":"test01"
+                "custom_building_id":"test01"
             },
             {
                 "building_id":"omb_38570e4f0fd9ecf15030d3cc8b388f3a",
-                "custom_bulding_id":"test02"
+                "custom_building_id":"test02"
             }
         ]
     }

@@ -16,18 +16,18 @@ public class Test_PostPayrollV1DatasourceRecordsQueryBodyDto : TestBase
 {
     "source_code": "yache19_8680__c",
     "selected_fields": [
-        "yache41_8680__c"  // 需查的字段
+        "yache41_8680__c"
     ],
     "field_filters": [
         {
-            "field_code": "employment_id", // 可选查询条件
+            "field_code": "employment_id",
             "field_values": [
                 "6993242233201853965",
                 "7163264720525592101"
             ]
         },
         {
-            "field_code": "payroll_period", // 算薪期间，必要的查询条件
+            "field_code": "payroll_period",
             "field_values": [
                 "2024-10"
             ]

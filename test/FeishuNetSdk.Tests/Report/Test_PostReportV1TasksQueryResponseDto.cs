@@ -28,13 +28,13 @@ public class Test_PostReportV1TasksQueryResponseDto : TestBase
                 "from_user_id": "ou_c26134180ba2611aede183e5e3b531ed",
                 "from_user_name": "hongyao",
                 "to_user_ids": [
-                    "ou_e963cfd289ae7d3e21b11ae2d8c3c604",
+                    "ou_e963cfd289ae7d3e21b11ae2d8c3c604"
                 ],
                 "to_user_names": [
                     "gaojunqi"
                 ],
                 "rule_name": "report test",
-                "task_id": "6969507459119693826"
+                "task_id": "6969507459119693826",
                 "form_contents": [
                     {
                         "field_id": "6969506834487394305",
@@ -45,9 +45,8 @@ public class Test_PostReportV1TasksQueryResponseDto : TestBase
                         "field_id": "6969506834487410689",
                         "field_name": "number",
                         "field_value": "789768"
-                    },
-                ],
-              
+                    }
+                ]             
             }
         ]
     },

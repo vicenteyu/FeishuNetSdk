@@ -21,7 +21,7 @@ public class Test_PostAuthV3AppAccessTokenInternalResponseDto : TestBase
     "tenant_access_token": "t-g1044ghJRUIJJ5ZPPZMOHKWZISL33E4QSS3abcef"
 }
 """;
-        var result = Deserialize<FeishuResponse<FeishuNetSdk.Auth.Spec.PostAuthV3AppAccessTokenInternalResponseDto>>(json);
+        var result = Deserialize<FeishuNetSdk.Auth.Spec.PostAuthV3AppAccessTokenInternalResponseDto>(json);
         Assert.IsNotNull(result);
     }
 }

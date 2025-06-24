@@ -17,9 +17,9 @@ public class Test_PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : TestBase
 "msg":"success",
 "data":{"workforce_plan_id":"7128319234123",
 "centralized_reporting_project_id":"7128319234123",
-"items":[{"workforce_plan_detail_id":""123456"",
-"dimension_info_datas":[{"dimension_key":""department"",
-"dimension_info":{"id":"“123456”",
+"items":[{"workforce_plan_detail_id":"123456",
+"dimension_info_datas":[{"dimension_key":"department",
+"dimension_info":{"id":"123456",
 "name":[{
     "lang": "zh-CN",
     "value": "中文示例"
@@ -29,7 +29,7 @@ public class Test_PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : TestBase
 "individuals_to_be_added":"10.00",
 "individuals_to_be_removed":"10.00",
 "estimated_active_individuals_details":[{
-    "date": "“2020-10-31”",
+    "date": "2020-10-31",
     "estimated_active_individuals": "“10.00”"
 }],
 "multi_period_values":[{

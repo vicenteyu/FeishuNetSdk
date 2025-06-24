@@ -83,8 +83,7 @@ public class Test_PostSearchV2SchemasBodyDto : TestBase
             }
         }
     ],
-    "schema_id": "example_schema",
-    "validate_only": false
+    "schema_id": "example_schema"
 }
 """;
         var result = Deserialize<FeishuNetSdk.Search.Spec.PostSearchV2SchemasBodyDto>(json);

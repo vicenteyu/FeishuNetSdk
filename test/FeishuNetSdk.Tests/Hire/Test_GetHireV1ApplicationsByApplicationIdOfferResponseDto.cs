@@ -151,7 +151,7 @@ public class Test_GetHireV1ApplicationsByApplicationIdOfferResponseDto : TestBas
             },
             "customized_module_list": [
                 {
-                    "ID": "6930815272790114324",
+                    "id": "6930815272790114324",
                     "object_list": [
                         {
                             "object_id": "6930815272790114324",

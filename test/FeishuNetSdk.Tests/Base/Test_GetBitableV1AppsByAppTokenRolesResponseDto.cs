@@ -40,13 +40,13 @@ public class Test_GetBitableV1AppsByAppTokenRolesResponseDto : TestBase
                                     ]
                                 },
                                 {
-                                    "field_name": "人员", // 人员 包含 访问者本人
+                                    "field_name": "人员",
                                     "field_type": 11,
                                     "operator": "contains",
                                     "value": null
                                 },
                                 {
-                                    "field_name": "", // 创建人 包含 访问者本人
+                                    "field_name": "",
                                     "field_type": 1003,
                                     "operator": "contains",
                                     "value": null

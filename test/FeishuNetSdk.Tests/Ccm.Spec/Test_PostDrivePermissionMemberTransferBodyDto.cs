@@ -14,7 +14,7 @@ public class Test_PostDrivePermissionMemberTransferBodyDto : TestBase
     {
         var json = """
 {
-    "type": "string", // "doc" or "sheet" or "file",
+    "type": "string",
     "token": "string",
     "owner": {  
          "member_type": "openid",

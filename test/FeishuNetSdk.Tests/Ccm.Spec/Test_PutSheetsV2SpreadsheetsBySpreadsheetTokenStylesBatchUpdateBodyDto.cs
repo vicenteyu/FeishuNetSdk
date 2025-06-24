@@ -43,7 +43,6 @@ public class Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBody
                 "Q7PlXT!A2:B6"
             ],
             "style":{
-              ...
             }
         }
     ]

@@ -159,12 +159,10 @@ public class Test_PostHireV1TalentsCombinedUpdateBodyDto : TestBase
         {
             "object_id": "6934193211960330504",
             "children": [
-                [
-                    {
-                        "object_id": "6934193211960330513",
-                        "value": "[\"1\", \"2\"]"
-                    }
-                ]
+                {
+                    "object_id": "6934193211960330513",
+                    "value": "[\"1\", \"2\"]"
+                }
             ]
         }
     ]

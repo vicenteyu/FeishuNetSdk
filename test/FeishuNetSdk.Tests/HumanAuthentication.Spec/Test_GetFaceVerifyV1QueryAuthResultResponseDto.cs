@@ -17,7 +17,7 @@ public class Test_GetFaceVerifyV1QueryAuthResultResponseDto : TestBase
     "code": 0, 
     "msg": "ok", 
     "data":{
-        "auth_state": 0/1/-1,
+        "auth_state": 0,
         "auth_timestamp": 1559714887
     }
 }

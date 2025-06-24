@@ -22,7 +22,6 @@ public class Test_PostBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto :
         "创建日期": 1674206443000,
         "截止日期": 1674206443000
       },
-      "id": "recusutYZm4ulo",
       "record_id": "recusutYZm4ulo"
     }
   },

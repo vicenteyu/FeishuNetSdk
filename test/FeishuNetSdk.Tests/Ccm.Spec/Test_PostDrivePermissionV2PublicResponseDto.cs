@@ -21,8 +21,8 @@ public class Test_PostDrivePermissionV2PublicResponseDto : TestBase
         "share_entity":"only_me",
         "link_share_entity":"tenant_editable",
         "external_access":false,
-        "invite_external":false，
-        "permission_version":"1024",
+        "invite_external":false,
+        "permission_version":"1024"
     },
     "msg": "Success"
 }

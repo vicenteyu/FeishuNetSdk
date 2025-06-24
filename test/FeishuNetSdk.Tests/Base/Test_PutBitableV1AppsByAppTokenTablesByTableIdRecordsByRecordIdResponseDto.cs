@@ -65,7 +65,6 @@ public class Test_PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResp
                 "货币": 3,
                 "进度": 0.25
             },
-            "id": "reclAqylTN",
             "record_id": "reclAqylTN"
         }
     },

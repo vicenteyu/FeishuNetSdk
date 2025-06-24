@@ -21,7 +21,7 @@ public class Test_PostBaikeV1EntitiesResponseDto : TestBase
             "id": "enterprise_40217521",
             "main_keys": [
                 {
-                    "key": "飞书词典,
+                    "key": "飞书词典",
                     "display_status": {
                         "allow_highlight": true,
                         "allow_search": true

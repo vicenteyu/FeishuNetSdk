@@ -13,8 +13,6 @@ public class Test_GetWikiV2SpacesGetNodeResponseDto : TestBase
     public void TestDto()
     {
         var json = """
-// 使用Wiki Token查询：GET open-apis/wiki/v2/spaces/get_node?token=wikcnKQ1k3p******8Vabcef
-// 或使用文档Token查询：GET open-apis/wiki/v2/spaces/get_node?token=doccnzAaOD******Wabcdef&obj_type=doc
 {
     "code": 0,
     "msg": "success",
@@ -35,7 +33,7 @@ public class Test_GetWikiV2SpacesGetNodeResponseDto : TestBase
             "node_create_time": "1642402428",
             "creator": "ou_xxxxx",
             "owner": "ou_xxxxx",
-            "node_creator": "ou_xxxxx",
+            "node_creator": "ou_xxxxx"
         }
     }
 }

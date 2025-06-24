@@ -17,7 +17,6 @@ public class Test_PatchTaskV1TasksByTaskIdResponseDto : TestBase
     "code": 0,
     "data": {
         "task": {
-            "can_edit": true,
             "complete_time": "0",
             "create_time": "1630304148",
             "creator_id": "ou_05b67908bc5d12a086e909a076f7f1b6",

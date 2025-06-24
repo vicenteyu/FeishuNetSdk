@@ -100,10 +100,6 @@ public class Test_PutBaikeV1DraftsByDraftIdBodyDto : TestBase
             }
         ]
     },
-    "outer_info": {
-        "provider": "星云",
-        "outer_id": "client_653****98d"
-    },
     "rich_text": "词典是飞书提供的一款知识管理工具，通过飞书词典可以帮助企业将分散的知识信息进行聚合，并通过UGC的方式，促进企业知识的保鲜和流通"
 }
 """;

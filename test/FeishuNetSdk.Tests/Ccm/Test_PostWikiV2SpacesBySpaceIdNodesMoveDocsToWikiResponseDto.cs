@@ -13,26 +13,11 @@ public class Test_PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto : Test
     public void TestDto()
     {
         var json = """
-// 操作已完成
 {
     "code": 0,
     "data": {
-        "wiki_token": "wikbcLZuhp4r9QuJumHzVabcdef"
-    },
-    "msg": "success"
-}
-// 或者操作尚未完成
-{
-    "code": 0,
-    "data": {
-        "task_id": "7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7"
-    },
-    "msg": "success"
-}
-// 如果无文档权限且申请移动（apply为true），申请已发出：
-{
-    "code": 0,
-    "data": {
+        "wiki_token": "wikbcLZuhp4r9QuJumHzVabcdef",
+        "task_id": "7037044037068177428-075c9481e6a0007c1df689dfbe5b55a08b6b06f7",
         "applied": true
     },
     "msg": "success"

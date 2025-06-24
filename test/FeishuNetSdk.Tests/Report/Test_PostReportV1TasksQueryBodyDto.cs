@@ -18,7 +18,7 @@ public class Test_PostReportV1TasksQueryBodyDto : TestBase
   "commit_start_time":1618279343,
   "commit_end_time":1623722543,
   "page_size": 10,
-  "rule_id":6969410005221015580,
+  "rule_id":"6969410005221015580",
   "user_id": "ou_c26134180ba2611aede183e5e3b531ed"
 }
 """;

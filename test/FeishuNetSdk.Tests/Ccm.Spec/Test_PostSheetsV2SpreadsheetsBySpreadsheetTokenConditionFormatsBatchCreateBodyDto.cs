@@ -25,9 +25,9 @@ public class Test_PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatc
                 "attrs": [
                     {
                         "operator": "is",
-                        "time_period": "today", // rule_type 为 timePeriod 时必填
-                        "formula": ["\"aaaaa\""], // rule_type 为 cellIs 时必填；若其中是文本，则需要用 "" 包裹并转义
-                        "text": "" // rule_type 为 containsText 时必填
+                        "time_period": "today",
+                        "formula": ["\"aaaaa\""],
+                        "text": ""
                     }
                 ],
                 "style": {

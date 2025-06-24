@@ -17,26 +17,26 @@ public class Test_PostPayrollV1DatasourceRecordsSaveBodyDto : TestBase
     "source_code": "yache19_8680__c",
     "records": [
         {
-            "active_status": 1, // 启停状态
+            "active_status": 1,
             "field_values": [
                 {
-                    "field_code": "employment_id", // 必传字段，员工ID
-                    "value": "6993242233201853965" // 员工ID获取方式见文档
+                    "field_code": "employment_id",
+                    "value": "6993242233201853965"
                 },
                 {
-                    "field_code": "payroll_period", // 必传字段，算薪期间
-                    "value": "2024-10" // 算薪期间，精确到月
+                    "field_code": "payroll_period",
+                    "value": "2024-10"
                 },
                 {
-                    "field_code": "yache41_8680__c", // 自定义字段1
+                    "field_code": "yache41_8680__c",
                     "value": "2024-10-01"
                 },
                 {
-                    "field_code": "yache11_8680__c", // 自定义字段2
+                    "field_code": "yache11_8680__c",
                     "value": "我是一段文本"
                 },
                 {
-                    "field_code": "yache22_8680__c", // 自定义字段3
+                    "field_code": "yache22_8680__c",
                     "value": "123"
                 }
             ]

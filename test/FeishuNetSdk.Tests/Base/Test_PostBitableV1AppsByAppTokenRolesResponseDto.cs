@@ -22,8 +22,6 @@ public class Test_PostBitableV1AppsByAppTokenRolesResponseDto : TestBase
                     "table_name": "table1",
                     "table_id": "tblFIgBzKEq75HSE",
                     "table_perm": 2,
-                    "addrecords_perm": false,
-                    "deleterecords_perm": true,
                     "rec_rule": {
                         "conjunction": "or",
                         "conditions": [

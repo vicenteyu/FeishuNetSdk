@@ -22,7 +22,7 @@ public class Test_GetCorehrV1NationalIdTypesResponseDto : TestBase
     "value": "张三"
 }],
 "active":true,
-"validation_rule":"^\d{9}$",
+"validation_rule":"^\\d{9}$",
 "validation_rule_description":[{
     "lang": "zh-CN",
     "value": "张三"

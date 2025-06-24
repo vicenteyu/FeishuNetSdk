@@ -13,24 +13,10 @@ public class Test_PostWikiV2SpacesBySpaceIdNodesBodyDto : TestBase
     public void TestDto()
     {
         var json = """
-// 创建文档为某文档子节点：
 {
     "obj_type": "docx",
     "parent_node_token": "wikcnKQ1k3p******8Vabcef",
-    "node_type": "origin"
-}
-
-// 创建文档为空间一级节点：
-{
-    "obj_type": "docx",
-    "node_type": "origin"
-}
-
-// 创建某一知识空间文档的快捷方式为文档子节点：
-{
-    "obj_type": "docx",
-    "parent_node_token": "wikcnKQ1k3p******8Vabcef",
-    "node_type": "shortcut"，
+    "node_type": "shortcut",
     "origin_node_token": "wikcnKQ1k3p******8Vabcef"
 }
 """;

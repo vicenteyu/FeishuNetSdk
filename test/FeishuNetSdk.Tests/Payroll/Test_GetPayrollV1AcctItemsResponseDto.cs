@@ -23,7 +23,7 @@ public class Test_GetPayrollV1AcctItemsResponseDto : TestBase
                 "i18n_names": [
                     {
                         "locale": "zh_cn",
-                        "value": "名称",
+                        "value": "名称"
                     }
                 ],
                 "category_id": "7169773973790425132",

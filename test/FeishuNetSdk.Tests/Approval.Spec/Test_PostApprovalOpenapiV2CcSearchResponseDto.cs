@@ -30,7 +30,7 @@ public class Test_PostApprovalOpenapiV2CcSearchResponseDto : TestBase
                 },
                 "group": {
                     "external_id": "0004",
-                    "name": "groupA",
+                    "name": "groupA"
                 },
                 "instance": {
                     "code": "EB828003-9FFE-4B3F-AA50-2E199E2ED943",
@@ -44,7 +44,7 @@ public class Test_PostApprovalOpenapiV2CcSearchResponseDto : TestBase
                     "serial_id": "201902020001",
                     "link": {
                         "pc_link": "",
-                        "mobile_link": "",
+                        "mobile_link": ""
                     }
                 },
                 "cc": {
@@ -55,7 +55,7 @@ public class Test_PostApprovalOpenapiV2CcSearchResponseDto : TestBase
                     "extra": "{xxxx}",
                     "link": {
                         "pc_link": "",
-                        "mobile_link": "",
+                        "mobile_link": ""
                     }
                 }
             }

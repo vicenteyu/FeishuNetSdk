@@ -31,15 +31,12 @@ public class Test_GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto : T
                     "enum_value":
                     {
                         "desc": null,
-                        "enum_source_id": 123,
-                        "enum_source_type": 2,
                         "name":
                         {
                             "en-US": "",
                             "zh-CN": "测试"
                         },
-                        "value": "reason_for_offboarding_option96",
-                        "wk_api_name": "reason_for_offboarding"
+                        "value": "reason_for_offboarding_option96"
                     }
                 }
             },
@@ -74,11 +71,9 @@ public class Test_GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto : T
                     }
                 }
             }
-        ],
-        "process_id": "123321"
+        ]
     },
-    "msg": "",
-    "success": true
+    "msg": ""
 }
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.FeishuPeople.GetCorehrV1ProcessesByProcessIdFormVariableDataResponseDto>>(json);

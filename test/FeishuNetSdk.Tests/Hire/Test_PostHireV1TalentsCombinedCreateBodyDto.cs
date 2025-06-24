@@ -158,14 +158,13 @@ public class Test_PostHireV1TalentsCombinedCreateBodyDto : TestBase
     "customized_data": [
         {
             "object_id": "6934193211960330504",
-            "children": [
-                [
-                    {
-                        "object_id": "6934193211960330513",
-                        "value": "[\"1\", \"2\"]"
-                    }
-                ]
-            ]
+            "children": 
+            [
+                {
+                    "object_id": "6934193211960330513",
+                    "value": "[\"1\", \"2\"]"
+                }
+            ]            
         }
     ]
 }

@@ -98,7 +98,7 @@ public class Test_GetHireV1TalentsByTalentIdResponseDto : TestBase
 "end_time_v2":"1687180087000",
 "education_type":1,
 "academic_ranking":5,
-"tag_list":[-],
+"tag_list":[],
 "customized_data_list":[{
     "object_id": "xxxx",
     "name": {

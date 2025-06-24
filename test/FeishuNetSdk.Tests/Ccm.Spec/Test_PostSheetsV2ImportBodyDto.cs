@@ -14,7 +14,7 @@ public class Test_PostSheetsV2ImportBodyDto : TestBase
     {
         var json = """
 {
-    "file": [80,75,3,......],
+    "file": null,
     "name": "name.xlsx",
     "folderToken": "fldxxxxx"
 }

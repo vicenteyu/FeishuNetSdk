@@ -66,7 +66,6 @@ public class Test_PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateRe
                     "货币": 3,
                     "进度": 0.25
                 },
-                "id": "reclAqylTN",
                 "record_id": "reclAqylTN"
             }
         ]

@@ -25,12 +25,12 @@ public class Test_PostApprovalOpenapiV2TaskSearchResponseDto : TestBase
                     "name": "qingjia",
                     "is_external": true,
                      "external": {
-                        "batch_cc_read": false,
+                        "batch_cc_read": false
                     }
                 },
                 "group": {
                     "external_id": "0004",
-                    "name": "approvalgroupA",
+                    "name": "approvalgroupA"
                 },
                 "instance": {
                     "code": "EB828003-9FFE-4B3F-AA50-2E199E2ED943",
@@ -44,7 +44,7 @@ public class Test_PostApprovalOpenapiV2TaskSearchResponseDto : TestBase
                     "serial_id": "201902020001",
                     "link": {
                         "pc_link": "",
-                        "mobile_link": "",
+                        "mobile_link": ""
                     }
                 },
                 "task": {
@@ -56,7 +56,7 @@ public class Test_PostApprovalOpenapiV2TaskSearchResponseDto : TestBase
                     "extra": "{}",
                     "link": {
                         "pc_link": "",
-                        "mobile_link": "",
+                        "mobile_link": ""
                     }
                 }
             }

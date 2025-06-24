@@ -26,8 +26,7 @@ public class Test_PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDt
       ],
       "conjunction": "and"
     }
-  },
-  "hidden_fields": null
+  }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto>(json);

@@ -39,11 +39,11 @@ public class Test_HelpdeskTicketMessageCreatedV1EventBodyDto : TestBase
             "ticket_id": "6626871355780366331",
             "comments": {
                 "content": "备注内容",
-                "created_at": 备注时间,
-                "id": 备注id,
+                "created_at": 123456,
+                "id": 12345,
                 "user_avatar_url": "备注人头像",
                 "user_name": "备注人姓名",
-                "user_id": 备注人id
+                "user_id": 123456
             },
             "ticket_type": 1,
             "status": 50,

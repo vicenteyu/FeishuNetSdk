@@ -17,7 +17,7 @@ public class Test_PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecord
     "code": 0,
     "msg": "success",
     "data": {
-        "items": "[]",
+        "items": [],
         "total": 0,
         "next_page_token": "null",
         "has_more": true

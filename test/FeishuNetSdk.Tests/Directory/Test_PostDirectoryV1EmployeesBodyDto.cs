@@ -16,22 +16,6 @@ public class Test_PostDirectoryV1EmployeesBodyDto : TestBase
 {
     "employee": {
         "name": {
-            "last_name": {
-                "default_value": "张三",
-                "i18n_value": {
-                    "zh_cn": "中文",
-                    "ja_jp": "ja_jp_name",
-                    "en_us": "en_us_name"
-                }
-            },
-            "first_name": {
-                "default_value": "张三",
-                "i18n_value": {
-                    "zh_cn": "中文",
-                    "ja_jp": "ja_jp_name",
-                    "en_us": "en_us_name"
-                }
-            },
             "name": {
                 "default_value": "张三",
                 "i18n_value": {
@@ -47,7 +31,7 @@ public class Test_PostDirectoryV1EmployeesBodyDto : TestBase
         "avatar_key": "8abc397a-9950-44ea-9302-e1d8fe00858g",
         "email": "zhangsan@gmail.com",
         "enterprise_email": "zhangsan@gmail.com",
-        "gender": "1",
+        "gender": 1,
         "employee_order_in_departments": [
             {
                 "department_id": "0",
@@ -73,11 +57,9 @@ public class Test_PostDirectoryV1EmployeesBodyDto : TestBase
         "job_number": "2845435",
         "extension_number": "2845435",
         "join_date": "2022-10-10",
-        "employment_type": "1",
-        "staff_status": "",
+        "employment_type": 1,
+        "staff_status": 1,
         "job_title_id": "wqedsaqw",
-        "resign_reason": "",
-        "resign_type": "",
         "custom_field_values": [
             {
                 "field_type": "3",
@@ -111,8 +93,7 @@ public class Test_PostDirectoryV1EmployeesBodyDto : TestBase
                     {
                         "ids": [
                             "27al2hef"
-                        ],
-                        "user_type": "1"
+                        ]
                     }
                 ],
                 "field_key": "C-1000001"

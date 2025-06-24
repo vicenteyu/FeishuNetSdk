@@ -13,10 +13,10 @@ public class Test_PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto 
     public void TestDto()
     {
         var json = """
-{
+{"data":{
     "block_id": "blkXsf60PxMdJLQN",
     "name": "New Dashboard"
-}
+}}
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto>>(json);
         Assert.IsNotNull(result);

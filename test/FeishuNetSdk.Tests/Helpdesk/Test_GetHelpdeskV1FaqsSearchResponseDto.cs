@@ -101,9 +101,7 @@ public class Test_GetHelpdeskV1FaqsSearchResponseDto : TestBase
         }
       }
     ],
-    "page_size": 2,
-    "page_token": "6986214054876479490",
-    "total": 2
+    "page_token": "6986214054876479490"
   },
   "msg": "ok"
 }

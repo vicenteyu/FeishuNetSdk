@@ -20,7 +20,7 @@ public class Test_PostHireV1AttachmentsResponseDto : TestBase
         "name": "test.rar",
         "url": "https://xxx.feishu.cn/hire/file/blob/ZXlKaGJHY2lPaUpJVXpJMU5pS3==/"
     },
-    "message": "OK"
+    "msg": "OK"
 }
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Hire.Spec.PostHireV1AttachmentsResponseDto>>(json);

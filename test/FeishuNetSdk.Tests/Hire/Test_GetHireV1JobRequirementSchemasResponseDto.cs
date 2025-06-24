@@ -37,7 +37,7 @@ public class Test_GetHireV1JobRequirementSchemasResponseDto : TestBase
             },
             "setting": {
               "object_type": 11,
-              "config": {},
+              "config": null
             },
             "is_customized": true,
             "is_required": false,

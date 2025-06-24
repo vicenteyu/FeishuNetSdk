@@ -29,15 +29,15 @@ public class Test_PostPerformanceV1StageTasksFindByUserListResponseDto : TestBas
             {
                 "stage_num_lists": [
                     {
-                        "task_option": 1,
+                        "task_option_id": 1,
                         "stage_num": 1
                     },
                     {
-                        "task_option": 2,
+                        "task_option_id": 2,
                         "stage_num": 1
                     },
                     {
-                        "task_option": 3,
+                        "task_option_id": 3,
                         "stage_num": 0
                     }
                 ],
@@ -52,7 +52,7 @@ public class Test_PostPerformanceV1StageTasksFindByUserListResponseDto : TestBas
                         "need_todo_count": 10,
                         "stage_id": "7270346432875692033",
                         "stage_task_status": "need_todo",
-                        "task_option": 1
+                        "task_option_id": 1
                     },
                     {
                         "deadline": "1717142244000",
@@ -64,7 +64,7 @@ public class Test_PostPerformanceV1StageTasksFindByUserListResponseDto : TestBas
                         "need_todo_count": 2,
                         "stage_id": "7270346432875741185",
                         "stage_task_status": "all_done",
-                        "task_option": 2
+                        "task_option_id": 2
                     }
                 ],
                 "user_id": "bega29ca"

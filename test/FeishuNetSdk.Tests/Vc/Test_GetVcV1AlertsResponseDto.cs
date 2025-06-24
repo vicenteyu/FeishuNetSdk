@@ -33,12 +33,7 @@ public class Test_GetVcV1AlertsResponseDto : TestBase
                         "contact_name": "张三"
                     }
                 ],
-                "notifyMethods": [
-                    [
-                        0,
-                        1
-                    ]
-                ],
+                "notifyMethods": [0,1],
                 "alertRule": "签到板断开连接",
                 "process_time": "1656914944",
                 "recover_time": "1656914944",

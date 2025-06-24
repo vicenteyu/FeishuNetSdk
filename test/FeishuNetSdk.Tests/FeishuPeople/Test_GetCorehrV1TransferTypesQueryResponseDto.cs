@@ -19,7 +19,7 @@ public class Test_GetCorehrV1TransferTypesQueryResponseDto : TestBase
         "items": [
             {
                 "active": true,
-                "created_at": "2022-04-08 15:17:10",
+                "created_time": "2022-04-08 15:17:10",
                 "flow_id": "people_6963913041981490725_6982474967023882020",
                 "flow_name": [
                     {
@@ -38,7 +38,7 @@ public class Test_GetCorehrV1TransferTypesQueryResponseDto : TestBase
                     }
                 ],
                 "transfer_type_unique_identifier": "reporting_line_change",
-                "updated_at": "2022-04-08 15:17:10"
+                "updated_time": "2022-04-08 15:17:10"
             }
         ]
     },

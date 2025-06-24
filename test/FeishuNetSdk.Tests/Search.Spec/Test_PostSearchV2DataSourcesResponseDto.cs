@@ -14,7 +14,7 @@ public class Test_PostSearchV2DataSourcesResponseDto : TestBase
     {
         var json = """
 {
-    "code": "0",
+    "code": 0,
     "msg": "success",
     "data": {
         "data_source": {
