@@ -80,7 +80,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("options")]
-        public string? Options { get; set; }
+        public Option? Options { get; set; }
 
         /// <summary></summary>
         public record Option

@@ -646,7 +646,7 @@ public record DirectoryEmployeeUpdatedV1EventBodyDto() : EventBodyDto("directory
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resign_reason")]
-            public string? ResignReason { get; set; }
+            public int? ResignReason { get; set; }
 
             /// <summary>
             /// <para>离职备注</para>
@@ -668,7 +668,7 @@ public record DirectoryEmployeeUpdatedV1EventBodyDto() : EventBodyDto("directory
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resign_type")]
-            public string? ResignType { get; set; }
+            public int? ResignType { get; set; }
         }
 
         /// <summary>

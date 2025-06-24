@@ -291,7 +291,7 @@ public record DirectoryEmployeeResignedV1EventBodyDto() : EventBodyDto("director
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("field_type")]
-                public string? FieldType { get; set; }
+                public int? FieldType { get; set; }
 
                 /// <summary>
                 /// <para>i18n文本</para>
@@ -366,7 +366,7 @@ public record DirectoryEmployeeResignedV1EventBodyDto() : EventBodyDto("director
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("enum_type")]
-                    public string? EnumType { get; set; }
+                    public int? EnumType { get; set; }
                 }
 
                 /// <summary>

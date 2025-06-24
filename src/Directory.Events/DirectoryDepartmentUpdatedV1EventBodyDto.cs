@@ -137,7 +137,7 @@ public record DirectoryDepartmentUpdatedV1EventBodyDto() : EventBodyDto("directo
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("order_weight")]
-        public string? OrderWeight { get; set; }
+        public int? OrderWeight { get; set; }
 
         /// <summary>
         /// <para>自定义字段</para>

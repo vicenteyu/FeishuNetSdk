@@ -836,26 +836,26 @@ public record ContactScopeUpdatedV3EventBodyDto() : EventBodyDto("contact.scope.
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("department_path")]
-            public DepartmentPathSuffix[]? DepartmentPaths { get; set; }
+            public DepartmentDetail[]? DepartmentPaths { get; set; }
 
             /// <summary>
             /// 
             /// </summary>
-            public record DepartmentPathSuffix
+            public record DepartmentDetail
             {
                 /// <summary>
-                /// <para>部门路径 ID 列表。</para>
+                /// <para>部门 ID。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonPropertyName("department_ids")]
-                public string[]? DepartmentIds { get; set; }
+                [JsonPropertyName("department_id")]
+                public string? DepartmentId { get; set; }
 
                 /// <summary>
-                /// <para>部门路径名字。</para>
+                /// <para>部门名称信息。</para>
                 /// <para>必填：否</para>
                 /// </summary>
-                [JsonPropertyName("department_path_name")]
-                public DepartmentPathNameSuffix? DepartmentPathName { get; set; }
+                [JsonPropertyName("department_name")]
+                public DepartmentPathNameSuffix? DepartmentName { get; set; }
 
                 /// <summary>
                 /// <para>部门路径。</para>
@@ -863,6 +863,26 @@ public record ContactScopeUpdatedV3EventBodyDto() : EventBodyDto("contact.scope.
                 /// </summary>
                 [JsonPropertyName("department_path")]
                 public DepartmentPathSuffix? DepartmentPath { get; set; }
+
+                /// <summary>
+                /// 
+                /// </summary>
+                public record DepartmentPathSuffix
+                {
+                    /// <summary>
+                    /// <para>部门路径 ID 列表。</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("department_ids")]
+                    public string[]? DepartmentIds { get; set; }
+
+                    /// <summary>
+                    /// <para>部门路径名字。</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("department_path_name")]
+                    public DepartmentPathNameSuffix? DepartmentPathName { get; set; }
+                }
 
                 /// <summary>
                 /// 

@@ -332,6 +332,14 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                     public record ContentPerson
                     {
                         /// <summary>
+                        /// <para>员工的UserID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：7012194140645721644</para>
+                        /// </summary>
+                        [JsonPropertyName("userId")]
+                        public string? UserId { get; set; }
+
+                        /// <summary>
                         /// <para>员工的OpenID</para>
                         /// <para>必填：否</para>
                         /// <para>示例值：ou_3bbe8a09c20e89cce9bff989ed840674</para>

@@ -86,14 +86,14 @@ public record PostApprovalOpenapiV2TaskSearchBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("task_start_time_from")]
-    public int? TaskStartTimeFrom { get; set; }
+    public long? TaskStartTimeFrom { get; set; }
 
     /// <summary>
     /// <para>任务查询结束时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("task_start_time_to")]
-    public int? TaskStartTimeTo { get; set; }
+    public long? TaskStartTimeTo { get; set; }
 
     /// <summary>
     /// <para>地区（zh-CN、en-US、ja-JP）</para>

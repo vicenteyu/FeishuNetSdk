@@ -90,7 +90,7 @@ public record GetHelpdeskV1AgentSkillsByAgentSkillIdResponseDto
             /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
             /// </summary>
             [JsonPropertyName("operand")]
-            public string? Operand { get; set; }
+            public Dictionary<string, object>? Operand { get; set; }
 
             /// <summary>
             /// <para>rule 类型，1-知识库，2-工单信息，3-用户飞书信息</para>

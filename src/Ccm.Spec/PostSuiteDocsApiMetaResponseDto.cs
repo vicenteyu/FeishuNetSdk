@@ -65,7 +65,7 @@ public record PostSuiteDocsApiMetaResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("create_time")]
-        public string? CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// <para>最后编辑者</para>
@@ -79,6 +79,6 @@ public record PostSuiteDocsApiMetaResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("latest_modify_time")]
-        public string? LatestModifyTime { get; set; }
+        public long? LatestModifyTime { get; set; }
     }
 }

@@ -182,14 +182,14 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("order_weight_in_deparment")]
-                public string? OrderWeightInDeparment { get; set; }
+                public int? OrderWeightInDeparment { get; set; }
 
                 /// <summary>
                 /// <para>用户多个部门间的排序权重</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("order_weight_among_deparments")]
-                public string? OrderWeightAmongDeparments { get; set; }
+                public int? OrderWeightAmongDeparments { get; set; }
             }
 
             /// <summary>
@@ -291,7 +291,7 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("field_type")]
-                public string? FieldType { get; set; }
+                public int? FieldType { get; set; }
 
                 /// <summary>
                 /// <para>i18n文本</para>
@@ -366,7 +366,7 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
                     /// </list></para>
                     /// </summary>
                     [JsonPropertyName("enum_type")]
-                    public string? EnumType { get; set; }
+                    public int? EnumType { get; set; }
                 }
 
                 /// <summary>
@@ -630,7 +630,7 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resign_reason")]
-            public string? ResignReason { get; set; }
+            public int? ResignReason { get; set; }
 
             /// <summary>
             /// <para>离职备注</para>
@@ -652,7 +652,7 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resign_type")]
-            public string? ResignType { get; set; }
+            public int? ResignType { get; set; }
         }
 
         /// <summary>
@@ -660,6 +660,13 @@ public record DirectoryEmployeeCreatedV1EventBodyDto() : EventBodyDto("directory
         /// </summary>
         public record I18nText
         {
+            /// <summary>
+            /// <para>默认本地值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("default_locale")]
+            public string? DefaultLocale { get; set; }
+
             /// <summary>
             /// <para>默认值</para>
             /// <para>必填：否</para>

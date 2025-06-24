@@ -75,7 +75,7 @@ public record GetMeetingRoomFreebusyBatchGetResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
-        public string? OriginalTime { get; set; }
+        public long? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>日程组织者信息。私密日程不会返回该信息。</para>

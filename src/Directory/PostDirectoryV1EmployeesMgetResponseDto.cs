@@ -84,28 +84,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 public I18nText? Name { get; set; }
 
                 /// <summary>
-                /// <para>员工的姓名</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
-
-                /// <summary>
                 /// <para>别名</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：张小明</para>
@@ -296,28 +274,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 public I18nText? Name { get; set; }
 
                 /// <summary>
-                /// <para>部门名称</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
-
-                /// <summary>
                 /// <para>是否启用</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
@@ -341,192 +297,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 /// </summary>
                 [JsonPropertyName("custom_field_values")]
                 public CustomFieldValue[]? CustomFieldValues { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段</para>
-                /// </summary>
-                public record CustomFieldValue
-                {
-                    /// <summary>
-                    /// <para>自定义字段key</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：C-1000001</para>
-                    /// </summary>
-                    [JsonPropertyName("field_key")]
-                    public string? FieldKey { get; set; }
-
-                    /// <summary>
-                    /// <para>自定义字段类型</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：1</para>
-                    /// <para>可选值：<list type="bullet">
-                    /// <item>1：多行文本</item>
-                    /// <item>2：网页链接</item>
-                    /// <item>3：枚举选项</item>
-                    /// <item>4：人员</item>
-                    /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
-                    /// <item>11：人员列表</item>
-                    /// </list></para>
-                    /// </summary>
-                    [JsonPropertyName("field_type")]
-                    public string? FieldType { get; set; }
-
-                    /// <summary>
-                    /// <para>文本字段值</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("text_value")]
-                    public I18nText? TextValue { get; set; }
-
-                    /// <summary>
-                    /// <para>文本字段值</para>
-                    /// </summary>
-                    public record I18nText
-                    {
-                        /// <summary>
-                        /// <para>默认值</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
-                        /// </summary>
-                        [JsonPropertyName("default_value")]
-                        public string DefaultValue { get; set; } = string.Empty;
-
-                        /// <summary>
-                        /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                        /// <para>必填：否</para>
-                        /// <para>示例值：{"zh_cn":"张三"}</para>
-                        /// </summary>
-                        [JsonPropertyName("i18n_value")]
-                        public object? I18nValue { get; set; }
-                    }
-
-                    /// <summary>
-                    /// <para>网页链接字段值</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("url_value")]
-                    public CustomFieldValueUrlValue? UrlValue { get; set; }
-
-                    /// <summary>
-                    /// <para>网页链接字段值</para>
-                    /// </summary>
-                    public record CustomFieldValueUrlValue
-                    {
-                        /// <summary>
-                        /// <para>网页标题</para>
-                        /// <para>必填：是</para>
-                        /// </summary>
-                        [JsonPropertyName("link_text")]
-                        public I18nText LinkText { get; set; } = new();
-
-                        /// <summary>
-                        /// <para>网页标题</para>
-                        /// </summary>
-                        public record I18nText
-                        {
-                            /// <summary>
-                            /// <para>默认值</para>
-                            /// <para>必填：是</para>
-                            /// <para>示例值：张三</para>
-                            /// </summary>
-                            [JsonPropertyName("default_value")]
-                            public string DefaultValue { get; set; } = string.Empty;
-
-                            /// <summary>
-                            /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                            /// <para>必填：否</para>
-                            /// <para>示例值：{"zh_cn":"张三"}</para>
-                            /// </summary>
-                            [JsonPropertyName("i18n_value")]
-                            public object? I18nValue { get; set; }
-                        }
-
-                        /// <summary>
-                        /// <para>移动端网页链接</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：https://m.bytedance.com/afnasjfna</para>
-                        /// </summary>
-                        [JsonPropertyName("url")]
-                        public string Url { get; set; } = string.Empty;
-
-                        /// <summary>
-                        /// <para>桌面端网页链接</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：http://www.fs.cn</para>
-                        /// </summary>
-                        [JsonPropertyName("pcurl")]
-                        public string Pcurl { get; set; } = string.Empty;
-                    }
-
-                    /// <summary>
-                    /// <para>枚举</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("enum_value")]
-                    public CustomFieldValueEnumValue? EnumValue { get; set; }
-
-                    /// <summary>
-                    /// <para>枚举</para>
-                    /// </summary>
-                    public record CustomFieldValueEnumValue
-                    {
-                        /// <summary>
-                        /// <para>选项结果ID</para>
-                        /// <para>必填：是</para>
-                        /// <para>最大长度：100</para>
-                        /// <para>最小长度：0</para>
-                        /// </summary>
-                        [JsonPropertyName("enum_ids")]
-                        public string[] EnumIds { get; set; } = Array.Empty<string>();
-
-                        /// <summary>
-                        /// <para>选项类型</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：1</para>
-                        /// <para>可选值：<list type="bullet">
-                        /// <item>1：文本</item>
-                        /// <item>2：图片</item>
-                        /// </list></para>
-                        /// </summary>
-                        [JsonPropertyName("enum_type")]
-                        public string EnumType { get; set; } = string.Empty;
-                    }
-
-                    /// <summary>
-                    /// <para>人员字段值</para>
-                    /// <para>必填：否</para>
-                    /// <para>最大长度：100</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("user_values")]
-                    public UserValue[]? UserValues { get; set; }
-
-                    /// <summary>
-                    /// <para>人员字段值</para>
-                    /// </summary>
-                    public record UserValue
-                    {
-                        /// <summary>
-                        /// <para>人员ID</para>
-                        /// <para>必填：是</para>
-                        /// <para>最大长度：100</para>
-                        /// <para>最小长度：0</para>
-                        /// </summary>
-                        [JsonPropertyName("ids")]
-                        public string[] Ids { get; set; } = Array.Empty<string>();
-
-                        /// <summary>
-                        /// <para>人员类型</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：1</para>
-                        /// <para>可选值：<list type="bullet">
-                        /// <item>1：员工</item>
-                        /// </list></para>
-                        /// </summary>
-                        [JsonPropertyName("user_type")]
-                        public string UserType { get; set; } = string.Empty;
-                    }
-                }
 
                 /// <summary>
                 /// <para>部门路径信息，排列顺序为根部门到末级部门</para>
@@ -557,28 +327,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                     /// </summary>
                     [JsonPropertyName("department_name")]
                     public I18nText? DepartmentName { get; set; }
-
-                    /// <summary>
-                    /// <para>部门名称</para>
-                    /// </summary>
-                    public record I18nText
-                    {
-                        /// <summary>
-                        /// <para>默认值</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
-                        /// </summary>
-                        [JsonPropertyName("default_value")]
-                        public string DefaultValue { get; set; } = string.Empty;
-
-                        /// <summary>
-                        /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                        /// <para>必填：否</para>
-                        /// <para>示例值：{"zh_cn":"张三"}</para>
-                        /// </summary>
-                        [JsonPropertyName("i18n_value")]
-                        public object? I18nValue { get; set; }
-                    }
                 }
 
                 /// <summary>
@@ -711,192 +459,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             public CustomFieldValue[]? CustomFieldValues { get; set; }
 
             /// <summary>
-            /// <para>自定义字段值</para>
-            /// </summary>
-            public record CustomFieldValue
-            {
-                /// <summary>
-                /// <para>自定义字段key</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：C-1000001</para>
-                /// </summary>
-                [JsonPropertyName("field_key")]
-                public string? FieldKey { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>1：多行文本</item>
-                /// <item>2：网页链接</item>
-                /// <item>3：枚举选项</item>
-                /// <item>4：人员</item>
-                /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
-                /// <item>11：人员列表</item>
-                /// </list></para>
-                /// </summary>
-                [JsonPropertyName("field_type")]
-                public string? FieldType { get; set; }
-
-                /// <summary>
-                /// <para>文本字段值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("text_value")]
-                public I18nText? TextValue { get; set; }
-
-                /// <summary>
-                /// <para>文本字段值</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
-
-                /// <summary>
-                /// <para>网页链接字段值</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("url_value")]
-                public CustomFieldValueUrlValue? UrlValue { get; set; }
-
-                /// <summary>
-                /// <para>网页链接字段值</para>
-                /// </summary>
-                public record CustomFieldValueUrlValue
-                {
-                    /// <summary>
-                    /// <para>网页标题</para>
-                    /// <para>必填：是</para>
-                    /// </summary>
-                    [JsonPropertyName("link_text")]
-                    public I18nText LinkText { get; set; } = new();
-
-                    /// <summary>
-                    /// <para>网页标题</para>
-                    /// </summary>
-                    public record I18nText
-                    {
-                        /// <summary>
-                        /// <para>默认值</para>
-                        /// <para>必填：是</para>
-                        /// <para>示例值：张三</para>
-                        /// </summary>
-                        [JsonPropertyName("default_value")]
-                        public string DefaultValue { get; set; } = string.Empty;
-
-                        /// <summary>
-                        /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                        /// <para>必填：否</para>
-                        /// <para>示例值：{"zh_cn":"张三"}</para>
-                        /// </summary>
-                        [JsonPropertyName("i18n_value")]
-                        public object? I18nValue { get; set; }
-                    }
-
-                    /// <summary>
-                    /// <para>移动端网页链接</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：https://m.bytedance.com/afnasjfna</para>
-                    /// </summary>
-                    [JsonPropertyName("url")]
-                    public string Url { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>桌面端网页链接</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：http://www.fs.cn</para>
-                    /// </summary>
-                    [JsonPropertyName("pcurl")]
-                    public string Pcurl { get; set; } = string.Empty;
-                }
-
-                /// <summary>
-                /// <para>枚举</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("enum_value")]
-                public CustomFieldValueEnumValue? EnumValue { get; set; }
-
-                /// <summary>
-                /// <para>枚举</para>
-                /// </summary>
-                public record CustomFieldValueEnumValue
-                {
-                    /// <summary>
-                    /// <para>选项结果ID</para>
-                    /// <para>必填：是</para>
-                    /// <para>最大长度：100</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("enum_ids")]
-                    public string[] EnumIds { get; set; } = Array.Empty<string>();
-
-                    /// <summary>
-                    /// <para>选项类型</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：1</para>
-                    /// <para>可选值：<list type="bullet">
-                    /// <item>1：文本</item>
-                    /// <item>2：图片</item>
-                    /// </list></para>
-                    /// </summary>
-                    [JsonPropertyName("enum_type")]
-                    public string EnumType { get; set; } = string.Empty;
-                }
-
-                /// <summary>
-                /// <para>人员字段值</para>
-                /// <para>必填：否</para>
-                /// <para>最大长度：100</para>
-                /// <para>最小长度：0</para>
-                /// </summary>
-                [JsonPropertyName("user_values")]
-                public UserValue[]? UserValues { get; set; }
-
-                /// <summary>
-                /// <para>人员字段值</para>
-                /// </summary>
-                public record UserValue
-                {
-                    /// <summary>
-                    /// <para>人员ID</para>
-                    /// <para>必填：是</para>
-                    /// <para>最大长度：100</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("ids")]
-                    public string[] Ids { get; set; } = Array.Empty<string>();
-
-                    /// <summary>
-                    /// <para>人员类型</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：1</para>
-                    /// <para>可选值：<list type="bullet">
-                    /// <item>1：员工</item>
-                    /// </list></para>
-                    /// </summary>
-                    [JsonPropertyName("user_type")]
-                    public string UserType { get; set; } = string.Empty;
-                }
-            }
-
-            /// <summary>
             /// <para>全部直属部门对应的全路径。排列顺序为根部门到末级部门</para>
             /// <para>对应结构</para>
             /// <para>``` json</para>
@@ -962,28 +524,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 /// </summary>
                 [JsonPropertyName("department_name")]
                 public I18nText? DepartmentName { get; set; }
-
-                /// <summary>
-                /// <para>部门名称</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
             }
 
             /// <summary>
@@ -1136,28 +676,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 public I18nText? PlaceName { get; set; }
 
                 /// <summary>
-                /// <para>工作地点的名称</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
-
-                /// <summary>
                 /// <para>是否启用</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
@@ -1179,28 +697,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             /// </summary>
             [JsonPropertyName("work_station")]
             public I18nText? WorkStation { get; set; }
-
-            /// <summary>
-            /// <para>工位</para>
-            /// </summary>
-            public record I18nText
-            {
-                /// <summary>
-                /// <para>默认值</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("default_value")]
-                public string DefaultValue { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：{"zh_cn":"张三"}</para>
-                /// </summary>
-                [JsonPropertyName("i18n_value")]
-                public object? I18nValue { get; set; }
-            }
 
             /// <summary>
             /// <para>工号</para>
@@ -1280,28 +776,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 public I18nText? JobTitleName { get; set; }
 
                 /// <summary>
-                /// <para>职务名称</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
-
-                /// <summary>
                 /// <para>是否启用</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：true</para>
@@ -1344,28 +818,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 /// </summary>
                 [JsonPropertyName("job_family_name")]
                 public I18nText? JobFamilyName { get; set; }
-
-                /// <summary>
-                /// <para>i18n文本</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
 
                 /// <summary>
                 /// <para>是否启用</para>
@@ -1457,6 +909,183 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             /// </summary>
             [JsonPropertyName("resign_type")]
             public string? ResignType { get; set; }
+        }
+
+        /// <summary>
+        /// <para>国际化文本</para>
+        /// </summary>
+        public record I18nText
+        {
+            /// <summary>
+            /// <para>默认本地值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("default_locale")]
+            public string? DefaultLocale { get; set; }
+
+            /// <summary>
+            /// <para>默认值</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：张三</para>
+            /// </summary>
+            [JsonPropertyName("default_value")]
+            public string DefaultValue { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：{"zh_cn":"张三"}</para>
+            /// </summary>
+            [JsonPropertyName("i18n_value")]
+            public I18nLanguage<string>? I18nValue { get; set; }
+        }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// </summary>
+        public record CustomFieldValue
+        {
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
+
+            /// <summary>
+            /// <para>自定义字段类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：多行文本</item>
+            /// <item>2：网页链接</item>
+            /// <item>3：枚举选项</item>
+            /// <item>4：人员</item>
+            /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
+            /// <item>11：人员列表</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("field_type")]
+            public int? FieldType { get; set; }
+
+            /// <summary>
+            /// <para>文本字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("text_value")]
+            public I18nText? TextValue { get; set; }
+
+            /// <summary>
+            /// <para>网页链接字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("url_value")]
+            public CustomFieldValueUrlValue? UrlValue { get; set; }
+
+            /// <summary>
+            /// <para>网页链接字段值</para>
+            /// </summary>
+            public record CustomFieldValueUrlValue
+            {
+                /// <summary>
+                /// <para>网页标题</para>
+                /// <para>必填：是</para>
+                /// </summary>
+                [JsonPropertyName("link_text")]
+                public I18nText LinkText { get; set; } = new();
+
+                /// <summary>
+                /// <para>移动端网页链接</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：https://m.bytedance.com/afnasjfna</para>
+                /// </summary>
+                [JsonPropertyName("url")]
+                public string Url { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>桌面端网页链接</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：http://www.fs.cn</para>
+                /// </summary>
+                [JsonPropertyName("pcurl")]
+                public string Pcurl { get; set; } = string.Empty;
+            }
+
+            /// <summary>
+            /// <para>枚举</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("enum_value")]
+            public CustomFieldValueEnumValue? EnumValue { get; set; }
+
+            /// <summary>
+            /// <para>枚举</para>
+            /// </summary>
+            public record CustomFieldValueEnumValue
+            {
+                /// <summary>
+                /// <para>选项结果ID</para>
+                /// <para>必填：是</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("enum_ids")]
+                public string[] EnumIds { get; set; } = Array.Empty<string>();
+
+                /// <summary>
+                /// <para>选项类型</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：文本</item>
+                /// <item>2：图片</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("enum_type")]
+                public int? EnumType { get; set; }
+
+                /// <summary>
+                /// <para>选项名称</para>
+                /// </summary>
+                [JsonPropertyName("enum_name")]
+                public string EnumName { get; set; } = string.Empty;
+            }
+
+            /// <summary>
+            /// <para>人员字段值</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：100</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("user_values")]
+            public UserValue[]? UserValues { get; set; }
+
+            /// <summary>
+            /// <para>人员字段值</para>
+            /// </summary>
+            public record UserValue
+            {
+                /// <summary>
+                /// <para>人员ID</para>
+                /// <para>必填：是</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("ids")]
+                public string[] Ids { get; set; } = Array.Empty<string>();
+
+                /// <summary>
+                /// <para>人员类型</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：员工</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("user_type")]
+                public int? UserType { get; set; }
+            }
         }
     }
 

@@ -92,7 +92,7 @@ public record GetHireV1OffersResponseDto : IPageableResponse<GetHireV1OffersResp
         /// <para>示例值：1628512038000</para>
         /// </summary>
         [JsonPropertyName("create_time")]
-        public string? CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// <para>Offer 状态</para>

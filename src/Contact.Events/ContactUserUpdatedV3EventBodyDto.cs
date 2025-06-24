@@ -111,6 +111,18 @@ public record ContactUserUpdatedV3EventBodyDto() : EventBodyDto("contact.user.up
         public string? Email { get; set; }
 
         /// <summary>
+        /// <para>企业邮箱。</para>
+        /// <para>**字段权限要求（满足任一）**：</para>
+        /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
+        /// <para>- contact:user.base:readonly : 获取用户基本信息</para>
+        /// <para>- contact:contact:access_as_app : 以应用身份访问通讯录</para>
+        /// <para>- contact:contact:readonly : 读取通讯录</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("enterprise_email")]
+        public string? EnterpriseEmail { get; set; }
+
+        /// <summary>
         /// <para>职务。</para>
         /// <para>必填：否</para>
         /// </summary>

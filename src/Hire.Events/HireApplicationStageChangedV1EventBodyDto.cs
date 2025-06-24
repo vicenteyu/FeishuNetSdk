@@ -47,5 +47,5 @@ public record HireApplicationStageChangedV1EventBodyDto() : EventBodyDto("hire.a
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("update_time")]
-    public int? UpdateTime { get; set; }
+    public long? UpdateTime { get; set; }
 }

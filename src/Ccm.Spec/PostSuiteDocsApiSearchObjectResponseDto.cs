@@ -57,7 +57,7 @@ public record PostSuiteDocsApiSearchObjectResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("owner_id")]
-        public string[]? OwnerId { get; set; }
+        public string? OwnerId { get; set; }
     }
 
     /// <summary>

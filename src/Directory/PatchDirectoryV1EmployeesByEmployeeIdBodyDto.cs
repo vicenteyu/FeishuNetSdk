@@ -72,7 +72,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 /// <para>示例值：{"zh_cn":"工位1"}</para>
                 /// </summary>
                 [JsonPropertyName("i18n_value")]
-                public object? I18nValue { get; set; }
+                public I18nLanguage<string>? I18nValue { get; set; }
             }
 
             /// <summary>
@@ -305,6 +305,21 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         /// </summary>
         [JsonPropertyName("employment_type")]
         public int? EmploymentType { get; set; }
+
+        /// <summary>
+        /// <para>员工人事状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：在职</item>
+        /// <item>2：离职</item>
+        /// <item>3：待入职</item>
+        /// <item>4：取消入职</item>
+        /// <item>5：待离职</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("staff_status")]
+        public int? StaffStatus { get; set; }
 
         /// <summary>
         /// <para>职务ID</para>

@@ -27,5 +27,5 @@ public record GetHelpdeskV1AgentEmailsResponseDto
     /// <para>示例值：{\"ou_xxx\":\"xxx\",\"ou_yyy\":\"yyy\"}</para>
     /// </summary>
     [JsonPropertyName("agents")]
-    public string? Agents { get; set; }
+    public Dictionary<string, string>? Agents { get; set; }
 }

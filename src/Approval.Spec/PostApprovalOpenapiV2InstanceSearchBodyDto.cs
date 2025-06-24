@@ -84,14 +84,14 @@ public record PostApprovalOpenapiV2InstanceSearchBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("instance_start_time_from")]
-    public int? InstanceStartTimeFrom { get; set; }
+    public long? InstanceStartTimeFrom { get; set; }
 
     /// <summary>
     /// <para>实例查询结束时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("instance_start_time_to")]
-    public int? InstanceStartTimeTo { get; set; }
+    public long? InstanceStartTimeTo { get; set; }
 
     /// <summary>
     /// <para>地区 （zh-CN、en-US、ja-JP）</para>

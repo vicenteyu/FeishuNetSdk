@@ -149,14 +149,14 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("start_time")]
-            public int? StartTime { get; set; }
+            public long? StartTime { get; set; }
 
             /// <summary>
             /// <para>审批实例结束时间</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("end_time")]
-            public int? EndTime { get; set; }
+            public long? EndTime { get; set; }
 
             /// <summary>
             /// <para>审批实例状态</para>
@@ -216,7 +216,7 @@ public record PostApprovalOpenapiV2CcSearchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("create_time")]
-            public int? CreateTime { get; set; }
+            public long? CreateTime { get; set; }
 
             /// <summary>
             /// <para>审批抄送状态</para>

@@ -36,5 +36,5 @@ public record PostHelpdeskV1TicketsByTicketIdMessagesBodyDto
     /// <para>示例值：{ "msg_type": "post", "content": { "post": { "zh_cn": { "title": "this is title", "content": [ [ { "tag": "text", "un_escape": true, "text": "第一行 :" }, { "tag": "a", "text": "超链接", "href": "http://www.feishu.cn" } ], [ { "tag": "text", "text": "第二行 :" }, { "tag": "text", "text": "文本测试" } ] ] } } } }</para>
     /// </summary>
     [JsonPropertyName("content")]
-    public string Content { get; set; } = string.Empty;
+    public object? Content { get; set; }
 }

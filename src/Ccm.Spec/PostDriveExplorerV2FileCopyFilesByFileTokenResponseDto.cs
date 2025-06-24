@@ -35,7 +35,7 @@ public record PostDriveExplorerV2FileCopyFilesByFileTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("revision")]
-    public string? Revision { get; set; }
+    public int? Revision { get; set; }
 
     /// <summary>
     /// <para>新创建文件的 token</para>

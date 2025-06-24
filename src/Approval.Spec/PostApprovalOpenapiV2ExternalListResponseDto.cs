@@ -69,7 +69,7 @@ public record PostApprovalOpenapiV2ExternalListResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("update_time")]
-        public int UpdateTime { get; set; }
+        public long UpdateTime { get; set; }
 
         /// <summary>
         /// <para>审批实例下的审批任务</para>
