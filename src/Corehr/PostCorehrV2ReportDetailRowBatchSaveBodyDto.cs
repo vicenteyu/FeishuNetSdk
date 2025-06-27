@@ -30,7 +30,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
     public string WorkforcePlanId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>集中填报id，可在「设置-编制规划设置-编制规划XXX-集中填报XXX-查看数据」中解析到。</para>
+    /// <para>集中填报id，可在「设置-编制规划设置-编制规划XXX-集中填报XXX-查看数据-页面URL」中解析report_id。</para>
     /// <para>必填：是</para>
     /// <para>示例值：7430470688844023340</para>
     /// </summary>
@@ -145,7 +145,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
         }
 
         /// <summary>
-        /// <para>编制规划值需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。注意当编制规划方案是按自然周期选择时，该值必须为空，需要设置自然周期的编制规划信息multi_period_values。</para>
+        /// <para>编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。注意当编制规划方案是按自然周期选择时，该值必须为空，需要设置自然周期的编制规划信息multi_period_values。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Cardkit;
 /// <summary>
 /// 创建卡片实体 响应体
-/// <para>基于卡片 JSON 代码，创建卡片实体。</para>
+/// <para>基于卡片 JSON 代码，创建卡片实体。用于后续通过卡片实体 ID（card_id）发送卡片、更新卡片等。</para>
 /// <para>## 使用限制</para>
 /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
@@ -26,7 +26,7 @@ namespace FeishuNetSdk.Cardkit;
 public record PostCardkitV1CardsResponseDto
 {
     /// <summary>
-    /// <para>创建的卡片实体 ID</para>
+    /// <para>创建的卡片实体 ID。后续可通过[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口传入卡片实体 ID 发送卡片。</para>
     /// <para>必填：是</para>
     /// <para>示例值：7355372766134157313</para>
     /// </summary>

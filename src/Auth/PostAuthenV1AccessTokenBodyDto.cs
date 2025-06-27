@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Auth;
 /// <summary>
 /// 获取 user_access_token（v1 版本） 请求体
-/// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
+/// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
 /// <para>。</para>
 /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
 /// <para>接口ID：7180265937329553412</para>

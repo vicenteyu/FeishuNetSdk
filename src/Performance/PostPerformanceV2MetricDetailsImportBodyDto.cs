@@ -99,7 +99,7 @@ public record PostPerformanceV2MetricDetailsImportBodyDto
             public string? FieldValue { get; set; }
 
             /// <summary>
-            /// <para>字段值，当字段为人员信息时必填</para>
+            /// <para>字段值，当字段为人员信息时必填，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_3245842393d09e9428ad4655da6e30b3</para>
             /// </summary>

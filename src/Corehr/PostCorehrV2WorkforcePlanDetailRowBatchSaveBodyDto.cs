@@ -106,7 +106,7 @@ public record PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto
         }
 
         /// <summary>
-        /// <para>预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量创建/更新明细行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。</para>
+        /// <para>预估在职人数相关信息。可从「设置-编制规划设置-编辑编制规划XXX」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量创建/更新明细行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：15</para>
         /// <para>最小长度：0</para>
@@ -115,7 +115,7 @@ public record PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto
         public WorkforcePlanEaiDetail[]? EaiDetails { get; set; }
 
         /// <summary>
-        /// <para>预估在职人数相关信息。可从「设置-编制规划设置-编制规划XXX」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量创建/更新明细行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。</para>
+        /// <para>预估在职人数相关信息。可从「设置-编制规划设置-编辑编制规划XXX」查看预估在职人数的时间，如果不存在该字段说明用户创建时即没有允许填写该字段，批量创建/更新明细行时则无需给该字段，如果存在，用户需要查看预估在职人数的日期，使用示例值格式进行传参。</para>
         /// </summary>
         public record WorkforcePlanEaiDetail
         {
@@ -137,7 +137,7 @@ public record PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto
         }
 
         /// <summary>
-        /// <para>编制规划值需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。注意当编制规划方案是按自然周期选择时，该值必须为空，需要设置自然周期的编制规划信息multi_period_values。</para>
+        /// <para>编制规划值。需与创建编制规划时指定的小数位数相匹配，若不匹配，则无法更新。小数位查看方式：「设置-编制规划-编制规划XXX」查看编制规划的小数位数。注意当编制规划方案是按自然周期选择时，该值必须为空，需要设置自然周期的编制规划信息multi_period_values。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12</para>
         /// </summary>
