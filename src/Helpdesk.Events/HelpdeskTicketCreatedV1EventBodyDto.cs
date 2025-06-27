@@ -90,21 +90,21 @@ public record HelpdeskTicketCreatedV1EventBodyDto() : EventBodyDto("helpdesk.tic
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("created_at")]
-    public int? CreatedAt { get; set; }
+    public long? CreatedAt { get; set; }
 
     /// <summary>
     /// <para>工单更新时间，没有值时为-1</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("updated_at")]
-    public int? UpdatedAt { get; set; }
+    public long? UpdatedAt { get; set; }
 
     /// <summary>
     /// <para>关单时间</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("closed_at")]
-    public int? ClosedAt { get; set; }
+    public long? ClosedAt { get; set; }
 
     /// <summary>
     /// <para>工单渠道，描述：9：Open API 2：二维码 14：分享 13：搜索 其他数字：其他渠道</para>

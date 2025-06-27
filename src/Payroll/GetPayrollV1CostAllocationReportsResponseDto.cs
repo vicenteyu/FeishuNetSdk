@@ -293,6 +293,15 @@ public record GetPayrollV1CostAllocationReportsResponseDto
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string? Value { get; set; }
+
+                /// <summary>
+                /// <para>名称对应的实体id</para>
+                /// <para>需要根据dimension_type再次转换，如：当dimension_type为13时，该值表示算薪项的ID。</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：名称</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
             }
 
             /// <summary>

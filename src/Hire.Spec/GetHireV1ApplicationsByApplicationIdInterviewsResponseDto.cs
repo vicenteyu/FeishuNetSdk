@@ -57,14 +57,14 @@ public record GetHireV1ApplicationsByApplicationIdInterviewsResponseDto : IPagea
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("begin_time")]
-        public int? BeginTime { get; set; }
+        public long? BeginTime { get; set; }
 
         /// <summary>
         /// <para>面试结束时间（ms）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("end_time")]
-        public int? EndTime { get; set; }
+        public long? EndTime { get; set; }
 
         /// <summary>
         /// <para>面试轮次（从0开始计数）</para>

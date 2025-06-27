@@ -199,6 +199,14 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto : IPage
             public string? TableName { get; set; }
 
             /// <summary>
+            /// <para>双向关联字段中关联的数据表中对应的双向关联字段的 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：\-</para>
+            /// </summary>
+            [JsonPropertyName("back_field_id")]
+            public string? BackFieldId { get; set; }
+
+            /// <summary>
             /// <para>双向关联字段中关联的数据表中对应的双向关联字段的名字</para>
             /// <para>必填：否</para>
             /// <para>示例值：\-</para>

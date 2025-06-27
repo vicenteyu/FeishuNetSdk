@@ -81,7 +81,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto : IPage
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("id")]
-            public int? Id { get; set; }
+            public long? Id { get; set; }
 
             /// <summary>
             /// <para>对象 API 名称</para>
@@ -178,7 +178,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsSearchResponseDto : IPage
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("id")]
-            public int? Id { get; set; }
+            public long? Id { get; set; }
 
             /// <summary>
             /// <para>API 名称</para>

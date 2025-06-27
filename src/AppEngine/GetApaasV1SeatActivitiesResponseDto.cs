@@ -39,7 +39,7 @@ public record GetApaasV1SeatActivitiesResponseDto : IPageableResponse<GetApaasV1
         /// <para>示例值：1803710089388154</para>
         /// </summary>
         [JsonPropertyName("user_id")]
-        public int? UserId { get; set; }
+        public long? UserId { get; set; }
 
         /// <summary>
         /// <para>aPaaS 产品应用的 namespace</para>

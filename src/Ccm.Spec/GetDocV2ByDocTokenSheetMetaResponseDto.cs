@@ -33,40 +33,46 @@ public record GetDocV2ByDocTokenSheetMetaResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("sheets")]
-    public string? Sheets { get; set; }
+    public Sheet[]? Sheets { get; set; }
 
     /// <summary>
-    /// <para>sheet 的 id</para>
-    /// <para>必填：否</para>
+    /// 
     /// </summary>
-    [JsonPropertyName("sheetId")]
-    public string? SheetId { get; set; }
+    public record Sheet
+    {
+        /// <summary>
+        /// <para>sheet 的 id</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("sheetId")]
+        public string? SheetId { get; set; }
 
-    /// <summary>
-    /// <para>sheet 的标题</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("title")]
-    public string? Title { get; set; }
+        /// <summary>
+        /// <para>sheet 的标题</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("title")]
+        public string? Title { get; set; }
 
-    /// <summary>
-    /// <para>该 sheet 的位置</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("index")]
-    public string? Index { get; set; }
+        /// <summary>
+        /// <para>该 sheet 的位置</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("index")]
+        public int? Index { get; set; }
 
-    /// <summary>
-    /// <para>该 sheet 的行数</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("rowCount")]
-    public string? RowCount { get; set; }
+        /// <summary>
+        /// <para>该 sheet 的行数</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("rowCount")]
+        public int? RowCount { get; set; }
 
-    /// <summary>
-    /// <para>该 sheet 的列数</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("columnCount")]
-    public string? ColumnCount { get; set; }
+        /// <summary>
+        /// <para>该 sheet 的列数</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("columnCount")]
+        public int? ColumnCount { get; set; }
+    }
 }

@@ -248,7 +248,7 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("blockInfo")]
-        public string? BlockInfo { get; set; }
+        public BlockInfoSuffix? BlockInfo { get; set; }
 
         /// <summary></summary>
         public record BlockInfoSuffix

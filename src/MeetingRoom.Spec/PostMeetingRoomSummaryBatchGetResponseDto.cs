@@ -25,7 +25,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     /// <para>查询到的日程信息。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("eventInfos")]
+    [JsonPropertyName("EventInfos")]
     public EventInfo[]? EventInfos { get; set; }
 
     /// <summary></summary>
@@ -43,7 +43,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
-        public int? OriginalTime { get; set; }
+        public long? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>日程主题。</para>
@@ -106,7 +106,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
     /// <para>没有查询到的日程信息。</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("errorEventUids")]
+    [JsonPropertyName("ErrorEventUids")]
     public ErrorEventUid[]? ErrorEventUids { get; set; }
 
     /// <summary></summary>
@@ -124,7 +124,7 @@ public record PostMeetingRoomSummaryBatchGetResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("original_time")]
-        public int? OriginalTime { get; set; }
+        public long? OriginalTime { get; set; }
 
         /// <summary>
         /// <para>错误信息</para>

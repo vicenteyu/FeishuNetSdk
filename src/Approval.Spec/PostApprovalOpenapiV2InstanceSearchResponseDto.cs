@@ -149,14 +149,14 @@ public record PostApprovalOpenapiV2InstanceSearchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("start_time")]
-            public int? StartTime { get; set; }
+            public long? StartTime { get; set; }
 
             /// <summary>
             /// <para>审批实例结束时间</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("end_time")]
-            public int? EndTime { get; set; }
+            public long? EndTime { get; set; }
 
             /// <summary>
             /// <para>审批实例状态</para>

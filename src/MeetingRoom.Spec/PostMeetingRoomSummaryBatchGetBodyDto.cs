@@ -25,7 +25,7 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
     /// <para>需要查询的日程 Uid 和 Original time 列表。</para>
     /// <para>必填：是</para>
     /// </summary>
-    [JsonPropertyName("eventUids")]
+    [JsonPropertyName("EventUids")]
     public EventUid[] EventUids { get; set; } = Array.Empty<EventUid>();
 
     /// <summary></summary>
@@ -43,6 +43,6 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("original_time")]
-        public int OriginalTime { get; set; }
+        public long OriginalTime { get; set; }
     }
 }

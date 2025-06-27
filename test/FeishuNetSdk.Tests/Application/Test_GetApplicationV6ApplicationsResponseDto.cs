@@ -1,0 +1,91 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_GetApplicationV6ApplicationsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取企业安装的应用 响应体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Tests.Application;
+
+/// <summary>
+/// 测试 获取企业安装的应用 响应体
+/// <para>接口ID：7438462855810138116</para>
+/// <para>文档地址：https://open.feishu.cn/document/application-v6/admin/list</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapplication-v6%2fapplication%2flist</para>
+/// </summary>
+[TestClass]
+public class Test_GetApplicationV6ApplicationsResponseDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "code": 0,
+    "msg": "success",
+    "data": {
+        "app_list": [
+            {
+                "app_id": "cli_9b445f5258795107",
+                "creator_id": "ou_d317f090b7258ad0372aa53963cda70d",
+                "status": 1,
+                "scene_type": 0,
+                "payment_type": 0,
+                "create_source": "base",
+                "redirect_urls": [
+                    "https://www.example.com"
+                ],
+                "online_version_id": "oav_d317f090b7258ad0372aa53963cda70d",
+                "unaudit_version_id": "oav_d317f090b7258ad0372aa53963cda70d",
+                "app_name": "应用名称",
+                "avatar_url": "https://sf1-ttcdn-tos.pstatp.com/img/avatar/d279000ca4d3f7f6aaff~72x72.jpg",
+                "description": "应用描述",
+                "scopes": [
+                    {
+                        "scope": "contact:user.base",
+                        "description": "获取应用信息",
+                        "level": 1
+                    }
+                ],
+                "back_home_url": "https://www.example.com",
+                "i18n": [
+                    {
+                        "i18n_key": "zh_cn",
+                        "name": "应用名称",
+                        "description": "应用描述",
+                        "help_use": "https://www.example.com"
+                    }
+                ],
+                "primary_language": "zh_cn",
+                "common_categories": [
+                    "分析工具"
+                ],
+                "owner": {
+                    "type": 0,
+                    "owner_id": "ou_d317f090b7258ad0372aa53963cda70d",
+                    "name": "test tenant",
+                    "help_desk": "https://applink.feishu.cn/client/helpdesk/open?id=6940534140529803284",
+                    "email": "test123@163.com",
+                    "phone": "1234534234234",
+                    "customer_service_account": "feishu@bytedance.com"
+                },
+                "mobile_default_ability": "gadget",
+                "pc_default_ability": "gadget"
+            }
+        ],
+        "page_token": "15",
+        "has_more": true,
+        "total_count": 20
+    }
+}
+""";
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Application.GetApplicationV6ApplicationsResponseDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

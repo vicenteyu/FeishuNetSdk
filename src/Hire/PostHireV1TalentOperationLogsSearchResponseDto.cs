@@ -106,7 +106,7 @@ public record PostHireV1TalentOperationLogsSearchResponseDto : IPageableResponse
         /// <para>示例值："3001"</para>
         /// </summary>
         [JsonPropertyName("operation_type")]
-        public int? OperationType { get; set; }
+        public string? OperationType { get; set; }
 
         /// <summary>
         /// <para>操作时间，毫秒时间戳</para>

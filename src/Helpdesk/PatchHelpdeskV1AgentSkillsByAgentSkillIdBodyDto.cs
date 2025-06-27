@@ -85,7 +85,7 @@ public record PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto
             /// <para>示例值：{\"selected_departments\":[{\"id\":\"部门ID\",\"name\":\"IT\"}]}</para>
             /// </summary>
             [JsonPropertyName("operand")]
-            public string? Operand { get; set; }
+            public Dictionary<string, object>? Operand { get; set; }
         }
 
         /// <summary>

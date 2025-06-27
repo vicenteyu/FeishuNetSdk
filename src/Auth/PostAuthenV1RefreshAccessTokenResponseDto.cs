@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Auth;
 /// <summary>
 /// 刷新 user_access_token（v1 版本） 响应体
-/// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
+/// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
 /// <para>。</para>
 /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
 /// <para>接口ID：7180265937329520644</para>

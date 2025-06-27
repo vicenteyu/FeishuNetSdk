@@ -1,0 +1,105 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostSearchV2SchemasBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 创建数据范式 请求体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Tests.Search.Spec;
+
+/// <summary>
+/// 测试 创建数据范式 请求体
+/// <para>接口ID：7100866111462195228</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/search-v2/open-search/schema/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsearch-v2%2fschema%2fcreate</para>
+/// </summary>
+[TestClass]
+public class Test_PostSearchV2SchemasBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "display": {
+        "card_key": "search_common_card",
+        "fields_mapping": [
+            {
+                "data_field": "${priority}",
+                "display_field": "tag1"
+            },
+            {
+                "data_field": "${description}",
+                "display_field": "summary"
+            },
+            {
+                "data_field": "创建时间：${create_time}",
+                "display_field": "footer"
+            }
+        ]
+    },
+    "properties": [
+        {
+            "is_returnable": true,
+            "is_searchable": true,
+            "name": "description",
+            "type": "text",
+            "search_options": {
+                "enable_camel_match": false,
+                "enable_exact_match": false,
+                "enable_number_suffix_match": false,
+                "enable_prefix_match": false,
+                "enable_semantic_match": true
+            }
+        },
+        {
+            "is_returnable": true,
+            "name": "icon_url",
+            "type": "text"
+        },
+        {
+            "name": "rank",
+            "type": "int",
+            "sort_options": {
+                "order": "asc",
+                "priority": 0
+            }
+        },
+        {
+            "is_returnable": true,
+            "name": "priority",
+            "type": "tag",
+            "type_definitions": {
+                "tag": [
+                    {
+                        "color": "red",
+                        "name": "HIGH",
+                        "text": "紧急"
+                    },
+                    {
+                        "color": "green",
+                        "name": "NORMAL",
+                        "text": "正常"
+                    },
+                    {
+                        "color": "grey",
+                        "name": "LOW",
+                        "text": "低优"
+                    }
+                ]
+            }
+        }
+    ],
+    "schema_id": "example_schema"
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Search.Spec.PostSearchV2SchemasBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

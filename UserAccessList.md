@@ -189,7 +189,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenDashboardsByBlockIdCopy</td></tr>
 <tr><td rowspan="2">95</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>列出仪表盘</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenDashboards</td></tr>
-<tr><td rowspan="2">96</td><td rowspan="2">2024-11-19</td><td>&#10003;</td><td>多维表格</td><td>更新视图</td></tr>
+<tr><td rowspan="2">96</td><td rowspan="2">2025-06-26</td><td>&#10003;</td><td>多维表格</td><td>更新视图</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
 <tr><td rowspan="2">97</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>获取视图</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
@@ -883,7 +883,7 @@
 <tr><td colspan="3">PostDriveV1MediasUploadPart</td></tr>
 <tr><td rowspan="2">442</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>分片上传素材-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1MediasUploadFinish</td></tr>
-<tr><td rowspan="2">443</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
+<tr><td rowspan="2">443</td><td rowspan="2">2025-06-23</td><td>&#10003;</td><td>云文档</td><td>订阅云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenSubscribe</td></tr>
 <tr><td rowspan="2">444</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>取消云文档事件订阅</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileTokenDeleteSubscribe</td></tr>
@@ -1247,6 +1247,6 @@
 <tr><td colspan="3">PostDirectoryV1EmployeesIdconvert</td></tr>
 <tr><td rowspan="2">624</td><td rowspan="2">2025-05-23</td><td><span style="color:red;">删除</span></td><td>组织架构</td><td>转换部门 ID</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
-<tr><td rowspan="2">625</td><td rowspan="2">2025-06-17</td><td>新增</td><td>云文档</td><td>转换为文档块</td></tr>
+<tr><td rowspan="2">625</td><td rowspan="2">2025-06-17</td><td>&#10003;</td><td>云文档</td><td>转换为文档块</td></tr>
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 </tbody></table>

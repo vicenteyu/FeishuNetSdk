@@ -223,7 +223,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
-    public Viewer Viewers { get; set; } = new();
+    public Viewer[] Viewers { get; set; } = Array.Empty<Viewer>();
 
     /// <summary></summary>
     public record Viewer

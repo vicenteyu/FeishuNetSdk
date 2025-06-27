@@ -23931,7 +23931,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口用于订阅云文档的各类通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 文档管理者仅能接收到[文件编辑](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited)、[多维表格字段变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_field_changed)、[多维表格记录变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed)事件。</para>
-    /// <para>- 目前只支持订阅事件列表中所有文档事件，暂不支持只订阅某个或某些事件。</para>
     /// <para>- 若应用是以 `tenant_access_token` 订阅的事件，在接收事件时需要同时申请应用和用户两个身份接收事件的权限。</para>
     /// <para>## 前提条件</para>
     /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有相关权限。</para>
@@ -23965,7 +23964,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="event_type">
     /// <para>必填：否</para>
-    /// <para>事件类型，`file_type` 为 `folder `（文件夹）时必填 `file.created_in_folder_v1`</para>
+    /// <para>事件类型。</para>
+    /// <para>- 若 `file_type` 为 `folder`，需要填写该字段，且字段必须填写为 `file.created_in_folder_v1`，表示订阅[文件夹下文件创建](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/created_in_folder)事件</para>
+    /// <para>- 若 `file_type` 不为 `folder`，请勿填写该字段。对于文档、电子表格、多维表格等云文档类型，目前仅支持订阅所有相关的云文档事件，暂不支持只订阅该云文档类型下的某个或某些事件</para>
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -35823,6 +35824,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:probation.custom_field:write</item>
     /// <item>corehr:probation.notes:read</item>
     /// <item>corehr:probation.notes:write</item>
+    /// <item>corehr:probation.probation_outcome:read</item>
+    /// <item>corehr:probation.probation_outcome:write</item>
     /// <item>corehr:probation.self_review:read</item>
     /// <item>corehr:probation.self_review:write</item>
     /// </list></para>
@@ -46287,11 +46290,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364551171</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>为指定卡片实体新增组件。</para>
+    /// <para>为指定卡片实体新增组件，以扩展卡片内容，如在卡片中添加一个点击按钮。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46299,7 +46302,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="card_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>要新增组件的卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
     /// <para>示例值：7355439197428236291</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -46313,12 +46316,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364567555</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/patch</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新卡片实体中指定组件的属性。</para>
+    /// <para>通过传入 `card_id`（卡片实体 ID）和 `element_id`（组件 ID），更新卡片实体中对应组件的属性。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口不支持修改组件的标签（tag）属性。</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46353,7 +46356,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46367,7 +46370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="element_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要删除的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>指定卡片实体内，要删除的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
     /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -46378,15 +46381,15 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Cardkit.DeleteCardkitV1CardsByCardIdElementsByElementIdBodyDto dto);
 
     /// <summary>
-    /// <para>【卡片】更新卡片配置</para>
+    /// <para>【卡片】更新卡片实体配置</para>
     /// <para>接口ID：7397253002364616707</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/settings</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新指定卡片实体的配置，支持更新 `config` 和 `card_link` 字段。</para>
+    /// <para>更新指定卡片实体的配置，支持卡片配置 `config` 字段和卡片跳转链接 `card_link` 字段。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46404,15 +46407,15 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Cardkit.PatchCardkitV1CardsByCardIdSettingsBodyDto dto);
 
     /// <summary>
-    /// <para>【卡片】批量更新卡片实体</para>
+    /// <para>【卡片】局部更新卡片实体</para>
     /// <para>接口ID：7397253002364633091</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/batch_update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新指定卡片实体局部，包括配置和组件等。</para>
+    /// <para>更新卡片实体局部内容，包括配置和组件。支持同时对多个组件进行增删改等不同操作。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46420,7 +46423,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="card_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。</para>
     /// <para>示例值：7355439197428236291</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -46434,13 +46437,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364649475</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/content</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。参考[流式更新 OpenAPI 调用指南](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/streaming-updates-openapi-overview)，了解流式更新文本的完整流程。</para>
+    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。参考[流式更新卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/streaming-updates-openapi-overview)，了解流式更新文本的完整流程。</para>
     /// <para>## 输出效果说明</para>
     /// <para>若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>## 前提条件</para>
     /// <para>调用该接口时，需确保已开启卡片的流式更新模式，即将 `streaming_mode` 设为 `true`。</para>
     /// <para>权限要求：<list type="bullet">
@@ -46471,11 +46474,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364682243</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>传入全新的卡片 JSON 数据，更新指定的卡片实体。</para>
+    /// <para>传入全新的卡片 JSON 数据，覆盖更新指定的卡片实体的所有内容。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46514,7 +46517,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397265677100974083</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>基于卡片 JSON 代码，创建卡片实体。</para>
+    /// <para>基于卡片 JSON 代码，创建卡片实体。用于后续通过卡片实体 ID（card_id）发送卡片、更新卡片等。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
@@ -46537,7 +46540,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
-    /// <para>- 调用该接口的应用身份需与创建目标卡片实体的应用身份一致。</para>
+    /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46551,7 +46554,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="element_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要更新的组件 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>要更新的组件 ID。对应卡片 JSON 中组件的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>**提示**：同一张卡片内字段值唯一。仅允许使用字母、数字和下划线，必须以字母开头。</para>
     /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>

@@ -1,0 +1,45 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-06-24
+// ************************************************************************
+// <copyright file="Test_PostApprovalV4InstancesQueryBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 查询实例列表 请求体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Tests.Approval;
+
+/// <summary>
+/// 测试 查询实例列表 请求体
+/// <para>接口ID：7117964632137203715</para>
+/// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/approval-search/query-2</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fapproval-v4%2finstance%2fquery</para>
+/// </summary>
+[TestClass]
+public class Test_PostApprovalV4InstancesQueryBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "user_id": "lwiu098wj",
+    "approval_code": "EB828003-9FFE-4B3F-AA50-2E199E2ED942",
+    "instance_code": "EB828003-9FFE-4B3F-AA50-2E199E2ED943",
+    "instance_external_id": "EB828003-9FFE-4B3F-AA50-2E199E2ED976",
+    "group_external_id": "1234567",
+    "instance_title": "test",
+    "instance_status": "PENDING",
+    "instance_start_time_from": "1547654251506",
+    "instance_start_time_to": "1547654251506",
+    "locale": "zh-CN"
+}
+""";
+        var result = Deserialize<FeishuNetSdk.Approval.PostApprovalV4InstancesQueryBodyDto>(json);
+        Assert.IsNotNull(result);
+    }
+}

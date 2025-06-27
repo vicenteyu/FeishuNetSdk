@@ -178,7 +178,7 @@ public record GetHelpdeskV1TicketsByTicketIdResponseDto
             /// <para>示例值：7262656095919128578</para>
             /// </summary>
             [JsonPropertyName("user_id")]
-            public int? UserId { get; set; }
+            public long? UserId { get; set; }
         }
 
         /// <summary>

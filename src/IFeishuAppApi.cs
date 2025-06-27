@@ -53,7 +53,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口ID：7180265937329520644</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create</para>
     /// <para>Authorization：app_access_token</para>
-    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
+    /// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
     /// <para>。</para>
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
     /// <para>字段权限要求：<list type="bullet">
@@ -74,7 +74,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口ID：7180265937329553412</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/authentication-management/access-token/create-2</para>
     /// <para>Authorization：app_access_token</para>
-    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
+    /// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
     /// <para>。</para>
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/ukTMukTMukTM/ukzN4UjL5cDO14SO3gTN) code 获取 `user_access_token`。</para>
     /// <para>字段权限要求：<list type="bullet">
@@ -95,7 +95,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口ID：7277403063290707996</para>
     /// <para>接口文档：https://open.feishu.cn/document/historic-version/authen/create-4</para>
     /// <para>Authorization：app_access_token</para>
-    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[刷新 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
+    /// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[刷新 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)</para>
     /// <para>。</para>
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
     /// </summary>
@@ -110,7 +110,7 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>接口ID：7277403063290724380</para>
     /// <para>接口文档：https://open.feishu.cn/document/historic-version/authen/create-3</para>
     /// <para>Authorization：app_access_token</para>
-    /// <para>本接口已成为历史版本，不再维护更新，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
+    /// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token)</para>
     /// <para>。</para>
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 返回 code 获取 `user_access_token`。</para>
     /// </summary>

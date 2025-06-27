@@ -36,7 +36,7 @@ public record PostSearchV2DataSourcesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// <para>data_source的展示名称</para>

@@ -128,6 +128,14 @@ public record PutLingoV1EntitiesByEntityIdBodyDto
             /// </summary>
             [JsonPropertyName("title")]
             public string? Title { get; set; }
+
+            /// <summary>
+            /// <para>链接地址</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：https://www.feishu.cn/hc/zh-CN</para>
+            /// </summary>
+            [JsonPropertyName("url")]
+            public string? Url { get; set; }
         }
 
         /// <summary>

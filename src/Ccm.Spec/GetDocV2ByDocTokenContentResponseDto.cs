@@ -36,5 +36,5 @@ public record GetDocV2ByDocTokenContentResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("revision")]
-    public string? Revision { get; set; }
+    public int? Revision { get; set; }
 }

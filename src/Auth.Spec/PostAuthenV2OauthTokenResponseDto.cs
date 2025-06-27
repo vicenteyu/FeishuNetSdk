@@ -26,7 +26,7 @@ public record PostAuthenV2OauthTokenResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("code")]
-    public string? Code { get; set; }
+    public int? Code { get; set; }
 
     /// <summary>
     /// <para>即 `user_access_token`，仅在请求成功时返回</para>

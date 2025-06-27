@@ -33,6 +33,6 @@ public record GetFaceVerifyV1QueryAuthResultResponseDto
     /// <para>认证时间，unix 时间戳</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("auth_timpstamp")]
-    public uint? AuthTimpstamp { get; set; }
+    [JsonPropertyName("auth_timestamp")]
+    public uint? AuthTimestamp { get; set; }
 }

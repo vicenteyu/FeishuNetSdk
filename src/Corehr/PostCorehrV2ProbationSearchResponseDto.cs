@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-06-28
 // ************************************************************************
 // <copyright file="PostCorehrV2ProbationSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -121,7 +121,7 @@ public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCor
             public record I18n
             {
                 /// <summary>
-                /// <para>语言</para>
+                /// <para>语言编码（IETF BCP 47）</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：zh-CN</para>
                 /// </summary>
@@ -129,9 +129,9 @@ public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCor
                 public string Lang { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>内容</para>
+                /// <para>文本内容</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
+                /// <para>示例值：中文示例</para>
                 /// </summary>
                 [JsonPropertyName("value")]
                 public string Value { get; set; } = string.Empty;
@@ -375,7 +375,7 @@ public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCor
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>语言</para>
+                    /// <para>语言编码（IETF BCP 47）</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：zh-CN</para>
                     /// </summary>
@@ -383,9 +383,9 @@ public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCor
                     public string Lang { get; set; } = string.Empty;
 
                     /// <summary>
-                    /// <para>内容</para>
+                    /// <para>文本内容</para>
                     /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
+                    /// <para>示例值：中文示例</para>
                     /// </summary>
                     [JsonPropertyName("value")]
                     public string Value { get; set; } = string.Empty;
@@ -442,6 +442,38 @@ public record PostCorehrV2ProbationSearchResponseDto : IPageableResponse<PostCor
             [JsonPropertyName("is_final_asssessment")]
             public bool? IsFinalAsssessment { get; set; }
         }
+
+        /// <summary>
+        /// <para>试用期延长后的预计结束日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2022-05-20</para>
+        /// </summary>
+        [JsonPropertyName("probation_extend_expected_end_date")]
+        public string? ProbationExtendExpectedEndDate { get; set; }
+
+        /// <summary>
+        /// <para>试用期延长时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("extended_probation_period_duration")]
+        public int? ExtendedProbationPeriodDuration { get; set; }
+
+        /// <summary>
+        /// <para>试用期延长时间单位</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：month</para>
+        /// </summary>
+        [JsonPropertyName("extended_probation_period_unit")]
+        public Enum? ExtendedProbationPeriodUnit { get; set; }
+
+        /// <summary>
+        /// <para>试用期结果</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：passed</para>
+        /// </summary>
+        [JsonPropertyName("probation_outcome")]
+        public Enum? ProbationOutcome { get; set; }
     }
 
     /// <summary>

@@ -19,6 +19,12 @@ namespace FeishuNetSdk.Ccm.Dtos;
 public record Block
 {
     /// <summary>
+    /// 修订版本号
+    /// </summary>
+    [JsonPropertyName("revision_id")]
+    public int RevisionId { get; }
+
+    /// <summary>
     /// <para>Block 唯一标识</para>
     /// <para>必填：否</para>
     /// <para>示例值：doxcnSS4ouQkQEouGSUkTg9NJPe</para>

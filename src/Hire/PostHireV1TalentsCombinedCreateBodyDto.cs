@@ -220,52 +220,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -378,52 +332,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -506,52 +414,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -630,52 +492,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -730,52 +546,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -830,52 +600,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -960,52 +684,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -1065,52 +743,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -1157,52 +789,6 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("customized_data")]
         public TalentCustomizedDataObjectValue[]? CustomizedDatas { get; set; }
-
-        /// <summary>
-        /// <para>自定义字段列表</para>
-        /// <para>**注意**：`children` 字段无效，请参考请求体示例在当前层级传入 `object_id` 和 `value`</para>
-        /// </summary>
-        public record TalentCustomizedDataObjectValue
-        {
-            /// <summary>
-            /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-            /// <para>接口获取。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6934193211960330504</para>
-            /// </summary>
-            [JsonPropertyName("object_id")]
-            public string? ObjectId { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("children")]
-            public TalentCustomizedDataObjectValueChild[]? Childrens { get; set; }
-
-            /// <summary>
-            /// <para>子字段列表</para>
-            /// </summary>
-            public record TalentCustomizedDataObjectValueChild
-            {
-                /// <summary>
-                /// <para>自定义字段 ID，可通过[获取人才字段](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)</para>
-                /// <para>接口获取。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6934193211960330504</para>
-                /// </summary>
-                [JsonPropertyName("object_id")]
-                public string? ObjectId { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("value")]
-                public string? Value { get; set; }
-            }
-        }
     }
 
     /// <summary>
@@ -1227,6 +813,14 @@ public record PostHireV1TalentsCombinedCreateBodyDto
         /// </summary>
         [JsonPropertyName("object_id")]
         public string? ObjectId { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段值，请参考本文「自定义字段数据格式说明」。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：张三</para>
+        /// </summary>
+        [JsonPropertyName("value")]
+        public string? Value { get; set; }
 
         /// <summary>
         /// <para>子字段列表</para>

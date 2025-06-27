@@ -80,15 +80,15 @@ public record PostApprovalOpenapiV2CcSearchBodyDto
     /// <para>抄送查询开始时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("ccCreateTimeFrom")]
-    public int? CcCreateTimeFrom { get; set; }
+    [JsonPropertyName("CcCreateTimeFrom")]
+    public long? CcCreateTimeFrom { get; set; }
 
     /// <summary>
     /// <para>抄送查询结束时间 (unix毫秒时间戳)</para>
     /// <para>必填：否</para>
     /// </summary>
-    [JsonPropertyName("ccCreateTimeTo")]
-    public int? CcCreateTimeTo { get; set; }
+    [JsonPropertyName("CcCreateTimeTo")]
+    public long? CcCreateTimeTo { get; set; }
 
     /// <summary>
     /// <para>地区 （zh-CN、en-US、ja-JP）</para>

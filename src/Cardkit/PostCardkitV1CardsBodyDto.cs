@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Cardkit;
 /// <summary>
 /// 创建卡片实体 请求体
-/// <para>基于卡片 JSON 代码，创建卡片实体。</para>
+/// <para>基于卡片 JSON 代码，创建卡片实体。用于后续通过卡片实体 ID（card_id）发送卡片、更新卡片等。</para>
 /// <para>## 使用限制</para>
 /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
@@ -38,7 +38,7 @@ public record PostCardkitV1CardsBodyDto
     /// <summary>
     /// <para>卡片 JSON 数据的内容。仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)，即你必须声明 schema 为 2.0。以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
     /// <para>必填：是</para>
-    /// <para>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"config\":{\"streaming_mode\":true,\"summary\":{\"content\":\"\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\",\"element_id\":\"markdown_1\"}]}}</para>
+    /// <para>示例值：{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"config\":{\"streaming_mode\":true,\"summary\":{\"content\":\"\"},\"streaming_config\":{\"print_frequency_ms\":{\"default\":70,\"android\":70,\"ios\":70,\"pc\":70},\"print_step\":{\"default\":1,\"android\":1,\"ios\":1,\"pc\":1},\"print_strategy\":\"fast\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\",\"element_id\":\"markdown_1\"}]}}</para>
     /// <para>最大长度：3000000</para>
     /// <para>最小长度：1</para>
     /// </summary>

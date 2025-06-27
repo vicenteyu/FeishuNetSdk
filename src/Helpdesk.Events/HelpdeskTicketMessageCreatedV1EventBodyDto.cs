@@ -115,7 +115,7 @@ public record HelpdeskTicketMessageCreatedV1EventBodyDto() : EventBodyDto("helpd
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("created_at")]
-            public int? CreatedAt { get; set; }
+            public long? CreatedAt { get; set; }
 
             /// <summary>
             /// <para>备注ID</para>
@@ -143,7 +143,7 @@ public record HelpdeskTicketMessageCreatedV1EventBodyDto() : EventBodyDto("helpd
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("user_id")]
-            public int? UserId { get; set; }
+            public long? UserId { get; set; }
 
         }
 
@@ -272,21 +272,21 @@ public record HelpdeskTicketMessageCreatedV1EventBodyDto() : EventBodyDto("helpd
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("agent_entry_time")]
-        public int? AgentEntryTime { get; set; }
+        public long? AgentEntryTime { get; set; }
 
         /// <summary>
         /// <para>客服首次回复时间，单位毫秒</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("agent_first_response_time")]
-        public int? AgentFirstResponseTime { get; set; }
+        public long? AgentFirstResponseTime { get; set; }
 
         /// <summary>
         /// <para>客服最后回复时间，单位毫秒</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("agent_last_response_time")]
-        public int? AgentLastResponseTime { get; set; }
+        public long? AgentLastResponseTime { get; set; }
 
         /// <summary>
         /// <para>主责客服</para>

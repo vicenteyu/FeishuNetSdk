@@ -2,7 +2,7 @@
 
 内置自动缓存和过期重取Token机制。
 
-[![.NET](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml/badge.svg?branch=main&event=push)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/dotnet.yml)
+[![Publish NuGet Package](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/publish-to-nuget.yml/badge.svg)](https://github.com/vicenteyu/FeishuNetSdk/actions/workflows/publish-to-nuget.yml)
 🔹[![FeishuNetSdk](https://img.shields.io/nuget/v/FeishuNetSdk?label=FeishuNetSdk "FeishuNetSdk")](https://www.nuget.org/packages/FeishuNetSdk/ "FeishuNetSdk")
 🔹[![FeishuNetSdk.Endpoint](https://img.shields.io/nuget/v/FeishuNetSdk.Endpoint?label=FeishuNetSdk.Endpoint "FeishuNetSdk.Endpoint")](https://www.nuget.org/packages/FeishuNetSdk.Endpoint/ "FeishuNetSdk.Endpoint")
 🔹[![FeishuNetSdk.WebSocket](https://img.shields.io/nuget/v/FeishuNetSdk.WebSocket?label=FeishuNetSdk.WebSocket "FeishuNetSdk.WebSocket")](https://www.nuget.org/packages/FeishuNetSdk.WebSocket/ "FeishuNetSdk.WebSocket")

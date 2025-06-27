@@ -300,7 +300,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("job_attribute")]
-    public int? JobAttribute { get; set; }
+    public long? JobAttribute { get; set; }
 
     /// <summary>
     /// <para>到期时间，毫秒时间戳，如果`is_never_expired`字段选择true，则不会实际使用该字段的值，职位为长期有效</para>
