@@ -43,7 +43,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                     "display": [
                         {
                             "lang": "zh-CN",
-                            "value": "张三"
+                            "value": "中文示例"
                         }
                     ]
                 },
@@ -53,7 +53,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                     "display": [
                         {
                             "lang": "zh-CN",
-                            "value": "张三"
+                            "value": "中文示例"
                         }
                     ]
                 },
@@ -77,7 +77,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                     "display": [
                         {
                             "lang": "zh-CN",
-                            "value": "张三"
+                            "value": "中文示例"
                         }
                     ]
                 },
@@ -86,7 +86,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                     "display": [
                         {
                             "lang": "zh-CN",
-                            "value": "张三"
+                            "value": "中文示例"
                         }
                     ]
                 },
@@ -96,7 +96,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                     "display": [
                         {
                             "lang": "zh-CN",
-                            "value": "张三"
+                            "value": "中文示例"
                         }
                     ]
                 },
@@ -110,7 +110,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                             "display": [
                                 {
                                     "lang": "zh-CN",
-                                    "value": "张三"
+                                    "value": "中文示例"
                                 }
                             ]
                         },
@@ -119,7 +119,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                             "display": [
                                 {
                                     "lang": "zh-CN",
-                                    "value": "张三"
+                                    "value": "中文示例"
                                 }
                             ]
                         },
@@ -129,7 +129,7 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                             "display": [
                                 {
                                     "lang": "zh-CN",
-                                    "value": "张三"
+                                    "value": "中文示例"
                                 }
                             ]
                         },
@@ -137,7 +137,27 @@ public class Test_PostCorehrV2ProbationSearchResponseDto : TestBase
                         "assessment_detail": "https://qwe1123433.feishuapp.bytedance.net/ae/ui/apps//122265871113330/recordPages/2/records/17611111112?objectId=17663333322543&recordPageId=171128122312",
                         "is_final_asssessment": false
                     }
-                ]
+                ],
+                "probation_extend_expected_end_date": "2022-05-20",
+                "extended_probation_period_duration": 1,
+                "extended_probation_period_unit": {
+                    "enum_name": "phone_type",
+                    "display": [
+                        {
+                            "lang": "zh-CN",
+                            "value": "中文示例"
+                        }
+                    ]
+                },
+                "probation_outcome": {
+                    "enum_name": "phone_type",
+                    "display": [
+                        {
+                            "lang": "zh-CN",
+                            "value": "中文示例"
+                        }
+                    ]
+                }
             }
         ],
         "page_token": "eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=",

@@ -28,7 +28,7 @@ public class Test_PatchCardkitV1CardsByCardIdElementsByElementIdBodyDto : TestBa
         var json = """
 {
     "partial_element": "{\"content\":\"更新后的组件文本\"}",
-    "uuid": "191857678434",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
     "sequence": 1
 }
 """;

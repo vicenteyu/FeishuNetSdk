@@ -29,7 +29,7 @@ public class Test_PostCardkitV1CardsByCardIdElementsBodyDto : TestBase
 {
     "type": "insert_after",
     "target_element_id": "markdown_1",
-    "uuid": "191857678434",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
     "sequence": 1,
     "elements": "[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]"
 }

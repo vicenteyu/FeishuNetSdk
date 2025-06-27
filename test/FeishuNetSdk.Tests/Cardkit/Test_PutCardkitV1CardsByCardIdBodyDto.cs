@@ -29,9 +29,9 @@ public class Test_PutCardkitV1CardsByCardIdBodyDto : TestBase
 {
     "card": {
         "type": "card_json",
-        "data": "{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"卡片标题\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"卡片内容\"}]}}"
+        "data": "{\"schema\":\"2.0\",\"header\":{\"title\":{\"content\":\"项目进度更新提醒\",\"tag\":\"plain_text\"}},\"body\":{\"elements\":[{\"tag\":\"markdown\",\"content\":\"截至今日，项目完成度已达80%\"}]}}"
     },
-    "uuid": "191857678434",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
     "sequence": 1
 }
 """;

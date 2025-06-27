@@ -27,7 +27,7 @@ public class Test_DeleteCardkitV1CardsByCardIdElementsByElementIdBodyDto : TestB
     {
         var json = """
 {
-    "uuid": "191857678434",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
     "sequence": 1
 }
 """;

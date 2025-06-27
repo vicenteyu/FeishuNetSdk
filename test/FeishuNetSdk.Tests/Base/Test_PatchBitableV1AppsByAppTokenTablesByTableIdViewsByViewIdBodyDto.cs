@@ -27,19 +27,19 @@ public class Test_PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDt
     {
         var json = """
 {
-  "view_name": "grid",
-  "property": {
-    "filter_info": {
-      "conditions": [
-        {
-          "field_id": "fldpTw2262",
-          "operator": "isGreater",
-          "value": "[\"ExactDate\",\"1642672432000\"]"
+    "view_name": "grid",
+    "property": {
+        "filter_info": {
+            "conditions": [
+                {
+                    "field_id": "fldpTw2262",
+                    "operator": "isGreater",
+                    "value": "[\"ExactDate\",\"1642672432000\"]"
+                }
+            ],
+            "conjunction": "and"
         }
-      ],
-      "conjunction": "and"
     }
-  }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto>(json);

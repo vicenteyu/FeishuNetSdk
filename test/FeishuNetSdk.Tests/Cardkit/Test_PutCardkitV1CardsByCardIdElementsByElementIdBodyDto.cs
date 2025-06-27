@@ -27,8 +27,8 @@ public class Test_PutCardkitV1CardsByCardIdElementsByElementIdBodyDto : TestBase
     {
         var json = """
 {
-    "uuid": "191857678434",
-    "element": "{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"示例文本\"}",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
+    "element": "{\"tag\":\"markdown\",\"element_id\":\"md_1\",\"content\":\"这是一段更新后的文本\"}",
     "sequence": 1
 }
 """;

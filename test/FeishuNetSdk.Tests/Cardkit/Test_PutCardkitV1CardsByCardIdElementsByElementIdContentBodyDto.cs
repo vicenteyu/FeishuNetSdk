@@ -27,7 +27,7 @@ public class Test_PutCardkitV1CardsByCardIdElementsByElementIdContentBodyDto : T
     {
         var json = """
 {
-    "uuid": "191857678434",
+    "uuid": "a0d69e20-1dd1-458b-k525-dfeca4015204",
     "content": "这是更新后的文本内容。将以打字机式的效果输出",
     "sequence": 1
 }
