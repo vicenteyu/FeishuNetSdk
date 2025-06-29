@@ -9,7 +9,7 @@
 // <copyright file="FeishuNetSdkEndpointExtension.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>Ìá¹©·ÉÊéÊÂ¼ş»Øµ÷µØÖ··şÎñµÄÀ©Õ¹</summary>
+// <summary>æä¾›é£ä¹¦äº‹ä»¶å›è°ƒåœ°å€æœåŠ¡çš„æ‰©å±•</summary>
 // ************************************************************************
 using FeishuNetSdk.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -21,12 +21,12 @@ namespace Microsoft.Extensions.DependencyInjection
 #pragma warning restore IDE0130
 {
     /// <summary>
-    /// ÆôÓÃ·ÉÊéÊÂ¼ş»Øµ÷µØÖ··şÎñ
+    /// å¯ç”¨é£ä¹¦äº‹ä»¶å›è°ƒåœ°å€æœåŠ¡
     /// </summary>
     public static class FeishuNetSdkEndpointExtension
     {
         /// <summary>
-        /// ÊÂ¼ş»Øµ÷¼àÌıµØÖ·
+        /// äº‹ä»¶å›è°ƒç›‘å¬åœ°å€
         /// </summary>
         /// <param name="app"></param>
         /// <param name="pattern"></param>

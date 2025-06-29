@@ -11,9 +11,9 @@
 // </copyright>
 // <summary></summary>
 // ************************************************************************
-#pragma warning disable IDE0130 // ÃüÃû¿Õ¼äÓëÎÄ¼ş¼Ğ½á¹¹²»Æ¥Åä
+#pragma warning disable IDE0130 // å‘½åç©ºé—´ä¸æ–‡ä»¶å¤¹ç»“æ„ä¸åŒ¹é…
 namespace FeishuNetSdk
-#pragma warning restore IDE0130 // ÃüÃû¿Õ¼äÓëÎÄ¼ş¼Ğ½á¹¹²»Æ¥Åä
+#pragma warning restore IDE0130 // å‘½åç©ºé—´ä¸æ–‡ä»¶å¤¹ç»“æ„ä¸åŒ¹é…
 {
     internal static class HttpContentExtension
     {
