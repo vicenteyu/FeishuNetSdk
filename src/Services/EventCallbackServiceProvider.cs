@@ -19,7 +19,7 @@ using System.Text.Json;
 namespace FeishuNetSdk.Services
 {
     /// <summary>
-    /// ÊÂ¼ş»Øµ÷·şÎñ
+    /// äº‹ä»¶å›è°ƒæœåŠ¡
     /// </summary>
     /// <param name="logger"></param>
     /// <param name="options"></param>
@@ -27,10 +27,10 @@ namespace FeishuNetSdk.Services
     public class EventCallbackServiceProvider(ILogger<EventCallbackServiceProvider> logger, IOptionsMonitor<FeishuNetSdkOptions> options, IServiceScopeFactory scopeFactory) : IEventCallbackServiceProvider
     {
         private static EventHandlerDescriptor[]? _cache;
-        private static readonly (int millisecond, string message) timeout = (2700, "Ö´ĞĞ³¬Ê±£ºÎ´ÄÜÔÚ3ÃëÄÚÍê³ÉÏìÓ¦");
+        private static readonly (int millisecond, string message) timeout = (2700, "æ‰§è¡Œè¶…æ—¶ï¼šæœªèƒ½åœ¨3ç§’å†…å®Œæˆå“åº”");
 
         /// <summary>
-        /// ²éÕÒÊÂ¼şÖ´ĞĞ·½·¨
+        /// æŸ¥æ‰¾äº‹ä»¶æ‰§è¡Œæ–¹æ³•
         /// </summary>
         /// <returns></returns>
         public IEnumerable<EventHandlerDescriptor> FindAllHandlers()
@@ -63,7 +63,7 @@ namespace FeishuNetSdk.Services
                     .Where(p => p.Count() > 1)
                     .Select(p => p.Key.FullName);
                 if (check_repeated.Any())
-                    throw new Exception($"ÖØ¸´¶¨ÒåµÄ»Øµ÷´¦Àí·½·¨£º{string.Join("¡¢", check_repeated)}");
+                    throw new Exception($"é‡å¤å®šä¹‰çš„å›è°ƒå¤„ç†æ–¹æ³•ï¼š{string.Join("ã€", check_repeated)}");
             }
 
             return _cache;
@@ -85,21 +85,21 @@ namespace FeishuNetSdk.Services
         }
 
         /// <summary>
-        /// Ö´ĞĞÊÂ¼ş·½·¨
+        /// æ‰§è¡Œäº‹ä»¶æ–¹æ³•
         /// </summary>
         public async Task<HandleResult> HandleAsync(object input)
         {
             var serializeString = JsonSerializer.Serialize(input);
             if (serializeString.IsEncryptedObject(out var encryptedString) && encryptedString != null)
             {
-                if (options.CurrentValue.EncryptKey == null) return new HandleResult(Error: "Î´ÉèÖÃ½âÃÜÃÜÔ¿");
+                if (options.CurrentValue.EncryptKey == null) return new HandleResult(Error: "æœªè®¾ç½®è§£å¯†å¯†é’¥");
                 try
                 {
                     serializeString = AesCipher.DecryptString(encryptedString, options.CurrentValue.EncryptKey);
                 }
                 catch (Exception ex)
                 {
-                    return new HandleResult(Error: $"½âÃÜÊ§°Ü£º{(ex.InnerException ?? ex).Message}");
+                    return new HandleResult(Error: $"è§£å¯†å¤±è´¥ï¼š{(ex.InnerException ?? ex).Message}");
                 }
             }
             try
@@ -108,27 +108,27 @@ namespace FeishuNetSdk.Services
             }
             catch (Exception ex)
             {
-                return new HandleResult(Error: $"ÊÂ¼şÖ´ĞĞ³öÏÖÒì³££º{(ex.InnerException ?? ex).Message}");
+                return new HandleResult(Error: $"äº‹ä»¶æ‰§è¡Œå‡ºç°å¼‚å¸¸ï¼š{(ex.InnerException ?? ex).Message}");
             }
         }
 
         /// <summary>
-        /// Ö´ĞĞÊÂ¼ş·½·¨
+        /// æ‰§è¡Œäº‹ä»¶æ–¹æ³•
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
         public async Task<HandleResult> HandleAsync(string json)
         {
-            logger.LogInformation("ÊÂ¼şÏûÏ¢£º{json}", json);
+            logger.LogInformation("äº‹ä»¶æ¶ˆæ¯ï¼š{json}", json);
 
             json = json.FixDiscriminator();
             var dto = JsonSerializer.Deserialize<EventDto>(json);
 
-            if (dto is null) return new HandleResult(Error: $"·´ĞòÁĞ»¯ÊÂ¼şÌåÊ§°Ü£º{json}");
-            logger.LogInformation("·´ĞòÁĞ»¯³É¹¦£º{event_type}", dto.Discriminator);
+            if (dto is null) return new HandleResult(Error: $"ååºåˆ—åŒ–äº‹ä»¶ä½“å¤±è´¥ï¼š{json}");
+            logger.LogInformation("ååºåˆ—åŒ–æˆåŠŸï¼š{event_type}", dto.Discriminator);
 
             if (!string.IsNullOrWhiteSpace(dto.Token) && dto.Token != options.CurrentValue.VerificationToken)
-                return new HandleResult(Error: $"Ó¦ÓÃ±êÊ¶²»Ò»ÖÂ£ºVerificationToken: {options.CurrentValue.VerificationToken}");
+                return new HandleResult(Error: $"åº”ç”¨æ ‡è¯†ä¸ä¸€è‡´ï¼šVerificationToken: {options.CurrentValue.VerificationToken}");
 
             if (dto is UrlVerificationDto urlVerification)
                 return new HandleResult(true, Dto: urlVerification);
@@ -137,7 +137,7 @@ namespace FeishuNetSdk.Services
         }
 
         /// <summary>
-        /// Ö´ĞĞÊÂ¼ş·½·¨
+        /// æ‰§è¡Œäº‹ä»¶æ–¹æ³•
         /// </summary>
         /// <param name="eventDto"></param>
         /// <returns></returns>
@@ -145,17 +145,17 @@ namespace FeishuNetSdk.Services
         {
             var handlers = GetHandlerDescriptorByEvent(eventDto.GetType())?.ToArray();
             if (handlers is null || handlers.Length == 0)
-                return new HandleResult(Error: $"Î´¶¨ÒåÊÂ¼ş´¦Àí·½·¨£º{eventDto.Discriminator}");
+                return new HandleResult(Error: $"æœªå®šä¹‰äº‹ä»¶å¤„ç†æ–¹æ³•ï¼š{eventDto.Discriminator}");
 
-            logger.LogInformation("ÊÂ¼ş´¦Àí·½·¨ÊıÁ¿ £º{count}", handlers.Length);
+            logger.LogInformation("äº‹ä»¶å¤„ç†æ–¹æ³•æ•°é‡ ï¼š{count}", handlers.Length);
 
             using var scope = scopeFactory.CreateScope();
             if (eventDto.GetType().IsAssignableTo(typeof(IAmCallbackDto)))
             {
                 if (handlers.Length > 1)
-                    return new HandleResult(Error: $"»Øµ÷´¦Àí·½·¨²»ÄÜÖØ¸´¶¨Òå£º{(string.Join("¡¢", handlers.Select(k => k.EventHandlerName)))}");
+                    return new HandleResult(Error: $"å›è°ƒå¤„ç†æ–¹æ³•ä¸èƒ½é‡å¤å®šä¹‰ï¼š{(string.Join("ã€", handlers.Select(k => k.EventHandlerName)))}");
 
-                //»Øµ÷¹æÔò£¬Í¬Ò»¸ö»Øµ÷Ö»ÔÊĞíÒ»¸ö´¦Àí·½·¨
+                //å›è°ƒè§„åˆ™ï¼ŒåŒä¸€ä¸ªå›è°ƒåªå…è®¸ä¸€ä¸ªå¤„ç†æ–¹æ³•
                 var eventHandlerType = handlers[0].EventHandlerType;
                 var handlerInstance = scope.ServiceProvider.GetRequiredService(eventHandlerType);
                 dynamic? task = eventHandlerType.GetMethod("ExecuteAsync")?.Invoke(handlerInstance, [eventDto]);
@@ -180,7 +180,7 @@ namespace FeishuNetSdk.Services
                     .Select(p => p!)
                     .ToArray();
 
-                //ÊÂ¼ş¹æÔò£¬ËùÓĞÈÎÎñÖ´ĞĞÍê³É²ÅËãÍê
+                //äº‹ä»¶è§„åˆ™ï¼Œæ‰€æœ‰ä»»åŠ¡æ‰§è¡Œå®Œæˆæ‰ç®—å®Œ
                 var is_all_success = System.Threading.Tasks.Task.WaitAll(tasks, timeout.millisecond);
                 if (!is_all_success) return new HandleResult(Error: timeout.message);
 
@@ -189,7 +189,7 @@ namespace FeishuNetSdk.Services
         }
 
         /// <summary>
-        /// ÊÂ¼ş·½·¨Ö´ĞĞ½á¹û
+        /// äº‹ä»¶æ–¹æ³•æ‰§è¡Œç»“æœ
         /// </summary>
         /// <param name="Success"></param>
         /// <param name="Error"></param>

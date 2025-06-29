@@ -19,14 +19,14 @@ builder.Services
         AppSecret: "H2wlkn*************UBfyVn",
         EncryptKey: "75vyV*************Clrwpkjy",
         VerificationToken: "WVr*************MSJw")
-    //Ìí¼Ó ³¤Á¬½Ó ·şÎñ
+    //æ·»åŠ  é•¿è¿æ¥ æœåŠ¡
     .AddFeishuWebSocket();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Host.UseSerilog(Log.Logger);
 
-//Ã¿´ÎÆô¶¯Ó¦ÓÃ»á×Ô¶¯·¢ËÍÒ»Ìõ¿¨Æ¬ÏûÏ¢ÓÃÓÚ²âÊÔ¿¨Æ¬»Øµ÷£¬Èç¹û²»ĞèÒª£¬Ôò×¢ÊÍÏÂÃæÒ»ĞĞ¡£
+//æ¯æ¬¡å¯åŠ¨åº”ç”¨ä¼šè‡ªåŠ¨å‘é€ä¸€æ¡å¡ç‰‡æ¶ˆæ¯ç”¨äºæµ‹è¯•å¡ç‰‡å›è°ƒï¼Œå¦‚æœä¸éœ€è¦ï¼Œåˆ™æ³¨é‡Šä¸‹é¢ä¸€è¡Œã€‚
 builder.Services.AddHostedService<Class1>();
 
 var app = builder.Build();
@@ -48,7 +48,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-//ÆôÓÃ·ÉÊéÊÂ¼ş»Øµ÷µØÖ··şÎñ
+//å¯ç”¨é£ä¹¦äº‹ä»¶å›è°ƒåœ°å€æœåŠ¡
 app.UseFeishuEndpoint("/a/b/c/d");
 
 app.Run();
@@ -56,9 +56,9 @@ app.Run();
 namespace WebApplication1
 {
     /// <summary>
-    /// ²âÊÔ·¢ËÍ¿¨Æ¬ÏûÏ¢£¬ReceiveId = ½ÓÊÕÈËµÄ OpenId
-    /// ½øÈë https://open.feishu.cn/document/server-docs/contact-v3/user/patch£¬
-    /// ÓÒ²à APIµ÷ÊÔÌ¨ -> Â·¾¶²ÎÊı -> user_id -> µã»÷»ñÈ¡ -> ¸´ÖÆ OpenId
+    /// æµ‹è¯•å‘é€å¡ç‰‡æ¶ˆæ¯ï¼ŒReceiveId = æ¥æ”¶äººçš„ OpenId
+    /// è¿›å…¥ https://open.feishu.cn/document/server-docs/contact-v3/user/patchï¼Œ
+    /// å³ä¾§ APIè°ƒè¯•å° -> è·¯å¾„å‚æ•° -> user_id -> ç‚¹å‡»è·å– -> å¤åˆ¶ OpenId
     /// </summary>
     public class Class1(IFeishuTenantApi tenantApi) : BackgroundService
     {
@@ -87,7 +87,7 @@ namespace WebApplication1
 
             await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
             {
-                ReceiveId = input.Event?.Sender?.SenderId?.OpenId ?? throw new Exception($"ReceiveId Òì³£")
+                ReceiveId = input.Event?.Sender?.SenderId?.OpenId ?? throw new Exception($"ReceiveId å¼‚å¸¸")
             }.SetContent(new ElementsCardV2Dto()
             {
                 Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
