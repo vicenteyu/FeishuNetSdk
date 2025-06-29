@@ -52,6 +52,11 @@ public record GetHireV1RegistrationSchemasResponseDto : IPageableResponse<GetHir
         /// <summary>
         /// <para>登记表适用场景</para>
         /// <para>必填：否</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>5：面试登记表</item>
+        /// <item>6：入职登记表</item>
+        /// <item>14：信息更新登记表</item>
+        /// </list></para>
         /// </summary>
         [JsonPropertyName("scenarios")]
         public int[]? Scenarios { get; set; }

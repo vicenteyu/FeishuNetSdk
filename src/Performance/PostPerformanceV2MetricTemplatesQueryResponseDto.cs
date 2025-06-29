@@ -256,6 +256,10 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto : IPageableRespon
                 /// <para>必填：否</para>
                 /// <para>最大长度：2</para>
                 /// <para>最小长度：0</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>1：可选用指标库的指标</item>
+                /// <item>2：可选用自定义的指标</item>
+                /// </list></para>
                 /// </summary>
                 [JsonPropertyName("add_metric_options")]
                 public int[]? AddMetricOptions { get; set; }

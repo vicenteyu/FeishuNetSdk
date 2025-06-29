@@ -433,6 +433,12 @@ public record GetHireV1TalentsResponseDto : IPageableResponse<GetHireV1TalentsRe
             /// <summary>
             /// <para>教育经历标签</para>
             /// <para>必填：否</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：985学校</item>
+            /// <item>2：211学校</item>
+            /// <item>3：一本</item>
+            /// <item>4：国外院校QS200</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("tag_list")]
             public int[]? TagList { get; set; }
@@ -515,6 +521,11 @@ public record GetHireV1TalentsResponseDto : IPageableResponse<GetHireV1TalentsRe
             /// <summary>
             /// <para>工作经历标签</para>
             /// <para>必填：否</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>5：百度/阿里/腾讯</item>
+            /// <item>6：头条/美团/滴滴</item>
+            /// <item>14：互联网 100 强</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("tag_list")]
             public int[]? TagList { get; set; }

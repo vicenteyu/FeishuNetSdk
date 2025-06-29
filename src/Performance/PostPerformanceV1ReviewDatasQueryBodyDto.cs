@@ -44,6 +44,11 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>必填：是</para>
     /// <para>示例值：["leader_review","communication_and_open_result"]</para>
     /// <para>最大长度：50</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>leader_review：终评环节</item>
+    /// <item>communication_and_open_result：结果沟通环节</item>
+    /// <item>view_result：查看绩效结果环节</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("stage_types")]
     public string[] StageTypes { get; set; } = Array.Empty<string>();
@@ -53,6 +58,13 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：[0,1,2,3]--&gt;</para>
     /// <para>最大长度：50</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>0：未开始，任务的开始时间未到达</item>
+    /// <item>1：待完成，任务的开始时间到达而截止时间未到达，且任务未完成</item>
+    /// <item>2：已截止，任务的截止时间已到达，且任务未完成</item>
+    /// <item>3：已完成，任务已完成</item>
+    /// <item>4：已复议</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("stage_progress")]
     public int[]? StageProgress { get; set; }

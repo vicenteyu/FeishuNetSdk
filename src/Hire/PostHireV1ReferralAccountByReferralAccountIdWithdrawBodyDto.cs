@@ -24,6 +24,10 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto
     /// <summary>
     /// <para>提取的奖励类型</para>
     /// <para>必填：是</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：积分</item>
+    /// <item>2：现金</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("withdraw_bonus_type")]
     public int[] WithdrawBonusType { get; set; } = Array.Empty<int>();

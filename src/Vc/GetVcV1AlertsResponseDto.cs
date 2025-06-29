@@ -149,6 +149,10 @@ public record GetVcV1AlertsResponseDto : IPageableResponse<GetVcV1AlertsResponse
         /// <para>通知方式</para>
         /// <para>必填：否</para>
         /// <para>示例值：[0,1]</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：飞书机器人</item>
+        /// <item>1：邮件</item>
+        /// </list></para>
         /// </summary>
         [JsonPropertyName("notifyMethods")]
         public int[]? NotifyMethods { get; set; }

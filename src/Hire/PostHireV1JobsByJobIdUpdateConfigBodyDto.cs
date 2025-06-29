@@ -52,6 +52,19 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     /// <para>- 接口将按照所选择的「选项」进行设置参数校验和更新。若设置的必填字段更新时未填写内容，接口将报错无法完成更新。</para>
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：更新面试评价表</item>
+    /// <item>2：更新 Offer 申请表</item>
+    /// <item>3：更新 Offer 审批流程</item>
+    /// <item>4：更新招聘需求</item>
+    /// <item>5：更新建议面试官</item>
+    /// <item>6：更新建议评估人</item>
+    /// <item>8：更新关联职位</item>
+    /// <item>9：更新面试官安排面试配置</item>
+    /// <item>10：更新面试登记表</item>
+    /// <item>11：更新入职登记表</item>
+    /// <item>12：更新官网申请表</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_option_list")]
     public int[] UpdateOptionList { get; set; } = Array.Empty<int>();

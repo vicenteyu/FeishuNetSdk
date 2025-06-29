@@ -41,6 +41,10 @@ public record PostCorehrV2BasicInfoCountryRegionSubdivisionsSearchBodyDto
     /// <para>状态列表，不填写则返回全部</para>
     /// <para>必填：否</para>
     /// <para>最大长度：2</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：生效</item>
+    /// <item>0：失效</item>
+    /// </list></para>
     /// <para>默认值：[1]</para>
     /// </summary>
     [JsonPropertyName("status_list")]

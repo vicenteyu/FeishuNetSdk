@@ -70,7 +70,7 @@ public record PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto
             /// <summary>
             /// <para>英文名</para>
             /// <para>必填：否</para>
-            /// <para>示例值：Onbusinesstrip</para>
+            /// <para>示例值：On business trip</para>
             /// </summary>
             [JsonPropertyName("en_us")]
             public string? EnUs { get; set; }
@@ -141,6 +141,8 @@ public record PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto
         /// <para>优先级，数值越小，客户端展示的优先级越高。不同系统状态的优先级不能一样。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
+        /// <para>最大值：9</para>
+        /// <para>最小值：0</para>
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("priority")]
@@ -205,7 +207,7 @@ public record PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto
                 /// <summary>
                 /// <para>英文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：AutodisplayBusinessTrip</para>
+                /// <para>示例值：Auto display Business Trip</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -257,7 +259,7 @@ public record PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto
                 /// <summary>
                 /// <para>英文名</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：Auto-displayaftertravelrequestisapproved.</para>
+                /// <para>示例值：Auto-display after travel request is approved.</para>
                 /// </summary>
                 [JsonPropertyName("en_us")]
                 public string? EnUs { get; set; }
@@ -277,6 +279,15 @@ public record PatchPersonalSettingsV1SystemStatusesBySystemStatusIdBodyDto
     /// <para>需要更新的字段</para>
     /// <para>必填：是</para>
     /// <para>示例值：['TITLE']</para>
+    /// <para>最小长度：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>TITLE：系统状态名称</item>
+    /// <item>I18N_TITLE：系统状态国际化名称</item>
+    /// <item>ICON：图标</item>
+    /// <item>COLOR：颜色</item>
+    /// <item>PRIORITY：优先级</item>
+    /// <item>SYNC_SETTING：同步设置</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();
