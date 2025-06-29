@@ -78,6 +78,13 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// <para>应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。</para>
             /// <para>必填：是</para>
             /// <para>示例值：修改的文字样式属性</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：修改 Block 的对齐方式</item>
+            /// <item>2：修改 todo block 的完成状态</item>
+            /// <item>3：修改 block 的折叠状态</item>
+            /// <item>4：修改代码块的语言类型</item>
+            /// <item>5：修改代码块的折叠状态</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("fields")]
             public int[] Fields { get; set; } = Array.Empty<int>();
@@ -448,6 +455,13 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// <para>文本样式中应更新的字段，必须至少指定一个字段。例如，要调整 Block 对齐方式，请设置 fields 为 [1]。</para>
             /// <para>必填：是</para>
             /// <para>示例值：[1]</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：修改 Block 的对齐方式</item>
+            /// <item>2：修改 todo block 的完成状态</item>
+            /// <item>3：修改 block 的折叠状态</item>
+            /// <item>4：修改代码块的语言类型</item>
+            /// <item>5：修改代码块的折叠状态</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("fields")]
             public int[] Fields { get; set; } = Array.Empty<int>();

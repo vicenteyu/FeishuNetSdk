@@ -344,6 +344,18 @@ public record PutImV2AppFeedCardBatchBodyDto
         /// <para>必填：是</para>
         /// <para>最大长度：20</para>
         /// <para>最小长度：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：标题</item>
+        /// <item>2：头像 key</item>
+        /// <item>3：预览</item>
+        /// <item>10：状态标签</item>
+        /// <item>11：按钮</item>
+        /// <item>12：跳转链接</item>
+        /// <item>13：即时提醒状态</item>
+        /// <item>101：展示时间更新到当前</item>
+        /// <item>102：排序时间更新到当前</item>
+        /// <item>103：进行通知</item>
+        /// </list></para>
         /// </summary>
         [JsonPropertyName("update_fields")]
         public string[] UpdateFields { get; set; } = Array.Empty<string>();

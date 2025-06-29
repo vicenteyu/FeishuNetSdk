@@ -131,6 +131,10 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// <para>最大长度：200</para>
             /// <para>最小长度：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>tenant：应用身份类型</item>
+            /// <item>user：用户身份类型</item>
+            /// </list></para>
             /// </summary>
             [JsonPropertyName("token_types")]
             public string[]? TokenTypes { get; set; }

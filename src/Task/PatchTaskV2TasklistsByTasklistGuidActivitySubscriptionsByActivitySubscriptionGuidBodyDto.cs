@@ -114,6 +114,12 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
     /// <para>必填：是</para>
     /// <para>最大长度：20</para>
     /// <para>最小长度：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>name：订阅名称</item>
+    /// <item>include_keys：订阅的事件类型列表</item>
+    /// <item>subscribers：订阅成员列表</item>
+    /// <item>disabled：是否禁用该订阅</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

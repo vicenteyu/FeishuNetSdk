@@ -100,6 +100,14 @@ public record PostCorehrV1OffboardingsSearchBodyDto
     /// <para>离职状态，多个状态之间为「或」的关系。为空时默认搜索所有状态的离职信息。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>Approving：审批中</item>
+    /// <item>Approved：审批通过</item>
+    /// <item>Offboarded：已离职</item>
+    /// <item>Rejected：已拒绝</item>
+    /// <item>Withdrawn：已撤销</item>
+    /// <item>NoNeedApproval：无需审批</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("statuses")]
     public string[]? Statuses { get; set; }

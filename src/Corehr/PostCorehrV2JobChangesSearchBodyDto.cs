@@ -43,6 +43,14 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：Approved</para>
     /// <para>最大长度：10</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>Approving：Approving 审批中</item>
+    /// <item>Approved：Approved 审批通过</item>
+    /// <item>Transformed：Transformed 已异动</item>
+    /// <item>Rejected：Rejected 已拒绝</item>
+    /// <item>Cancelled：Cancelled 已撤销</item>
+    /// <item>NoNeedApproval：NoNeedApproval 无需审批</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("statuses")]
     public string[]? Statuses { get; set; }
@@ -112,6 +120,10 @@ public record PostCorehrV2JobChangesSearchBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：pending</para>
     /// <para>最大长度：10</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>pending：pending 未处理</item>
+    /// <item>processed：processed 已处理</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("exception_statuses")]
     public string[]? ExceptionStatuses { get; set; }

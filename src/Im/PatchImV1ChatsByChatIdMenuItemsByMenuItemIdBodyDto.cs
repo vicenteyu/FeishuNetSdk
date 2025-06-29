@@ -31,6 +31,12 @@ public record PatchImV1ChatsByChatIdMenuItemsByMenuItemIdBodyDto
     /// <para>要修改的元信息</para>
     /// <para>必填：是</para>
     /// <para>示例值：["ICON"]</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>ICON：图标</item>
+    /// <item>NAME：名称</item>
+    /// <item>I18N_NAME：国际化名称</item>
+    /// <item>REDIRECT_LINK：跳转链接</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
     public string[] UpdateFields { get; set; } = Array.Empty<string>();

@@ -43,6 +43,14 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     /// <para>环节类型，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。</para>
     /// <para>stage_types 和 stage_ids 至少要传一个，不传默认不返回任何环节评估数据。</para>
     /// <para>必填：否</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>summarize_key_outputs：工作总结环节</item>
+    /// <item>review：评估型环节</item>
+    /// <item>communication_and_open_result：结果沟通环节</item>
+    /// <item>view_result：绩效结果查看环节</item>
+    /// <item>reconsideration：结果复议环节</item>
+    /// <item>leader_review：终评环节（特指最终的绩效结果数据）</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("stage_types")]
     public string[]? StageTypes { get; set; }
@@ -50,6 +58,16 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     /// <summary>
     /// <para>评估型环节的执行人角色，当传入的环节类型中有评估型环节时，该参数才生效，返回指定执行人角色的评估型环节数据，不传默认包含所有的执行人角色。</para>
     /// <para>必填：否</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>reviewee：被评估人</item>
+    /// <item>invited_reviewer：360°评估人</item>
+    /// <item>solid_line_leader：实线上级</item>
+    /// <item>dotted_line_leader：虚线上级</item>
+    /// <item>secondary_solid_line_leader：第二实线上级</item>
+    /// <item>direct_project_leader：合作项目中的直属上级</item>
+    /// <item>custom_review_role：自定义评估角色</item>
+    /// <item>metric_reviewer：指标评价人</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("review_stage_roles")]
     public string[]? ReviewStageRoles { get; set; }

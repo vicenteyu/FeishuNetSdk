@@ -51,6 +51,11 @@ public record PostHireV1JobsByJobIdManagersBatchUpdateBodyDto
     /// <para>更新的人员类型</para>
     /// <para>必填：是</para>
     /// <para>示例值：1</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>1：招聘负责人</item>
+    /// <item>2：招聘协助人</item>
+    /// <item>3：用人经理</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("update_option_list")]
     public int[] UpdateOptionList { get; set; } = Array.Empty<int>();
