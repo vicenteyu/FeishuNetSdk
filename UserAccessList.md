@@ -595,11 +595,11 @@
 <tr><td colspan="3">PostTaskV2Tasks</td></tr>
 <tr><td rowspan="2">298</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>任务</td><td>获取任务详情</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuid</td></tr>
-<tr><td rowspan="2">299</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>任务</td><td>更新任务</td></tr>
+<tr><td rowspan="2">299</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>更新任务</td></tr>
 <tr><td colspan="3">PatchTaskV2TasksByTaskGuid</td></tr>
 <tr><td rowspan="2">300</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>删除任务</td></tr>
 <tr><td colspan="3">DeleteTaskV2TasksByTaskGuid</td></tr>
-<tr><td rowspan="2">301</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>添加任务成员</td></tr>
+<tr><td rowspan="2">301</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>添加任务成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidAddMembers</td></tr>
 <tr><td rowspan="2">302</td><td rowspan="2">2025-03-13</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人移出群聊</td></tr>
 <tr><td colspan="3">DeleteImV1ChatsByChatIdMembers</td></tr>
@@ -681,7 +681,7 @@
 <tr><td colspan="3">PostTaskV2Sections</td></tr>
 <tr><td rowspan="2">341</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>任务</td><td>获取自定义分组详情</td></tr>
 <tr><td colspan="3">GetTaskV2SectionsBySectionGuid</td></tr>
-<tr><td rowspan="2">342</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>更新自定义分组</td></tr>
+<tr><td rowspan="2">342</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>更新自定义分组</td></tr>
 <tr><td colspan="3">PatchTaskV2SectionsBySectionGuid</td></tr>
 <tr><td rowspan="2">343</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>删除自定义分组</td></tr>
 <tr><td colspan="3">DeleteTaskV2SectionsBySectionGuid</td></tr>
@@ -699,7 +699,7 @@
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuid</td></tr>
 <tr><td rowspan="2">350</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>列取自定义字段</td></tr>
 <tr><td colspan="3">GetTaskV2CustomFields</td></tr>
-<tr><td rowspan="2">351</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>将自定义字段加入资源</td></tr>
+<tr><td rowspan="2">351</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>将自定义字段加入资源</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidAdd</td></tr>
 <tr><td rowspan="2">352</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>将自定义字段移出资源</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidRemove</td></tr>
@@ -823,7 +823,7 @@
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenProperties</td></tr>
 <tr><td rowspan="2">412</td><td rowspan="2">2022-03-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 导入表格</td></tr>
 <tr><td colspan="3">PostSheetsV2Import</td></tr>
-<tr><td rowspan="2">413</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（root folder）元数据</td></tr>
+<tr><td rowspan="2">413</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>云文档</td><td>获取我的空间（根文件夹）元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2RootFolderMeta</td></tr>
 <tr><td rowspan="2">414</td><td rowspan="2">2023-11-02</td><td>&#10003;</td><td>云文档</td><td>查询导入结果</td></tr>
 <tr><td colspan="3">GetSheetsV2ImportResult</td></tr>
@@ -857,7 +857,7 @@
 <tr><td colspan="3">PostDriveV1MetasBatchQuery</td></tr>
 <tr><td rowspan="2">429</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 新建文件</td></tr>
 <tr><td colspan="3">PostDriveExplorerV2FileByFolderToken</td></tr>
-<tr><td rowspan="2">430</td><td rowspan="2">2024-12-12</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
+<tr><td rowspan="2">430</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCopy</td></tr>
 <tr><td rowspan="2">431</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>云文档</td><td>移动文件或文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenMove</td></tr>

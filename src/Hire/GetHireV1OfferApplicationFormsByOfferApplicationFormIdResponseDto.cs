@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -286,7 +286,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public bool? IsSensitive { get; set; }
 
                     /// <summary>
-                    /// <para>字段类型</para>
+                    /// <para>字段类型（废弃）</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// <para>可选值：<list type="bullet">
@@ -307,6 +307,41 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public int? ObjectType { get; set; }
 
                     /// <summary>
+                    /// <para>字段类型枚举</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：default</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>text：单行文本</item>
+                    /// <item>long_text：多行文本</item>
+                    /// <item>select：单选</item>
+                    /// <item>multi_select：多选</item>
+                    /// <item>date_select：日期选择</item>
+                    /// <item>month_select：月份选择</item>
+                    /// <item>year_select：年份选择</item>
+                    /// <item>number：数字</item>
+                    /// <item>amount：金额</item>
+                    /// <item>formula：公式</item>
+                    /// <item>boolean：布尔值</item>
+                    /// <item>personnel_select：人员单选</item>
+                    /// <item>personnel_multi_select：人员多选</item>
+                    /// <item>city_single_select：城市单选</item>
+                    /// <item>corehr_text：单行文本（引用自人事）</item>
+                    /// <item>corehr_long_text：多行文本（引用自人事）</item>
+                    /// <item>corehr_select：单选（引用自人事）</item>
+                    /// <item>corehr_multi_select：多选（引用自人事）</item>
+                    /// <item>corehr_date_select：日期选择（引用自人事）</item>
+                    /// <item>corehr_number：数字（引用自人事）</item>
+                    /// <item>corehr_boolean：布尔值（引用自人事）</item>
+                    /// <item>corehr_attachment：附件（引用自人事）</item>
+                    /// <item>corehr_personnel_select：人员单选（引用自人事）</item>
+                    /// <item>corehr_personnel_multi_select：人员多选（引用自人事）</item>
+                    /// <item>default：默认字段</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("object_type_v2")]
+                    public string? ObjectTypeV2 { get; set; }
+
+                    /// <summary>
                     /// <para>字段配置信息</para>
                     /// <para>必填：否</para>
                     /// </summary>
@@ -319,14 +354,14 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     public record OfferApplyFormObjectConfigInfo
                     {
                         /// <summary>
-                        /// <para>选项信息，仅在在字段类型object_type为单选、多选时有值</para>
+                        /// <para>选项信息，仅在在字段类型object_type_v2为单选、多选时有值</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("options")]
                         public OfferApplyFormConfigOptionInfo[]? Options { get; set; }
 
                         /// <summary>
-                        /// <para>选项信息，仅在在字段类型object_type为单选、多选时有值</para>
+                        /// <para>选项信息，仅在在字段类型object_type_v2为单选、多选时有值</para>
                         /// </summary>
                         public record OfferApplyFormConfigOptionInfo
                         {
@@ -376,14 +411,14 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                         }
 
                         /// <summary>
-                        /// <para>公式信息，仅在在字段类型object_type为公式时有值</para>
+                        /// <para>公式信息，仅在在字段类型object_type_v2为公式时有值</para>
                         /// <para>必填：否</para>
                         /// </summary>
                         [JsonPropertyName("formula")]
                         public OfferApplyFormConfigFormulaInfo? Formula { get; set; }
 
                         /// <summary>
-                        /// <para>公式信息，仅在在字段类型object_type为公式时有值</para>
+                        /// <para>公式信息，仅在在字段类型object_type_v2为公式时有值</para>
                         /// </summary>
                         public record OfferApplyFormConfigFormulaInfo
                         {

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PatchTaskV2SectionsBySectionGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -109,6 +109,14 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
             /// </summary>
             [JsonPropertyName("role")]
             public string? Role { get; set; }
+
+            /// <summary>
+            /// <para>成员名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：张明德（明德）</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
         }
 
         /// <summary>

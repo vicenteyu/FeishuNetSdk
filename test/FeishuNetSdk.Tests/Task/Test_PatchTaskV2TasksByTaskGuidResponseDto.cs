@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PatchTaskV2TasksByTaskGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,13 +47,15 @@ public class Test_PatchTaskV2TasksByTaskGuidResponseDto : TestBase
             "creator": {
                 "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                 "type": "user",
-                "role": "assignee"
+                "role": "assignee",
+                "name": "张明德（明德）"
             },
             "members": [
                 {
                     "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                     "type": "user",
-                    "role": "assignee"
+                    "role": "assignee",
+                    "name": "张明德（明德）"
                 }
             ],
             "completed_at": "1675742789470",
@@ -70,7 +72,8 @@ public class Test_PatchTaskV2TasksByTaskGuidResponseDto : TestBase
                     "uploader": {
                         "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                         "type": "user",
-                        "role": "editor"
+                        "role": "editor",
+                        "name": "张明德（明德）"
                     },
                     "is_cover": false,
                     "uploaded_at": "1675742789470"
@@ -181,7 +184,8 @@ public class Test_PatchTaskV2TasksByTaskGuidResponseDto : TestBase
                         {
                             "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                             "type": "user",
-                            "role": "editor"
+                            "role": "editor",
+                            "name": "张明德（明德）"
                         }
                     ],
                     "single_select_value": "4216f79b-3fda-4dc6-a0c4-a16022e47152",
@@ -196,6 +200,12 @@ public class Test_PatchTaskV2TasksByTaskGuidResponseDto : TestBase
                 {
                     "type": "next",
                     "task_guid": "93b7bd05-35e6-4371-b3c9-6b7cbd7100c0"
+                }
+            ],
+            "assignee_related": [
+                {
+                    "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
+                    "completed_at": "1675742789470"
                 }
             ]
         }

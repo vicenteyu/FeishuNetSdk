@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PostPerformanceV2MetricDetailsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,7 +59,14 @@ public class Test_PostPerformanceV2MetricDetailsQueryResponseDto : TestBase
                     "dimension_weight": "90%",
                     "add_from": "admin",
                     "is_from_library": true
-                }
+                },
+                "reviewee_stage_statuses": [
+                    {
+                        "stage_id": "1",
+                        "stage_type": "kpi_metric_setting",
+                        "stage_status": 0
+                    }
+                ]
             }
         ]
     }

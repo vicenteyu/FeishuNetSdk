@@ -193,7 +193,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto : IPageableRespon
             public string? EvaluationRuleIdForEachMetric { get; set; }
 
             /// <summary>
-            /// <para>维度权重，如果没有设置则返回为空（和设置为 0 进行区分）</para>
+            /// <para>维度权重，如果没有设置则返回为空（和设置为 0 进行区分），单位为百分比</para>
             /// <para>必填：否</para>
             /// <para>示例值：90</para>
             /// </summary>
@@ -341,7 +341,7 @@ public record PostPerformanceV2MetricTemplatesQueryResponseDto : IPageableRespon
                 /// <para>可选值：<list type="bullet">
                 /// <item>admin：管理员统一配置</item>
                 /// <item>data_source_inputter：数据源录入人填写</item>
-                /// <item>reviewee：被评估人填写</item>
+                /// <item>reviewee：指标制定人填写</item>
                 /// </list></para>
                 /// </summary>
                 [JsonPropertyName("input_setting")]

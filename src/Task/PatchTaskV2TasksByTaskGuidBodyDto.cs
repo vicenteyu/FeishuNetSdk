@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PatchTaskV2TasksByTaskGuidBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -16,18 +16,6 @@ namespace FeishuNetSdk.Task;
 /// 更新任务 请求体
 /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
 /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-/// <para>目前支持更新的字段包括：</para>
-/// <para>* `summary` - 任务标题</para>
-/// <para>* `description` - 任务描述</para>
-/// <para>* `start` - 任务开始时间</para>
-/// <para>* `due` - 任务截止时间</para>
-/// <para>* `completed_at` - 用于标记任务完成/未完成</para>
-/// <para>* `extra` - 任务附带自定义数据</para>
-/// <para>* `custom_complete` - 任务自定义完成配置。</para>
-/// <para>* `repeat_rule` - 重复任务规则。</para>
-/// <para>* `mode` - 任务完成模式。</para>
-/// <para>* `is_milestone` - 是否是里程碑任务。</para>
-/// <para>* `custom_fields` - 自定义字段值。</para>
 /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
 /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
 /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
@@ -409,6 +397,14 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
                 /// </summary>
                 [JsonPropertyName("type")]
                 public string? Type { get; set; }
+
+                /// <summary>
+                /// <para>成员名称</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：张明德（明德）</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public string? Name { get; set; }
             }
 
             /// <summary>
@@ -451,7 +447,7 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
     /// <para>必填：是</para>
     /// <para>可选值：<list type="bullet">
     /// <item>summary：任务标题</item>
-    /// <item>description：任务描</item>
+    /// <item>description：任务描述</item>
     /// <item>start：任务开始时间</item>
     /// <item>due：任务截止时间</item>
     /// <item>completed_at：任务完成时间</item>

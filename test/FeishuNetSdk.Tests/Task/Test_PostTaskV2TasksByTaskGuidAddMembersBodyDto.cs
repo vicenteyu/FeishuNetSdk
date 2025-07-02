@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PostTaskV2TasksByTaskGuidAddMembersBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,7 +31,8 @@ public class Test_PostTaskV2TasksByTaskGuidAddMembersBodyDto : TestBase
         {
             "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
             "type": "user",
-            "role": "assignee"
+            "role": "assignee",
+            "name": "张明德（明德）"
         }
     ],
     "client_token": "6d99f59c-4d7d-4452-98d6-3d0556393cf6"

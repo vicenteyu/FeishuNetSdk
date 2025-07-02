@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -68,7 +68,8 @@ public class Test_GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponse
                                 "active_status": 1,
                                 "need_approve": true,
                                 "is_sensitive": false,
-                                "object_type": 1,
+                                "object_type": 3,
+                                "object_type_v2":"select",
                                 "config": {
                                     "options": [
                                         {
@@ -83,19 +84,6 @@ public class Test_GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponse
                                             }
                                         }
                                     ],
-                                    "formula": {
-                                        "value": "[object_id] * 12",
-                                        "result": 1,
-                                        "extra_map": [
-                                            {
-                                                "key": "object_id",
-                                                "value": {
-                                                    "zh_cn": "月薪",
-                                                    "en_us": "monthly income"
-                                                }
-                                            }
-                                        ]
-                                    },
                                     "object_display_config": {
                                         "display_condition": 1,
                                         "pre_object_config_list": [

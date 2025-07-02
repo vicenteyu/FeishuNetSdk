@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PatchTaskV2SectionsBySectionGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,7 +38,8 @@ public class Test_PatchTaskV2SectionsBySectionGuidResponseDto : TestBase
             "creator": {
                 "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                 "type": "user",
-                "role": "editor"
+                "role": "editor",
+                "name": "张明德（明德）"
             },
             "tasklist": {
                 "guid": "cc371766-6584-cf50-a222-c22cd9055004",

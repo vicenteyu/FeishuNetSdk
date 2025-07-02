@@ -14,9 +14,10 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 复制文件 请求体
-/// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。该接口为异步接口。</para>
+/// <para>将用户云空间中的文件复制至其它文件夹下。该接口为异步接口。</para>
 /// <para>## 使用限制</para>
-/// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
+/// <para>- 不支持复制文件夹。</para>
+/// <para>- 云空间中文件夹（包括根文件夹，即根目录）的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
 /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
 /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
 /// <para>接口ID：7087776630140157955</para>
@@ -35,12 +36,13 @@ public record PostDriveV1FilesByFileTokenCopyBodyDto
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>被复制的源文件的类型。该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。</para>
+    /// <para>被复制的源文件的类型。必须与 `file_token` 对应的源文件实际类型一致。</para>
+    /// <para>**注意**：该参数为必填，请忽略左侧必填列的“否”。若该参数值为空或与实际文件类型不匹配，接口将返回失败。</para>
     /// <para>必填：否</para>
-    /// <para>示例值：doc</para>
+    /// <para>示例值：docx</para>
     /// <para>可选值：<list type="bullet">
     /// <item>file：文件类型</item>
-    /// <item>doc：文档类型</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格类型</item>
     /// <item>bitable：多维表格类型</item>
     /// <item>docx：新版文档类型</item>

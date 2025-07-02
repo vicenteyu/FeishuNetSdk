@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PatchTaskV2TasksByTaskGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -16,18 +16,6 @@ namespace FeishuNetSdk.Task;
 /// 更新任务 响应体
 /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
 /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-/// <para>目前支持更新的字段包括：</para>
-/// <para>* `summary` - 任务标题</para>
-/// <para>* `description` - 任务描述</para>
-/// <para>* `start` - 任务开始时间</para>
-/// <para>* `due` - 任务截止时间</para>
-/// <para>* `completed_at` - 用于标记任务完成/未完成</para>
-/// <para>* `extra` - 任务附带自定义数据</para>
-/// <para>* `custom_complete` - 任务自定义完成配置。</para>
-/// <para>* `repeat_rule` - 重复任务规则。</para>
-/// <para>* `mode` - 任务完成模式。</para>
-/// <para>* `is_milestone` - 是否是里程碑任务。</para>
-/// <para>* `custom_fields` - 自定义字段值。</para>
 /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
 /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
 /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
@@ -147,7 +135,7 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         public Member? Creator { get; set; }
 
         /// <summary>
-        /// <para>任务创建者</para>
+        /// <para>成员信息</para>
         /// </summary>
         public record Member
         {
@@ -170,13 +158,21 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
             public string? Type { get; set; }
 
             /// <summary>
-            /// <para>任务角色</para>
+            /// <para>成员的角色</para>
             /// <para>必填：否</para>
             /// <para>示例值：assignee</para>
             /// <para>最大长度：20</para>
             /// </summary>
             [JsonPropertyName("role")]
             public string? Role { get; set; }
+
+            /// <summary>
+            /// <para>成员名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：张明德（明德）</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
         }
 
         /// <summary>
@@ -274,39 +270,6 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
             /// </summary>
             [JsonPropertyName("uploader")]
             public Member? Uploader { get; set; }
-
-            /// <summary>
-            /// <para>附件上传者</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>任务角色</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：editor</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-            }
 
             /// <summary>
             /// <para>是否是封面图</para>
@@ -870,39 +833,6 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
             public Member[]? MemberValues { get; set; }
 
             /// <summary>
-            /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>成员角色</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：editor</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-            }
-
-            /// <summary>
             /// <para>单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。</para>
             /// <para>必填：否</para>
             /// <para>示例值：4216f79b-3fda-4dc6-a0c4-a16022e47152</para>
@@ -967,6 +897,37 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
             /// </summary>
             [JsonPropertyName("task_guid")]
             public string TaskGuid { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("assignee_related")]
+        public TaskAssignee[]? AssigneeRelateds { get; set; }
+
+        /// <summary>
+        /// <para>任务执行者相关信息，如会签任务各执行者完成时间等</para>
+        /// </summary>
+        public record TaskAssignee
+        {
+            /// <summary>
+            /// <para>任务执行者的id</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
+            /// <para>最大长度：100</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>会签任务中执行者完成的时间戳(ms)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1675742789470</para>
+            /// <para>最大长度：20</para>
+            /// </summary>
+            [JsonPropertyName("completed_at")]
+            public string? CompletedAt { get; set; }
         }
     }
 }
