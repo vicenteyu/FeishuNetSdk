@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -61,15 +61,25 @@ public class Test_PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseD
                     "original_cost_center_rate": [
                         {
                             "cost_center_id": "6950635856373745165",
-                            "rate": 100
+                            "rate": 100,
+                            "new_rate": 50.2
                         }
                     ],
                     "target_cost_center_rate": [
                         {
                             "cost_center_id": "6950635856373745165",
-                            "rate": 100
+                            "rate": 100,
+                            "new_rate": 50.2
                         }
                     ],
+                    "target_allocation_expiration_time": "2022-03-01 00:00:00",
+                    "original_allocation_expiration_time": "2022-03-01 00:00:00",
+                    "target_allocation_effective_time": "2022-03-01 00:00:00",
+                    "original_allocation_effective_time": "2022-03-01 00:00:00",
+                    "original_default_cost_center": "7380264299728602661",
+                    "target_default_cost_center": "7380264299728602661",
+                    "original_is_default_cost_center_inherited": true,
+                    "target_is_default_cost_center_inherited": false,
                     "original_job_grade": "7289005963599693366",
                     "target_job_grade": "7289005963599693366",
                     "original_position": "7289005963599693367",

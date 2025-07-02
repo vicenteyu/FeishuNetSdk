@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Ccm.Spec;
 
 /// <summary>
-/// 测试 获取我的空间（root folder）元数据 响应体
+/// 测试 获取我的空间（根文件夹）元数据 响应体
 /// <para>接口ID：6979502797244170243</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/get-root-folder-meta</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fugTNzUjL4UzM14CO1MTN%2fget-root-folder-meta</para>

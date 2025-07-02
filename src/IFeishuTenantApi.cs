@@ -12348,11 +12348,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string spreadsheetToken);
 
     /// <summary>
-    /// <para>【云文档】获取我的空间（root folder）元数据</para>
+    /// <para>【云文档】获取我的空间（根文件夹）元数据</para>
     /// <para>接口ID：6979502797244170243</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/get-root-folder-meta</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取用户“我的空间”（root folder）的元数据，包括文件夹的 token、ID 和文件夹所有者的 ID。</para>
+    /// <para>获取用户“我的空间”（根文件夹）的元数据，包括根文件夹的 token、ID 和文件夹所有者的 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive.metadata:readonly</item>
@@ -14002,7 +14002,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6989078472837169155</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>更新指定招聘需求的信息，包含招聘需求的名称、状态、需求人数等。</para>
+    /// <para>更新指定招聘需求的信息，包含招聘需求的名称、状态、需求人数等。（审批中的招聘需求无法更新）</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job_requirement</item>
     /// </list></para>
@@ -23666,9 +23666,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7087776630140157955</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。该接口为异步接口。</para>
+    /// <para>将用户云空间中的文件复制至其它文件夹下。该接口为异步接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
+    /// <para>- 不支持复制文件夹。</para>
+    /// <para>- 云空间中文件夹（包括根文件夹，即根目录）的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
     /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
@@ -36401,6 +36402,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 成员类型支持"user"和"app"。</para>
     /// <para>* 如果要添加的成员已经在任务中，则自动被忽略。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:personnel:writeonly</item>
     /// <item>task:task:write</item>
     /// </list></para>
     /// </summary>
@@ -36900,18 +36902,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
     /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-    /// <para>目前支持更新的字段包括：</para>
-    /// <para>* `summary` - 任务标题</para>
-    /// <para>* `description` - 任务描述</para>
-    /// <para>* `start` - 任务开始时间</para>
-    /// <para>* `due` - 任务截止时间</para>
-    /// <para>* `completed_at` - 用于标记任务完成/未完成</para>
-    /// <para>* `extra` - 任务附带自定义数据</para>
-    /// <para>* `custom_complete` - 任务自定义完成配置。</para>
-    /// <para>* `repeat_rule` - 重复任务规则。</para>
-    /// <para>* `mode` - 任务完成模式。</para>
-    /// <para>* `is_milestone` - 是否是里程碑任务。</para>
-    /// <para>* `custom_fields` - 自定义字段值。</para>
     /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
     /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
     /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
@@ -36921,6 +36911,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 如要变更任务所在的清单，需要使用[任务加入清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist)和[任务移出清单]( https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -37227,6 +37218,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:section:write</item>
+    /// <item>task:section:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="section_guid">
@@ -38173,9 +38165,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/task-v2/custom_field/add</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将自定义字段加入一个资源。目前资源类型支持清单tasklist。一个自定义字段可以加入多个清单中。加入后，该清单可以展示任务的该字段的值，同时基于该字段实现筛选，分组等功能。</para>
-    /// <para>如果自定义字段的设置被更新，字段加入的所有字段都能收到这个更新，并进行相应的展示。</para>
+    /// <para>如果自定义字段的设置被更新，字段加入的所有资源都能收到这个更新，并进行相应的展示。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:custom_field:write</item>
+    /// <item>task:custom_field:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="custom_field_guid">
@@ -42299,11 +42292,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【绩效】获取评估模板配置</para>
+    /// <para>【绩效】获取绩效模板配置</para>
     /// <para>接口ID：7351374599659782148</para>
     /// <para>接口文档：https://open.feishu.cn/document/performance-v1/review_config/review_template/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取评估模板配置信息，包括模版名称、执行角色、填写项类型等</para>
+    /// <para>获取绩效模板信息，包括模版名称、执行角色、填写项类型等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>performance:performance</item>
     /// <item>performance:performance:readonly</item>

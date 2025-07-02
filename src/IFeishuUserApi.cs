@@ -7488,11 +7488,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheetToken);
 
     /// <summary>
-    /// <para>【云文档】获取我的空间（root folder）元数据</para>
+    /// <para>【云文档】获取我的空间（根文件夹）元数据</para>
     /// <para>接口ID：6979502797244170243</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/get-root-folder-meta</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于获取用户“我的空间”（root folder）的元数据，包括文件夹的 token、ID 和文件夹所有者的 ID。</para>
+    /// <para>获取用户“我的空间”（根文件夹）的元数据，包括根文件夹的 token、ID 和文件夹所有者的 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive.metadata:readonly</item>
@@ -11595,9 +11595,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7087776630140157955</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/copy</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于将用户云空间中的文件复制至其它文件夹下。不支持复制文件夹。该接口为异步接口。</para>
+    /// <para>将用户云空间中的文件复制至其它文件夹下。该接口为异步接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
+    /// <para>- 不支持复制文件夹。</para>
+    /// <para>- 云空间中文件夹（包括根文件夹，即根目录）的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
     /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
@@ -11763,7 +11764,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>该接口用于订阅云文档的各类通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
     /// <para>## 注意事项</para>
     /// <para>- 文档管理者仅能接收到[文件编辑](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited)、[多维表格字段变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_field_changed)、[多维表格记录变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed)事件。</para>
-    /// <para>- 目前只支持订阅事件列表中所有文档事件，暂不支持只订阅某个或某些事件。</para>
     /// <para>- 若应用是以 `tenant_access_token` 订阅的事件，在接收事件时需要同时申请应用和用户两个身份接收事件的权限。</para>
     /// <para>## 前提条件</para>
     /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有相关权限。</para>
@@ -11797,7 +11797,9 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="event_type">
     /// <para>必填：否</para>
-    /// <para>事件类型，`file_type` 为 `folder `（文件夹）时必填 `file.created_in_folder_v1`</para>
+    /// <para>事件类型。</para>
+    /// <para>- 若 `file_type` 为 `folder`，需要填写该字段，且字段必须填写为 `file.created_in_folder_v1`，表示订阅[文件夹下文件创建](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/created_in_folder)事件</para>
+    /// <para>- 若 `file_type` 不为 `folder`，请勿填写该字段。对于文档、电子表格、多维表格等云文档类型，目前仅支持订阅所有相关的云文档事件，暂不支持只订阅该云文档类型下的某个或某些事件</para>
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -16530,6 +16532,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>* 成员类型支持"user"和"app"。</para>
     /// <para>* 如果要添加的成员已经在任务中，则自动被忽略。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:personnel:writeonly</item>
     /// <item>task:task:write</item>
     /// </list></para>
     /// </summary>
@@ -17059,18 +17062,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
     /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-    /// <para>目前支持更新的字段包括：</para>
-    /// <para>* `summary` - 任务标题</para>
-    /// <para>* `description` - 任务描述</para>
-    /// <para>* `start` - 任务开始时间</para>
-    /// <para>* `due` - 任务截止时间</para>
-    /// <para>* `completed_at` - 用于标记任务完成/未完成</para>
-    /// <para>* `extra` - 任务附带自定义数据</para>
-    /// <para>* `custom_complete` - 任务自定义完成配置。</para>
-    /// <para>* `repeat_rule` - 重复任务规则。</para>
-    /// <para>* `mode` - 任务完成模式。</para>
-    /// <para>* `is_milestone` - 是否是里程碑任务。</para>
-    /// <para>* `custom_fields` - 自定义字段值。</para>
     /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
     /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
     /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
@@ -17080,6 +17071,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>* 如要变更任务所在的清单，需要使用[任务加入清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist)和[任务移出清单]( https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -17283,6 +17275,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:section:write</item>
+    /// <item>task:section:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="section_guid">
@@ -17776,9 +17769,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/task-v2/custom_field/add</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将自定义字段加入一个资源。目前资源类型支持清单tasklist。一个自定义字段可以加入多个清单中。加入后，该清单可以展示任务的该字段的值，同时基于该字段实现筛选，分组等功能。</para>
-    /// <para>如果自定义字段的设置被更新，字段加入的所有字段都能收到这个更新，并进行相应的展示。</para>
+    /// <para>如果自定义字段的设置被更新，字段加入的所有资源都能收到这个更新，并进行相应的展示。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:custom_field:write</item>
+    /// <item>task:custom_field:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="custom_field_guid">

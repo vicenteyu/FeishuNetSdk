@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-29
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PostPerformanceV2MetricDetailsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -204,7 +204,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             }
 
             /// <summary>
-            /// <para>指标维度权重，如果没有设置则返回为空</para>
+            /// <para>指标维度权重，如果没有设置则返回为空，单位为百分比</para>
             /// <para>必填：否</para>
             /// <para>示例值：90%</para>
             /// </summary>
@@ -216,7 +216,7 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             /// <para>必填：否</para>
             /// <para>示例值：admin</para>
             /// <para>可选值：<list type="bullet">
-            /// <item>reviewee：被评估人添加</item>
+            /// <item>reviewee：指标制定人添加</item>
             /// <item>admin：管理员添加</item>
             /// </list></para>
             /// </summary>
@@ -230,6 +230,57 @@ public record PostPerformanceV2MetricDetailsQueryResponseDto
             /// </summary>
             [JsonPropertyName("is_from_library")]
             public bool? IsFromLibrary { get; set; }
+        }
+
+        /// <summary>
+        /// <para>指标对应的环节状态</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("reviewee_stage_statuses")]
+        public RevieweeStageStatus[]? RevieweeStageStatuses { get; set; }
+
+        /// <summary>
+        /// <para>指标对应的环节状态</para>
+        /// </summary>
+        public record RevieweeStageStatus
+        {
+            /// <summary>
+            /// <para>环节ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// </summary>
+            [JsonPropertyName("stage_id")]
+            public string? StageId { get; set; }
+
+            /// <summary>
+            /// <para>环节类型</para>
+            /// <para>**可选值有：**</para>
+            /// <para>- `kpi_metric_setting`：指标制定环节</para>
+            /// <para>- `kpi_result_recording`：结果录入环节</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：kpi_metric_setting</para>
+            /// </summary>
+            [JsonPropertyName("stage_type")]
+            public string? StageType { get; set; }
+
+            /// <summary>
+            /// <para>环节状态</para>
+            /// <para>**可选值有：**</para>
+            /// <para>- `0`：未开始</para>
+            /// <para>- `1`：待提交</para>
+            /// <para>- `2`：已逾期</para>
+            /// <para>- `3`：确认中</para>
+            /// <para>- `4`：被驳回</para>
+            /// <para>- `5`：已完成</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("stage_status")]
+            public int? StageStatus { get; set; }
         }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PostHireV1JobRequirementsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -168,7 +168,9 @@ public class Test_PostHireV1JobRequirementsResponseDto : TestBase
             "creator_id": "ou_e2fc714c4727ee9395f324cd2e7f331f",
             "update_time": "1718856006000",
             "employment_job_id": "6807407987381831949",
-            "position_id": "7094136522860922111"
+            "position_id": "7094136522860922111",
+            "completion_time": "1736846689278",
+            "approval_status": 1
         }
     }
 }

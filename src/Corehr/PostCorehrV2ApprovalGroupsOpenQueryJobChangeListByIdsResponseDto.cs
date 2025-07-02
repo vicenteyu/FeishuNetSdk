@@ -4,7 +4,7 @@
 // Created          : 2024-11-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-22
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -210,12 +210,21 @@ public record PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseDto
                 public string? CostCenterId { get; set; }
 
                 /// <summary>
-                /// <para>分摊比例</para>
+                /// <para>分摊比例(整数) 成本分摊百分比的整数部分，实际值为小数时向下取整（比如：12.99→ 12），如需小数请使用分摊比例字段。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
                 [JsonPropertyName("rate")]
                 public int? Rate { get; set; }
+
+                /// <summary>
+                /// <para>分摊比例 成本分摊百分比，可能包含小数位。</para>
+                /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：50.2</para>
+                /// </summary>
+                [JsonPropertyName("new_rate")]
+                public decimal? NewRate { get; set; }
             }
 
             /// <summary>
@@ -224,6 +233,84 @@ public record PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseDto
             /// </summary>
             [JsonPropertyName("target_cost_center_rate")]
             public JobDataCostCenter[]? TargetCostCenterRates { get; set; }
+
+            /// <summary>
+            /// <para>新分摊失效时间</para>
+            /// <para>- 时间格式：YYYY-MM-DD HH:MM:SS</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-03-01 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("target_allocation_expiration_time")]
+            public string? TargetAllocationExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>原分摊失效时间</para>
+            /// <para>- 时间格式：YYYY-MM-DD HH:MM:SS</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-03-01 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("original_allocation_expiration_time")]
+            public string? OriginalAllocationExpirationTime { get; set; }
+
+            /// <summary>
+            /// <para>新分摊生效时间</para>
+            /// <para>- 时间格式：YYYY-MM-DD HH:MM:SS</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-03-01 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("target_allocation_effective_time")]
+            public string? TargetAllocationEffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>原分摊生效时间</para>
+            /// <para>- 时间格式：YYYY-MM-DD HH:MM:SS</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2022-03-01 00:00:00</para>
+            /// </summary>
+            [JsonPropertyName("original_allocation_effective_time")]
+            public string? OriginalAllocationEffectiveTime { get; set; }
+
+            /// <summary>
+            /// <para>原默认成本中心 原默认成本中心的ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息。</para>
+            /// <para>原默认成本中心是否继承字段为true，或者员工原岗位、原部门均无默认成本中心时无值。</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7380264299728602661</para>
+            /// </summary>
+            [JsonPropertyName("original_default_cost_center")]
+            public string? OriginalDefaultCostCenter { get; set; }
+
+            /// <summary>
+            /// <para>新默认成本中心 新默认成本中心的ID，可以通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获取对应的成本中心信息。</para>
+            /// <para>新默认成本中心是否继承字段为true，或者员工新岗位、新部门均无默认成本中心时无值。</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7380264299728602661</para>
+            /// </summary>
+            [JsonPropertyName("target_default_cost_center")]
+            public string? TargetDefaultCostCenter { get; set; }
+
+            /// <summary>
+            /// <para>原默认成本中心是否继承 默认成本中心继承逻辑优先取生效日期对应的岗位的默认成本中心，其次取部门的默认成本中心。</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("original_is_default_cost_center_inherited")]
+            public bool? OriginalIsDefaultCostCenterInherited { get; set; }
+
+            /// <summary>
+            /// <para>新默认成本中心是否继承 默认成本中心继承逻辑优先取生效日期对应的岗位的默认成本中心，其次取部门的默认成本中心。</para>
+            /// <para>- 功能灰度中，成本分摊功能灰度开放前无值。</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("target_is_default_cost_center_inherited")]
+            public bool? TargetIsDefaultCostCenterInherited { get; set; }
 
             /// <summary>
             /// <para>原职等， 可通过[查询单个职等](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job_grade/query)获取详情。</para>

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="Test_PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,6 +31,7 @@ public class Test_PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto : 
     "job_title": "高级Java",
     "resume_source": "内推",
     "stage": "简历初筛",
+    "talent_id": "6960663240925956459",
     "termination_reason": "不合适",
     "delivery_type": 1,
     "modify_time": 1618500278645,

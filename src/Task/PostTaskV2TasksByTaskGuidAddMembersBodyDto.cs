@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PostTaskV2TasksByTaskGuidAddMembersBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,7 +47,9 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>成员类型</para>
+        /// <para>成员类型, 可选值</para>
+        /// <para>* user</para>
+        /// <para>* app</para>
         /// <para>必填：否</para>
         /// <para>示例值：user</para>
         /// <para>默认值：user</para>
@@ -56,13 +58,23 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
         public string? Type { get; set; }
 
         /// <summary>
-        /// <para>成员的角色，支持"assignee"或"follower"。</para>
+        /// <para>成员的角色，可选值</para>
+        /// <para>* assignee</para>
+        /// <para>* follower</para>
         /// <para>必填：是</para>
         /// <para>示例值：assignee</para>
         /// <para>最大长度：20</para>
         /// </summary>
         [JsonPropertyName("role")]
         public string Role { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>成员名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：张明德（明德）</para>
+        /// </summary>
+        [JsonPropertyName("name")]
+        public string? Name { get; set; }
     }
 
     /// <summary>

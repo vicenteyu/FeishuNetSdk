@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-31
+// Last Modified On : 2025-07-02
 // ************************************************************************
 // <copyright file="PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -24,7 +24,7 @@ namespace FeishuNetSdk.Hire;
 public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
 {
     /// <summary>
-    /// <para>职位招聘类型</para>
+    /// <para>职位招聘类型。默认值为空</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">
@@ -60,6 +60,14 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     public string? Stage { get; set; }
 
     /// <summary>
+    /// <para>人才 ID，详情请查看：[获取人才信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent/get)</para>
+    /// <para>必填：是</para>
+    /// <para>示例值：6960663240925956459</para>
+    /// </summary>
+    [JsonPropertyName("talent_id")]
+    public string TalentId { get; set; } = string.Empty;
+
+    /// <summary>
     /// <para>终止原因</para>
     /// <para>必填：否</para>
     /// <para>示例值：不合适</para>
@@ -68,7 +76,7 @@ public record PutHireV1ExternalApplicationsByExternalApplicationIdBodyDto
     public string? TerminationReason { get; set; }
 
     /// <summary>
-    /// <para>投递类型</para>
+    /// <para>投递类型。默认值为空</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>可选值：<list type="bullet">

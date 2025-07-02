@@ -284,7 +284,7 @@ public record PostHireV1JobRequirementsBodyDto
     public string? JobTypeId { get; set; }
 
     /// <summary>
-    /// <para>关联的职位 ID 列表</para>
+    /// <para>关联的职位 ID 列表。注：若企业开启了“招聘需求审批”，未通过审批的需求无法关联职位，请勿传入该字段。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// </summary>

@@ -140,7 +140,7 @@ public record PostPerformanceV2MetricLibsQueryResponseDto : IPageableResponse<Po
             /// <para>可选值：<list type="bullet">
             /// <item>admin：管理员统一配置</item>
             /// <item>data_source_inputter：数据源录入人填写</item>
-            /// <item>reviewee：被评估人填写</item>
+            /// <item>reviewee：指标制定人填写</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("input_setting")]

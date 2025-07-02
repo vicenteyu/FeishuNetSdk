@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 更新招聘需求 请求体
-/// <para>更新指定招聘需求的信息，包含招聘需求的名称、状态、需求人数等。</para>
+/// <para>更新指定招聘需求的信息，包含招聘需求的名称、状态、需求人数等。（审批中的招聘需求无法更新）</para>
 /// <para>接口ID：6989078472837169155</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement%2fupdate</para>
