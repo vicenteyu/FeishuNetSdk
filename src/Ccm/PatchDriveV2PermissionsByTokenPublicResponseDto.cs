@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新云文档权限设置 响应体
-/// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
+/// <para>更新指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
 /// <para>接口ID：7224057619119128580</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/patch-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIzNzUjLyczM14iM3MTN%2fdrive-v2%2fpermission-public%2fpatch</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Ccm;
 public record PatchDriveV2PermissionsByTokenPublicResponseDto
 {
     /// <summary>
-    /// <para>本次更新后文档公共设置</para>
+    /// <para>本次更新后的文档权限设置。如权限设置未更新，则不返回对应参数。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("permission_public")]
     public PatchDriveV2PermissionsByTokenPublicResponseDtoPermissionPublic? PermissionPublic { get; set; }
 
     /// <summary>
-    /// <para>本次更新后文档公共设置</para>
+    /// <para>本次更新后的文档权限设置。如权限设置未更新，则不返回对应参数。</para>
     /// </summary>
     public record PatchDriveV2PermissionsByTokenPublicResponseDtoPermissionPublic
     {
@@ -38,9 +38,9 @@ public record PatchDriveV2PermissionsByTokenPublicResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：open</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>open：打开</item>
-        /// <item>closed：关闭</item>
-        /// <item>allow_share_partner_tenant：允许分享给关联组织</item>
+        /// <item>open：打开，即允许内容被分享到组织外</item>
+        /// <item>closed：关闭，即不允许内容被分享到组织外</item>
+        /// <item>allow_share_partner_tenant：仅允许分享给关联组织</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("external_access_entity")]
@@ -72,7 +72,7 @@ public record PatchDriveV2PermissionsByTokenPublicResponseDto
         public string? CommentEntity { get; set; }
 
         /// <summary>
-        /// <para>谁可以添加和管理协作者-组织维度</para>
+        /// <para>从组织维度，设置谁可以查看、添加、移除协作者</para>
         /// <para>必填：否</para>
         /// <para>示例值：anyone</para>
         /// <para>可选值：<list type="bullet">
@@ -105,8 +105,8 @@ public record PatchDriveV2PermissionsByTokenPublicResponseDto
         /// <item>tenant_editable：组织内获得链接的人可编辑</item>
         /// <item>partner_tenant_readable：关联组织的人可阅读</item>
         /// <item>partner_tenant_editable：关联组织的人可编辑</item>
-        /// <item>anyone_readable：互联网上获得链接的任何人可阅读（仅external_access_entity=“open”时有效）</item>
-        /// <item>anyone_editable：互联网上获得链接的任何人可编辑（仅external_access_entity=“open”时有效）</item>
+        /// <item>anyone_readable：互联网上获得链接的任何人可阅读（仅 external_access_entity=“open” 时有效）</item>
+        /// <item>anyone_editable：互联网上获得链接的任何人可编辑（仅 external_access_entity=“open” 时有效）</item>
         /// <item>closed：关闭链接分享</item>
         /// </list></para>
         /// </summary>
@@ -127,7 +127,12 @@ public record PatchDriveV2PermissionsByTokenPublicResponseDto
         public string? CopyEntity { get; set; }
 
         /// <summary>
-        /// <para>节点是否已加锁，加锁之后不再继承父级页面的权限</para>
+        /// <para>知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。</para>
+        /// <para>**枚举值有：**</para>
+        /// <para>- `true`: 已限制权限</para>
+        /// <para>- `false`: 未限制权限</para>
+        /// <para>**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。</para>
+        /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

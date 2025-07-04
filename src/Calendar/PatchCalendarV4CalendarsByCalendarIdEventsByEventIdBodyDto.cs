@@ -15,6 +15,13 @@ namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 更新日程 请求体
 /// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
+/// <para>## 前提条件</para>
+/// <para>- 当前身份由 Header Authorization 的 Token 类型决定。tenant_access_token 指应用身份，user_access_token 指用户身份。如果使用应用身份调用该接口，则需要确保应用开启了[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+/// <para>- 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取日历类型以及当前身份对该日历的访问权限。</para>
+/// <para>## 使用限制</para>
+/// <para>- 当前身份为日程组织者时，可修改该接口内的所有可编辑字段。</para>
+/// <para>- 当前身份为日程参与者时，仅可编辑部分字段（包括 visibility、free_busy_status、color、reminders）。</para>
+/// <para>- 重复日程如果存在例外日程，则可以通过该接口更新例外日程。如果重复日程没有例外日程，则无法通过该接口更新重复日程中的某一个日程。</para>
 /// <para>接口ID：6952888507003043867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2fpatch</para>
@@ -25,7 +32,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
     /// <para>日程标题。</para>
     /// <para>**默认值**：空，表示不更新该字段</para>
     /// <para>必填：否</para>
-    /// <para>示例值：日程标题</para>
+    /// <para>示例值：团队周会</para>
     /// <para>最大长度：1000</para>
     /// </summary>
     [JsonPropertyName("summary")]
@@ -36,7 +43,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
     /// <para>**注意**：目前 API 方式不支持编辑富文本描述。如果日程描述通过客户端编辑为富文本内容，则使用 API 更新描述会导致富文本格式丢失。</para>
     /// <para>**默认值**：空，表示不更新该字段</para>
     /// <para>必填：否</para>
-    /// <para>示例值：日程描述</para>
+    /// <para>示例值：讨论项目进展</para>
     /// <para>最大长度：40960</para>
     /// </summary>
     [JsonPropertyName("description")]
@@ -321,7 +328,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         /// <summary>
         /// <para>地点名称。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：地点名称</para>
+        /// <para>示例值：301会议室</para>
         /// <para>最大长度：512</para>
         /// <para>最小长度：1</para>
         /// </summary>
@@ -331,7 +338,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         /// <summary>
         /// <para>地点地址。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：地点地址</para>
+        /// <para>示例值：公司大楼三层</para>
         /// <para>最大长度：255</para>
         /// <para>最小长度：1</para>
         /// </summary>
@@ -482,7 +489,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
         /// <para>- `parent_node` 需传入与当前接口一致的日历 ID。</para>
         /// <para>**附件校验规则**：附件总大小不超过 25 MB。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xAAAAA</para>
+        /// <para>示例值：boxcnrHpsg1QDqXAAAyachaxxxx</para>
         /// </summary>
         [JsonPropertyName("file_token")]
         public string? FileToken { get; set; }

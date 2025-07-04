@@ -322,6 +322,7 @@ public record GetHireV1OfferApplicationFormsByOfferApplicationFormIdResponseDto
                     /// <item>amount：金额</item>
                     /// <item>formula：公式</item>
                     /// <item>boolean：布尔值</item>
+                    /// <item>file：附件</item>
                     /// <item>personnel_select：人员单选</item>
                     /// <item>personnel_multi_select：人员多选</item>
                     /// <item>city_single_select：城市单选</item>

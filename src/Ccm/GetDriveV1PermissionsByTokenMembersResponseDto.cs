@@ -13,10 +13,10 @@
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 获取协作者列表 响应体
-/// <para>该接口用于根据文件的 token 查询协作者。</para>
+/// 获取云文档协作者 响应体
+/// <para>获取指定云文档的协作者，支持查询人、群、组织架构、用户组、知识库成员五种类型的协作者。</para>
 /// <para>## 前提条件</para>
-/// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+/// <para>调用该接口前，你需确保当前应用或用户具有查看协作者的权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2flist</para>
@@ -114,7 +114,7 @@ public record GetDriveV1PermissionsByTokenMembersResponseDto
         /// <summary>
         /// <para>协作者的头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://foo.icon.com/xxxx</para>
+        /// <para>示例值：https://s3-imfile.feishucdn.com/static-resource/v1/v3_0061_b576862d-92e0-4abc-bbb5-6f78f927a61g~?image_size=72x72&amp;cut_type=default-face&amp;quality=&amp;format=jpeg&amp;sticker_format=.webp</para>
         /// </summary>
         [JsonPropertyName("avatar")]
         public string? Avatar { get; set; }

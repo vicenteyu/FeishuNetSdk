@@ -111,7 +111,7 @@ public record PostPerformanceV2AdditionalInformationsImportBodyDto
         /// <para>**注意**：若 `reviewee_user_id`、`item `、`time `、`detailed_description` 的参数组合在系统中已存在内容一致的补充消息时，将更新对应的补充消息数据</para>
         /// <para>必填：是</para>
         /// <para>示例值：销售额增长目标超额完成</para>
-        /// <para>最大长度：1000</para>
+        /// <para>最大长度：5000</para>
         /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("detailed_description")]

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Ccm;
 
 /// <summary>
-/// 测试 获取协作者列表 响应体
+/// 测试 获取云文档协作者 响应体
 /// <para>接口ID：7121656165336367106</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2flist</para>
@@ -38,7 +38,7 @@ public class Test_GetDriveV1PermissionsByTokenMembersResponseDto : TestBase
                 "perm_type": "container",
                 "type": "user",
                 "name": "zhangsan",
-                "avatar": "https://foo.icon.com/xxxx",
+                "avatar": "https://s3-imfile.feishucdn.com/static-resource/v1/v3_0061_b576862d-92e0-4abc-bbb5-6f78f927a61g~?image_size=72x72&cut_type=default-face&quality=&format=jpeg&sticker_format=.webp",
                 "external_label": true
             }
         ]

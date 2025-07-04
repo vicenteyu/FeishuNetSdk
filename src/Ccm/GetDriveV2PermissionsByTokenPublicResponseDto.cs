@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取云文档权限设置 响应体
-/// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
+/// <para>获取指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
 /// <para>接口ID：7224057619119112196</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/get-2</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuIzNzUjLyczM14iM3MTN%2fdrive-v2%2fpermission-public%2fget</para>
@@ -22,25 +22,25 @@ namespace FeishuNetSdk.Ccm;
 public record GetDriveV2PermissionsByTokenPublicResponseDto
 {
     /// <summary>
-    /// <para>返回的文档公共设置</para>
+    /// <para>返回的文档公共访问和协作权限设置</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("permission_public")]
     public GetDriveV2PermissionsByTokenPublicResponseDtoPermissionPublic? PermissionPublic { get; set; }
 
     /// <summary>
-    /// <para>返回的文档公共设置</para>
+    /// <para>返回的文档公共访问和协作权限设置</para>
     /// </summary>
     public record GetDriveV2PermissionsByTokenPublicResponseDtoPermissionPublic
     {
         /// <summary>
-        /// <para>允许内容被分享到组织外</para>
+        /// <para>允许内容被分享到组织外设置</para>
         /// <para>必填：否</para>
         /// <para>示例值：open</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>open：打开</item>
-        /// <item>closed：关闭</item>
-        /// <item>allow_share_partner_tenant：允许分享给关联组织</item>
+        /// <item>open：打开，即允许内容被分享到组织外</item>
+        /// <item>closed：关闭，即不允许内容被分享到组织外</item>
+        /// <item>allow_share_partner_tenant：仅允许内容分享给关联组织。了解关联组织，参考飞书帮助中心文档[关联组织介绍](https://www.feishu.cn/hc/zh-CN/articles/657083794612-%E5%85%B3%E8%81%94%E7%BB%84%E7%BB%87%E4%BB%8B%E7%BB%8D)。</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("external_access_entity")]
@@ -72,7 +72,7 @@ public record GetDriveV2PermissionsByTokenPublicResponseDto
         public string? CommentEntity { get; set; }
 
         /// <summary>
-        /// <para>谁可以添加和管理协作者-组织维度</para>
+        /// <para>从组织维度，设置谁可以查看、添加、移除协作者</para>
         /// <para>必填：否</para>
         /// <para>示例值：anyone</para>
         /// <para>可选值：<list type="bullet">
@@ -84,7 +84,7 @@ public record GetDriveV2PermissionsByTokenPublicResponseDto
         public string? ShareEntity { get; set; }
 
         /// <summary>
-        /// <para>谁可以添加和管理协作者-协作者维度</para>
+        /// <para>从协作者维度，设置谁可以查看、添加、移除协作者</para>
         /// <para>必填：否</para>
         /// <para>示例值：collaborator_can_view</para>
         /// <para>可选值：<list type="bullet">
@@ -103,10 +103,10 @@ public record GetDriveV2PermissionsByTokenPublicResponseDto
         /// <para>可选值：<list type="bullet">
         /// <item>tenant_readable：组织内获得链接的人可阅读</item>
         /// <item>tenant_editable：组织内获得链接的人可编辑</item>
-        /// <item>partner_tenant_readable：关联组织的人可阅读</item>
-        /// <item>partner_tenant_editable：关联组织的人可编辑</item>
-        /// <item>anyone_readable：互联网上获得链接的任何人可阅读（仅external_access=“open”时有效）</item>
-        /// <item>anyone_editable：互联网上获得链接的任何人可编辑（仅external_access=“open”时有效）</item>
+        /// <item>partner_tenant_readable：[关联组织](https://www.feishu.cn/hc/zh-CN/articles/657083794612-%E5%85%B3%E8%81%94%E7%BB%84%E7%BB%87%E4%BB%8B%E7%BB%8D)的人可阅读</item>
+        /// <item>partner_tenant_editable：[关联组织](https://www.feishu.cn/hc/zh-CN/articles/657083794612-%E5%85%B3%E8%81%94%E7%BB%84%E7%BB%87%E4%BB%8B%E7%BB%8D)的人可编辑</item>
+        /// <item>anyone_readable：互联网上获得链接的任何人可阅读（仅 external_access=“open” 时有效）</item>
+        /// <item>anyone_editable：互联网上获得链接的任何人可编辑（仅 external_access=“open” 时有效）</item>
         /// <item>closed：关闭链接分享</item>
         /// </list></para>
         /// </summary>
@@ -127,7 +127,12 @@ public record GetDriveV2PermissionsByTokenPublicResponseDto
         public string? CopyEntity { get; set; }
 
         /// <summary>
-        /// <para>节点是否已加锁，加锁之后不再继承父级页面的权限</para>
+        /// <para>知识库中的子页面是否已限制权限，不再继承父级页面的权限设置。</para>
+        /// <para>**枚举值有：**</para>
+        /// <para>- `true`: 已限制权限</para>
+        /// <para>- `false`: 未限制权限</para>
+        /// <para>**提示**：当知识库中的子页面权限范围小于父级页面时，该页面权限将默认限制权限。</para>
+        /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/a99780710c3f7e5e390280ff6d87fc47_HIjzKDxscr.png?maxWidth=200)</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

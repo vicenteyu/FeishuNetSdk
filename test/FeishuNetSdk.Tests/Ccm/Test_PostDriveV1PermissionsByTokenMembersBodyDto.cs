@@ -28,7 +28,7 @@ public class Test_PostDriveV1PermissionsByTokenMembersBodyDto : TestBase
         var json = """
 {
     "member_type": "openid",
-    "member_id": "ou_67e5ecb64ce1c0bd94612c17999db411",
+    "member_id": "ou_1234567890abcdef1234567890abcdef",
     "perm": "view",
     "perm_type": "container",
     "type": "user"

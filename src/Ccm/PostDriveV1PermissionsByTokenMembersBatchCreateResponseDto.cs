@@ -14,14 +14,15 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 批量增加协作者权限 响应体
-/// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+/// <para>为指定云文档批量添加多个协作者，协作者可以是用户、群组、部门、用户组等。</para>
+/// <para>## 前提条件</para>
+/// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的 **谁可以查看、添加、移除协作者** 等选项进行控制。</para>
+/// <para>- 调用该接口时，需要调用身份与被授权对象 **互相可见**，例如：</para>
+/// <para>- **添加用户协作者**：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+/// <para>- **添加群协作者**：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
+/// <para>- **添加部门协作者**：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
 /// <para>## 注意事项</para>
-/// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
-/// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
-/// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
-/// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
-/// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
-/// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
+/// <para>不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
 /// <para>接口ID：7281248568152981507</para>
 /// <para>文档地址：https://open.feishu.cn/document/docs/permission/permission-member/batch_create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fbatch_create</para>
@@ -29,7 +30,7 @@ namespace FeishuNetSdk.Ccm;
 public record PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto
 {
     /// <summary>
-    /// <para>增加成功的协作者列表</para>
+    /// <para>添加成功的协作者列表</para>
     /// <para>**注意**：当只有部分成功时，`members` 会返回成功的部分，在不同场景下，部分成功返回的错误码可能不同，请不要依赖错误码去判断是否为部分成功</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -37,7 +38,7 @@ public record PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto
     public BaseMember[]? Members { get; set; }
 
     /// <summary>
-    /// <para>增加成功的协作者列表</para>
+    /// <para>添加成功的协作者列表</para>
     /// <para>**注意**：当只有部分成功时，`members` 会返回成功的部分，在不同场景下，部分成功返回的错误码可能不同，请不要依赖错误码去判断是否为部分成功</para>
     /// </summary>
     public record BaseMember
@@ -63,7 +64,7 @@ public record PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto
         /// <summary>
         /// <para>增加成功的协作者 ID，与协作者 ID 类型相对应</para>
         /// <para>必填：是</para>
-        /// <para>示例值：string</para>
+        /// <para>示例值：ou_c186b6833e2d5faf2bc587e71ddabcef</para>
         /// </summary>
         [JsonPropertyName("member_id")]
         public string MemberId { get; set; } = string.Empty;
