@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 更新云文档权限设置 请求体
-/// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
+/// <para>更新指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
 /// <para>接口ID：6987581166854651905</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-public%2fpatch</para>
@@ -22,7 +22,10 @@ namespace FeishuNetSdk.Ccm;
 public record PatchDriveV1PermissionsByTokenPublicBodyDto
 {
     /// <summary>
-    /// <para>允许内容被分享到组织外</para>
+    /// <para>是否允许内容被分享到组织外。当云文档类型为 wiki 时，不支持传入该参数。</para>
+    /// <para>**可选值有：**</para>
+    /// <para>- `true`: 允许</para>
+    /// <para>- `false`: 不允许</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -55,7 +58,7 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     public string? CommentEntity { get; set; }
 
     /// <summary>
-    /// <para>谁可以添加和管理协作者</para>
+    /// <para>谁可以查看、添加、移除协作者。当云文档类型为 wiki 时，不支持传入该参数。</para>
     /// <para>必填：否</para>
     /// <para>示例值：anyone</para>
     /// <para>可选值：<list type="bullet">
@@ -68,14 +71,14 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     public string? ShareEntity { get; set; }
 
     /// <summary>
-    /// <para>链接分享设置</para>
+    /// <para>链接分享设置。</para>
     /// <para>必填：否</para>
     /// <para>示例值：tenant_readable</para>
     /// <para>可选值：<list type="bullet">
     /// <item>tenant_readable：组织内获得链接的人可阅读</item>
     /// <item>tenant_editable：组织内获得链接的人可编辑</item>
-    /// <item>anyone_readable：互联网上获得链接的任何人可阅读</item>
-    /// <item>anyone_editable：互联网上获得链接的任何人可编辑</item>
+    /// <item>anyone_readable：互联网上获得链接的任何人可阅读。当云文档类型为 wiki 时，不支持传入该值</item>
+    /// <item>anyone_editable：互联网上获得链接的任何人可编辑。当云文档类型为 wiki 时，不支持传入该值</item>
     /// <item>closed：关闭链接分享</item>
     /// </list></para>
     /// </summary>
@@ -83,7 +86,10 @@ public record PatchDriveV1PermissionsByTokenPublicBodyDto
     public string? LinkShareEntity { get; set; }
 
     /// <summary>
-    /// <para>允许非「可管理权限」的人分享到组织外</para>
+    /// <para>是否允许非「可管理权限」的人分享到组织外。当云文档类型为 wiki 时，不支持该参数。</para>
+    /// <para>**可选值有：**</para>
+    /// <para>- `true`: 允许</para>
+    /// <para>- `false`: 不允许</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>

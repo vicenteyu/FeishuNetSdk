@@ -27,8 +27,8 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto : T
     {
         var json = """
 {
-    "summary": "日程标题",
-    "description": "日程描述",
+    "summary": "团队周会",
+    "description": "讨论项目进展",
     "need_notification": false,
     "start_time": {
         "date": "2018-09-01",
@@ -60,8 +60,8 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto : T
     "attendee_ability": "can_see_others",
     "free_busy_status": "busy",
     "location": {
-        "name": "地点名称",
-        "address": "地点地址",
+        "name": "301会议室",
+        "address": "公司大楼三层",
         "latitude": 1.100000023841858,
         "longitude": 2.200000047683716
     },
@@ -81,7 +81,7 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto : T
     ],
     "attachments": [
         {
-            "file_token": "xAAAAA",
+            "file_token": "boxcnrHpsg1QDqXAAAyachaxxxx",
             "is_deleted": true
         }
     ],

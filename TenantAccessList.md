@@ -147,35 +147,35 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
 <tr><td rowspan="2">74</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
-<tr><td rowspan="2">75</td><td rowspan="2">2025-01-07</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
+<tr><td rowspan="2">75</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>转移云文档所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
-<tr><td rowspan="2">76</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
+<tr><td rowspan="2">76</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>判断用户云文档权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">77</td><td rowspan="2">2025-02-26</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
+<tr><td rowspan="2">77</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档协作者</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">78</td><td rowspan="2">2024-07-23</td><td><span style="color:red;">删除</span></td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
-<tr><td rowspan="2">79</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
+<tr><td rowspan="2">79</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">80</td><td rowspan="2">2024-09-14</td><td>&#10003;</td><td>通讯录</td><td>查询用户所属用户组</td></tr>
 <tr><td colspan="3">GetContactV3GroupMemberBelong</td></tr>
-<tr><td rowspan="2">81</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
+<tr><td rowspan="2">81</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
-<tr><td rowspan="2">82</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
+<tr><td rowspan="2">82</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>移除云文档协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
-<tr><td rowspan="2">83</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
+<tr><td rowspan="2">83</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>启用云文档密码</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">84</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>刷新密码</td></tr>
+<tr><td rowspan="2">84</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>刷新云文档密码</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">85</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>关闭密码</td></tr>
+<tr><td rowspan="2">85</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>停用云文档密码</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">86</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">86</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">87</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">87</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">88</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">88</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">89</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">89</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">90</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
@@ -499,7 +499,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">250</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">251</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
+<tr><td rowspan="2">251</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
 <tr><td rowspan="2">252</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -1993,7 +1993,7 @@
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">997</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询流程实例列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Processes</td></tr>
-<tr><td rowspan="2">998</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取单个流程详情</td></tr>
+<tr><td rowspan="2">998</td><td rowspan="2">2025-07-04</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取单个流程详情</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessId</td></tr>
 <tr><td rowspan="2">999</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询国籍信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoNationalitiesSearch</td></tr>
@@ -2175,13 +2175,13 @@
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
 <tr><td rowspan="2">1088</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>绩效</td><td>获取被评估人关键指标结果</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricDetailsQuery</td></tr>
-<tr><td rowspan="2">1089</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
+<tr><td rowspan="2">1089</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
 <tr><td rowspan="2">1090</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>绩效</td><td>批量删除补充信息</td></tr>
 <tr><td colspan="3">DeletePerformanceV2AdditionalInformationsBatch</td></tr>
 <tr><td rowspan="2">1091</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>绩效</td><td>批量查询补充信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2AdditionalInformationsQuery</td></tr>
-<tr><td rowspan="2">1092</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>绩效</td><td>批量导入补充信息</td></tr>
+<tr><td rowspan="2">1092</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>绩效</td><td>批量导入补充信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2AdditionalInformationsImport</td></tr>
 <tr><td rowspan="2">1093</td><td rowspan="2">2024-11-04</td><td>&#10003;</td><td>招聘</td><td>创建附件</td></tr>
 <tr><td colspan="3">PostHireV1Attachments</td></tr>
@@ -2283,7 +2283,7 @@
 <tr><td colspan="3">GetHireV1InterviewsGetByTalent</td></tr>
 <tr><td rowspan="2">1142</td><td rowspan="2">2025-03-13</td><td>&#10003;</td><td>招聘</td><td>获取面试登记表列表</td></tr>
 <tr><td colspan="3">GetHireV1InterviewRegistrationSchemas</td></tr>
-<tr><td rowspan="2">1143</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 申请表信息</td></tr>
+<tr><td rowspan="2">1143</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 申请表信息</td></tr>
 <tr><td colspan="3">GetHireV1OfferApplicationFormsByOfferApplicationFormId</td></tr>
 <tr><td rowspan="2">1144</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>招聘</td><td>获取笔试阅卷任务列表</td></tr>
 <tr><td colspan="3">GetHireV1ExamMarkingTasks</td></tr>
@@ -2633,25 +2633,25 @@
 <tr><td colspan="3">PostCorehrV2PreHiresRestoreFlowInstance</td></tr>
 <tr><td rowspan="2">1317</td><td rowspan="2">2025-02-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门操作日志</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryOperationLogs</td></tr>
-<tr><td rowspan="2">1318</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>新增组件</td></tr>
+<tr><td rowspan="2">1318</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>新增组件</td></tr>
 <tr><td colspan="3">PostCardkitV1CardsByCardIdElements</td></tr>
-<tr><td rowspan="2">1319</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>更新组件属性</td></tr>
+<tr><td rowspan="2">1319</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>更新组件属性</td></tr>
 <tr><td colspan="3">PatchCardkitV1CardsByCardIdElementsByElementId</td></tr>
-<tr><td rowspan="2">1320</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>删除组件</td></tr>
+<tr><td rowspan="2">1320</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>删除组件</td></tr>
 <tr><td colspan="3">DeleteCardkitV1CardsByCardIdElementsByElementId</td></tr>
-<tr><td rowspan="2">1321</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>更新卡片实体配置</td></tr>
+<tr><td rowspan="2">1321</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>更新卡片实体配置</td></tr>
 <tr><td colspan="3">PatchCardkitV1CardsByCardIdSettings</td></tr>
-<tr><td rowspan="2">1322</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>局部更新卡片实体</td></tr>
+<tr><td rowspan="2">1322</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>局部更新卡片实体</td></tr>
 <tr><td colspan="3">PostCardkitV1CardsByCardIdBatchUpdate</td></tr>
-<tr><td rowspan="2">1323</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>流式更新文本</td></tr>
+<tr><td rowspan="2">1323</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>流式更新文本</td></tr>
 <tr><td colspan="3">PutCardkitV1CardsByCardIdElementsByElementIdContent</td></tr>
-<tr><td rowspan="2">1324</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>全量更新卡片实体</td></tr>
+<tr><td rowspan="2">1324</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>全量更新卡片实体</td></tr>
 <tr><td colspan="3">PutCardkitV1CardsByCardId</td></tr>
 <tr><td rowspan="2">1325</td><td rowspan="2">2025-03-07</td><td>&#10003;</td><td>卡片</td><td><span style="color:red;">[不推荐]</span> 转换 ID</td></tr>
 <tr><td colspan="3">PostCardkitV1CardsIdConvert</td></tr>
-<tr><td rowspan="2">1326</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>创建卡片实体</td></tr>
+<tr><td rowspan="2">1326</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>创建卡片实体</td></tr>
 <tr><td colspan="3">PostCardkitV1Cards</td></tr>
-<tr><td rowspan="2">1327</td><td rowspan="2">2025-06-27</td><td>&#10003;</td><td>卡片</td><td>更新组件</td></tr>
+<tr><td rowspan="2">1327</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>更新组件</td></tr>
 <tr><td colspan="3">PutCardkitV1CardsByCardIdElementsByElementId</td></tr>
 <tr><td rowspan="2">1328</td><td rowspan="2">2025-01-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询当前生效信息发生变更的地点</td></tr>
 <tr><td colspan="3">GetCorehrV2LocationsQueryRecentChange</td></tr>

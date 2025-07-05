@@ -18,7 +18,6 @@ namespace FeishuNetSdk.Cardkit;
 /// <para>## 注意事项</para>
 /// <para>删除容器类组件时，容器中内嵌的组件将一并被删除。</para>
 /// <para>## 使用限制</para>
-/// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
 /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
 /// <para>接口ID：7397253002364600323</para>
@@ -38,7 +37,7 @@ public record DeleteCardkitV1CardsByCardIdElementsByElementIdBodyDto
     public string? Uuid { get; set; }
 
     /// <summary>
-    /// <para>卡片处于流式更新模式时，操作卡片的序号。用于保证多次更新的时序性。</para>
+    /// <para>操作卡片的序号。用于保证多次更新的时序性。</para>
     /// <para>**注意**：</para>
     /// <para>请确保在通过卡片 OpenAPI 操作同一张卡片时，sequence 的值相较于上一次操作严格递增。</para>
     /// <para>**数据校验规则**：int32 范围（ `1`~`2147483647`）内的正整数。</para>

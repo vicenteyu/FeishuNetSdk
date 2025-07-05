@@ -39,6 +39,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// <item>4：撤回</item>
     /// <item>8：撤销</item>
     /// <item>9：已完成</item>
+    /// <item>15：撤销中</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("status")]
@@ -623,7 +624,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// <summary>
     /// <para>普通流程或撤销流程等</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：2</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：普通流程</item>
     /// <item>2：撤销流程，返回这个属性的前提是在审批中心我发起的页面进行撤销操作</item>
@@ -974,7 +975,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     }
 
     /// <summary>
-    /// <para>更正流程原流程ID</para>
+    /// <para>更正或撤销流程的原流程ID</para>
     /// <para>必填：否</para>
     /// <para>示例值：7278949005675988535</para>
     /// </summary>

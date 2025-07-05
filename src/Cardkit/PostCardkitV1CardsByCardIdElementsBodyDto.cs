@@ -16,7 +16,6 @@ namespace FeishuNetSdk.Cardkit;
 /// 新增组件 请求体
 /// <para>为指定卡片实体新增组件，以扩展卡片内容，如在卡片中添加一个点击按钮。</para>
 /// <para>## 使用限制</para>
-/// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
 /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
 /// <para>接口ID：7397253002364551171</para>
@@ -73,7 +72,10 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     public int Sequence { get; set; }
 
     /// <summary>
-    /// <para>添加的组件列表。以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
+    /// <para>添加的组件列表。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 以下示例值未转义，使用时请注意将其转为 JSON 序列化后的字符串。</para>
+    /// <para>- 本参数仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>必填：是</para>
     /// <para>示例值：[{\"tag\":\"button\",\"element_id\":\"button_1\",\"text\":{\"tag\":\"plain_text\",\"content\":\"查看更多\"},\"type\":\"default\",\"width\":\"default\",\"size\":\"medium\",\"behaviors\":[{\"type\":\"open_url\",\"default_url\":\"https://open.feishu.cn/?lang=zh-CN\",\"pc_url\":\"\",\"ios_url\":\"\",\"android_url\":\"\"}]}]</para>
     /// <para>最大长度：1000000</para>

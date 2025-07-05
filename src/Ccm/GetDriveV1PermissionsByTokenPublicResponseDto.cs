@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取云文档权限设置 响应体
-/// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
+/// <para>获取指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者等设置。</para>
 /// <para>接口ID：7091106167506354178</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-public%2fget</para>
@@ -22,20 +22,20 @@ namespace FeishuNetSdk.Ccm;
 public record GetDriveV1PermissionsByTokenPublicResponseDto
 {
     /// <summary>
-    /// <para>返回的文档权限设置</para>
+    /// <para>返回的文档公共访问和协作权限设置</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("permission_public")]
     public GetDriveV1PermissionsByTokenPublicResponseDtoPermissionPublic? PermissionPublic { get; set; }
 
     /// <summary>
-    /// <para>返回的文档权限设置</para>
+    /// <para>返回的文档公共访问和协作权限设置</para>
     /// </summary>
     public record GetDriveV1PermissionsByTokenPublicResponseDtoPermissionPublic
     {
         /// <summary>
-        /// <para>允许内容被分享到组织外</para>
-        /// <para>**可选值有：**</para>
+        /// <para>是否允许内容被分享到组织外</para>
+        /// <para>**枚举值有：**</para>
         /// <para>- `true`: 允许</para>
         /// <para>- `false`: 不允许</para>
         /// <para>必填：否</para>
@@ -58,7 +58,7 @@ public record GetDriveV1PermissionsByTokenPublicResponseDto
         public string? SecurityEntity { get; set; }
 
         /// <summary>
-        /// <para>可评论设置</para>
+        /// <para>谁可以评论</para>
         /// <para>必填：否</para>
         /// <para>示例值：anyone_can_view</para>
         /// <para>可选值：<list type="bullet">
@@ -70,7 +70,7 @@ public record GetDriveV1PermissionsByTokenPublicResponseDto
         public string? CommentEntity { get; set; }
 
         /// <summary>
-        /// <para>谁可以添加和管理协作者</para>
+        /// <para>谁可以查看、添加、移除协作者</para>
         /// <para>必填：否</para>
         /// <para>示例值：anyone</para>
         /// <para>可选值：<list type="bullet">
@@ -98,7 +98,10 @@ public record GetDriveV1PermissionsByTokenPublicResponseDto
         public string? LinkShareEntity { get; set; }
 
         /// <summary>
-        /// <para>允许非「可管理权限」的人分享到组织外</para>
+        /// <para>是否允许非「可管理权限」的人分享到组织外</para>
+        /// <para>**枚举值有：**</para>
+        /// <para>- `true`: 允许</para>
+        /// <para>- `false`: 不允许</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -106,7 +109,10 @@ public record GetDriveV1PermissionsByTokenPublicResponseDto
         public bool? InviteExternal { get; set; }
 
         /// <summary>
-        /// <para>节点加锁状态</para>
+        /// <para>节点是否已加锁，加锁之后不再继承父级页面的权限。</para>
+        /// <para>**枚举值有：**</para>
+        /// <para>- `true`: 已加锁</para>
+        /// <para>- `false`: 未加锁</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

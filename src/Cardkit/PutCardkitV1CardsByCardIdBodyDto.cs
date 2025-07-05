@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Cardkit;
 /// <summary>
 /// 全量更新卡片实体 请求体
-/// <para>传入全新的卡片 JSON 数据，覆盖更新指定的卡片实体的所有内容。</para>
+/// <para>传入新的卡片 JSON 代码，覆盖更新指定的卡片实体的所有内容。</para>
 /// <para>## 使用限制</para>
 /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
 /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>

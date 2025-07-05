@@ -104,7 +104,7 @@ public record PostPerformanceV2AdditionalInformationsImportResponseDto
         /// <para>具体描述</para>
         /// <para>必填：是</para>
         /// <para>示例值：销售额增长目标超额完成</para>
-        /// <para>最大长度：1000</para>
+        /// <para>最大长度：5000</para>
         /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("detailed_description")]

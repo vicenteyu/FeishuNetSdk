@@ -30,7 +30,7 @@ public class Test_PostDriveV1PermissionsByTokenMembersBatchCreateBodyDto : TestB
     "members": [
         {
             "member_type": "openid",
-            "member_id": "string",
+            "member_id": "ou_1234567890abcdef1234567890abcdef",
             "perm": "view",
             "perm_type": "container",
             "type": "user"

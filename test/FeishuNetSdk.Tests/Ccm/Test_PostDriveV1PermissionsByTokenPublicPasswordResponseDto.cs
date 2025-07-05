@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Ccm;
 
 /// <summary>
-/// 测试 开启密码 响应体
+/// 测试 启用云文档密码 响应体
 /// <para>接口ID：7220305453616152580</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/permission-public-password/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-public-password%2fcreate</para>
@@ -30,7 +30,7 @@ public class Test_PostDriveV1PermissionsByTokenPublicPasswordResponseDto : TestB
     "code": 0,
     "msg": "success",
     "data": {
-        "password": "A8e6"
+        "password": "q79536&1"
     }
 }
 """;

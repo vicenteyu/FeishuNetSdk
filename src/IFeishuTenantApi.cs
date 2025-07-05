@@ -7021,6 +7021,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 当前身份由 Header Authorization 的 Token 类型决定。tenant_access_token 指应用身份，user_access_token 指用户身份。如果使用应用身份调用该接口，则需要确保应用开启了[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取日历类型以及当前身份对该日历的访问权限。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当前身份为日程组织者时，可修改该接口内的所有可编辑字段。</para>
+    /// <para>- 当前身份为日程参与者时，仅可编辑部分字段（包括 visibility、free_busy_status、color、reminders）。</para>
+    /// <para>- 重复日程如果存在例外日程，则可以通过该接口更新例外日程。如果重复日程没有例外日程，则无法通过该接口更新重复日程中的某一个日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar.event:update</item>
@@ -7032,16 +7039,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="calendar_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程所在的日历 ID。了解更多，参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
+    /// <para>日程所在的日历 ID。ID 获取方式：</para>
+    /// <para>- [创建共享日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/create)时，接口会返回日历 ID。</para>
+    /// <para>- 调用[查询主日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/primary)、[查询日历列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/list)或者[搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)接口，获取所需的日历 ID。</para>
+    /// <para>-</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="event_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>日程 ID。</para>
-    /// <para>创建日程时会返回日程 ID。你也可以调用以下接口获取某一日历的 ID。</para>
-    /// <para>- [获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)</para>
-    /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
+    /// <para>日程 ID。ID 获取方式：</para>
+    /// <para>- [创建日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/create)时，接口会返回日程 ID。</para>
+    /// <para>- 调用[获取日程列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/list)或者[搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)接口，获取所需的日程 ID。</para>
     /// <para>示例值：00592a0e-7edf-4678-bc9d-1b77383ef08e_0</para>
     /// </param>
     /// <param name="user_id_type">
@@ -13618,14 +13627,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6987581166854635521</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据云文档的 token 给用户增加文档的权限。</para>
+    /// <para>为指定云文档添加协作者，协作者可以是用户、群组、部门、用户组等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的 **谁可以查看、添加、移除协作者** 等选项进行控制。</para>
+    /// <para>- 调用该接口时，需要调用身份与被授权对象 **互相可见**，例如：</para>
+    /// <para>- **添加用户协作者**：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+    /// <para>- **添加群协作者**：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
+    /// <para>- **添加部门协作者**：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
     /// <para>## 注意事项</para>
-    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
-    /// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
-    /// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
-    /// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
-    /// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
-    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
+    /// <para>不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -13645,24 +13655,29 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>云文档类型，需要与云文档的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。</item>
+    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)</item>
     /// <item>mindnote：思维笔记</item>
-    /// <item>minutes：妙记</item>
+    /// <item>minutes：妙记。目前妙记还不支持 full_access 权限角色</item>
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效</para>
+    /// <para>添加权限后是否通知对方。</para>
+    /// <para>可选值：</para>
+    /// <para>- true：通知对方</para>
+    /// <para>- false：不通知</para>
+    /// <para>注意：</para>
+    /// <para>仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时，该参数有效。</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -13679,7 +13694,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6987581166854651905</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
+    /// <para>更新指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -13693,18 +13708,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
-    /// <item>wiki：知识库节点</item>
+    /// <item>wiki：知识库节点。该枚举值不支持以下设置： - `external_access`: 允许内容被分享到组织外 - `share_entity`: 谁可以添加协作者 - `invite_external`: 允许非「可管理权限」的人分享到组织外 - `link_share_entity`: 链接分享设置 - `anyone_readable`: 互联网上获得链接的人可阅读 - `anyone_editable`: 互联网上获得链接的人可编辑</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
     /// <item>mindnote：思维笔记</item>
@@ -13713,6 +13728,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    [Obsolete("历史版本")]
     [HttpPatch("/open-apis/drive/v1/permissions/{token}/public")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDriveV1PermissionsByTokenPublicResponseDto>> PatchDriveV1PermissionsByTokenPublicAsync(
         [PathQuery] string token,
@@ -15722,11 +15738,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】移除协作者权限</para>
+    /// <para>【云文档】移除云文档协作者权限</para>
     /// <para>接口ID：6998069547745214492</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 移除文档协作者的权限。</para>
+    /// <para>通过云文档 token 和协作者 ID 移除指定云文档协作者的权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -15741,27 +15757,27 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="member_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>协作者 ID，与协作者 ID 类型需要对应</para>
-    /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
+    /// <para>协作者 ID，与协作者 ID 类型（member_type）需要对应。</para>
+    /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad5abcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹</item>
+    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)</item>
     /// <item>mindnote：思维笔记</item>
     /// <item>minutes：妙记</item>
     /// <item>slides：幻灯片</item>
@@ -15769,17 +15785,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="member_type">
     /// <para>必填：是</para>
-    /// <para>协作者 ID 类型，与协作者 ID 需要对应</para>
+    /// <para>协作者 ID 类型，与协作者 ID （member_id）需要对应。</para>
     /// <para>示例值：openid</para>
     /// <list type="bullet">
     /// <item>email：邮箱地址</item>
-    /// <item>openid：开放平台 ID</item>
-    /// <item>openchat：开放平台群组 ID</item>
-    /// <item>opendepartmentid：开放平台部门 ID</item>
-    /// <item>userid：用户自定义 ID</item>
-    /// <item>unionid：开放平台 UnionID</item>
-    /// <item>groupid：自定义用户组 ID</item>
-    /// <item>wikispaceid：知识空间 ID - **注意**：仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数</item>
+    /// <item>openid：开放平台 Open ID - 获取应用 OpenID，参考[如何获取应用 open_id](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#6dbaa8df) - 获取用户 OpenID，参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>openchat：开放平台群组 ID。获取方式参考[群 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)</item>
+    /// <item>opendepartmentid：开放平台部门 ID。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。获取方式参考[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)</item>
+    /// <item>userid：用户 ID。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>unionid：开放平台 Union ID。获取方式参考[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)</item>
+    /// <item>groupid：自定义用户组 ID。获取方式参考[用户组资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/group/overview)</item>
+    /// <item>wikispaceid：知识空间 ID。仅知识库文档支持该参数，当需要操作知识库文档里的「知识库成员」类型协作者时传该参数。获取方式参考[知识库概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -15796,7 +15812,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6998069547745230876</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 更新文档协作者的权限。</para>
+    /// <para>更新指定云文档中指定协作者的权限，包括可阅读、可编辑、可管理权限。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 该接口要求文档协作者已存在（可通过[获取协作者列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/list)确认）。如还未对文档协作者授权请先调用[「增加协作者权限」 ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-member/create)接口进行授权。</para>
+    /// <para>调用该接口需要调用身份有该云文档管理权限。</para>
+    /// <para>- 调用该接口时，需要调用身份与被授权对象 **互相可见**，例如：</para>
+    /// <para>- **为用户更新权限**：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+    /// <para>- **为群更新权限**：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
+    /// <para>- **为部门更新权限**：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -15811,28 +15834,29 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
     /// </param>
     /// <param name="member_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>协作者 ID，与协作者 ID 类型需要对应</para>
+    /// <para>协作者 ID，该 ID 的类型与 member_type 指定的值需要保持一致。</para>
     /// <para>示例值：ou_7dab8a3d3cdcc9da365777c7ad535d62</para>
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>更新权限后是否通知对方</para>
-    /// <para>**注意：** 使用`tenant_access_token`访问不支持该参数</para>
+    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。可选值：</para>
+    /// <para>- true：通知对方</para>
+    /// <para>- false：不通知</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -23861,7 +23885,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7091106167506354178</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
+    /// <para>获取指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者等设置。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -23876,15 +23900,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -23895,6 +23919,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    [Obsolete("历史版本")]
     [HttpGet("/open-apis/drive/v1/permissions/{token}/public")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenPublicResponseDto>> GetDriveV1PermissionsByTokenPublicAsync(
         [PathQuery] string token,
@@ -27652,13 +27677,13 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】获取协作者列表</para>
+    /// <para>【云文档】获取云文档协作者</para>
     /// <para>接口ID：7121656165336367106</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件的 token 查询协作者。</para>
+    /// <para>获取指定云文档的协作者，支持查询人、群、组织架构、用户组、知识库成员五种类型的协作者。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用该接口前，你需确保当前应用或用户具有文档的分享权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
+    /// <para>调用该接口前，你需确保当前应用或用户具有查看协作者的权限。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -27678,15 +27703,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -27699,13 +27724,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="fields">
     /// <para>必填：否</para>
-    /// <para>指定返回的协作者字段信息，如无指定则默认不返回</para>
+    /// <para>指定返回的协作者字段信息，如无指定则默认不返回。</para>
     /// <para>**可选值有：**</para>
     /// <para>- `name`：协作者名</para>
     /// <para>- `type`：协作者类型</para>
     /// <para>- `avatar`：头像</para>
     /// <para>- `external_label`：外部标签</para>
-    /// <para>**注意：**</para>
+    /// <para>**注意**：</para>
     /// <para>- 你可以使用特殊值`*`指定返回目前支持的所有字段</para>
     /// <para>- 你可以使用`,`分隔若干个你想指定返回的字段，如：`name,avatar`</para>
     /// <para>- 按需指定返回字段接口性能更好</para>
@@ -27714,7 +27739,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="perm_type">
     /// <para>必填：否</para>
-    /// <para>协作者的权限角色类型</para>
+    /// <para>协作者的权限角色类型。当云文档类型为 wiki 即知识库节点时，该参数有效。</para>
+    /// <para>**默认值**：container</para>
     /// <para>示例值：container</para>
     /// <list type="bullet">
     /// <item>container：当前页面及子页面</item>
@@ -30771,11 +30797,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? effective_time = null);
 
     /// <summary>
-    /// <para>【云文档】转移所有者</para>
+    /// <para>【云文档】转移云文档所有者</para>
     /// <para>接口ID：7186547801970507777</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/transfer_owner</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据云文档 token 和用户信息转移文件的所有者。</para>
+    /// <para>转移指定云文档的所有者。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -30789,15 +30815,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
     /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -30811,25 +30837,36 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>是否需要通知新的文件所有者</para>
+    /// <para>是否需要通知新的文件所有者。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。可选值：</para>
+    /// <para>- `true`：通知对方</para>
+    /// <para>- `false`：不通知</para>
     /// <para>示例值：true</para>
     /// <para>默认值：true</para>
     /// </param>
     /// <param name="remove_old_owner">
     /// <para>必填：否</para>
-    /// <para>转移后是否需要移除原文件所有者的权限</para>
+    /// <para>转移后是否需要移除原云文档所有者的权限。可选值：</para>
+    /// <para>- `true`：移除原所有者权限</para>
+    /// <para>- `false`：不移除原所有者权限</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
     /// <param name="stay_put">
     /// <para>必填：否</para>
-    /// <para>仅当文件在个人文件夹下，此参数才会生效。如果设为`false`，系统会将该内容移至新所有者的空间下。如果设为`true`，则留在原位置。</para>
+    /// <para>在个人文件夹下的云文档是否仍留在原所有者个人文件夹下。可选值：</para>
+    /// <para>- `true`：云文档留在原位置不变</para>
+    /// <para>- `false`：系统会将该内容移至新所有者的空间下</para>
+    /// <para>**注意**：仅当云文档在个人文件夹下时参数生效。</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
     /// <param name="old_owner_perm">
     /// <para>必填：否</para>
-    /// <para>仅当 remove_old_owner = false 时，此参数才会生效 保留原文件所有者指定的权限角色</para>
+    /// <para>为原云文档所有者保留的具体权限。可选值：</para>
+    /// <para>- `view`：可阅读角色</para>
+    /// <para>- `edit`：可编辑角色</para>
+    /// <para>- `full_access`：可管理角色</para>
+    /// <para>**注意**：仅当 `remove_old_owner` 为 `false` 时，此参数才会生效。</para>
     /// <para>示例值：view</para>
     /// <para>默认值：full_access</para>
     /// </param>
@@ -30845,11 +30882,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? old_owner_perm = "full_access");
 
     /// <summary>
-    /// <para>【云文档】判断当前用户是否有某权限</para>
+    /// <para>【云文档】判断用户云文档权限</para>
     /// <para>接口ID：7186547801970524161</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/auth</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 判断当前登录用户是否具有某权限。</para>
+    /// <para>判断当前请求的应用或用户是否具有指定云文档的指定权限，权限包括阅读、编辑、分享、评论、导出等权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:app</item>
     /// <item>bitable:bitable</item>
@@ -30863,15 +30900,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -33648,11 +33685,13 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Hire.PatchHireV1OffersByOfferIdOfferStatusBodyDto dto);
 
     /// <summary>
-    /// <para>【云文档】开启密码</para>
+    /// <para>【云文档】启用云文档密码</para>
     /// <para>接口ID：7220305453616152580</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/permission-public-password/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 开启云文档的密码。</para>
+    /// <para>启用指定云文档的密码。密码启用后，组织外用户需要密码访问，组织内用户无需密码可直接访问。</para>
+    /// <para>## 注意事项</para>
+    /// <para>要启用密码，必须先确保云文档权限中的 **链接分享** 设置为“互联网获得链接的人可编辑/可阅读”。你可通过[更新云文档权限设置](https://open.feishu.cn/document/ukTMukTMukTM/uIzNzUjLyczM14iM3MTN/drive-v2/permission-public/patch)接口设置。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -33665,15 +33704,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -33690,11 +33729,13 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string type);
 
     /// <summary>
-    /// <para>【云文档】刷新密码</para>
+    /// <para>【云文档】刷新云文档密码</para>
     /// <para>接口ID：7220305453616168964</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/permission-public-password/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 刷新云文档的密码。</para>
+    /// <para>刷新指定云文档的密码。密码刷新后，旧密码将失效，并生成新密码。</para>
+    /// <para>## 注意事项</para>
+    /// <para>要刷新密码，必须先确保指定云文档已有密码。你可通过[启用云文档密码](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/permission-public-password/create)接口启用密码。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -33707,15 +33748,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -33732,11 +33773,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string type);
 
     /// <summary>
-    /// <para>【云文档】关闭密码</para>
+    /// <para>【云文档】停用云文档密码</para>
     /// <para>接口ID：7220305453616185348</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/permission-public-password/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 关闭云文档的密码。</para>
+    /// <para>停用指定云文档的密码。密码停用后，组织外用户访问文档将无需输入密码。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -33749,15 +33790,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -33820,7 +33861,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7224057619119112196</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/get-2</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
+    /// <para>获取指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -33836,15 +33877,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：旧版文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -33865,7 +33906,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7224057619119128580</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/permission/permission-public/patch-2</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 更新云文档的权限设置。</para>
+    /// <para>更新指定云文档的权限设置，包括是否允许内容被分享到组织外、谁可以查看、添加、移除协作者、谁可以复制内容等设置。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>bitable:bitable</item>
     /// <item>docs:doc</item>
@@ -33880,15 +33921,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="token">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
-    /// <para>示例值：doccnBKgoMyY5OMbUG6FioTXuBe</para>
+    /// <para>云文档的 token，需要与 type 参数指定的云文档类型相匹配。可参考[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
+    /// <para>示例值：doccnBKgoMyY5OMbUG6Fioabcef</para>
     /// </param>
     /// <param name="type">
     /// <para>必填：是</para>
-    /// <para>文件类型，需要与文件的 token 相匹配</para>
-    /// <para>示例值：doc</para>
+    /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
+    /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：旧版文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
@@ -39463,14 +39504,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7281248568152981507</para>
     /// <para>接口文档：https://open.feishu.cn/document/docs/permission/permission-member/batch_create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口可根据云文档 token 批量将用户添加为云文档的协作者。</para>
+    /// <para>为指定云文档批量添加多个协作者，协作者可以是用户、群组、部门、用户组等。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的 **谁可以查看、添加、移除协作者** 等选项进行控制。</para>
+    /// <para>- 调用该接口时，需要调用身份与被授权对象 **互相可见**，例如：</para>
+    /// <para>- **添加用户协作者**：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
+    /// <para>- **添加群协作者**：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
+    /// <para>- **添加部门协作者**：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
     /// <para>## 注意事项</para>
-    /// <para>- 调用该接口需要调用身份有该云文档添加协作者的权限。添加协作者的权限可通过云文档设置中的「谁可以查看、添加、移除协作者」等选项进行控制。</para>
-    /// <para>- 调用该接口时，需要调用身份与被授权对象满足 **可见性** ，例如：</para>
-    /// <para>- 添加用户协作者：需要调用身份与被授权对象为联系人或同组织内可搜索，且互相未屏蔽。</para>
-    /// <para>- 添加群协作者：需要调用身份在群内。要使用 `tenant_access_token` 身份添加群协作者，则需要将该应用作为机器人添加至群组中，使应用对群可见。</para>
-    /// <para>- 添加部门协作者：需要调用身份对部门可见。由于应用对企业内的组织架构都不可见，所以暂不支持通过 `tenant_access_token` 添加部门协作者。</para>
-    /// <para>- 目前不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。</para>
+    /// <para>不支持将应用直接添加到文件夹作为协作者（添加成功后实际仍然没有权限）。如果希望给应用授予文件夹的权限，请将应用作为群机器人添加到群组内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:permission.member</item>
     /// <item>docs:permission.member:create</item>
@@ -39487,21 +39529,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>云文档类型，需要与云文档的 token 相匹配。</para>
     /// <para>示例值：docx</para>
     /// <list type="bullet">
-    /// <item>doc：旧版文档</item>
+    /// <item>doc：旧版文档。了解更多，参考[新旧版本文档说明](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/docs/upgraded-docs-access-guide/upgraded-docs-openapi-access-guide)。</item>
     /// <item>sheet：电子表格</item>
     /// <item>file：云空间文件</item>
     /// <item>wiki：知识库节点</item>
     /// <item>bitable：多维表格</item>
     /// <item>docx：新版文档</item>
-    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。</item>
+    /// <item>folder：文件夹。使用 &lt;md-tag mode="inline" type="token-tenant"&gt;tenant_access_token&lt;/md-tag&gt; 调用时，需确保文件夹所有者为应用或应用拥有文件夹的可管理权限，你需要将应用作为群机器人添加至群内，然后授予该群组可管理权限。详细步骤参考[如何为应用开通云文档相关资源的权限](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-add-permissions-to-app)</item>
     /// <item>mindnote：思维笔记</item>
-    /// <item>minutes：妙记。目前妙记还不支持 `full_access` 权限角色</item>
+    /// <item>minutes：妙记。目前妙记还不支持 full_access 权限角色</item>
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
     /// <param name="need_notification">
     /// <para>必填：否</para>
-    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。</para>
+    /// <para>添加权限后是否通知对方。仅当使用 &lt;md-tag mode="inline" type="token-user"&gt;user_access_token&lt;/md-tag&gt; 调用时有效。可选值：</para>
+    /// <para>- true：通知对方</para>
+    /// <para>- false：不通知</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
     /// </param>
@@ -46285,7 +46329,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>为指定卡片实体新增组件，以扩展卡片内容，如在卡片中添加一个点击按钮。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
@@ -46312,7 +46355,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>通过传入 `card_id`（卡片实体 ID）和 `element_id`（组件 ID），更新卡片实体中对应组件的属性。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口不支持修改组件的标签（tag）属性。</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
@@ -46347,7 +46389,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>删除容器类组件时，容器中内嵌的组件将一并被删除。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
@@ -46380,7 +46421,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>更新指定卡片实体的配置，支持卡片配置 `config` 字段和卡片跳转链接 `card_link` 字段。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">
@@ -46430,15 +46470,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364649475</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/content</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。参考[流式更新卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/streaming-updates-openapi-overview)，了解流式更新文本的完整流程。</para>
+    /// <para>对卡片中的普通文本元素（tag 为 plain_text 的元素）或富文本组件（tag 为 markdown 的组件）传入全量文本内容，以实现“打字机”式的文字输出效果。</para>
     /// <para>## 输出效果说明</para>
-    /// <para>若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。</para>
+    /// <para>若旧文本为传入的新文本的前缀子串，新增文本将在旧文本末尾继续以打字机效果输出；若新旧文本前缀不同，全量文本将直接上屏输出，无打字机效果。参考[流式更新卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/streaming-updates-openapi-overview)，了解流式更新文本的效果和完整流程。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 对于搭建工具中的卡片，仅支持对富文本组件中的内容进行流式更新，不支持对普通文本元素进行文本流式更新。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>## 前提条件</para>
-    /// <para>调用该接口时，需确保已开启卡片的流式更新模式，即将 `streaming_mode` 设为 `true`。</para>
+    /// <para>调用该接口时，需确保已开启卡片的流式更新模式：</para>
+    /// <para>- 在卡片 JSON 中，将 `streaming_mode` 设为 `true`</para>
+    /// <para>- 或在卡片搭建工具中，在设置中开启流式更新模式：</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
     /// </list></para>
@@ -46452,7 +46494,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="element_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>普通文本组件或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性，由开发者自定义。</para>
+    /// <para>卡片实体中，普通文本元素或富文本组件的 ID。对应卡片 JSON 中的 `element_id` 属性或搭建工具中的组件 ID 属性，由开发者自定义。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。</para>
+    /// <para>- 对于搭建工具中的卡片，此处仅支持传入富文本组件的组件 ID。即仅支持对富文本组件中的内容进行流式更新。</para>
     /// <para>示例值：markdown_1</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -46467,7 +46512,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397253002364682243</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/update</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>传入全新的卡片 JSON 数据，覆盖更新指定的卡片实体的所有内容。</para>
+    /// <para>传入新的卡片 JSON 代码，覆盖更新指定的卡片实体的所有内容。</para>
     /// <para>## 使用限制</para>
     /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
@@ -46479,7 +46524,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="card_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取</para>
+    /// <para>卡片实体 ID。通过[创建卡片实体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/cardkit-v1/card/create)获取。</para>
     /// <para>示例值：7355372766134157313</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -46510,10 +46555,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7397265677100974083</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>基于卡片 JSON 代码，创建卡片实体。用于后续通过卡片实体 ID（card_id）发送卡片、更新卡片等。</para>
+    /// <para>基于卡片 JSON 代码或卡片搭建工具搭建的卡片，创建卡片实体。用于后续通过卡片实体 ID（card_id）发送卡片、更新卡片等。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)或卡片搭建工具搭建的[新版卡片](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/feishu-card-cardkit/cardkit-upgraded-version-card-release-notes)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
+    /// <para>- 一个卡片实体，仅支持发送一次。</para>
     /// <para>- 卡片实体的有效期为 14 天。即创建卡片实体超出 14 天后，你将无法调用相关接口操作卡片。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>cardkit:card:write</item>
@@ -46531,7 +46577,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>更新卡片实体中的指定组件为新组件。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 本接口仅支持[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
     /// <para>- 调用该接口时，不支持将卡片设置为独享卡片模式。即不支持将卡片 JSON 数据中的 `update_multi` 属性设置为 `false`。</para>
     /// <para>- 调用该接口的应用身份（tenant_access_token）需与创建目标卡片实体的应用身份一致。</para>
     /// <para>权限要求：<list type="bullet">

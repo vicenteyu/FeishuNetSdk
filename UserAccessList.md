@@ -339,7 +339,7 @@
 <tr><td colspan="3">PutImV1ChatsByChatIdModeration</td></tr>
 <tr><td rowspan="2">170</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">171</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
+<tr><td rowspan="2">171</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
 <tr><td rowspan="2">172</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -925,35 +925,35 @@
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersionsByVersionId</td></tr>
 <tr><td rowspan="2">463</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>云文档</td><td>获取文档版本列表</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenVersions</td></tr>
-<tr><td rowspan="2">464</td><td rowspan="2">2025-01-07</td><td>&#10003;</td><td>云文档</td><td>转移所有者</td></tr>
+<tr><td rowspan="2">464</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>转移云文档所有者</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersTransferOwner</td></tr>
-<tr><td rowspan="2">465</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>云文档</td><td>判断当前用户是否有某权限</td></tr>
+<tr><td rowspan="2">465</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>判断用户云文档权限</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembersAuth</td></tr>
-<tr><td rowspan="2">466</td><td rowspan="2">2025-02-26</td><td>&#10003;</td><td>云文档</td><td>获取协作者列表</td></tr>
+<tr><td rowspan="2">466</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档协作者</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenMembers</td></tr>
 <tr><td rowspan="2">467</td><td rowspan="2">2024-07-23</td><td><span style="color:red;">删除</span></td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取协作者列表</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberList</td></tr>
-<tr><td rowspan="2">468</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
+<tr><td rowspan="2">468</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembers</td></tr>
-<tr><td rowspan="2">469</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
+<tr><td rowspan="2">469</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>更新协作者权限</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenMembersByMemberId</td></tr>
 <tr><td rowspan="2">470</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>通讯录</td><td>获取父部门信息</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsParent</td></tr>
-<tr><td rowspan="2">471</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移除协作者权限</td></tr>
+<tr><td rowspan="2">471</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>移除云文档协作者权限</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenMembersByMemberId</td></tr>
-<tr><td rowspan="2">472</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>开启密码</td></tr>
+<tr><td rowspan="2">472</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>启用云文档密码</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">473</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>刷新密码</td></tr>
+<tr><td rowspan="2">473</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>刷新云文档密码</td></tr>
 <tr><td colspan="3">PutDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">474</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>云文档</td><td>关闭密码</td></tr>
+<tr><td rowspan="2">474</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>停用云文档密码</td></tr>
 <tr><td colspan="3">DeleteDriveV1PermissionsByTokenPublicPassword</td></tr>
-<tr><td rowspan="2">475</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">475</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">476</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">476</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV1PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">477</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
+<tr><td rowspan="2">477</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置</td></tr>
 <tr><td colspan="3">GetDriveV2PermissionsByTokenPublic</td></tr>
-<tr><td rowspan="2">478</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
+<tr><td rowspan="2">478</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>更新云文档权限设置</td></tr>
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">479</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
@@ -1023,7 +1023,7 @@
 <tr><td colspan="3">PostPerformanceV2MetricTemplatesQuery</td></tr>
 <tr><td rowspan="2">512</td><td rowspan="2">2024-07-10</td><td><span style="color:red;">删除</span></td><td>绩效</td><td>获取指标字段信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricFieldsQuery</td></tr>
-<tr><td rowspan="2">513</td><td rowspan="2">2024-11-06</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
+<tr><td rowspan="2">513</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>云文档</td><td>批量增加协作者权限</td></tr>
 <tr><td colspan="3">PostDriveV1PermissionsByTokenMembersBatchCreate</td></tr>
 <tr><td rowspan="2">514</td><td rowspan="2">2024-07-25</td><td>&#10003;</td><td>日历</td><td>创建会议纪要</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>

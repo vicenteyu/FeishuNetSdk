@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 移除协作者权限 请求体
-/// <para>该接口用于根据文件的 token 移除文档协作者的权限。</para>
+/// 移除云文档协作者权限 请求体
+/// <para>通过云文档 token 和协作者 ID 移除指定云文档协作者的权限。</para>
 /// <para>接口ID：6998069547745214492</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/permission/permission-member/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fpermission-member%2fdelete</para>
@@ -32,16 +32,16 @@ public record DeleteDriveV1PermissionsByTokenMembersByMemberIdBodyDto
     /// <item>chat：群组</item>
     /// <item>department：组织架构</item>
     /// <item>group：用户组</item>
-    /// <item>wiki_space_member：知识库成员 - **注意**：在知识库启用了成员分组功能后不支持该参数</item>
-    /// <item>wiki_space_viewer：知识库可阅读成员 - **注意**：仅在知识库启用了成员分组功能后才支持该参数</item>
-    /// <item>wiki_space_editor：知识库可编辑成员 - **注意**：仅在知识库启用了成员分组功能后才支持该参数</item>
+    /// <item>wiki_space_member：知识库成员。在知识库启用了成员分组功能后不支持该参数</item>
+    /// <item>wiki_space_viewer：知识库可阅读成员。仅在知识库启用了成员分组功能后才支持该参数</item>
+    /// <item>wiki_space_editor：知识库可编辑成员。仅在知识库启用了成员分组功能后才支持该参数</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("type")]
     public string? Type { get; set; }
 
     /// <summary>
-    /// <para>协作者的权限角色类型</para>
+    /// <para>协作者的权限角色类型。当云文档类型为 wiki 即知识库节点时，该参数有效。</para>
     /// <para>必填：否</para>
     /// <para>示例值：container</para>
     /// <para>可选值：<list type="bullet">

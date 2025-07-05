@@ -33,7 +33,7 @@ public class Test_PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto : T
         "members": [
             {
                 "member_type": "openid",
-                "member_id": "string",
+                "member_id": "ou_c186b6833e2d5faf2bc587e71ddabcef",
                 "perm": "view",
                 "perm_type": "container",
                 "type": "user"

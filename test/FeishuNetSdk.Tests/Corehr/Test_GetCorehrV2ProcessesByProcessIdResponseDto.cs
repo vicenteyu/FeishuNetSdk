@@ -134,7 +134,7 @@ public class Test_GetCorehrV2ProcessesByProcessIdResponseDto : TestBase
                 "approval_opinion": "审批意见"
             }
         ],
-        "properties": 1,
+        "properties": 2,
         "system_todos": [
             {
                 "approver_id": "7278949005675988535",

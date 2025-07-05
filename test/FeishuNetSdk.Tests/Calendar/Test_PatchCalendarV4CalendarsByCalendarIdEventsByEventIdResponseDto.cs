@@ -33,8 +33,8 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         "event": {
             "event_id": "00592a0e-7edf-4678-bc9d-1b77383ef08e_0",
             "organizer_calendar_id": "feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn",
-            "summary": "日程标题",
-            "description": "日程描述",
+            "summary": "团队周会",
+            "description": "讨论项目进展",
             "start_time": {
                 "date": "2018-09-01",
                 "timestamp": "1602504000",
@@ -66,8 +66,8 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             "attendee_ability": "can_see_others",
             "free_busy_status": "busy",
             "location": {
-                "name": "地点名称",
-                "address": "地点地址",
+                "name": "301会议室",
+                "address": "公司大楼三层",
                 "latitude": 1.100000023841858,
                 "longitude": 2.200000047683716
             },
@@ -93,10 +93,10 @@ public class Test_PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
                 "user_id": "ou_xxxxxx",
                 "display_name": "孙二二"
             },
-            "app_link": "https://applink.larkoffice.com/client/calendar/event/detail?calendarId=7039673579105026066&key=aeac9c56-aeb1-4179-a21b-02f278f59048&originalTime=0&startTime=1700496000",
+            "app_link": "https://applink.feishu.cn/client/calendar/event/detail?calendarId=xxxxxx&key=xxxxxx&originalTime=xxxxxx&startTime=xxxxxx",
             "attachments": [
                 {
-                    "file_token": "xAAAAA",
+                    "file_token": "boxcnrHpsg1QDqXAAAyachaxxxx",
                     "file_size": "2345",
                     "is_deleted": false,
                     "name": "附件.jpeg"
