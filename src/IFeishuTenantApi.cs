@@ -41365,7 +41365,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7317581509003771908</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_department_change_list_by_ids</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据部门调整记录 ID 批量查询部门调整内容</para>
+    /// <para>根据部门调整记录 ID 批量查询部门调整内容，如：部门调整类型、部门调整前后名称、部门调整前后角色信息 等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:approval_groups.orgdraft_department_change:read</item>
     /// </list></para>
@@ -41377,7 +41377,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="process_id">
     /// <para>必填：是</para>
     /// <para>组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书 人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成 一个或多个审批单据。</para>
-    /// <para>示例值：6893014062142064111</para>
+    /// <para>示例值：6893014062142064211</para>
     /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>

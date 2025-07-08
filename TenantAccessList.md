@@ -249,7 +249,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrepend</td></tr>
 <tr><td rowspan="2">125</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>更新人员类型</td></tr>
 <tr><td colspan="3">PutContactV3EmployeeTypeEnumsByEnumId</td></tr>
-<tr><td rowspan="2">126</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
+<tr><td rowspan="2">126</td><td rowspan="2">2025-07-07</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
 <tr><td rowspan="2">127</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
@@ -2511,7 +2511,7 @@
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
 <tr><td rowspan="2">1256</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
-<tr><td rowspan="2">1257</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
+<tr><td rowspan="2">1257</td><td rowspan="2">2025-07-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
 <tr><td rowspan="2">1258</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIds</td></tr>

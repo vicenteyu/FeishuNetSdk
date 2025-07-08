@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询部门调整内容 响应体
-/// <para>根据部门调整记录 ID 批量查询部门调整内容</para>
+/// <para>根据部门调整记录 ID 批量查询部门调整内容，如：部门调整类型、部门调整前后名称、部门调整前后角色信息 等</para>
 /// <para>接口ID：7317581509003771908</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_department_change_list_by_ids</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapproval_groups%2fopen_query_department_change_list_by_ids</para>
@@ -55,7 +55,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
         /// <summary>
         /// <para>调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为 td_xxx 的过程部门 ID，生效后将返回正式的people_corehr_department_id</para>
         /// <para>必填：否</para>
-        /// <para>示例值：6966236933198579208</para>
+        /// <para>示例值：6966236933196579208</para>
         /// </summary>
         [JsonPropertyName("draft_department_id")]
         public string? DraftDepartmentId { get; set; }

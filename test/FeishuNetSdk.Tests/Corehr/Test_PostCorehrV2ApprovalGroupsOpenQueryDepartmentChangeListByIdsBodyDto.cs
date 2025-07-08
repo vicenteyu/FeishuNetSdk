@@ -28,7 +28,7 @@ public class Test_PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsBo
         var json = """
 {
     "department_change_ids": [
-        "6893014062142064111"
+        "6893014064442064111"
     ],
     "need_department_path": false
 }
