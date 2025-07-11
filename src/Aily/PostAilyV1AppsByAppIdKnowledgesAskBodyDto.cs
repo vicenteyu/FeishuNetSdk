@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 执行数据知识问答 请求体
-/// <para>执行飞书智能伙伴的数据知识问答</para>
+/// <para>执行飞书 Aily 的数据知识问答，返回基于指定数据知识的问答结果</para>
 /// <para>接口ID：7424752773160779780</para>
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/ask</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-knowledge%2fask</para>
@@ -22,14 +22,14 @@ namespace FeishuNetSdk.Aily;
 public record PostAilyV1AppsByAppIdKnowledgesAskBodyDto
 {
     /// <summary>
-    /// <para>输入消息（当前仅支持纯文本输入）</para>
+    /// <para>输入消息（message包含content参数，当前仅支持纯文本输入）</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("message")]
     public AilyKnowledgeMessage Message { get; set; } = new();
 
     /// <summary>
-    /// <para>输入消息（当前仅支持纯文本输入）</para>
+    /// <para>输入消息（message包含content参数，当前仅支持纯文本输入）</para>
     /// </summary>
     public record AilyKnowledgeMessage
     {
@@ -45,7 +45,7 @@ public record PostAilyV1AppsByAppIdKnowledgesAskBodyDto
     }
 
     /// <summary>
-    /// <para>控制知识问答所依据的数据知识范围</para>
+    /// <para>控制知识问答所依据的数据知识范围，默认值为空，此时不限制数据知识范围</para>
     /// <para>必填：否</para>
     /// <para>最大长度：65535</para>
     /// <para>最小长度：0</para>
@@ -54,7 +54,7 @@ public record PostAilyV1AppsByAppIdKnowledgesAskBodyDto
     public string[]? DataAssetIds { get; set; }
 
     /// <summary>
-    /// <para>控制知识问答所依据的数据知识分类范围</para>
+    /// <para>控制知识问答所依据的数据知识分类范围，默认值为空，此时不限制数据知识分类范围</para>
     /// <para>必填：否</para>
     /// <para>最大长度：65535</para>
     /// <para>最小长度：0</para>

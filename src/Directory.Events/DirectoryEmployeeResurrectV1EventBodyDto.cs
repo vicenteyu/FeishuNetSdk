@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory.Events;
 /// <summary>
 /// 离职恢复在职 事件体
-/// <para>在员工取消离职时接收事件通知{使用示例}(url=/api/tools/api_explore/api_explore_config?project=directory&amp;version=v1&amp;resource=employee&amp;event=resurrect)</para>
+/// <para>在员工取消离职时接收事件通知</para>
 /// <para>接口ID：7419214646853074948</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/events/resurrect</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fevents%2fresurrect</para>
@@ -46,7 +46,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
         public record EmployeeBaseEntity
         {
             /// <summary>
-            /// <para>EmployeeID 为App user的OpenID</para>
+            /// <para>用户的open_id,ID类型参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("employee_id")]
@@ -141,7 +141,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
             public record Department
             {
                 /// <summary>
-                /// <para>部门ID</para>
+                /// <para>部门ID,部门ID类型为 open_department_id，了解部门 ID 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
                 /// <para>**数据校验规则**：</para>
                 /// <para>- 最大长度：`64` 字符</para>
                 /// <para>**字段权限要求（满足任一）**：</para>
@@ -171,7 +171,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
             public record UserDepartmentSortInfo
             {
                 /// <summary>
-                /// <para>部门id</para>
+                /// <para>部门id，部门id类型为 open_department_id，了解部门 ID 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("department_id")]
@@ -232,7 +232,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
             public bool? IsResigned { get; set; }
 
             /// <summary>
-            /// <para>直属上级ID</para>
+            /// <para>直属上级的用户open_id，了解用户 ID 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
             /// <para>**字段权限要求（满足任一）**：</para>
             /// <para>- directory:employee.base.leader:read : 查看员工上级信息</para>
             /// <para>- directory:employee.base.leader_id:read : 查看员工直属上级 ID</para>
@@ -242,7 +242,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
             public string? LeaderId { get; set; }
 
             /// <summary>
-            /// <para>虚线上级ID</para>
+            /// <para>虚线上级的用户open_id，了解用户 ID 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
             /// <para>**数据校验规则**：</para>
             /// <para>- 长度范围：`0` ～ `10`</para>
             /// <para>**字段权限要求（满足任一）**：</para>
@@ -384,7 +384,7 @@ public record DirectoryEmployeeResurrectV1EventBodyDto() : EventBodyDto("directo
                 public record UserValue
                 {
                     /// <summary>
-                    /// <para>人员ID</para>
+                    /// <para>人员ID列表，了解用户 ID 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
                     /// <para>**数据校验规则**：</para>
                     /// <para>- 长度范围：`0` ～ `100`</para>
                     /// <para>必填：否</para>

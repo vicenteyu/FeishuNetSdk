@@ -22,7 +22,7 @@ namespace FeishuNetSdk.AppEngine;
 public record PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchRemoveAuthorizationBodyDto
 {
     /// <summary>
-    /// <para>需要删除的用户 ID 列表，使用飞书低代码平台的用户 ID</para>
+    /// <para>需要删除的用户 ID 列表，使用飞书 aPaaS 的用户 ID</para>
     /// <para>必填：否</para>
     /// <para>最大长度：1000</para>
     /// <para>最小长度：0</para>

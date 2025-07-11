@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Directory;
 
 /// <summary>
-/// 测试 更新员工 请求体
+/// 测试 更新员工信息 请求体
 /// <para>接口ID：7359428154233667588</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fpatch</para>
@@ -71,7 +71,6 @@ public class Test_PatchDirectoryV1EmployeesByEmployeeIdBodyDto : TestBase
         "extension_number": "2845435",
         "join_date": "2022-10-10",
         "employment_type": 1,
-        "staff_status": 1,
         "job_title_id": "wqedsaqw",
         "resign_reason": "",
         "resign_type": "",

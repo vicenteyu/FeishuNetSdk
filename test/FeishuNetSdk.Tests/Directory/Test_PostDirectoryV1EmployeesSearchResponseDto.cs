@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Directory;
 
 /// <summary>
-/// 测试 搜索员工 响应体
+/// 测试 搜索员工信息 响应体
 /// <para>接口ID：7359428154233618436</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fsearch</para>
@@ -103,8 +103,7 @@ public class Test_PostDirectoryV1EmployeesSearchResponseDto : TestBase
                                         {
                                             "ids": [
                                                 "1"
-                                            ],
-                                            "user_type": 1
+                                            ]
                                         }
                                     ]
                                 }
@@ -172,8 +171,7 @@ public class Test_PostDirectoryV1EmployeesSearchResponseDto : TestBase
                                 {
                                     "ids": [
                                         "1"
-                                    ],
-                                    "user_type": 1
+                                    ]
                                 }
                             ]
                         }

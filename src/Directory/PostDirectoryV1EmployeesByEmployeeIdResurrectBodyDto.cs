@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 恢复离职员工 请求体
-/// <para>该接口用于恢复已离职的成员。</para>
+/// <para>该接口用于恢复已离职的成员，恢复已离职成员至在职状态。</para>
 /// <para>接口ID：7359428234122821636</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/resurrect</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fresurrect</para>
@@ -45,6 +45,8 @@ public record PostDirectoryV1EmployeesByEmployeeIdResurrectBodyDto
 
         /// <summary>
         /// <para>用户在部门内的排序权重</para>
+        /// <para>**数据校验规则：**</para>
+        /// <para>长度范围：1～ 3</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
@@ -53,6 +55,8 @@ public record PostDirectoryV1EmployeesByEmployeeIdResurrectBodyDto
 
         /// <summary>
         /// <para>用户多个部门间的排序权重</para>
+        /// <para>**数据校验规则：**</para>
+        /// <para>长度范围：1～ 3</para>
         /// <para>必填：否</para>
         /// <para>示例值：20</para>
         /// </summary>

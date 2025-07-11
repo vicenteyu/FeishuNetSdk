@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 创建部门 响应体
-/// <para>本接口用于在企业下创建部门</para>
+/// <para>本接口用于用于在企业通讯录中创建新部门，支持设置部门名称、父部门、负责人等信息。</para>
 /// <para>接口ID：7359428154233536516</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fcreate</para>

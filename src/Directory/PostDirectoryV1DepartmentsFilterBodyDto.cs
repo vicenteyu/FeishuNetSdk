@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Directory;
 /// <summary>
-/// 批量获取部门列表 请求体
+/// 获取部门列表 请求体
 /// <para>本接口用于依据指定条件，批量获取符合条件的部门详情列表。</para>
 /// <para>接口ID：7359428154233700356</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/filter</para>
@@ -69,7 +69,7 @@ public record PostDirectoryV1DepartmentsFilterBodyDto
             public string Operator { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>筛选条件的右值。内容为左值字段类型及操作符组合下，对应的值类型。</para>
+            /// <para>筛选条件的右值，内容为左值字段类型及操作符组合下，对应的值类型。其取值类型需与查询参数department_id_type的取值一致，最大长度为64字符，支持数字和字母。</para>
             /// <para>使用parent_department_id条件时，根部门的ID可使用"0"</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"0\"</para>
@@ -103,6 +103,7 @@ public record PostDirectoryV1DepartmentsFilterBodyDto
         /// <summary>
         /// <para>本次请求条数，最大100条</para>
         /// <para>**默认值**：20</para>
+        /// <para>**最小值**：0</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>

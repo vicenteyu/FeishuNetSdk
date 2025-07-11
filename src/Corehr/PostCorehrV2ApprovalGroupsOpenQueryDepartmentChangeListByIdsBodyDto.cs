@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询部门调整内容 请求体
-/// <para>根据部门调整记录 ID 批量查询部门调整内容</para>
+/// <para>根据部门调整记录 ID 批量查询部门调整内容，如：部门调整类型、部门调整前后名称、部门调整前后角色信息 等</para>
 /// <para>接口ID：7317581509003771908</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_department_change_list_by_ids</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapproval_groups%2fopen_query_department_change_list_by_ids</para>
@@ -22,7 +22,10 @@ namespace FeishuNetSdk.Corehr;
 public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsBodyDto
 {
     /// <summary>
-    /// <para>部门调整记录 ID 列表， 返回的变更 ID 类型与 请求体中的```department_id_type``` 一致。 调整记录详情可通过[【根据流程 ID 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get) 获取。</para>
+    /// <para>部门调整记录 ID 列表。调整记录详情可通过[【根据流程 ID 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get) 获取。</para>
+    /// <para>- 必须是查询参数process_id对应的流程下的部门调整记录ID。</para>
+    /// <para>- 未设置时查询到的部门调整记录为空。</para>
+    /// <para>- 返回的变更 ID 类型与 查询参数中的```department_id_type``` 一致。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

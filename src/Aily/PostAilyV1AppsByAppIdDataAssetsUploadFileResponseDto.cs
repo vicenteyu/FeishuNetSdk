@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 上传文件用于数据知识管理 响应体
-/// <para>上传文件用于智能伙伴的数据知识管理</para>
+/// <para>上传文件用于 Aily 的数据知识管理</para>
 /// <para>。</para>
 /// <para>接口ID：7441589456115941379</para>
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/upload_file</para>

@@ -249,7 +249,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrepend</td></tr>
 <tr><td rowspan="2">125</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>更新人员类型</td></tr>
 <tr><td colspan="3">PutContactV3EmployeeTypeEnumsByEnumId</td></tr>
-<tr><td rowspan="2">126</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
+<tr><td rowspan="2">126</td><td rowspan="2">2025-07-07</td><td>&#10003;</td><td>云文档</td><td>追加数据</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppend</td></tr>
 <tr><td rowspan="2">127</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>读取单个范围</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRange</td></tr>
@@ -1129,9 +1129,9 @@
 <tr><td colspan="3">GetPayV1OrderList</td></tr>
 <tr><td rowspan="2">565</td><td rowspan="2">2022-03-01</td><td>&#10003;</td><td>应用信息</td><td>查询订单详情</td></tr>
 <tr><td colspan="3">GetPayV1OrderGet</td></tr>
-<tr><td rowspan="2">566</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>应用信息</td><td>查看待审核的应用列表</td></tr>
+<tr><td rowspan="2">566</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>查看待审核的应用列表</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsUnderauditlist</td></tr>
-<tr><td rowspan="2">567</td><td rowspan="2">2025-02-18</td><td>&#10003;</td><td>应用信息</td><td>获取应用信息</td></tr>
+<tr><td rowspan="2">567</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>获取应用信息</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppId</td></tr>
 <tr><td rowspan="2">568</td><td rowspan="2">2025-02-18</td><td>&#10003;</td><td>应用信息</td><td>获取应用版本信息</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppIdAppVersionsByVersionId</td></tr>
@@ -2063,13 +2063,13 @@
 <tr><td colspan="3">GetHireV1Talents</td></tr>
 <tr><td rowspan="2">1032</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>AI 能力</td><td>识别文件中的简历信息</td></tr>
 <tr><td colspan="3">PostDocumentAiV1ResumeParse</td></tr>
-<tr><td rowspan="2">1033</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书低代码平台</td><td>拒绝人工任务</td></tr>
+<tr><td rowspan="2">1033</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书 aPaaS</td><td>拒绝人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdReject</td></tr>
-<tr><td rowspan="2">1034</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书低代码平台</td><td>转交人工任务</td></tr>
+<tr><td rowspan="2">1034</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书 aPaaS</td><td>转交人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdTransfer</td></tr>
-<tr><td rowspan="2">1035</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书低代码平台</td><td>人工任务加签</td></tr>
+<tr><td rowspan="2">1035</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书 aPaaS</td><td>人工任务加签</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAddAssignee</td></tr>
-<tr><td rowspan="2">1036</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书低代码平台</td><td>同意人工任务</td></tr>
+<tr><td rowspan="2">1036</td><td rowspan="2">2024-03-19</td><td>&#10003;</td><td>飞书 aPaaS</td><td>同意人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalTasksByApprovalTaskIdAgree</td></tr>
 <tr><td rowspan="2">1037</td><td rowspan="2">2025-02-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsBatchGet</td></tr>
@@ -2141,11 +2141,11 @@
 <tr><td colspan="3">GetHireV1RolesByRoleId</td></tr>
 <tr><td rowspan="2">1071</td><td rowspan="2">2024-06-25</td><td>&#10003;</td><td>招聘</td><td>获取终止投递原因</td></tr>
 <tr><td colspan="3">GetHireV1TerminationReasons</td></tr>
-<tr><td rowspan="2">1072</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>飞书低代码平台</td><td>执行函数</td></tr>
+<tr><td rowspan="2">1072</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>飞书 aPaaS</td><td>执行函数</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceFunctionsByFunctionApiNameInvoke</td></tr>
-<tr><td rowspan="2">1073</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询环境变量列表</td></tr>
+<tr><td rowspan="2">1073</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询环境变量列表</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceEnvironmentVariablesQuery</td></tr>
-<tr><td rowspan="2">1074</td><td rowspan="2">2024-06-28</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询环境变量详情</td></tr>
+<tr><td rowspan="2">1074</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询环境变量详情</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceEnvironmentVariablesByEnvironmentVariableApiName</td></tr>
 <tr><td rowspan="2">1075</td><td rowspan="2">2025-05-28</td><td>&#10003;</td><td>飞书人事</td><td>移除用户被授权的角色</td></tr>
 <tr><td colspan="3">PostCorehrV1AuthorizationsRemoveRoleAssign</td></tr>
@@ -2391,35 +2391,35 @@
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailsBatch</td></tr>
 <tr><td rowspan="2">1196</td><td rowspan="2">2025-02-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询生效信息变更部门</td></tr>
 <tr><td colspan="3">GetCorehrV2DepartmentsQueryRecentChange</td></tr>
-<tr><td rowspan="2">1197</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>删除记录</td></tr>
+<tr><td rowspan="2">1197</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>删除记录</td></tr>
 <tr><td colspan="3">DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsById</td></tr>
-<tr><td rowspan="2">1198</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>新建记录</td></tr>
+<tr><td rowspan="2">1198</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>新建记录</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecords</td></tr>
-<tr><td rowspan="2">1199</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量编辑记录</td></tr>
+<tr><td rowspan="2">1199</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量编辑记录</td></tr>
 <tr><td colspan="3">PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">1200</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量新建记录</td></tr>
+<tr><td rowspan="2">1200</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量新建记录</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchCreate</td></tr>
-<tr><td rowspan="2">1201</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>执行 OQL</td></tr>
+<tr><td rowspan="2">1201</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>执行 OQL</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsOqlQuery</td></tr>
-<tr><td rowspan="2">1202</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>获取记录详情</td></tr>
+<tr><td rowspan="2">1202</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取记录详情</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsByIdQuery</td></tr>
-<tr><td rowspan="2">1203</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>编辑记录</td></tr>
+<tr><td rowspan="2">1203</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>编辑记录</td></tr>
 <tr><td colspan="3">PatchApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsById</td></tr>
-<tr><td rowspan="2">1204</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>搜索记录</td></tr>
+<tr><td rowspan="2">1204</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>搜索记录</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsSearch</td></tr>
-<tr><td rowspan="2">1205</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询记录列表</td></tr>
+<tr><td rowspan="2">1205</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询记录列表</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchQuery</td></tr>
-<tr><td rowspan="2">1206</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量删除记录</td></tr>
+<tr><td rowspan="2">1206</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量删除记录</td></tr>
 <tr><td colspan="3">DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBatchDelete</td></tr>
-<tr><td rowspan="2">1207</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询角色成员信息</td></tr>
+<tr><td rowspan="2">1207</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询角色成员信息</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceRolesByRoleApiNameMember</td></tr>
-<tr><td rowspan="2">1208</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量删除记录权限用户授权</td></tr>
+<tr><td rowspan="2">1208</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量删除记录权限用户授权</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchRemoveAuthorization</td></tr>
-<tr><td rowspan="2">1209</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量删除角色成员授权</td></tr>
+<tr><td rowspan="2">1209</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量删除角色成员授权</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchRemoveAuthorization</td></tr>
-<tr><td rowspan="2">1210</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量创建记录权限用户授权</td></tr>
+<tr><td rowspan="2">1210</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量创建记录权限用户授权</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceRecordPermissionsByRecordPermissionApiNameMemberBatchCreateAuthorization</td></tr>
-<tr><td rowspan="2">1211</td><td rowspan="2">2024-09-23</td><td>&#10003;</td><td>飞书低代码平台</td><td>批量创建角色成员授权</td></tr>
+<tr><td rowspan="2">1211</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量创建角色成员授权</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceRolesByRoleApiNameMemberBatchCreateAuthorization</td></tr>
 <tr><td rowspan="2">1212</td><td rowspan="2">2024-10-11</td><td><span style="color:red;">删除</span></td><td>飞书人事（企业版）</td><td>获取指定人员审批任务列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Approvers</td></tr>
@@ -2437,27 +2437,27 @@
 <tr><td colspan="3">PostCorehrV2BasicInfoLanguagesSearch</td></tr>
 <tr><td rowspan="2">1219</td><td rowspan="2">2024-10-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询时区信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoTimeZonesSearch</td></tr>
-<tr><td rowspan="2">1220</td><td rowspan="2">2024-11-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取智能伙伴消息</td></tr>
+<tr><td rowspan="2">1220</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
-<tr><td rowspan="2">1221</td><td rowspan="2">2024-11-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>列出智能伙伴消息</td></tr>
+<tr><td rowspan="2">1221</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>列出 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">1222</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建运行</td></tr>
+<tr><td rowspan="2">1222</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>创建运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">1223</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>列出运行</td></tr>
+<tr><td rowspan="2">1223</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>列出运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">1224</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>取消运行</td></tr>
+<tr><td rowspan="2">1224</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>取消运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRunsByRunIdCancel</td></tr>
-<tr><td rowspan="2">1225</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>更新会话</td></tr>
+<tr><td rowspan="2">1225</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>更新会话</td></tr>
 <tr><td colspan="3">PutAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">1226</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取会话</td></tr>
+<tr><td rowspan="2">1226</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取会话</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">1227</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>删除会话</td></tr>
+<tr><td rowspan="2">1227</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>删除会话</td></tr>
 <tr><td colspan="3">DeleteAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">1228</td><td rowspan="2">2024-11-25</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>发送智能伙伴消息</td></tr>
+<tr><td rowspan="2">1228</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>发送 Aily 消息</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">1229</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取运行</td></tr>
+<tr><td rowspan="2">1229</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>获取运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
-<tr><td rowspan="2">1230</td><td rowspan="2">2024-10-18</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建会话</td></tr>
+<tr><td rowspan="2">1230</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">1231</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取人才标签信息列表</td></tr>
 <tr><td colspan="3">GetHireV1TalentTags</td></tr>
@@ -2465,19 +2465,19 @@
 <tr><td colspan="3">PostHireV1TalentsByTalentIdTag</td></tr>
 <tr><td rowspan="2">1233</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取指定人员审批任务列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Approvers</td></tr>
-<tr><td rowspan="2">1234</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>执行数据知识问答</td></tr>
+<tr><td rowspan="2">1234</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>执行数据知识问答</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdKnowledgesAsk</td></tr>
-<tr><td rowspan="2">1235</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>查询数据知识列表</td></tr>
+<tr><td rowspan="2">1235</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>查询数据知识列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">1236</td><td rowspan="2">2024-10-22</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取数据知识分类列表</td></tr>
+<tr><td rowspan="2">1236</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取数据知识分类列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetTags</td></tr>
 <tr><td rowspan="2">1237</td><td rowspan="2">2025-02-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询当前生效信息变更公司</td></tr>
 <tr><td colspan="3">GetCorehrV2CompaniesQueryRecentChange</td></tr>
-<tr><td rowspan="2">1238</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>调用技能</td></tr>
+<tr><td rowspan="2">1238</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>调用技能</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdSkillsBySkillIdStart</td></tr>
-<tr><td rowspan="2">1239</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取技能信息</td></tr>
+<tr><td rowspan="2">1239</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取技能信息</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
-<tr><td rowspan="2">1240</td><td rowspan="2">2024-10-24</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>查询技能列表</td></tr>
+<tr><td rowspan="2">1240</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>查询技能列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
 <tr><td rowspan="2">1241</td><td rowspan="2">2025-02-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划方案</td></tr>
 <tr><td colspan="3">GetCorehrV2WorkforcePlans</td></tr>
@@ -2507,11 +2507,11 @@
 <tr><td colspan="3">PostCorehrV2EmployeesAdditionalJobsBatch</td></tr>
 <tr><td rowspan="2">1254</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
 <tr><td colspan="3">GetDocsV1Content</td></tr>
-<tr><td rowspan="2">1255</td><td rowspan="2">2025-03-24</td><td>&#10003;</td><td>应用信息</td><td>获取企业安装的应用</td></tr>
+<tr><td rowspan="2">1255</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>获取企业安装的应用</td></tr>
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
 <tr><td rowspan="2">1256</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
-<tr><td rowspan="2">1257</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
+<tr><td rowspan="2">1257</td><td rowspan="2">2025-07-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
 <tr><td rowspan="2">1258</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIds</td></tr>
@@ -2523,7 +2523,7 @@
 <tr><td colspan="3">GetPayrollV1Paygroups</td></tr>
 <tr><td rowspan="2">1262</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>撤销离职</td></tr>
 <tr><td colspan="3">PostCorehrV2OffboardingsRevoke</td></tr>
-<tr><td rowspan="2">1263</td><td rowspan="2">2024-11-29</td><td>&#10003;</td><td>飞书低代码平台</td><td>发起流程</td></tr>
+<tr><td rowspan="2">1263</td><td rowspan="2">2024-11-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>发起流程</td></tr>
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecute</td></tr>
 <tr><td rowspan="2">1264</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>招聘</td><td>批量加入/移除人才库中人才</td></tr>
 <tr><td colspan="3">PostHireV1TalentPoolsByTalentPoolIdBatchChangeTalentPool</td></tr>
@@ -2593,19 +2593,19 @@
 <tr><td colspan="3">PutCorehrV2ProcessWithdrawByProcessId</td></tr>
 <tr><td rowspan="2">1297</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>撤销流程</td></tr>
 <tr><td colspan="3">PutCorehrV2ProcessRevokeByProcessId</td></tr>
-<tr><td rowspan="2">1298</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询人工任务</td></tr>
+<tr><td rowspan="2">1298</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1UserTaskQuery</td></tr>
-<tr><td rowspan="2">1299</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>抄送人工任务</td></tr>
+<tr><td rowspan="2">1299</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>抄送人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdCc</td></tr>
-<tr><td rowspan="2">1300</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>催办人工任务</td></tr>
+<tr><td rowspan="2">1300</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>催办人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdExpediting</td></tr>
-<tr><td rowspan="2">1301</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>撤销人工任务</td></tr>
+<tr><td rowspan="2">1301</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>撤销人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1ApprovalInstancesByApprovalInstanceIdCancel</td></tr>
-<tr><td rowspan="2">1302</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>查询人工任务可退回的位置</td></tr>
+<tr><td rowspan="2">1302</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询人工任务可退回的位置</td></tr>
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdRollbackPoints</td></tr>
-<tr><td rowspan="2">1303</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>退回人工任务</td></tr>
+<tr><td rowspan="2">1303</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>退回人工任务</td></tr>
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdRollback</td></tr>
-<tr><td rowspan="2">1304</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书低代码平台</td><td>基于人工任务发起群聊</td></tr>
+<tr><td rowspan="2">1304</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>飞书 aPaaS</td><td>基于人工任务发起群聊</td></tr>
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdChatGroup</td></tr>
 <tr><td rowspan="2">1305</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>撤销异动</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesByJobChangeIdRevoke</td></tr>
@@ -2777,13 +2777,13 @@
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
 <tr><td rowspan="2">1389</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
 <tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
-<tr><td rowspan="2">1390</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>创建数据知识</td></tr>
+<tr><td rowspan="2">1390</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>创建数据知识</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">1391</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>删除数据知识</td></tr>
+<tr><td rowspan="2">1391</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>删除数据知识</td></tr>
 <tr><td colspan="3">DeleteAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">1392</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>获取数据知识</td></tr>
+<tr><td rowspan="2">1392</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取数据知识</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">1393</td><td rowspan="2">2025-05-14</td><td>&#10003;</td><td>智能伙伴创建平台</td><td>上传文件用于数据知识管理</td></tr>
+<tr><td rowspan="2">1393</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>上传文件用于数据知识管理</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssetsUploadFile</td></tr>
 <tr><td rowspan="2">1394</td><td rowspan="2">2025-05-20</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>启用/停用自定义组织</td></tr>
 <tr><td colspan="3">PostCorehrV2CustomOrgsActive</td></tr>
@@ -2803,29 +2803,29 @@
 <tr><td colspan="3">GetMdmV3CountryRegions</td></tr>
 <tr><td rowspan="2">1402</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>删除部门</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">1403</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工信息</td></tr>
+<tr><td rowspan="2">1403</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesMget</td></tr>
-<tr><td rowspan="2">1404</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>创建部门</td></tr>
+<tr><td rowspan="2">1404</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>创建部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1Departments</td></tr>
-<tr><td rowspan="2">1405</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
+<tr><td rowspan="2">1405</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
 <tr><td colspan="3">PatchDirectoryV1DepartmentsByDepartmentId</td></tr>
-<tr><td rowspan="2">1406</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
+<tr><td rowspan="2">1406</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsSearch</td></tr>
 <tr><td rowspan="2">1407</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">1408</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>搜索员工</td></tr>
+<tr><td rowspan="2">1408</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
-<tr><td rowspan="2">1409</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
+<tr><td rowspan="2">1409</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1Employees</td></tr>
-<tr><td rowspan="2">1410</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新员工</td></tr>
+<tr><td rowspan="2">1410</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>更新员工信息</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">1411</td><td rowspan="2">2025-05-23</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工列表</td></tr>
+<tr><td rowspan="2">1411</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesFilter</td></tr>
-<tr><td rowspan="2">1412</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门列表</td></tr>
+<tr><td rowspan="2">1412</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>获取部门列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsFilter</td></tr>
-<tr><td rowspan="2">1413</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>恢复离职员工</td></tr>
+<tr><td rowspan="2">1413</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>恢复离职员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesByEmployeeIdResurrect</td></tr>
-<tr><td rowspan="2">1414</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门信息</td></tr>
+<tr><td rowspan="2">1414</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>批量获取部门信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsMget</td></tr>
 <tr><td rowspan="2">1415</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>更新待离职成员为在职</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeIdRegular</td></tr>

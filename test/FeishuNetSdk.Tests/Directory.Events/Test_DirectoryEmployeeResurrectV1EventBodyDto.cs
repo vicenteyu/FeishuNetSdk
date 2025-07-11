@@ -123,11 +123,11 @@ public class Test_DirectoryEmployeeResurrectV1EventBodyDto : TestBase
                         "field_type": 2,
                         "url_value": {
                             "link_text": {
-                                "default_value": "21321",
+                                "default_value": "Feishu",
                                 "i18n_value": {
                                 }
                             },
-                            "url": "https://ufu6y83ytj.feishu-boe.cn/admin/contacts/departmentanduser?"
+                            "url": "https://www.feishu.cn/"
                         }
                     },
                     {

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 搜索部门 请求体
-/// <para>本接口用于搜索部门信息</para>
+/// <para>本接口用于搜索部门信息，通过部门名称等关键词搜索部门信息，返回符合条件的部门列表。</para>
 /// <para>接口ID：7359428154233569284</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fsearch</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Directory;
 public record PostDirectoryV1DepartmentsSearchBodyDto
 {
     /// <summary>
-    /// <para>搜索关键词。支持部门名称的搜索</para>
+    /// <para>搜索关键词。支持部门名称的搜索，最多可输入 100 字。</para>
     /// <para>必填：是</para>
     /// <para>示例值：zhang</para>
     /// </summary>
@@ -44,6 +44,7 @@ public record PostDirectoryV1DepartmentsSearchBodyDto
         /// <summary>
         /// <para>本次请求条数，最大100条</para>
         /// <para>**默认值**：20</para>
+        /// <para>**最小值**：0</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>

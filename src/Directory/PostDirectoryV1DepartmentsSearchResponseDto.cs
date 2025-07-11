@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PostDirectoryV1DepartmentsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 搜索部门 响应体
-/// <para>本接口用于搜索部门信息</para>
+/// <para>本接口用于搜索部门信息，通过部门名称等关键词搜索部门信息，返回符合条件的部门列表。</para>
 /// <para>接口ID：7359428154233569284</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/search</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fsearch</para>
@@ -207,14 +207,6 @@ public record PostDirectoryV1DepartmentsSearchResponseDto
         public record CustomFieldValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -223,6 +215,9 @@ public record PostDirectoryV1DepartmentsSearchResponseDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>9：电话</item>
+            /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
+            /// <item>11：人员列表</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("field_type")]
@@ -372,6 +367,43 @@ public record PostDirectoryV1DepartmentsSearchResponseDto
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
             }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_value")]
+            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// </summary>
+            public record CustomFieldValuePhoneValue
+            {
+                /// <summary>
+                /// <para>电话号</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：18812345678</para>
+                /// </summary>
+                [JsonPropertyName("phone_number")]
+                public string PhoneNumber { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>分机号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：234234234</para>
+                /// </summary>
+                [JsonPropertyName("extension_number")]
+                public string? ExtensionNumber { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
         }
 
         /// <summary>

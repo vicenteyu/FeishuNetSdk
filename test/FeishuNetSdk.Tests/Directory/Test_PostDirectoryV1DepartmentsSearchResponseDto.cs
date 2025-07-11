@@ -60,7 +60,6 @@ public class Test_PostDirectoryV1DepartmentsSearchResponseDto : TestBase
                 "order_weight": "3000",
                 "custom_field_values": [
                     {
-                        "field_key": "C-1000001",
                         "field_type": "1",
                         "text_value": {
                             "default_value": "张三",
@@ -94,7 +93,12 @@ public class Test_PostDirectoryV1DepartmentsSearchResponseDto : TestBase
                                     "1"
                                 ]
                             }
-                        ]
+                        ],
+                        "phone_value": {
+                            "phone_number": "18812345678",
+                            "extension_number": "234234234"
+                        },
+                        "field_key": "C-1000001"
                     }
                 ],
                 "department_path_infos": [

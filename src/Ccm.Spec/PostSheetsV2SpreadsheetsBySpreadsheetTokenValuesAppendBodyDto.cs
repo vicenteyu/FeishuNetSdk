@@ -15,6 +15,9 @@ namespace FeishuNetSdk.Ccm.Spec;
 /// <summary>
 /// 追加数据 请求体
 /// <para>在电子表格工作表的指定范围中，在空白位置中追加数据。例如，若指定范围参数 `range` 为 `6e5ed3!A1:B2`，该接口将会依次寻找 A1、A2、A3...单元格，在找到的第一个空白位置中写入数据。</para>
+/// <para>使用限制：</para>
+/// <para>- 单次写入范围不可超过 5,000 行、100 列。</para>
+/// <para>- 每个单元格不超过 50,000 字符，由于服务端会增加控制字符，因此推荐每个单元格不超过 40,000 字符。</para>
 /// <para>接口ID：6907569524100857857</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/data-operation/append-data</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMjMzUjLzIzM14yMyMTN</para>

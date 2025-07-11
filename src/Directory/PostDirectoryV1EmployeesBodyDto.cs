@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PostDirectoryV1EmployeesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,8 +14,8 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 创建员工 请求体
-/// <para>本接口用于在企业下创建员工，可以理解为员工入职。</para>
-/// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+/// <para>本接口用于在企业下创建员工。支持传入姓名、手机号等信息，生成在职状态的员工对象。</para>
+/// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
 /// <para>接口ID：7359428154233651204</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fcreate</para>
@@ -54,28 +54,6 @@ public record PostDirectoryV1EmployeesBodyDto
             public I18nText Name { get; set; } = new();
 
             /// <summary>
-            /// <para>员工的姓名，最多可输入 64 字</para>
-            /// </summary>
-            public record I18nText
-            {
-                /// <summary>
-                /// <para>默认值</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("default_value")]
-                public string DefaultValue { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值。</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：{"zh_cn":"张三"}</para>
-                /// </summary>
-                [JsonPropertyName("i18n_value")]
-                public I18nLanguage<string>? I18nValue { get; set; }
-            }
-
-            /// <summary>
             /// <para>别名，最多可输入 64 字</para>
             /// <para>必填：否</para>
             /// <para>示例值：jack</para>
@@ -100,7 +78,7 @@ public record PostDirectoryV1EmployeesBodyDto
         /// <para>1. 在职员工的ID不可重复</para>
         /// <para>2. ID不能包含空格</para>
         /// <para>必填：否</para>
-        /// <para>示例值：u273y71</para>
+        /// <para>示例值：u273y71 **数据校验规则**： 长度范围：1-64字符</para>
         /// </summary>
         [JsonPropertyName("custom_employee_id")]
         public string? CustomEmployeeId { get; set; }
@@ -190,9 +168,9 @@ public record PostDirectoryV1EmployeesBodyDto
             public string? OrderWeightAmongDeparments { get; set; }
 
             /// <summary>
-            /// <para>是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门)。</para>
+            /// <para>是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门),可选值:true/false。</para>
             /// <para>必填：否</para>
-            /// <para>示例值：20</para>
+            /// <para>示例值：true</para>
             /// </summary>
             [JsonPropertyName("is_main_department")]
             public bool? IsMainDepartment { get; set; }
@@ -243,31 +221,9 @@ public record PostDirectoryV1EmployeesBodyDto
         public I18nText? WorkStation { get; set; }
 
         /// <summary>
-        /// <para>工位</para>
-        /// </summary>
-        public record I18nText
-        {
-            /// <summary>
-            /// <para>默认值</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
-            /// </summary>
-            [JsonPropertyName("default_value")]
-            public string DefaultValue { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：{"zh_cn":"张三"}</para>
-            /// </summary>
-            [JsonPropertyName("i18n_value")]
-            public I18nLanguage<string>? I18nValue { get; set; }
-        }
-
-        /// <summary>
         /// <para>工号。企业内在职员工的工号不可重复。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2845435</para>
+        /// <para>示例值：2845435 **数据校验规则：** 长度范围：0-255字符</para>
         /// </summary>
         [JsonPropertyName("job_number")]
         public string? JobNumber { get; set; }
@@ -283,7 +239,7 @@ public record PostDirectoryV1EmployeesBodyDto
         /// <summary>
         /// <para>入职日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2022-10-10</para>
+        /// <para>示例值：2022-10-10 **数据校验规则：** 长度范围：固定长度：10 个字符，固定格式：“yyyy-mm-dd”</para>
         /// </summary>
         [JsonPropertyName("join_date")]
         public string? JoinDate { get; set; }
@@ -303,21 +259,6 @@ public record PostDirectoryV1EmployeesBodyDto
         /// </summary>
         [JsonPropertyName("employment_type")]
         public int? EmploymentType { get; set; }
-
-        /// <summary>
-        /// <para>员工人事状态</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：1</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>1：在职</item>
-        /// <item>2：离职</item>
-        /// <item>3：待入职</item>
-        /// <item>4：取消入职</item>
-        /// <item>5：待离职</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("staff_status")]
-        public int? StaffStatus { get; set; }
 
         /// <summary>
         /// <para>职务ID</para>
@@ -342,14 +283,6 @@ public record PostDirectoryV1EmployeesBodyDto
         public record CustomFieldValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -358,6 +291,7 @@ public record PostDirectoryV1EmployeesBodyDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>9：电话</item>
             /// <item>10：多选枚举类型</item>
             /// <item>11：人员列表</item>
             /// </list></para>
@@ -371,28 +305,6 @@ public record PostDirectoryV1EmployeesBodyDto
             /// </summary>
             [JsonPropertyName("text_value")]
             public I18nText? TextValue { get; set; }
-
-            /// <summary>
-            /// <para>文本字段值</para>
-            /// </summary>
-            public record I18nText
-            {
-                /// <summary>
-                /// <para>默认值</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：张三</para>
-                /// </summary>
-                [JsonPropertyName("default_value")]
-                public string DefaultValue { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：{"zh_cn":"张三"}</para>
-                /// </summary>
-                [JsonPropertyName("i18n_value")]
-                public object? I18nValue { get; set; }
-            }
 
             /// <summary>
             /// <para>网页链接字段值</para>
@@ -412,28 +324,6 @@ public record PostDirectoryV1EmployeesBodyDto
                 /// </summary>
                 [JsonPropertyName("link_text")]
                 public I18nText LinkText { get; set; } = new();
-
-                /// <summary>
-                /// <para>网页标题</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>默认值</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：张三</para>
-                    /// </summary>
-                    [JsonPropertyName("default_value")]
-                    public string DefaultValue { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：{"zh_cn":"张三"}</para>
-                    /// </summary>
-                    [JsonPropertyName("i18n_value")]
-                    public object? I18nValue { get; set; }
-                }
 
                 /// <summary>
                 /// <para>移动端网页链接</para>
@@ -509,7 +399,67 @@ public record PostDirectoryV1EmployeesBodyDto
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
             }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_value")]
+            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// </summary>
+            public record CustomFieldValuePhoneValue
+            {
+                /// <summary>
+                /// <para>电话号</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：18812345678</para>
+                /// </summary>
+                [JsonPropertyName("phone_number")]
+                public string PhoneNumber { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>分机号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：234234234</para>
+                /// </summary>
+                [JsonPropertyName("extension_number")]
+                public string? ExtensionNumber { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
         }
+    }
+
+    /// <summary>
+    /// <para>国际化语言</para>
+    /// </summary>
+    public record I18nText
+    {
+        /// <summary>
+        /// <para>默认值</para>
+        /// <para>最小长度：1字符</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：张三</para>
+        /// </summary>
+        [JsonPropertyName("default_value")]
+        public string DefaultValue { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值。</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：{"zh_cn":"张三"}</para>
+        /// </summary>
+        [JsonPropertyName("i18n_value")]
+        public I18nLanguage<string>? I18nValue { get; set; }
     }
 
     /// <summary>

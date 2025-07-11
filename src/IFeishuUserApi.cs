@@ -20124,11 +20124,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取智能伙伴消息</para>
+    /// <para>【飞书 Aily】获取 Aily 消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于获取某个飞书智能伙伴应用的消息（Message）的详细信息；包括消息的内容、发送人等。</para>
+    /// <para>该 API 用于获取某个飞书 Aily 应用的消息（Message）的详细信息；包括消息的内容、发送人等。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20157,11 +20157,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_message_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】列出智能伙伴消息</para>
+    /// <para>【飞书 Aily】列出 Aily 消息</para>
     /// <para>接口ID：7358047310868168708</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于列出某个飞书智能伙伴应用的某个会话（Session）下消息（Message）的详细信息；包括消息的内容、发送人等。</para>
+    /// <para>该 API 用于列出某个飞书 Aily 应用的某个会话（Session）下消息（Message）的详细信息；包括消息的内容、发送人等。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20213,11 +20213,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? with_partial_message = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】创建运行</para>
+    /// <para>【飞书 Aily】创建运行</para>
     /// <para>接口ID：7358047310868185092</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于在某个飞书智能伙伴应用会话（Session）上创建一次运行（Run）。</para>
+    /// <para>该 API 用于在某个飞书 Aily 应用会话（Session）上创建一次运行（Run）。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20229,7 +20229,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -20241,11 +20241,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdRunsBodyDto dto);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】列出运行</para>
+    /// <para>【飞书 Aily】列出运行</para>
     /// <para>接口ID：7358047310868201476</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于列出某个飞书智能伙伴应用的运行（Run）的详细信息；包括状态、结束时间等。</para>
+    /// <para>该 API 用于列出某个飞书 Aily 应用的运行（Run）的详细信息；包括状态、结束时间等。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20257,7 +20257,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="page_size">
@@ -20281,11 +20281,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】取消运行</para>
+    /// <para>【飞书 Aily】取消运行</para>
     /// <para>接口ID：7358047310868217860</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/cancel</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于中止某个飞书智能伙伴的一次运行。</para>
+    /// <para>该 API 用于中止某个飞书 Aily 的一次运行。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20297,7 +20297,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="run_id">
@@ -20314,11 +20314,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string run_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】更新会话</para>
+    /// <para>【飞书 Aily】更新会话</para>
     /// <para>接口ID：7358047310868234244</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于更新与某个飞书智能伙伴应用的一次会话（Session）的信息。</para>
+    /// <para>该 API 用于更新与某个飞书 Aily 应用的一次会话（Session）的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:write</item>
     /// </list></para>
@@ -20338,11 +20338,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Aily.PutAilyV1SessionsByAilySessionIdBodyDto dto);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取会话</para>
+    /// <para>【飞书 Aily】获取会话</para>
     /// <para>接口ID：7358047310868250628</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于获取与某个飞书智能伙伴应用的一次会话（Session）的详细信息，包括会话的状态、渠道上下文、创建时间等。</para>
+    /// <para>该 API 用于获取与某个飞书 Aily 应用的一次会话（Session）的详细信息，包括会话的状态、渠道上下文、创建时间等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:read</item>
     /// </list></para>
@@ -20360,11 +20360,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_session_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】删除会话</para>
+    /// <para>【飞书 Aily】删除会话</para>
     /// <para>接口ID：7358047310868267012</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于删除与某个飞书智能伙伴应用的一次会话（Session）。</para>
+    /// <para>该 API 用于删除与某个飞书 Aily 应用的一次会话（Session）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:session:write</item>
     /// </list></para>
@@ -20382,11 +20382,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string aily_session_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】发送智能伙伴消息</para>
+    /// <para>【飞书 Aily】发送 Aily 消息</para>
     /// <para>接口ID：7358047310868283396</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于向某个飞书智能伙伴应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
+    /// <para>该 API 用于向某个飞书 Aily 应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20410,11 +20410,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdMessagesBodyDto dto);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取运行</para>
+    /// <para>【飞书 Aily】获取运行</para>
     /// <para>接口ID：7358047310868299780</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于获取某个飞书智能伙伴应用的运行（Run）的详细信息；包括运行的状态、结束时间等。</para>
+    /// <para>该 API 用于获取某个飞书 Aily 应用的运行（Run）的详细信息；包括运行的状态、结束时间等。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20426,7 +20426,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="aily_session_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/app-session/create) 接口</para>
+    /// <para>会话 ID；参考 [创建会话](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/aily_session/create) 接口</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="run_id">
@@ -20443,11 +20443,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string run_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】创建会话</para>
+    /// <para>【飞书 Aily】创建会话</para>
     /// <para>接口ID：7358047310868316164</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该 API 用于创建与某个飞书智能伙伴应用的一次会话（Session）；当创建会话成功后，可以发送消息、创建运行。</para>
+    /// <para>该 API 用于创建与某个飞书 Aily 应用的一次会话（Session）；当创建会话成功后，可以发送消息、创建运行。</para>
     /// <para>## 实体概念说明</para>
     /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
     /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -20505,7 +20505,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428154233520132</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/mget</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于批量根据员工的ID查询员工的详情。</para>
+    /// <para>本接口用于批量根据员工的ID查询员工的详情，比如员工姓名，手机号，邮箱，部门等信息。</para>
     /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:employee:read</item>
@@ -20558,6 +20558,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:employee.work.employment:read</item>
     /// <item>directory:employee.work.extension_number:read</item>
     /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_level:read</item>
     /// <item>directory:employee.work.job_number:read</item>
     /// <item>directory:employee.work.job_title:read</item>
     /// <item>directory:employee.work.join_date:read</item>
@@ -20572,6 +20573,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:job_family.base:read</item>
     /// <item>directory:job_family.path:read</item>
     /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_level.base:read</item>
+    /// <item>directory:job_level.order:read</item>
+    /// <item>directory:job_level.status:read</item>
     /// <item>directory:job_title.base:read</item>
     /// <item>directory:job_title.status:read</item>
     /// <item>directory:place.base:read</item>
@@ -20613,7 +20617,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428154233536516</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于在企业下创建部门</para>
+    /// <para>本接口用于用于在企业通讯录中创建新部门，支持设置部门名称、父部门、负责人等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:department:write</item>
     /// <item>directory:department.create:write</item>
@@ -20708,7 +20712,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428154233569284</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于搜索部门信息</para>
+    /// <para>本接口用于搜索部门信息，通过部门名称等关键词搜索部门信息，返回符合条件的部门列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:department:search</item>
     /// </list></para>
@@ -20800,11 +20804,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? employee_id_type = "open_id");
 
     /// <summary>
-    /// <para>【组织架构】搜索员工</para>
+    /// <para>【组织架构】搜索员工信息</para>
     /// <para>接口ID：7359428154233618436</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/search</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于搜索员工信息。</para>
+    /// <para>本接口用于搜索员工信息，如通过关键词搜索员工的名称、手机号、邮箱等信息。</para>
     /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:employee:search</item>
@@ -20857,6 +20861,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:employee.work.employment:read</item>
     /// <item>directory:employee.work.extension_number:read</item>
     /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_level:read</item>
     /// <item>directory:employee.work.job_number:read</item>
     /// <item>directory:employee.work.job_title:read</item>
     /// <item>directory:employee.work.join_date:read</item>
@@ -20871,6 +20876,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:job_family.base:read</item>
     /// <item>directory:job_family.path:read</item>
     /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_level.base:read</item>
+    /// <item>directory:job_level.order:read</item>
+    /// <item>directory:job_level.status:read</item>
     /// <item>directory:job_title.base:read</item>
     /// <item>directory:job_title.status:read</item>
     /// <item>directory:place.base:read</item>
@@ -20912,8 +20920,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428154233651204</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于在企业下创建员工，可以理解为员工入职。</para>
-    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+    /// <para>本接口用于在企业下创建员工。支持传入姓名、手机号等信息，生成在职状态的员工对象。</para>
+    /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:employee:write</item>
     /// <item>directory:employee.create:write</item>
@@ -20953,7 +20961,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
-    /// <para>【组织架构】更新员工</para>
+    /// <para>【组织架构】更新员工信息</para>
     /// <para>接口ID：7359428154233667588</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21062,6 +21070,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:employee.work.employment:read</item>
     /// <item>directory:employee.work.extension_number:read</item>
     /// <item>directory:employee.work.job_family:read</item>
+    /// <item>directory:employee.work.job_level:read</item>
     /// <item>directory:employee.work.job_number:read</item>
     /// <item>directory:employee.work.job_title:read</item>
     /// <item>directory:employee.work.join_date:read</item>
@@ -21076,6 +21085,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:job_family.base:read</item>
     /// <item>directory:job_family.path:read</item>
     /// <item>directory:job_family.status:read</item>
+    /// <item>directory:job_level.base:read</item>
+    /// <item>directory:job_level.order:read</item>
+    /// <item>directory:job_level.status:read</item>
     /// <item>directory:job_title.base:read</item>
     /// <item>directory:job_title.status:read</item>
     /// <item>directory:place.base:read</item>
@@ -21113,7 +21125,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id");
 
     /// <summary>
-    /// <para>【组织架构】批量获取部门列表</para>
+    /// <para>【组织架构】获取部门列表</para>
     /// <para>接口ID：7359428154233700356</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/filter</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21135,16 +21147,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:department.organization:read</item>
     /// <item>directory:department.parent_id:read</item>
     /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <para>用户 ID 类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21172,7 +21185,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428234122821636</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/employee/resurrect</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于恢复已离职的成员。</para>
+    /// <para>该接口用于恢复已离职的成员，恢复已离职成员至在职状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:employee:write</item>
     /// <item>directory:employee.resurrect:write</item>
@@ -21223,7 +21236,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7359428234122854404</para>
     /// <para>接口文档：https://open.feishu.cn/document/directory-v1/department/mget</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>本接口用于批量根据部门的ID查询部门的详情。</para>
+    /// <para>该接口支持传入多个部门ID，返回每个部门的详细信息（如名称、负责人、子部门等）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>directory:department:read</item>
     /// </list></para>
@@ -21241,16 +21254,17 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>directory:department.organization:read</item>
     /// <item>directory:department.parent_id:read</item>
     /// <item>directory:department.status:read</item>
+    /// <item>directory:employee.base.external_id:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="employee_id_type">
     /// <para>必填：否</para>
-    /// <para>此次调用中使用的用户ID的类型</para>
+    /// <para>用户 ID 类型</para>
     /// <para>示例值：user_id</para>
     /// <list type="bullet">
     /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
-    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
     /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>employee_id：企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。 获取employee_id的方式： - 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID - 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</item>
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
@@ -21893,7 +21907,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? wk_company_id = null);
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询审计日志列表</para>
+    /// <para>【飞书 aPaaS】查询审计日志列表</para>
     /// <para>接口ID：7418119603744391171</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-audit_log/audit_log_list</para>
     /// <para>Authorization：user_access_token</para>
@@ -21991,7 +22005,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? app_type = null);
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询审计日志详情</para>
+    /// <para>【飞书 aPaaS】查询审计日志详情</para>
     /// <para>接口ID：7418119603744407555</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-audit_log/get</para>
     /// <para>Authorization：user_access_token</para>
@@ -22019,11 +22033,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string log_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】执行数据知识问答</para>
+    /// <para>【飞书 Aily】执行数据知识问答</para>
     /// <para>接口ID：7424752773160779780</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/ask</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>执行飞书智能伙伴的数据知识问答</para>
+    /// <para>执行飞书 Aily 的数据知识问答，返回基于指定数据知识的问答结果</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:knowledge:ask</item>
     /// </list></para>
@@ -22031,7 +22045,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>飞书智能伙伴搭建平台的AppID</para>
+    /// <para>飞书 Aily 平台的AppID，通过飞书 Aily 平台创建应用获取</para>
     /// <para>示例值：spring_5862e4fea8__c</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -22043,11 +22057,11 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Aily.PostAilyV1AppsByAppIdKnowledgesAskBodyDto dto);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】查询数据知识列表</para>
+    /// <para>【飞书 Aily】查询数据知识列表</para>
     /// <para>接口ID：7424752773160796164</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取智能伙伴搭建助手的数据知识列表</para>
+    /// <para>获取 Aily 助手的数据知识列表</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:data_asset:read</item>
     /// </list></para>
@@ -22055,7 +22069,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_5862e4fea8__c</para>
     /// </param>
     /// <param name="page_size">
@@ -22112,11 +22126,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? with_connect_status = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取数据知识分类列表</para>
+    /// <para>【飞书 Aily】获取数据知识分类列表</para>
     /// <para>接口ID：7424752773160812548</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list-2</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取智能伙伴搭建助手的数据知识分类列表</para>
+    /// <para>获取 Aily 助手的数据知识分类列表</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:data_asset:read</item>
     /// </list></para>
@@ -22124,7 +22138,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>AppID</para>
+    /// <para>AppID，可通过在 Aily 平台进入应用的开发界面中获取，获取示例 https://***/ai/app_namespace</para>
     /// <para>示例值：spring_5862e4fea8__c</para>
     /// </param>
     /// <param name="page_size">
@@ -22161,7 +22175,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string[]? data_asset_tag_ids = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】调用技能</para>
+    /// <para>【飞书 Aily】调用技能</para>
     /// <para>接口ID：7429225800963031042</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/start</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -22194,7 +22208,7 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartBodyDto dto);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取技能信息</para>
+    /// <para>【飞书 Aily】获取技能信息</para>
     /// <para>接口ID：7429225800963047426</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -22223,7 +22237,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string skill_id);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】查询技能列表</para>
+    /// <para>【飞书 Aily】查询技能列表</para>
     /// <para>接口ID：7429225800963063810</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -22398,11 +22412,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】创建数据知识</para>
+    /// <para>【飞书 Aily】创建数据知识</para>
     /// <para>接口ID：7441589456115892227</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在智能伙伴中添加单个数据知识</para>
+    /// <para>在 Aily 中添加单个数据知识</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:data_asset:write</item>
     /// </list></para>
@@ -22410,7 +22424,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_dfasdf__c</para>
     /// </param>
     /// <param name="tenant_type">
@@ -22431,11 +22445,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? tenant_type = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】删除数据知识</para>
+    /// <para>【飞书 Aily】删除数据知识</para>
     /// <para>接口ID：7441589456115908611</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除智能伙伴的数据知识</para>
+    /// <para>删除 Aily 的数据知识</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:data_asset:write</item>
     /// </list></para>
@@ -22443,13 +22457,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_dfadsaf__c</para>
     /// </param>
     /// <param name="data_asset_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>数据知识ID，可通过在智能伙伴创建平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
+    /// <para>数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
     /// <para>示例值：data_asset_dfadsafe</para>
     /// </param>
     /// <param name="tenant_type">
@@ -22469,7 +22483,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? tenant_type = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】获取数据知识</para>
+    /// <para>【飞书 Aily】获取数据知识</para>
     /// <para>接口ID：7441589456115924995</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -22481,13 +22495,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_feafdsaf__c</para>
     /// </param>
     /// <param name="data_asset_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>数据知识ID，可通过在智能伙伴创建平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
+    /// <para>数据知识ID，可通过在 Aily 平台查看知识详情页的url中获取，获取示例 https://***/ai/app_namespace/data/data-asset/data_asset_id</para>
     /// <para>示例值：data_asset_dafefadsaf1</para>
     /// </param>
     /// <param name="with_data_asset_item">
@@ -22519,11 +22533,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? tenant_type = null);
 
     /// <summary>
-    /// <para>【智能伙伴创建平台】上传文件用于数据知识管理</para>
+    /// <para>【飞书 Aily】上传文件用于数据知识管理</para>
     /// <para>接口ID：7441589456115941379</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/upload_file</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传文件用于智能伙伴的数据知识管理</para>
+    /// <para>上传文件用于 Aily 的数据知识管理</para>
     /// <para>。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:data_asset:upload_file</item>
@@ -22532,7 +22546,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="app_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>智能伙伴创建平台的应用的APPID，可以直接从智能伙伴应用的URL中获取。获取示例：/ai/{APPID}</para>
+    /// <para>Aily 平台的应用的APPID，可以直接从 Aily 应用的URL中获取。获取示例：/ai/{APPID}</para>
     /// <para>示例值：spring_dsafdsaf__c</para>
     /// </param>
     /// <param name="tenant_type">
@@ -23141,11 +23155,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询席位活跃详情</para>
+    /// <para>【飞书 aPaaS】查询席位活跃详情</para>
     /// <para>接口ID：7447484643136946177</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/seat_activity/list</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>获取租户下用户使用飞书低代码平台席位最近访问应用时间。需要飞书低代码平台系统管理员作为授权人调用当前API。</para>
+    /// <para>获取租户下用户使用飞书 aPaaS 席位最近访问应用时间。需要飞书 aPaaS 系统管理员作为授权人调用当前API。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>app_engine:seat_activities:read</item>
     /// </list></para>
@@ -23559,11 +23573,11 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询席位分配详情</para>
+    /// <para>【飞书 aPaaS】查询席位分配详情</para>
     /// <para>接口ID：7452929418211344412</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/seat_assignment/list</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>获取租户下平台席位和应用访问席位分配详情，如用户 ID 、应用命名空间等，需要飞书低代码平台系统管理员作为授权人调用当前 API 。</para>
+    /// <para>获取租户下平台席位和应用访问席位分配详情，如用户 ID 、应用命名空间等，需要飞书 aPaaS 系统管理员作为授权人调用当前 API 。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>app_engine:seat_assignments:read</item>
     /// </list></para>
@@ -23598,7 +23612,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询数据变更日志列表</para>
+    /// <para>【飞书 aPaaS】查询数据变更日志列表</para>
     /// <para>接口ID：7462214121168650243</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-audit_log/data_change_logs_list</para>
     /// <para>Authorization：user_access_token</para>
@@ -23694,7 +23708,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? app_type = null);
 
     /// <summary>
-    /// <para>【飞书低代码平台】查询数据变更日志详情</para>
+    /// <para>【飞书 aPaaS】查询数据变更日志详情</para>
     /// <para>接口ID：7462214121168666627</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-audit_log/data_change_log_detail</para>
     /// <para>Authorization：user_access_token</para>

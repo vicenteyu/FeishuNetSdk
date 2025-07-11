@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 删除数据知识 响应体
-/// <para>删除智能伙伴的数据知识</para>
+/// <para>删除 Aily 的数据知识</para>
 /// <para>接口ID：7441589456115908611</para>
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-data_asset%2fdelete</para>

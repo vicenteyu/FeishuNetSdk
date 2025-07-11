@@ -71,7 +71,6 @@ public class Test_PostDirectoryV1EmployeesBodyDto : TestBase
         "extension_number": "2845435",
         "join_date": "2022-10-10",
         "employment_type": 1,
-        "staff_status": 1,
         "job_title_id": "wqedsaqw",
         "custom_field_values": [
             {

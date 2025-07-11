@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Aily;
 /// <summary>
-/// 发送智能伙伴消息 请求体
-/// <para>该 API 用于向某个飞书智能伙伴应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
+/// 发送 Aily 消息 请求体
+/// <para>该 API 用于向某个飞书 Aily 应用发送一条消息（Message）；每个消息从属于一个活跃的会话（Session）。</para>
 /// <para>## 实体概念说明</para>
 /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
 /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>
@@ -41,6 +41,13 @@ public record PostAilyV1SessionsByAilySessionIdMessagesBodyDto
     /// <para>- `TEXT` 作为纯文本进行处理</para>
     /// <para>必填：是</para>
     /// <para>示例值：MDX</para>
+    /// <para>可选值：<list type="bullet">
+    /// <item>MDX：MDX</item>
+    /// <item>TEXT：TEXT</item>
+    /// <item>CLIP：GUI 卡片</item>
+    /// <item>SmartCard：SmartCard</item>
+    /// <item>JSON：JSON</item>
+    /// </list></para>
     /// </summary>
     [JsonPropertyName("content_type")]
     public string ContentType { get; set; } = string.Empty;
@@ -49,7 +56,7 @@ public record PostAilyV1SessionsByAilySessionIdMessagesBodyDto
     /// <para>消息内容</para>
     /// <para>必填：是</para>
     /// <para>示例值：你好</para>
-    /// <para>最大长度：16777216</para>
+    /// <para>最大长度：61440</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("content")]
@@ -102,6 +109,10 @@ public record PostAilyV1SessionsByAilySessionIdMessagesBodyDto
         /// <para>身份提供者</para>
         /// <para>必填：否</para>
         /// <para>示例值：FEISHU</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>AILY：Aily 账号体系</item>
+        /// <item>FEISHU：飞书账号体系</item>
+        /// </list></para>
         /// </summary>
         [JsonPropertyName("identity_provider")]
         public string? IdentityProvider { get; set; }

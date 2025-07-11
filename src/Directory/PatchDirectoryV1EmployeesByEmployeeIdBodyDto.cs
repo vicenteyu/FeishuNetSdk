@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-31
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PatchDirectoryV1EmployeesByEmployeeIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Directory;
 /// <summary>
-/// 更新员工 请求体
+/// 更新员工信息 请求体
 /// <para>本接口用于更新在职/离职员工的信息、冻结/恢复员工。未传递的参数不会进行更新。</para>
 /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
 /// <para>接口ID：7359428154233667588</para>
@@ -47,19 +47,20 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public record UpsertName
         {
             /// <summary>
-            /// <para>员工的姓名，最多可输入 64 字</para>
+            /// <para>员工的姓名。</para>
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
             public I18nText Name { get; set; } = new();
 
             /// <summary>
-            /// <para>员工的姓名，最多可输入 64 字</para>
+            /// <para>员工的姓名。</para>
             /// </summary>
             public record I18nText
             {
                 /// <summary>
                 /// <para>默认值</para>
+                /// <para>长度范围：1- 64 字符</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：工位</para>
                 /// </summary>
@@ -169,6 +170,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
 
             /// <summary>
             /// <para>员工在部门内的排序权重</para>
+            /// <para>**数据校验规则：**</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -292,6 +294,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
 
         /// <summary>
         /// <para>入职日期</para>
+        /// <para>固定格式为：'YYYY-MM-DD' , 固定长度为：10</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-10</para>
         /// </summary>
@@ -305,21 +308,6 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         /// </summary>
         [JsonPropertyName("employment_type")]
         public int? EmploymentType { get; set; }
-
-        /// <summary>
-        /// <para>员工人事状态</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：1</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>1：在职</item>
-        /// <item>2：离职</item>
-        /// <item>3：待入职</item>
-        /// <item>4：取消入职</item>
-        /// <item>5：待离职</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("staff_status")]
-        public int? StaffStatus { get; set; }
 
         /// <summary>
         /// <para>职务ID</para>
@@ -347,6 +335,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
 
         /// <summary>
         /// <para>离职日期</para>
+        /// <para>固定格式为：'YYYY-MM-DD' , 固定长度为：10</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-10-10</para>
         /// <para>最大长度：20</para>
@@ -439,14 +428,6 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         public record CustomFieldValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -455,6 +436,7 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>9：电话</item>
             /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
             /// <item>11：人员列表</item>
             /// </list></para>
@@ -606,6 +588,43 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
             }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_value")]
+            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// </summary>
+            public record CustomFieldValuePhoneValue
+            {
+                /// <summary>
+                /// <para>电话号</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：18812345678</para>
+                /// </summary>
+                [JsonPropertyName("phone_number")]
+                public string PhoneNumber { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>分机号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：234234234</para>
+                /// </summary>
+                [JsonPropertyName("extension_number")]
+                public string? ExtensionNumber { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
         }
     }
 }

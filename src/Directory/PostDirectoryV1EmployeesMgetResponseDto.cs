@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PostDirectoryV1EmployeesMgetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 批量获取员工信息 响应体
-/// <para>本接口用于批量根据员工的ID查询员工的详情。</para>
+/// <para>本接口用于批量根据员工的ID查询员工的详情，比如员工姓名，手机号，邮箱，部门等信息。</para>
 /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
 /// <para>接口ID：7359428154233520132</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/mget</para>
@@ -49,10 +49,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
         public record EmployeeBaseEntity
         {
             /// <summary>
-            /// <para>企业内在职员工的唯一标识。支持自定义，未自定义时系统自动生成。ID支持修改。</para>
-            /// <para>获取employee_id的方式：</para>
-            /// <para>- 企业管理员在 管理后台 &gt; 组织架构 &gt; 成员与部门 页面，点击 成员详情，查询员工ID</para>
-            /// <para>- 通过 [批量获取员工列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/filter) 的接口，通过手机号或邮箱查询员工ID。</para>
+            /// <para>企业内在职员工的唯一标识，与employee_id_type类型保持一致。</para>
             /// <para>`employee_id_type`为`open_id`或者`union_id`时无需权限，使用`employee_id`类型时，权限要求如下</para>
             /// <para>**字段权限要求**：</para>
             /// <para>- directory:employee.base.external_id:read : 查看员工自定义 ID</para>
@@ -98,7 +95,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             /// <para>2. 未认证企业仅支持添加中国大陆手机号，通过飞书认证的企业允许添加海外手机号。</para>
             /// <para>3. 国际电话区号前缀中必须包含加号 +。</para>
             /// <para>必填：否</para>
-            /// <para>示例值：13011111111 或 +8613011111111</para>
+            /// <para>示例值：+8613011111111</para>
             /// <para>最大长度：255</para>
             /// </summary>
             [JsonPropertyName("mobile")]
@@ -153,7 +150,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             public record Department
             {
                 /// <summary>
-                /// <para>部门ID</para>
+                /// <para>部门ID，与department_id_type类型保持一致</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：h12921</para>
                 /// <para>最大长度：64</para>
@@ -176,7 +173,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                     /// <summary>
                     /// <para>递归成员数量</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：100</para>
+                    /// <para>示例值：200</para>
                     /// </summary>
                     [JsonPropertyName("recursive_members_count")]
                     public string? RecursiveMembersCount { get; set; }
@@ -249,7 +246,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                     public int LeaderType { get; set; }
 
                     /// <summary>
-                    /// <para>部门负责人ID</para>
+                    /// <para>部门负责人ID，与employee_id_type类型保持一致</para>
                     /// <para>必填：是</para>
                     /// <para>示例值：u273y71</para>
                     /// </summary>
@@ -258,7 +255,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 }
 
                 /// <summary>
-                /// <para>父部门ID</para>
+                /// <para>父部门ID，与department_id_type类型保持一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：h12921</para>
                 /// <para>最大长度：64</para>
@@ -283,8 +280,9 @@ public record PostDirectoryV1EmployeesMgetResponseDto
 
                 /// <summary>
                 /// <para>部门排序权重</para>
+                /// <para>**示例值：**</para>
+                /// <para>"100"</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：无</para>
                 /// </summary>
                 [JsonPropertyName("order_weight")]
                 public string? OrderWeight { get; set; }
@@ -314,7 +312,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
                 public record DepartmentBaseInfo
                 {
                     /// <summary>
-                    /// <para>部门ID</para>
+                    /// <para>部门ID，与department_id_type类型保持一致</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1</para>
                     /// </summary>
@@ -360,7 +358,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             public record UserDepartmentSortInfo
             {
                 /// <summary>
-                /// <para>部门id</para>
+                /// <para>部门id，与department_id_type类型保持一致</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：h12921</para>
                 /// </summary>
@@ -369,6 +367,8 @@ public record PostDirectoryV1EmployeesMgetResponseDto
 
                 /// <summary>
                 /// <para>用户在部门内的排序权重</para>
+                /// <para>**示例值：**</para>
+                /// <para>"80"</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
@@ -377,6 +377,8 @@ public record PostDirectoryV1EmployeesMgetResponseDto
 
                 /// <summary>
                 /// <para>用户多个部门间的排序权重</para>
+                /// <para>**示例值：**</para>
+                /// <para>"20"</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
@@ -416,7 +418,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             public bool? IsResigned { get; set; }
 
             /// <summary>
-            /// <para>员工的直属上级ID</para>
+            /// <para>员工的直属上级ID，与employee_id_type类型保持一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：uyg77nx</para>
             /// </summary>
@@ -424,7 +426,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             public string? LeaderId { get; set; }
 
             /// <summary>
-            /// <para>员工的虚线上级ID</para>
+            /// <para>员工的虚线上级ID，与employee_id_type类型保持一致</para>
             /// <para>必填：否</para>
             /// <para>最大长度：10</para>
             /// <para>最小长度：0</para>
@@ -527,7 +529,7 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             }
 
             /// <summary>
-            /// <para>离职时间。离职操作的时间，系统自动生成，无法写入</para>
+            /// <para>离职时间。离职操作的时间，系统自动生成，无法写入。格式为YYYY-MM-DD。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -792,8 +794,69 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             }
 
             /// <summary>
+            /// <para>职级</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("job_level")]
+            public EmployeeWorkEntityJobLevel? JobLevel { get; set; }
+
+            /// <summary>
+            /// <para>职级</para>
+            /// </summary>
+            public record EmployeeWorkEntityJobLevel
+            {
+                /// <summary>
+                /// <para>ID</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
+                /// <para>最大长度：64</para>
+                /// </summary>
+                [JsonPropertyName("job_level_id")]
+                public string JobLevelId { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>i18n文本</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("job_level_name")]
+                public I18nText? JobLevelName { get; set; }
+
+                /// <summary>
+                /// <para>是否启用</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("is_enabled")]
+                public bool? IsEnabled { get; set; }
+
+                /// <summary>
+                /// <para>是否删除</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("is_deleted")]
+                public bool? IsDeleted { get; set; }
+
+                /// <summary>
+                /// <para>排序, 小的在前面</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// </summary>
+                [JsonPropertyName("order")]
+                public string? Order { get; set; }
+
+                /// <summary>
+                /// <para>i18n文本</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("description")]
+                public I18nText? Description { get; set; }
+            }
+
+            /// <summary>
             /// <para>序列</para>
             /// <para>必填：否</para>
+            /// <para>示例值：1</para>
             /// </summary>
             [JsonPropertyName("job_family")]
             public EmployeeWorkEntityJobFamily? JobFamily { get; set; }
@@ -900,7 +963,6 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             /// <para>离职类型</para>
             /// <para>**示例值**："1"</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">
             /// <item>1：主动</item>
             /// <item>2：被动</item>
@@ -910,183 +972,202 @@ public record PostDirectoryV1EmployeesMgetResponseDto
             [JsonPropertyName("resign_type")]
             public string? ResignType { get; set; }
         }
+    }
+
+    /// <summary>
+    /// <para>国际化文本</para>
+    /// </summary>
+    public record I18nText
+    {
+        /// <summary>
+        /// <para>默认本地值</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("default_locale")]
+        public string? DefaultLocale { get; set; }
 
         /// <summary>
-        /// <para>国际化文本</para>
+        /// <para>默认值</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：张三</para>
         /// </summary>
-        public record I18nText
+        [JsonPropertyName("default_value")]
+        public string DefaultValue { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：{"zh_cn":"张三"}</para>
+        /// </summary>
+        [JsonPropertyName("i18n_value")]
+        public I18nLanguage<string>? I18nValue { get; set; }
+    }
+
+    /// <summary>
+    /// <para>自定义字段</para>
+    /// </summary>
+    public record CustomFieldValue
+    {
+        /// <summary>
+        /// <para>自定义字段类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：多行文本</item>
+        /// <item>2：网页链接</item>
+        /// <item>3：枚举选项</item>
+        /// <item>4：人员</item>
+        /// <item>9：电话</item>
+        /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
+        /// <item>11：人员列表</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("field_type")]
+        public int? FieldType { get; set; }
+
+        /// <summary>
+        /// <para>文本字段值</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("text_value")]
+        public I18nText? TextValue { get; set; }
+
+        /// <summary>
+        /// <para>网页链接字段值</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("url_value")]
+        public CustomFieldValueUrlValue? UrlValue { get; set; }
+
+        /// <summary>
+        /// <para>网页链接字段值</para>
+        /// </summary>
+        public record CustomFieldValueUrlValue
         {
             /// <summary>
-            /// <para>默认本地值</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("default_locale")]
-            public string? DefaultLocale { get; set; }
-
-            /// <summary>
-            /// <para>默认值</para>
+            /// <para>网页标题</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
             /// </summary>
-            [JsonPropertyName("default_value")]
-            public string DefaultValue { get; set; } = string.Empty;
+            [JsonPropertyName("link_text")]
+            public I18nText LinkText { get; set; } = new();
 
             /// <summary>
-            /// <para>国际化值，key为zh_cn, ja_jp, en_us, value为对应的值</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：{"zh_cn":"张三"}</para>
+            /// <para>移动端网页链接</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：https://m.bytedance.com/afnasjfna</para>
             /// </summary>
-            [JsonPropertyName("i18n_value")]
-            public I18nLanguage<string>? I18nValue { get; set; }
+            [JsonPropertyName("url")]
+            public string Url { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>桌面端网页链接</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：http://www.fs.cn</para>
+            /// </summary>
+            [JsonPropertyName("pcurl")]
+            public string Pcurl { get; set; } = string.Empty;
         }
 
         /// <summary>
-        /// <para>自定义字段</para>
+        /// <para>枚举</para>
+        /// <para>必填：否</para>
         /// </summary>
-        public record CustomFieldValue
+        [JsonPropertyName("enum_value")]
+        public CustomFieldValueEnumValue? EnumValue { get; set; }
+
+        /// <summary>
+        /// <para>枚举</para>
+        /// </summary>
+        public record CustomFieldValueEnumValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：1</para>
-            /// <para>可选值：<list type="bullet">
-            /// <item>1：多行文本</item>
-            /// <item>2：网页链接</item>
-            /// <item>3：枚举选项</item>
-            /// <item>4：人员</item>
-            /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
-            /// <item>11：人员列表</item>
-            /// </list></para>
-            /// </summary>
-            [JsonPropertyName("field_type")]
-            public int? FieldType { get; set; }
-
-            /// <summary>
-            /// <para>文本字段值</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("text_value")]
-            public I18nText? TextValue { get; set; }
-
-            /// <summary>
-            /// <para>网页链接字段值</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("url_value")]
-            public CustomFieldValueUrlValue? UrlValue { get; set; }
-
-            /// <summary>
-            /// <para>网页链接字段值</para>
-            /// </summary>
-            public record CustomFieldValueUrlValue
-            {
-                /// <summary>
-                /// <para>网页标题</para>
-                /// <para>必填：是</para>
-                /// </summary>
-                [JsonPropertyName("link_text")]
-                public I18nText LinkText { get; set; } = new();
-
-                /// <summary>
-                /// <para>移动端网页链接</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：https://m.bytedance.com/afnasjfna</para>
-                /// </summary>
-                [JsonPropertyName("url")]
-                public string Url { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>桌面端网页链接</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：http://www.fs.cn</para>
-                /// </summary>
-                [JsonPropertyName("pcurl")]
-                public string Pcurl { get; set; } = string.Empty;
-            }
-
-            /// <summary>
-            /// <para>枚举</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("enum_value")]
-            public CustomFieldValueEnumValue? EnumValue { get; set; }
-
-            /// <summary>
-            /// <para>枚举</para>
-            /// </summary>
-            public record CustomFieldValueEnumValue
-            {
-                /// <summary>
-                /// <para>选项结果ID</para>
-                /// <para>必填：是</para>
-                /// <para>最大长度：100</para>
-                /// <para>最小长度：0</para>
-                /// </summary>
-                [JsonPropertyName("enum_ids")]
-                public string[] EnumIds { get; set; } = Array.Empty<string>();
-
-                /// <summary>
-                /// <para>选项类型</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>1：文本</item>
-                /// <item>2：图片</item>
-                /// </list></para>
-                /// </summary>
-                [JsonPropertyName("enum_type")]
-                public int? EnumType { get; set; }
-
-                /// <summary>
-                /// <para>选项名称</para>
-                /// </summary>
-                [JsonPropertyName("enum_name")]
-                public string EnumName { get; set; } = string.Empty;
-            }
-
-            /// <summary>
-            /// <para>人员字段值</para>
-            /// <para>必填：否</para>
+            /// <para>选项结果ID</para>
+            /// <para>必填：是</para>
             /// <para>最大长度：100</para>
             /// <para>最小长度：0</para>
             /// </summary>
-            [JsonPropertyName("user_values")]
-            public UserValue[]? UserValues { get; set; }
+            [JsonPropertyName("enum_ids")]
+            public string[] EnumIds { get; set; } = Array.Empty<string>();
 
             /// <summary>
-            /// <para>人员字段值</para>
+            /// <para>选项类型</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：文本</item>
+            /// <item>2：图片</item>
+            /// </list></para>
             /// </summary>
-            public record UserValue
-            {
-                /// <summary>
-                /// <para>人员ID</para>
-                /// <para>必填：是</para>
-                /// <para>最大长度：100</para>
-                /// <para>最小长度：0</para>
-                /// </summary>
-                [JsonPropertyName("ids")]
-                public string[] Ids { get; set; } = Array.Empty<string>();
+            [JsonPropertyName("enum_type")]
+            public int? EnumType { get; set; }
 
-                /// <summary>
-                /// <para>人员类型</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>1：员工</item>
-                /// </list></para>
-                /// </summary>
-                [JsonPropertyName("user_type")]
-                public int? UserType { get; set; }
-            }
+            /// <summary>
+            /// <para>选项名称</para>
+            /// </summary>
+            [JsonPropertyName("enum_name")]
+            public string EnumName { get; set; } = string.Empty;
         }
+
+        /// <summary>
+        /// <para>人员字段值</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("user_values")]
+        public UserValue[]? UserValues { get; set; }
+
+        /// <summary>
+        /// <para>人员字段值</para>
+        /// </summary>
+        public record UserValue
+        {
+            /// <summary>
+            /// <para>人员ID</para>
+            /// <para>必填：是</para>
+            /// <para>最大长度：100</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("ids")]
+            public string[] Ids { get; set; } = Array.Empty<string>();
+        }
+
+        /// <summary>
+        /// <para>电话字段值</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("phone_value")]
+        public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+        /// <summary>
+        /// <para>电话字段值</para>
+        /// </summary>
+        public record CustomFieldValuePhoneValue
+        {
+            /// <summary>
+            /// <para>电话号</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：18812345678</para>
+            /// </summary>
+            [JsonPropertyName("phone_number")]
+            public string PhoneNumber { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>分机号</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：234234234</para>
+            /// </summary>
+            [JsonPropertyName("extension_number")]
+            public string? ExtensionNumber { get; set; }
+        }
+
+        /// <summary>
+        /// <para>自定义字段key</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：C-1000001</para>
+        /// </summary>
+        [JsonPropertyName("field_key")]
+        public string? FieldKey { get; set; }
     }
 
     /// <summary>

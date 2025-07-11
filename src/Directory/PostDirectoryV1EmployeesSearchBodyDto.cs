@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Directory;
 /// <summary>
-/// 搜索员工 请求体
-/// <para>本接口用于搜索员工信息。</para>
+/// 搜索员工信息 请求体
+/// <para>本接口用于搜索员工信息，如通过关键词搜索员工的名称、手机号、邮箱等信息。</para>
 /// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
 /// <para>接口ID：7359428154233618436</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/search</para>
@@ -43,7 +43,7 @@ public record PostDirectoryV1EmployeesSearchBodyDto
     public record PageCondition
     {
         /// <summary>
-        /// <para>本次请求条数，最大100条</para>
+        /// <para>本次请求条数，最小是0条，最大100条</para>
         /// <para>**默认值**：20</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>

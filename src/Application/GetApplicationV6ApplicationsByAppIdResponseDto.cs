@@ -96,7 +96,7 @@ public record GetApplicationV6ApplicationsByAppIdResponseDto
         /// <para>可选值：<list type="bullet">
         /// <item>developer_console：开发者后台</item>
         /// <item>base：多维表格自动化流程创建的应用</item>
-        /// <item>app_engine：飞书低代码平台</item>
+        /// <item>app_engine：飞书 aPaaS</item>
         /// <item>bot_builder：机器人助手</item>
         /// <item>aily：aily(智能伙伴搭建平台)</item>
         /// <item>unknown：未知来源</item>

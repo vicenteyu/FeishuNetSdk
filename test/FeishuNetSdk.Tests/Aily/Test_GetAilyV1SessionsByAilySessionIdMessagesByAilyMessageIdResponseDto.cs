@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Aily;
 
 /// <summary>
-/// 测试 获取智能伙伴消息 响应体
+/// 测试 获取 Aily 消息 响应体
 /// <para>接口ID：7358047310868152324</para>
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2faily_session-aily_message%2fget</para>

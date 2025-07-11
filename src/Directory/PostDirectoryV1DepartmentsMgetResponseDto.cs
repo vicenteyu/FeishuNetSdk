@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PostDirectoryV1DepartmentsMgetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 批量获取部门信息 响应体
-/// <para>本接口用于批量根据部门的ID查询部门的详情。</para>
+/// <para>该接口支持传入多个部门ID，返回每个部门的详细信息（如名称、负责人、子部门等）。</para>
 /// <para>接口ID：7359428234122854404</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/mget</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fmget</para>
@@ -56,6 +56,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
         {
             /// <summary>
             /// <para>递归成员数量</para>
+            /// <para>单位：个</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -64,6 +65,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
 
             /// <summary>
             /// <para>直属成员数量</para>
+            /// <para>单位：个</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -72,6 +74,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
 
             /// <summary>
             /// <para>递归成员数量(不含leader)</para>
+            /// <para>单位：个</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -80,6 +83,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
 
             /// <summary>
             /// <para>递归子部门数量</para>
+            /// <para>单位：个</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -88,6 +92,7 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
 
             /// <summary>
             /// <para>直属子部门数量</para>
+            /// <para>单位：个</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -207,14 +212,6 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
         public record CustomFieldValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -223,6 +220,9 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>9：电话</item>
+            /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
+            /// <item>11：人员列表</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("field_type")]
@@ -372,6 +372,43 @@ public record PostDirectoryV1DepartmentsMgetResponseDto
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
             }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_value")]
+            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// </summary>
+            public record CustomFieldValuePhoneValue
+            {
+                /// <summary>
+                /// <para>电话号</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：18812345678</para>
+                /// </summary>
+                [JsonPropertyName("phone_number")]
+                public string PhoneNumber { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>分机号</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：234234234</para>
+                /// </summary>
+                [JsonPropertyName("extension_number")]
+                public string? ExtensionNumber { get; set; }
+            }
+
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
         }
 
         /// <summary>
