@@ -14,8 +14,8 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 创建员工 响应体
-/// <para>本接口用于在企业下创建员工，可以理解为员工入职。</para>
-/// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」</para>
+/// <para>本接口用于在企业下创建员工。支持传入姓名、手机号等信息，生成在职状态的员工对象。</para>
+/// <para>员工指飞书企业内身份为「Employee」的成员，等同于通讯录OpenAPI中的「User」。</para>
 /// <para>接口ID：7359428154233651204</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/employee/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2femployee%2fcreate</para>

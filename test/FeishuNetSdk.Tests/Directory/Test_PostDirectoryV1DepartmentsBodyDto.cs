@@ -30,7 +30,7 @@ public class Test_PostDirectoryV1DepartmentsBodyDto : TestBase
     "department": {
         "custom_department_id": "eersdf",
         "name": {
-            "default_value": "张三",
+            "default_value": "张三  **数据校验规则**：  长度范围：1-64 字符",
             "i18n_value": {
                 "zh_cn": "中文",
                 "ja_jp": "ja_jp_name",
@@ -48,7 +48,6 @@ public class Test_PostDirectoryV1DepartmentsBodyDto : TestBase
         "enabled_status": true,
         "custom_field_values": [
             {
-                "field_key": "C-1000001",
                 "field_type": "1",
                 "text_value": {
                     "default_value": "张三",
@@ -78,10 +77,14 @@ public class Test_PostDirectoryV1DepartmentsBodyDto : TestBase
                     {
                         "ids": [
                             "asdbjw1s"
-                        ],
-                        "user_type": "1"
+                        ]
                     }
-                ]
+                ],
+                "phone_value": {
+                    "phone_number": "18812345678",
+                    "extension_number": "234234234  长度范围：0-99字符"
+                },
+                "field_key": "C-1000001"
             }
         ]
     }

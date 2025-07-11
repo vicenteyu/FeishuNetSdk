@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 创建数据知识 响应体
-/// <para>在智能伙伴中添加单个数据知识</para>
+/// <para>在 Aily 中添加单个数据知识</para>
 /// <para>接口ID：7441589456115892227</para>
 /// <para>文档地址：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fapp-data_asset%2fcreate</para>

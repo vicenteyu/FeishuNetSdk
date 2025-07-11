@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Aily;
 /// <summary>
 /// 取消运行 响应体
-/// <para>该 API 用于中止某个飞书智能伙伴的一次运行。</para>
+/// <para>该 API 用于中止某个飞书 Aily 的一次运行。</para>
 /// <para>## 实体概念说明</para>
 /// <para>- **会话**（Session）：管理用户与 Aily 助手之间的交互会话；每次会话记录了用户发送给 Aily 助手的消息以及 Aily 助手的响应。</para>
 /// <para>- **消息**（Message）：消息可以包含文本、表格、图片等多种类型的内容。</para>

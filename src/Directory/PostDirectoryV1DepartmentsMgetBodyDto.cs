@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory;
 /// <summary>
 /// 批量获取部门信息 请求体
-/// <para>本接口用于批量根据部门的ID查询部门的详情。</para>
+/// <para>该接口支持传入多个部门ID，返回每个部门的详细信息（如名称、负责人、子部门等）。</para>
 /// <para>接口ID：7359428234122854404</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/mget</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fmget</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Directory;
 public record PostDirectoryV1DepartmentsMgetBodyDto
 {
     /// <summary>
-    /// <para>部门ID，与department_id_type类型保持一致</para>
+    /// <para>部门ID，与department_id_type类型保持一致。id获取方式：可通过管理后台查询。</para>
     /// <para>必填：是</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

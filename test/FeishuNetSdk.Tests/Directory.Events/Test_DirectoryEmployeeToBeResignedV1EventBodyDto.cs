@@ -86,12 +86,12 @@ public class Test_DirectoryEmployeeToBeResignedV1EventBodyDto : TestBase
                         "url_value": {
                             "link_text": {
                                 "default_locale": "ms_my",
-                                "default_value": "231123",
+                                "default_value": "Feishu",
                                 "i18n_value": {
-                                    "ms_my": "231123"
+                                    "ms_my": "Feishu"
                                 }
                             },
-                            "url": "https://ufu6y83ytj.feishu-boe.cn/admin/contacts/departmentanduser?"
+                            "url": "https://www.feishu.cn/"
                         }
                     },
                     {

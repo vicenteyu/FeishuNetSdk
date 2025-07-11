@@ -49,7 +49,7 @@ public class Test_PostDirectoryV1EmployeesMgetResponseDto : TestBase
                         },
                         "another_name": "张小明"
                     },
-                    "mobile": "13011111111 或 +8613011111111",
+                    "mobile": " +8613011111111",
                     "email": "zhangsan@gmail.com",
                     "enterprise_email": "zhangsan@gmail.com",
                     "gender": 1,
@@ -124,8 +124,7 @@ public class Test_PostDirectoryV1EmployeesMgetResponseDto : TestBase
                                             "ids":
                                             [
                                                 "1"
-                                            ],
-                                            "user_type": 1
+                                            ]
                                         }
                                     ]
                                 }
@@ -209,8 +208,7 @@ public class Test_PostDirectoryV1EmployeesMgetResponseDto : TestBase
                                     "ids":
                                     [
                                         "1"
-                                    ],
-                                    "user_type": 1
+                                    ]
                                 }
                             ]
                         }

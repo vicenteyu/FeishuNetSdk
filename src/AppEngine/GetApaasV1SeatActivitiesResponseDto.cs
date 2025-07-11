@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.AppEngine;
 /// <summary>
 /// 查询席位活跃详情 响应体
-/// <para>获取租户下用户使用飞书低代码平台席位最近访问应用时间。需要飞书低代码平台系统管理员作为授权人调用当前API。</para>
+/// <para>获取租户下用户使用飞书 aPaaS 席位最近访问应用时间。需要飞书 aPaaS 系统管理员作为授权人调用当前API。</para>
 /// <para>接口ID：7447484643136946177</para>
 /// <para>文档地址：https://open.feishu.cn/document/apaas-v1/seat_activity/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fapaas-v1%2fseat_activity%2flist</para>

@@ -107,7 +107,7 @@ public record PostDirectoryV1EmployeesFilterBodyDto
     public record PageCondition
     {
         /// <summary>
-        /// <para>本次请求条数，最大100条</para>
+        /// <para>本次请求条数，最小0条，最大100条</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>

@@ -31,7 +31,8 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
     "msg": "success",
     "data":
     {
-        "employees":[
+        "employees":
+        [
             {
                 "base_info":
                 {
@@ -48,9 +49,9 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                         },
                         "another_name": "张小明"
                     },
-                    "mobile": "13011111111 或 +8613011111111",
-                    "email": "zhangsan@gmail.com",
-                    "enterprise_email": "zhangsan@gmail.com",
+                    "mobile": "+8613011111111",
+                    "email": "zhangsan@company.com",
+                    "enterprise_email": "zhangsan@company.com",
                     "gender": 1,
                     "departments":
                     [
@@ -81,7 +82,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                     "zh_cn": "张三"
                                 }
                             },
-                            "order_weight": "无",
+                            "order_weight": "100",
                             "custom_field_values":
                             [
                                 {
@@ -123,8 +124,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                             "ids":
                                             [
                                                 "1"
-                                            ],
-                                            "user_type": 1
+                                            ]
                                         }
                                     ]
                                 }
@@ -208,8 +208,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                                     "ids":
                                     [
                                         "1"
-                                    ],
-                                    "user_type": 1
+                                    ]
                                 }
                             ]
                         }
@@ -230,7 +229,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                             }
                         ]
                     ],
-                    "resign_time": "1",
+                    "resign_time": "2023-10-01",
                     "avatar":
                     {
                         "avatar_72": "http://qwed.com",
@@ -241,7 +240,7 @@ public class Test_PostDirectoryV1EmployeesFilterResponseDto : TestBase
                     "background_image": "http://sadui.com",
                     "is_admin": true,
                     "data_source": 1,
-                    "geo_name": "boe",
+                    "geo_name": "china",
                     "subscription_ids":
                     [
                         "458694723562"

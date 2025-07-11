@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2025-07-11
 // ************************************************************************
 // <copyright file="PatchDirectoryV1DepartmentsByDepartmentIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,6 +37,8 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
         /// <para>自定义部门ID。注意：</para>
         /// <para>1. 除需要满足正则规则外，同时不能以od-开头</para>
         /// <para>2. 正则校验：^[a-zA-Z0-9][a-zA-Z0-9_\-@.]{0,63}$</para>
+        /// <para>**数据校验规则**：</para>
+        /// <para>长度范围：1-64字符</para>
         /// <para>必填：否</para>
         /// <para>示例值：eedasqwA</para>
         /// </summary>
@@ -58,7 +60,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
             /// <summary>
             /// <para>默认值</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：张三 长度范围：1-100</para>
             /// </summary>
             [JsonPropertyName("default_value")]
             public string DefaultValue { get; set; } = string.Empty;
@@ -116,7 +118,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
         }
 
         /// <summary>
-        /// <para>在上级部门下的排序权重</para>
+        /// <para>在上级部门下的排序权重，返回结果将按照order_weight的值进行升序排列。</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
@@ -146,14 +148,6 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
         public record CustomFieldValue
         {
             /// <summary>
-            /// <para>自定义字段key</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：C-1000001</para>
-            /// </summary>
-            [JsonPropertyName("field_key")]
-            public string? FieldKey { get; set; }
-
-            /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
@@ -162,6 +156,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
             /// <item>2：网页链接</item>
             /// <item>3：枚举选项</item>
             /// <item>4：人员</item>
+            /// <item>9：电话</item>
             /// <item>10：多选枚举类型(目前仅支持文本类型)</item>
             /// <item>11：人员列表</item>
             /// </list></para>
@@ -312,18 +307,45 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
                 /// </summary>
                 [JsonPropertyName("ids")]
                 public string[] Ids { get; set; } = Array.Empty<string>();
+            }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("phone_value")]
+            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+
+            /// <summary>
+            /// <para>电话字段值</para>
+            /// </summary>
+            public record CustomFieldValuePhoneValue
+            {
+                /// <summary>
+                /// <para>电话号</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：18812345678</para>
+                /// </summary>
+                [JsonPropertyName("phone_number")]
+                public string PhoneNumber { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>人员类型</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>1：员工</item>
-                /// </list></para>
+                /// <para>分机号</para>
+                /// <para>长度范围：0-99字符</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：234234234</para>
                 /// </summary>
-                [JsonPropertyName("user_type")]
-                public string UserType { get; set; } = string.Empty;
+                [JsonPropertyName("extension_number")]
+                public string? ExtensionNumber { get; set; }
             }
+
+            /// <summary>
+            /// <para>自定义字段key</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：C-1000001</para>
+            /// </summary>
+            [JsonPropertyName("field_key")]
+            public string? FieldKey { get; set; }
         }
     }
 }

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Directory.Events;
 /// <summary>
 /// 部门新建 事件体
-/// <para>在创建新部门时接收事件通知。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=directory&amp;version=v1&amp;resource=department&amp;event=created)</para>
+/// <para>在创建新部门时接收事件通知。</para>
 /// <para>接口ID：7419214646853238788</para>
 /// <para>文档地址：https://open.feishu.cn/document/directory-v1/department/events/created</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fdirectory-v1%2fdepartment%2fevents%2fcreated</para>
@@ -34,7 +34,7 @@ public record DirectoryDepartmentCreatedV1EventBodyDto() : EventBodyDto("directo
     public record DepartmentSuffix
     {
         /// <summary>
-        /// <para>部门ID</para>
+        /// <para>部门ID,部门ID类型为 open_department_id，了解部门 ID 可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
         /// <para>**数据校验规则**：</para>
         /// <para>- 最大长度：`64` 字符</para>
         /// <para>**字段权限要求（满足任一）**：</para>
@@ -254,7 +254,7 @@ public record DirectoryDepartmentCreatedV1EventBodyDto() : EventBodyDto("directo
             public record UserValue
             {
                 /// <summary>
-                /// <para>人员ID</para>
+                /// <para>人员ID列表，了解用户 ID 可参见[用户身份概述](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
                 /// <para>**数据校验规则**：</para>
                 /// <para>- 长度范围：`0` ～ `100`</para>
                 /// <para>必填：否</para>
