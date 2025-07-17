@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2025-07-18
 // ************************************************************************
 // <copyright file="PostApprovalV4ExternalInstancesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -209,7 +209,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
         public string EndTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批实例最近更新时间，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
+        /// <para>审批实例最近更新时间，Unix 毫秒时间戳，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
         /// <para>**说明**：使用该参数主要用来避免并发时，旧数据更新了新数据。</para>
         /// <para>必填：是</para>
         /// <para>示例值：1556468012678</para>
@@ -379,7 +379,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string EndTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>任务最近更新时间，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批任务信息。</para>
+            /// <para>任务最近更新时间，Unix 毫秒时间戳，用于推送数据版本控制。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批任务信息。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -498,6 +498,18 @@ public record PostApprovalV4ExternalInstancesResponseDto
             /// </summary>
             [JsonPropertyName("node_name")]
             public string? NodeName { get; set; }
+
+            /// <summary>
+            /// <para>任务生成类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：EXTERNAL_CONSIGN</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>EXTERNAL_CONSIGN：给代理人生成的任务</item>
+            /// <item>DEFAULT：默认情况，可不填， 但是不要填空字符串</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("generate_type")]
+            public string? GenerateType { get; set; }
         }
 
         /// <summary>
@@ -603,7 +615,7 @@ public record PostApprovalV4ExternalInstancesResponseDto
             public string CreateTime { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>抄送最近更新时间，用于推送数据版本。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
+            /// <para>抄送最近更新时间，Unix 毫秒时间戳，用于推送数据版本。如果 update_mode 值为 UPDATE，则仅当传过来的 update_time 有变化时（变大），才会更新审批中心中的审批实例信息。</para>
             /// <para>必填：是</para>
             /// <para>示例值：1556468012678</para>
             /// </summary>
@@ -645,6 +657,19 @@ public record PostApprovalV4ExternalInstancesResponseDto
             /// <item>zh-CN：中文</item>
             /// <item>en-US：英文</item>
             /// <item>ja-JP：日文</item>
+            /// <item>zh-HK：繁体中文（中国香港）</item>
+            /// <item>zh-TW：繁体中文（中国台湾）</item>
+            /// <item>de-DE：德语</item>
+            /// <item>es-ES：西班牙语</item>
+            /// <item>fr-FR：法语</item>
+            /// <item>id-ID：印度尼西亚语</item>
+            /// <item>it-IT：意大利语</item>
+            /// <item>ko-KR：韩语</item>
+            /// <item>pt-BR：葡萄牙语</item>
+            /// <item>th-TH：泰语</item>
+            /// <item>vi-VN：越南语</item>
+            /// <item>ms-MY：马来语</item>
+            /// <item>ru-RU：俄语</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("locale")]
@@ -800,5 +825,13 @@ public record PostApprovalV4ExternalInstancesResponseDto
             [JsonPropertyName("form_version")]
             public string? FormVersion { get; set; }
         }
+
+        /// <summary>
+        /// <para>资源所在地区， 内部统计用字段， 不需要填</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：cn</para>
+        /// </summary>
+        [JsonPropertyName("resource_region")]
+        public string? ResourceRegion { get; set; }
     }
 }

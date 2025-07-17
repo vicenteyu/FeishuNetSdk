@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Vc.Events;
 /// <summary>
 /// 删除会议室层级 事件体
-/// <para>当删除会议室成层级时，会触发该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=vc&amp;version=v1&amp;resource=room_level&amp;event=deleted)</para>
+/// <para>当删除会议室层级时，会触发该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=vc&amp;version=v1&amp;resource=room_level&amp;event=deleted)</para>
 /// <para>接口ID：7194805625628082179</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/room_level/events/deleted</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2froom_level%2fevents%2fdeleted</para>

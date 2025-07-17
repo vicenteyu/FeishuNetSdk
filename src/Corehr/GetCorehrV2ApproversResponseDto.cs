@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取指定人员审批任务列表 响应体
-/// <para>审批任务依赖于流程节点实例存在，每一个流程节点实例可能包含有一或多个审批任务，每一个任务表明当前节点的审批人是谁，该接口可获取指定人员的审批任务列表。</para>
+/// <para>审批任务依赖于流程节点实例存在，每一个流程节点实例可能包含有一或多个审批任务，每一个任务表明当前节点的审批人是谁，该接口可获取指定人员的审批任务列表（此功能不受数据权限范围控制）。</para>
 /// <para>接口ID：7426325309484040193</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fapprover%2flist</para>

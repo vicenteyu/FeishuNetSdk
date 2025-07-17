@@ -19,6 +19,7 @@ namespace FeishuNetSdk.Contact;
 /// <para>- 发送请求时，未传递的参数不会更新。</para>
 /// <para>- 并发操作冻结用户时，因事务冲突会遇到概率性的接口调用失败。因此，请尝试降低请求速率或改为串行执行。</para>
 /// <para>- 更新 `department_ids`、`is_frozen` 时，限制调用频率为 1 QPS。</para>
+/// <para>- userAccessToken只允许修改这三个字段'Name'、'EnName'、'AvatarKey'。</para>
 /// <para>接口ID：6943913881476792347</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/user/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2fuser%2fpatch</para>
@@ -334,7 +335,7 @@ public record PatchContactV3UsersByUserIdBodyDto
             {
                 /// <summary>
                 /// <para>引用人员的用户 ID。</para>
-                /// <para>- ID 类型与查询参数 `user_id_type` 的取值保持一致。</para>
+                /// <para>- 自定义字段涉及的人员 ID，仅支持传入user_id格式的标识，该限制不受查询参数中user_id_type的取值影响。</para>
                 /// <para>- 如何获取用户 ID 可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：9b2fabg5</para>

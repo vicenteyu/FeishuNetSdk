@@ -84,7 +84,8 @@ public class Test_PostApprovalV4ExternalInstancesResponseDto : TestBase
                     "display_method": "BROWSER",
                     "exclude_statistics": false,
                     "node_id": "node",
-                    "node_name": "i18n@name"
+                    "node_name": "i18n@name",
+                    "generate_type": "EXTERNAL_CONSIGN"
                 }
             ],
             "cc_list": [
@@ -129,7 +130,8 @@ public class Test_PostApprovalV4ExternalInstancesResponseDto : TestBase
                 "form_policy": "DISABLE",
                 "form_vary_with_locale": false,
                 "form_version": "1"
-            }
+            },
+            "resource_region": "cn"
         }
     }
 }

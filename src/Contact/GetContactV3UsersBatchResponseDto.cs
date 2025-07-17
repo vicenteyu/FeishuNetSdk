@@ -569,6 +569,7 @@ public record GetContactV3UsersBatchResponseDto
 
         /// <summary>
         /// <para>分配给用户的席位 ID 列表。</para>
+        /// <para>**注意** ：当前接口暂不会返回席位相关的数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("subscription_ids")]
@@ -590,6 +591,7 @@ public record GetContactV3UsersBatchResponseDto
         {
             /// <summary>
             /// <para>席位 ID。</para>
+            /// <para>**注意**：当前接口暂不会返回席位相关的数据。</para>
             /// <para>必填：否</para>
             /// <para>示例值：7079609167680782300</para>
             /// </summary>
@@ -598,6 +600,7 @@ public record GetContactV3UsersBatchResponseDto
 
             /// <summary>
             /// <para>席位许可（License Plan Key）。</para>
+            /// <para>**注意**：当前接口暂不会返回席位相关的数据。</para>
             /// <para>必填：否</para>
             /// <para>示例值：suite_enterprise_e5</para>
             /// </summary>
@@ -606,6 +609,7 @@ public record GetContactV3UsersBatchResponseDto
 
             /// <summary>
             /// <para>席位名称。</para>
+            /// <para>**注意**：当前接口暂不会返回席位相关的数据。</para>
             /// <para>必填：否</para>
             /// <para>示例值：旗舰版 E5</para>
             /// </summary>

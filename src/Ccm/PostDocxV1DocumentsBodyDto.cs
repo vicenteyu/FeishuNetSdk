@@ -23,7 +23,8 @@ public record PostDocxV1DocumentsBodyDto
 {
     /// <summary>
     /// <para>指定文档所在文件夹 的 Token。不传或传空表示根目录。了解如何获取文件夹 Token，参考[如何获取云文档资源相关 Token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。</para>
-    /// <para>若应用使用的是 `tenant_access_token` 权限，此处仅可指定应用创建的文件夹</para>
+    /// <para>**提示**：</para>
+    /// <para>若应用使用的是 `tenant_access_token` 权限，此处仅可指定应用创建的文件夹。</para>
     /// <para>必填：否</para>
     /// <para>示例值：fldcnqquW1svRIYVT2Np6Iabcef</para>
     /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-21
+// Last Modified On : 2025-07-17
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -3149,6 +3149,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 发送请求时，未传递的参数不会更新。</para>
     /// <para>- 并发操作冻结用户时，因事务冲突会遇到概率性的接口调用失败。因此，请尝试降低请求速率或改为串行执行。</para>
     /// <para>- 更新 `department_ids`、`is_frozen` 时，限制调用频率为 1 QPS。</para>
+    /// <para>- userAccessToken只允许修改这三个字段'Name'、'EnName'、'AvatarKey'。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:user.base</item>
@@ -4823,11 +4824,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Im.PostImV1MessagesBodyDto dto);
 
     /// <summary>
-    /// <para>【消息与群组】更新应用发送的消息卡片</para>
+    /// <para>【消息与群组】更新已发送的消息卡片</para>
     /// <para>接口ID：6946222931479543809</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message-card/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过消息 ID（message_id）更新指定的消息卡片内容。</para>
+    /// <para>通过消息 ID（message_id）更新已发送的消息卡片的内容。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>## 使用场景</para>
@@ -4835,7 +4836,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 如果你需要在用户与卡片进行交互后更新卡片，可参考[处理卡片回调](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/handle-card-callbacks)，选择在 3 秒内立即更新卡片、或 30 分钟内[延时更新卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)的方式。</para>
     /// <para>- 如果你需要仅更新部分成员接收到的卡片，你需调用[延时更新消息卡片](https://open.feishu.cn/document/ukTMukTMukTM/uMDO1YjLzgTN24yM4UjN)接口，指定用户的 open_id。</para>
     /// <para>## 注意事项</para>
-    /// <para>- 若以 user_access_token 更新消息，该操作用户必须是卡片消息的发送者。</para>
+    /// <para>- 调用该接口的身份（access_token）需与发送卡片的身份一致。</para>
     /// <para>- 仅支持更新未撤回的卡片。</para>
     /// <para>- 你需在更新**前后**卡片的 `config` 属性中，均显式声明 =="update_multi":true==（表示卡片为共享卡片，卡片的更新对所有接收的用户可见）。</para>
     /// <para>## 使用限制</para>
@@ -23954,13 +23955,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7094878915034464284</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/event/subscribe</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于订阅云文档的各类通知事件。了解事件订阅的配置流程和使用场景，参考[事件概述](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)。了解云文档支持的事件类型，参考[事件列表](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-list)。</para>
+    /// <para>订阅云文档的各类通知事件。调用该接口并在开发者后台添加事件后，当云文档发生指定事件时，系统会向配置的地址发送事件。</para>
     /// <para>## 注意事项</para>
     /// <para>- 文档管理者仅能接收到[文件编辑](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/event/file-edited)、[多维表格字段变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_field_changed)、[多维表格记录变更](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/bitable_record_changed)事件。</para>
-    /// <para>- 若应用是以 `tenant_access_token` 订阅的事件，在接收事件时需要同时申请应用和用户两个身份接收事件的权限。</para>
+    /// <para>- 若应用是以应用身份（`tenant_access_token`） 订阅的事件，在接收事件时需要同时申请应用和用户两个身份接收事件的权限。例如，要订阅 [文件夹下文件创建](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/events/created_in_folder) 事件，你需要在开发者后台，为应用同时开通两个身份的 `space:document.event:read` 权限。</para>
     /// <para>## 前提条件</para>
-    /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有相关权限。</para>
-    /// <para>- 调用该接口之前，请确保正确配置订阅方式并添加了事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
+    /// <para>- 调用该接口之前，请确保在开发者后台配置了订阅方式并添加了具体事件。详情参考[配置订阅方式](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)和[添加事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/subscription-event-case)。</para>
+    /// <para>- 文档的通知事件仅支持文档拥有者和文档管理者订阅。调用接口前请确保应用或用户具有文档可管理权限。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:event:subscribe</item>
@@ -35581,11 +35582,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2CompaniesBatchGetBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】通过职级 ID 批量获取职级信息</para>
+    /// <para>【飞书人事（企业版）】根据条件批量获取职级信息</para>
     /// <para>接口ID：7252157701853200412</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/job_level/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口支持通过职级id批量查询职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
+    /// <para>该接口支持通过职级ID或职级Code批量查询职级详情信息，包括名称、描述、启用状态等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:job_level:read</item>
     /// <item>corehr:job_level:write</item>
@@ -35597,11 +35598,11 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Corehr.PostCorehrV2JobLevelsBatchGetBodyDto dto);
 
     /// <summary>
-    /// <para>【飞书人事（企业版）】通过序列 ID 批量获取序列信息</para>
+    /// <para>【飞书人事（企业版）】根据条件批量获取序列信息</para>
     /// <para>接口ID：7252157701853216796</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/job_family/batch_get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过序列 ID 批量查询序列的详情信息，包括序列名称、启用状态、上级序列等。</para>
+    /// <para>通过序列 ID 或序列 Code 批量查询当前生效版本序列的详情信息，包括序列名称、启用状态、上级序列等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:job_family:read</item>
     /// <item>corehr:job_family:write</item>
@@ -40037,7 +40038,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7296819819722571804</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>本接口用于查询流程实例列表，支持通过流程定义 ID 等进行查询，其中：</para>
+    /// <para>本接口用于查询流程实例列表，支持通过流程定义 ID 等进行查询（此功能不受数据权限范围控制），其中：</para>
     /// <para>- 流程实例：是指用户在业务功能或者飞书人事的审批中心发起的具体流程，process_id 是其唯一标识。</para>
     /// <para>- 流程定义：是指管理员在设置侧配置的流程，类似流程模板，flow_definition_id 是其唯一标识。用户发起的流程是按照对应的流程定义的配置生成。</para>
     /// <para>权限要求：<list type="bullet">
@@ -40064,7 +40065,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，取值范围：1 ～ 100</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -40103,7 +40104,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7296819819722588188</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据流程实例 id（process_id）获取单个流程详情。比如流程状态、流程发起人、流程发起时间、流程摘要、流程里的所有待办、已办、抄送任务等。</para>
+    /// <para>根据流程实例 id（process_id）获取单个流程详情（此功能不受数据权限范围控制）。比如流程状态、流程发起人、流程发起时间、流程摘要、流程里的所有待办、已办、抄送任务等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:process:read</item>
     /// </list></para>
@@ -46032,6 +46033,56 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null);
 
     /// <summary>
+    /// <para>【Payroll】查询成本分摊报表明细</para>
+    /// <para>接口ID：7387360801748418561</para>
+    /// <para>接口文档：https://open.feishu.cn/document/payroll-v1/cost_allocation_detail/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据报表方案、期间、和报表类型获取成本分摊明细数据。调用接口前，需打开「财务过账」开关，并且完成发布成本分摊报表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>payroll:cost_allocation_details:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：50</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cost_allocation_plan_id">
+    /// <para>必填：是</para>
+    /// <para>成本分摊方案ID，通过[批量查询成本分摊方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/payroll-v1/cost_allocation_plan/list)获取</para>
+    /// <para>示例值：72131231231231231</para>
+    /// </param>
+    /// <param name="pay_period">
+    /// <para>必填：是</para>
+    /// <para>期间，成本分摊报表对应的年月。长度为7个字符。</para>
+    /// <para>示例值：2024-06</para>
+    /// </param>
+    /// <param name="report_type">
+    /// <para>必填：是</para>
+    /// <para>报表类型</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：默认</item>
+    /// <item>1：计提</item>
+    /// <item>2：实发</item>
+    /// </list>
+    /// </param>
+    [HttpGet("/open-apis/payroll/v1/cost_allocation_details")]
+    System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1CostAllocationDetailsResponseDto>> GetPayrollV1CostAllocationDetailsAsync(
+        [PathQuery] string cost_allocation_plan_id,
+        [PathQuery] string pay_period,
+        [PathQuery] int report_type,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】创建兼职</para>
     /// <para>接口ID：7387981900317540354</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/job_data/employees-additional_job/create</para>
@@ -48766,7 +48817,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7426325309484040193</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/list</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>审批任务依赖于流程节点实例存在，每一个流程节点实例可能包含有一或多个审批任务，每一个任务表明当前节点的审批人是谁，该接口可获取指定人员的审批任务列表。</para>
+    /// <para>审批任务依赖于流程节点实例存在，每一个流程节点实例可能包含有一或多个审批任务，每一个任务表明当前节点的审批人是谁，该接口可获取指定人员的审批任务列表（此功能不受数据权限范围控制）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:process:read</item>
     /// </list></para>
@@ -51758,7 +51809,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id");
 
     /// <summary>
-    /// <para>【云文档】转换为文档块</para>
+    /// <para>【云文档】Markdown/HTML 内容转换为文档块</para>
     /// <para>接口ID：7514526156452954140</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/convert</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>

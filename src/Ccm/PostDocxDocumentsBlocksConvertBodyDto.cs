@@ -13,7 +13,7 @@
 // ************************************************************************
 namespace FeishuNetSdk.Ccm;
 /// <summary>
-/// 转换为文档块 请求体
+/// Markdown/HTML 内容转换为文档块 请求体
 /// <para>将 HTML/Markdown 格式的内容转换为文档块</para>
 /// <para>接口ID：7514526156452954140</para>
 /// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document/convert</para>
