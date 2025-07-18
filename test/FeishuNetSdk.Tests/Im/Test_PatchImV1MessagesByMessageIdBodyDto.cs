@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Im;
 
 /// <summary>
-/// 测试 更新应用发送的消息卡片 请求体
+/// 测试 更新已发送的消息卡片 请求体
 /// <para>接口ID：6946222931479543809</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message-card/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fpatch</para>

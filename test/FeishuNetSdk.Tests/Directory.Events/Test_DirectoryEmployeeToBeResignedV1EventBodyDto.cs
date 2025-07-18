@@ -43,11 +43,11 @@ public class Test_DirectoryEmployeeToBeResignedV1EventBodyDto : TestBase
         "employee": {
             "base_info": {
                 "active_status": 5,
-                "avatar": {
-                    "avatar_240": "https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v3_00el_a1a8606b-fe92-4426-b1d3-7c999eb578dj~?image_size=240x240&cut_type=&quality=&format=png&sticker_format=.webp",
-                    "avatar_640": "https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v3_00el_a1a8606b-fe92-4426-b1d3-7c999eb578dj~?image_size=640x640&cut_type=&quality=&format=png&sticker_format=.webp",
-                    "avatar_72": "https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v3_00el_a1a8606b-fe92-4426-b1d3-7c999eb578dj~?image_size=72x72&cut_type=&quality=&format=png&sticker_format=.webp",
-                    "avatar_origin": "https://internal-api-lark-file.feishu-boe.cn/static-resource/v1/v3_00el_a1a8606b-fe92-4426-b1d3-7c999eb578dj~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp"
+                 "avatar": {
+                    "avatar_72": "https://i******le.feishu.cn/static-resource/v1/as******************************io~?image_size=72x72&cut_type=&quality=&format=png&sticker_format=.webp",
+                    "avatar_240": "https://i******le.feishu.cn/static-resource/v1/as******************************io~?image_size=240x240&cut_type=&quality=&format=png&sticker_format=.webp",
+                    "avatar_640": "https://i******le.feishu.cn/static-resource/v1/as******************************io~?image_size=640x640&cut_type=&quality=&format=png&sticker_format=.webp",
+                    "avatar_origin": "https://i******le.feishu.cn/static-resource/v1/vas******************************io~?image_size=noop&cut_type=&quality=&format=png&sticker_format=.webp"
                 },
                 "custom_field_values": [
                     {

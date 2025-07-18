@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>
-/// 测试 通过职级 ID 批量获取职级信息 请求体
+/// 测试 根据条件批量获取职级信息 请求体
 /// <para>接口ID：7252157701853200412</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_level/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_level%2fbatch_get</para>
@@ -29,6 +29,9 @@ public class Test_PostCorehrV2JobLevelsBatchGetBodyDto : TestBase
 {
     "job_level_ids": [
         "1515"
+    ],
+    "job_level_codes": [
+        "13715"
     ]
 }
 """;

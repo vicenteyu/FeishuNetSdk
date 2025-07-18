@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>
-/// 测试 通过序列 ID 批量获取序列信息 响应体
+/// 测试 根据条件批量获取序列信息 响应体
 /// <para>接口ID：7252157701853216796</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_family/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_family%2fbatch_get</para>

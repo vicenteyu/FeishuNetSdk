@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 通过职级 ID 批量获取职级信息 响应体
-/// <para>该接口支持通过职级id批量查询职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
+/// 根据条件批量获取职级信息 响应体
+/// <para>该接口支持通过职级ID或职级Code批量查询职级详情信息，包括名称、描述、启用状态等。</para>
 /// <para>接口ID：7252157701853200412</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job_level/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob_level%2fbatch_get</para>
@@ -80,7 +80,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             /// <summary>
             /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：中文示例</para>
+            /// <para>示例值：高级开发工程师</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -151,7 +151,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
             }
 
             /// <summary>
-            /// <para>自定义字段类型。自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
+            /// <para>自定义字段类型。自定义字段详细见[【获取自定义字段列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -160,7 +160,7 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
 
             /// <summary>
             /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如"2334.00", "文本"，"{\"zh-CN\":\"部门3\"}")</para>
-            /// <para>- 自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
+            /// <para>- 自定义字段详细见[【获取自定义字段列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>

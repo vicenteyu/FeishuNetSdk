@@ -249,7 +249,6 @@ public record PostDirectoryV1EmployeesBodyDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>0：未知</item>
         /// <item>1：全职</item>
         /// <item>2：实习</item>
         /// <item>3：外包</item>

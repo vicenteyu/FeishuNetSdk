@@ -31,7 +31,7 @@ public class Test_GetCorehrV2ProcessesByProcessIdResponseDto : TestBase
     "msg": "success",
     "data": {
         "process_id": "7278949005675988535",
-        "status": 1,
+        "status": 9,
         "flow_template_id": "leave",
         "flow_template_name": {
             "zh_cn": "中文",

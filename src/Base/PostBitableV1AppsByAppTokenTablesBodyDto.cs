@@ -40,8 +40,8 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <summary>
         /// <para>数据表名称。该字段必填。</para>
         /// <para>**注意**：</para>
-        /// <para>- 名称中的首尾空格将会被默认去除。</para>
-        /// <para>- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符。</para>
+        /// <para>- 名称中的首尾空格将会被默认去除</para>
+        /// <para>- 数据表名称不可以包含 `/ \ ? * : [ ]` 等特殊字符</para>
         /// <para>必填：否</para>
         /// <para>示例值：一个新的数据表</para>
         /// <para>最大长度：100</para>
@@ -51,9 +51,9 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         public string? Name { get; set; }
 
         /// <summary>
-        /// <para>默认表格视图的名称，不填则默认为“表格视图 1”。</para>
+        /// <para>默认表格视图的名称。</para>
         /// <para>注意：</para>
-        /// <para>- 名称中的首尾空格将会被去除。</para>
+        /// <para>- 名称中的首尾空格将会被去除</para>
         /// <para>- 名称中不允许包含 [ ] 两个字符</para>
         /// <para>必填：否</para>
         /// <para>示例值：表格视图</para>
@@ -64,7 +64,9 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <summary>
         /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>**注意**：</para>
-        /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
+        /// <para>- 如果传入了 `default_view_name` 字段，则必须传入 `fields` 字段</para>
+        /// <para>- 如果不传 `default_view_name` 字段，则 `fields` 字段为可选字段</para>
+        /// <para>- 若 `default_view_name` 字段和 `fields` 字段都不传，将会创建一个仅包含索引字段的空数据表。</para>
         /// <para>- 数据表的第一个字段为索引字段。索引字段仅支持以下类型：</para>
         /// <para>- 1：多行文本</para>
         /// <para>- 2：数字</para>
@@ -83,7 +85,9 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
         /// <summary>
         /// <para>数据表的初始字段。了解如何填写字段，参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
         /// <para>**注意**：</para>
-        /// <para>- 如果 `default_view_name` 字段和 `fields` 字段都不填写，将会创建一个仅包含索引字段的空数据表。</para>
+        /// <para>- 如果传入了 `default_view_name` 字段，则必须传入 `fields` 字段</para>
+        /// <para>- 如果不传 `default_view_name` 字段，则 `fields` 字段为可选字段</para>
+        /// <para>- 若 `default_view_name` 字段和 `fields` 字段都不传，将会创建一个仅包含索引字段的空数据表。</para>
         /// <para>- 数据表的第一个字段为索引字段。索引字段仅支持以下类型：</para>
         /// <para>- 1：多行文本</para>
         /// <para>- 2：数字</para>
@@ -227,15 +231,15 @@ public record PostBitableV1AppsByAppTokenTablesBodyDto
                 public string? Formatter { get; set; }
 
                 /// <summary>
-                /// <para>日期、创建时间、最后更新时间字段的显示格式。详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
+                /// <para>日期、创建时间、最后更新时间字段的显示格式。默认为 "yyyy/MM/dd"，详情参考[字段编辑指南](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/guide)。</para>
                 /// <para>必填：否</para>
-                /// <para>示例值：日期格式</para>
+                /// <para>示例值：2021/01/30</para>
                 /// </summary>
                 [JsonPropertyName("date_formatter")]
                 public string? DateFormatter { get; set; }
 
                 /// <summary>
-                /// <para>日期字段中新纪录自动填写创建时间</para>
+                /// <para>日期字段中新纪录自动填写创建时间。默认为 false</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
