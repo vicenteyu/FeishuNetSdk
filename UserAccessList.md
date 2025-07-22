@@ -1,5 +1,5 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
-<tr><td rowspan="2">1</td><td rowspan="2">2024-11-26</td><td>&#10003;</td><td>身份验证</td><td>获取用户信息</td></tr>
+<tr><td rowspan="2">1</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>身份验证</td><td>获取用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
 <tr><td rowspan="2">2</td><td rowspan="2">2025-07-17</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
@@ -175,15 +175,15 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTables</td></tr>
 <tr><td rowspan="2">88</td><td rowspan="2">2025-06-20</td><td>&#10003;</td><td>多维表格</td><td>新增多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchCreate</td></tr>
-<tr><td rowspan="2">89</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>删除一个数据表</td></tr>
+<tr><td rowspan="2">89</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除一个数据表</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableId</td></tr>
-<tr><td rowspan="2">90</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>删除多个数据表</td></tr>
+<tr><td rowspan="2">90</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除多个数据表</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesBatchDelete</td></tr>
 <tr><td rowspan="2">91</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>消息与群组</td><td>删除消息表情回复</td></tr>
 <tr><td colspan="3">DeleteImV1MessagesByMessageIdReactionsByReactionId</td></tr>
 <tr><td rowspan="2">92</td><td rowspan="2">2025-01-08</td><td>&#10003;</td><td>多维表格</td><td>更新数据表</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableId</td></tr>
-<tr><td rowspan="2">93</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>列出数据表</td></tr>
+<tr><td rowspan="2">93</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>列出数据表</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTables</td></tr>
 <tr><td rowspan="2">94</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>复制仪表盘</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenDashboardsByBlockIdCopy</td></tr>
@@ -197,7 +197,7 @@
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdViews</td></tr>
 <tr><td rowspan="2">99</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>多维表格</td><td>新增视图</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdViews</td></tr>
-<tr><td rowspan="2">100</td><td rowspan="2">2024-10-28</td><td>&#10003;</td><td>多维表格</td><td>删除视图</td></tr>
+<tr><td rowspan="2">100</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除视图</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdViewsByViewId</td></tr>
 <tr><td rowspan="2">101</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>更新表单元数据</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormId</td></tr>
@@ -213,23 +213,23 @@
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
 <tr><td rowspan="2">107</td><td rowspan="2">2024-09-18</td><td>&#10003;</td><td>多维表格</td><td>列出记录</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
-<tr><td rowspan="2">108</td><td rowspan="2">2025-01-23</td><td>&#10003;</td><td>多维表格</td><td>新增记录</td></tr>
+<tr><td rowspan="2">108</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>新增记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
-<tr><td rowspan="2">109</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>多维表格</td><td>更新记录</td></tr>
+<tr><td rowspan="2">109</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>更新记录</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
-<tr><td rowspan="2">110</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>多维表格</td><td>删除记录</td></tr>
+<tr><td rowspan="2">110</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除记录</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
-<tr><td rowspan="2">111</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>多维表格</td><td>新增多条记录</td></tr>
+<tr><td rowspan="2">111</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>新增多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
 <tr><td rowspan="2">112</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">113</td><td rowspan="2">2024-09-14</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
+<tr><td rowspan="2">113</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
-<tr><td rowspan="2">115</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>多维表格</td><td>删除多条记录</td></tr>
+<tr><td rowspan="2">115</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDelete</td></tr>
-<tr><td rowspan="2">116</td><td rowspan="2">2025-03-24</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
+<tr><td rowspan="2">116</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
 <tr><td rowspan="2">117</td><td rowspan="2">2025-01-09</td><td>&#10003;</td><td>多维表格</td><td>新增字段</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>
@@ -257,9 +257,9 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembers</td></tr>
 <tr><td rowspan="2">129</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>多维表格</td><td>删除协作者</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">130</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
+<tr><td rowspan="2">130</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
-<tr><td rowspan="2">131</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
+<tr><td rowspan="2">131</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
 <tr><td rowspan="2">132</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>创建知识空间</td></tr>
 <tr><td colspan="3">PostWikiV2Spaces</td></tr>
@@ -1029,7 +1029,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinute</td></tr>
 <tr><td rowspan="2">515</td><td rowspan="2">2024-08-30</td><td>&#10003;</td><td>招聘</td><td>批量获取待办事项</td></tr>
 <tr><td colspan="3">GetHireV1Todos</td></tr>
-<tr><td rowspan="2">516</td><td rowspan="2">2025-03-12</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
+<tr><td rowspan="2">516</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>批量获取记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGet</td></tr>
 <tr><td rowspan="2">517</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>考勤打卡</td><td>查询归档报表表头</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUserStatsFieldsQuery</td></tr>
@@ -1249,6 +1249,6 @@
 <tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
 <tr><td rowspan="2">625</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
-<tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>新增</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
+<tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
 </tbody></table>

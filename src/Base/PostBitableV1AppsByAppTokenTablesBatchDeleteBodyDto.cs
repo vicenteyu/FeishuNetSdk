@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Base;
 /// <summary>
 /// 删除多个数据表 请求体
-/// <para>删除多个数据表。如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
+/// <para>通过 app_token 和 table_id 删除多个数据表。</para>
+/// <para>## 注意事项</para>
+/// <para>如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
 /// <para>接口ID：6960166873968459779</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/batch_delete</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fbitable-v1%2fapp-table%2fbatch_delete</para>

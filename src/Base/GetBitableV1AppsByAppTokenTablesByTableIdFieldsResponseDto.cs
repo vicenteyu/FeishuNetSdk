@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-11
+// Last Modified On : 2025-07-22
 // ************************************************************************
 // <copyright file="GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -538,6 +538,120 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto : IPage
                 /// </summary>
                 [JsonPropertyName("ui_type")]
                 public string? UiType { get; set; }
+            }
+
+            /// <summary>
+            /// <para>查找引用关系</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("filter_info")]
+            public AppTableFieldPropertyLookupFilter? FilterInfo { get; set; }
+
+            /// <summary>
+            /// <para>查找引用关系</para>
+            /// </summary>
+            public record AppTableFieldPropertyLookupFilter
+            {
+                /// <summary>
+                /// <para>引用表格</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：tblXJDra28ZYsSKo</para>
+                /// </summary>
+                [JsonPropertyName("target_table")]
+                public string? TargetTable { get; set; }
+
+                /// <summary>
+                /// <para>查找条件</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("filter_info")]
+                public AppTableFieldPropertyFilterInfo? FilterInfo { get; set; }
+
+                /// <summary>
+                /// <para>查找条件</para>
+                /// </summary>
+                public record AppTableFieldPropertyFilterInfo
+                {
+                    /// <summary>
+                    /// <para>多个筛选条件的关系</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：and</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>and：与</item>
+                    /// <item>or：或</item>
+                    /// </list></para>
+                    /// <para>默认值：and</para>
+                    /// </summary>
+                    [JsonPropertyName("conjunction")]
+                    public string Conjunction { get; set; } = string.Empty;
+
+                    /// <summary>
+                    /// <para>筛选条件</para>
+                    /// <para>必填：是</para>
+                    /// <para>最大长度：50</para>
+                    /// </summary>
+                    [JsonPropertyName("conditions")]
+                    public AppTableFieldPropertyFilterInfoCondition[] Conditions { get; set; } = Array.Empty<AppTableFieldPropertyFilterInfoCondition>();
+
+                    /// <summary>
+                    /// <para>筛选条件</para>
+                    /// </summary>
+                    public record AppTableFieldPropertyFilterInfoCondition
+                    {
+                        /// <summary>
+                        /// <para>用于过滤的字段唯一ID</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：单选</para>
+                        /// </summary>
+                        [JsonPropertyName("field_id")]
+                        public string FieldId { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>过滤操作的类型</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：is</para>
+                        /// <para>可选值：<list type="bullet">
+                        /// <item>is：等于</item>
+                        /// <item>isNot：不等于</item>
+                        /// <item>contains：包含</item>
+                        /// <item>doesNotContain：不包含</item>
+                        /// <item>isEmpty：为空</item>
+                        /// <item>isNotEmpty：不为空</item>
+                        /// <item>isGreater：大于</item>
+                        /// <item>isGreaterEqual：大于等于</item>
+                        /// <item>isLess：小于</item>
+                        /// <item>isLessEqual：小于等于</item>
+                        /// </list></para>
+                        /// <para>默认值：is</para>
+                        /// </summary>
+                        [JsonPropertyName("operator")]
+                        public string Operator { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>筛选值</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：["optbdVHf4q", "optrpd3eIJ"]</para>
+                        /// </summary>
+                        [JsonPropertyName("value")]
+                        public string? Value { get; set; }
+
+                        /// <summary>
+                        /// <para>过滤条件的唯一ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：conNaOEK6O</para>
+                        /// </summary>
+                        [JsonPropertyName("condition_id")]
+                        public string? ConditionId { get; set; }
+
+                        /// <summary>
+                        /// <para>用于过滤的字段类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：3</para>
+                        /// </summary>
+                        [JsonPropertyName("field_type")]
+                        public int? FieldType { get; set; }
+                    }
+                }
             }
         }
 

@@ -61,8 +61,8 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
-    /// <para>查看数据日期</para>
-    /// <para>- 默认为当天</para>
+    /// <para>查询该日期前生效的所有job data，如果传了get_all_version=true，则该字段不生效</para>
+    /// <para>- 不传默认为当天</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// </summary>
