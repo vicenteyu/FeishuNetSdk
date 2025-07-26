@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-17
+// Last Modified On : 2025-07-26
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -39,12 +39,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/import-user-guide")]
     [HttpPost("/open-apis/sheets/v2/import")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2ImportResponseDto>> PostSheetsV2ImportAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostSheetsV2ImportBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2ImportBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】写入图片</para>
@@ -66,12 +68,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_image")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询导入结果</para>
@@ -88,11 +92,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>导入时获取的凭证</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/import/result")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2ImportResultResponseDto>> GetSheetsV2ImportResultAsync(
         UserAccessToken access_token,
-        [PathQuery] string ticket);
+        [PathQuery] string ticket,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】设置单元格样式 </para>
@@ -116,12 +122,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/style")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStyleBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】复制文档</para>
@@ -144,13 +152,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>被复制文件的 token, 获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/copy")]
     [HttpPost("/open-apis/drive/explorer/v2/file/copy/files/{fileToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenResponseDto>> PostDriveExplorerV2FileCopyFilesByFileTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string fileToken,
-        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileCopyFilesByFileTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】搜索云文档</para>
@@ -165,11 +175,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/suite/docs-api/search/object")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSuiteDocsApiSearchObjectResponseDto>> PostSuiteDocsApiSearchObjectAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostSuiteDocsApiSearchObjectBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSuiteDocsApiSearchObjectBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置V2</para>
@@ -190,11 +202,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/permission/v2/public/")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionV2PublicResponseDto>> PostDrivePermissionV2PublicAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件夹元数据</para>
@@ -212,11 +226,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件夹 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2FolderByFolderTokenMetaResponseDto>> GetDriveExplorerV2FolderByFolderTokenMetaAsync(
         UserAccessToken access_token,
-        [PathQuery] string folderToken);
+        [PathQuery] string folderToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】拆分单元格</para>
@@ -239,12 +255,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/unmerge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCellsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】搜索用户</para>
@@ -279,13 +297,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>分页标识，首次调用该接口时无需填写。如果返回值中包含了 page_token 值，则可以使用该值继续调用本接口，并将该值传入查询参数 page_token 中，以获取下一页数据。</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/search/v1/user")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetSearchV1UserResponseDto>> GetSearchV1UserAsync(
         UserAccessToken access_token,
         [PathQuery] string query,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除行列</para>
@@ -309,12 +329,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档元信息</para>
@@ -335,11 +357,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/doc/v2/meta/{docToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2MetaByDocTokenResponseDto>> GetDocV2MetaByDocTokenAsync(
         UserAccessToken access_token,
-        [PathQuery] string docToken);
+        [PathQuery] string docToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】追加数据</para>
@@ -371,13 +395,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_append")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto dto,
-        [PathQuery] string? insertDataOption = null);
+        [PathQuery] string? insertDataOption = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件夹下的文档清单</para>
@@ -400,13 +426,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>需要查询的文件类型，默认返回所有 children；types 可多选，可选类型有 doc、sheet、file、bitable、docx、folder、mindnote 。如 url?types=folder&amp;types=sheet</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list")]
     [HttpGet("/open-apis/drive/explorer/v2/folder/{folderToken}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2FolderByFolderTokenChildrenResponseDto>> GetDriveExplorerV2FolderByFolderTokenChildrenAsync(
         UserAccessToken access_token,
         [PathQuery] string folderToken,
-        [PathQuery] string[]? types = null);
+        [PathQuery] string[]? types = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【会议室】查询会议室忙闲</para>
@@ -437,13 +465,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>查询的结束时间，需要遵循 [RFC3339](https://tools.ietf.org/html/rfc3339) 格式，示例：2019-09-04T09:45:00+08:00。</para>
     /// <para>**注意**：传入该参数时需要进行 URL 编码。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/meeting_room/freebusy/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<MeetingRoom.Spec.GetMeetingRoomFreebusyBatchGetResponseDto>> GetMeetingRoomFreebusyBatchGetAsync(
         UserAccessToken access_token,
         [PathQuery] string[] room_ids,
         [PathQuery] string time_min,
-        [PathQuery] string time_max);
+        [PathQuery] string time_max,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】判断协作者是否有某权限</para>
@@ -463,11 +493,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/permission/member/permitted")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberPermittedResponseDto>> PostDrivePermissionMemberPermittedAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新行列</para>
@@ -489,12 +521,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse> PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除Doc</para>
@@ -515,12 +549,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
     [HttpDelete("/open-apis/drive/explorer/v2/file/docs/{docToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteDriveExplorerV2FileDocsByDocTokenResponseDto>> DeleteDriveExplorerV2FileDocsByDocTokenAsync(
         UserAccessToken access_token,
-        [PathQuery] string docToken);
+        [PathQuery] string docToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量设置单元格样式 </para>
@@ -545,12 +581,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/styles_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】增加保护范围</para>
@@ -581,13 +619,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/protected_dimension")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新表格属性</para>
@@ -606,12 +646,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>spreadsheet 的 token，获取方式见[在线表格开发指南](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/properties")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenPropertiesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】向多个范围写入数据</para>
@@ -635,12 +677,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】插入数据</para>
@@ -665,12 +709,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_prepend")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesPrependBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】读取单个范围</para>
@@ -728,6 +774,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values/{range}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesByRangeAsync(
@@ -736,7 +783,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string range,
         [PathQuery] string? valueRenderOption = null,
         [PathQuery] string? dateTimeRenderOption = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档纯文本内容</para>
@@ -756,11 +804,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>获取方式详见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/doc/v2/{docToken}/raw_content")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenRawContentResponseDto>> GetDocV2ByDocTokenRawContentAsync(
         UserAccessToken access_token,
-        [PathQuery] string docToken);
+        [PathQuery] string docToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】合并单元格</para>
@@ -783,12 +833,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/merge_cells")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenMergeCellsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新工作表属性</para>
@@ -817,13 +869,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2ResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2Async(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】新建文件</para>
@@ -848,13 +902,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>指定新建文件所属的文件夹或云空间根目录的 token。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/drive/explorer/v2/file/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FileByFolderTokenResponseDto>> PostDriveExplorerV2FileByFolderTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string folderToken,
-        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileByFolderTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FileByFolderTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】插入行列</para>
@@ -877,12 +933,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/insert_dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRangeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】读取多个范围</para>
@@ -938,6 +996,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values_batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchGetAsync(
@@ -946,7 +1005,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string ranges,
         [PathQuery] string? valueRenderOption = null,
         [PathQuery] string? dateTimeRenderOption = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取元数据</para>
@@ -961,11 +1021,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/suite/docs-api/meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSuiteDocsApiMetaResponseDto>> PostSuiteDocsApiMetaAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostSuiteDocsApiMetaBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSuiteDocsApiMetaBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】转移拥有者</para>
@@ -981,11 +1043,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/permission/member/transfer")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberTransferResponseDto>> PostDrivePermissionMemberTransferAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取表格元数据</para>
@@ -1015,13 +1079,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>返回的用户id类型，可选open_id,union_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/metainfo")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenMetainfoAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [PathQuery] string? extFields = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档中的电子表格元数据</para>
@@ -1041,11 +1107,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>doc 的 token，获取方式见 [如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/doc/v2/{docToken}/sheet_meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenSheetMetaResponseDto>> GetDocV2ByDocTokenSheetMetaAsync(
         UserAccessToken access_token,
-        [PathQuery] string docToken);
+        [PathQuery] string docToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】增加行列</para>
@@ -1069,12 +1137,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/dimension_range")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRangeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】向单个范围写入数据</para>
@@ -1098,12 +1168,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/values")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenValuesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】操作工作表</para>
@@ -1125,12 +1197,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/sheets_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】新建文件夹</para>
@@ -1150,13 +1224,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>文件夹的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/create_folder")]
     [HttpPost("/open-apis/drive/explorer/v2/folder/{folderToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenResponseDto>> PostDriveExplorerV2FolderByFolderTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string folderToken,
-        [JsonContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDriveExplorerV2FolderByFolderTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】编辑旧版文档内容</para>
@@ -1174,11 +1250,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/doc/v2/{docToken}/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse> PostDocV2ByDocTokenBatchUpdateAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDocV2ByDocTokenBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDocV2ByDocTokenBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建旧版文档</para>
@@ -1193,12 +1271,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/doc/v2/create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDocV2CreateResponseDto>> PostDocV2CreateAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.Spec.PostDocV2CreateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostDocV2CreateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取旧版文档富文本内容</para>
@@ -1221,11 +1301,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>获取方式详见[如何获取云文档资源相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/doc/v2/{docToken}/content")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDocV2ByDocTokenContentResponseDto>> GetDocV2ByDocTokenContentAsync(
         UserAccessToken access_token,
-        [PathQuery] string docToken);
+        [PathQuery] string docToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】JSAPI 临时授权凭证</para>
@@ -1234,10 +1316,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：app_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证调用 JSAPI 时，请求不会被拦截。</para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/jssdk/ticket/get")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】设置主持人</para>
@@ -1270,13 +1354,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/set_host")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PatchVcV1MeetingsByMeetingIdSetHostResponseDto>> PatchVcV1MeetingsByMeetingIdSetHostAsync(
         UserAccessToken access_token,
         [PathQuery] string meeting_id,
         [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdSetHostBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】更新预约</para>
@@ -1309,13 +1395,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/vc/v1/reserves/{reserve_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PutVcV1ReservesByReserveIdResponseDto>> PutVcV1ReservesByReserveIdAsync(
         UserAccessToken access_token,
         [PathQuery] string reserve_id,
         [JsonContent] Vc.PutVcV1ReservesByReserveIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】获取预约</para>
@@ -1347,12 +1435,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/reserves/{reserve_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ReservesByReserveIdResponseDto>> GetVcV1ReservesByReserveIdAsync(
         UserAccessToken access_token,
         [PathQuery] string reserve_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】获取活跃会议</para>
@@ -1390,13 +1480,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/reserves/{reserve_id}/get_active_meeting")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ReservesByReserveIdGetActiveMeetingResponseDto>> GetVcV1ReservesByReserveIdGetActiveMeetingAsync(
         UserAccessToken access_token,
         [PathQuery] string reserve_id,
         [PathQuery] bool? with_participants = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取保护范围</para>
@@ -1433,13 +1525,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- `unionId`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。了解更多：[如何获取 Union ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchGetAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [PathQuery] string protectIds,
-        [PathQuery] string? memberType = null);
+        [PathQuery] string? memberType = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】修改保护范围</para>
@@ -1462,12 +1556,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除保护范围</para>
@@ -1490,12 +1586,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："Iow7sNNEphp3WbtnbCscPqabcef"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/protected_range_batch_del")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDelBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】搜索 Wiki</para>
@@ -1516,13 +1614,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v1/nodes/search")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostWikiV1NodesSearchResponseDto>> PostWikiV1NodesSearchAsync(
         UserAccessToken access_token,
         [JsonContent] Ccm.Spec.PostWikiV1NodesSearchBodyDto dto,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量删除条件格式</para>
@@ -1544,12 +1644,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchDeleteBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量创建条件格式</para>
@@ -1573,12 +1675,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchCreateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量获取条件格式</para>
@@ -1606,12 +1710,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**：`xxxID1,xxxID2`</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string[]? sheet_ids = null);
+        [PathQuery] string[]? sheet_ids = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量更新条件格式</para>
@@ -1634,12 +1740,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheet_token}/condition_formats/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取父部门信息</para>
@@ -1709,6 +1817,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/departments/parent")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsParentResponseDto>> GetContactV3DepartmentsParentAsync(
@@ -1717,7 +1826,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】修改用户部分信息</para>
@@ -1780,6 +1890,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/contact/v3/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PatchContactV3UsersByUserIdResponseDto>> PatchContactV3UsersByUserIdAsync(
@@ -1787,7 +1898,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string user_id,
         [JsonContent] Contact.PatchContactV3UsersByUserIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】搜索部门</para>
@@ -1848,6 +1960,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/contact/v3/departments/search")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3DepartmentsSearchResponseDto>> PostContactV3DepartmentsSearchAsync(
@@ -1856,7 +1969,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取用户列表</para>
@@ -1922,6 +2036,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/users")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3UsersResponseDto>> GetContactV3UsersAsync(
@@ -1930,7 +2045,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? department_id = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取单个用户信息</para>
@@ -1993,13 +2109,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/users/{user_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3UsersByUserIdResponseDto>> GetContactV3UsersByUserIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取部门信息列表</para>
@@ -2065,6 +2183,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpGet("/open-apis/contact/v3/departments")]
@@ -2075,7 +2194,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? parent_department_id = null,
         [PathQuery] bool? fetch_child = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取单个部门信息</para>
@@ -2132,13 +2252,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsByDepartmentIdResponseDto>> GetContactV3DepartmentsByDepartmentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string department_id,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除下拉列表设置</para>
@@ -2160,12 +2282,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+        [JsonContent] Ccm.Spec.DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】设置下拉列表</para>
@@ -2188,12 +2312,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
-        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto);
+        [JsonContent] Ccm.Spec.PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询下拉列表设置</para>
@@ -2225,13 +2351,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>数据验证类型。取固定值 "list"，表示下拉列表。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto>> GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [PathQuery] string range,
-        [PathQuery] string dataValidationType);
+        [PathQuery] string dataValidationType,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新下拉列表设置</para>
@@ -2262,6 +2390,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>电子表格工作表中下拉列表的 ID。调用[查询下拉列表](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation)获取 ID。</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}/{dataValidationId}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
@@ -2269,7 +2398,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheetToken,
         [PathQuery] string sheetId,
         [PathQuery] int dataValidationId,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto);
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】判断用户或机器人是否在群里</para>
@@ -2297,11 +2427,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/members/is_in_chat")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdMembersIsInChatResponseDto>> GetImV1ChatsByChatIdMembersIsInChatAsync(
         UserAccessToken access_token,
-        [PathQuery] string chat_id);
+        [PathQuery] string chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群公告信息</para>
@@ -2343,12 +2475,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/announcement")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdAnnouncementResponseDto>> GetImV1ChatsByChatIdAnnouncementAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】将用户或机器人移出群聊</para>
@@ -2395,13 +2529,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1ChatsByChatIdMembersResponseDto>> DeleteImV1ChatsByChatIdMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
         [JsonContent] Im.DeleteImV1ChatsByChatIdMembersBodyDto dto,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群成员列表</para>
@@ -2461,6 +2597,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：WWxHTStrOEs5WHZpNktGbU94bUcvMWlxdDUzTWt1OXNrRmlLaGRNVG0yaz0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdMembersResponseDto>> GetImV1ChatsByChatIdMembersAsync(
@@ -2468,7 +2605,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string chat_id,
         [PathQuery] string? member_id_type = "open_id",
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】用户或机器人主动加入群聊</para>
@@ -2500,11 +2638,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 群成员数量达到上限时无法进群。对于已认证企业的飞书的群人数默认上限：普通群 5000 人，会议群 3000 人，话题群 5000 人。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/im/v1/chats/{chat_id}/members/me_join")]
     System.Threading.Tasks.Task<FeishuResponse> PatchImV1ChatsByChatIdMembersMeJoinAsync(
         UserAccessToken access_token,
-        [PathQuery] string chat_id);
+        [PathQuery] string chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】搜索对用户或机器人可见的群列表</para>
@@ -2559,6 +2699,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/search")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsSearchResponseDto>> GetImV1ChatsSearchAsync(
@@ -2566,7 +2707,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? query = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】撤回消息</para>
@@ -2600,11 +2742,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteImV1MessagesByMessageIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string message_id);
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】解散群</para>
@@ -2634,11 +2778,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**注意**：仅支持群模式为 `group` 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteImV1ChatsByChatIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string chat_id);
+        [PathQuery] string chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取用户或机器人所在的群列表</para>
@@ -2695,6 +2841,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsResponseDto>> GetImV1ChatsAsync(
@@ -2702,7 +2849,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? sort_type = "ByCreateTimeAsc",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群信息</para>
@@ -2744,12 +2892,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdResponseDto>> GetImV1ChatsByChatIdAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新群公告信息</para>
@@ -2780,12 +2930,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/im/v1/chats/{chat_id}/announcement")]
     System.Threading.Tasks.Task<FeishuResponse> PatchImV1ChatsByChatIdAnnouncementAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PatchImV1ChatsByChatIdAnnouncementBodyDto dto);
+        [JsonContent] Im.PatchImV1ChatsByChatIdAnnouncementBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新已发送的消息卡片</para>
@@ -2824,12 +2976,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchImV1MessagesByMessageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string message_id,
-        [JsonContent] Im.PatchImV1MessagesByMessageIdBodyDto dto);
+        [JsonContent] Im.PatchImV1MessagesByMessageIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新群信息</para>
@@ -2876,13 +3030,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/im/v1/chats/{chat_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutImV1ChatsByChatIdAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
         [JsonContent] Im.PutImV1ChatsByChatIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】将用户或机器人拉入群聊</para>
@@ -2944,6 +3100,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdMembersResponseDto>> PostImV1ChatsByChatIdMembersAsync(
@@ -2951,7 +3108,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string chat_id,
         [JsonContent] Im.PostImV1ChatsByChatIdMembersBodyDto dto,
         [PathQuery] string? member_id_type = "open_id",
-        [PathQuery] int? succeed_type = null);
+        [PathQuery] int? succeed_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群成员发言权限</para>
@@ -3004,6 +3162,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/moderation")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdModerationResponseDto>> GetImV1ChatsByChatIdModerationAsync(
@@ -3011,7 +3170,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string chat_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新群发言权限</para>
@@ -3055,13 +3215,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/im/v1/chats/{chat_id}/moderation")]
     System.Threading.Tasks.Task<FeishuResponse> PutImV1ChatsByChatIdModerationAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
         [JsonContent] Im.PutImV1ChatsByChatIdModerationBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增记录</para>
@@ -3132,6 +3294,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsAsync(
@@ -3141,7 +3304,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? client_token = null,
-        [PathQuery] bool? ignore_consistency_check = null);
+        [PathQuery] bool? ignore_consistency_check = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新多条记录</para>
@@ -3204,6 +3368,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateAsync(
@@ -3212,7 +3377,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] bool? ignore_consistency_check = null);
+        [PathQuery] bool? ignore_consistency_check = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除记录</para>
@@ -3254,13 +3420,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。</para>
     /// <para>示例值：recpCsf4ME</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto>> DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string record_id);
+        [PathQuery] string record_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出记录</para>
@@ -3372,6 +3540,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdRecordsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdRecordsAsync(
@@ -3387,7 +3556,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? display_formula_ref = null,
         [PathQuery] bool? automatic_fields = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】检索记录</para>
@@ -3460,6 +3630,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：true</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
@@ -3472,7 +3643,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] bool? display_formula_ref = null,
         [PathQuery] bool? with_shared_url = null,
-        [PathQuery] bool? automatic_fields = null);
+        [PathQuery] bool? automatic_fields = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增多条记录</para>
@@ -3541,6 +3713,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateAsync(
@@ -3550,18 +3723,20 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? client_token = null,
-        [PathQuery] bool? ignore_consistency_check = null);
+        [PathQuery] bool? ignore_consistency_check = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除多条记录</para>
     /// <para>接口ID：6952707657162620930</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-record/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除多维表格数据表中现有的多条记录，单次调用中最多删除 500 条记录。</para>
+    /// <para>删除多维表格数据表中现有的多条记录。</para>
     /// <para>## 前提条件</para>
     /// <para>调用此接口前，请确保当前调用身份（tenant_access_token 或 user_access_token）已有多维表格的编辑等文档权限，否则接口将返回 HTTP 403 或 400 状态码。了解更多，参考[如何为应用或用户开通文档权限](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#16c6475a)。</para>
     /// <para>## 注意事项</para>
-    /// <para>从其它数据源同步的数据表，不支持开发者对记录进行增加、删除、和修改操作。</para>
+    /// <para>- 从其它数据源同步的数据表，不支持开发者对记录进行增加、删除、和修改操作。</para>
+    /// <para>- 单次调用中最多删除 500 条记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:record:delete</item>
     /// <item>bitable:app</item>
@@ -3587,13 +3762,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新记录</para>
@@ -3670,6 +3847,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto>> PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdAsync(
@@ -3679,7 +3857,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string record_id,
         [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] bool? ignore_consistency_check = null);
+        [PathQuery] bool? ignore_consistency_check = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取日程</para>
@@ -3748,6 +3927,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
@@ -3757,7 +3937,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? need_meeting_settings = null,
         [PathQuery] bool? need_attendee = null,
         [PathQuery] int? max_attendee_num = 10,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】订阅日程变更事件</para>
@@ -3777,11 +3958,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/subscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsSubscriptionAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】订阅日历</para>
@@ -3804,11 +3987,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdSubscribeResponseDto>> PostCalendarV4CalendarsByCalendarIdSubscribeAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取日程列表</para>
@@ -3895,6 +4080,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsAsync(
@@ -3906,7 +4092,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? sync_token = null,
         [PathQuery] string? start_time = null,
         [PathQuery] string? end_time = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】创建访问控制</para>
@@ -3944,13 +4131,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdAclsResponseDto>> PostCalendarV4CalendarsByCalendarIdAclsAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdAclsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】删除日程参与人</para>
@@ -3993,6 +4182,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteAsync(
@@ -4000,7 +4190,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
         [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBatchDeleteBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取日程参与群成员列表</para>
@@ -4062,6 +4253,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees/{attendee_id}/chat_members")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembersResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesByAttendeeIdChatMembersAsync(
@@ -4071,7 +4263,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string attendee_id,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】搜索日历</para>
@@ -4098,13 +4291,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/search")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsSearchResponseDto>> PostCalendarV4CalendarsSearchAsync(
         UserAccessToken access_token,
         [JsonContent] Calendar.PostCalendarV4CalendarsSearchBodyDto dto,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询日历列表</para>
@@ -4137,13 +4332,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：ListCalendarsSyncToken_xxx</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsResponseDto>> GetCalendarV4CalendarsAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 500,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? sync_token = null);
+        [PathQuery] string? sync_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取日程参与人列表</para>
@@ -4208,6 +4405,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesAsync(
@@ -4217,7 +4415,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] bool? need_resource_customization = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询主日历日程忙闲信息</para>
@@ -4246,12 +4445,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/freebusy/list")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4FreebusyListResponseDto>> PostCalendarV4FreebusyListAsync(
         UserAccessToken access_token,
         [JsonContent] Calendar.PostCalendarV4FreebusyListBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】生成 CalDAV 配置</para>
@@ -4265,11 +4466,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/settings/generate_caldav_conf")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4SettingsGenerateCaldavConfResponseDto>> PostCalendarV4SettingsGenerateCaldavConfAsync(
         UserAccessToken access_token,
-        [JsonContent] Calendar.PostCalendarV4SettingsGenerateCaldavConfBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4SettingsGenerateCaldavConfBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】删除访问控制</para>
@@ -4299,12 +4502,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>为日历创建访问控制时会返回访问控制 ID。你也可以调用[获取访问控制列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-acl/list)接口，获取指定日历内的访问控制信息。</para>
     /// <para>示例值：user_xxxxxx</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}/acls/{acl_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4CalendarsByCalendarIdAclsByAclIdAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [PathQuery] string acl_id);
+        [PathQuery] string acl_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】删除日程</para>
@@ -4343,13 +4548,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [PathQuery] bool? need_notification = null);
+        [PathQuery] bool? need_notification = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询日历信息</para>
@@ -4373,11 +4580,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdResponseDto>> GetCalendarV4CalendarsByCalendarIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】删除共享日历</para>
@@ -4400,11 +4609,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4CalendarsByCalendarIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】订阅日历访问控制变更事件</para>
@@ -4428,11 +4639,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls/subscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdAclsSubscriptionAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】更新日程</para>
@@ -4484,6 +4697,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto>> PatchCalendarV4CalendarsByCalendarIdEventsByEventIdAsync(
@@ -4491,7 +4705,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
         [JsonContent] Calendar.PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】订阅日历变更事件</para>
@@ -4505,10 +4720,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/subscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsSubscriptionAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】创建共享日历</para>
@@ -4522,11 +4739,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsResponseDto>> PostCalendarV4CalendarsAsync(
         UserAccessToken access_token,
-        [JsonContent] Calendar.PostCalendarV4CalendarsBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4CalendarsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】取消订阅日历</para>
@@ -4549,11 +4768,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/unsubscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdUnsubscribeAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】搜索日程</para>
@@ -4602,6 +4823,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/search")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsSearchAsync(
@@ -4610,7 +4832,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsSearchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】添加日程参与人</para>
@@ -4653,6 +4876,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/attendees")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesAsync(
@@ -4660,7 +4884,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
         [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdAttendeesBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】更新日历信息</para>
@@ -4684,12 +4909,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/calendar/v4/calendars/{calendar_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PatchCalendarV4CalendarsByCalendarIdResponseDto>> PatchCalendarV4CalendarsByCalendarIdAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [JsonContent] Calendar.PatchCalendarV4CalendarsByCalendarIdBodyDto dto);
+        [JsonContent] Calendar.PatchCalendarV4CalendarsByCalendarIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取访问控制列表</para>
@@ -4740,6 +4967,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/acls")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdAclsResponseDto>> GetCalendarV4CalendarsByCalendarIdAclsAsync(
@@ -4747,7 +4975,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】查询所有公共邮箱</para>
@@ -4776,12 +5005,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/public_mailboxes")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1PublicMailboxesResponseDto>> GetMailV1PublicMailboxesAsync(
         UserAccessToken access_token,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除回复</para>
@@ -4830,6 +5061,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdAsync(
@@ -4837,7 +5069,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
         [PathQuery] string reply_id,
-        [PathQuery] string file_type);
+        [PathQuery] string file_type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新回复的内容</para>
@@ -4901,6 +5134,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies/{reply_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdAsync(
@@ -4910,7 +5144,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string reply_id,
         [PathQuery] string file_type,
         [JsonContent] Ccm.PutDriveV1FilesByFileTokenCommentsByCommentIdRepliesByReplyIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】添加全文评论</para>
@@ -4960,6 +5195,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCommentsResponseDto>> PostDriveV1FilesByFileTokenCommentsAsync(
@@ -4967,7 +5203,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string file_type,
         [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】解决/恢复评论</para>
@@ -5011,6 +5248,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchDriveV1FilesByFileTokenCommentsByCommentIdAsync(
@@ -5018,7 +5256,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
         [PathQuery] string file_type,
-        [JsonContent] Ccm.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV1FilesByFileTokenCommentsByCommentIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取全文评论</para>
@@ -5073,6 +5312,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto>> GetDriveV1FilesByFileTokenCommentsByCommentIdAsync(
@@ -5080,7 +5320,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string comment_id,
         [PathQuery] string file_type,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档所有评论</para>
@@ -5154,6 +5395,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsResponseDto>> GetDriveV1FilesByFileTokenCommentsAsync(
@@ -5164,7 +5406,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? is_solved = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建客服技能</para>
@@ -5179,11 +5422,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/agent_skills")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1AgentSkillsResponseDto>> PostHelpdeskV1AgentSkillsAsync(
         UserAccessToken access_token,
-        [JsonContent] Helpdesk.PostHelpdeskV1AgentSkillsBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1AgentSkillsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建客服工作日程</para>
@@ -5198,11 +5443,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/agent_schedules")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1AgentSchedulesAsync(
         UserAccessToken access_token,
-        [JsonContent] Helpdesk.PostHelpdeskV1AgentSchedulesBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1AgentSchedulesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】删除客服技能</para>
@@ -5222,11 +5469,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>agent group id</para>
     /// <para>示例值：test-skill-id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/helpdesk/v1/agent_skills/{agent_skill_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHelpdeskV1AgentSkillsByAgentSkillIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string agent_skill_id);
+        [PathQuery] string agent_skill_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新客服技能</para>
@@ -5247,12 +5496,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：test-skill-id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/agent_skills/{agent_skill_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1AgentSkillsByAgentSkillIdAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_skill_id,
-        [JsonContent] Helpdesk.PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto dto);
+        [JsonContent] Helpdesk.PatchHelpdeskV1AgentSkillsByAgentSkillIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】删除客服工作日程</para>
@@ -5272,11 +5523,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>agent user id</para>
     /// <para>示例值：12345</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/helpdesk/v1/agents/{agent_id}/schedules")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHelpdeskV1AgentsByAgentIdSchedulesAsync(
         UserAccessToken access_token,
-        [PathQuery] string agent_id);
+        [PathQuery] string agent_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新客服工作日程</para>
@@ -5297,12 +5550,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：123456</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/agents/{agent_id}/schedules")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1AgentsByAgentIdSchedulesAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_id,
-        [JsonContent] Helpdesk.PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto dto);
+        [JsonContent] Helpdesk.PatchHelpdeskV1AgentsByAgentIdSchedulesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建工单自定义字段</para>
@@ -5315,11 +5570,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/ticket_customized_fields")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1TicketCustomizedFieldsAsync(
         UserAccessToken access_token,
-        [JsonContent] Helpdesk.Spec.PostHelpdeskV1TicketCustomizedFieldsBodyDto dto);
+        [JsonContent] Helpdesk.Spec.PostHelpdeskV1TicketCustomizedFieldsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新知识库分类详情</para>
@@ -5340,12 +5597,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6948728206392295444</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/categories/{id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1CategoriesByIdAsync(
         UserAccessToken access_token,
         [PathQuery] string id,
-        [JsonContent] Helpdesk.PatchHelpdeskV1CategoriesByIdBodyDto dto);
+        [JsonContent] Helpdesk.PatchHelpdeskV1CategoriesByIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】删除工单自定义字段</para>
@@ -5365,11 +5624,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工单自定义字段ID</para>
     /// <para>示例值：6948728206392295444</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/helpdesk/v1/ticket_customized_fields/{ticket_customized_field_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string ticket_customized_field_id);
+        [PathQuery] string ticket_customized_field_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新工单自定义字段</para>
@@ -5388,12 +5649,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**示例值**："6948728206392295444"</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/ticket_customized_fields/{ticket_customized_field_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdAsync(
         UserAccessToken access_token,
         [PathQuery] string ticket_customized_field_id,
-        [JsonContent] Helpdesk.Spec.PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBodyDto dto);
+        [JsonContent] Helpdesk.Spec.PatchHelpdeskV1TicketCustomizedFieldsByTicketCustomizedFieldIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】修改知识库</para>
@@ -5414,12 +5677,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6856395634652479491</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/faqs/{id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1FaqsByIdAsync(
         UserAccessToken access_token,
         [PathQuery] string id,
-        [JsonContent] Helpdesk.PatchHelpdeskV1FaqsByIdBodyDto dto);
+        [JsonContent] Helpdesk.PatchHelpdeskV1FaqsByIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建知识库分类</para>
@@ -5434,11 +5699,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/categories")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1CategoriesResponseDto>> PostHelpdeskV1CategoriesAsync(
         UserAccessToken access_token,
-        [JsonContent] Helpdesk.PostHelpdeskV1CategoriesBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1CategoriesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建知识库</para>
@@ -5453,11 +5720,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/faqs")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1FaqsResponseDto>> PostHelpdeskV1FaqsAsync(
         UserAccessToken access_token,
-        [JsonContent] Helpdesk.PostHelpdeskV1FaqsBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1FaqsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新工单详情</para>
@@ -5478,12 +5747,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6945345902185807891</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/helpdesk/v1/tickets/{ticket_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutHelpdeskV1TicketsByTicketIdAsync(
         UserAccessToken access_token,
         [PathQuery] string ticket_id,
-        [JsonContent] Helpdesk.PutHelpdeskV1TicketsByTicketIdBodyDto dto);
+        [JsonContent] Helpdesk.PutHelpdeskV1TicketsByTicketIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】删除知识库</para>
@@ -5503,11 +5774,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>id</para>
     /// <para>示例值：12345</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/helpdesk/v1/faqs/{id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHelpdeskV1FaqsByIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string id);
+        [PathQuery] string id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】删除知识库分类详情</para>
@@ -5527,11 +5800,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>知识库分类ID</para>
     /// <para>示例值：6948728206392295444</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/helpdesk/v1/categories/{id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteHelpdeskV1CategoriesByIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string id);
+        [PathQuery] string id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增字段</para>
@@ -5572,6 +5847,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(
@@ -5579,14 +5855,17 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldsBodyDto dto,
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除一个数据表</para>
     /// <para>接口ID：6960166873968443395</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除一个数据表，如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
+    /// <para>通过 app_token 和 table_id 删除指定的多维表格数据表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
@@ -5611,19 +5890,23 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteBitableV1AppsByAppTokenTablesByTableIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [PathQuery] string table_id);
+        [PathQuery] string table_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除多个数据表</para>
     /// <para>接口ID：6960166873968459779</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table/batch_delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除多个数据表。如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
+    /// <para>通过 app_token 和 table_id 删除多个数据表。</para>
+    /// <para>## 注意事项</para>
+    /// <para>如果多维表格中只剩最后一张数据表，则不允许被删除。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:table:delete</item>
     /// <item>bitable:app</item>
@@ -5640,12 +5923,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenTablesBatchDeleteAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBatchDeleteBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出数据表</para>
@@ -5681,13 +5966,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesResponseDto>> GetBitableV1AppsByAppTokenTablesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出字段</para>
@@ -5759,6 +6046,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdFieldsAsync(
@@ -5768,7 +6056,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? view_id = null,
         [PathQuery] bool? text_field_as_array = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新字段</para>
@@ -5809,6 +6098,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：fldPTb0U2y</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields/{field_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdResponseDto>> PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdAsync(
@@ -5816,7 +6106,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string field_id,
-        [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除字段</para>
@@ -5854,13 +6145,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>数据表中一个字段的唯一标识。通过[列出字段](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field/list)接口获取。</para>
     /// <para>示例值：fldPTb0U2y</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/fields/{field_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdResponseDto>> DeleteBitableV1AppsByAppTokenTablesByTableIdFieldsByFieldIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string field_id);
+        [PathQuery] string field_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增一个数据表</para>
@@ -5888,12 +6181,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesResponseDto>> PostBitableV1AppsByAppTokenTablesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增多个数据表</para>
@@ -5935,13 +6230,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesBatchCreateResponseDto>> PostBitableV1AppsByAppTokenTablesBatchCreateAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesBatchCreateBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】获取多维表格元数据</para>
@@ -5965,11 +6262,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenResponseDto>> GetBitableV1AppsByAppTokenAsync(
         UserAccessToken access_token,
-        [PathQuery] string app_token);
+        [PathQuery] string app_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】获取会议详情</para>
@@ -6013,6 +6312,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/meetings/{meeting_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingsByMeetingIdResponseDto>> GetVcV1MeetingsByMeetingIdAsync(
@@ -6020,7 +6320,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string meeting_id,
         [PathQuery] bool? with_participants = null,
         [PathQuery] bool? with_meeting_ability = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】预约会议</para>
@@ -6047,12 +6348,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/reserves/apply")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ReservesApplyResponseDto>> PostVcV1ReservesApplyAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1ReservesApplyBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】授权录制文件</para>
@@ -6085,13 +6388,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/recording/set_permission")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1MeetingsByMeetingIdRecordingSetPermissionAsync(
         UserAccessToken access_token,
         [PathQuery] string meeting_id,
         [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】删除预约</para>
@@ -6109,11 +6414,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>预约ID（预约的唯一标识）</para>
     /// <para>示例值：6911188411932033028</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/vc/v1/reserves/{reserve_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteVcV1ReservesByReserveIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string reserve_id);
+        [PathQuery] string reserve_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】停止录制</para>
@@ -6131,11 +6438,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// <para>示例值：6911188411932033028</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/recording/stop")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1MeetingsByMeetingIdRecordingStopAsync(
         UserAccessToken access_token,
-        [PathQuery] string meeting_id);
+        [PathQuery] string meeting_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】获取录制文件</para>
@@ -6159,11 +6468,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// <para>示例值：6911188411932033028</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/meetings/{meeting_id}/recording")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingsByMeetingIdRecordingResponseDto>> GetVcV1MeetingsByMeetingIdRecordingAsync(
         UserAccessToken access_token,
-        [PathQuery] string meeting_id);
+        [PathQuery] string meeting_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】结束会议</para>
@@ -6181,11 +6492,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
     /// <para>示例值：6911188411932033028</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/end")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1MeetingsByMeetingIdEndAsync(
         UserAccessToken access_token,
-        [PathQuery] string meeting_id);
+        [PathQuery] string meeting_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】邀请参会人</para>
@@ -6218,13 +6531,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/invite")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PatchVcV1MeetingsByMeetingIdInviteResponseDto>> PatchVcV1MeetingsByMeetingIdInviteAsync(
         UserAccessToken access_token,
         [PathQuery] string meeting_id,
         [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdInviteBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】开始录制</para>
@@ -6243,12 +6558,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6911188411932033028</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/vc/v1/meetings/{meeting_id}/recording/start")]
     System.Threading.Tasks.Task<FeishuResponse> PatchVcV1MeetingsByMeetingIdRecordingStartAsync(
         UserAccessToken access_token,
         [PathQuery] string meeting_id,
-        [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdRecordingStartBodyDto dto);
+        [JsonContent] Vc.PatchVcV1MeetingsByMeetingIdRecordingStartBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】批量获取 OKR</para>
@@ -6287,13 +6604,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：zh_cn</para>
     /// <para>默认值：zh_cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/okr/v1/okrs/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1OkrsBatchGetResponseDto>> GetOkrV1OkrsBatchGetAsync(
         UserAccessToken access_token,
         [PathQuery] string[] okr_ids,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? lang = "zh_cn");
+        [PathQuery] string? lang = "zh_cn",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】获取用户的 OKR 列表</para>
@@ -6349,6 +6668,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：["6951461264858777132"]</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/okr/v1/users/{user_id}/okrs")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1UsersByUserIdOkrsResponseDto>> GetOkrV1UsersByUserIdOkrsAsync(
@@ -6358,7 +6678,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string limit,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? lang = "zh_cn",
-        [PathQuery] string[]? period_ids = null);
+        [PathQuery] string[]? period_ids = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】将 Exchange 账户绑定到飞书账户</para>
@@ -6388,12 +6709,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/exchange_bindings")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4ExchangeBindingsResponseDto>> PostCalendarV4ExchangeBindingsAsync(
         UserAccessToken access_token,
         [JsonContent] Calendar.PostCalendarV4ExchangeBindingsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询 Exchange 账户的绑定状态</para>
@@ -6427,12 +6750,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/exchange_bindings/{exchange_binding_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4ExchangeBindingsByExchangeBindingIdResponseDto>> GetCalendarV4ExchangeBindingsByExchangeBindingIdAsync(
         UserAccessToken access_token,
         [PathQuery] string exchange_binding_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】解除 Exchange 账户绑定</para>
@@ -6451,11 +6776,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Exchange 绑定的唯一标识 ID。调用 [将 Exchange 账户绑定到飞书账户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/exchange_binding/create) 绑定时，可从返回结果中获取 exchange_binding_id。</para>
     /// <para>示例值：ZW1haWxfYWRtaW5fZXhhbXBsZUBvdXRsb29rLmNvbSBlbWFpbF9hY2NvdW50X2V4YW1wbGVAb3V0bG9vay5jb20=</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/exchange_bindings/{exchange_binding_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4ExchangeBindingsByExchangeBindingIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string exchange_binding_id);
+        [PathQuery] string exchange_binding_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取筛选</para>
@@ -6484,12 +6811,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
     /// <para>示例值：8fe9d6</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string sheet_id);
+        [PathQuery] string sheet_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建筛选</para>
@@ -6517,13 +6846,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新筛选</para>
@@ -6551,13 +6882,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
     System.Threading.Tasks.Task<FeishuResponse> PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto);
+        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除筛选</para>
@@ -6584,12 +6917,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
     /// <para>示例值：8fe9d6</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string sheet_id);
+        [PathQuery] string sheet_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【汇报】查询任务</para>
@@ -6616,12 +6951,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/report/v1/tasks/query")]
     System.Threading.Tasks.Task<FeishuResponse<Report.PostReportV1TasksQueryResponseDto>> PostReportV1TasksQueryAsync(
         UserAccessToken access_token,
         [JsonContent] Report.PostReportV1TasksQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】移动行列</para>
@@ -6649,13 +6986,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：2jm6f6</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/move_dimension")]
     System.Threading.Tasks.Task<FeishuResponse> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimensionBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建电子表格</para>
@@ -6670,11 +7009,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsResponseDto>> PostSheetsV3SpreadsheetsAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新筛选条件</para>
@@ -6714,6 +7055,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：E</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
@@ -6722,7 +7064,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
         [PathQuery] string condition_id,
-        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto);
+        [JsonContent] Ccm.PutSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取筛选视图</para>
@@ -6757,13 +7100,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
     /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [PathQuery] string filter_view_id);
+        [PathQuery] string filter_view_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询筛选视图</para>
@@ -6792,12 +7137,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取。</para>
     /// <para>示例值：8fe9d6</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string sheet_id);
+        [PathQuery] string sheet_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新筛选视图</para>
@@ -6831,6 +7178,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
@@ -6838,7 +7186,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询筛选条件</para>
@@ -6873,13 +7222,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
     /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [PathQuery] string filter_view_id);
+        [PathQuery] string filter_view_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取筛选条件</para>
@@ -6920,6 +7271,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要查询的筛选视图的列</para>
     /// <para>示例值：E</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
@@ -6927,7 +7279,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [PathQuery] string condition_id);
+        [PathQuery] string condition_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除筛选条件</para>
@@ -6966,6 +7319,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除所有筛选条件的列，用字母表示。</para>
     /// <para>示例值：E</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions/{condition_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsByConditionIdAsync(
@@ -6973,7 +7327,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [PathQuery] string condition_id);
+        [PathQuery] string condition_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建筛选视图</para>
@@ -7003,13 +7358,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：8fe9d6</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除筛选视图</para>
@@ -7042,13 +7399,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>筛选视图 ID。通过[查询筛选视图](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view/query)获取。</para>
     /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [PathQuery] string filter_view_id);
+        [PathQuery] string filter_view_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建筛选条件</para>
@@ -7082,6 +7441,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：pH9hbVcCXA</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/filter_views/{filter_view_id}/conditions")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsAsync(
@@ -7089,7 +7449,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string filter_view_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新客服信息</para>
@@ -7108,12 +7469,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：ou_14777d82ffef0f707de5a8c7ff2c5ebe</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/agents/{agent_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1AgentsByAgentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_id,
-        [JsonContent] Helpdesk.PatchHelpdeskV1AgentsByAgentIdBodyDto dto);
+        [JsonContent] Helpdesk.PatchHelpdeskV1AgentsByAgentIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建浮动图片</para>
@@ -7147,13 +7510,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：0beg12</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取浮动图片</para>
@@ -7189,13 +7554,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。</para>
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [PathQuery] string float_image_id);
+        [PathQuery] string float_image_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询浮动图片</para>
@@ -7225,12 +7592,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// <para>示例值：0beg12</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string sheet_id);
+        [PathQuery] string sheet_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新浮动图片</para>
@@ -7265,6 +7634,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdResponseDto>> PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
@@ -7272,7 +7642,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
         [PathQuery] string float_image_id,
-        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除浮动图片</para>
@@ -7306,13 +7677,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表内浮动图片的唯一标识。通过[查询浮动图片](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-float_image/query)接口获取。</para>
     /// <para>示例值：ye06SS14ph</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/float_images/{float_image_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFloatImagesByFloatImageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [PathQuery] string float_image_id);
+        [PathQuery] string float_image_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出视图</para>
@@ -7371,6 +7744,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdViewsAsync(
@@ -7379,7 +7753,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增视图</para>
@@ -7414,20 +7789,22 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdViewsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdViewsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除视图</para>
     /// <para>接口ID：6978670625209630722</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/bitable-v1/app-table-view/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>删除多维表格数据表中的指定视图。</para>
+    /// <para>通过 app_token、table_id 和 view_id，删除多维表格数据表中的指定视图。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>base:view:write_only</item>
     /// <item>bitable:app</item>
@@ -7463,13 +7840,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views/{view_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string view_id);
+        [PathQuery] string view_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除Sheet</para>
@@ -7490,12 +7869,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>spreadsheet 的 token，获取方式见 [概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete")]
     [HttpDelete("/open-apis/drive/explorer/v2/file/spreadsheets/{spreadsheetToken}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetTokenResponseDto>> DeleteDriveExplorerV2FileSpreadsheetsBySpreadsheetTokenAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheetToken);
+        [PathQuery] string spreadsheetToken,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取我的空间（根文件夹）元数据</para>
@@ -7508,10 +7889,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>drive:drive.metadata:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/explorer/v2/root_folder/meta")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.GetDriveExplorerV2RootFolderMetaResponseDto>> GetDriveExplorerV2RootFolderMetaAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传文件-完成上传</para>
@@ -7528,11 +7911,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_finish")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadFinishResponseDto>> PostDriveV1FilesUploadFinishAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesUploadFinishBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传文件-预上传</para>
@@ -7552,11 +7937,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_prepare")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadPrepareResponseDto>> PostDriveV1FilesUploadPrepareAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1FilesUploadPrepareBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesUploadPrepareBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】上传素材</para>
@@ -7580,12 +7967,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件的二进制内容</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_all")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadAllResponseDto>> PostDriveV1MediasUploadAllAsync(
         UserAccessToken access_token,
         [FormDataContent] Ccm.PostDriveV1MediasUploadAllBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传素材-预上传</para>
@@ -7606,11 +7995,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_prepare")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadPrepareResponseDto>> PostDriveV1MediasUploadPrepareAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1MediasUploadPrepareBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1MediasUploadPrepareBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】上传文件</para>
@@ -7632,12 +8023,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件的二进制内容</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_all")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesUploadAllResponseDto>> PostDriveV1FilesUploadAllAsync(
         UserAccessToken access_token,
         [FormDataContent] Ccm.PostDriveV1FilesUploadAllBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传素材-完成上传</para>
@@ -7656,11 +8049,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_finish")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MediasUploadFinishResponseDto>> PostDriveV1MediasUploadFinishAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1MediasUploadFinishBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1MediasUploadFinishBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取素材临时下载链接</para>
@@ -7705,12 +8100,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：请参考 [extra 参数说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/introduction)</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/medias/batch_get_tmp_download_url")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1MediasBatchGetTmpDownloadUrlResponseDto>> GetDriveV1MediasBatchGetTmpDownloadUrlAsync(
         UserAccessToken access_token,
         [PathQuery] string[] file_tokens,
-        [PathQuery] string? extra = null);
+        [PathQuery] string? extra = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】下载素材</para>
@@ -7757,13 +8154,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/medias/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1MediasByFileTokenDownloadAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [Header][AliasAs("Range")] string? range = null,
-        [PathQuery] string? extra = null);
+        [PathQuery] string? extra = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传文件-上传分片</para>
@@ -7784,12 +8183,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>文件分片的二进制内容</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/upload_part")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1FilesUploadPartAsync(
         UserAccessToken access_token,
         [FormDataContent] Ccm.PostDriveV1FilesUploadPartBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】下载文件</para>
@@ -7822,12 +8223,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：boxcnabCdefgabcef</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1FilesByFileTokenDownloadAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [Header][AliasAs("Range")] string? range = null);
+        [Header][AliasAs("Range")] string? range = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】分片上传素材-上传分片</para>
@@ -7850,12 +8253,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>素材文件分片的二进制内容</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/medias/upload_part")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1MediasUploadPartAsync(
         UserAccessToken access_token,
         [FormDataContent] Ccm.PostDriveV1MediasUploadPartBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查找单元格</para>
@@ -7887,13 +8292,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：PNIfrm</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/find")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFindBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】替换单元格</para>
@@ -7923,13 +8330,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：PNIfrm</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}/replace")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceResponseDto>> PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
         [PathQuery] string sheet_id,
-        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceBodyDto dto);
+        [JsonContent] Ccm.PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplaceBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取关注人列表</para>
@@ -7981,6 +8390,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/followers")]
     System.Threading.Tasks.Task<FeishuResponse<Task.Spec.GetTaskV1TasksByTaskIdFollowersResponseDto>> GetTaskV1TasksByTaskIdFollowersAsync(
@@ -7988,7 +8398,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string task_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】新增关注人</para>
@@ -8021,13 +8432,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/followers")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdFollowersResponseDto>> PostTaskV1TasksByTaskIdFollowersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PostTaskV1TasksByTaskIdFollowersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】新增执行者</para>
@@ -8061,13 +8474,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/collaborators")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdCollaboratorsResponseDto>> PostTaskV1TasksByTaskIdCollaboratorsAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PostTaskV1TasksByTaskIdCollaboratorsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除提醒时间</para>
@@ -8091,12 +8506,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务提醒时间设置的 ID（即 reminder.id）</para>
     /// <para>示例值：1</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v1/tasks/{task_id}/reminders/{reminder_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV1TasksByTaskIdRemindersByReminderIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
-        [PathQuery] string reminder_id);
+        [PathQuery] string reminder_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取执行者列表</para>
@@ -8141,6 +8558,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/collaborators")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksByTaskIdCollaboratorsResponseDto>> GetTaskV1TasksByTaskIdCollaboratorsAsync(
@@ -8148,7 +8566,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string task_id,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】取消完成任务</para>
@@ -8166,11 +8585,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务 ID</para>
     /// <para>示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/uncomplete")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV1TasksByTaskIdUncompleteAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】查询指定任务</para>
@@ -8203,12 +8624,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksByTaskIdResponseDto>> GetTaskV1TasksByTaskIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除任务</para>
@@ -8226,11 +8649,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务 ID</para>
     /// <para>示例值：83912691-2e43-47fc-94a4-d512e03984fa</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v1/tasks/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV1TasksByTaskIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建任务</para>
@@ -8259,12 +8684,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksResponseDto>> PostTaskV1TasksAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV1TasksBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】新增提醒时间</para>
@@ -8283,12 +8710,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：83912691-2e43-47fc-94a4-d512e03984fa</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdRemindersResponseDto>> PostTaskV1TasksByTaskIdRemindersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
-        [JsonContent] Task.PostTaskV1TasksByTaskIdRemindersBodyDto dto);
+        [JsonContent] Task.PostTaskV1TasksByTaskIdRemindersBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】完成任务</para>
@@ -8307,11 +8736,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务 ID，可通过[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/task-v1/task/create)时响应体中的id字段获取</para>
     /// <para>示例值：bb54ab99-d360-434f-bcaa-a4cc4c05840e</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/complete")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV1TasksByTaskIdCompleteAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除指定关注人</para>
@@ -8349,13 +8780,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v1/tasks/{task_id}/followers/{follower_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV1TasksByTaskIdFollowersByFollowerIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [PathQuery] string follower_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除指定执行者</para>
@@ -8393,13 +8826,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v1/tasks/{task_id}/collaborators/{collaborator_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV1TasksByTaskIdCollaboratorsByCollaboratorIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [PathQuery] string collaborator_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新任务</para>
@@ -8432,13 +8867,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v1/tasks/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV1TasksByTaskIdResponseDto>> PatchTaskV1TasksByTaskIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PatchTaskV1TasksByTaskIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】查询提醒时间列表</para>
@@ -8469,13 +8906,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：「填写上次返回的page_token」</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksByTaskIdRemindersResponseDto>> GetTaskV1TasksByTaskIdRemindersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [PathQuery] int? page_size = 50,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【审批】查询用户的任务列表</para>
@@ -8540,6 +8979,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/approval/v4/tasks/query")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.Spec.GetApprovalV4TasksQueryResponseDto>> GetApprovalV4TasksQueryAsync(
@@ -8548,7 +8988,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string topic,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】增加协作者权限</para>
@@ -8610,6 +9051,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：false</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenMembersResponseDto>> PostDriveV1PermissionsByTokenMembersAsync(
@@ -8617,7 +9059,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string token,
         [PathQuery] string type,
         [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersBodyDto dto,
-        [PathQuery] bool? need_notification = false);
+        [PathQuery] bool? need_notification = false,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新云文档权限设置</para>
@@ -8658,6 +9101,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpPatch("/open-apis/drive/v1/permissions/{token}/public")]
@@ -8665,7 +9109,8 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonContent] Ccm.PatchDriveV1PermissionsByTokenPublicBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV1PermissionsByTokenPublicBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询导入任务结果</para>
@@ -8685,11 +9130,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>导入任务 ID。调用[创建导入任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/import_task/create) 获取</para>
     /// <para>示例值：7369583175086912356</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/import_tasks/{ticket}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1ImportTasksByTicketResponseDto>> GetDriveV1ImportTasksByTicketAsync(
         UserAccessToken access_token,
-        [PathQuery] string ticket);
+        [PathQuery] string ticket,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建导入任务</para>
@@ -8705,11 +9152,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/import_tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1ImportTasksResponseDto>> PostDriveV1ImportTasksAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1ImportTasksBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1ImportTasksBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件统计信息</para>
@@ -8743,12 +9192,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>docx：新版文档</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/statistics")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenStatisticsResponseDto>> GetDriveV1FilesByFileTokenStatisticsAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [PathQuery] string file_type);
+        [PathQuery] string file_type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】创建日程</para>
@@ -8792,6 +9243,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsAsync(
@@ -8799,7 +9251,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsBodyDto dto,
         [PathQuery] string? idempotency_key = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取消息表情回复</para>
@@ -8860,6 +9313,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/messages/{message_id}/reactions")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesByMessageIdReactionsResponseDto>> GetImV1MessagesByMessageIdReactionsAsync(
@@ -8868,7 +9322,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? reaction_type = null,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】删除消息表情回复</para>
@@ -8904,12 +9359,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取消息表情回复](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/list)接口，获取某一表情回复的 ID。</para>
     /// <para>示例值：ZCaCIjUBVVWSrm5L-3ZTw*************sNa8dHVplEzzSfJVUVLMLcS_</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/messages/{message_id}/reactions/{reaction_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1MessagesByMessageIdReactionsByReactionIdResponseDto>> DeleteImV1MessagesByMessageIdReactionsByReactionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string message_id,
-        [PathQuery] string reaction_id);
+        [PathQuery] string reaction_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】添加消息表情回复</para>
@@ -8938,12 +9395,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：om_a8f2294b************a1a38afaac9d</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/messages/{message_id}/reactions")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesByMessageIdReactionsResponseDto>> PostImV1MessagesByMessageIdReactionsAsync(
         UserAccessToken access_token,
         [PathQuery] string message_id,
-        [JsonContent] Im.PostImV1MessagesByMessageIdReactionsBodyDto dto);
+        [JsonContent] Im.PostImV1MessagesByMessageIdReactionsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】指定群管理员</para>
@@ -8986,13 +9445,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/add_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersAddManagersResponseDto>> PostImV1ChatsByChatIdManagersAddManagersAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
         [JsonContent] Im.PostImV1ChatsByChatIdManagersAddManagersBodyDto dto,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】删除群管理员</para>
@@ -9035,13 +9496,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/managers/delete_managers")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdManagersDeleteManagersResponseDto>> PostImV1ChatsByChatIdManagersDeleteManagersAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
         [JsonContent] Im.PostImV1ChatsByChatIdManagersDeleteManagersBodyDto dto,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】移除云文档协作者权限</para>
@@ -9105,6 +9568,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/permissions/{token}/members/{member_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1PermissionsByTokenMembersByMemberIdAsync(
@@ -9113,7 +9577,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string member_id,
         [PathQuery] string type,
         [PathQuery] string member_type,
-        [JsonContent] Ccm.DeleteDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto);
+        [JsonContent] Ccm.DeleteDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新协作者权限</para>
@@ -9176,6 +9641,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/drive/v1/permissions/{token}/members/{member_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PutDriveV1PermissionsByTokenMembersByMemberIdResponseDto>> PutDriveV1PermissionsByTokenMembersByMemberIdAsync(
@@ -9184,7 +9650,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string member_id,
         [PathQuery] string type,
         [JsonContent] Ccm.PutDriveV1PermissionsByTokenMembersByMemberIdBodyDto dto,
-        [PathQuery] bool? need_notification = false);
+        [PathQuery] bool? need_notification = false,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】预览推送</para>
@@ -9202,11 +9669,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>创建推送接口成功后返回的唯一id</para>
     /// <para>示例值：6985032626234982420</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications/{notification_id}/preview")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1NotificationsByNotificationIdPreviewAsync(
         UserAccessToken access_token,
-        [PathQuery] string notification_id);
+        [PathQuery] string notification_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】提交审核</para>
@@ -9225,12 +9694,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6985032626234982420</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications/{notification_id}/submit_approve")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1NotificationsByNotificationIdSubmitApproveResponseDto>> PostHelpdeskV1NotificationsByNotificationIdSubmitApproveAsync(
         UserAccessToken access_token,
         [PathQuery] string notification_id,
-        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdSubmitApproveBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdSubmitApproveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】取消审核</para>
@@ -9248,11 +9719,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>唯一ID</para>
     /// <para>示例值：6981801914270744596</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications/{notification_id}/cancel_approve")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1NotificationsByNotificationIdCancelApproveAsync(
         UserAccessToken access_token,
-        [PathQuery] string notification_id);
+        [PathQuery] string notification_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】执行推送</para>
@@ -9271,12 +9744,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6985032626234982420</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications/{notification_id}/execute_send")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1NotificationsByNotificationIdExecuteSendAsync(
         UserAccessToken access_token,
         [PathQuery] string notification_id,
-        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdExecuteSendBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdExecuteSendBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】取消推送</para>
@@ -9295,12 +9770,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6981801914270744596</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications/{notification_id}/cancel_send")]
     System.Threading.Tasks.Task<FeishuResponse> PostHelpdeskV1NotificationsByNotificationIdCancelSendAsync(
         UserAccessToken access_token,
         [PathQuery] string notification_id,
-        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdCancelSendBodyDto dto);
+        [JsonContent] Helpdesk.PostHelpdeskV1NotificationsByNotificationIdCancelSendBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】更新推送</para>
@@ -9333,13 +9810,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/helpdesk/v1/notifications/{notification_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchHelpdeskV1NotificationsByNotificationIdAsync(
         UserAccessToken access_token,
         [PathQuery] string notification_id,
         [JsonContent] Helpdesk.PatchHelpdeskV1NotificationsByNotificationIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】查询推送</para>
@@ -9371,12 +9850,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/helpdesk/v1/notifications/{notification_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.GetHelpdeskV1NotificationsByNotificationIdResponseDto>> GetHelpdeskV1NotificationsByNotificationIdAsync(
         UserAccessToken access_token,
         [PathQuery] string notification_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【服务台】创建推送</para>
@@ -9403,12 +9884,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/helpdesk/v1/notifications")]
     System.Threading.Tasks.Task<FeishuResponse<Helpdesk.PostHelpdeskV1NotificationsResponseDto>> PostHelpdeskV1NotificationsAsync(
         UserAccessToken access_token,
         [JsonContent] Helpdesk.PostHelpdeskV1NotificationsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新评论</para>
@@ -9447,6 +9930,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/task/v1/tasks/{task_id}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PutTaskV1TasksByTaskIdCommentsByCommentIdResponseDto>> PutTaskV1TasksByTaskIdCommentsByCommentIdAsync(
@@ -9454,7 +9938,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string task_id,
         [PathQuery] string comment_id,
         [JsonContent] Task.PutTaskV1TasksByTaskIdCommentsByCommentIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取评论详情</para>
@@ -9493,13 +9978,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksByTaskIdCommentsByCommentIdResponseDto>> GetTaskV1TasksByTaskIdCommentsByCommentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [PathQuery] string comment_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建评论</para>
@@ -9532,13 +10019,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdCommentsResponseDto>> PostTaskV1TasksByTaskIdCommentsAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PostTaskV1TasksByTaskIdCommentsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除评论</para>
@@ -9562,12 +10051,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>评论ID</para>
     /// <para>示例值：6937231762296684564</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v1/tasks/{task_id}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV1TasksByTaskIdCommentsByCommentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
-        [PathQuery] string comment_id);
+        [PathQuery] string comment_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【绩效】获取绩效结果</para>
@@ -9596,12 +10087,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/performance/v1/review_datas/query")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV1ReviewDatasQueryResponseDto>> PostPerformanceV1ReviewDatasQueryAsync(
         UserAccessToken access_token,
         [JsonContent] Performance.PostPerformanceV1ReviewDatasQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】获取与会议号关联的会议列表</para>
@@ -9640,6 +10133,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/meetings/list_by_no")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingsListByNoResponseDto>> GetVcV1MeetingsListByNoAsync(
@@ -9648,7 +10142,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】创建草稿</para>
@@ -9677,13 +10172,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/create")]
     [HttpPost("/open-apis/baike/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1DraftsResponseDto>> PostBaikeV1DraftsAsync(
         UserAccessToken access_token,
         [JsonContent] Baike.PostBaikeV1DraftsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】更新草稿</para>
@@ -9717,6 +10214,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/draft/update")]
     [HttpPut("/open-apis/baike/v1/drafts/{draft_id}")]
@@ -9724,7 +10222,8 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string draft_id,
         [JsonContent] Baike.PutBaikeV1DraftsByDraftIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词条详情</para>
@@ -9770,6 +10269,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/get")]
     [HttpGet("/open-apis/baike/v1/entities/{entity_id}")]
@@ -9778,7 +10278,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string entity_id,
         [PathQuery] string? provider = null,
         [PathQuery] string? outer_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词条列表</para>
@@ -9824,6 +10325,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/list")]
     [HttpGet("/open-apis/baike/v1/entities")]
@@ -9832,7 +10334,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? provider = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】精准搜索词条</para>
@@ -9847,12 +10350,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/match")]
     [HttpPost("/open-apis/baike/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesMatchResponseDto>> PostBaikeV1EntitiesMatchAsync(
         UserAccessToken access_token,
-        [JsonContent] Baike.PostBaikeV1EntitiesMatchBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesMatchBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】模糊搜索词条</para>
@@ -9893,6 +10398,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/search")]
     [HttpPost("/open-apis/baike/v1/entities/search")]
@@ -9901,7 +10407,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Baike.PostBaikeV1EntitiesSearchBodyDto dto,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】词条高亮</para>
@@ -9916,12 +10423,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/highlight")]
     [HttpPost("/open-apis/baike/v1/entities/highlight")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesHighlightResponseDto>> PostBaikeV1EntitiesHighlightAsync(
         UserAccessToken access_token,
-        [JsonContent] Baike.PostBaikeV1EntitiesHighlightBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesHighlightBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取知识空间子节点列表</para>
@@ -9960,6 +10469,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces/{space_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdNodesResponseDto>> GetWikiV2SpacesBySpaceIdNodesAsync(
@@ -9967,7 +10477,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string space_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? parent_node_token = null);
+        [PathQuery] string? parent_node_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】移动云空间文档至知识空间</para>
@@ -9987,12 +10498,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes/move_docs_to_wiki")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiResponseDto>> PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
-        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesMoveDocsToWikiBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新知识空间设置</para>
@@ -10012,12 +10525,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/wiki/v2/spaces/{space_id}/setting")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PutWikiV2SpacesBySpaceIdSettingResponseDto>> PutWikiV2SpacesBySpaceIdSettingAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
-        [JsonContent] Ccm.PutWikiV2SpacesBySpaceIdSettingBodyDto dto);
+        [JsonContent] Ccm.PutWikiV2SpacesBySpaceIdSettingBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取知识空间列表</para>
@@ -10046,37 +10561,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// <para>默认值：null</para>
     /// </param>
-    /// <param name="lang">
-    /// <para>必填：否</para>
-    /// <para>当查询个人文档库时，指定返回的文档库名称展示语言。</para>
-    /// <para>示例值：zh</para>
-    /// <list type="bullet">
-    /// <item>zh：简体中文</item>
-    /// <item>id：印尼语</item>
-    /// <item>de：德语</item>
-    /// <item>en：英语</item>
-    /// <item>es：西班牙语</item>
-    /// <item>fr：法语</item>
-    /// <item>it：意大利语</item>
-    /// <item>pt：葡萄牙语</item>
-    /// <item>vi：越南语</item>
-    /// <item>ru：俄语</item>
-    /// <item>hi：印地语</item>
-    /// <item>th：泰语</item>
-    /// <item>ko：韩语</item>
-    /// <item>ja：日语</item>
-    /// <item>zh-HK：繁体中文（中国香港）</item>
-    /// <item>zh-TW：繁体中文（中国台湾）</item>
-    /// </list>
-    /// <para>默认值：en</para>
-    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesResponseDto>> GetWikiV2SpacesAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? lang = "en");
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取知识空间信息</para>
@@ -10102,7 +10594,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="lang">
     /// <para>必填：否</para>
-    /// <para>当查询个人文档库时，指定返回的文档库名称展示语言。</para>
+    /// <para>当查询**我的文档库**时，指定返回的文档库名称展示语言。</para>
     /// <para>示例值：zh</para>
     /// <list type="bullet">
     /// <item>zh：简体中文</item>
@@ -10124,12 +10616,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：en</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces/{space_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdResponseDto>> GetWikiV2SpacesBySpaceIdAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
-        [PathQuery] string? lang = "en");
+        [PathQuery] string? lang = "en",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建知识空间节点</para>
@@ -10150,12 +10644,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6704147935988285963</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesResponseDto>> PostWikiV2SpacesBySpaceIdNodesAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
-        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】添加知识空间成员</para>
@@ -10189,13 +10685,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdMembersResponseDto>> PostWikiV2SpacesBySpaceIdMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdMembersBodyDto dto,
-        [PathQuery] bool? need_notification = null);
+        [PathQuery] bool? need_notification = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建知识空间</para>
@@ -10209,11 +10707,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesResponseDto>> PostWikiV2SpacesAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostWikiV2SpacesBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取知识空间节点信息</para>
@@ -10253,12 +10753,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：wiki</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces/get_node")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesGetNodeResponseDto>> GetWikiV2SpacesGetNodeAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string? obj_type = "wiki");
+        [PathQuery] string? obj_type = "wiki",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除文件或文件夹</para>
@@ -10301,12 +10803,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDriveV1FilesByFileTokenResponseDto>> DeleteDriveV1FilesByFileTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取部门直属用户列表</para>
@@ -10386,6 +10890,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/dk53s4Ebp882DYfFaPFbz00L4CMZJrqGdzNyc8BcZtDbwVUvRmQTvyMYicnGWrde9X56TgdBuS+JKiSIkdexPw=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/users/find_by_department")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3UsersFindByDepartmentResponseDto>> GetContactV3UsersFindByDepartmentAsync(
@@ -10394,7 +10899,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取子部门列表</para>
@@ -10476,6 +10982,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/departments/{department_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsByDepartmentIdChildrenResponseDto>> GetContactV3DepartmentsByDepartmentIdChildrenAsync(
@@ -10485,7 +10992,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] bool? fetch_child = null,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取任务结果</para>
@@ -10513,12 +11021,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>move：[移动云空间文档至知识空间](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space-node/move_docs_to_wiki)任务</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/tasks/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2TasksByTaskIdResponseDto>> GetWikiV2TasksByTaskIdAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
-        [PathQuery] string task_type);
+        [PathQuery] string task_type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除知识空间成员</para>
@@ -10544,13 +11054,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：g64fb7g7</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/wiki/v2/spaces/{space_id}/members/{member_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdResponseDto>> DeleteWikiV2SpacesBySpaceIdMembersByMemberIdAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [PathQuery] string member_id,
-        [JsonContent] Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto dto);
+        [JsonContent] Ccm.DeleteWikiV2SpacesBySpaceIdMembersByMemberIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】移动知识空间节点</para>
@@ -10577,13 +11089,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：wikbcd6ydSUyOEzbdlt1BfpA5Yc</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes/{node_token}/move")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveResponseDto>> PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenMoveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新群置顶</para>
@@ -10610,12 +11124,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/top_notice/put_top_notice")]
     System.Threading.Tasks.Task<FeishuResponse> PostImV1ChatsByChatIdTopNoticePutTopNoticeAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】撤销群置顶</para>
@@ -10641,11 +11157,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[搜索对用户或机器人可见的群列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/search)，可搜索用户或机器人所在的群、对用户或机器人公开的群的 chat_id。</para>
     /// <para>示例值：oc_5ad11d72b830411d72b836c20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/top_notice/delete_top_notice")]
     System.Threading.Tasks.Task<FeishuResponse> PostImV1ChatsByChatIdTopNoticeDeleteTopNoticeAsync(
         UserAccessToken access_token,
-        [PathQuery] string chat_id);
+        [PathQuery] string chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】查询所有任务</para>
@@ -10702,6 +11220,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksResponseDto>> GetTaskV1TasksAsync(
@@ -10711,29 +11230,33 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? start_create_time = null,
         [PathQuery] string? end_create_time = null,
         [PathQuery] bool? task_completed = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】上传进展记录图片</para>
     /// <para>接口ID：7047048928294174722</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/upload</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传进展记录图片。成功调用该接口后，你可继续调用[创建 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/create)或[更新 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/update)，将返回的 `url`参数和`file_token` 参数传入 `imageList` 参数中。</para>
+    /// <para>上传图片，以获取在进展记录富文本中使用的 token。成功调用该接口后，你可继续调用[创建 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/create)或[更新 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/update)，将返回的 `url`参数和`file_token` 参数传入 `imageList` 参数中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress.file:upload</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="data">
     /// <para>必填：是</para>
-    /// <para>图片</para>
+    /// <para>图片二进制文件。目前仅支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/okr/v1/images/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV1ImagesUploadResponseDto>> PostOkrV1ImagesUploadAsync(
         UserAccessToken access_token,
         [FormDataContent] Okr.PostOkrV1ImagesUploadBodyDto dto,
-        [FormDataContent] FormDataFile data);
+        [FormDataContent] FormDataFile data,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】创建 OKR 进展记录</para>
@@ -10743,6 +11266,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>创建 OKR 进展记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -10760,12 +11284,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/okr/v1/progress_records")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV1ProgressRecordsResponseDto>> PostOkrV1ProgressRecordsAsync(
         UserAccessToken access_token,
         [JsonContent] Okr.PostOkrV1ProgressRecordsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】更新 OKR 进展记录</para>
@@ -10775,6 +11301,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>根据 OKR 进展记录 ID 更新进展详情。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -10783,7 +11310,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待更新的 OKR进展记录 ID</para>
+    /// <para>待更新的 OKR进展记录 ID，“创建 OKR 进展记录”接口返回值中会提供，也可以通过 OKR 内容相关接口获取。</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
     /// <param name="user_id_type">
@@ -10798,13 +11325,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/okr/v1/progress_records/{progress_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV1ProgressRecordsByProgressIdResponseDto>> PutOkrV1ProgressRecordsByProgressIdAsync(
         UserAccessToken access_token,
         [PathQuery] string progress_id,
         [JsonContent] Okr.PutOkrV1ProgressRecordsByProgressIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】删除 OKR 进展记录</para>
@@ -10814,29 +11343,33 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>根据 ID 删除 OKR 进展记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:delete</item>
     /// </list></para>
     /// </summary>
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除的 OKR进展记录 ID</para>
+    /// <para>待删除的 OKR进展记录 ID，“创建 OKR 进展记录”接口返回值中会提供，也可以通过 OKR 内容相关接口获取。</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/okr/v1/progress_records/{progress_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteOkrV1ProgressRecordsByProgressIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string progress_id);
+        [PathQuery] string progress_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【OKR】获取 OKR 进展记录</para>
     /// <para>接口ID：7047056455665926145</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 ID 获取 OKR 进展记录详情。</para>
+    /// <para>根据 ID 获取 OKR 进展记录详情，接口返回进展记录的内容、更新时间以及进展百分比和状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
     /// <item>okr:okr:readonly</item>
+    /// <item>okr:okr.progress:readonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -10845,7 +11378,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询的 OKR进展记录 ID</para>
+    /// <para>待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
     /// <param name="user_id_type">
@@ -10859,12 +11392,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/okr/v1/progress_records/{progress_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV1ProgressRecordsByProgressIdResponseDto>> GetOkrV1ProgressRecordsByProgressIdAsync(
         UserAccessToken access_token,
         [PathQuery] string progress_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】创建多维表格</para>
@@ -10878,11 +11413,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsResponseDto>> PostBitableV1AppsAsync(
         UserAccessToken access_token,
-        [JsonContent] Base.PostBitableV1AppsBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询主日历信息</para>
@@ -10909,11 +11446,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/primary")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsPrimaryResponseDto>> PostCalendarV4CalendarsPrimaryAsync(
         UserAccessToken access_token,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建订阅</para>
@@ -10934,12 +11473,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：doxcnxxxxxxxxxxxxxxxxxxxxxx</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/subscriptions")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenSubscriptionsResponseDto>> PostDriveV1FilesByFileTokenSubscriptionsAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [JsonContent] Ccm.PostDriveV1FilesByFileTokenSubscriptionsBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenSubscriptionsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新订阅状态</para>
@@ -10966,13 +11507,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1234567890987654321</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/drive/v1/files/{file_token}/subscriptions/{subscription_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdResponseDto>> PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string subscription_id,
-        [JsonContent] Ccm.PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取订阅状态</para>
@@ -10999,13 +11542,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1234567890987654321</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/subscriptions/{subscription_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdResponseDto>> GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string subscription_id,
-        [JsonContent] Ccm.GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto dto);
+        [JsonContent] Ccm.GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建文档</para>
@@ -11019,11 +11564,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/docx/v1/documents")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsResponseDto>> PostDocxV1DocumentsAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDocxV1DocumentsBodyDto dto);
+        [JsonContent] Ccm.PostDocxV1DocumentsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取所有子块</para>
@@ -11079,6 +11626,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenAsync(
@@ -11088,7 +11636,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 500,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建块</para>
@@ -11138,6 +11687,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenResponseDto>> PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenAsync(
@@ -11147,7 +11697,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新块的内容</para>
@@ -11197,6 +11748,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdAsync(
@@ -11206,7 +11758,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksByBlockIdBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文档基本信息</para>
@@ -11231,11 +11784,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>对于知识库（wiki）中的文档，其 URL 地址中的 token 并不是该文档的 `document_id`。使用时请注意区分。</para>
     /// <para>示例值：doxcnePuYufKa49ISjhD8Iabcef</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdResponseDto>> GetDocxV1DocumentsByDocumentIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string document_id);
+        [PathQuery] string document_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除块</para>
@@ -11272,6 +11827,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/children/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteResponseDto>> DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteAsync(
@@ -11280,7 +11836,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string block_id,
         [JsonContent] Ccm.DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文档所有块</para>
@@ -11330,6 +11887,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksAsync(
@@ -11338,7 +11896,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 500,
         [PathQuery] string? page_token = null,
         [PathQuery] int? document_revision_id = -1,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取块的内容</para>
@@ -11382,6 +11941,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdBlocksByBlockIdResponseDto>> GetDocxV1DocumentsByDocumentIdBlocksByBlockIdAsync(
@@ -11389,7 +11949,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string document_id,
         [PathQuery] string block_id,
         [PathQuery] int? document_revision_id = -1,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新多维表格元数据</para>
@@ -11413,12 +11974,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenResponseDto>> PutBitableV1AppsByAppTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PutBitableV1AppsByAppTokenBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文档纯文本内容</para>
@@ -11450,12 +12013,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：0</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/documents/{document_id}/raw_content")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1DocumentsByDocumentIdRawContentResponseDto>> GetDocxV1DocumentsByDocumentIdRawContentAsync(
         UserAccessToken access_token,
         [PathQuery] string document_id,
-        [PathQuery] int? lang = 0);
+        [PathQuery] int? lang = 0,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】移动文件或文件夹</para>
@@ -11479,12 +12044,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：boxcnrHpsg1QDqXAAAyachabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/move")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenMoveResponseDto>> PostDriveV1FilesByFileTokenMoveAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
-        [JsonContent] Ccm.PostDriveV1FilesByFileTokenMoveBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenMoveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】创建免审词条</para>
@@ -11511,13 +12078,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/create")]
     [HttpPost("/open-apis/baike/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesResponseDto>> PostBaikeV1EntitiesAsync(
         UserAccessToken access_token,
         [JsonContent] Baike.PostBaikeV1EntitiesBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】更新免审词条</para>
@@ -11551,6 +12120,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/update")]
     [HttpPut("/open-apis/baike/v1/entities/{entity_id}")]
@@ -11558,7 +12128,8 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string entity_id,
         [JsonContent] Baike.PutBaikeV1EntitiesByEntityIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词典分类</para>
@@ -11585,13 +12156,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：408ecac018b2e3518db37275e812****bb8ad3e755fc886f322ac6c430ba</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/classification/list")]
     [HttpGet("/open-apis/baike/v1/classifications")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetBaikeV1ClassificationsResponseDto>> GetBaikeV1ClassificationsAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】新建文件夹</para>
@@ -11609,11 +12182,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/create_folder")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesCreateFolderResponseDto>> PostDriveV1FilesCreateFolderAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1FilesCreateFolderBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1FilesCreateFolderBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】复制文件</para>
@@ -11652,13 +12227,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCopyResponseDto>> PostDriveV1FilesByFileTokenCopyAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [JsonContent] Ccm.PostDriveV1FilesByFileTokenCopyBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建导出任务</para>
@@ -11672,11 +12249,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/export_tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1ExportTasksResponseDto>> PostDriveV1ExportTasksAsync(
         UserAccessToken access_token,
-        [JsonContent] Ccm.PostDriveV1ExportTasksBodyDto dto);
+        [JsonContent] Ccm.PostDriveV1ExportTasksBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询导出任务结果</para>
@@ -11702,12 +12281,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要导出的云文档的 token。获取方式参考[如何获取云文档相关 token](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN#08bb5df6)。你可参考以下请求示例了解如何使用查询参数。</para>
     /// <para>示例值：docbcZVGtv1papC6jAVGiyabcef</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/export_tasks/{ticket}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1ExportTasksByTicketResponseDto>> GetDriveV1ExportTasksByTicketAsync(
         UserAccessToken access_token,
         [PathQuery] string ticket,
-        [PathQuery] string token);
+        [PathQuery] string token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置</para>
@@ -11748,13 +12329,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("历史版本")]
     [HttpGet("/open-apis/drive/v1/permissions/{token}/public")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenPublicResponseDto>> GetDriveV1PermissionsByTokenPublicAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】下载导出文件</para>
@@ -11776,11 +12359,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：boxcnxe5OdjlAkNgSNdsJvabcef</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/export_tasks/file/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetDriveV1ExportTasksFileByFileTokenDownloadAsync(
         UserAccessToken access_token,
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】订阅云文档事件</para>
@@ -11829,13 +12414,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1FilesByFileTokenSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [PathQuery] string? event_type = null);
+        [PathQuery] string? event_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询异步任务状态</para>
@@ -11854,11 +12441,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>异步任务的 ID。目前支持查询删除文件夹和移动文件夹的异步任务。可通过调用[删除文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/delete)或[移动文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/move)获取任务 ID</para>
     /// <para>示例值：7360595374803812356</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/task_check")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesTaskCheckResponseDto>> GetDriveV1FilesTaskCheckAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【招聘】批量获取待办事项</para>
@@ -11914,6 +12503,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>interview：面试待办</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/hire/v1/todos")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1TodosResponseDto>> GetHireV1TodosAsync(
@@ -11922,7 +12512,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id = null,
-        [PathQuery] string? user_id_type = "people_admin_id");
+        [PathQuery] string? user_id_type = "people_admin_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量更新块的内容</para>
@@ -11966,6 +12557,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/docx/v1/documents/{document_id}/blocks/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateResponseDto>> PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateAsync(
@@ -11974,7 +12566,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增协作者</para>
@@ -12020,6 +12613,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersAsync(
@@ -12027,7 +12621,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string role_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBodyDto dto,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除自定义角色</para>
@@ -12058,12 +12653,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>多维表格高级权限中自定义角色的唯一标识，以 rol 开头。获取方式：通过[列出自定义角色](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-role/list)接口获取。</para>
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteBitableV1AppsByAppTokenRolesByRoleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [PathQuery] string role_id);
+        [PathQuery] string role_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新自定义角色</para>
@@ -12095,13 +12692,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBitableV1AppsByAppTokenRolesByRoleIdResponseDto>> PutBitableV1AppsByAppTokenRolesByRoleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonContent] Base.PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenRolesByRoleIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出协作者</para>
@@ -12145,6 +12744,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenRolesByRoleIdMembersResponseDto>> GetBitableV1AppsByAppTokenRolesByRoleIdMembersAsync(
@@ -12152,7 +12752,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string role_id,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出自定义角色</para>
@@ -12190,13 +12791,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/roles")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenRolesResponseDto>> GetBitableV1AppsByAppTokenRolesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】删除协作者</para>
@@ -12247,6 +12850,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members/{member_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberIdAsync(
@@ -12254,7 +12858,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string role_id,
         [PathQuery] string member_id,
-        [PathQuery] string? member_id_type = "open_id");
+        [PathQuery] string? member_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增自定义角色</para>
@@ -12280,12 +12885,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/roles")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenRolesResponseDto>> PostBitableV1AppsByAppTokenRolesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取评论列表</para>
@@ -12340,6 +12947,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v1/tasks/{task_id}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV1TasksByTaskIdCommentsResponseDto>> GetTaskV1TasksByTaskIdCommentsAsync(
@@ -12348,7 +12956,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] int? list_direction = 0,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件元数据</para>
@@ -12377,12 +12986,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/metas/batch_query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1MetasBatchQueryResponseDto>> PostDriveV1MetasBatchQueryAsync(
         UserAccessToken access_token,
         [JsonContent] Ccm.PostDriveV1MetasBatchQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件夹中的文件清单</para>
@@ -12450,6 +13061,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesResponseDto>> GetDriveV1FilesAsync(
@@ -12459,7 +13071,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? folder_token = null,
         [PathQuery] string? order_by = "EditedTime",
         [PathQuery] string? direction = "DESC",
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新知识空间节点标题</para>
@@ -12485,13 +13098,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：wikcnKQ1k3pcuo5uSK4t8Vabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes/{node_token}/update_title")]
     System.Threading.Tasks.Task<FeishuResponse> PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenUpdateTitleBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建知识空间节点副本</para>
@@ -12517,13 +13132,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：wikcnKQ1k3p******8Vabce</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/wiki/v2/spaces/{space_id}/nodes/{node_token}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyResponseDto>> PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [PathQuery] string node_token,
-        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto dto);
+        [JsonContent] Ccm.PostWikiV2SpacesBySpaceIdNodesByNodeTokenCopyBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】添加会话标签页</para>
@@ -12554,12 +13171,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsResponseDto>> PostImV1ChatsByChatIdChatTabsAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】删除会话标签页</para>
@@ -12590,12 +13209,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/chats/{chat_id}/chat_tabs/delete_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsResponseDto>> DeleteImV1ChatsByChatIdChatTabsDeleteTabsAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto dto);
+        [JsonContent] Im.DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】拉取会话标签页</para>
@@ -12624,11 +13245,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**注意**：仅支持群模式为 **群组（group）**、**单聊（p2p）** 的群组 ID。你可以调用[获取群信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat/get)接口，在返回结果中查看 `chat_mode` 参数取值是否为 `group`、`p2p`。</para>
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/chats/{chat_id}/chat_tabs/list_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1ChatsByChatIdChatTabsListTabsResponseDto>> GetImV1ChatsByChatIdChatTabsListTabsAsync(
         UserAccessToken access_token,
-        [PathQuery] string chat_id);
+        [PathQuery] string chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】更新会话标签页</para>
@@ -12659,12 +13282,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs/update_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsUpdateTabsResponseDto>> PostImV1ChatsByChatIdChatTabsUpdateTabsAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsUpdateTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsUpdateTabsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】会话标签页排序</para>
@@ -12695,12 +13320,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/chat_tabs/sort_tabs")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdChatTabsSortTabsResponseDto>> PostImV1ChatsByChatIdChatTabsSortTabsAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsSortTabsBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdChatTabsSortTabsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】批量删除协作者</para>
@@ -12732,13 +13359,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：rolNGhPqks</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】批量新增协作者</para>
@@ -12770,13 +13399,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：rolNGhPqks</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/roles/{role_id}/members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse> PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchCreateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新表单问题</para>
@@ -12824,6 +13455,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：fldjX7dUj5</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}/fields/{field_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdAsync(
@@ -12832,7 +13464,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [PathQuery] string form_id,
         [PathQuery] string field_id,
-        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出表单问题</para>
@@ -12886,6 +13519,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：vewTpR1urY</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}/fields")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsAsync(
@@ -12894,7 +13528,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_id,
         [PathQuery] string form_id,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】批量删除关注人</para>
@@ -12927,13 +13562,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/batch_delete_follower")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdBatchDeleteFollowerResponseDto>> PostTaskV1TasksByTaskIdBatchDeleteFollowerAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PostTaskV1TasksByTaskIdBatchDeleteFollowerBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】批量删除执行者</para>
@@ -12966,13 +13603,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v1/tasks/{task_id}/batch_delete_collaborator")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV1TasksByTaskIdBatchDeleteCollaboratorResponseDto>> PostTaskV1TasksByTaskIdBatchDeleteCollaboratorAsync(
         UserAccessToken access_token,
         [PathQuery] string task_id,
         [JsonContent] Task.PostTaskV1TasksByTaskIdBatchDeleteCollaboratorBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新表单元数据</para>
@@ -13014,6 +13653,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：vew6oMbAa4</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdAsync(
@@ -13021,7 +13661,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string form_id,
-        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】获取表单元数据</para>
@@ -13063,13 +13704,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
     /// <para>示例值：vew6oMbAa4</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string form_id);
+        [PathQuery] string form_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】修改电子表格属性</para>
@@ -13091,12 +13734,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchSheetsV3SpreadsheetsBySpreadsheetTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto);
+        [JsonContent] Ccm.PatchSheetsV3SpreadsheetsBySpreadsheetTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取电子表格信息</para>
@@ -13135,12 +13780,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询工作表</para>
@@ -13171,12 +13818,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// <para>示例值：giDk9k</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/{sheet_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheet_token,
-        [PathQuery] string sheet_id);
+        [PathQuery] string sheet_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取工作表</para>
@@ -13201,11 +13850,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取文件夹中的文件清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file/list)</para>
     /// <para>示例值：Iow7sNNEphp3WbtnbCscPqabcef</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/sheets/v3/spreadsheets/{spreadsheet_token}/sheets/query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryResponseDto>> GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQueryAsync(
         UserAccessToken access_token,
-        [PathQuery] string spreadsheet_token);
+        [PathQuery] string spreadsheet_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档协作者</para>
@@ -13279,6 +13930,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenMembersResponseDto>> GetDriveV1PermissionsByTokenMembersAsync(
@@ -13286,7 +13938,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string token,
         [PathQuery] string type,
         [PathQuery] string? fields = null,
-        [PathQuery] string? perm_type = null);
+        [PathQuery] string? perm_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量获取评论</para>
@@ -13333,6 +13986,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/comments/batch_query")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto>> PostDriveV1FilesByFileTokenCommentsBatchQueryAsync(
@@ -13340,7 +13994,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string file_type,
         [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取回复信息</para>
@@ -13404,6 +14059,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto>> GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesAsync(
@@ -13413,7 +14069,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_type,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】导出参会人明细</para>
@@ -13440,12 +14097,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/exports/participant_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsParticipantListResponseDto>> PostVcV1ExportsParticipantListAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1ExportsParticipantListBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】导出参会人会议质量数据</para>
@@ -13473,12 +14132,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/exports/participant_quality_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsParticipantQualityListResponseDto>> PostVcV1ExportsParticipantQualityListAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1ExportsParticipantQualityListBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】导出会议室预定数据</para>
@@ -13491,11 +14152,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/exports/resource_reservation_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsResourceReservationListResponseDto>> PostVcV1ExportsResourceReservationListAsync(
         UserAccessToken access_token,
-        [JsonContent] Vc.PostVcV1ExportsResourceReservationListBodyDto dto);
+        [JsonContent] Vc.PostVcV1ExportsResourceReservationListBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】查询导出任务结果</para>
@@ -13513,11 +14176,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>任务id</para>
     /// <para>示例值：7108646852144136212</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/exports/{task_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ExportsByTaskIdResponseDto>> GetVcV1ExportsByTaskIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_id);
+        [PathQuery] string task_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】导出会议明细</para>
@@ -13544,12 +14209,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/exports/meeting_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1ExportsMeetingListResponseDto>> PostVcV1ExportsMeetingListAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1ExportsMeetingListBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出仪表盘</para>
@@ -13587,13 +14254,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：blknkqrP3RqUkcAW</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/dashboards")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenDashboardsResponseDto>> GetBitableV1AppsByAppTokenDashboardsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】取消订阅日历变更事件</para>
@@ -13607,10 +14276,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>calendar:calendar:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/unsubscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsUnsubscriptionAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】取消订阅日历访问控制变更事件</para>
@@ -13634,11 +14305,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日历](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/search)</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/acls/unsubscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdAclsUnsubscriptionAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】取消订阅日程变更事件</para>
@@ -13658,11 +14331,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>日历 ID。关于日历 ID 可参见[日历 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/introduction)。</para>
     /// <para>示例值：feishu.cn_xxxxxxxxxx@group.calendar.feishu.cn</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/unsubscription")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsUnsubscriptionAsync(
         UserAccessToken access_token,
-        [PathQuery] string calendar_id);
+        [PathQuery] string calendar_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】上传图片</para>
@@ -13680,13 +14355,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/upload")]
     [HttpPost("/open-apis/baike/v1/files/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1FilesUploadResponseDto>> PostBaikeV1FilesUploadAsync(
         UserAccessToken access_token,
         [FormDataContent] Baike.PostBaikeV1FilesUploadBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】下载图片</para>
@@ -13707,12 +14384,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：boxbcEcmKiD3***vgqWTpvdc7jc</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/file/download")]
     [HttpGet("/open-apis/baike/v1/files/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetBaikeV1FilesByFileTokenDownloadAsync(
         UserAccessToken access_token,
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】Pin 消息</para>
@@ -13735,11 +14414,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/pins")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1PinsResponseDto>> PostImV1PinsAsync(
         UserAccessToken access_token,
-        [JsonContent] Im.PostImV1PinsBodyDto dto);
+        [JsonContent] Im.PostImV1PinsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】移除 Pin 消息</para>
@@ -13770,11 +14451,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
     /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/im/v1/pins/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteImV1PinsByMessageIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string message_id);
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群内 Pin 消息</para>
@@ -13829,6 +14512,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/im/v1/pins")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1PinsResponseDto>> GetImV1PinsAsync(
@@ -13837,7 +14521,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? start_time = null,
         [PathQuery] string? end_time = null,
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【消息与群组】获取群分享链接</para>
@@ -13870,12 +14555,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：oc_a0553eda9014c201e6969b478895c230</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/im/v1/chats/{chat_id}/link")]
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ChatsByChatIdLinkResponseDto>> PostImV1ChatsByChatIdLinkAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [JsonContent] Im.PostImV1ChatsByChatIdLinkBodyDto dto);
+        [JsonContent] Im.PostImV1ChatsByChatIdLinkBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】下载导出文件</para>
@@ -13893,11 +14580,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：6yHu7Igp7Igy62Ez6fLr6IJz7j9i5WMe6fHq5yZeY2Jz6yLqYAMAY46fZfEz64Lr5fYyYQ==</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/exports/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetVcV1ExportsDownloadAsync(
         UserAccessToken access_token,
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文档版本列表</para>
@@ -13951,6 +14640,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/versions")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenVersionsResponseDto>> GetDriveV1FilesByFileTokenVersionsAsync(
@@ -13959,7 +14649,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string obj_type,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文档版本信息</para>
@@ -14007,6 +14698,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/versions/{version_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenVersionsByVersionIdResponseDto>> GetDriveV1FilesByFileTokenVersionsByVersionIdAsync(
@@ -14014,7 +14706,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string version_id,
         [PathQuery] string obj_type,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除文档版本</para>
@@ -14061,6 +14754,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/versions/{version_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1FilesByFileTokenVersionsByVersionIdAsync(
@@ -14068,7 +14762,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_token,
         [PathQuery] string version_id,
         [PathQuery] string obj_type,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建文档版本</para>
@@ -14101,13 +14796,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/{file_token}/versions")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenVersionsResponseDto>> PostDriveV1FilesByFileTokenVersionsAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [JsonContent] Ccm.PostDriveV1FilesByFileTokenVersionsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】提取潜在的词条</para>
@@ -14122,12 +14819,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [Obsolete("迁移至新版本：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/lingo-v1/entity/extract")]
     [HttpPost("/open-apis/baike/v1/entities/extract")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostBaikeV1EntitiesExtractResponseDto>> PostBaikeV1EntitiesExtractAsync(
         UserAccessToken access_token,
-        [JsonContent] Baike.PostBaikeV1EntitiesExtractBodyDto dto);
+        [JsonContent] Baike.PostBaikeV1EntitiesExtractBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】搜索会议室</para>
@@ -14155,12 +14854,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/vc/v1/rooms/search")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1RoomsSearchResponseDto>> PostVcV1RoomsSearchAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1RoomsSearchBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】复制仪表盘</para>
@@ -14195,13 +14896,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：blkEsvEEaNllY2UV</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/dashboards/{block_id}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyResponseDto>> PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string block_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenDashboardsByBlockIdCopyBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新视图</para>
@@ -14243,6 +14946,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views/{view_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdAsync(
@@ -14250,7 +14954,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string view_id,
-        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】获取视图</para>
@@ -14294,13 +14999,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>当 `filter` 参数 或 `sort` 参数不为空时，请求视为对数据表中的全部数据做条件过滤，指定的 `view_id` 会被忽略。</para>
     /// <para>示例值：vewTpR1urY</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/views/{view_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto>> GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [PathQuery] string view_id);
+        [PathQuery] string view_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】获取用户信息</para>
@@ -14318,10 +15025,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>contact:user.phone:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/authen/v1/user_info")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.GetAuthenV1UserInfoResponseDto>> GetAuthenV1UserInfoAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【妙记】获取妙记统计数据</para>
@@ -14355,12 +15064,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/statistics")]
     System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenStatisticsResponseDto>> GetMinutesV1MinutesByMinuteTokenStatisticsAsync(
         UserAccessToken access_token,
         [PathQuery] string minute_token,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【妙记】获取妙记信息</para>
@@ -14394,12 +15105,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenResponseDto>> GetMinutesV1MinutesByMinuteTokenAsync(
         UserAccessToken access_token,
         [PathQuery] string minute_token,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新数据表</para>
@@ -14432,13 +15145,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：tbl1TkhyTWDkSoZ3</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PatchBitableV1AppsByAppTokenTablesByTableIdResponseDto>> PatchBitableV1AppsByAppTokenTablesByTableIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto dto);
+        [JsonContent] Base.PatchBitableV1AppsByAppTokenTablesByTableIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书人事】获取员工薪资标准</para>
@@ -14576,6 +15291,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1660924800000</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/corehr/v1/compensation_standards/match")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CompensationStandardsMatchResponseDto>> GetCorehrV1CompensationStandardsMatchAsync(
@@ -14596,7 +15312,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? cpst_change_reason_id = null,
         [PathQuery] string? cpst_plan_id = null,
         [PathQuery] string? cpst_salary_level_id = null,
-        [PathQuery] string? effective_time = null);
+        [PathQuery] string? effective_time = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】转移云文档所有者</para>
@@ -14673,6 +15390,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：full_access</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/members/transfer_owner")]
     System.Threading.Tasks.Task<FeishuResponse> PostDriveV1PermissionsByTokenMembersTransferOwnerAsync(
@@ -14683,7 +15401,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? need_notification = true,
         [PathQuery] bool? remove_old_owner = false,
         [PathQuery] bool? stay_put = false,
-        [PathQuery] string? old_owner_perm = "full_access");
+        [PathQuery] string? old_owner_perm = "full_access",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】判断用户云文档权限</para>
@@ -14738,13 +15457,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>manage_public：管理权限设置</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/permissions/{token}/members/auth")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1PermissionsByTokenMembersAuthResponseDto>> GetDriveV1PermissionsByTokenMembersAuthAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
         [PathQuery] string type,
-        [PathQuery] string action);
+        [PathQuery] string action,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】查询会议明细</para>
@@ -14832,6 +15553,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/meeting_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingListResponseDto>> GetVcV1MeetingListAsync(
@@ -14845,7 +15567,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? meeting_type = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】查询参会人会议质量数据</para>
@@ -14915,6 +15638,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/participant_quality_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ParticipantQualityListResponseDto>> GetVcV1ParticipantQualityListAsync(
@@ -14927,7 +15651,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】查询会议室预定数据</para>
@@ -14983,6 +15708,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：20</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/resource_reservation_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ResourceReservationListResponseDto>> GetVcV1ResourceReservationListAsync(
@@ -14994,7 +15720,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? need_topic = null,
         [PathQuery] bool? is_exclude = null,
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【视频会议】查询参会人明细</para>
@@ -15070,6 +15797,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/vc/v1/participant_list")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1ParticipantListResponseDto>> GetVcV1ParticipantListAsync(
@@ -15082,7 +15810,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】发送邮件</para>
@@ -15101,12 +15830,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/send")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesSendAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】复制多维表格</para>
@@ -15128,12 +15859,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：AW3Qbtr2cakCnesXzXVbbsrIcVT</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/copy")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenCopyResponseDto>> PostBitableV1AppsByAppTokenCopyAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenCopyBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenCopyBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【搜索】搜索消息</para>
@@ -15172,6 +15905,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/search/v2/message")]
     System.Threading.Tasks.Task<FeishuResponse<Search.PostSearchV2MessageResponseDto>> PostSearchV2MessageAsync(
@@ -15179,7 +15913,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Search.PostSearchV2MessageBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【搜索】搜索应用</para>
@@ -15218,6 +15953,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/search/v2/app")]
     System.Threading.Tasks.Task<FeishuResponse<Search.PostSearchV2AppResponseDto>> PostSearchV2AppAsync(
@@ -15225,7 +15961,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Search.PostSearchV2AppBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] int? page_size = 20,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建文件快捷方式</para>
@@ -15255,12 +15992,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/files/create_shortcut")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesCreateShortcutResponseDto>> PostDriveV1FilesCreateShortcutAsync(
         UserAccessToken access_token,
         [JsonContent] Ccm.PostDriveV1FilesCreateShortcutBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【应用信息】获取用户自定义常用的应用</para>
@@ -15298,13 +16037,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**默认值**：`10`</para>
     /// <para>默认值：10</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/application/v5/applications/favourite")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV5ApplicationsFavouriteResponseDto>> GetApplicationV5ApplicationsFavouriteAsync(
         UserAccessToken access_token,
         [PathQuery] string? language = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【应用信息】获取管理员推荐的应用</para>
@@ -15355,6 +16096,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>**默认值**：`10`</para>
     /// <para>默认值：10</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/application/v5/applications/recommend")]
     System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetApplicationV5ApplicationsRecommendResponseDto>> GetApplicationV5ApplicationsRecommendAsync(
@@ -15362,7 +16104,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? language = null,
         [PathQuery] string? recommend_type = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】启用云文档密码</para>
@@ -15403,12 +16146,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/public/password")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenPublicPasswordResponseDto>> PostDriveV1PermissionsByTokenPublicPasswordAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】刷新云文档密码</para>
@@ -15449,12 +16194,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/drive/v1/permissions/{token}/public/password")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PutDriveV1PermissionsByTokenPublicPasswordResponseDto>> PutDriveV1PermissionsByTokenPublicPasswordAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】停用云文档密码</para>
@@ -15493,12 +16240,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/permissions/{token}/public/password")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1PermissionsByTokenPublicPasswordAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档权限设置</para>
@@ -15540,12 +16289,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v2/permissions/{token}/public")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV2PermissionsByTokenPublicResponseDto>> GetDriveV2PermissionsByTokenPublicAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
-        [PathQuery] string type);
+        [PathQuery] string type,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】更新云文档权限设置</para>
@@ -15587,13 +16338,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/drive/v2/permissions/{token}/public")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDriveV2PermissionsByTokenPublicResponseDto>> PatchDriveV2PermissionsByTokenPublicAsync(
         UserAccessToken access_token,
         [PathQuery] string token,
         [PathQuery] string type,
-        [JsonContent] Ccm.PatchDriveV2PermissionsByTokenPublicBodyDto dto);
+        [JsonContent] Ccm.PatchDriveV2PermissionsByTokenPublicBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取文件访问记录</para>
@@ -15651,6 +16404,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/view_records")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenViewRecordsResponseDto>> GetDriveV1FilesByFileTokenViewRecordsAsync(
@@ -15659,7 +16413,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_type,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? viewer_id_type = "open_id");
+        [PathQuery] string? viewer_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】批量获取用户信息</para>
@@ -15723,13 +16478,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/users/batch")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3UsersBatchResponseDto>> GetContactV3UsersBatchAsync(
         UserAccessToken access_token,
         [PathQuery] string[] user_ids,
         [PathQuery] string? user_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】批量获取部门信息</para>
@@ -15787,13 +16544,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/departments/batch")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3DepartmentsBatchResponseDto>> GetContactV3DepartmentsBatchAsync(
         UserAccessToken access_token,
         [PathQuery] string[] department_ids,
         [PathQuery] string? department_id_type = "open_department_id",
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词条详情</para>
@@ -15839,6 +16598,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/lingo/v1/entities/{entity_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1EntitiesByEntityIdResponseDto>> GetLingoV1EntitiesByEntityIdAsync(
@@ -15846,7 +16606,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string entity_id,
         [PathQuery] string? provider = null,
         [PathQuery] string? outer_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词条列表</para>
@@ -15899,6 +16660,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/lingo/v1/entities")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1EntitiesResponseDto>> GetLingoV1EntitiesAsync(
@@ -15907,7 +16669,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? provider = null,
         [PathQuery] string? repo_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】上传图片</para>
@@ -15925,12 +16688,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>二进制文件内容，高宽像素在 320-4096 像素之间，大小在 3KB-10MB 的图片</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/lingo/v1/files/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1FilesUploadResponseDto>> PostLingoV1FilesUploadAsync(
         UserAccessToken access_token,
         [FormDataContent] Baike.PostLingoV1FilesUploadBodyDto dto,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】下载图片</para>
@@ -15951,11 +16716,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：boxbcEcmKiD3***vgqWTpvdc7jc</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/lingo/v1/files/{file_token}/download")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetLingoV1FilesByFileTokenDownloadAsync(
         UserAccessToken access_token,
-        [PathQuery] string file_token);
+        [PathQuery] string file_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】创建草稿</para>
@@ -15991,13 +16758,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/lingo/v1/drafts")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1DraftsResponseDto>> PostLingoV1DraftsAsync(
         UserAccessToken access_token,
         [JsonContent] Baike.PostLingoV1DraftsBodyDto dto,
         [PathQuery] string? repo_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】更新草稿</para>
@@ -16031,13 +16800,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/lingo/v1/drafts/{draft_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PutLingoV1DraftsByDraftIdResponseDto>> PutLingoV1DraftsByDraftIdAsync(
         UserAccessToken access_token,
         [PathQuery] string draft_id,
         [JsonContent] Baike.PutLingoV1DraftsByDraftIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】精准搜索词条</para>
@@ -16059,12 +16830,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/lingo/v1/entities/match")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesMatchResponseDto>> PostLingoV1EntitiesMatchAsync(
         UserAccessToken access_token,
         [JsonContent] Baike.PostLingoV1EntitiesMatchBodyDto dto,
-        [PathQuery] string? repo_id = null);
+        [PathQuery] string? repo_id = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】模糊搜索词条</para>
@@ -16112,6 +16885,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/lingo/v1/entities/search")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesSearchResponseDto>> PostLingoV1EntitiesSearchAsync(
@@ -16120,7 +16894,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? repo_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词典分类</para>
@@ -16154,13 +16929,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：7202510112396640276</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/lingo/v1/classifications")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1ClassificationsResponseDto>> GetLingoV1ClassificationsAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? repo_id = null);
+        [PathQuery] string? repo_id = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】获取词库列表</para>
@@ -16175,10 +16952,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>baike:entity:readonly</item>
     /// </list></para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/lingo/v1/repos")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.GetLingoV1ReposResponseDto>> GetLingoV1ReposAsync(
-        UserAccessToken access_token);
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【词典】词条高亮</para>
@@ -16193,11 +16972,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/lingo/v1/entities/highlight")]
     System.Threading.Tasks.Task<FeishuResponse<Baike.PostLingoV1EntitiesHighlightResponseDto>> PostLingoV1EntitiesHighlightAsync(
         UserAccessToken access_token,
-        [JsonContent] Baike.PostLingoV1EntitiesHighlightBodyDto dto);
+        [JsonContent] Baike.PostLingoV1EntitiesHighlightBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建任务</para>
@@ -16223,12 +17004,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksResponseDto>> PostTaskV2TasksAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV2TasksBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取评论详情</para>
@@ -16253,12 +17036,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2CommentsByCommentIdResponseDto>> GetTaskV2CommentsByCommentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string comment_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】列取任务列表</para>
@@ -16302,6 +17087,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasksResponseDto>> GetTaskV2TasksAsync(
@@ -16310,7 +17096,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] bool? completed = null,
         [PathQuery] string? type = "my_tasks",
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新评论</para>
@@ -16337,13 +17124,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CommentsByCommentIdResponseDto>> PatchTaskV2CommentsByCommentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string comment_id,
         [JsonContent] Task.PatchTaskV2CommentsByCommentIdBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】列取任务所在清单</para>
@@ -16363,11 +17152,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要获取清单列表的任务的全局唯一ID</para>
     /// <para>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasks/{task_guid}/tasklists")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasksByTaskGuidTasklistsResponseDto>> GetTaskV2TasksByTaskGuidTasklistsAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_guid);
+        [PathQuery] string task_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建清单</para>
@@ -16388,12 +17179,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasklists")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsResponseDto>> PostTaskV2TasklistsAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV2TasklistsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】添加清单成员</para>
@@ -16423,13 +17216,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/add_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidAddMembersResponseDto>> PostTaskV2TasklistsByTasklistGuidAddMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidAddMembersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】任务加入清单</para>
@@ -16455,13 +17250,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_tasklist")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddTasklistResponseDto>> PostTaskV2TasksByTaskGuidAddTasklistAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidAddTasklistBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取任务的子任务列表</para>
@@ -16499,6 +17296,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasks/{task_guid}/subtasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasksByTaskGuidSubtasksResponseDto>> GetTaskV2TasksByTaskGuidSubtasksAsync(
@@ -16506,7 +17304,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string task_guid,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建子任务</para>
@@ -16532,13 +17331,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/subtasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidSubtasksResponseDto>> PostTaskV2TasksByTaskGuidSubtasksAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidSubtasksBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除清单</para>
@@ -16557,11 +17358,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除的清单GUID</para>
     /// <para>示例值：d300a75f-c56a-4be9-80d1-e47653028ceb</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/tasklists/{tasklist_guid}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2TasklistsByTasklistGuidAsync(
         UserAccessToken access_token,
-        [PathQuery] string tasklist_guid);
+        [PathQuery] string tasklist_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】添加任务成员</para>
@@ -16591,13 +17394,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddMembersResponseDto>> PostTaskV2TasksByTaskGuidAddMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidAddMembersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建评论</para>
@@ -16617,12 +17422,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CommentsResponseDto>> PostTaskV2CommentsAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV2CommentsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取任务详情</para>
@@ -16647,12 +17454,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasks/{task_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasksByTaskGuidResponseDto>> GetTaskV2TasksByTaskGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除任务</para>
@@ -16671,11 +17480,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除的任务guid</para>
     /// <para>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/tasks/{task_guid}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2TasksByTaskGuidAsync(
         UserAccessToken access_token,
-        [PathQuery] string task_guid);
+        [PathQuery] string task_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取清单详情</para>
@@ -16700,12 +17511,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasklists/{tasklist_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsByTasklistGuidResponseDto>> GetTaskV2TasklistsByTasklistGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新清单</para>
@@ -16738,13 +17551,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/tasklists/{tasklist_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasklistsByTasklistGuidResponseDto>> PatchTaskV2TasklistsByTasklistGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [JsonContent] Task.PatchTaskV2TasklistsByTasklistGuidBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取清单任务列表</para>
@@ -16801,6 +17616,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasklists/{tasklist_guid}/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsByTasklistGuidTasksResponseDto>> GetTaskV2TasklistsByTasklistGuidTasksAsync(
@@ -16811,7 +17627,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] bool? completed = null,
         [PathQuery] string? created_from = null,
         [PathQuery] string? created_to = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取清单列表</para>
@@ -16842,13 +17659,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasklists")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsResponseDto>> GetTaskV2TasklistsAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除评论</para>
@@ -16867,11 +17686,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除的评论id</para>
     /// <para>示例值：7198104824246747156</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2CommentsByCommentIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string comment_id);
+        [PathQuery] string comment_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取评论列表</para>
@@ -16924,6 +17745,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2CommentsResponseDto>> GetTaskV2CommentsAsync(
@@ -16933,7 +17755,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? resource_type = "task",
         [PathQuery] string? direction = "asc",
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】任务移出清单</para>
@@ -16959,13 +17782,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_tasklist")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveTasklistResponseDto>> PostTaskV2TasksByTaskGuidRemoveTasklistAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveTasklistBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】移除任务成员</para>
@@ -16990,13 +17815,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveMembersResponseDto>> PostTaskV2TasksByTaskGuidRemoveMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveMembersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】添加任务提醒</para>
@@ -17023,13 +17850,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddRemindersResponseDto>> PostTaskV2TasksByTaskGuidAddRemindersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidAddRemindersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】移除任务提醒</para>
@@ -17055,13 +17884,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_reminders")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveRemindersResponseDto>> PostTaskV2TasksByTaskGuidRemoveRemindersAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveRemindersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】移除清单成员</para>
@@ -17089,13 +17920,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/remove_members")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidRemoveMembersResponseDto>> PostTaskV2TasklistsByTasklistGuidRemoveMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新任务</para>
@@ -17129,13 +17962,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/tasks/{task_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasksByTaskGuidResponseDto>> PatchTaskV2TasksByTaskGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
         [JsonContent] Task.PatchTaskV2TasksByTaskGuidBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取单个职务信息</para>
@@ -17155,11 +17990,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>职务 ID。你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取职务 ID。</para>
     /// <para>示例值：dd39369b19b9</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/job_titles/{job_title_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3JobTitlesByJobTitleIdResponseDto>> GetContactV3JobTitlesByJobTitleIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string job_title_id);
+        [PathQuery] string job_title_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取租户职务列表</para>
@@ -17185,12 +18022,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值："xxx"</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/job_titles")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3JobTitlesResponseDto>> GetContactV3JobTitlesAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取单个工作城市信息</para>
@@ -17210,11 +18049,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>工作城市 ID。你可以调用[获取租户工作城市列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/work_city/list)接口，获取工作城市 ID。</para>
     /// <para>示例值：dd39369b19b9</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/work_cities/{work_city_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3WorkCitiesByWorkCityIdResponseDto>> GetContactV3WorkCitiesByWorkCityIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string work_city_id);
+        [PathQuery] string work_city_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【通讯录】获取租户工作城市列表</para>
@@ -17240,12 +18081,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值："xxx"</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/contact/v3/work_cities")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.GetContactV3WorkCitiesResponseDto>> GetContactV3WorkCitiesAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建自定义分组</para>
@@ -17266,12 +18109,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/sections")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2SectionsResponseDto>> PostTaskV2SectionsAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV2SectionsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取自定义分组详情</para>
@@ -17296,12 +18141,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/sections/{section_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsBySectionGuidResponseDto>> GetTaskV2SectionsBySectionGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string section_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新自定义分组</para>
@@ -17333,13 +18180,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/sections/{section_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2SectionsBySectionGuidResponseDto>> PatchTaskV2SectionsBySectionGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string section_guid,
         [JsonContent] Task.PatchTaskV2SectionsBySectionGuidBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除自定义分组</para>
@@ -17358,11 +18207,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除的自定义分组全局唯一ID</para>
     /// <para>示例值：9842501a-9f47-4ff5-a622-d319eeecb97f</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/sections/{section_guid}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2SectionsBySectionGuidAsync(
         UserAccessToken access_token,
-        [PathQuery] string section_guid);
+        [PathQuery] string section_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取自定义分组列表</para>
@@ -17404,6 +18255,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/sections")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsResponseDto>> GetTaskV2SectionsAsync(
@@ -17412,7 +18264,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
         [PathQuery] string? resource_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取自定义分组任务列表</para>
@@ -17461,6 +18314,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1675742789470</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/sections/{section_guid}/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsBySectionGuidTasksResponseDto>> GetTaskV2SectionsBySectionGuidTasksAsync(
@@ -17470,7 +18324,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] bool? completed = null,
         [PathQuery] string? created_from = null,
-        [PathQuery] string? created_to = null);
+        [PathQuery] string? created_to = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】取消云文档事件订阅</para>
@@ -17516,13 +18371,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}/delete_subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1FilesByFileTokenDeleteSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [PathQuery] string? event_type = null);
+        [PathQuery] string? event_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】查询云文档事件订阅状态</para>
@@ -17566,13 +18423,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：file.created_in_folder_v1</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/get_subscribe")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenGetSubscribeResponseDto>> GetDriveV1FilesByFileTokenGetSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string file_type,
-        [PathQuery] string? event_type = null);
+        [PathQuery] string? event_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】解绑会议群</para>
@@ -17602,13 +18461,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会议群 ID。在创建会议群时会返回会议群 ID。</para>
     /// <para>示例值：oc_xxx</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/meeting_chat")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [PathQuery] string meeting_chat_id);
+        [PathQuery] string meeting_chat_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】创建会议群</para>
@@ -17636,12 +18497,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- [搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-123_0</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/meeting_chat")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingChatAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [PathQuery] string event_id);
+        [PathQuery] string event_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】创建会议纪要</para>
@@ -17669,12 +18532,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>日程 ID。调用[搜索日程](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar-event/search)接口，在指定日历内搜索日程并获取日程 ID。</para>
     /// <para>示例值：75d28f9b-e35c-4230-8a83-123_0</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/meeting_minute")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinuteResponseDto>> PostCalendarV4CalendarsByCalendarIdEventsByEventIdMeetingMinuteAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
-        [PathQuery] string event_id);
+        [PathQuery] string event_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】创建邮箱联系人</para>
@@ -17697,12 +18562,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto>> PostMailV1UserMailboxesByUserMailboxIdMailContactsAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMailContactsBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMailContactsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】删除邮箱联系人</para>
@@ -17726,12 +18593,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>邮箱联系人 id，获取方式见 [列出邮箱联系人](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-mail_contact/list)</para>
     /// <para>示例值：123</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts/{mail_contact_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string mail_contact_id);
+        [PathQuery] string mail_contact_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】修改邮箱联系人信息</para>
@@ -17756,13 +18625,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：123</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts/{mail_contact_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [PathQuery] string mail_contact_id,
-        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdBodyDto dto);
+        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】列出邮箱联系人</para>
@@ -17797,13 +18668,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：xxx</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/mail_contacts")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMailContactsAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】将自定义字段加入资源</para>
@@ -17824,12 +18697,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/add")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV2CustomFieldsByCustomFieldGuidAddAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
-        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidAddBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】将自定义字段移出资源</para>
@@ -17850,12 +18725,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：0110a4bd-f24b-4a93-8c1a-1732b94f9593</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/remove")]
     System.Threading.Tasks.Task<FeishuResponse> PostTaskV2CustomFieldsByCustomFieldGuidRemoveAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
-        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidRemoveBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidRemoveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新自定义字段选项</para>
@@ -17886,13 +18763,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：b13adf3c-cad6-4e02-8929-550c112b5633</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/custom_fields/{custom_field_guid}/options/{option_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidResponseDto>> PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
         [PathQuery] string option_guid,
-        [JsonContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto dto);
+        [JsonContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuidBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取自定义字段</para>
@@ -17925,12 +18804,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/custom_fields/{custom_field_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2CustomFieldsByCustomFieldGuidResponseDto>> GetTaskV2CustomFieldsByCustomFieldGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新自定义字段</para>
@@ -18061,13 +18942,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/custom_fields/{custom_field_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto>> PatchTaskV2CustomFieldsByCustomFieldGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
         [JsonContent] Task.PatchTaskV2CustomFieldsByCustomFieldGuidBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】列取自定义字段</para>
@@ -18120,6 +19003,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：5ffbe0ca-6600-41e0-a634-2b38cbcf13b8</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2CustomFieldsResponseDto>> GetTaskV2CustomFieldsAsync(
@@ -18128,7 +19012,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? resource_type = null,
-        [PathQuery] string? resource_id = null);
+        [PathQuery] string? resource_id = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建自定义任务选项</para>
@@ -18149,12 +19034,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：b13adf3c-cad6-4e02-8929-550c112b5633</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/custom_fields/{custom_field_guid}/options")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto>> PostTaskV2CustomFieldsByCustomFieldGuidOptionsAsync(
         UserAccessToken access_token,
         [PathQuery] string custom_field_guid,
-        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto dto);
+        [JsonContent] Task.PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建自定义字段</para>
@@ -18225,12 +19112,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/custom_fields")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2CustomFieldsResponseDto>> PostTaskV2CustomFieldsAsync(
         UserAccessToken access_token,
         [JsonContent] Task.PostTaskV2CustomFieldsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档的点赞者列表</para>
@@ -18288,6 +19177,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/drive/v2/files/{file_token}/likes")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV2FilesByFileTokenLikesResponseDto>> GetDriveV2FilesByFileTokenLikesAsync(
@@ -18296,7 +19186,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string file_type,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【绩效】获取周期任务（指定用户）</para>
@@ -18325,12 +19216,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/performance/v1/stage_tasks/find_by_user_list")]
     System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV1StageTasksFindByUserListResponseDto>> PostPerformanceV1StageTasksFindByUserListAsync(
         UserAccessToken access_token,
         [JsonContent] Performance.PostPerformanceV1StageTasksFindByUserListBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】删除收信规则</para>
@@ -18354,12 +19247,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>规则 id，获取方式见 [列出收信规则](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-rule/list)</para>
     /// <para>示例值：123123123</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/{rule_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string rule_id);
+        [PathQuery] string rule_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】列出收信规则</para>
@@ -18378,11 +19273,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdRulesAsync(
         UserAccessToken access_token,
-        [PathQuery] string user_mailbox_id);
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】创建邮箱文件夹</para>
@@ -18401,12 +19298,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto>> PostMailV1UserMailboxesByUserMailboxIdFoldersAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdFoldersBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdFoldersBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】删除邮箱文件夹</para>
@@ -18430,12 +19329,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string folder_id);
+        [PathQuery] string folder_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】列出邮箱文件夹</para>
@@ -18464,12 +19365,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdFoldersResponseDto>> GetMailV1UserMailboxesByUserMailboxIdFoldersAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [PathQuery] int? folder_type = null);
+        [PathQuery] int? folder_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】获取邮件详情</para>
@@ -18498,12 +19401,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string message_id);
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】订阅事件</para>
@@ -18522,12 +19427,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/event/subscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdEventSubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdEventSubscribeBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdEventSubscribeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】创建收信规则</para>
@@ -18546,12 +19453,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdRulesResponseDto>> PostMailV1UserMailboxesByUserMailboxIdRulesAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】对收信规则进行排序</para>
@@ -18570,12 +19479,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/reorder")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdRulesReorderAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesReorderBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdRulesReorderBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】修改邮箱文件夹</para>
@@ -18600,13 +19511,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [PathQuery] string folder_id,
-        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto dto);
+        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】列出邮件</para>
@@ -18647,6 +19560,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：true</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesAsync(
@@ -18655,7 +19569,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string folder_id,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] bool? only_unread = null);
+        [PathQuery] bool? only_unread = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】获取订阅状态</para>
@@ -18673,11 +19588,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/event/subscription")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdEventSubscriptionResponseDto>> GetMailV1UserMailboxesByUserMailboxIdEventSubscriptionAsync(
         UserAccessToken access_token,
-        [PathQuery] string user_mailbox_id);
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】取消订阅</para>
@@ -18696,12 +19613,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/event/unsubscribe")]
     System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribeAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
-        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribeBodyDto dto);
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribeBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】更新收信规则</para>
@@ -18726,13 +19645,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：123123123</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/rules/{rule_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [PathQuery] string rule_id,
-        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto dto);
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】移除依赖</para>
@@ -18752,12 +19673,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/remove_dependencies")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidRemoveDependenciesResponseDto>> PostTaskV2TasksByTaskGuidRemoveDependenciesAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
-        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveDependenciesBodyDto dto);
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidRemoveDependenciesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】添加依赖</para>
@@ -18778,12 +19701,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：93b7bd05-35e6-4371-b3c9-6b7cbd7100c0</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasks/{task_guid}/add_dependencies")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksByTaskGuidAddDependenciesResponseDto>> PostTaskV2TasksByTaskGuidAddDependenciesAsync(
         UserAccessToken access_token,
         [PathQuery] string task_guid,
-        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddDependenciesBodyDto dto);
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidAddDependenciesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量增加协作者权限</para>
@@ -18836,6 +19761,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：false</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/drive/v1/permissions/{token}/members/batch_create")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateResponseDto>> PostDriveV1PermissionsByTokenMembersBatchCreateAsync(
@@ -18843,7 +19769,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string token,
         [PathQuery] string type,
         [JsonContent] Ccm.PostDriveV1PermissionsByTokenMembersBatchCreateBodyDto dto,
-        [PathQuery] bool? need_notification = false);
+        [PathQuery] bool? need_notification = false,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】列取动态订阅</para>
@@ -18882,13 +19809,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto>> GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [PathQuery] int? limit = 50,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】更新动态订阅</para>
@@ -18932,6 +19861,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions/{activity_subscription_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto>> PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidAsync(
@@ -18939,7 +19869,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string tasklist_guid,
         [PathQuery] string activity_subscription_guid,
         [JsonContent] Task.PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除动态订阅</para>
@@ -18963,12 +19894,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除的订阅GUID。可以通过[创建动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/create)接口创建，或者通过[列取动态订阅](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist-activity_subscription/list)查询得到。</para>
     /// <para>示例值：d19e3a2a-edc0-4e4e-b7cc-950e162b53ae</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions/{activity_subscription_guid}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
-        [PathQuery] string activity_subscription_guid);
+        [PathQuery] string activity_subscription_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】创建动态订阅</para>
@@ -19003,13 +19936,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto>> PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [JsonContent] Task.PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取动态订阅</para>
@@ -19048,13 +19983,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/tasklists/{tasklist_guid}/activity_subscriptions/{activity_subscription_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto>> GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string tasklist_guid,
         [PathQuery] string activity_subscription_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【妙记】导出妙记文字记录</para>
@@ -19092,6 +20029,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/transcript")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetMinutesV1MinutesByMinuteTokenTranscriptAsync(
@@ -19099,7 +20037,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string minute_token,
         [PathQuery] bool? need_speaker = null,
         [PathQuery] bool? need_timestamp = null,
-        [PathQuery] string? file_format = null);
+        [PathQuery] string? file_format = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【妙记】下载妙记音视频文件</para>
@@ -19118,11 +20057,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/==obcnq3b9jl72l83w4f14xxxx==</para>
     /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/media")]
     System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenMediaResponseDto>> GetMinutesV1MinutesByMinuteTokenMediaAsync(
         UserAccessToken access_token,
-        [PathQuery] string minute_token);
+        [PathQuery] string minute_token,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】获取附件下载链接</para>
@@ -19150,13 +20091,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>附件 id 列表</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/attachments/download_url")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrlResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrlAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [PathQuery] string message_id,
-        [PathQuery] string[] attachment_ids);
+        [PathQuery] string[] attachment_ids,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】上传附件</para>
@@ -19189,13 +20132,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>要上传的文件，单请求支持最多5个文件。上传结果的顺序将和请求中文件的顺序保持一致。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/task/v2/attachments/upload")]
     System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2AttachmentsUploadResponseDto>> PostTaskV2AttachmentsUploadAsync(
         UserAccessToken access_token,
         [FormDataContent] Task.PostTaskV2AttachmentsUploadBodyDto dto,
         [FormDataContent] FormDataFile file,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】列取附件</para>
@@ -19238,6 +20183,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/attachments")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2AttachmentsResponseDto>> GetTaskV2AttachmentsAsync(
@@ -19246,7 +20192,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 50,
         [PathQuery] string? page_token = null,
         [PathQuery] string? resource_type = "task",
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】获取附件</para>
@@ -19271,12 +20218,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：open_id</para>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/task/v2/attachments/{attachment_guid}")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2AttachmentsByAttachmentGuidResponseDto>> GetTaskV2AttachmentsByAttachmentGuidAsync(
         UserAccessToken access_token,
         [PathQuery] string attachment_guid,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【任务】删除附件</para>
@@ -19294,11 +20243,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>要删除附件的GUID。可以通过创建[上传附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/upload)接口创建, 或者通过[列取附件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/attachment/list)接口查询得到。</para>
     /// <para>示例值：b59aa7a3-e98c-4830-8273-cbb29f89b837</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/task/v2/attachments/{attachment_guid}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteTaskV2AttachmentsByAttachmentGuidAsync(
         UserAccessToken access_token,
-        [PathQuery] string attachment_guid);
+        [PathQuery] string attachment_guid,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书人事】更新公司</para>
@@ -19324,13 +20275,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/corehr/v1/companies/{company_id}")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PatchCorehrV1CompaniesByCompanyIdResponseDto>> PatchCorehrV1CompaniesByCompanyIdAsync(
         UserAccessToken access_token,
         [PathQuery] string company_id,
         [JsonContent] FeishuPeople.PatchCorehrV1CompaniesByCompanyIdBodyDto dto,
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】查询记录</para>
@@ -19396,6 +20349,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：20</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/search")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchAsync(
@@ -19405,7 +20359,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【薪酬管理】批量查询员工薪资档案</para>
@@ -19450,6 +20405,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/compensation/v1/archives/query")]
     System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1ArchivesQueryResponseDto>> PostCompensationV1ArchivesQueryAsync(
@@ -19457,7 +20413,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] CompensationManagement.PostCompensationV1ArchivesQueryBodyDto dto,
         [PathQuery] int page_size = 100,
         [PathQuery] string? page_token = null,
-        [PathQuery] string user_id_type = "open_id");
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】回复日程</para>
@@ -19487,13 +20444,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：75d28f9b-e35c-4230-8a83-4a661497db54_0</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/reply")]
     System.Threading.Tasks.Task<FeishuResponse> PostCalendarV4CalendarsByCalendarIdEventsByEventIdReplyAsync(
         UserAccessToken access_token,
         [PathQuery] string calendar_id,
         [PathQuery] string event_id,
-        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdReplyBodyDto dto);
+        [JsonContent] Calendar.PostCalendarV4CalendarsByCalendarIdEventsByEventIdReplyBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】获取重复日程实例</para>
@@ -19546,6 +20505,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/{event_id}/instances")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsByEventIdInstancesAsync(
@@ -19555,7 +20515,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string start_time,
         [PathQuery] string end_time,
         [PathQuery] int? page_size = 50,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的机动车发票</para>
@@ -19571,11 +20532,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>识别的机动车发票源文件</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/document_ai/v1/vehicle_invoice/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1VehicleInvoiceRecognizeResponseDto>> PostDocumentAiV1VehicleInvoiceRecognizeAsync(
         UserAccessToken access_token,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【AI 能力】识别文件中的健康证</para>
@@ -19591,11 +20554,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>识别的健康证源文件</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/document_ai/v1/health_certificate/recognize")]
     System.Threading.Tasks.Task<FeishuResponse<Ai.PostDocumentAiV1HealthCertificateRecognizeResponseDto>> PostDocumentAiV1HealthCertificateRecognizeAsync(
         UserAccessToken access_token,
-        [FormDataContent] FormDataFile file);
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【应用信息】更新应用协作者</para>
@@ -19628,13 +20593,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/application/v6/applications/{app_id}/collaborators")]
     System.Threading.Tasks.Task<FeishuResponse> PutApplicationV6ApplicationsByAppIdCollaboratorsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [JsonContent] Application.PutApplicationV6ApplicationsByAppIdCollaboratorsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【应用信息】获取应用协作者列表</para>
@@ -19667,12 +20634,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/application/v6/applications/{app_id}/collaborators")]
     System.Threading.Tasks.Task<FeishuResponse<Application.GetApplicationV6ApplicationsByAppIdCollaboratorsResponseDto>> GetApplicationV6ApplicationsByAppIdCollaboratorsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【应用信息】转移应用所有者</para>
@@ -19705,13 +20674,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/application/v6/applications/{app_id}/owner")]
     System.Threading.Tasks.Task<FeishuResponse> PutApplicationV6ApplicationsByAppIdOwnerAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [JsonContent] Application.PutApplicationV6ApplicationsByAppIdOwnerBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】添加访客</para>
@@ -19738,12 +20709,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/acs/v1/visitors")]
     System.Threading.Tasks.Task<FeishuResponse<Acs.PostAcsV1VisitorsResponseDto>> PostAcsV1VisitorsAsync(
         UserAccessToken access_token,
         [JsonContent] Acs.PostAcsV1VisitorsBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】设备绑定权限组</para>
@@ -19757,11 +20730,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/acs/v1/rule_external/device_bind")]
     System.Threading.Tasks.Task<FeishuResponse> PostAcsV1RuleExternalDeviceBindAsync(
         UserAccessToken access_token,
-        [JsonContent] Acs.PostAcsV1RuleExternalDeviceBindBodyDto dto);
+        [JsonContent] Acs.PostAcsV1RuleExternalDeviceBindBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】获取权限组信息</para>
@@ -19794,12 +20769,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/acs/v1/rule_external")]
     System.Threading.Tasks.Task<FeishuResponse<Acs.GetAcsV1RuleExternalResponseDto>> GetAcsV1RuleExternalAsync(
         UserAccessToken access_token,
         [PathQuery] string? device_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】删除权限组</para>
@@ -19817,11 +20794,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限组id</para>
     /// <para>示例值：7298933941867135276</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/acs/v1/rule_external")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteAcsV1RuleExternalAsync(
         UserAccessToken access_token,
-        [PathQuery] string rule_id);
+        [PathQuery] string rule_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】创建或更新权限组</para>
@@ -19855,13 +20834,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/acs/v1/rule_external")]
     System.Threading.Tasks.Task<FeishuResponse<Acs.PostAcsV1RuleExternalResponseDto>> PostAcsV1RuleExternalAsync(
         UserAccessToken access_token,
         [JsonContent] Acs.PostAcsV1RuleExternalBodyDto dto,
         [PathQuery] string? rule_id = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【智能门禁】删除访客</para>
@@ -19893,12 +20874,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/acs/v1/visitors/{visitor_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteAcsV1VisitorsByVisitorIdAsync(
         UserAccessToken access_token,
         [PathQuery] string visitor_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【日历】查询日程视图</para>
@@ -19944,6 +20927,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/calendar/v4/calendars/{calendar_id}/events/instance_view")]
     System.Threading.Tasks.Task<FeishuResponse<Calendar.GetCalendarV4CalendarsByCalendarIdEventsInstanceViewResponseDto>> GetCalendarV4CalendarsByCalendarIdEventsInstanceViewAsync(
@@ -19951,7 +20935,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string calendar_id,
         [PathQuery] string start_time,
         [PathQuery] string end_time,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】创建嵌套块</para>
@@ -20001,6 +20986,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/docx/v1/documents/{document_id}/blocks/{block_id}/descendant")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantResponseDto>> PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantAsync(
@@ -20010,7 +20996,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantBodyDto dto,
         [PathQuery] int? document_revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【画板】获取所有节点</para>
@@ -20028,11 +21015,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>画板唯一标识</para>
     /// <para>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Board.GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto>> GetBoardV1WhiteboardsByWhiteboardIdNodesAsync(
         UserAccessToken access_token,
-        [PathQuery] string whiteboard_id);
+        [PathQuery] string whiteboard_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【招聘】获取面试评价详细信息（新版）</para>
@@ -20065,12 +21054,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/hire/v2/interview_records/{interview_record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV2InterviewRecordsByInterviewRecordIdResponseDto>> GetHireV2InterviewRecordsByInterviewRecordIdAsync(
         UserAccessToken access_token,
         [PathQuery] string interview_record_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【招聘】批量获取面试评价详细信息（新版）</para>
@@ -20115,6 +21106,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/hire/v2/interview_records")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV2InterviewRecordsResponseDto>> GetHireV2InterviewRecordsAsync(
@@ -20122,7 +21114,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string[]? ids = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取 Aily 消息</para>
@@ -20150,12 +21143,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>消息 ID</para>
     /// <para>示例值：message_4df45f2xknvcc</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/sessions/{aily_session_id}/messages/{aily_message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageIdResponseDto>> GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageIdAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [PathQuery] string aily_message_id);
+        [PathQuery] string aily_message_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】列出 Aily 消息</para>
@@ -20203,6 +21198,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/sessions/{aily_session_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1SessionsByAilySessionIdMessagesResponseDto>> GetAilyV1SessionsByAilySessionIdMessagesAsync(
@@ -20211,7 +21207,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? run_id = null,
-        [PathQuery] bool? with_partial_message = null);
+        [PathQuery] bool? with_partial_message = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】创建运行</para>
@@ -20234,12 +21231,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/sessions/{aily_session_id}/runs")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1SessionsByAilySessionIdRunsResponseDto>> PostAilyV1SessionsByAilySessionIdRunsAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdRunsBodyDto dto);
+        [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdRunsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】列出运行</para>
@@ -20273,13 +21272,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/sessions/{aily_session_id}/runs")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1SessionsByAilySessionIdRunsResponseDto>> GetAilyV1SessionsByAilySessionIdRunsAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】取消运行</para>
@@ -20307,12 +21308,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>运行的唯一 ID</para>
     /// <para>示例值：run_4dfrxvctjqzzj</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/sessions/{aily_session_id}/runs/{run_id}/cancel")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1SessionsByAilySessionIdRunsByRunIdCancelResponseDto>> PostAilyV1SessionsByAilySessionIdRunsByRunIdCancelAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [PathQuery] string run_id);
+        [PathQuery] string run_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】更新会话</para>
@@ -20331,12 +21334,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/aily/v1/sessions/{aily_session_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PutAilyV1SessionsByAilySessionIdResponseDto>> PutAilyV1SessionsByAilySessionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [JsonContent] Aily.PutAilyV1SessionsByAilySessionIdBodyDto dto);
+        [JsonContent] Aily.PutAilyV1SessionsByAilySessionIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取会话</para>
@@ -20354,11 +21359,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会话 ID</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/sessions/{aily_session_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1SessionsByAilySessionIdResponseDto>> GetAilyV1SessionsByAilySessionIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string aily_session_id);
+        [PathQuery] string aily_session_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】删除会话</para>
@@ -20376,11 +21383,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>会话 ID</para>
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/aily/v1/sessions/{aily_session_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteAilyV1SessionsByAilySessionIdAsync(
         UserAccessToken access_token,
-        [PathQuery] string aily_session_id);
+        [PathQuery] string aily_session_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】发送 Aily 消息</para>
@@ -20403,12 +21412,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：session_4dfunz7sp1g8m</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/sessions/{aily_session_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1SessionsByAilySessionIdMessagesResponseDto>> PostAilyV1SessionsByAilySessionIdMessagesAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdMessagesBodyDto dto);
+        [JsonContent] Aily.PostAilyV1SessionsByAilySessionIdMessagesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取运行</para>
@@ -20436,12 +21447,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>运行的唯一 ID</para>
     /// <para>示例值：run_4dfrxvctjqzzj</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/sessions/{aily_session_id}/runs/{run_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1SessionsByAilySessionIdRunsByRunIdResponseDto>> GetAilyV1SessionsByAilySessionIdRunsByRunIdAsync(
         UserAccessToken access_token,
         [PathQuery] string aily_session_id,
-        [PathQuery] string run_id);
+        [PathQuery] string run_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】创建会话</para>
@@ -20458,11 +21471,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/sessions")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1SessionsResponseDto>> PostAilyV1SessionsAsync(
         UserAccessToken access_token,
-        [JsonContent] Aily.PostAilyV1SessionsBodyDto dto);
+        [JsonContent] Aily.PostAilyV1SessionsBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】删除部门</para>
@@ -20494,12 +21509,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/directory/v1/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1DepartmentsByDepartmentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string department_id,
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】批量获取员工信息</para>
@@ -20605,13 +21622,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/employees/mget")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesMgetResponseDto>> PostDirectoryV1EmployeesMgetAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1EmployeesMgetBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】创建部门</para>
@@ -20649,13 +21668,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/departments")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsResponseDto>> PostDirectoryV1DepartmentsAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1DepartmentsBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】更新部门</para>
@@ -20699,6 +21720,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/directory/v1/departments/{department_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1DepartmentsByDepartmentIdAsync(
@@ -20706,7 +21728,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string department_id,
         [JsonContent] Directory.PatchDirectoryV1DepartmentsByDepartmentIdBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】搜索部门</para>
@@ -20756,13 +21779,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/departments/search")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsSearchResponseDto>> PostDirectoryV1DepartmentsSearchAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1DepartmentsSearchBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】离职员工</para>
@@ -20796,13 +21821,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/directory/v1/employees/{employee_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1EmployeesByEmployeeIdAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_id,
         [JsonContent] Directory.DeleteDirectoryV1EmployeesByEmployeeIdBodyDto dto,
-        [PathQuery] string? employee_id_type = "open_id");
+        [PathQuery] string? employee_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】搜索员工信息</para>
@@ -20908,13 +21935,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/employees/search")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesSearchResponseDto>> PostDirectoryV1EmployeesSearchAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1EmployeesSearchBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】创建员工</para>
@@ -20953,13 +21982,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/employees")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesResponseDto>> PostDirectoryV1EmployeesAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1EmployeesBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】更新员工信息</para>
@@ -21004,6 +22035,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/directory/v1/employees/{employee_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdAsync(
@@ -21011,7 +22043,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string employee_id,
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】批量获取员工列表</para>
@@ -21117,13 +22150,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/employees/filter")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1EmployeesFilterResponseDto>> PostDirectoryV1EmployeesFilterAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1EmployeesFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】获取部门列表</para>
@@ -21173,13 +22208,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/departments/filter")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsFilterResponseDto>> PostDirectoryV1DepartmentsFilterAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1DepartmentsFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】恢复离职员工</para>
@@ -21223,6 +22260,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/employees/{employee_id}/resurrect")]
     System.Threading.Tasks.Task<FeishuResponse> PostDirectoryV1EmployeesByEmployeeIdResurrectAsync(
@@ -21230,7 +22268,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string employee_id,
         [JsonContent] Directory.PostDirectoryV1EmployeesByEmployeeIdResurrectBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】批量获取部门信息</para>
@@ -21280,13 +22319,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/departments/mget")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1DepartmentsMgetResponseDto>> PostDirectoryV1DepartmentsMgetAsync(
         UserAccessToken access_token,
         [JsonContent] Directory.PostDirectoryV1DepartmentsMgetBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】查询归档报表表头</para>
@@ -21306,12 +22347,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/attendance/v1/archive_rule/user_stats_fields_query")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryResponseDto>> PostAttendanceV1ArchiveRuleUserStatsFieldsQueryAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_type,
-        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUserStatsFieldsQueryBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】写入归档报表结果</para>
@@ -21331,12 +22374,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/attendance/v1/archive_rule/upload_report")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1ArchiveRuleUploadReportResponseDto>> PostAttendanceV1ArchiveRuleUploadReportAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_type,
-        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUploadReportBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleUploadReportBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】删除归档报表行数据</para>
@@ -21356,12 +22401,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/attendance/v1/archive_rule/del_report")]
     System.Threading.Tasks.Task<FeishuResponse> PostAttendanceV1ArchiveRuleDelReportAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_type,
-        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleDelReportBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1ArchiveRuleDelReportBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】查询所有归档规则</para>
@@ -21385,12 +22432,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：xxx</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/attendance/v1/archive_rule")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1ArchiveRuleResponseDto>> GetAttendanceV1ArchiveRuleAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】批量获取记录</para>
@@ -21432,13 +22481,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：tbl0xe5g8PPabcef</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_get")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string table_id,
-        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto dto);
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取知识空间成员列表</para>
@@ -21470,13 +22521,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：NzA0NDg5NjIzMDA3MzE3MTk3Ml83MzYzMjE4NDkzNDI1NzI5NTM4</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces/{space_id}/members")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesBySpaceIdMembersResponseDto>> GetWikiV2SpacesBySpaceIdMembersAsync(
         UserAccessToken access_token,
         [PathQuery] string space_id,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】批量查询算薪项</para>
@@ -21500,12 +22553,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：7169773973790425132</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/payroll/v1/acct_items")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1AcctItemsResponseDto>> GetPayrollV1AcctItemsAsync(
         UserAccessToken access_token,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】查询成本分摊报表明细</para>
@@ -21549,6 +22604,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>2：实发</item>
     /// </list>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/payroll/v1/cost_allocation_details")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1CostAllocationDetailsResponseDto>> GetPayrollV1CostAllocationDetailsAsync(
@@ -21557,7 +22613,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string pay_period,
         [PathQuery] int report_type,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】更新待离职成员为在职</para>
@@ -21600,13 +22657,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/directory/v1/employees/{employee_id}/regular")]
     System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdRegularAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_id,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】更新在职员工为待离职</para>
@@ -21650,6 +22709,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_department_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/directory/v1/employees/{employee_id}/to_be_resigned")]
     System.Threading.Tasks.Task<FeishuResponse> PatchDirectoryV1EmployeesByEmployeeIdToBeResignedAsync(
@@ -21657,7 +22717,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string employee_id,
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdToBeResignedBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
-        [PathQuery] string? department_id_type = "open_department_id");
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【画板】获取画板缩略图片</para>
@@ -21676,11 +22737,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb</para>
     /// </param>
     /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/download_as_image")]
     System.Threading.Tasks.Task<HttpResponseMessage> GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImageAsync(
         UserAccessToken access_token,
-        [PathQuery] string whiteboard_id);
+        [PathQuery] string whiteboard_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书人事】获取工作日历日期详情</para>
@@ -21694,11 +22757,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/corehr/v1/leaves/work_calendar_date")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarDateResponseDto>> PostCorehrV1LeavesWorkCalendarDateAsync(
         UserAccessToken access_token,
-        [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarDateBodyDto dto);
+        [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarDateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】创建 / 更新外部算薪数据</para>
@@ -21715,11 +22780,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/payroll/v1/datasource_records/save")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1DatasourceRecordsSaveResponseDto>> PostPayrollV1DatasourceRecordsSaveAsync(
         UserAccessToken access_token,
-        [JsonContent] Payroll.PostPayrollV1DatasourceRecordsSaveBodyDto dto);
+        [JsonContent] Payroll.PostPayrollV1DatasourceRecordsSaveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】批量查询外部算薪数据记录</para>
@@ -21744,13 +22811,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/payroll/v1/datasource_records/query")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1DatasourceRecordsQueryResponseDto>> PostPayrollV1DatasourceRecordsQueryAsync(
         UserAccessToken access_token,
         [JsonContent] Payroll.PostPayrollV1DatasourceRecordsQueryBodyDto dto,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】获取外部数据源配置信息</para>
@@ -21773,12 +22842,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/payroll/v1/datasources")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1DatasourcesResponseDto>> GetPayrollV1DatasourcesAsync(
         UserAccessToken access_token,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】查询发薪活动明细列表</para>
@@ -21821,6 +22892,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>2. 当前参数不为空时，接口只返回发薪明细中与 acct_item_ids 存在交集的算薪项。</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/payroll/v1/payment_activity_details")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1PaymentActivityDetailsResponseDto>> GetPayrollV1PaymentActivityDetailsAsync(
@@ -21829,7 +22901,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string activity_id,
         [PathQuery] int page_size = 10,
         [PathQuery] bool? include_segment_data = null,
-        [PathQuery] string[]? acct_item_ids = null);
+        [PathQuery] string[]? acct_item_ids = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】查询发薪活动列表</para>
@@ -21876,6 +22949,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>8. 400 - 已封存</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/payroll/v1/payment_activitys")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.GetPayrollV1PaymentActivitysResponseDto>> GetPayrollV1PaymentActivitysAsync(
@@ -21884,7 +22958,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string pay_period_end_date,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
-        [PathQuery] int[]? statuses = null);
+        [PathQuery] int[]? statuses = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书人事】根据适用条件获取工作日历 ID</para>
@@ -21947,6 +23022,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值："6235435355464465434"</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/corehr/v1/leaves/calendar_by_scope")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1LeavesCalendarByScopeResponseDto>> GetCorehrV1LeavesCalendarByScopeAsync(
@@ -21957,7 +23033,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? wk_work_location_id = null,
         [PathQuery] string? wk_working_hours_type_id = null,
         [PathQuery] string? wk_job_family_id = null,
-        [PathQuery] string? wk_company_id = null);
+        [PathQuery] string? wk_company_id = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询审计日志列表</para>
@@ -22040,6 +23117,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log/audit_log_list")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogAuditLogListResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogAuditLogListAsync(
@@ -22055,7 +23133,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string[]? columns = null,
         [PathQuery] string? sort_by = null,
         [PathQuery] string? sort_order = null,
-        [PathQuery] string? app_type = null);
+        [PathQuery] string? app_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询审计日志详情</para>
@@ -22078,12 +23157,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>审计日志ID信息（通过[查询审计日志列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/application-audit_log/audit_log_list)获取单条日志ID）</para>
     /// <para>示例值：7405456257290600492</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogAsync(
         UserAccessToken access_token,
         [PathQuery] string @namespace,
-        [PathQuery] string log_id);
+        [PathQuery] string log_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】执行数据知识问答</para>
@@ -22102,12 +23183,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：spring_5862e4fea8__c</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/apps/{app_id}/knowledges/ask")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdKnowledgesAskResponseDto>> PostAilyV1AppsByAppIdKnowledgesAskAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
-        [JsonContent] Aily.PostAilyV1AppsByAppIdKnowledgesAskBodyDto dto);
+        [JsonContent] Aily.PostAilyV1AppsByAppIdKnowledgesAskBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】查询数据知识列表</para>
@@ -22165,6 +23248,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_assets")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetsResponseDto>> GetAilyV1AppsByAppIdDataAssetsAsync(
@@ -22176,7 +23260,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string[]? data_asset_ids = null,
         [PathQuery] string[]? data_asset_tag_ids = null,
         [PathQuery] bool? with_data_asset_item = null,
-        [PathQuery] bool? with_connect_status = null);
+        [PathQuery] bool? with_connect_status = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取数据知识分类列表</para>
@@ -22217,6 +23302,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>模糊匹配分类名称</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_asset_tags")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetTagsResponseDto>> GetAilyV1AppsByAppIdDataAssetTagsAsync(
@@ -22225,7 +23311,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? keyword = null,
-        [PathQuery] string[]? data_asset_tag_ids = null);
+        [PathQuery] string[]? data_asset_tag_ids = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】调用技能</para>
@@ -22252,13 +23339,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：skill_6cc6166178ca</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/apps/{app_id}/skills/{skill_id}/start")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartResponseDto>> PostAilyV1AppsByAppIdSkillsBySkillIdStartAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [PathQuery] string skill_id,
-        [JsonContent] Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartBodyDto dto);
+        [JsonContent] Aily.PostAilyV1AppsByAppIdSkillsBySkillIdStartBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取技能信息</para>
@@ -22282,12 +23371,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>技能 ID；可通过技能编辑页面的浏览器地址栏获取（`skill_xxx`）</para>
     /// <para>示例值：skill_6cc6166178ca</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/apps/{app_id}/skills/{skill_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdSkillsBySkillIdResponseDto>> GetAilyV1AppsByAppIdSkillsBySkillIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
-        [PathQuery] string skill_id);
+        [PathQuery] string skill_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】查询技能列表</para>
@@ -22318,13 +23409,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/apps/{app_id}/skills")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdSkillsResponseDto>> GetAilyV1AppsByAppIdSkillsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】批量查询发薪明细</para>
@@ -22341,11 +23434,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/payroll/v1/payment_detail/query")]
     System.Threading.Tasks.Task<FeishuResponse<Payroll.PostPayrollV1PaymentDetailQueryResponseDto>> PostPayrollV1PaymentDetailQueryAsync(
         UserAccessToken access_token,
-        [JsonContent] Payroll.PostPayrollV1PaymentDetailQueryBodyDto dto);
+        [JsonContent] Payroll.PostPayrollV1PaymentDetailQueryBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取云文档内容</para>
@@ -22389,6 +23484,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docs/v1/content")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocsV1ContentResponseDto>> GetDocsV1ContentAsync(
@@ -22396,7 +23492,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string doc_token,
         [PathQuery] string doc_type,
         [PathQuery] string content_type,
-        [PathQuery] string? lang = null);
+        [PathQuery] string? lang = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】查询考勤组下所有成员</para>
@@ -22453,6 +23550,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>&lt;/ul&gt;</para>
     /// <para>示例值：1</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/attendance/v1/groups/{group_id}/list_user")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.GetAttendanceV1GroupsByGroupIdListUserResponseDto>> GetAttendanceV1GroupsByGroupIdListUserAsync(
@@ -22462,7 +23560,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string dept_type,
         [PathQuery] int member_clock_type,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】创建数据知识</para>
@@ -22489,13 +23588,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/apps/{app_id}/data_assets")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdDataAssetsResponseDto>> PostAilyV1AppsByAppIdDataAssetsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [JsonContent] Aily.PostAilyV1AppsByAppIdDataAssetsBodyDto dto,
-        [PathQuery] string? tenant_type = null);
+        [PathQuery] string? tenant_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】删除数据知识</para>
@@ -22527,13 +23628,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：dev</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/aily/v1/apps/{app_id}/data_assets/{data_asset_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.DeleteAilyV1AppsByAppIdDataAssetsByDataAssetIdResponseDto>> DeleteAilyV1AppsByAppIdDataAssetsByDataAssetIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [PathQuery] string data_asset_id,
-        [PathQuery] string? tenant_type = null);
+        [PathQuery] string? tenant_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】获取数据知识</para>
@@ -22575,6 +23678,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：dev</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/apps/{app_id}/data_assets/{data_asset_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppsByAppIdDataAssetsByDataAssetIdResponseDto>> GetAilyV1AppsByAppIdDataAssetsByDataAssetIdAsync(
@@ -22583,7 +23687,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string data_asset_id,
         [PathQuery] bool? with_data_asset_item = null,
         [PathQuery] bool? with_connect_status = null,
-        [PathQuery] string? tenant_type = null);
+        [PathQuery] string? tenant_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 Aily】上传文件用于数据知识管理</para>
@@ -22614,13 +23719,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>需要上传的文件。仅支持上传 docx、txt、pdf、pptx 类型的文件。</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/apps/{app_id}/data_assets/upload_file")]
     System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AppsByAppIdDataAssetsUploadFileResponseDto>> PostAilyV1AppsByAppIdDataAssetsUploadFileAsync(
         UserAccessToken access_token,
         [PathQuery] string app_id,
         [FormDataContent] FormDataFile file,
-        [PathQuery] string? tenant_type = null);
+        [PathQuery] string? tenant_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【Payroll】封存发薪活动</para>
@@ -22633,11 +23740,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/payroll/v1/payment_activitys/archive")]
     System.Threading.Tasks.Task<FeishuResponse> PostPayrollV1PaymentActivitysArchiveAsync(
         UserAccessToken access_token,
-        [JsonContent] Payroll.PostPayrollV1PaymentActivitysArchiveBodyDto dto);
+        [JsonContent] Payroll.PostPayrollV1PaymentActivitysArchiveBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】查询可搜可见规则</para>
@@ -22666,13 +23775,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
     /// <para>示例值：test_key</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/directory/v1/collaboration_rules")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1CollaborationRulesResponseDto>> GetDirectoryV1CollaborationRulesAsync(
         UserAccessToken access_token,
         [PathQuery] string target_tenant_key,
         [PathQuery] int? page_size = 100,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】更新可搜可见规则</para>
@@ -22696,13 +23807,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：test_key</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/directory/v1/collaboration_rules/{collaboration_rule_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutDirectoryV1CollaborationRulesByCollaborationRuleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string collaboration_rule_id,
         [PathQuery] string target_tenant_key,
-        [JsonContent] Directory.PutDirectoryV1CollaborationRulesByCollaborationRuleIdBodyDto dto);
+        [JsonContent] Directory.PutDirectoryV1CollaborationRulesByCollaborationRuleIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】删除可搜可见规则</para>
@@ -22725,12 +23838,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>对方组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
     /// <para>示例值：test_key</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/directory/v1/collaboration_rules/{collaboration_rule_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteDirectoryV1CollaborationRulesByCollaborationRuleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string collaboration_rule_id,
-        [PathQuery] string target_tenant_key);
+        [PathQuery] string target_tenant_key,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】管理员获取所有关联组织列表</para>
@@ -22754,12 +23869,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：g102aggaEYLRMSHU6DENYI4HMBAJB75XOQN2CUTV</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/directory/v1/collaboration_tenants")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1CollaborationTenantsResponseDto>> GetDirectoryV1CollaborationTenantsAsync(
         UserAccessToken access_token,
         [PathQuery] int? page_size = 100,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】获取关联组织双方共享成员范围</para>
@@ -22806,6 +23923,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：100</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/directory/v1/share_entities")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.GetDirectoryV1ShareEntitiesResponseDto>> GetDirectoryV1ShareEntitiesAsync(
@@ -22815,7 +23933,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? target_group_id = null,
         [PathQuery] bool? is_select_subject = null,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 100);
+        [PathQuery] int? page_size = 100,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【关联组织】获取关联组织成员详情</para>
@@ -22852,13 +23971,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：user_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/collaboration_users/{target_user_id}")]
     System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserIdResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationUsersByTargetUserIdAsync(
         UserAccessToken access_token,
         [PathQuery] string target_tenant_key,
         [PathQuery] string target_user_id,
-        [PathQuery] string? target_user_id_type = "user_id");
+        [PathQuery] string? target_user_id_type = "user_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【关联组织】获取可见关联组织的列表</para>
@@ -22884,12 +24005,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/trust_party/v1/collaboration_tenants")]
     System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsResponseDto>> GetTrustPartyV1CollaborationTenantsAsync(
         UserAccessToken access_token,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 10);
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【关联组织】获取关联组织部门详情</para>
@@ -22925,13 +24048,15 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：department_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/collaboration_departments/{target_department_id}")]
     System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentIdResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyCollaborationDepartmentsByTargetDepartmentIdAsync(
         UserAccessToken access_token,
         [PathQuery] string target_tenant_key,
         [PathQuery] string target_department_id,
-        [PathQuery] string? target_department_id_type = "department_id");
+        [PathQuery] string? target_department_id_type = "department_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【关联组织】获取关联组织详情</para>
@@ -22951,11 +24076,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>对方关联组织的tenant key，可通过[管理员获取所有关联组织列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/collaboration_tenant/list)获取</para>
     /// <para>示例值：4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}")]
     System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyAsync(
         UserAccessToken access_token,
-        [PathQuery] string target_tenant_key);
+        [PathQuery] string target_tenant_key,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【关联组织】获取关联组织的部门和成员信息</para>
@@ -23019,6 +24146,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/trust_party/v1/collaboration_tenants/{target_tenant_key}/visible_organization")]
     System.Threading.Tasks.Task<FeishuResponse<TrustParty.GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationResponseDto>> GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganizationAsync(
@@ -23029,7 +24157,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 100,
         [PathQuery] string? group_id_type = "group_id",
-        [PathQuery] string? target_group_id = null);
+        [PathQuery] string? target_group_id = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【组织架构】新增可搜可见规则</para>
@@ -23047,12 +24176,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：test_key</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/directory/v1/collaboration_rules")]
     System.Threading.Tasks.Task<FeishuResponse<Directory.PostDirectoryV1CollaborationRulesResponseDto>> PostDirectoryV1CollaborationRulesAsync(
         UserAccessToken access_token,
         [PathQuery] string target_tenant_key,
-        [JsonContent] Directory.PostDirectoryV1CollaborationRulesBodyDto dto);
+        [JsonContent] Directory.PostDirectoryV1CollaborationRulesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【考勤打卡】创建或修改临时排班</para>
@@ -23075,12 +24206,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/attendance/v1/user_daily_shifts/batch_create_temp")]
     System.Threading.Tasks.Task<FeishuResponse<Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempResponseDto>> PostAttendanceV1UserDailyShiftsBatchCreateTempAsync(
         UserAccessToken access_token,
         [PathQuery] string employee_type,
-        [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto dto);
+        [JsonContent] Attendance.PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出自动化流程</para>
@@ -23115,13 +24248,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/workflows")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenWorkflowsResponseDto>> GetBitableV1AppsByAppTokenWorkflowsAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20);
+        [PathQuery] int? page_size = 20,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新自动化流程状态</para>
@@ -23150,13 +24285,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：730887xxxx552638996</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/bitable/v1/apps/{app_token}/workflows/{workflow_id}")]
     System.Threading.Tasks.Task<FeishuResponse> PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string workflow_id,
-        [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto);
+        [JsonContent] Base.PutBitableV1AppsByAppTokenWorkflowsByWorkflowIdBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【邮箱】获取邮件卡片的邮件列表</para>
@@ -23198,6 +24335,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/get_by_card")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardAsync(
@@ -23205,7 +24343,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string user_mailbox_id,
         [PathQuery] string card_id,
         [PathQuery] string owner_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询席位活跃详情</para>
@@ -23238,13 +24377,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/seat_activities")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1SeatActivitiesResponseDto>> GetApaasV1SeatActivitiesAsync(
         UserAccessToken access_token,
         [PathQuery] string seat_type,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】在群公告中创建块</para>
@@ -23293,6 +24434,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto>> PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenAsync(
@@ -23302,7 +24444,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBodyDto dto,
         [PathQuery] int? revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】批量更新群公告块的内容</para>
@@ -23345,6 +24488,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPatch("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/batch_update")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateResponseDto>> PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateAsync(
@@ -23353,7 +24497,8 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Ccm.PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdateBodyDto dto,
         [PathQuery] int? revision_id = -1,
         [PathQuery] string? client_token = null,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取群公告块的内容</para>
@@ -23395,6 +24540,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdAsync(
@@ -23402,7 +24548,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string chat_id,
         [PathQuery] string block_id,
         [PathQuery] int? revision_id = -1,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取所有子块</para>
@@ -23457,6 +24604,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenAsync(
@@ -23466,7 +24614,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? revision_id = -1,
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 500,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】删除群公告中的块</para>
@@ -23514,6 +24663,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks/{block_id}/children/batch_delete")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteResponseDto>> DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteAsync(
@@ -23522,7 +24672,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string block_id,
         [JsonContent] Ccm.DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDeleteBodyDto dto,
         [PathQuery] int? revision_id = -1,
-        [PathQuery] string? client_token = null);
+        [PathQuery] string? client_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取群公告基本信息</para>
@@ -23562,12 +24713,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementResponseDto>> GetDocxV1ChatsByChatIdAnnouncementAsync(
         UserAccessToken access_token,
         [PathQuery] string chat_id,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】获取群公告所有块</para>
@@ -23615,6 +24768,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/docx/v1/chats/{chat_id}/announcement/blocks")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDocxV1ChatsByChatIdAnnouncementBlocksResponseDto>> GetDocxV1ChatsByChatIdAnnouncementBlocksAsync(
@@ -23623,7 +24777,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 500,
         [PathQuery] string? page_token = null,
         [PathQuery] int? revision_id = -1,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询席位分配详情</para>
@@ -23656,13 +24811,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/seat_assignments")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1SeatAssignmentsResponseDto>> GetApaasV1SeatAssignmentsAsync(
         UserAccessToken access_token,
         [PathQuery] string seat_type,
         [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询数据变更日志列表</para>
@@ -23743,6 +24900,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：0</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log/data_change_logs_list")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogsListResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogsListAsync(
@@ -23758,7 +24916,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string[]? columns = null,
         [PathQuery] string? sort_by = null,
         [PathQuery] string? sort_order = null,
-        [PathQuery] string? app_type = null);
+        [PathQuery] string? app_type = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【飞书 aPaaS】查询数据变更日志详情</para>
@@ -23781,12 +24940,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>数据变更日志ID信息</para>
     /// <para>示例值：7405456257290600492</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/apaas/v1/applications/{namespace}/audit_log/data_change_log_detail")]
     System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogDetailResponseDto>> GetApaasV1ApplicationsByNamespaceAuditLogDataChangeLogDetailAsync(
         UserAccessToken access_token,
         [PathQuery] string @namespace,
-        [PathQuery] string log_id);
+        [PathQuery] string log_id,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】列出自定义角色</para>
@@ -23822,13 +24983,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：roljRpwIUt</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/base/v2/apps/{app_token}/roles")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBaseV2AppsByAppTokenRolesResponseDto>> GetBaseV2AppsByAppTokenRolesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] int? page_size = 10,
-        [PathQuery] string? page_token = null);
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】新增自定义角色</para>
@@ -23853,12 +25016,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/base/v2/apps/{app_token}/roles")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PostBaseV2AppsByAppTokenRolesResponseDto>> PostBaseV2AppsByAppTokenRolesAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
-        [JsonContent] Base.PostBaseV2AppsByAppTokenRolesBodyDto dto);
+        [JsonContent] Base.PostBaseV2AppsByAppTokenRolesBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【多维表格】更新自定义角色</para>
@@ -23889,13 +25054,46 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：roljRpwIUt</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPut("/open-apis/base/v2/apps/{app_token}/roles/{role_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.PutBaseV2AppsByAppTokenRolesByRoleIdResponseDto>> PutBaseV2AppsByAppTokenRolesByRoleIdAsync(
         UserAccessToken access_token,
         [PathQuery] string app_token,
         [PathQuery] string role_id,
-        [JsonContent] Base.PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto dto);
+        [JsonContent] Base.PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】查看应用基本信息</para>
+    /// <para>接口ID：7483060846336999428</para>
+    /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/app/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取企业下应用基本信息，如应用名称 、应用命名空间等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:apps:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，必填，范围：【0，50】</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/apps")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1AppsResponseDto>> GetApaasV1AppsAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【云文档】Markdown/HTML 内容转换为文档块</para>
@@ -23922,11 +25120,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/docx/documents/blocks/convert")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxDocumentsBlocksConvertResponseDto>> PostDocxDocumentsBlocksConvertAsync(
         UserAccessToken access_token,
         [JsonContent] Ccm.PostDocxDocumentsBlocksConvertBodyDto dto,
-        [PathQuery] string? user_id_type = "open_id");
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
 }
 

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-26
 // ************************************************************************
 // <copyright file="PostOkrV1ProgressRecordsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,7 +38,7 @@ public record PostOkrV1ProgressRecordsBodyDto
     public string SourceUrl { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>目标id，与target_type对应</para>
+    /// <para>目标 id，与 target_type 对应，可通过 OKR 内容相关接口获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：7041430377642082323</para>
     /// </summary>
@@ -48,7 +48,7 @@ public record PostOkrV1ProgressRecordsBodyDto
     /// <summary>
     /// <para>目标类型</para>
     /// <para>必填：是</para>
-    /// <para>示例值：1</para>
+    /// <para>示例值：2</para>
     /// <para>可选值：<list type="bullet">
     /// <item>2：okr的O</item>
     /// <item>3：okr的KR</item>
@@ -437,4 +437,42 @@ public record PostOkrV1ProgressRecordsBodyDto
     /// </summary>
     [JsonPropertyName("source_url_mobile")]
     public string? SourceUrlMobile { get; set; }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("progress_rate")]
+    public ProgressRateNew? ProgressRate { get; set; }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// </summary>
+    public record ProgressRateNew
+    {
+        /// <summary>
+        /// <para>进展百分比，保留两位小数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：50.21</para>
+        /// <para>最大值：99999999999</para>
+        /// <para>最小值：-99999999999</para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("percent")]
+        public float? Percent { get; set; }
+
+        /// <summary>
+        /// <para>进展状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>-1：暂无</item>
+        /// <item>0：正常</item>
+        /// <item>1：风险</item>
+        /// <item>2：延期</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public int? Status { get; set; }
+    }
 }

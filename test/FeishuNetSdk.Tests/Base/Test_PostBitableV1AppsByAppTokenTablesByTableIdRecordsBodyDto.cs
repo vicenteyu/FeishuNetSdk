@@ -54,7 +54,7 @@ public class Test_PostBitableV1AppsByAppTokenTablesByTableIdRecordsBodyDto : Tes
         "id": "oc_cd07f55f14d6f4a4f1b51504e7e97f48"
       }
     ],
-    "电话号码": "13026162666",
+    "电话号码": "1302616xxxx",
     "超链接": {
       "text": "飞书多维表格官网",
       "link": "https://www.feishu.cn/product/base"

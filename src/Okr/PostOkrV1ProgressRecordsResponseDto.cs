@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-26
 // ************************************************************************
 // <copyright file="PostOkrV1ProgressRecordsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -400,5 +400,43 @@ public record PostOkrV1ProgressRecordsResponseDto
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("progress_rate")]
+    public ProgressRateNew? ProgressRate { get; set; }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// </summary>
+    public record ProgressRateNew
+    {
+        /// <summary>
+        /// <para>进展百分比，保留两位小数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：50.21</para>
+        /// <para>最大值：99999999999</para>
+        /// <para>最小值：-99999999999</para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("percent")]
+        public float? Percent { get; set; }
+
+        /// <summary>
+        /// <para>进展状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>-1：暂无</item>
+        /// <item>0：正常</item>
+        /// <item>1：风险</item>
+        /// <item>2：延期</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public int? Status { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-11
+// Last Modified On : 2025-07-22
 // ************************************************************************
 // <copyright file="IFeishuAppApi.cs" company="Vicente Yu">
 //     MIT
@@ -34,9 +34,11 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>本接口适用于 [小程序登录](https://open.feishu.cn/document/uYjL24iN/uETO5QjLxkTO04SM5kDN) 及[小组件登录](https://open.feishu.cn/document/uAjLw4CM/uYjL24iN/block/guide/open-ability/block-login)。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/mina/v2/tokenLoginValidate")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostMinaV2TokenLoginValidateResponseDto>> PostMinaV2TokenLoginValidateAsync(
-        [JsonContent] Auth.Spec.PostMinaV2TokenLoginValidateBodyDto dto);
+        [JsonContent] Auth.Spec.PostMinaV2TokenLoginValidateBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】JSAPI 临时授权凭证</para>
@@ -45,8 +47,10 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>Authorization：app_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于返回调用 JSAPI 临时调用凭证，使用该凭证调用 JSAPI 时，请求不会被拦截。</para>
     /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/jssdk/ticket/get")]
-    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync();
+    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostJssdkTicketGetResponseDto>> PostJssdkTicketGetAsync(
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】刷新 user_access_token（v1 版本）</para>
@@ -64,10 +68,12 @@ public interface IFeishuAppApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/refresh_access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1RefreshAccessTokenResponseDto>> PostAuthenV1RefreshAccessTokenAsync(
-        [JsonContent] Auth.PostAuthenV1RefreshAccessTokenBodyDto dto);
+        [JsonContent] Auth.PostAuthenV1RefreshAccessTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】获取 user_access_token（v1 版本）</para>
@@ -85,10 +91,12 @@ public interface IFeishuAppApi : IHttpApi
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1AccessTokenResponseDto>> PostAuthenV1AccessTokenAsync(
-        [JsonContent] Auth.PostAuthenV1AccessTokenBodyDto dto);
+        [JsonContent] Auth.PostAuthenV1AccessTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】刷新 user_access_token</para>
@@ -100,10 +108,12 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>user_access_token 的最大有效期是 2小时左右。当 user_access_token 过期时，可以调用本接口获取新的 user_access_token。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/oidc/refresh_access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcRefreshAccessTokenResponseDto>> PostAuthenV1OidcRefreshAccessTokenAsync(
-        [JsonContent] Auth.PostAuthenV1OidcRefreshAccessTokenBodyDto dto);
+        [JsonContent] Auth.PostAuthenV1OidcRefreshAccessTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 
     /// <summary>
     /// <para>【身份验证】获取 user_access_token</para>
@@ -115,9 +125,11 @@ public interface IFeishuAppApi : IHttpApi
     /// <para>根据[登录预授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code) 返回 code 获取 `user_access_token`。</para>
     /// </summary>
     /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
     [Obsolete("历史版本")]
     [HttpPost("/open-apis/authen/v1/oidc/access_token")]
     System.Threading.Tasks.Task<FeishuResponse<Auth.PostAuthenV1OidcAccessTokenResponseDto>> PostAuthenV1OidcAccessTokenAsync(
-        [JsonContent] Auth.PostAuthenV1OidcAccessTokenBodyDto dto);
+        [JsonContent] Auth.PostAuthenV1OidcAccessTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
 }
 

@@ -86,7 +86,7 @@ public record GetAuthenV1UserInfoResponseDto
     public string? UnionId { get; set; }
 
     /// <summary>
-    /// <para>用户邮箱</para>
+    /// <para>用户邮箱。邮箱信息为管理员导入的用户联系方式，未经过用户本人实时验证，不建议开发者直接将其作为业务系统的登录凭证。如使用，务必自行认证。</para>
     /// <para>必填：否</para>
     /// <para>示例值：zhangsan@feishu.cn</para>
     /// </summary>
@@ -110,7 +110,7 @@ public record GetAuthenV1UserInfoResponseDto
     public string? UserId { get; set; }
 
     /// <summary>
-    /// <para>用户手机号</para>
+    /// <para>用户手机号。手机号信息为管理员导入的用户联系方式，未经过用户本人实时验证，不建议开发者直接将其作为业务系统的登录凭证。如使用，务必自行认证。</para>
     /// <para>必填：否</para>
     /// <para>示例值：+86130002883xx</para>
     /// </summary>

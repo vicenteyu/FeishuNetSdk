@@ -64,8 +64,9 @@ public record GetWikiV2SpacesBySpaceIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：team</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>team：团队空间，归团队（多人)管理，可添加多个管理员</item>
-        /// <item>person：个人空间，归个人管理。一人仅可拥有一个个人空间，无法添加其他管理员</item>
+        /// <item>team：团队空间，归团队（多人）管理，可添加多个管理员</item>
+        /// <item>person：个人空间（旧版，已下线），归个人管理。一人仅可拥有一个，无法添加其他管理员</item>
+        /// <item>my_library：我的文档库，归个人管理。一人仅可拥有一个，无法添加其他管理员</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("space_type")]
