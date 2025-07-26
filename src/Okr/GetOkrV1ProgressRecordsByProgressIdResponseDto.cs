@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-07-26
 // ************************************************************************
 // <copyright file="GetOkrV1ProgressRecordsByProgressIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Okr;
 /// <summary>
 /// 获取 OKR 进展记录 响应体
-/// <para>根据 ID 获取 OKR 进展记录详情。</para>
+/// <para>根据 ID 获取 OKR 进展记录详情，接口返回进展记录的内容、更新时间以及进展百分比和状态。</para>
 /// <para>接口ID：7047056455665926145</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fokr-v1%2fprogress_record%2fget</para>
@@ -408,5 +408,43 @@ public record GetOkrV1ProgressRecordsByProgressIdResponseDto
                 }
             }
         }
+    }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("progress_rate")]
+    public ProgressRateNew? ProgressRate { get; set; }
+
+    /// <summary>
+    /// <para>进展，包括百分比和状态</para>
+    /// </summary>
+    public record ProgressRateNew
+    {
+        /// <summary>
+        /// <para>进展百分比，保留两位小数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：50.21</para>
+        /// <para>最大值：99999999999</para>
+        /// <para>最小值：-99999999999</para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("percent")]
+        public float? Percent { get; set; }
+
+        /// <summary>
+        /// <para>进展状态</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>-1：暂无</item>
+        /// <item>0：正常</item>
+        /// <item>1：风险</item>
+        /// <item>2：延期</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public int? Status { get; set; }
     }
 }

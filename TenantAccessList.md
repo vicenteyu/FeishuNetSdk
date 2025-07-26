@@ -1413,7 +1413,7 @@
 <tr><td colspan="3">GetCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">707</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>飞书人事</td><td>批量查询公司</td></tr>
 <tr><td colspan="3">GetCorehrV1Companies</td></tr>
-<tr><td rowspan="2">708</td><td rowspan="2">2025-07-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取职级信息</td></tr>
+<tr><td rowspan="2">708</td><td rowspan="2">2025-07-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取职级信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobLevelsBatchGet</td></tr>
 <tr><td rowspan="2">709</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>飞书人事</td><td>新建职级</td></tr>
 <tr><td colspan="3">PostCorehrV1JobLevels</td></tr>
@@ -1427,7 +1427,7 @@
 <tr><td colspan="3">GetImV1MessagesByMessageIdReadUsers</td></tr>
 <tr><td rowspan="2">714</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>飞书人事</td><td>批量查询职级</td></tr>
 <tr><td colspan="3">GetCorehrV1JobLevels</td></tr>
-<tr><td rowspan="2">715</td><td rowspan="2">2025-07-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取序列信息</td></tr>
+<tr><td rowspan="2">715</td><td rowspan="2">2025-07-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取序列信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobFamiliesBatchGet</td></tr>
 <tr><td rowspan="2">716</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>飞书人事</td><td>创建序列</td></tr>
 <tr><td colspan="3">PostCorehrV1JobFamilies</td></tr>
@@ -1707,17 +1707,17 @@
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
 <tr><td rowspan="2">854</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
-<tr><td rowspan="2">855</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
+<tr><td rowspan="2">855</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
-<tr><td rowspan="2">856</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
+<tr><td rowspan="2">856</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
 <tr><td rowspan="2">857</td><td rowspan="2">2024-08-21</td><td>&#10003;</td><td>消息与群组</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostImV1Files</td></tr>
-<tr><td rowspan="2">858</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
+<tr><td rowspan="2">858</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">859</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
+<tr><td rowspan="2">859</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
 <tr><td colspan="3">GetOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">860</td><td rowspan="2">2024-10-15</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
+<tr><td rowspan="2">860</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
 <tr><td colspan="3">PostOkrV1ImagesUpload</td></tr>
 <tr><td rowspan="2">861</td><td rowspan="2">2024-11-01</td><td>&#10003;</td><td>实名认证</td><td>录入身份信息</td></tr>
 <tr><td colspan="3">PostHumanAuthenticationV1Identities</td></tr>
@@ -1779,7 +1779,7 @@
 <tr><td colspan="3">GetLingoV1Repos</td></tr>
 <tr><td rowspan="2">890</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
 <tr><td colspan="3">GetContactV3UsersFindByDepartment</td></tr>
-<tr><td rowspan="2">891</td><td rowspan="2">2025-06-11</td><td>&#10003;</td><td>消息与群组</td><td>延时更新消息卡片</td></tr>
+<tr><td rowspan="2">891</td><td rowspan="2">2025-07-24</td><td>&#10003;</td><td>消息与群组</td><td>延时更新消息卡片</td></tr>
 <tr><td colspan="3">PostInteractiveV1CardUpdate</td></tr>
 <tr><td rowspan="2">892</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>上传图片</td></tr>
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
@@ -2511,7 +2511,7 @@
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
 <tr><td rowspan="2">1256</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
-<tr><td rowspan="2">1257</td><td rowspan="2">2025-07-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
+<tr><td rowspan="2">1257</td><td rowspan="2">2025-07-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
 <tr><td rowspan="2">1258</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIds</td></tr>

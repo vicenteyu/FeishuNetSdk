@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-22
+// Last Modified On : 2025-07-26
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -11238,15 +11238,16 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7047048928294174722</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/upload</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>上传进展记录图片。成功调用该接口后，你可继续调用[创建 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/create)或[更新 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/update)，将返回的 `url`参数和`file_token` 参数传入 `imageList` 参数中。</para>
+    /// <para>上传图片，以获取在进展记录富文本中使用的 token。成功调用该接口后，你可继续调用[创建 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/create)或[更新 OKR 进展记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/okr-v1/progress_record/update)，将返回的 `url`参数和`file_token` 参数传入 `imageList` 参数中。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress.file:upload</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
     /// <param name="data">
     /// <para>必填：是</para>
-    /// <para>图片</para>
+    /// <para>图片二进制文件。目前仅支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片。</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -11265,6 +11266,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>创建 OKR 进展记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -11299,6 +11301,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>根据 OKR 进展记录 ID 更新进展详情。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -11307,7 +11310,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待更新的 OKR进展记录 ID</para>
+    /// <para>待更新的 OKR进展记录 ID，“创建 OKR 进展记录”接口返回值中会提供，也可以通过 OKR 内容相关接口获取。</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
     /// <param name="user_id_type">
@@ -11340,12 +11343,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>根据 ID 删除 OKR 进展记录。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
+    /// <item>okr:okr.progress:delete</item>
     /// </list></para>
     /// </summary>
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待删除的 OKR进展记录 ID</para>
+    /// <para>待删除的 OKR进展记录 ID，“创建 OKR 进展记录”接口返回值中会提供，也可以通过 OKR 内容相关接口获取。</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -11361,10 +11365,11 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7047056455665926145</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/okr-v1/progress_record/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>根据 ID 获取 OKR 进展记录详情。</para>
+    /// <para>根据 ID 获取 OKR 进展记录详情，接口返回进展记录的内容、更新时间以及进展百分比和状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>okr:okr</item>
     /// <item>okr:okr:readonly</item>
+    /// <item>okr:okr.progress:readonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -11373,7 +11378,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="progress_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>待查询的 OKR进展记录 ID</para>
+    /// <para>待查询的 OKR进展记录 ，可以通过调用“批量获取 OKR”或“获取用户的 OKR 列表”接口获取</para>
     /// <para>示例值：7041857032248410131</para>
     /// </param>
     /// <param name="user_id_type">
@@ -25057,6 +25062,37 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string role_id,
         [JsonContent] Base.PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】查看应用基本信息</para>
+    /// <para>接口ID：7483060846336999428</para>
+    /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/app/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取企业下应用基本信息，如应用名称 、应用命名空间等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:apps:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，必填，范围：【0，50】</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/apps")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1AppsResponseDto>> GetApaasV1AppsAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

@@ -719,15 +719,15 @@
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
 <tr><td rowspan="2">360</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>批量获取 OKR</td></tr>
 <tr><td colspan="3">GetOkrV1OkrsBatchGet</td></tr>
-<tr><td rowspan="2">361</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
+<tr><td rowspan="2">361</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 进展记录</td></tr>
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
-<tr><td rowspan="2">362</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
+<tr><td rowspan="2">362</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">363</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
+<tr><td rowspan="2">363</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">364</td><td rowspan="2">2024-01-09</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
+<tr><td rowspan="2">364</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 进展记录</td></tr>
 <tr><td colspan="3">GetOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">365</td><td rowspan="2">2024-10-15</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
+<tr><td rowspan="2">365</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>上传进展记录图片</td></tr>
 <tr><td colspan="3">PostOkrV1ImagesUpload</td></tr>
 <tr><td rowspan="2">366</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>绩效</td><td>获取周期任务（指定用户）</td></tr>
 <tr><td colspan="3">PostPerformanceV1StageTasksFindByUserList</td></tr>
@@ -1251,4 +1251,6 @@
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 <tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
+<tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>新增</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
+<tr><td colspan="3">GetApaasV1Apps</td></tr>
 </tbody></table>
