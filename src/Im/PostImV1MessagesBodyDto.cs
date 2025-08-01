@@ -51,7 +51,7 @@ public record PostImV1MessagesBodyDto
     /// <para>- media：视频</para>
     /// <para>- sticker：表情包</para>
     /// <para>- interactive：卡片</para>
-    /// <para>- share_chat：分享群名片</para>
+    /// <para>- share_chat：分享群名片（被分享的群名片有效期为 7 天）</para>
     /// <para>- share_user：分享个人名片</para>
     /// <para>- system：系统消息。该类型仅支持在机器人单聊内推送系统消息，不支持在群聊内使用，例如下图所示突出新会话。</para>
     /// <para>![image.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/e7ed7bb87180295d347fa58d76b077f5_lw9oqM4Cot.png)</para>

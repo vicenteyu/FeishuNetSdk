@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询序列 响应体
-/// <para>该接口支持获取租户下的所有序列信息。序列数量过多时，可以通过多次循环调用该接口获取所有序列详情信息，包括序列编码、名称等。</para>
+/// <para>该接口支持获取租户下的所有序列信息。</para>
 /// <para>接口ID：7017694651622146052</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_family%2flist</para>
@@ -124,7 +124,7 @@ public record GetCorehrV1JobFamiliesResponseDto : IPageableResponse<GetCorehrV1J
         /// <summary>
         /// <para>序列编码</para>
         /// <para>必填：否</para>
-        /// <para>示例值：123456</para>
+        /// <para>示例值：HR-MG-001</para>
         /// </summary>
         [JsonPropertyName("code")]
         public string? Code { get; set; }
@@ -177,7 +177,7 @@ public record GetCorehrV1JobFamiliesResponseDto : IPageableResponse<GetCorehrV1J
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1234452132</para>
+    /// <para>示例值：4698019107896524634</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

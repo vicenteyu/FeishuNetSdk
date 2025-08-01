@@ -31,20 +31,20 @@ public class Test_PatchCorehrV1JobsByJobIdBodyDto : TestBase
     "name": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "软件工程师"
         }
     ],
     "description": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "负责后端开发工作"
         }
     ],
     "active": true,
     "job_title": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "高级"
         }
     ],
     "pathway_id": "4719519211875096301",

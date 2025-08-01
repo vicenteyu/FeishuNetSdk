@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建职务 请求体
-/// <para>可以通过该接口新建职务信息。</para>
+/// <para>该接口用于创建职务信息，创建后系统中新增一条包含职务编码、名称、描述等信息的职务记录，适用于企业新增职务类型时，HR需要创建职务信息以便分配给员工的场景</para>
 /// <para>接口ID：7017707615191040003</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob%2fcreate</para>
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1JobsBodyDto
 {
     /// <summary>
-    /// <para>职务编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
+    /// <para>职务编码 (不能与其他记录的编码重复)，最少1个字符，最多200个字符</para>
     /// <para>必填：否</para>
     /// <para>示例值：JP422119</para>
     /// </summary>
@@ -33,6 +33,8 @@ public record PostCorehrV1JobsBodyDto
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
     /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
+    /// <para>- 每个name元素必须包含lang和value参数，表明对应语言下具体的name值</para>
+    /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
@@ -42,11 +44,13 @@ public record PostCorehrV1JobsBodyDto
     /// <para>职务名称</para>
     /// <para>- 名称不能包含「/」「；」「;」字符</para>
     /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
+    /// <para>- 每个name元素必须包含lang和value参数，表明对应语言下具体的name值</para>
+    /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>
     /// </summary>
     public record I18n
     {
         /// <summary>
-        /// <para>语言信息，中文用zh-CN，英文用en-US</para>
+        /// <para>语言信息，中文用zh-CN，英文用en-US。最少1个字符，最多200个字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
@@ -54,9 +58,9 @@ public record PostCorehrV1JobsBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>名称信息的内容</para>
+        /// <para>名称信息的内容。最少1个字符，最多200个字符</para>
         /// <para>必填：是</para>
-        /// <para>示例值：张三</para>
+        /// <para>示例值：软件工程师</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
@@ -70,7 +74,7 @@ public record PostCorehrV1JobsBodyDto
     public I18n[]? Descriptions { get; set; }
 
     /// <summary>
-    /// <para>是否启用，true为启用，false为停用</para>
+    /// <para>是否启用，true为启用，fasle为停用。</para>
     /// <para>必填：是</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -124,6 +128,7 @@ public record PostCorehrV1JobsBodyDto
     /// <para>- 系统默认为填写日期当天的 00:00:00 生效</para>
     /// <para>- 该接口只支持到最小单位为日</para>
     /// <para>- 日期范围要求:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
+    /// <para>- 最小19字符（格式为YYYY-MM-DD 00:00:00），最大19字符</para>
     /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-01-01 00:00:00</para>
@@ -144,7 +149,7 @@ public record PostCorehrV1JobsBodyDto
     public record ObjectFieldData
     {
         /// <summary>
-        /// <para>字段名</para>
+        /// <para>字段名，最小1字符，最大50字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
@@ -152,7 +157,7 @@ public record PostCorehrV1JobsBodyDto
         public string FieldName { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")</para>
+        /// <para>字段值，是json转义后的字符串，根据元数据定义不同，字段格式不同(如123, 123.23, "true", [\"id1\",\"id2\"], "2006-01-02 15:04:05")，最小1字符，最大200字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：Sandy</para>
         /// </summary>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建序列 响应体
-/// <para>可以通过该接口创建单个序列信息，同时该接口会针对该接口的内容做校验。</para>
+/// <para>该接口用于创建单个序列，创建后系统中新增一条包含序列编码、名称、描述等信息的序列记录</para>
 /// <para>接口ID：7017707615190925315</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_family%2fcreate</para>

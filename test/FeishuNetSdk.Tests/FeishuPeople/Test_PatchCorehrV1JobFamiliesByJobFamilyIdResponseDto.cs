@@ -50,7 +50,7 @@ public class Test_PatchCorehrV1JobFamiliesByJobFamilyIdResponseDto : TestBase
             "description": [
                 {
                     "lang": "zh-CN",
-                    "value": "刘梓新"
+                    "value": "这是一个技术序列的描述"
                 }
             ],
             "custom_fields": [

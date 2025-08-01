@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_GetCorehrV1JobFamiliesByJobFamilyIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -55,7 +55,7 @@ public class Test_GetCorehrV1JobFamiliesByJobFamilyIdResponseDto : TestBase
             ],
             "custom_fields": [
                 {
-                    "field_name": "自定义字段 apiname，即自定义字段的唯一标识",
+                    "field_name": "序列管理员",
                     "value": "\"Sandy\""
                 }
             ]

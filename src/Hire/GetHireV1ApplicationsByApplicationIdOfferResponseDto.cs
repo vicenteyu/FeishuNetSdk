@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="GetHireV1ApplicationsByApplicationIdOfferResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -507,6 +507,14 @@ public record GetHireV1ApplicationsByApplicationIdOfferResponseDto
             /// </summary>
             [JsonPropertyName("common_attachment_id_list")]
             public string[]? CommonAttachmentIdList { get; set; }
+
+            /// <summary>
+            /// <para>通道 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：123456</para>
+            /// </summary>
+            [JsonPropertyName("pathway_id")]
+            public string? PathwayId { get; set; }
         }
 
         /// <summary>

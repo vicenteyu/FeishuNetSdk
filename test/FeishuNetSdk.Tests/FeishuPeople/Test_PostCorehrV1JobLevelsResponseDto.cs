@@ -37,13 +37,13 @@ public class Test_PostCorehrV1JobLevelsResponseDto : TestBase
             "name": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "P5"
                 }
             ],
             "description": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "普通职级"
                 }
             ],
             "active": true,

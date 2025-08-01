@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2DepartmentsQueryOperationLogsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,15 +36,15 @@ public class Test_PostCorehrV2DepartmentsQueryOperationLogsResponseDto : TestBas
                 "changes": [
                     {
                         "field": "description",
-                        "before": "old_description",
-                        "after": "new_description"
+                        "before": "优秀部门",
+                        "after": "更优秀的部门"
                     }
                 ],
-                "operator": "工号001",
+                "operator": "E001",
                 "operation_type": 10,
                 "operation_time": "2023-11-15 19:25:45",
                 "effective_time": "2023-10-28",
-                "operation_reason": "因人员调整,变更部门负责人为某某",
+                "operation_reason": "因人员调整,变更部门负责人为张三",
                 "change_reasons": [
                     "新建部门"
                 ]

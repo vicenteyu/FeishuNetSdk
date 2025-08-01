@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="GetVcV1ParticipantListResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -208,7 +208,7 @@ public record GetVcV1ParticipantListResponseDto : IPageableResponse<GetVcV1Parti
         public bool? Sharing { get; set; }
 
         /// <summary>
-        /// <para>入会时间</para>
+        /// <para>入会时间，格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
@@ -216,7 +216,7 @@ public record GetVcV1ParticipantListResponseDto : IPageableResponse<GetVcV1Parti
         public string? JoinTime { get; set; }
 
         /// <summary>
-        /// <para>离会时间</para>
+        /// <para>离会时间，格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
@@ -224,7 +224,7 @@ public record GetVcV1ParticipantListResponseDto : IPageableResponse<GetVcV1Parti
         public string? LeaveTime { get; set; }
 
         /// <summary>
-        /// <para>参会时长</para>
+        /// <para>参会时长（秒），格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：00:01:52</para>
         /// </summary>
@@ -252,6 +252,22 @@ public record GetVcV1ParticipantListResponseDto : IPageableResponse<GetVcV1Parti
         /// </summary>
         [JsonPropertyName("accept_status")]
         public int? AcceptStatus { get; set; }
+
+        /// <summary>
+        /// <para>是否为外部参会人</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_external")]
+        public bool? IsExternal { get; set; }
+
+        /// <summary>
+        /// <para>网络研讨会中的角色，"0"为嘉宾，"3"为观众</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// </summary>
+        [JsonPropertyName("webinar_user_role")]
+        public string? WebinarUserRole { get; set; }
     }
 
     /// <summary>

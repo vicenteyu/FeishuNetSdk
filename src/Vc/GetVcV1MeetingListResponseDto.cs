@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="GetVcV1MeetingListResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -115,7 +115,7 @@ public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingLi
         public string? Mobile { get; set; }
 
         /// <summary>
-        /// <para>会议开始时间</para>
+        /// <para>会议开始时间，格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:16:59 (GMT+08:00)</para>
         /// </summary>
@@ -123,7 +123,7 @@ public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingLi
         public string? MeetingStartTime { get; set; }
 
         /// <summary>
-        /// <para>会议结束时间</para>
+        /// <para>会议结束时间，格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022.12.23 11:18:51 (GMT+08:00)</para>
         /// </summary>
@@ -131,7 +131,7 @@ public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingLi
         public string? MeetingEndTime { get; set; }
 
         /// <summary>
-        /// <para>会议持续时间</para>
+        /// <para>会议持续时间（秒），格式见响应体示例</para>
         /// <para>必填：否</para>
         /// <para>示例值：00:01:52</para>
         /// </summary>
@@ -195,14 +195,14 @@ public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingLi
         public bool? Telephone { get; set; }
 
         /// <summary>
-        /// <para>关联会议室列表</para>
+        /// <para>关联会议室列表，只有待召开的会议支持该字段。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("reserved_rooms")]
         public ReservedRoom[]? ReservedRooms { get; set; }
 
         /// <summary>
-        /// <para>关联会议室列表</para>
+        /// <para>关联会议室列表，只有待召开的会议支持该字段。</para>
         /// </summary>
         public record ReservedRoom
         {
@@ -230,6 +230,59 @@ public record GetVcV1MeetingListResponseDto : IPageableResponse<GetVcV1MeetingLi
         /// </summary>
         [JsonPropertyName("has_related_document")]
         public bool? HasRelatedDocument { get; set; }
+
+        /// <summary>
+        /// <para>是否使用AI纪要</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("ai_note")]
+        public bool? AiNote { get; set; }
+
+        /// <summary>
+        /// <para>是否为外部会议</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_external")]
+        public bool? IsExternal { get; set; }
+
+        /// <summary>
+        /// <para>会议子类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：全部类型（默认）</item>
+        /// <item>1：投屏</item>
+        /// <item>2：有线投屏</item>
+        /// <item>3：妙享</item>
+        /// <item>4：聊天室</item>
+        /// <item>5：飞阅会</item>
+        /// <item>6：企业电话</item>
+        /// <item>7：ip电话</item>
+        /// <item>8：webniar会议</item>
+        /// <item>9：离线会议</item>
+        /// <item>10：妙记会议</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("meeting_subtype")]
+        public int? MeetingSubtype { get; set; }
+
+        /// <summary>
+        /// <para>唯一会议ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7529416531681214468</para>
+        /// </summary>
+        [JsonPropertyName("meeting_instance_id")]
+        public string? MeetingInstanceId { get; set; }
+
+        /// <summary>
+        /// <para>网络研讨会观众人数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("number_of_webinar_viewers")]
+        public string? NumberOfWebinarViewers { get; set; }
     }
 
     /// <summary>

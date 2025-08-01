@@ -33,24 +33,24 @@ public class Test_GetCorehrV1JobLevelsResponseDto : TestBase
         "items": [
             {
                 "id": "4692446793125560154",
-                "level_order": 9999,
-                "code": "VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=",
+                "level_order": 10,
+                "code": "J001",
                 "name": [
                     {
                         "lang": "zh-CN",
-                        "value": "张三"
+                        "value": "P5"
                     }
                 ],
                 "description": [
                     {
                         "lang": "zh-CN",
-                        "value": "张三"
+                        "value": "普通职级"
                     }
                 ],
                 "active": true,
                 "custom_fields": [
                     {
-                        "field_name": "自定义字段 API Name，即自定义字段的唯一标识",
+                        "field_name": "职级负责人",
                         "value": "\"Sandy\""
                     }
                 ],
@@ -63,7 +63,7 @@ public class Test_GetCorehrV1JobLevelsResponseDto : TestBase
             }
         ],
         "has_more": true,
-        "page_token": "1234452132"
+        "page_token": "4692446793125560155"
     }
 }
 """;

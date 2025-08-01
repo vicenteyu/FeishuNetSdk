@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_PostApprovalV4ExternalApprovalsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,10 +27,10 @@ public class Test_PostApprovalV4ExternalApprovalsBodyDto : TestBase
     {
         var json = """
 {
-    "approval_name": "@i18n@1",
-    "approval_code": "permission_test",
+    "approval_name": "@i18n@d937443c-686f-11f0-aa8c-b6e035aec42e",
+    "approval_code": "F46EB460-9476-4789-9524-ECD564291234",
     "group_code": "work_group",
-    "group_name": "@i18n@2",
+    "group_name": "@i18n@d937444f-686f-11f0-aa8c-b6e035aec42e",
     "external": {
         "create_link_pc": "https://applink.feishu.cn/client/mini_program/open?mode=appCenter&appId=cli_9c90fc38e07a9101&path=pc%2Fpages%2Fcreate-form%2Findex%3Fid%3D9999",
         "create_link_mobile": "https://applink.feishu.cn/client/mini_program/open?appId=cli_9c90fc38e07a9101&path=pages%2Fapproval-form%2Findex%3Fid%3D9999",
@@ -38,8 +38,8 @@ public class Test_PostApprovalV4ExternalApprovalsBodyDto : TestBase
         "support_mobile": true,
         "support_batch_read": false,
         "action_callback_url":"http://feishu.cn/approval/openapi/operate",
-        "action_callback_token":"sdjkljkx9lsadf110",
-        "action_callback_key":"gfdqedvsadfgfsd",
+        "action_callback_token":"sdjkljkx9lxxxxx",
+        "action_callback_key":"gfdqedvsadxxxxx",
         "enable_mark_readed": false
     },
     "i18n_resources":[
@@ -48,11 +48,11 @@ public class Test_PostApprovalV4ExternalApprovalsBodyDto : TestBase
         "is_default":true,
          "texts":[
              {
-             "key": "@i18n@1",
+             "key": "@i18n@d937443c-686f-11f0-aa8c-b6e035aec42e",
              "value":"people"  
             },
             {
-             "key": "@i18n@2",
+             "key": "@i18n@d937444f-686f-11f0-aa8c-b6e035aec42e",
              "value":"hr"  
             }
          ]

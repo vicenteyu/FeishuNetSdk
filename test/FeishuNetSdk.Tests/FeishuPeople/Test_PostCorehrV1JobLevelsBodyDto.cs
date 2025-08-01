@@ -32,13 +32,13 @@ public class Test_PostCorehrV1JobLevelsBodyDto : TestBase
     "name": [
         {
             "lang": "zh-CN",
-            "value": "初级工程师"
+            "value": "P5"
         }
     ],
     "description": [
         {
             "lang": "zh-CN",
-            "value": "这是一个初级工程师"
+            "value": "普通职级"
         }
     ],
     "active": true,

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个序列 响应体
-/// <para>该接口支持通过序列ID查询单个序列详情信息。</para>
+/// <para>该接口通过序列ID查询单个序列详情信息，如序列名称、描述、状态等</para>
 /// <para>接口ID：7017707615191007235</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_family/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_family%2fget</para>
@@ -151,7 +151,7 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
             /// <summary>
             /// <para>自定义字段（该字段暂时不支持）</para>
             /// <para>必填：是</para>
-            /// <para>示例值：自定义字段 apiname，即自定义字段的唯一标识</para>
+            /// <para>示例值：序列管理员</para>
             /// </summary>
             [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;

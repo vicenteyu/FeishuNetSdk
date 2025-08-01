@@ -41,7 +41,9 @@ public record PostCorehrV2DepartmentsQueryOperationLogsBodyDto
     public string StartDate { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>查询的截止操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。查询截止日期应大于起始日期，起止日期跨度最大为366天</para>
+    /// <para>查询的截止操作日期，注意事项：</para>
+    /// <para>- 格式 "YYYY-MM-DD"，不带时分秒，包含end_date传入的时间，系统会以end_date的23:59:59为截止时间进行查询。</para>
+    /// <para>- 查询截止日期end_date应大于起始日期start_date，起止日期跨度最大为366天</para>
     /// <para>必填：是</para>
     /// <para>示例值：2024-01-01</para>
     /// </summary>

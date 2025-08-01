@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 新建职级 请求体
-/// <para>使用指定信息创建职级信息，每次调用支持创建1个职级对象，接口内会做相关规则校验。</para>
+/// <para>该接口通过传入职级名称、职级数值等参数，创建单个职级对象</para>
+/// <para>适用场景：</para>
+/// <para>- 适用于HR系统中新增职级的场景</para>
 /// <para>接口ID：7017707615191154691</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fcreate</para>
@@ -22,7 +24,8 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1JobLevelsBodyDto
 {
     /// <summary>
-    /// <para>职级数值，该字段主要用来在职级大小排序，职级的数值越大，代表职级越高</para>
+    /// <para>职级数值，单位：级。该字段主要用来在职级大小，职级的数值越大，代表职级越高</para>
+    /// <para>- 最小值0，最大值99999999</para>
     /// <para>必填：是</para>
     /// <para>示例值：9999</para>
     /// </summary>
@@ -38,19 +41,23 @@ public record PostCorehrV1JobLevelsBodyDto
     public string? Code { get; set; }
 
     /// <summary>
-    /// <para>职级名称</para>
+    /// <para>职级名称，注意事项：</para>
+    /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>
+    /// <para>- 包含lang（语言）和value（职级名称）两个子参数，新建时需同时提供</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
     public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
     /// <summary>
-    /// <para>职级名称</para>
+    /// <para>职级名称，注意事项：</para>
+    /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>
+    /// <para>- 包含lang（语言）和value（职级名称）两个子参数，新建时需同时提供</para>
     /// </summary>
     public record I18n
     {
         /// <summary>
-        /// <para>名称信息的语言，中文用zh-CN，英文用en-US</para>
+        /// <para>名称信息的语言，中文用zh-CN，英文用en-US。</para>
         /// <para>必填：是</para>
         /// <para>示例值：zh-CN</para>
         /// </summary>
@@ -58,11 +65,12 @@ public record PostCorehrV1JobLevelsBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>名称信息的内容。</para>
+        /// <para>名称信息的内容。注意事项：</para>
         /// <para>- 职级中英文名称会有全局唯一校验</para>
         /// <para>- 名称不能包含「/」「；」「;」字符</para>
+        /// <para>- 最少1个字符，最多200个字符</para>
         /// <para>必填：是</para>
-        /// <para>示例值：初级工程师</para>
+        /// <para>示例值：P5</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
@@ -70,6 +78,7 @@ public record PostCorehrV1JobLevelsBodyDto
 
     /// <summary>
     /// <para>描述</para>
+    /// <para>- 包含lang（语言）和value（职级描述）两个子参数，更新时需同时提供</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("description")]
@@ -85,6 +94,7 @@ public record PostCorehrV1JobLevelsBodyDto
 
     /// <summary>
     /// <para>自定义字段（目前职级暂不支持该功能）</para>
+    /// <para>- 包含field_name （字段名）和value（字段值）两个子参数，新建时需同时提供</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_fields")]
@@ -92,11 +102,13 @@ public record PostCorehrV1JobLevelsBodyDto
 
     /// <summary>
     /// <para>自定义字段（目前职级暂不支持该功能）</para>
+    /// <para>- 包含field_name （字段名）和value（字段值）两个子参数，新建时需同时提供</para>
     /// </summary>
     public record ObjectFieldData
     {
         /// <summary>
         /// <para>字段名</para>
+        /// <para>- 最小1字符，最大200字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>
@@ -105,6 +117,7 @@ public record PostCorehrV1JobLevelsBodyDto
 
         /// <summary>
         /// <para>字段值，为 JSON 转义后的字符串。</para>
+        /// <para>- 最小1字符，最大200字符</para>
         /// <para>**注意：具体传值方式参见**[获取自定义字段的元数据](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：是</para>
         /// <para>示例值：\"Sandy\"</para>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 批量查询职务 响应体
-/// <para>可以通过该接口查询租户下全部职务ID列表。</para>
+/// <para>查询全部职务详情，包括职务编码、名称等信息</para>
 /// <para>接口ID：7277403063272718338</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/job-management/job/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fjob%2flist</para>
@@ -72,7 +72,7 @@ public record GetCorehrV2JobsResponseDto : IPageableResponse<GetCorehrV2JobsResp
             /// <summary>
             /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：中文示例</para>
+            /// <para>示例值：软件工程师</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;

@@ -40,6 +40,9 @@
 <tr><td>corehr.job_level.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除职级</td></tr>
 <tr><td>corehr.process.approver.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】审批任务状态变更</td></tr>
 <tr><td>corehr.probation.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProbationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】试用期状态变更</td></tr>
+<tr><td>corehr.pathway.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPathwayCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】通道创建</td></tr>
+<tr><td>corehr.pathway.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPathwayUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】通道更新</td></tr>
+<tr><td>corehr.pathway.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPathwayDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】通道删除</td></tr>
 <tr><td>corehr.job_change.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动信息变更</td></tr>
 <tr><td>corehr.job_change.status_updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobChangeStatusUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】异动状态变更</td></tr>
 <tr><td>corehr.custom_org.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCustomOrgCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】自定义组织被创建</td></tr>
