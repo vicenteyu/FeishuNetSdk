@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_GetHireV1ApplicationsByApplicationIdOfferResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -138,7 +138,8 @@ public class Test_GetHireV1ApplicationsByApplicationIdOfferResponseDto : TestBas
                 "job_grade_id": "6897079709306259720",
                 "common_attachment_id_list": [
                     "7483412052430997804"
-                ]
+                ],
+                "pathway_id": "123456"
             },
             "salary_plan": {
                 "currency": "CNY",

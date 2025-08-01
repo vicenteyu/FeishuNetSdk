@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_GetVcV1ParticipantListResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -57,7 +57,9 @@ public class Test_GetVcV1ParticipantListResponseDto : TestBase
                 "leave_time": "2022.12.23 11:18:51 (GMT+08:00)",
                 "time_in_meeting": "00:01:52",
                 "leave_reason": "主持人结束会议",
-                "accept_status": 1
+                "accept_status": 1,
+                "is_external": false,
+                "webinar_user_role": "0"
             }
         ],
         "page_token": "20",

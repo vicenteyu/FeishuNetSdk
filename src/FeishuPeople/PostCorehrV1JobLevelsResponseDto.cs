@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 新建职级 响应体
-/// <para>使用指定信息创建职级信息，每次调用支持创建1个职级对象，接口内会做相关规则校验。</para>
+/// <para>该接口通过传入职级名称、职级数值等参数，创建单个职级对象</para>
+/// <para>适用场景：</para>
+/// <para>- 适用于HR系统中新增职级的场景</para>
 /// <para>接口ID：7017707615191154691</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fcreate</para>
@@ -42,7 +44,7 @@ public record PostCorehrV1JobLevelsResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职级数值，该字段主要用来在职级大小排序，职级的数值越大，代表职级越高</para>
+        /// <para>职级数值，单位：级。该字段主要用来在职级大小排序，职级的数值越大，代表职级越高</para>
         /// <para>必填：是</para>
         /// <para>示例值：9999</para>
         /// </summary>
@@ -80,7 +82,7 @@ public record PostCorehrV1JobLevelsResponseDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：P5</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;

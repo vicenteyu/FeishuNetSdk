@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新职务 响应体
-/// <para>你可以通过该接口更新一个职务信息。</para>
+/// <para>可以通过职务ID更新单个职务详情信息，例如职务名称、描述等。</para>
 /// <para>接口ID：7072588575270944796</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob%2fpatch</para>
@@ -72,7 +72,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：软件工程师</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -86,7 +86,7 @@ public record PatchCorehrV1JobsByJobIdResponseDto
         public I18n[]? Descriptions { get; set; }
 
         /// <summary>
-        /// <para>是否启用</para>
+        /// <para>是否启用，true为启用，fasle为停用</para>
         /// <para>必填：是</para>
         /// <para>示例值：true</para>
         /// </summary>

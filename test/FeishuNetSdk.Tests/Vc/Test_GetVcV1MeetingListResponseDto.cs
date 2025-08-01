@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_GetVcV1MeetingListResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -57,7 +57,12 @@ public class Test_GetVcV1MeetingListResponseDto : TestBase
                         "room_name": "room123"
                     }
                 ],
-                "has_related_document": false
+                "has_related_document": false,
+                "ai_note": false,
+                "is_external": false,
+                "meeting_subtype": 1,
+                "meeting_instance_id": "7529416531681214468",
+                "number_of_webinar_viewers": "1"
             }
         ],
         "page_token": "20",

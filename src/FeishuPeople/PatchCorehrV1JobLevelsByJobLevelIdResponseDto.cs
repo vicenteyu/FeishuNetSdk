@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 更新单个职级 响应体
-/// <para>该接口可以通过职级ID更新单个职级信息，包括职级数值、名称等信息。</para>
+/// <para>该接口通过职级ID更新单个职级信息，包括职级数值、名称等信息。</para>
 /// <para>接口ID：7072714700206768130</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fpatch</para>
@@ -42,9 +42,9 @@ public record PatchCorehrV1JobLevelsByJobLevelIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职级数值</para>
+        /// <para>职级数值，单位：级</para>
         /// <para>必填：是</para>
-        /// <para>示例值：9999</para>
+        /// <para>示例值：10</para>
         /// </summary>
         [JsonPropertyName("level_order")]
         public int LevelOrder { get; set; }
@@ -52,7 +52,7 @@ public record PatchCorehrV1JobLevelsByJobLevelIdResponseDto
         /// <summary>
         /// <para>编码</para>
         /// <para>必填：否</para>
-        /// <para>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=</para>
+        /// <para>示例值：J001</para>
         /// </summary>
         [JsonPropertyName("code")]
         public string? Code { get; set; }
@@ -80,7 +80,7 @@ public record PatchCorehrV1JobLevelsByJobLevelIdResponseDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：P5</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;

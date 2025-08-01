@@ -72,7 +72,7 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableRe
             /// <summary>
             /// <para>旧值</para>
             /// <para>必填：否</para>
-            /// <para>示例值：old_description</para>
+            /// <para>示例值：优秀部门</para>
             /// </summary>
             [JsonPropertyName("before")]
             public string? Before { get; set; }
@@ -80,7 +80,7 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableRe
             /// <summary>
             /// <para>新值</para>
             /// <para>必填：否</para>
-            /// <para>示例值：new_description</para>
+            /// <para>示例值：更优秀的部门</para>
             /// </summary>
             [JsonPropertyName("after")]
             public string? After { get; set; }
@@ -89,7 +89,7 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableRe
         /// <summary>
         /// <para>操作人工号，更多详细信息可通过[【搜索员工信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/search)接口获取</para>
         /// <para>必填：否</para>
-        /// <para>示例值：工号001</para>
+        /// <para>示例值：E001</para>
         /// </summary>
         [JsonPropertyName("operator")]
         public string? Operator { get; set; }
@@ -106,10 +106,6 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableRe
         /// <para>- `100`：自定义部门排序</para>
         /// <para>- `110`：更新部门</para>
         /// <para>- `120`：编辑部门关联规则</para>
-        /// <para>- `130`：新增授权</para>
-        /// <para>- `140`：更正授权</para>
-        /// <para>- `150`：撤销授权</para>
-        /// <para>- `160`：混合授权</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// </summary>
@@ -135,7 +131,7 @@ public record PostCorehrV2DepartmentsQueryOperationLogsResponseDto : IPageableRe
         /// <summary>
         /// <para>操作原因说明</para>
         /// <para>必填：否</para>
-        /// <para>示例值：因人员调整,变更部门负责人为某某</para>
+        /// <para>示例值：因人员调整,变更部门负责人为张三</para>
         /// </summary>
         [JsonPropertyName("operation_reason")]
         public string? OperationReason { get; set; }

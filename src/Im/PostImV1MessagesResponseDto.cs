@@ -71,7 +71,7 @@ public record PostImV1MessagesResponseDto
     /// <para>- media：视频</para>
     /// <para>- sticker：表情包</para>
     /// <para>- interactive：卡片</para>
-    /// <para>- share_chat：分享群名片</para>
+    /// <para>- share_chat：分享群名片（被分享的群名片有效期为 7 天）</para>
     /// <para>- share_user：分享个人名片</para>
     /// <para>- system：系统消息</para>
     /// <para>必填：否</para>

@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Approval;
 /// <summary>
 /// 创建三方审批定义 请求体
-/// <para>三方审批定义用于设置审批的名称、描述等基本信息，同时还需要设置三方审批系统的审批发起页、数据回调 URL 等信息，将飞书审批与三方审批系统关联起来，使企业员工在飞书审批内即可直接发起三方审批，且审批中心可以将审批数据回传给三方审批系统。</para>
+/// <para>三方审批定义用于设置审批的名称、描述等基本信息，以及三方审批系统的审批发起页、回调 URL 等信息，使企业员工在飞书审批内即可发起并操作三方审批。</para>
 /// <para>## 注意事项</para>
 /// <para>飞书审批中心不负责审批流程的流转，只负责审批的展示、状态操作、消息通知。因此，创建三方审批定义时，没有审批流程的参数配置项。</para>
 /// <para>接口ID：7114621541589794819</para>
@@ -34,7 +34,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     public string ApprovalName { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>该值用于判断调用当前接口是创建审批定义还是更新审批定义。具体说明：</para>
+    /// <para>应用自定义Code，最大支持128字符，用于唯一关联三方审批定义，具体说明：</para>
     /// <para>- 如果传入的值系统可以匹配到已存在的审批定义 approval_code，则调用该接口会更新相应的审批定义。</para>
     /// <para>- 如果传入的值系统匹配不到任何审批定义 approval_code，则会新建一个审批定义，并返回新建的审批定义真实的 approval_code（并非通过该参数传入的值）。</para>
     /// <para>必填：是</para>
@@ -47,11 +47,12 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     /// <para>审批定义所属审批分组，用户自定义。具体说明：</para>
     /// <para>- 如果传入的 group_code 当前不存在，则会新建审批分组。</para>
     /// <para>- 如果 group_code 已经存在，则会使用 group_name 更新审批分组名称。</para>
-    /// <para>必填：是</para>
+    /// <para>- 更新审批定义时可以不传该字段，会继续使用当前绑定的分组。</para>
+    /// <para>必填：否</para>
     /// <para>示例值：work_group</para>
     /// </summary>
     [JsonPropertyName("group_code")]
-    public string GroupCode { get; set; } = string.Empty;
+    public string? GroupCode { get; set; }
 
     /// <summary>
     /// <para>审批分组名称，审批发起页的审批定义分组名称来自该字段。具体说明：</para>
@@ -128,7 +129,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public string? CreateLinkPc { get; set; }
 
         /// <summary>
-        /// <para>审批定义是否要在 PC 端的发起审批页面展示，如果为 true 则展示，否则不展示。</para>
+        /// <para>审批定义是否要在 PC 端的发起审批页面展示，如果为 true 则展示，否则不展示，默认为false。</para>
         /// <para>**注意**：support_pc 和 support_mobile 不可都为 false。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
@@ -137,7 +138,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public bool? SupportPc { get; set; }
 
         /// <summary>
-        /// <para>审批定义是否要在移动端的发起审批页面展示，如果为 true 则展示，否则不展示。</para>
+        /// <para>审批定义是否要在移动端的发起审批页面展示，如果为 true 则展示，否则不展示，默认为false。</para>
         /// <para>**注意**：support_pc 和 support_mobile 不可都为 false。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
@@ -146,7 +147,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public bool? SupportMobile { get; set; }
 
         /// <summary>
-        /// <para>是否支持批量已读</para>
+        /// <para>是否支持批量已读，默认为false</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -196,7 +197,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public string? ActionCallbackKey { get; set; }
 
         /// <summary>
-        /// <para>是否支持批量审批。取值为 true 时，审批人在处理该定义下的审批任务时可以批量处理多个任务。</para>
+        /// <para>是否支持批量审批。取值为 true 时，审批人在处理该定义下的审批任务时可以批量处理多个任务， 默认为false。</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -204,7 +205,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public bool? AllowBatchOperate { get; set; }
 
         /// <summary>
-        /// <para>审批流程数据是否不纳入效率统计</para>
+        /// <para>审批流程数据是否不纳入效率统计，默认为false</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -225,7 +226,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
     public record ApprovalCreateViewers
     {
         /// <summary>
-        /// <para>可见人类型</para>
+        /// <para>可见人类型，生效优先级NONE&gt;TENANT&gt;指定范围</para>
         /// <para>必填：否</para>
         /// <para>示例值：USER</para>
         /// <para>可选值：<list type="bullet">
@@ -247,7 +248,7 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         public string? ViewerUserId { get; set; }
 
         /// <summary>
-        /// <para>当 view_type 取值为 DEPARTMENT 时，需指定部门 ID。ID 类型与查询参数 department_id_type 取值保持一致。</para>
+        /// <para>当 viewer_type 取值为 DEPARTMENT 时，需指定部门 ID。ID 类型与查询参数 department_id_type 取值保持一致。</para>
         /// <para>必填：否</para>
         /// <para>示例值：od-ac9d697abfa990b715dcc33d58a62a9d</para>
         /// </summary>
@@ -275,6 +276,19 @@ public record PostApprovalV4ExternalApprovalsBodyDto
         /// <item>zh-CN：中文</item>
         /// <item>en-US：英文</item>
         /// <item>ja-JP：日文</item>
+        /// <item>zh-HK：繁体中文（中国香港）</item>
+        /// <item>zh-TW：繁体中文（中国台湾）</item>
+        /// <item>de-DE：德语</item>
+        /// <item>es-ES：西班牙语</item>
+        /// <item>fr-FR：法语</item>
+        /// <item>id-ID：印度尼西亚语</item>
+        /// <item>it-IT：意大利语</item>
+        /// <item>ko-KR：韩语</item>
+        /// <item>pt-BR：葡萄牙语</item>
+        /// <item>th-TH：泰语</item>
+        /// <item>vi-VN：越南语</item>
+        /// <item>ms-MY：马来语</item>
+        /// <item>ru-RU：俄语</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("locale")]

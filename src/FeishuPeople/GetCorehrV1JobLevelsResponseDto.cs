@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 批量查询职级 响应体
-/// <para>该接口支持获取租户下的所有职级信息。职级数量过多时，可以通过多次循环调用该接口获取所有职级详情信息，包括职级数值、编码、名称等。</para>
+/// <para>获取租户下的所有职级详情，包括职级数值、编码、名称等</para>
 /// <para>接口ID：7017694651622162436</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2flist</para>
@@ -42,9 +42,9 @@ public record GetCorehrV1JobLevelsResponseDto : IPageableResponse<GetCorehrV1Job
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职级数值</para>
+        /// <para>职级数值，单位：级</para>
         /// <para>必填：是</para>
-        /// <para>示例值：9999</para>
+        /// <para>示例值：10</para>
         /// </summary>
         [JsonPropertyName("level_order")]
         public int LevelOrder { get; set; }
@@ -52,7 +52,7 @@ public record GetCorehrV1JobLevelsResponseDto : IPageableResponse<GetCorehrV1Job
         /// <summary>
         /// <para>编码</para>
         /// <para>必填：否</para>
-        /// <para>示例值：VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=</para>
+        /// <para>示例值：J001</para>
         /// </summary>
         [JsonPropertyName("code")]
         public string? Code { get; set; }
@@ -80,7 +80,7 @@ public record GetCorehrV1JobLevelsResponseDto : IPageableResponse<GetCorehrV1Job
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：P5</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -116,7 +116,7 @@ public record GetCorehrV1JobLevelsResponseDto : IPageableResponse<GetCorehrV1Job
             /// <summary>
             /// <para>字段名</para>
             /// <para>必填：是</para>
-            /// <para>示例值：自定义字段 API Name，即自定义字段的唯一标识</para>
+            /// <para>示例值：职级负责人</para>
             /// </summary>
             [JsonPropertyName("field_name")]
             public string FieldName { get; set; } = string.Empty;
@@ -156,7 +156,7 @@ public record GetCorehrV1JobLevelsResponseDto : IPageableResponse<GetCorehrV1Job
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
     /// <para>必填：否</para>
-    /// <para>示例值：1234452132</para>
+    /// <para>示例值：4692446793125560155</para>
     /// </summary>
     [JsonPropertyName("page_token")]
     public string? PageToken { get; set; }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-26
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -795,6 +795,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.content:read</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// </list></para>
@@ -1292,6 +1293,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.content:read</item>
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// </list></para>
@@ -15475,6 +15477,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>查询会议明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:room:readonly</item>
+    /// <item>vc:rooms.room.detailinfo:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -15503,25 +15506,25 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="meeting_no">
     /// <para>必填：否</para>
-    /// <para>按9位会议号筛选（最多一个筛选条件）</para>
+    /// <para>按9位会议号筛选（最多一个筛选条件，如果设置多个，参数校验会失败，可以从视频会议记录中获取）</para>
     /// <para>示例值：123456789</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>按参会Lark用户筛选（最多一个筛选条件）</para>
+    /// <para>按参会飞书用户筛选（最多一个筛选条件，如果设置多个，参数校验会失败）</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="room_id">
     /// <para>必填：否</para>
-    /// <para>按参会Rooms筛选（最多一个筛选条件）</para>
+    /// <para>按参会Rooms筛选（最多一个筛选条件，如果设置多个，参数校验会失败）</para>
     /// <para>示例值：omm_eada1d61a550955240c28757e7dec3af</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="meeting_type">
     /// <para>必填：否</para>
-    /// <para>按会议类型筛选（最多一个筛选条件）</para>
+    /// <para>按会议类型筛选（最多一个筛选条件，如果设置多个，参数校验会失败）</para>
     /// <para>示例值：2</para>
     /// <list type="bullet">
     /// <item>1：全部类型（默认）</item>
@@ -15540,6 +15543,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
     /// <para>示例值：20</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="include_external_meetings">
+    /// <para>必填：否</para>
+    /// <para>是否查询外部会议（不传默认为不查询）</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="include_webinar">
+    /// <para>必填：否</para>
+    /// <para>是否查询网络研讨会（不传默认为不查询）</para>
+    /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -15567,6 +15582,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? meeting_type = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] bool? include_external_meetings = null,
+        [PathQuery] bool? include_webinar = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
@@ -15731,6 +15748,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>查询参会人明细，具体权限要求请参考[资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting-room-data/resource-introduction)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:room:readonly</item>
+    /// <item>vc:rooms.room.detailinfo:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -15764,7 +15782,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>按参会Lark用户筛选（最多一个筛选条件）</para>
+    /// <para>按参会飞书用户筛选（最多一个筛选条件）</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -15784,6 +15802,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
     /// <para>示例值：20</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="webinar_user_role">
+    /// <para>必填：否</para>
+    /// <para>查询网络研讨会时的观众类型,"0"为嘉宾，"3"为观众</para>
+    /// <para>示例值：0</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="user_id_type">
@@ -15810,6 +15834,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? room_id = null,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? webinar_user_role = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 

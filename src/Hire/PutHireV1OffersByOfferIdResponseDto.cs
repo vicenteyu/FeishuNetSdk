@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-18
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="PutHireV1OffersByOfferIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -265,6 +265,14 @@ public record PutHireV1OffersByOfferIdResponseDto
         /// </summary>
         [JsonPropertyName("job_grade_id")]
         public string? JobGradeId { get; set; }
+
+        /// <summary>
+        /// <para>通道 ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6897079709306259719</para>
+        /// </summary>
+        [JsonPropertyName("pathway_id")]
+        public string? PathwayId { get; set; }
     }
 
     /// <summary>

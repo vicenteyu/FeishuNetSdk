@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 创建职务 响应体
-/// <para>可以通过该接口新建职务信息。</para>
+/// <para>该接口用于创建职务信息，创建后系统中新增一条包含职务编码、名称、描述等信息的职务记录，适用于企业新增职务类型时，HR需要创建职务信息以便分配给员工的场景</para>
 /// <para>接口ID：7017707615191040003</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob%2fcreate</para>
@@ -50,14 +50,14 @@ public record PostCorehrV1JobsResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>职务名称</para>
+        /// <para>软件工程师</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("name")]
         public I18n[] Names { get; set; } = Array.Empty<I18n>();
 
         /// <summary>
-        /// <para>职务名称</para>
+        /// <para>软件工程师</para>
         /// </summary>
         public record I18n
         {
@@ -70,9 +70,9 @@ public record PostCorehrV1JobsResponseDto
             public string Lang { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>名称信息的内容</para>
+            /// <para>名称信息的内容，最小1字符，最大100字符</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：软件工程师</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
@@ -135,7 +135,7 @@ public record PostCorehrV1JobsResponseDto
         public string? WorkingHoursTypeId { get; set; }
 
         /// <summary>
-        /// <para>版本生效日期</para>
+        /// <para>版本生效日期（UTC+8）</para>
         /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>

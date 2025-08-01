@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_GetCorehrV2JobsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,20 +37,20 @@ public class Test_GetCorehrV2JobsResponseDto : TestBase
                 "name": [
                     {
                         "lang": "zh-CN",
-                        "value": "中文示例"
+                        "value": "软件工程师"
                     }
                 ],
                 "description": [
                     {
                         "lang": "zh-CN",
-                        "value": "中文示例"
+                        "value": "负责后端开发"
                     }
                 ],
                 "active": true,
                 "job_title": [
                     {
                         "lang": "zh-CN",
-                        "value": "中文示例"
+                        "value": "高级"
                     }
                 ],
                 "pathway_id": "4719519211875096301",

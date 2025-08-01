@@ -47,7 +47,7 @@ public class Test_GetCorehrV1JobFamiliesResponseDto : TestBase
                 ],
                 "effective_time": "2020-05-01 00:00:00",
                 "expiration_time": "2020-05-02 00:00:00",
-                "code": "123456",
+                "code": "HR-MG-001",
                 "description": [
                     {
                         "lang": "zh-CN",
@@ -63,7 +63,7 @@ public class Test_GetCorehrV1JobFamiliesResponseDto : TestBase
             }
         ],
         "has_more": true,
-        "page_token": "1234452132"
+        "page_token": "4698019107896524634"
     }
 }
 """;

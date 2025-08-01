@@ -32,18 +32,18 @@ public class Test_PatchCorehrV1JobLevelsByJobLevelIdResponseDto : TestBase
     "data": {
         "job_level": {
             "id": "4692446793125560154",
-            "level_order": 9999,
-            "code": "VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=",
+            "level_order": 10,
+            "code": "J001",
             "name": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "P5"
                 }
             ],
             "description": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "普通职级"
                 }
             ],
             "active": true,

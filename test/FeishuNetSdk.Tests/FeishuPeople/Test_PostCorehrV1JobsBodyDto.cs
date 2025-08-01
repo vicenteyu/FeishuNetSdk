@@ -31,20 +31,20 @@ public class Test_PostCorehrV1JobsBodyDto : TestBase
     "name": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "软件工程师"
         }
     ],
     "description": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "负责软件系统的设计、开发与维护，参与需求分析和技术方案制定"
         }
     ],
     "active": true,
     "job_title": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "高级软件工程师"
         }
     ],
     "pathway_id": "4719519211875096301",

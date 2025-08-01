@@ -30,7 +30,7 @@ public class Test_PostCorehrV1JobFamiliesBodyDto : TestBase
     "name": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "技术"
         }
     ],
     "active": true,
@@ -44,7 +44,7 @@ public class Test_PostCorehrV1JobFamiliesBodyDto : TestBase
     "description": [
         {
             "lang": "zh-CN",
-            "value": "刘梓新"
+            "value": "这是一个技术序列的描述"
         }
     ],
     "custom_fields": [

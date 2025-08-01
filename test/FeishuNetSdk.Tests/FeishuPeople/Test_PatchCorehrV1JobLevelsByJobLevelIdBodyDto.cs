@@ -27,18 +27,18 @@ public class Test_PatchCorehrV1JobLevelsByJobLevelIdBodyDto : TestBase
     {
         var json = """
 {
-    "level_order": 9999,
-    "code": "VQzo/BSonp8l6PmcZ+VlDhkd2595LMkhyBAGX6HAlCY=",
+    "level_order": 10,
+    "code": "J001",
     "name": [
         {
             "lang": "zh-CN",
-            "value": "高级工程师"
+            "value": "P5"
         }
     ],
     "description": [
         {
             "lang": "zh-CN",
-            "value": "这是一个工程师"
+            "value": "普通职级"
         }
     ],
     "active": true,

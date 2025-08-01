@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-01
 // ************************************************************************
 // <copyright file="Test_PutHireV1OffersByOfferIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -62,7 +62,8 @@ public class Test_PutHireV1OffersByOfferIdResponseDto : TestBase
             "operator_user_id": "ou_ce613028fe74745421f5dc320bb9c709",
             "position_id": "6897079709306259719",
             "job_offered": "入职职位",
-            "job_grade_id": "6897079709306259720"
+            "job_grade_id": "6897079709306259720",
+            "pathway_id": "6897079709306259719"
         },
         "salary_info": {
             "currency": "CNY",

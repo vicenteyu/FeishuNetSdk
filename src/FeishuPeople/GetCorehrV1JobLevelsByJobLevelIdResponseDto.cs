@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.FeishuPeople;
 /// <summary>
 /// 查询单个职级 响应体
-/// <para>该接口支持通过职级id 查询单个职级详情信息，包括职级包含的名称、描述、启用状态等。</para>
+/// <para>该接口通过职级id 查询单个职级详情信息，包括职级包含的名称、描述、启用状态等</para>
 /// <para>接口ID：7017694651621916676</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/job-management/job_level/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fjob_level%2fget</para>
@@ -42,7 +42,7 @@ public record GetCorehrV1JobLevelsByJobLevelIdResponseDto
         public string? Id { get; set; }
 
         /// <summary>
-        /// <para>职级数值</para>
+        /// <para>职级数值，单位：级</para>
         /// <para>必填：是</para>
         /// <para>示例值：9999</para>
         /// </summary>
@@ -80,7 +80,7 @@ public record GetCorehrV1JobLevelsByJobLevelIdResponseDto
             /// <summary>
             /// <para>名称信息的内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：张三</para>
+            /// <para>示例值：P5</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;

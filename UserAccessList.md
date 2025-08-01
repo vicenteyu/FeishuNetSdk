@@ -475,9 +475,9 @@
 <tr><td colspan="3">GetVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
 <tr><td rowspan="2">238</td><td rowspan="2">2023-08-29</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新禁用状态变更通知</td></tr>
 <tr><td colspan="3">PatchVcV1ReserveConfigsByReserveConfigIdDisableInform</td></tr>
-<tr><td rowspan="2">239</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
+<tr><td rowspan="2">239</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>视频会议</td><td>查询会议明细</td></tr>
 <tr><td colspan="3">GetVcV1MeetingList</td></tr>
-<tr><td rowspan="2">240</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
+<tr><td rowspan="2">240</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>视频会议</td><td>查询参会人明细</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantList</td></tr>
 <tr><td rowspan="2">241</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>查询参会人会议质量数据</td></tr>
 <tr><td colspan="3">GetVcV1ParticipantQualityList</td></tr>
@@ -811,9 +811,9 @@
 <tr><td colspan="3">GetDocV2MetaByDocToken</td></tr>
 <tr><td rowspan="2">406</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档中的电子表格元数据</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenSheetMeta</td></tr>
-<tr><td rowspan="2">407</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档纯文本内容</td></tr>
+<tr><td rowspan="2">407</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档纯文本内容</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenRawContent</td></tr>
-<tr><td rowspan="2">408</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档富文本内容</td></tr>
+<tr><td rowspan="2">408</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>云文档</td><td>获取旧版文档富文本内容</td></tr>
 <tr><td colspan="3">GetDocV2ByDocTokenContent</td></tr>
 <tr><td rowspan="2">409</td><td rowspan="2">2023-12-18</td><td>&#10003;</td><td>云文档</td><td>编辑旧版文档内容</td></tr>
 <tr><td colspan="3">PostDocV2ByDocTokenBatchUpdate</td></tr>
@@ -1251,6 +1251,6 @@
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 <tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
-<tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>新增</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
+<tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
 </tbody></table>
