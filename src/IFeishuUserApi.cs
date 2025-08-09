@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -15858,7 +15858,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/send")]
-    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesSendAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendResponseDto>> PostMailV1UserMailboxesByUserMailboxIdMessagesSendAsync(
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto dto,

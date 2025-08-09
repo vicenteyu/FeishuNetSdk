@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,7 +64,9 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRespon
                 {
                     "filename": "helloworld.txt",
                     "id": "YQqYbQHoQoDqXjxWKhJbo8Gicjf",
-                    "attachment_type": 1
+                    "attachment_type": 1,
+                    "is_inline": false,
+                    "cid": "image1@example.com"
                 }
             ],
             "thread_id": "tfuh9N4WnzU6jdDw="

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="Test_GetHireV1InterviewFeedbackFormsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -105,7 +105,19 @@ public class Test_GetHireV1InterviewFeedbackFormsResponseDto : TestBase
                                             "en_us": "for evaluating the professional competence of candidates"
                                         }
                                     }
-                                ]
+                                ],
+                                "related_dimension_config": {
+                                    "type": 1,
+                                    "related_dimension_settings": [
+                                        {
+                                            "dimension_id": "6930815272790114324",
+                                            "related_operator_type": 1,
+                                            "dimension_option_ids": [
+                                                "6930815272790114324"
+                                            ]
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }

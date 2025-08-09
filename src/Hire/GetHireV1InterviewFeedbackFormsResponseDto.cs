@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="GetHireV1InterviewFeedbackFormsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -488,6 +488,81 @@ public record GetHireV1InterviewFeedbackFormsResponseDto : IPageableResponse<Get
                     /// </summary>
                     [JsonPropertyName("description")]
                     public I18n? Description { get; set; }
+                }
+
+                /// <summary>
+                /// <para>维度间关联配置</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("related_dimension_config")]
+                public InterviewFeedbackFormDimensionRelatedDimensionConfig? RelatedDimensionConfig { get; set; }
+
+                /// <summary>
+                /// <para>维度间关联配置</para>
+                /// </summary>
+                public record InterviewFeedbackFormDimensionRelatedDimensionConfig
+                {
+                    /// <summary>
+                    /// <para>关联配置类型</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>1：全部条件</item>
+                    /// <item>2：任意条件</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("type")]
+                    public int? Type { get; set; }
+
+                    /// <summary>
+                    /// <para>关联的维度设置列表</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：1000</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("related_dimension_settings")]
+                    public RelatedDimensionSetting[]? RelatedDimensionSettings { get; set; }
+
+                    /// <summary>
+                    /// <para>关联的维度设置列表</para>
+                    /// </summary>
+                    public record RelatedDimensionSetting
+                    {
+                        /// <summary>
+                        /// <para>关联维度ID</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：6930815272790114324</para>
+                        /// <para>最大长度：20</para>
+                        /// <para>最小长度：1</para>
+                        /// </summary>
+                        [JsonPropertyName("dimension_id")]
+                        public string? DimensionId { get; set; }
+
+                        /// <summary>
+                        /// <para>关联计算类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：1</para>
+                        /// <para>可选值：<list type="bullet">
+                        /// <item>1：等于</item>
+                        /// <item>2：不等于</item>
+                        /// <item>3：包含任一</item>
+                        /// <item>4：不包含</item>
+                        /// <item>5：为空</item>
+                        /// <item>6：不为空</item>
+                        /// </list></para>
+                        /// </summary>
+                        [JsonPropertyName("related_operator_type")]
+                        public int? RelatedOperatorType { get; set; }
+
+                        /// <summary>
+                        /// <para>关联维度选项ID列表</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：10000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("dimension_option_ids")]
+                        public string[]? DimensionOptionIds { get; set; }
+                    }
                 }
             }
         }

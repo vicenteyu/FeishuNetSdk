@@ -54,7 +54,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
         /// <para>下拉列表选项的值。</para>
         /// <para>**数据校验规则**：</para>
         /// <para>- 单个值需为字符串类型且不能包含 ","</para>
-        /// <para>- 单个值的长度不可超过 100 字节</para>
+        /// <para>- 单个值的长度不可超过 100 字符</para>
         /// <para>- 选项值的个数不可超过 500 个</para>
         /// <para>**示例值**：["2", "89", "3","2"]</para>
         /// <para>必填：是</para>

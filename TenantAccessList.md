@@ -317,7 +317,7 @@
 <tr><td colspan="3">DeleteContactV3DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">159</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">160</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
+<tr><td rowspan="2">160</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">161</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationId</td></tr>
@@ -713,7 +713,7 @@
 <tr><td colspan="3">PostApprovalV4Instances</td></tr>
 <tr><td rowspan="2">357</td><td rowspan="2">2025-04-21</td><td>&#10003;</td><td>审批</td><td>撤回审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesCancel</td></tr>
-<tr><td rowspan="2">358</td><td rowspan="2">2024-09-14</td><td>&#10003;</td><td>通讯录</td><td>批量添加用户组成员</td></tr>
+<tr><td rowspan="2">358</td><td rowspan="2">2025-08-07</td><td>&#10003;</td><td>通讯录</td><td>批量添加用户组成员</td></tr>
 <tr><td colspan="3">PostContactV3GroupByGroupIdMemberBatchAdd</td></tr>
 <tr><td rowspan="2">359</td><td rowspan="2">2025-04-21</td><td>&#10003;</td><td>审批</td><td>抄送审批实例</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesCc</td></tr>
@@ -1155,7 +1155,7 @@
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppIdFeedbacks</td></tr>
 <tr><td rowspan="2">578</td><td rowspan="2">2024-08-05</td><td>&#10003;</td><td>应用信息</td><td>更新应用红点</td></tr>
 <tr><td colspan="3">PostApplicationV6AppBadgeSet</td></tr>
-<tr><td rowspan="2">579</td><td rowspan="2">2023-07-07</td><td>&#10003;</td><td>企业信息</td><td>获取企业席位信息接口</td></tr>
+<tr><td rowspan="2">579</td><td rowspan="2">2025-08-07</td><td>&#10003;</td><td>企业信息</td><td>获取企业席位信息接口</td></tr>
 <tr><td colspan="3">GetTenantV2TenantAssignInfoListQuery</td></tr>
 <tr><td rowspan="2">580</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个序列信息</td></tr>
 <tr><td colspan="3">GetContactV3JobFamiliesByJobFamilyId</td></tr>
@@ -1289,7 +1289,7 @@
 <tr><td colspan="3">GetCorehrV1CountryRegionsByCountryRegionId</td></tr>
 <tr><td rowspan="2">645</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>批量查询国家/地区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1CountryRegions</td></tr>
-<tr><td rowspan="2">646</td><td rowspan="2">2025-07-29</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
+<tr><td rowspan="2">646</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>消息与群组</td><td>发送消息</td></tr>
 <tr><td colspan="3">PostImV1Messages</td></tr>
 <tr><td rowspan="2">647</td><td rowspan="2">2023-07-14</td><td>&#10003;</td><td>飞书人事</td><td>查询单条省份/行政区信息</td></tr>
 <tr><td colspan="3">GetCorehrV1SubdivisionsBySubdivisionId</td></tr>
@@ -1801,7 +1801,7 @@
 <tr><td colspan="3">GetApplicationV6AppRecommendRules</td></tr>
 <tr><td rowspan="2">901</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>主数据</td><td>用户数据维度绑定</td></tr>
 <tr><td colspan="3">PostMdmV1UserAuthDataRelationsBind</td></tr>
-<tr><td rowspan="2">902</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>消息与群组</td><td>发送仅特定人可见的消息卡片</td></tr>
+<tr><td rowspan="2">902</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>消息与群组</td><td>发送仅特定人可见的消息卡片</td></tr>
 <tr><td colspan="3">PostEphemeralV1Send</td></tr>
 <tr><td rowspan="2">903</td><td rowspan="2">2023-07-10</td><td>&#10003;</td><td>主数据</td><td>用户数据维度解绑</td></tr>
 <tr><td colspan="3">PostMdmV1UserAuthDataRelationsUnbind</td></tr>
@@ -2333,7 +2333,7 @@
 <tr><td colspan="3">PostHireV1ReferralsSearch</td></tr>
 <tr><td rowspan="2">1167</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>招聘</td><td>导入外部内推奖励</td></tr>
 <tr><td colspan="3">PostHireV1ExternalReferralRewards</td></tr>
-<tr><td rowspan="2">1168</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取面试评价表列表</td></tr>
+<tr><td rowspan="2">1168</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>招聘</td><td>获取面试评价表列表</td></tr>
 <tr><td colspan="3">GetHireV1InterviewFeedbackForms</td></tr>
 <tr><td rowspan="2">1169</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>删除外部内推奖励</td></tr>
 <tr><td colspan="3">DeleteHireV1ExternalReferralRewardsByExternalReferralRewardId</td></tr>
@@ -2639,7 +2639,7 @@
 <tr><td colspan="3">PatchCardkitV1CardsByCardIdElementsByElementId</td></tr>
 <tr><td rowspan="2">1320</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>删除组件</td></tr>
 <tr><td colspan="3">DeleteCardkitV1CardsByCardIdElementsByElementId</td></tr>
-<tr><td rowspan="2">1321</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>更新卡片实体配置</td></tr>
+<tr><td rowspan="2">1321</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>卡片</td><td>更新卡片实体配置</td></tr>
 <tr><td colspan="3">PatchCardkitV1CardsByCardIdSettings</td></tr>
 <tr><td rowspan="2">1322</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>卡片</td><td>局部更新卡片实体</td></tr>
 <tr><td colspan="3">PostCardkitV1CardsByCardIdBatchUpdate</td></tr>
@@ -2715,7 +2715,7 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
 <tr><td rowspan="2">1358</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">1359</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">1359</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
 <tr><td rowspan="2">1360</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
@@ -2849,18 +2849,18 @@
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 <tr><td rowspan="2">1425</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
-<tr><td rowspan="2">1426</td><td rowspan="2">2025-07-31</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时间范围序列版本</td></tr>
+<tr><td rowspan="2">1426</td><td rowspan="2">2025-07-31</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时间范围序列版本</td></tr>
 <tr><td colspan="3">PostCorehrV2JobFamiliesQueryMultiTimeline</td></tr>
-<tr><td rowspan="2">1427</td><td rowspan="2">2025-07-31</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时间范围职务版本</td></tr>
+<tr><td rowspan="2">1427</td><td rowspan="2">2025-07-31</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时间范围职务版本</td></tr>
 <tr><td colspan="3">PostCorehrV2JobsQueryMultiTimeline</td></tr>
-<tr><td rowspan="2">1428</td><td rowspan="2">2025-07-30</td><td>新增</td><td>飞书人事（企业版）</td><td>创建通道</td></tr>
+<tr><td rowspan="2">1428</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>创建通道</td></tr>
 <tr><td colspan="3">PostCorehrV2Pathways</td></tr>
-<tr><td rowspan="2">1429</td><td rowspan="2">2025-07-30</td><td>新增</td><td>飞书人事（企业版）</td><td>删除通道</td></tr>
+<tr><td rowspan="2">1429</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除通道</td></tr>
 <tr><td colspan="3">DeleteCorehrV2PathwaysByPathwayId</td></tr>
-<tr><td rowspan="2">1430</td><td rowspan="2">2025-07-31</td><td>新增</td><td>飞书人事（企业版）</td><td>获取通道信息</td></tr>
+<tr><td rowspan="2">1430</td><td rowspan="2">2025-07-31</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取通道信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PathwaysBatchGet</td></tr>
-<tr><td rowspan="2">1431</td><td rowspan="2">2025-07-30</td><td>新增</td><td>飞书人事（企业版）</td><td>更新通道</td></tr>
+<tr><td rowspan="2">1431</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新通道</td></tr>
 <tr><td colspan="3">PatchCorehrV2PathwaysByPathwayId</td></tr>
-<tr><td rowspan="2">1432</td><td rowspan="2">2025-07-30</td><td>新增</td><td>飞书人事（企业版）</td><td>启停用通道</td></tr>
+<tr><td rowspan="2">1432</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>启停用通道</td></tr>
 <tr><td colspan="3">PostCorehrV2PathwaysActive</td></tr>
 </tbody></table>

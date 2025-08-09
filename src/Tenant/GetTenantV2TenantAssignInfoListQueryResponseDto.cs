@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Tenant;
 /// <summary>
 /// 获取企业席位信息接口 响应体
 /// <para>获取租户下待分配的席位列表，包含席位名称、席位ID、数量及对应有效期。</para>
+/// <para>返回的待分配席位范围为：​</para>
+/// <para>1. 客户当前已订阅且处于生效状态的席位（注：不包含增购的、尚未生效的未来席位）；​</para>
+/// <para>2. 客户已订阅且未来生效的全新订阅席位。​</para>
+/// <para>即增购的未来席位不在本接口返回的待分配席位列表范围内。</para>
 /// <para>接口ID：7204729599813222401</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/tenant-v2/tenant-product_assign_info/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftenant-v2%2ftenant-product_assign_info%2fquery</para>
@@ -52,7 +56,7 @@ public record GetTenantV2TenantAssignInfoListQueryResponseDto
         /// <summary>
         /// <para>商业化产品名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：旗舰版E5</para>
+        /// <para>示例值：旗舰版 E5</para>
         /// </summary>
         [JsonPropertyName("product_name")]
         public string? ProductName { get; set; }
