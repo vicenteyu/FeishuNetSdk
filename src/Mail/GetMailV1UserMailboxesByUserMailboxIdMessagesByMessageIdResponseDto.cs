@@ -4,7 +4,7 @@
 // Created          : 2025-04-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-04-11
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -181,6 +181,23 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
             /// </summary>
             [JsonPropertyName("attachment_type")]
             public int? AttachmentType { get; set; }
+
+            /// <summary>
+            /// <para>是否为内联图片，true 表示是内联图片</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// <para>默认值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_inline")]
+            public bool? IsInline { get; set; }
+
+            /// <summary>
+            /// <para>内容 ID，HTML 中通过 cid: 协议引用该图片</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：image1@example.com</para>
+            /// </summary>
+            [JsonPropertyName("cid")]
+            public string? Cid { get; set; }
         }
 
         /// <summary>

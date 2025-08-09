@@ -27007,7 +27007,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 目前仅支持添加用户类型的成员，暂不支持添加部门类型的成员。</para>
     /// <para>- 如果应用的通讯录权限范围是 **全部员工**，则可以将当前租户内的任何用户添加到任何用户组当中。如果应用的通讯录权限范围不是 **全部员工**，则所要添加的用户以及对应的用户组，均需要在应用的通讯录权限范围内。了解通讯录权限范围，可参见[权限范围资源介绍](https://open.feishu.cn/document/ukTMukTMukTM/uETNz4SM1MjLxUzM/v3/guides/scope_authority)。</para>
     /// <para>## 使用限制</para>
-    /// <para>单租户内单个普通用户组的成员数量上限为 100,000，但需要注意，单租户内所有普通用户组的成员数量总和不能超过当前租户成员数量的 10 倍。</para>
+    /// <para>单租户内单个普通用户组的成员数量上限为 100,000。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:group</item>
     /// </list></para>
@@ -34297,6 +34297,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/tenant-v2/tenant-product_assign_info/query</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>获取租户下待分配的席位列表，包含席位名称、席位ID、数量及对应有效期。</para>
+    /// <para>返回的待分配席位范围为：​</para>
+    /// <para>1. 客户当前已订阅且处于生效状态的席位（注：不包含增购的、尚未生效的未来席位）；​</para>
+    /// <para>2. 客户已订阅且未来生效的全新订阅席位。​</para>
+    /// <para>即增购的未来席位不在本接口返回的待分配席位列表范围内。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>tenant:tenant.product_assign_info:read</item>
     /// </list></para>

@@ -137,7 +137,7 @@
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">69</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>消息与群组</td><td>更新已发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
-<tr><td rowspan="2">70</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
+<tr><td rowspan="2">70</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">71</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationId</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1153,7 +1153,7 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
 <tr><td rowspan="2">577</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
 <tr><td rowspan="2">579</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>

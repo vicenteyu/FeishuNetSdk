@@ -4,7 +4,7 @@
 // Created          : 2024-11-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-27
+// Last Modified On : 2025-08-10
 // ************************************************************************
 // <copyright file="PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,6 +59,14 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
     }
 
     /// <summary>
+    /// <para>eml数据</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：U3ViamVjdDogSGVsbG8hCkZyb206ICJtaWtlIiA8bWlrZUBtaWtlLmNvbT4KTWltZS1WZXJzaW9uOiAxLjAKQ29udGVudC1UeXBlOiBtdWx0aXBhcnQvYWx0ZXJuYXRpdmU7CiBib3VuZGFyeT1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKRGF0ZTogV2VkLCAyMyBKdWwgMjAyNSAxNTo0NDoxOCArMDgwMApNZXNzYWdlLUlkOiA8bW9ja3V1aWRtZXNzYWdlX2lkQGxhcmsuY29tPgpUbzogImphY2siIDxqYWNrQGphY2suY29tPgoKLS1iMjhmYTIyNGExZWU2ZDY3ZjE3OTViNGUxZDEwM2Q3MTBlNzM5ZWVmYjFmZjlmOWQ4NWI4M2NlOTRmMTEKQ29udGVudC1UcmFuc2Zlci1FbmNvZGluZzogN2JpdApDb250ZW50LVR5cGU6IHRleHQvcGxhaW47IGNoYXJzZXQ9VVRGLTgKCldlbGNvbWUgdG8gTGFyayBtYWlsIQotLWIyOGZhMjI0YTFlZTZkNjdmMTc5NWI0ZTFkMTAzZDcxMGU3MzllZWZiMWZmOWY5ZDg1YjgzY2U5NGYxMQo=</para>
+    /// </summary>
+    [JsonPropertyName("raw")]
+    public string? Raw { get; set; }
+
+    /// <summary>
     /// <para>抄送</para>
     /// <para>必填：否</para>
     /// </summary>
@@ -66,18 +74,18 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
     public MailAddress[]? Ccs { get; set; }
 
     /// <summary>
-    /// <para>秘送</para>
+    /// <para>密送</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("bcc")]
     public MailAddress[]? Bccs { get; set; }
 
     /// <summary>
-    /// <para>发件人</para>
+    /// <para>EML中的发件人信息</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("head_from")]
-    public MailAddress? HeadFrom { get; set; }
+    public object? HeadFrom { get; set; }
 
     /// <summary>
     /// <para>正文</para>
@@ -90,21 +98,20 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
     /// <summary>
     /// <para>正文纯文本</para>
     /// <para>必填：否</para>
-    /// <para>示例值：xxxxx</para>
+    /// <para>示例值：xxxx</para>
     /// </summary>
     [JsonPropertyName("body_plain_text")]
     public string? BodyPlainText { get; set; }
 
     /// <summary>
-    /// <para>邮件附件列表</para>
+    /// <para>附件</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：501</para>
     /// </summary>
     [JsonPropertyName("attachments")]
     public Attachment[]? Attachments { get; set; }
 
     /// <summary>
-    /// <para>邮件附件列表</para>
+    /// <para>附件</para>
     /// </summary>
     public record Attachment
     {
@@ -124,13 +131,52 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
         /// </summary>
         [JsonPropertyName("filename")]
         public string Filename { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>附件 id</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf</para>
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// <para>附件类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：2</para>
+        /// <para>最小值：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：普通附件</item>
+        /// <item>2：超大附件</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("attachment_type")]
+        public int? AttachmentType { get; set; }
+
+        /// <summary>
+        /// <para>是否为内联图片，true 表示是内联图片</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_inline")]
+        public bool? IsInline { get; set; }
+
+        /// <summary>
+        /// <para>内容 ID，HTML 中通过 cid: 协议引用该图片</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：image1@example.com</para>
+        /// </summary>
+        [JsonPropertyName("cid")]
+        public string? Cid { get; set; }
     }
 
     /// <summary>
-    /// <para>会话id</para>
+    /// <para>去重键</para>
     /// <para>必填：否</para>
-    /// <para>示例值：tfuh9N4WnzU6jdDw=</para>
+    /// <para>示例值：abc-ddd-eee-fff-ggg</para>
     /// </summary>
-    [JsonPropertyName("thread_id")]
-    public string? ThreadId { get; set; }
+    [JsonPropertyName("dedupe_key")]
+    public string? DedupeKey { get; set; }
 }
