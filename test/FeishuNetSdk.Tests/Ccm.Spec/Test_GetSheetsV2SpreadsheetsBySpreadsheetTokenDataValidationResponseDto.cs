@@ -38,7 +38,6 @@ public class Test_GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationRespons
                     "33.3333",
                     "ss"
                 ],
-                "dataValidationId": 3,
                 "dataValidationType": "list",
                 "options": {
                     "colorValueMap": {
@@ -50,7 +49,12 @@ public class Test_GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationRespons
                     },
                     "highlightValidData": true,
                     "multipleValues": true
-                }
+                },
+                "ranges":[
+                    "4d30c6!A1:A2",
+                    "4d30c6!A4:A4",
+                    "4d30c6!B1:B2"
+                ]
             }
         ],
         "revision": 78,

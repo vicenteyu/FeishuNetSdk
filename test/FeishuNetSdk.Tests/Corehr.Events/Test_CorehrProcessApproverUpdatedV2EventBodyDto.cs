@@ -44,7 +44,8 @@ public class Test_CorehrProcessApproverUpdatedV2EventBodyDto : TestBase
         "biz_type": "renewal_record",
         "flow_definition_id": "people_7182520625066475540_7222929439175839532",
         "node_definition_id": "approval_7c7d9c4d25b",
-        "node_id": "7369419552616089132"
+        "node_id": "7369419552616089132",
+        "node_id_str": "7369419552616089132"
     }
 }
 """;

@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="CorehrProcessApproverUpdatedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -51,13 +51,14 @@ public record CorehrProcessApproverUpdatedV2EventBodyDto() : EventBodyDto("coreh
     /// <summary>
     /// <para>单据状态</para>
     /// <para>**可选值有**：</para>
-    /// <para>1:待办,3:已完成,2:拒绝,4:取消</para>
+    /// <para>1:待办,3:已完成,2:拒绝,4:取消,18:已干预</para>
     /// <para>必填：否</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：待办</item>
     /// <item>3：已完成</item>
     /// <item>2：拒绝</item>
     /// <item>4：取消</item>
+    /// <item>18：已干预</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("status")]
@@ -87,9 +88,16 @@ public record CorehrProcessApproverUpdatedV2EventBodyDto() : EventBodyDto("coreh
     public string? NodeDefinitionId { get; set; }
 
     /// <summary>
-    /// <para>节点id</para>
+    /// <para>节点id（已废弃，请使用node_id_str字段)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("node_id")]
     public string? NodeId { get; set; }
+
+    /// <summary>
+    /// <para>节点id</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("node_id_str")]
+    public string? NodeIdStr { get; set; }
 }

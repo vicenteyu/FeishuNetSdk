@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,7 +23,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
 {
     /// <summary>
-    /// <para>指定要删除的下拉列表的范围和 ID。可指定多个范围。</para>
+    /// <para>指定要删除的下拉列表的范围。可指定多个范围。</para>
     /// <para>**注意**：</para>
     /// <para>- 删除某个范围失败不影响其它范围的执行。响应体中将返回每个范围的执行结果。</para>
     /// <para>- 单个范围指定的单元格不可超过 5,000 个，范围的总数不可超过 100 个。</para>
@@ -43,12 +43,5 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
         /// </summary>
         [JsonPropertyName("range")]
         public string Range { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>要删除的下拉列表的 ID。可通过调用[查询下拉列表设置](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation)获取</para>
-        /// <para>必填：是</para>
-        /// </summary>
-        [JsonPropertyName("dataValidationIds")]
-        public int[] DataValidationIds { get; set; } = Array.Empty<int>();
     }
 }

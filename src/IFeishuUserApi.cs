@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-10
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2386,21 +2386,15 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// </param>
-    /// <param name="dataValidationId">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>电子表格工作表中下拉列表的 ID。调用[查询下拉列表](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation)获取 ID。</para>
-    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
-    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}/{dataValidationId}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdAsync(
         UserAccessToken access_token,
         [PathQuery] string spreadsheetToken,
         [PathQuery] string sheetId,
-        [PathQuery] int dataValidationId,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto,
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -24803,6 +24797,38 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? revision_id = -1,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【招聘】获取申请表模板列表</para>
+    /// <para>接口ID：7451965544983871516</para>
+    /// <para>接口文档：https://open.feishu.cn/document/hire-v1/portal_apply_schema/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取招聘官网申请表模板列表，在官网申请职位时，申请表需按照官网申请表模板的格式进行填写。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:site</item>
+    /// <item>hire:site:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6930815272790114324</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v1/portal_apply_schemas")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1PortalApplySchemasResponseDto>> GetHireV1PortalApplySchemasAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

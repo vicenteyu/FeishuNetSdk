@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="FeishuNetSdkExtensions.cs" company="Vicente Yu">
 //     MIT
@@ -25,16 +25,16 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class FeishuNetSdkExtensions
     {
-        private static void HttpApiOptions(WebApiClientCore.HttpApiOptions option)
+        private static readonly Action<WebApiClientCore.HttpApiOptions> defaultHttpApiOptions = option =>
         {
             option.JsonSerializeOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
             option.KeyValueSerializeOptions.IgnoreNullValues = true;
-        }
+        };
 
-        private static void HttpClientOptions(HttpClient option)
+        private static readonly Action<HttpClient> defaultHttpClientOptions = option =>
         {
             option.Timeout = TimeSpan.FromMinutes(5);
-        }
+        };
 
         /// <summary>
         /// 使用参数方式注册SDK
@@ -46,6 +46,8 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="VerificationToken">事件订阅 验证应用的密钥</param>
         /// <param name="EnableLogging">启用日志 （true = 启用， false = 关闭， 默认 = 启用）</param>
         /// <param name="IgnoreStatusException">忽略状态异常错误（true = 忽略， false = 启用， 默认 = 忽略）</param>
+        /// <param name="httpApiOptions">HttpApi选项</param>
+        /// <param name="httpClientOptions">HttpClient选项</param>
         /// <returns></returns>
         public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
             string AppId,
@@ -53,7 +55,9 @@ namespace Microsoft.Extensions.DependencyInjection
             string? EncryptKey = null,
             string? VerificationToken = null,
             bool EnableLogging = true,
-            bool IgnoreStatusException = true)
+            bool IgnoreStatusException = true,
+            Action<WebApiClientCore.HttpApiOptions>? httpApiOptions = null,
+            Action<HttpClient>? httpClientOptions = null)
         {
             services.Configure((FeishuNetSdkOptions options) =>
             {
@@ -64,41 +68,50 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.EnableLogging = EnableLogging;
                 options.IgnoreStatusException = IgnoreStatusException;
             });
-            return services.AddFeishuNetSdk();
+            return services.AddFeishuNetSdk(httpApiOptions, httpClientOptions);
         }
 
         /// <summary>
         /// 使用配置文件方式注册SDK
         /// </summary>
         public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
-            IConfigurationSection config)
+            IConfigurationSection config,
+            Action<WebApiClientCore.HttpApiOptions>? httpApiOptions = null,
+            Action<HttpClient>? httpClientOptions = null)
         {
             services.Configure<FeishuNetSdkOptions>(config);
-            return services.AddFeishuNetSdk();
+            return services.AddFeishuNetSdk(httpApiOptions, httpClientOptions);
         }
 
         /// <summary>
         /// 使用委托方式注册SDK
         /// </summary>
         public static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
-            Action<FeishuNetSdkOptions> configureOptions)
+            Action<FeishuNetSdkOptions> configureOptions,
+            Action<WebApiClientCore.HttpApiOptions>? httpApiOptions = null,
+            Action<HttpClient>? httpClientOptions = null)
         {
             services.Configure(configureOptions);
-            return services.AddFeishuNetSdk();
+            return services.AddFeishuNetSdk(httpApiOptions, httpClientOptions);
         }
 
         /// <summary>
         /// 注册SDK
         /// </summary>
-        private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services)
+        private static IServiceCollection AddFeishuNetSdk(this IServiceCollection services,
+            Action<WebApiClientCore.HttpApiOptions>? httpApiOptions = null,
+            Action<HttpClient>? httpClientOptions = null)
         {
             services.AddWebApiClient()
                 .UseJsonFirstApiActionDescriptor();
 
-            services.AddHttpApi<IFeishuApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
-            services.AddHttpApi<IFeishuAppApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
-            services.AddHttpApi<IFeishuTenantApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
-            services.AddHttpApi<IFeishuUserApi>(HttpApiOptions).ConfigureHttpClient(HttpClientOptions);
+            var finalHttpApiOptions = httpApiOptions ?? defaultHttpApiOptions;
+            var finalHttpClientOptions = httpClientOptions ?? defaultHttpClientOptions;
+
+            services.AddHttpApi<IFeishuApi>(finalHttpApiOptions).ConfigureHttpClient(finalHttpClientOptions);
+            services.AddHttpApi<IFeishuAppApi>(finalHttpApiOptions).ConfigureHttpClient(finalHttpClientOptions);
+            services.AddHttpApi<IFeishuTenantApi>(finalHttpApiOptions).ConfigureHttpClient(finalHttpClientOptions);
+            services.AddHttpApi<IFeishuUserApi>(finalHttpApiOptions).ConfigureHttpClient(finalHttpClientOptions);
 
             services.TryAddSingleton<IEventCallbackServiceProvider, EventCallbackServiceProvider>();
 

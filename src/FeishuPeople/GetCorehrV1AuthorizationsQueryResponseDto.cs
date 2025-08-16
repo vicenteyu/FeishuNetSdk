@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-31
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="GetCorehrV1AuthorizationsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -97,7 +97,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：部门经理</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -105,7 +105,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：department manager</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -134,7 +134,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：中文描述</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -142,7 +142,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：英文描述</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -150,6 +150,8 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
 
                 /// <summary>
                 /// <para>角色类型</para>
+                /// <para>- 3 = 组织类角色</para>
+                /// <para>- 7 = 非组织类角色</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：1</para>
                 /// </summary>
@@ -165,9 +167,9 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                 public string CreatedBy { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>更新时间</para>
+                /// <para>更新时间，单位为秒（秒级时间戳）</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：1</para>
+                /// <para>示例值：1720584039</para>
                 /// </summary>
                 [JsonPropertyName("update_time")]
                 public string UpdateTime { get; set; } = string.Empty;
@@ -205,7 +207,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     public int? Type { get; set; }
 
                     /// <summary>
-                    /// <para>下钻深度</para>
+                    /// <para>下钻深度（单位：层）</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
                     /// <para>最大值：100</para>
@@ -259,7 +261,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：部门</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -267,7 +269,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：department</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -308,7 +310,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <summary>
                     /// <para>维度的key</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：员工</para>
+                    /// <para>示例值：user</para>
                     /// </summary>
                     [JsonPropertyName("entity_key")]
                     public string? EntityKey { get; set; }
@@ -328,7 +330,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                         /// <summary>
                         /// <para>中文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：cn</para>
+                        /// <para>示例值：员工</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
@@ -336,7 +338,7 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：en</para>
+                        /// <para>示例值：User</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -465,8 +467,8 @@ public record GetCorehrV1AuthorizationsQueryResponseDto : IPageableResponse<GetC
                     /// <para>必填：否</para>
                     /// <para>示例值：1 and 2</para>
                     /// </summary>
-                    [JsonPropertyName("expression")]
-                    public string? Expression { get; set; }
+                    [JsonPropertyName("logic_expression")]
+                    public string? LogicExpression { get; set; }
                 }
             }
 

@@ -133,15 +133,15 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchUpdate</td></tr>
 <tr><td rowspan="2">67</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>删除保护范围</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel</td></tr>
-<tr><td rowspan="2">68</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
+<tr><td rowspan="2">68</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>云文档</td><td>查询下拉列表设置</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">69</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>消息与群组</td><td>更新已发送的消息卡片</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageId</td></tr>
 <tr><td rowspan="2">70</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>云文档</td><td>设置下拉列表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
-<tr><td rowspan="2">71</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
-<tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationId</td></tr>
-<tr><td rowspan="2">72</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
+<tr><td rowspan="2">71</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>云文档</td><td>更新下拉列表设置</td></tr>
+<tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetId</td></tr>
+<tr><td rowspan="2">72</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>云文档</td><td>删除下拉列表设置</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidation</td></tr>
 <tr><td rowspan="2">73</td><td rowspan="2">2024-08-09</td><td>&#10003;</td><td>云文档</td><td>批量获取条件格式</td></tr>
 <tr><td colspan="3">GetSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormats</td></tr>
@@ -713,7 +713,7 @@
 <tr><td colspan="3">PostSearchV2Message</td></tr>
 <tr><td rowspan="2">357</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索应用</td></tr>
 <tr><td colspan="3">PostSearchV2App</td></tr>
-<tr><td rowspan="2">358</td><td rowspan="2">2025-05-26</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
+<tr><td rowspan="2">358</td><td rowspan="2">2025-08-11</td><td>&#10003;</td><td>消息与群组</td><td>添加会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabs</td></tr>
 <tr><td rowspan="2">359</td><td rowspan="2">2024-04-25</td><td>&#10003;</td><td>OKR</td><td>获取用户的 OKR 列表</td></tr>
 <tr><td colspan="3">GetOkrV1UsersByUserIdOkrs</td></tr>
@@ -757,7 +757,7 @@
 <tr><td colspan="3">GetLingoV1Classifications</td></tr>
 <tr><td rowspan="2">379</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>获取词库列表</td></tr>
 <tr><td colspan="3">GetLingoV1Repos</td></tr>
-<tr><td rowspan="2">380</td><td rowspan="2">2025-05-26</td><td>&#10003;</td><td>消息与群组</td><td>更新会话标签页</td></tr>
+<tr><td rowspan="2">380</td><td rowspan="2">2025-08-11</td><td>&#10003;</td><td>消息与群组</td><td>更新会话标签页</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdChatTabsUpdateTabs</td></tr>
 <tr><td rowspan="2">381</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>上传图片</td></tr>
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
@@ -1043,7 +1043,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2025-08-13</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-08-30</td><td><span style="color:red;">删除</span></td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
@@ -1071,7 +1071,7 @@
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
 <tr><td rowspan="2">536</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>查询技能列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
-<tr><td rowspan="2">537</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
+<tr><td rowspan="2">537</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">538</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
@@ -1153,7 +1153,7 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
 <tr><td rowspan="2">577</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2025-08-08</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
 <tr><td rowspan="2">579</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>
@@ -1253,4 +1253,6 @@
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
 <tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
+<tr><td rowspan="2">628</td><td rowspan="2">2025-08-15</td><td>新增</td><td>招聘</td><td>获取申请表模板列表</td></tr>
+<tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
 </tbody></table>

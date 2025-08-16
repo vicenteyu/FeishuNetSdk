@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="GetCorehrV1AuthorizationsGetByParamResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -43,14 +43,18 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
         public string EmploymentId { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>授权列表</para>
+        /// <para>授权列表。</para>
+        /// <para>“按组织架构管理”的角色保留assigned_organization_list</para>
+        /// <para>“不按组织架构管理” 角色保留grantor_rule_list</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("permission_detail_list")]
         public PermissionDetail[] PermissionDetailLists { get; set; } = Array.Empty<PermissionDetail>();
 
         /// <summary>
-        /// <para>授权列表</para>
+        /// <para>授权列表。</para>
+        /// <para>“按组织架构管理”的角色保留assigned_organization_list</para>
+        /// <para>“不按组织架构管理” 角色保留grantor_rule_list</para>
         /// </summary>
         public record PermissionDetail
         {
@@ -97,7 +101,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：部门经理</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -105,7 +109,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：department manager</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -126,7 +130,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：描述</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -134,7 +138,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：description</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -173,7 +177,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     public int? Type { get; set; }
 
                     /// <summary>
-                    /// <para>下钻深度</para>
+                    /// <para>下钻深度，层</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：0</para>
                     /// <para>最大值：100</para>
@@ -221,7 +225,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>中文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：cn</para>
+                    /// <para>示例值：部门</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
@@ -229,7 +233,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     /// <summary>
                     /// <para>英文</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：en</para>
+                    /// <para>示例值：department</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -292,7 +296,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                         /// <summary>
                         /// <para>中文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：cn</para>
+                        /// <para>示例值：员工</para>
                         /// </summary>
                         [JsonPropertyName("zh_cn")]
                         public string? ZhCn { get; set; }
@@ -300,7 +304,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                         /// <summary>
                         /// <para>英文</para>
                         /// <para>必填：否</para>
-                        /// <para>示例值：en</para>
+                        /// <para>示例值：User</para>
                         /// </summary>
                         [JsonPropertyName("en_us")]
                         public string? EnUs { get; set; }
@@ -425,12 +429,12 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                     }
 
                     /// <summary>
-                    /// <para>筛选条件间的逻辑关系</para>
+                    /// <para>表达式</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：1 and 2</para>
                     /// </summary>
-                    [JsonPropertyName("expression")]
-                    public string? Expression { get; set; }
+                    [JsonPropertyName("logic_expression")]
+                    public string? LogicExpression { get; set; }
                 }
             }
 

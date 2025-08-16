@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -55,11 +55,12 @@ public record GetSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationResponseDto
     public record DataValidation
     {
         /// <summary>
-        /// <para>下拉列表的 ID</para>
+        /// <para>下拉列表所属的范围，按照列进行聚合。</para>
+        /// <para>例如 4d30c6 子表中，A1、A2、A4、B1、B2 都是该下拉列表，则该下拉列表对应的 Ranges 为["4d30c6!A1:A2","4d30c6!A4:A4","4d30c6!B1:B2"]</para>
         /// <para>必填：否</para>
         /// </summary>
-        [JsonPropertyName("dataValidationId")]
-        public int? DataValidationId { get; set; }
+        [JsonPropertyName("ranges")]
+        public string[]? Ranges { get; set; }
 
         /// <summary>
         /// <para>数据验证的类型。下拉列表为 "list"。</para>

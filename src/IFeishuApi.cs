@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-22
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="IFeishuApi.cs" company="Vicente Yu">
 //     MIT
@@ -111,7 +111,7 @@ public interface IFeishuApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/authen/v2/oauth/token")]
-    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostAuthenV2OauthRefreshTokenResponseDto>> PostAuthenV2OauthRefreshTokenAsync(
+    System.Threading.Tasks.Task<Auth.Spec.PostAuthenV2OauthRefreshTokenResponseDto> PostAuthenV2OauthRefreshTokenAsync(
         [JsonContent] Auth.Spec.PostAuthenV2OauthRefreshTokenBodyDto dto,
         CancellationToken cancellation_token = default);
 
@@ -127,8 +127,18 @@ public interface IFeishuApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/authen/v2/oauth/token")]
-    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostAuthenV2OauthTokenResponseDto>> PostAuthenV2OauthTokenAsync(
+    System.Threading.Tasks.Task<Auth.Spec.PostAuthenV2OauthTokenResponseDto> PostAuthenV2OauthTokenAsync(
         [JsonContent] Auth.Spec.PostAuthenV2OauthTokenBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// 获取长连接地址
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/callback/ws/endpoint")]
+    System.Threading.Tasks.Task<FeishuResponse<Auth.Spec.PostCallbackWsEndpointResponseDto>> PostCallbackWsEndpointAsync(
+        [JsonContent] Auth.Spec.PostCallbackWsEndpointBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

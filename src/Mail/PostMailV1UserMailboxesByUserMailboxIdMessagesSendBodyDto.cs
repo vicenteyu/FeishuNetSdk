@@ -4,7 +4,7 @@
 // Created          : 2024-11-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-10
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -81,13 +81,6 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
     public MailAddress[]? Bccs { get; set; }
 
     /// <summary>
-    /// <para>EML中的发件人信息</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("head_from")]
-    public object? HeadFrom { get; set; }
-
-    /// <summary>
     /// <para>正文</para>
     /// <para>必填：否</para>
     /// <para>示例值：xxxx</para>
@@ -133,28 +126,6 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
         public string Filename { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>附件 id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：YQqYbQHoQoDqXjxWKhJbo8Gicjf</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// <para>附件类型</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：1</para>
-        /// <para>最大值：2</para>
-        /// <para>最小值：1</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>1：普通附件</item>
-        /// <item>2：超大附件</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("attachment_type")]
-        public int? AttachmentType { get; set; }
-
-        /// <summary>
         /// <para>是否为内联图片，true 表示是内联图片</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
@@ -179,4 +150,11 @@ public record PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto
     /// </summary>
     [JsonPropertyName("dedupe_key")]
     public string? DedupeKey { get; set; }
+
+    /// <summary>
+    /// <para>EML中发件人信息</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("head_from")]
+    public MailAddress? HeadFrom { get; set; }
 }

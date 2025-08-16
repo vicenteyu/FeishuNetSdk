@@ -48,7 +48,7 @@ public class Test_PostImV1ChatsByChatIdChatTabsUpdateTabsResponseDto : TestBase
                 "tab_name": "url-update",
                 "tab_type": "url",
                 "tab_content": {
-                    "doc": "https://www.feishu.cn/"
+                    "url": "https://www.feishu.cn/"
                 }
             }
         ]
