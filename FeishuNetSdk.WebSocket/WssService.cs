@@ -57,7 +57,7 @@ namespace FeishuNetSdk.WebSocket
         /// </summary>
         protected override async System.Threading.Tasks.Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            await StartConnectAsync();
+            await StartConnectAsync(stoppingToken);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace FeishuNetSdk.WebSocket
             await base.StopAsync(cancellationToken);
         }
 
-        private async Task<string> GetWssEndpointAsync()
+        private async Task<string> GetWssEndpointAsync(CancellationToken stoppingToken)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace FeishuNetSdk.WebSocket
                 {
                     AppId = options.CurrentValue.AppId,
                     AppSecret = options.CurrentValue.AppSecret
-                });
+                }, stoppingToken);
 
                 if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
                     throw new TokenException(result?.Msg ?? "长连接出现异常");
@@ -95,11 +95,11 @@ namespace FeishuNetSdk.WebSocket
             }
         }
 
-        private async System.Threading.Tasks.Task StartConnectAsync()
+        private async System.Threading.Tasks.Task StartConnectAsync(CancellationToken stoppingToken)
         {
             try
             {
-                var endpoint = await GetWssEndpointAsync();
+                var endpoint = await GetWssEndpointAsync(stoppingToken);
 
                 _wsClient = new WatsonWsClient(new Uri(endpoint));
                 _wsClient.ServerConnected += ServerConnected;
@@ -112,7 +112,7 @@ namespace FeishuNetSdk.WebSocket
             catch (Exception ex)
             {
                 logger.LogError(ex, "启动连接时出现异常");
-                await TryReconnectAsync();
+                await TryReconnectAsync(stoppingToken);
             }
         }
 
@@ -170,13 +170,13 @@ namespace FeishuNetSdk.WebSocket
             logger.LogInformation("长连接已连接");
         }
 
-        private async System.Threading.Tasks.Task TryReconnectAsync()
+        private async System.Threading.Tasks.Task TryReconnectAsync(CancellationToken stoppingToken = default)
         {
             if (_reconnectAttempts < MaxReconnectAttempts)
             {
                 _reconnectAttempts++;
-                await System.Threading.Tasks.Task.Delay(ReconnectInterval);
-                await StartConnectAsync();
+                await System.Threading.Tasks.Task.Delay(ReconnectInterval, stoppingToken);
+                await StartConnectAsync(stoppingToken);
             }
             else
             {

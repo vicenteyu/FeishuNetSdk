@@ -4,9 +4,9 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-16
 // ************************************************************************
-// <copyright file="PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto.cs" company="Vicente Yu">
+// <copyright file="PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>更新下拉列表设置 响应体</summary>
@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/datavalidation/update-datavalidation</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuATMzUjLwEzM14CMxMTN%2fdatavalidation%2fupdate-datavalidation</para>
 /// </summary>
-public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto
+public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto
 {
     /// <summary>
     /// <para>电子表格的 token</para>
@@ -45,13 +45,6 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBy
     /// <summary></summary>
     public record DataValidationSuffix
     {
-        /// <summary>
-        /// <para>下拉列表的 ID</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("dataValidationId")]
-        public int? DataValidationId { get; set; }
-
         /// <summary>
         /// <para>数据验证的类型。下拉列表为 "list"。</para>
         /// <para>必填：否</para>

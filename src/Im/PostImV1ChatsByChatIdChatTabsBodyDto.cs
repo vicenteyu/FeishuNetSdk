@@ -44,7 +44,7 @@ public record PostImV1ChatsByChatIdChatTabsBodyDto
     {
         /// <summary>
         /// <para>会话标签页名称</para>
-        /// <para>**注意**：会话标签页的名称不能超过 30 个字符（最多 10 个汉字）</para>
+        /// <para>**注意**：会话标签页的名称不能超过 60 个字符</para>
         /// <para>必填：否</para>
         /// <para>示例值：文档</para>
         /// </summary>
@@ -87,7 +87,9 @@ public record PostImV1ChatsByChatIdChatTabsBodyDto
         {
             /// <summary>
             /// <para>URL 地址，在 tab_type 取值为 url 时生效</para>
-            /// <para>**注意**：必须以 http 或 https 开头</para>
+            /// <para>**注意**：</para>
+            /// <para>- tab_type 取值为 url 时url不能为空</para>
+            /// <para>- 必须以 http 或 https 开头</para>
             /// <para>必填：否</para>
             /// <para>示例值：https://www.feishu.cn</para>
             /// </summary>
@@ -97,6 +99,7 @@ public record PostImV1ChatsByChatIdChatTabsBodyDto
             /// <summary>
             /// <para>云文档链接，在 tab_type 取值为 doc 时生效</para>
             /// <para>**注意**：</para>
+            /// <para>- tab_type 取值为 doc 时doc不能为空</para>
             /// <para>- 必须以 http 或 https 开头</para>
             /// <para>- 当前操作者必须有云文档的协作者权限</para>
             /// <para>必填：否</para>

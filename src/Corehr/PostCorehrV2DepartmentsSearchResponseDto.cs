@@ -155,6 +155,7 @@ public record PostCorehrV2DepartmentsSearchResponseDto : IPageableResponse<PostC
         /// <para>- 创建部门场景tree_order不会实时生成，10分钟内更新完毕</para>
         /// <para>- 在页面拖动部门排序时tree_order可以实时生成</para>
         /// <para>- 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕</para>
+        /// <para>- 同层部门（相同上级）数量超过1000时，该字段不再更新</para>
         /// <para>必填：否</para>
         /// <para>示例值：001000</para>
         /// </summary>
@@ -165,6 +166,7 @@ public record PostCorehrV2DepartmentsSearchResponseDto : IPageableResponse<PostC
         /// <para>列表排序，代表所有部门的混排序号，为该部门上级路径上所有tree_order用“-”拼接。</para>
         /// <para>- 该字段在新建/更新场景非立即更新，10分钟后会延迟更新</para>
         /// <para>- 由于list_order变更会导致[部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/events/updated)产生大量事件，因此事件接口不会针对该字段同步变更事件，如果有需求订阅请联系[Oncall](https://applink.feishu.cn/TLJpeNdW)单独开启。</para>
+        /// <para>- 同层部门（相同上级）数量超过1000时，该字段不再更新</para>
         /// <para>必填：否</para>
         /// <para>示例值：001000-001000</para>
         /// </summary>

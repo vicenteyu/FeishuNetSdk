@@ -38,12 +38,12 @@ public class Test_GetCorehrV1AuthorizationsGetByParamResponseDto : TestBase
                         "id": "7034393015968122400",
                         "code": "department_manager",
                         "name": {
-                            "zh_cn": "cn",
-                            "en_us": "en"
+                            "zh_cn": "部门经理",
+                            "en_us": "department manager"
                         },
                         "description": {
-                            "zh_cn": "cn",
-                            "en_us": "en"
+                            "zh_cn": "描述",
+                            "en_us": "description"
                         },
                         "org_truncation": [
                             {
@@ -58,8 +58,8 @@ public class Test_GetCorehrV1AuthorizationsGetByParamResponseDto : TestBase
                             {
                                 "org_key": "department",
                                 "org_name": {
-                                    "zh_cn": "cn",
-                                    "en_us": "en"
+                                    "zh_cn": "部门",
+                                    "en_us": "department"
                                 },
                                 "org_id_list": [
                                     "6967639606963471902"
@@ -72,8 +72,8 @@ public class Test_GetCorehrV1AuthorizationsGetByParamResponseDto : TestBase
                             "rule_dimension": {
                                 "entity_key": "员工",
                                 "entity_name": {
-                                    "zh_cn": "cn",
-                                    "en_us": "en"
+                                    "zh_cn": "员工",
+                                    "en_us": "User"
                                 }
                             },
                             "rule_type": 1,
@@ -96,7 +96,7 @@ public class Test_GetCorehrV1AuthorizationsGetByParamResponseDto : TestBase
                                         "right_value_type": 1
                                     }
                                 ],
-                                "expression": "1 and 2"
+                                "logic_expression": "1 and 2"
                             }
                         }
                     ],

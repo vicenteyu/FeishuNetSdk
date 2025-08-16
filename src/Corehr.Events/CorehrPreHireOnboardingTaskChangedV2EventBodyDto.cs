@@ -109,7 +109,7 @@ public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto(
         /// <summary>
         /// <para>入职流程状态变更</para>
         /// <para>**可选值有**：</para>
-        /// <para>not_started:未开始,in_progress:进行中,completed:已完成（完成入职）,withdrawn:已撤销（撤销待入职）,others:其他(异常情况),expired:已失效(回退待入职)</para>
+        /// <para>not_started:未开始,in_progress:进行中,completed:已完成（完成入职）,withdrawn:已撤销（撤销待入职）,others:其他(异常情况),expired:已失效(回退至Offer沟通阶段)</para>
         /// <para>必填：否</para>
         /// <para>可选值：<list type="bullet">
         /// <item>not_started：未开始</item>
@@ -117,7 +117,7 @@ public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto(
         /// <item>completed：已完成（完成入职）</item>
         /// <item>withdrawn：已撤销（撤销待入职）</item>
         /// <item>others：其他(异常情况)</item>
-        /// <item>expired：已失效(回退待入职)</item>
+        /// <item>expired：已失效(回退至Offer沟通阶段)</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("after_status")]

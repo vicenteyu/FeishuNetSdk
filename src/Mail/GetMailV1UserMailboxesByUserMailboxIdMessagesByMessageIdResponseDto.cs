@@ -108,7 +108,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
         public string? InternalDate { get; set; }
 
         /// <summary>
-        /// <para>邮件状态</para>
+        /// <para>邮件状态，1为收信，2为发信，3为草稿</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

@@ -33,7 +33,7 @@ public record PostHireV1TalentsCombinedUpdateBodyDto
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_object/query)接口查询</para>
+    /// <para>简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list)接口查询</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -100,7 +100,7 @@ public record PostHireV1TalentsCombinedUpdateBodyDto
         /// <summary>
         /// <para>手机</para>
         /// <para>必填：否</para>
-        /// <para>示例值：182900291190</para>
+        /// <para>示例值：182xxxx9190</para>
         /// </summary>
         [JsonPropertyName("mobile")]
         public string? Mobile { get; set; }

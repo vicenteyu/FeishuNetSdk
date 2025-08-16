@@ -29,10 +29,8 @@ public class Test_DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBody
 {
     "dataValidationRanges":[
         {
-            "range": "4d30c6!A10:C10",
-            "dataValidationIds": [1,2]
+            "range": "4d30c6!A10:C10"
         }
-
     ]
 }
 """;

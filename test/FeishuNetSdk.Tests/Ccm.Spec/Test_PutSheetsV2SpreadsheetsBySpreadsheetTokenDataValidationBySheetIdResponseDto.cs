@@ -1,12 +1,12 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2025-06-24
+// Created          : 2025-08-16
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-16
 // ************************************************************************
-// <copyright file="Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto.cs" company="Vicente Yu">
+// <copyright file="Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>测试 更新下拉列表设置 响应体</summary>
@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Tests.Ccm.Spec;
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuATMzUjLwEzM14CMxMTN%2fdatavalidation%2fupdate-datavalidation</para>
 /// </summary>
 [TestClass]
-public class Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto : TestBase
+public class Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto : TestBase
 {
     [TestMethod]
     public void TestDto()
@@ -35,7 +35,6 @@ public class Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheet
                 "2",
                 "4"
             ],
-            "dataValidationId": 2,
             "dataValidationType": "list",
             "options": {
                 "colorValueMap": {
@@ -53,7 +52,7 @@ public class Test_PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheet
     "msg": "Success"
 }
 """;
-        var result = Deserialize<FeishuResponse<FeishuNetSdk.Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto>>(json);
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto>>(json);
         Assert.IsNotNull(result);
     }
 }

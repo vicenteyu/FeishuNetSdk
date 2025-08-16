@@ -4,9 +4,9 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2024-08-16
 // ************************************************************************
-// <copyright file="PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto.cs" company="Vicente Yu">
+// <copyright file="PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>更新下拉列表设置 请求体</summary>
@@ -19,8 +19,18 @@ namespace FeishuNetSdk.Ccm.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/sheets-v3/datavalidation/update-datavalidation</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuATMzUjLwEzM14CMxMTN%2fdatavalidation%2fupdate-datavalidation</para>
 /// </summary>
-public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto
+public record PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBodyDto
 {
+    /// <summary>
+    /// <para>更新的范围。格式为 `&lt;sheetId&gt;!&lt;开始位置&gt;:&lt;结束位置&gt;`。其中：</para>
+    /// <para>- `sheetId` 为工作表 ID，通过[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query) 获取</para>
+    /// <para>- `&lt;开始位置&gt;:&lt;结束位置&gt;` 为工作表中单元格的范围，数字表示行索引，字母表示列索引。如 `A2:B2` 表示该工作表第 2 行的 A 列到 B 列。`range`支持四种写法，详情参考[电子表格概述](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/overview)</para>
+    /// <para>注意：如果该范围没有设置下拉列表，更新实际上会转换为设置下拉列表。</para>
+    /// <para>必填：是</para>
+    /// </summary>
+    [JsonPropertyName("ranges")]
+    public string[] Ranges { get; set; } = Array.Empty<string>();
+
     /// <summary>
     /// <para>数据验证的类型。支持下拉列表，请填写 "list"。</para>
     /// <para>必填：是</para>

@@ -15,6 +15,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\FeishuNetSdk.Endpoint\FeishuNetSdk.Endpoint.csproj" />
         <ProjectReference Include="..\..\FeishuNetSdk.WebSocket\FeishuNetSdk.WebSocket.csproj" />
+        <ProjectReference Include="..\..\src\FeishuNetSdk.csproj" />
     </ItemGroup>
 
 </Project>

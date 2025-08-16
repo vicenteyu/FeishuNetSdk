@@ -39,17 +39,17 @@ public class Test_GetCorehrV1AuthorizationsQueryResponseDto : TestBase
                             "id": "7034393015968122400",
                             "code": "department_manager",
                             "name": {
-                                "zh_cn": "cn",
-                                "en_us": "en"
+                                "zh_cn": "部门经理",
+                                "en_us": "department manager"
                             },
                             "active_status": 1,
                             "description": {
-                                "zh_cn": "cn",
-                                "en_us": "en"
+                                "zh_cn": "中文描述",
+                                "en_us": "英文描述"
                             },
                             "group_type": 1,
                             "created_by": "6967639606963471902",
-                            "update_time": "1",
+                            "update_time": "1720584039",
                             "org_truncation": [
                                 {
                                     "org_key": "department",
@@ -63,8 +63,8 @@ public class Test_GetCorehrV1AuthorizationsQueryResponseDto : TestBase
                                 {
                                     "org_key": "department",
                                     "org_name": {
-                                        "zh_cn": "cn",
-                                        "en_us": "en"
+                                        "zh_cn": "部门",
+                                        "en_us": "department"
                                     },
                                     "org_id_list": [
                                         "6967639606963471902"
@@ -75,10 +75,10 @@ public class Test_GetCorehrV1AuthorizationsQueryResponseDto : TestBase
                         "grantor_rule_list": [
                             {
                                 "rule_dimension": {
-                                    "entity_key": "员工",
+                                    "entity_key": "user",
                                     "entity_name": {
-                                        "zh_cn": "cn",
-                                        "en_us": "en"
+                                        "zh_cn": "员工",
+                                        "en_us": "User"
                                     }
                                 },
                                 "rule_type": 1,
@@ -101,7 +101,7 @@ public class Test_GetCorehrV1AuthorizationsQueryResponseDto : TestBase
                                             "right_value_type": 1
                                         }
                                     ],
-                                    "expression": "1 and 2"
+                                    "logic_expression": "1 and 2"
                                 }
                             }
                         ],

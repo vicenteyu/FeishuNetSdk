@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2025-08-16
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4248,19 +4248,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>电子表格工作表的 ID。调用[获取工作表](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet/query)获取 ID。</para>
     /// </param>
-    /// <param name="dataValidationId">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>电子表格工作表中下拉列表的 ID。调用[查询下拉列表](https://open.feishu.cn/document/ukTMukTMukTM/uATMzUjLwEzM14CMxMTN/datavalidation/query-datavalidation)获取 ID。</para>
-    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}/{dataValidationId}")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdAsync(
+    [HttpPut("/open-apis/sheets/v2/spreadsheets/{spreadsheetToken}/dataValidation/{sheetId}")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdResponseDto>> PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdAsync(
         [PathQuery] string spreadsheetToken,
         [PathQuery] string sheetId,
-        [PathQuery] int dataValidationId,
-        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdByDataValidationIdBodyDto dto,
+        [JsonContent] Ccm.Spec.PutSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBySheetIdBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -18406,19 +18400,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得</para>
     /// <para>示例值：467642764726472</para>
     /// </param>
-    /// <param name="version_id">
-    /// <para>必填：否</para>
-    /// <para>需要删除的任职记录版本 ID</para>
-    /// <para>- 通过[【批量查询员工任职】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employees-job_data/batch_get)可以获得</para>
-    /// <para>- 不支持第一条版本：任职原因为 onboarding、add_additional_job 的任职（兼职）记录</para>
-    /// <para>示例值：1616161616</para>
-    /// <para>默认值：null</para>
-    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpDelete("/open-apis/corehr/v1/job_datas/{job_data_id}")]
     System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV1JobDatasByJobDataIdAsync(
         [PathQuery] string job_data_id,
-        [PathQuery] string? version_id = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -47146,13 +47131,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="employment_id_list">
     /// <para>必填：否</para>
     /// <para>员工ID列表，最大100个（不传则默认查询全部员工）。ID类型与user_id_type的取值意义一致。默认为飞书人事中的 ==employment_id==。</para>
-    /// <para>如果你需要不同类型的ID进行转换，可以使用 [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==</para>
+    /// <para>「**注意事项**」：</para>
+    /// <para>- 如果你需要不同类型的ID进行转换，可以使用 [ID转换服务](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/common_data-id/convert) 换取 ==employment_id==</para>
+    /// <para>- 如果需要一次查询多个员工ID，需通过 "employment_id_list=empId1&amp;employment_id_list=empId2" 的方式传递，且调试台暂不支持多员工ID调试。</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="role_id_list">
     /// <para>必填：否</para>
     /// <para>角色 ID 列表，最大 100 个。当传该参数时，会根据rold_id过滤，只返回包含该角色的授权信息。</para>
-    /// <para>你可以使用 [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list) 获取，或者在角色详情中获取（URL 末的数字）。</para>
+    /// <para>「**注意事项**」：</para>
+    /// <para>- 你可以使用 [批量获取角色列表](https://open.larkoffice.com/document/server-docs/corehr-v1/authorization/list) 获取角色ID，或者在角色详情中获取（URL 末的数字）。</para>
+    /// <para>- 如果需要一次查询多个角色ID，需通过需通过“rold_id_list=rold_id1&amp;rold_id_list=rold_id2” 的方式传递，且调试台暂不支持多角色ID查询。</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_token">
@@ -47181,13 +47170,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="updated_at_gte">
     /// <para>必填：否</para>
-    /// <para>授权时间大于</para>
+    /// <para>授权时间大于，单位为秒（Unix时间戳）</para>
     /// <para>示例值：1729773628</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="updated_at_lte">
     /// <para>必填：否</para>
-    /// <para>授权时间小于</para>
+    /// <para>授权时间小于，单位为秒（Unix时间戳）</para>
     /// <para>示例值：1729773628</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -53963,6 +53952,36 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v2/pre_hires/restore_flow_instance")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresRestoreFlowInstanceResponseDto>> PostCorehrV2PreHiresRestoreFlowInstanceAsync(
         [JsonContent] Corehr.PostCorehrV2PreHiresRestoreFlowInstanceBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【招聘】获取申请表模板列表</para>
+    /// <para>接口ID：7451965544983871516</para>
+    /// <para>接口文档：https://open.feishu.cn/document/hire-v1/portal_apply_schema/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取招聘官网申请表模板列表，在官网申请职位时，申请表需按照官网申请表模板的格式进行填写。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:site</item>
+    /// <item>hire:site:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6930815272790114324</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/hire/v1/portal_apply_schemas")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1PortalApplySchemasResponseDto>> GetHireV1PortalApplySchemasAsync(
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

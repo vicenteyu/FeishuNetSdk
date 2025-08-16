@@ -47,20 +47,20 @@ public class Test_PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto : Te
             "name": "Mike"
         }
     ],
-    "head_from": {},
     "body_html": "xxxx",
     "body_plain_text": "xxxx",
     "attachments": [
         {
             "body": "aGVsbG8gd29ybGQK",
             "filename": "helloworld.txt",
-            "id": "YQqYbQHoQoDqXjxWKhJbo8Gicjf",
-            "attachment_type": 1,
             "is_inline": false,
             "cid": "image1@example.com"
         }
     ],
-    "dedupe_key": "abc-ddd-eee-fff-ggg"
+    "dedupe_key": "abc-ddd-eee-fff-ggg",
+    "head_from": {
+        "name": "Mike"
+    }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesSendBodyDto>(json);
