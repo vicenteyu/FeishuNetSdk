@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-16
+// Last Modified On : 2025-08-22
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -17192,6 +17192,47 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【招聘】获取 Offer 审批流列表</para>
+    /// <para>接口ID：7002055120885235715</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/offer-settings/offer_approval_template/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取飞书招聘系统中默认和自定义 Offer 审批流列表。Offer 审批流可以在「飞书招聘」-「设置」-「Offer 设置」-「Offer 审批设置」中维护。可在职位设置的「Offer 审批流程」中使用。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:offer_approval_template:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：1231231987</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小。最大为 200</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门，该 ID 为[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get) 中的 open_department_id</item>
+    /// <item>department_id：以 department_id 来标识部门，该 ID 为[获取单个部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/get) 中的 department_id</item>
+    /// <item>people_admin_department_id：以 people_admin_department_id 来标识部门，该 ID 类型即将下线，不推荐使用</item>
+    /// </list>
+    /// <para>默认值：people_admin_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/hire/v1/offer_approval_templates")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1OfferApprovalTemplatesResponseDto>> GetHireV1OfferApprovalTemplatesAsync(
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? department_id_type = "people_admin_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【通讯录】更新用户组</para>
     /// <para>接口ID：7008085931593007107</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/contact-v3/group/patch</para>
@@ -19759,7 +19800,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="space_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>知识空间id</para>
+    /// <para>[知识空间id](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)，如果查询**我的文档库**可替换为`my_library`</para>
     /// <para>示例值：6946843325487906839</para>
     /// </param>
     /// <param name="page_size">
@@ -19848,6 +19889,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 使用 tenant access token 调用时，请确认应用或机器人拥有部分知识空间的访问权限，否则返回列表为空。参阅[如何将应用添加为知识库管理员（成员）](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/wiki-qa#b5da330b)。</para>
     /// <para>- 此接口为分页接口。由于权限过滤，可能返回列表为空，但当分页标记（has_more）为 true 时，可以继续分页请求。</para>
+    /// <para>- 此接口不会返回**我的文档库**。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:space:retrieve</item>
     /// <item>wiki:wiki</item>
@@ -22496,13 +22538,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="update_start_time">
     /// <para>必填：否</para>
-    /// <para>最早更新时间。毫秒时间戳</para>
+    /// <para>最早更新时间，毫秒时间戳。需小于等于update_end_time</para>
     /// <para>示例值：1638848468868</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_end_time">
     /// <para>必填：否</para>
-    /// <para>最晚更新时间。毫秒时间戳</para>
+    /// <para>最晚更新时间，毫秒时间戳。需大于等于update_start_time</para>
     /// <para>示例值：1638848468869</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -34281,7 +34323,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7204729599813222401</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/tenant-v2/tenant-product_assign_info/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取租户下待分配的席位列表，包含席位名称、席位ID、数量及对应有效期。</para>
+    /// <para>获取租户下待分配的席位列表（仅返回未满的席位），包含席位名称、席位ID、数量及对应有效期。</para>
     /// <para>返回的待分配席位范围为：​</para>
     /// <para>1. 客户当前已订阅且处于生效状态的席位（注：不包含增购的、尚未生效的未来席位）；​</para>
     /// <para>2. 客户已订阅且未来生效的全新订阅席位。​</para>
@@ -47748,6 +47790,66 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询岗位信息</para>
+    /// <para>接口ID：7384280065851064321</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持通过岗位 ID、部门 ID 查询岗位的详细信息，例如岗位关联的职务、职级、序列，以及岗位描述，是否关键岗位等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:read</item>
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（ V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631897745</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/positions/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PositionsQueryResponseDto>> PostCorehrV2PositionsQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2PositionsQueryBodyDto dto,
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书 aPaaS】删除记录</para>
     /// <para>接口ID：7384730094872936476</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-object-record/delete</para>
@@ -50438,6 +50540,57 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【招聘】查询背调信息列表</para>
+    /// <para>接口ID：7413697955198107652</para>
+    /// <para>接口文档：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/background_check_order/batch_query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>可根据背调 ID 列表或投递 ID 等过滤条件查询背调订单信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:background_check_order</item>
+    /// <item>hire:background_check_order:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>hire:employee.email:readonly</item>
+    /// <item>hire:employee.mobile:readonly</item>
+    /// <item>hire:talent.email:readonly</item>
+    /// <item>hire:talent.mobile:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEsInRpbWVzdGFtcCI6MTY0MDc2NTYzMjA4OCwiaWQiOm51bGx9</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页获取记录数量</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/hire/v1/background_check_orders/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.PostHireV1BackgroundCheckOrdersBatchQueryResponseDto>> PostHireV1BackgroundCheckOrdersBatchQueryAsync(
+        [JsonContent] Hire.PostHireV1BackgroundCheckOrdersBatchQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询生效信息变更部门</para>
     /// <para>接口ID：7414100499044646940</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/department/query_recent_change</para>
@@ -51055,6 +51208,150 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostPassportV1SessionsLogoutAsync(
         [JsonContent] Passport.PostPassportV1SessionsLogoutBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】通过员工ID批量获取社保增减员记录</para>
+    /// <para>接口ID：7420038908975382530</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/social_archive/query-2</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过员工ID批量获取社保增减员记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.social_adjust_record:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/social_archive_adjust_record/query")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto>> PostCompensationV1SocialArchiveAdjustRecordQueryAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1SocialArchiveAdjustRecordQueryBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量获取员工参保档案</para>
+    /// <para>接口ID：7420038908975398914</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/social_archive/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过用户ID列表和生效日期查询</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.social_archive:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/social_archive/query")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1SocialArchiveQueryResponseDto>> PostCompensationV1SocialArchiveQueryAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1SocialArchiveQueryBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】获取险种配置列表</para>
+    /// <para>接口ID：7420038908975415298</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/social_insurance/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取飞书人事系统中社保公积金设置下的险种配置详细列表，包括险种名称、类型等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.insurance:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/compensation/v1/social_insurances")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.GetCompensationV1SocialInsurancesResponseDto>> GetCompensationV1SocialInsurancesAsync(
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】根据方案ID和生效日期批量查询参保方案</para>
+    /// <para>接口ID：7420038908975431682</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/social_plan/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过plan_ids列表和effective_date联合过滤数据库中的参保方案数据</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.social_plan:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/social_plans/query")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1SocialPlansQueryResponseDto>> PostCompensationV1SocialPlansQueryAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1SocialPlansQueryBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】根据生效日期分页查询参保方案</para>
+    /// <para>接口ID：7420038908975448066</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/social_plan/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过生效日期effective_date参数过滤并分页返回结果</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.social_plan:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="effective_date">
+    /// <para>必填：是</para>
+    /// <para>生效日期，查询在该日期生效的参保方案数据，格式为 YYYY-mm-dd，长度为 10 字符</para>
+    /// <para>示例值：2024-01-01</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，默认100，最大200</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="insurance_type">
+    /// <para>必填：否</para>
+    /// <para>社保方案/公积金方案</para>
+    /// <para>示例值：social_insurance</para>
+    /// <list type="bullet">
+    /// <item>social_insurance：社保</item>
+    /// <item>provident_fund：公积金</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/compensation/v1/social_plans")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.GetCompensationV1SocialPlansResponseDto>> GetCompensationV1SocialPlansAsync(
+        [PathQuery] string effective_date,
+        [PathQuery] int page_size = 100,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? insurance_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -51769,6 +52066,172 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】查询一次性支付授予记录</para>
+    /// <para>接口ID：7429528484932780060</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据筛选条件查询一次性支付授予记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.lump_sum_payment:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:compensation_lump_sum_payment_detail.belong_time:read</item>
+    /// <item>corehr:compensation_lump_sum_payment.binding_period_offboarding_type:read</item>
+    /// <item>corehr:compensation_lump_sum_payment.return_amount_after_tax:read</item>
+    /// <item>corehr:compensation_lump_sum_payment.return_amount_before_tax:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/lump_sum_payment/query")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1LumpSumPaymentQueryResponseDto>> PostCompensationV1LumpSumPaymentQueryAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1LumpSumPaymentQueryBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】查询一次性支付授予明细</para>
+    /// <para>接口ID：7429528484932796444</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/query_detail</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据筛选条件查询一次性授予明细</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.lump_sum_payment:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:compensation_lump_sum_payment_detail.belong_time:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/lump_sum_payment/query_detail")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1LumpSumPaymentQueryDetailResponseDto>> PostCompensationV1LumpSumPaymentQueryDetailAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1LumpSumPaymentQueryDetailBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量创建一次性支付记录</para>
+    /// <para>接口ID：7429528484932812828</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/batch_create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过传入的一次性支付记录数据，校验并创建一次性支付记录，并返回创建失败原因或创建成功数据的ID</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.lump_sum_payment:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/lump_sum_payment/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1LumpSumPaymentBatchCreateResponseDto>> PostCompensationV1LumpSumPaymentBatchCreateAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1LumpSumPaymentBatchCreateBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量更正一次性支付记录</para>
+    /// <para>接口ID：7430824932635181060</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过传入的一次性支付记录数据，校验并更正一次性支付记录，并返回更正失败原因</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.lump_sum_payment:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/lump_sum_payment/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1LumpSumPaymentBatchUpdateResponseDto>> PostCompensationV1LumpSumPaymentBatchUpdateAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1LumpSumPaymentBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量删除一次性支付记录</para>
+    /// <para>接口ID：7430824932635197444</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/batch_remove</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>传入一次性支付记录ID，删除ID对应的一次性支付记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.lump_sum_payment:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/lump_sum_payment/batch_remove")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1LumpSumPaymentBatchRemoveResponseDto>> PostCompensationV1LumpSumPaymentBatchRemoveAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1LumpSumPaymentBatchRemoveBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -54875,6 +55338,42 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/docx/documents/blocks/convert")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxDocumentsBlocksConvertResponseDto>> PostDocxDocumentsBlocksConvertAsync(
         [JsonContent] Ccm.PostDocxDocumentsBlocksConvertBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】根据条件批量获取职务</para>
+    /// <para>接口ID：7525709902931836932</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/batch_get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据传入的职务ID或职务Code批量获取当前生效版本职务信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:job:read</item>
+    /// <item>corehr:job:write</item>
+    /// <item>corehr:job.only:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:job.job_level:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/jobs/batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobsBatchGetResponseDto>> PostCorehrV2JobsBatchGetAsync(
+        [JsonContent] Corehr.PostCorehrV2JobsBatchGetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 }

@@ -34,6 +34,11 @@ namespace FeishuNetSdk.Im.Dtos
     /// <summary>
     /// 普通文本图标
     /// </summary>
+    [JsonPolymorphic(TypeDiscriminatorPropertyName = "tag",
+     UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor,
+     IgnoreUnrecognizedTypeDiscriminators = true)]
+    [JsonDerivedType(typeof(StandardIconElement), typeDiscriminator: "standard_icon")]
+    [JsonDerivedType(typeof(CustomIconElement), typeDiscriminator: "custom_icon")]
     public interface IAmDivIconElement { }
 
     /// <summary>

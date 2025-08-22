@@ -257,7 +257,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembers</td></tr>
 <tr><td rowspan="2">129</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>多维表格</td><td>删除协作者</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">130</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
+<tr><td rowspan="2">130</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
 <tr><td rowspan="2">131</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
@@ -275,7 +275,7 @@
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodes</td></tr>
 <tr><td rowspan="2">138</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间节点信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesGetNode</td></tr>
-<tr><td rowspan="2">139</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
+<tr><td rowspan="2">139</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>云文档</td><td>获取知识空间子节点列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdNodes</td></tr>
 <tr><td rowspan="2">140</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>移动知识空间节点</td></tr>
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesByNodeTokenMove</td></tr>
@@ -1219,13 +1219,13 @@
 <tr><td colspan="3">PostDirectoryV1EmployeesMget</td></tr>
 <tr><td rowspan="2">610</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>创建部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1Departments</td></tr>
-<tr><td rowspan="2">611</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
+<tr><td rowspan="2">611</td><td rowspan="2">2025-08-20</td><td>&#10003;</td><td>组织架构</td><td>更新部门</td></tr>
 <tr><td colspan="3">PatchDirectoryV1DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">612</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsSearch</td></tr>
 <tr><td rowspan="2">613</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">614</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">614</td><td rowspan="2">2025-08-20</td><td>&#10003;</td><td>组织架构</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
 <tr><td rowspan="2">615</td><td rowspan="2">2025-07-16</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1Employees</td></tr>
@@ -1253,6 +1253,6 @@
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
 <tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
-<tr><td rowspan="2">628</td><td rowspan="2">2025-08-15</td><td>新增</td><td>招聘</td><td>获取申请表模板列表</td></tr>
+<tr><td rowspan="2">628</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>招聘</td><td>获取申请表模板列表</td></tr>
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
 </tbody></table>

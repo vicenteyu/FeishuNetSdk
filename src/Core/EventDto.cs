@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2025-08-22
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -220,6 +220,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Elearning.Events.ElearningCourseRegistrationDeletedV2EventBodyDto>), typeDiscriminator: "elearning.course_registration.deleted_v2")]
 //【eLearning】课程学习进度更新事件
 [JsonDerivedType(typeof(EventV2Dto<Elearning.Events.ElearningCourseRegistrationUpdatedV2EventBodyDto>), typeDiscriminator: "elearning.course_registration.updated_v2")]
+//【飞书人事】用户ID映射变更
+[JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrCommonDataIdUserMappingChangedV1EventBodyDto>), typeDiscriminator: "corehr.common_data.id.user_mapping_changed_v1")]
 //【飞书人事】元数据信息变更
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrCommonDataMetaDataUpdatedV1EventBodyDto>), typeDiscriminator: "corehr.common_data.meta_data.updated_v1")]
 //【飞书人事】合同创建
