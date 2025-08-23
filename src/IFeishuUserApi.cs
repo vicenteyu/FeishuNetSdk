@@ -10444,7 +10444,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="space_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>知识空间id</para>
+    /// <para>[知识空间id](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-overview)，如果查询**我的文档库**可替换为`my_library`</para>
     /// <para>示例值：6946843325487906839</para>
     /// </param>
     /// <param name="page_size">
@@ -10539,6 +10539,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 使用 tenant access token 调用时，请确认应用或机器人拥有部分知识空间的访问权限，否则返回列表为空。参阅[如何将应用添加为知识库管理员（成员）](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/wiki-qa#b5da330b)。</para>
     /// <para>- 此接口为分页接口。由于权限过滤，可能返回列表为空，但当分页标记（has_more）为 true 时，可以继续分页请求。</para>
+    /// <para>- 此接口不会返回**我的文档库**。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>wiki:space:retrieve</item>
     /// <item>wiki:wiki</item>

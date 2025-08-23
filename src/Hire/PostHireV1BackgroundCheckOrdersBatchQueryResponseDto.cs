@@ -1,25 +1,25 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-07-22
+// Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2025-08-22
 // ************************************************************************
-// <copyright file="GetHireV1BackgroundCheckOrdersResponseDto.cs" company="Vicente Yu">
+// <copyright file="PostHireV1BackgroundCheckOrdersBatchQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取背调信息列表 响应体</summary>
+// <summary>查询背调信息列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Hire;
 /// <summary>
-/// 获取背调信息列表 响应体
-/// <para>根据投递 ID 或背调更新时间批量获取背调订单信息。</para>
-/// <para>接口ID：7049722392477958145</para>
-/// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/background_check_order/list</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fbackground_check_order%2flist</para>
+/// 查询背调信息列表 响应体
+/// <para>可根据背调 ID 列表或投递 ID 等过滤条件查询背调订单信息。</para>
+/// <para>接口ID：7413697955198107652</para>
+/// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/background_check_order/batch_query</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fbackground_check_order%2fbatch_query</para>
 /// </summary>
-public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetHireV1BackgroundCheckOrdersResponseDto.BackgroundCheckOrder>
+public record PostHireV1BackgroundCheckOrdersBatchQueryResponseDto : IPageableResponse<PostHireV1BackgroundCheckOrdersBatchQueryResponseDto.BackgroundCheckOrder>
 {
     /// <summary>
     /// <para>是否还有更多项</para>
@@ -58,7 +58,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public string? OrderId { get; set; }
 
         /// <summary>
-        /// <para>投递 ID</para>
+        /// <para>投递 ID，详情可查看：[获取投递信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/get)</para>
         /// <para>必填：否</para>
         /// <para>示例值：6985833807195212076</para>
         /// </summary>
@@ -88,7 +88,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：八方锦程</item>
-        /// <item>2：i背调</item>
+        /// <item>2：背调</item>
         /// <item>3：轩渡</item>
         /// <item>127：自定义供应商</item>
         /// </list></para>
@@ -169,7 +169,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public int? ReportType { get; set; }
 
             /// <summary>
-            /// <para>创建时间</para>
+            /// <para>创建时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1686645425868</para>
             /// </summary>
@@ -198,7 +198,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record BackgroundCheckOrderProcessInfo
         {
             /// <summary>
-            /// <para>背调进度</para>
+            /// <para>中文背调进度</para>
             /// <para>必填：否</para>
             /// <para>示例值：待安排</para>
             /// </summary>
@@ -206,7 +206,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? Process { get; set; }
 
             /// <summary>
-            /// <para>进度更新时间</para>
+            /// <para>进度更新时间，毫秒时间戳</para>
             /// <para>必填：否</para>
             /// <para>示例值：1638359554952</para>
             /// </summary>
@@ -243,7 +243,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record UserContactInfo
         {
             /// <summary>
-            /// <para>姓名</para>
+            /// <para>候选人姓名</para>
             /// <para>必填：否</para>
             /// <para>示例值：王二</para>
             /// </summary>
@@ -251,7 +251,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? Name { get; set; }
 
             /// <summary>
-            /// <para>手机号</para>
+            /// <para>候选人手机号</para>
             /// <para>必填：否</para>
             /// <para>示例值：176xxxx1234</para>
             /// </summary>
@@ -259,7 +259,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? Mobile { get; set; }
 
             /// <summary>
-            /// <para>邮箱</para>
+            /// <para>候选人邮箱</para>
             /// <para>必填：否</para>
             /// <para>示例值：xxx@abc.vom</para>
             /// </summary>
@@ -267,7 +267,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? Email { get; set; }
 
             /// <summary>
-            /// <para>名字</para>
+            /// <para>候选人名字</para>
             /// <para>必填：否</para>
             /// <para>示例值：Ming</para>
             /// </summary>
@@ -275,7 +275,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? FirstName { get; set; }
 
             /// <summary>
-            /// <para>姓氏</para>
+            /// <para>候选人姓氏</para>
             /// <para>必填：否</para>
             /// <para>示例值：Lee</para>
             /// </summary>
@@ -296,7 +296,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record BackgroundCheckOrderCreator
         {
             /// <summary>
-            /// <para>发起人 ID，与入参 user_id_type 类型一致</para>
+            /// <para>发起人 ID，与入参 `user_id_type` 类型一致</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -312,7 +312,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public UserContactInfo? ContactorInfo { get; set; }
 
         /// <summary>
-        /// <para>背调发起时间</para>
+        /// <para>背调发起时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1686297649024</para>
         /// </summary>
@@ -320,7 +320,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public string? BeginTime { get; set; }
 
         /// <summary>
-        /// <para>背调结束时间</para>
+        /// <para>背调结束时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1686297649024</para>
         /// </summary>
@@ -328,7 +328,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public string? EndTime { get; set; }
 
         /// <summary>
-        /// <para>背调结论。为最后一次背调报告的结果</para>
+        /// <para>背调结论，为最后一次背调报告的结果</para>
         /// <para>必填：否</para>
         /// <para>示例值：绿灯</para>
         /// </summary>
@@ -348,7 +348,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record ProviderIdNameObject
         {
             /// <summary>
-            /// <para>供应商ID</para>
+            /// <para>供应商 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -356,19 +356,19 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public string? ProviderId { get; set; }
 
             /// <summary>
-            /// <para>供应商名称信息</para>
+            /// <para>供应商名称</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("provider_name")]
             public I18n? ProviderName { get; set; }
 
             /// <summary>
-            /// <para>供应商名称信息</para>
+            /// <para>供应商名称</para>
             /// </summary>
             public record I18n
             {
                 /// <summary>
-                /// <para>中文名称</para>
+                /// <para>供应商中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：测试供应商</para>
                 /// </summary>
@@ -376,7 +376,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文名称</para>
+                /// <para>供应商英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：test provider</para>
                 /// </summary>
@@ -400,7 +400,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             /// <summary>
             /// <para>自定义字段类型</para>
             /// <para>必填：是</para>
-            /// <para>示例值：text</para>
+            /// <para>示例值：number</para>
             /// <para>可选值：<list type="bullet">
             /// <item>text：单行文本，最多100个汉字</item>
             /// <item>textarea：多行文本，最多200个汉字</item>
@@ -437,7 +437,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public record I18n
             {
                 /// <summary>
-                /// <para>中文名称</para>
+                /// <para>自定义字段中文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：其他备注</para>
                 /// </summary>
@@ -445,7 +445,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
                 public string? ZhCn { get; set; }
 
                 /// <summary>
-                /// <para>英文名称</para>
+                /// <para>自定义字段英文名称</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：Other remark</para>
                 /// </summary>
@@ -462,21 +462,21 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
             public bool IsRequired { get; set; }
 
             /// <summary>
-            /// <para>自定义字段的描述，如果是输入控件，为用户在安排背调表单看到的 placeholder 或 提示文字</para>
+            /// <para>自定义字段的描述，如果是输入控件，为用户在安排背调表单看到的 placeholder 或提示文字</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("description")]
             public I18n? Description { get; set; }
 
             /// <summary>
-            /// <para>type 为 select 或 multiselect 时必填，单选或多选的选项</para>
+            /// <para>`type` 为 `select` 或 `multiselect` 时必填，单选或多选的选项</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("options")]
             public EcoBackgroundCheckCustomFieldDataOption[]? Options { get; set; }
 
             /// <summary>
-            /// <para>type 为 select 或 multiselect 时必填，单选或多选的选项</para>
+            /// <para>`type` 为 `select` 或 `multiselect` 时必填，单选或多选的选项</para>
             /// </summary>
             public record EcoBackgroundCheckCustomFieldDataOption
             {
@@ -489,29 +489,29 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
                 public string Key { get; set; } = string.Empty;
 
                 /// <summary>
-                /// <para>选项的名称</para>
+                /// <para>选项名称</para>
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("name")]
                 public I18n Name { get; set; } = new();
 
                 /// <summary>
-                /// <para>选项的名称</para>
+                /// <para>选项名称</para>
                 /// </summary>
                 public record I18n
                 {
                     /// <summary>
-                    /// <para>中文名称</para>
+                    /// <para>选项中文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：选项A</para>
+                    /// <para>示例值：选项 A</para>
                     /// </summary>
                     [JsonPropertyName("zh_cn")]
                     public string? ZhCn { get; set; }
 
                     /// <summary>
-                    /// <para>英文名称</para>
+                    /// <para>选项英文名称</para>
                     /// <para>必填：否</para>
-                    /// <para>示例值：A</para>
+                    /// <para>示例值：option A</para>
                     /// </summary>
                     [JsonPropertyName("en_us")]
                     public string? EnUs { get; set; }
@@ -532,7 +532,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record BackgroundCheckCustomFieldDataValue
         {
             /// <summary>
-            /// <para>对应前文 *自定义字段模板* 的 key</para>
+            /// <para>对应前文`custom_field_list`的 key</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// </summary>
@@ -561,7 +561,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         public record BackgroundCheckItemInfo
         {
             /// <summary>
-            /// <para>附加项的ID</para>
+            /// <para>附加项的 ID</para>
             /// <para>必填：否</para>
             /// <para>示例值：6930815272790114324</para>
             /// </summary>
@@ -578,7 +578,7 @@ public record GetHireV1BackgroundCheckOrdersResponseDto : IPageableResponse<GetH
         }
 
         /// <summary>
-        /// <para>订单更新时间</para>
+        /// <para>订单更新时间，毫秒时间戳</para>
         /// <para>必填：否</para>
         /// <para>示例值：1686809576215</para>
         /// </summary>

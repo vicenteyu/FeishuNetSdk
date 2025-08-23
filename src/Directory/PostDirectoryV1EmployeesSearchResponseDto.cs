@@ -47,7 +47,8 @@ public record PostDirectoryV1EmployeesSearchResponseDto
         public record EmployeeBaseEntity
         {
             /// <summary>
-            /// <para>企业内在职员工的唯一标识，与employee_id_type类型保持一致</para>
+            /// <para>企业内在职员工的唯一标识，与employee_id_type类型保持一致。</para>
+            /// <para>注：如果要获取employee_id的话，必须要在required_fields中加上对应的字段，否则获取到的id无意义。</para>
             /// <para>`employee_id_type`为`open_id`或者`union_id`时无需权限，使用`employee_id`类型时，权限要求如下</para>
             /// <para>**字段权限要求**：</para>
             /// <para>- directory:employee.base.external_id:read : 查看员工自定义 ID</para>

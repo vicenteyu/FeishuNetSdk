@@ -71,6 +71,7 @@
 <tr><td>corehr.department.deleted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrDepartmentDeletedV1EventBodyDto&gt;</td><td>【飞书人事】删除部门</td></tr>
 <tr><td>corehr.job.deleted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDeletedV1EventBodyDto&gt;</td><td>【飞书人事】删除职务</td></tr>
 <tr><td>corehr.job_change.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobChangeUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】异动状态变更（不推荐）</td></tr>
+<tr><td>corehr.common_data.id.user_mapping_changed_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrCommonDataIdUserMappingChangedV1EventBodyDto&gt;</td><td>【飞书人事】用户ID映射变更</td></tr>
 <tr><td>corehr.common_data.meta_data.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrCommonDataMetaDataUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】元数据信息变更</td></tr>
 <tr><td>corehr.employment.resigned_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentResignedV1EventBodyDto&gt;</td><td>【飞书人事】员工完成离职</td></tr>
 <tr><td>corehr.job_data.employed_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataEmployedV1EventBodyDto&gt;</td><td>【飞书人事】员工完成入职</td></tr>
