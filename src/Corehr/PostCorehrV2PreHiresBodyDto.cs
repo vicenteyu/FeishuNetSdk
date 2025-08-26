@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2025-08-26
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -137,7 +137,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>手机号</para>
         /// <para>必填：否</para>
-        /// <para>示例值：31123227</para>
+        /// <para>示例值：138xxxx1234</para>
         /// </summary>
         [JsonPropertyName("phone_number")]
         public string? PhoneNumber { get; set; }
@@ -155,7 +155,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>个人邮箱</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1234567@bytedance.com</para>
+        /// <para>示例值：xxx@bytedance.com</para>
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
@@ -171,7 +171,7 @@ public record PostCorehrV2PreHiresBodyDto
         /// <summary>
         /// <para>证件号（待废弃，建议使用national_id_list）</para>
         /// <para>必填：否</para>
-        /// <para>示例值：31123127</para>
+        /// <para>示例值：3101xxxx1234567890</para>
         /// </summary>
         [JsonPropertyName("personal_id_number")]
         public string? PersonalIdNumber { get; set; }
@@ -1041,7 +1041,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>银行账号</para>
             /// <para>必填：是</para>
-            /// <para>示例值：6231200000001223</para>
+            /// <para>示例值：62312xxxx0001223</para>
             /// </summary>
             [JsonPropertyName("bank_account_number")]
             public string BankAccountNumber { get; set; } = string.Empty;
@@ -1122,7 +1122,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <summary>
             /// <para>证件号码</para>
             /// <para>必填：是</para>
-            /// <para>示例值：1231131333</para>
+            /// <para>示例值：12311xxxx31333</para>
             /// </summary>
             [JsonPropertyName("national_id_number")]
             public string NationalIdNumber { get; set; } = string.Empty;
@@ -2465,6 +2465,24 @@ public record PostCorehrV2PreHiresBodyDto
         /// </summary>
         [JsonPropertyName("talent_id")]
         public string? TalentId { get; set; }
+
+        /// <summary>
+        /// <para>是否复用飞书账号，支持传入“reuse”或者“not_reuse”，当字段为“reuse”时，需要传入reused_feishu_account_id</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：reuse</para>
+        /// </summary>
+        [JsonPropertyName("reuse_feishu_account")]
+        public string? ReuseFeishuAccount { get; set; }
+
+        /// <summary>
+        /// <para>复用的飞书账号，仅支持Lark Union ID，可以通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3</para>
+        /// </summary>
+        [JsonPropertyName("reused_feishu_account_id")]
+        public string? ReusedFeishuAccountId { get; set; }
     }
 
     /// <summary>

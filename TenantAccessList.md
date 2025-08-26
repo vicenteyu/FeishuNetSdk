@@ -1455,7 +1455,7 @@
 <tr><td colspan="3">GetCorehrV1JobsByJobId</td></tr>
 <tr><td rowspan="2">728</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>批量查询职务</td></tr>
 <tr><td colspan="3">GetCorehrV1Jobs</td></tr>
-<tr><td rowspan="2">729</td><td rowspan="2">2025-06-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
+<tr><td rowspan="2">729</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHires</td></tr>
 <tr><td rowspan="2">730</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 更新待入职信息（不推荐）</td></tr>
 <tr><td colspan="3">PatchCorehrV1PreHiresByPreHireId</td></tr>
@@ -2095,13 +2095,13 @@
 <tr><td colspan="3">GetImV2BizEntityTagRelation</td></tr>
 <tr><td rowspan="2">1048</td><td rowspan="2">2024-04-09</td><td>&#10003;</td><td>OKR</td><td>查询复盘信息</td></tr>
 <tr><td colspan="3">GetOkrV1ReviewsQuery</td></tr>
-<tr><td rowspan="2">1049</td><td rowspan="2">2025-06-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索待入职信息</td></tr>
+<tr><td rowspan="2">1049</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索待入职信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresSearch</td></tr>
 <tr><td rowspan="2">1050</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>消息与群组</td><td>更新 URL 预览</td></tr>
 <tr><td colspan="3">PostImV2UrlPreviewsBatchUpdate</td></tr>
 <tr><td rowspan="2">1051</td><td rowspan="2">2025-03-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定生效日期的部门基本信息</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryTimeline</td></tr>
-<tr><td rowspan="2">1052</td><td rowspan="2">2025-06-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新待入职信息</td></tr>
+<tr><td rowspan="2">1052</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新待入职信息</td></tr>
 <tr><td colspan="3">PatchCorehrV2PreHiresByPreHireId</td></tr>
 <tr><td rowspan="2">1053</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程表单数据</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFormVariableData</td></tr>
@@ -2243,7 +2243,7 @@
 <tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdComplete</td></tr>
 <tr><td rowspan="2">1122</td><td rowspan="2">2025-03-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresByPreHireIdTransitTask</td></tr>
-<tr><td rowspan="2">1123</td><td rowspan="2">2025-06-05</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询待入职信息</td></tr>
+<tr><td rowspan="2">1123</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询待入职信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresQuery</td></tr>
 <tr><td rowspan="2">1124</td><td rowspan="2">2024-08-29</td><td>&#10003;</td><td>招聘</td><td>发布职位广告</td></tr>
 <tr><td colspan="3">PostHireV1AdvertisementsByAdvertisementIdPublish</td></tr>
@@ -2509,11 +2509,11 @@
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">1255</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>获取企业安装的应用</td></tr>
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
-<tr><td rowspan="2">1256</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
+<tr><td rowspan="2">1256</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
-<tr><td rowspan="2">1257</td><td rowspan="2">2025-07-23</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
+<tr><td rowspan="2">1257</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
-<tr><td rowspan="2">1258</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
+<tr><td rowspan="2">1258</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIds</td></tr>
 <tr><td rowspan="2">1259</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
@@ -2865,32 +2865,32 @@
 <tr><td colspan="3">PostCorehrV2PathwaysActive</td></tr>
 <tr><td rowspan="2">1433</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>招聘</td><td>获取申请表模板列表</td></tr>
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
-<tr><td rowspan="2">1434</td><td rowspan="2">2025-08-19</td><td>新增</td><td>招聘</td><td>获取 Offer 审批流列表</td></tr>
+<tr><td rowspan="2">1434</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 审批流列表</td></tr>
 <tr><td colspan="3">GetHireV1OfferApprovalTemplates</td></tr>
-<tr><td rowspan="2">1435</td><td rowspan="2">2025-08-18</td><td>新增</td><td>飞书人事（企业版）</td><td>查询岗位信息</td></tr>
+<tr><td rowspan="2">1435</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询岗位信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PositionsQuery</td></tr>
-<tr><td rowspan="2">1436</td><td rowspan="2">2025-08-19</td><td>新增</td><td>薪酬管理</td><td>查询一次性支付授予记录</td></tr>
+<tr><td rowspan="2">1436</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>查询一次性支付授予记录</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentQuery</td></tr>
-<tr><td rowspan="2">1437</td><td rowspan="2">2025-08-19</td><td>新增</td><td>薪酬管理</td><td>查询一次性支付授予明细</td></tr>
+<tr><td rowspan="2">1437</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>查询一次性支付授予明细</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentQueryDetail</td></tr>
-<tr><td rowspan="2">1438</td><td rowspan="2">2025-08-19</td><td>新增</td><td>薪酬管理</td><td>批量创建一次性支付记录</td></tr>
+<tr><td rowspan="2">1438</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>批量创建一次性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentBatchCreate</td></tr>
-<tr><td rowspan="2">1439</td><td rowspan="2">2025-08-19</td><td>新增</td><td>薪酬管理</td><td>批量更正一次性支付记录</td></tr>
+<tr><td rowspan="2">1439</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>批量更正一次性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentBatchUpdate</td></tr>
-<tr><td rowspan="2">1440</td><td rowspan="2">2025-08-19</td><td>新增</td><td>薪酬管理</td><td>批量删除一次性支付记录</td></tr>
+<tr><td rowspan="2">1440</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>批量删除一次性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentBatchRemove</td></tr>
-<tr><td rowspan="2">1441</td><td rowspan="2">2025-08-18</td><td>新增</td><td>飞书人事（企业版）</td><td>根据条件批量获取职务</td></tr>
+<tr><td rowspan="2">1441</td><td rowspan="2">2025-08-18</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取职务</td></tr>
 <tr><td colspan="3">PostCorehrV2JobsBatchGet</td></tr>
-<tr><td rowspan="2">1442</td><td rowspan="2">2025-08-22</td><td>新增</td><td>招聘</td><td>查询背调信息列表</td></tr>
+<tr><td rowspan="2">1442</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>招聘</td><td>查询背调信息列表</td></tr>
 <tr><td colspan="3">PostHireV1BackgroundCheckOrdersBatchQuery</td></tr>
-<tr><td rowspan="2">1443</td><td rowspan="2">2025-08-22</td><td>新增</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
+<tr><td rowspan="2">1443</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveAdjustRecordQuery</td></tr>
-<tr><td rowspan="2">1444</td><td rowspan="2">2025-08-22</td><td>新增</td><td>薪酬管理</td><td>批量获取员工参保档案</td></tr>
+<tr><td rowspan="2">1444</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>批量获取员工参保档案</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveQuery</td></tr>
-<tr><td rowspan="2">1445</td><td rowspan="2">2025-08-22</td><td>新增</td><td>薪酬管理</td><td>获取险种配置列表</td></tr>
+<tr><td rowspan="2">1445</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>获取险种配置列表</td></tr>
 <tr><td colspan="3">GetCompensationV1SocialInsurances</td></tr>
-<tr><td rowspan="2">1446</td><td rowspan="2">2025-08-22</td><td>新增</td><td>薪酬管理</td><td>根据方案ID和生效日期批量查询参保方案</td></tr>
+<tr><td rowspan="2">1446</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>根据方案ID和生效日期批量查询参保方案</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialPlansQuery</td></tr>
-<tr><td rowspan="2">1447</td><td rowspan="2">2025-08-22</td><td>新增</td><td>薪酬管理</td><td>根据生效日期分页查询参保方案</td></tr>
+<tr><td rowspan="2">1447</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>根据生效日期分页查询参保方案</td></tr>
 <tr><td colspan="3">GetCompensationV1SocialPlans</td></tr>
 </tbody></table>

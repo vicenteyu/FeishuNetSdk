@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2025-08-26
 // ************************************************************************
 // <copyright file="PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -171,7 +171,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>电话号码</para>
             /// <para>必填：是</para>
-            /// <para>示例值：010-12345678</para>
+            /// <para>示例值：178xxxx1234</para>
             /// </summary>
             [JsonPropertyName("phone_number")]
             public string PhoneNumber { get; set; } = string.Empty;
@@ -601,7 +601,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>证件号码</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：1231131333</para>
+                /// <para>示例值：1231131333xxxx222</para>
                 /// </summary>
                 [JsonPropertyName("national_id_number")]
                 public string NationalIdNumber { get; set; } = string.Empty;
@@ -713,7 +713,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>电话号码</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：010-12345678</para>
+                /// <para>示例值：178xxxx1232</para>
                 /// </summary>
                 [JsonPropertyName("phone_number")]
                 public string PhoneNumber { get; set; } = string.Empty;
@@ -956,7 +956,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <summary>
             /// <para>银行账号</para>
             /// <para>必填：是</para>
-            /// <para>示例值：6231200000001223</para>
+            /// <para>示例值：6231200xxxx01223</para>
             /// </summary>
             [JsonPropertyName("bank_account_number")]
             public string BankAccountNumber { get; set; } = string.Empty;
@@ -1177,7 +1177,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <summary>
                 /// <para>电话号码</para>
                 /// <para>必填：是</para>
-                /// <para>示例值：010-12345678</para>
+                /// <para>示例值：178xxxx1232</para>
                 /// </summary>
                 [JsonPropertyName("phone_number")]
                 public string PhoneNumber { get; set; } = string.Empty;
@@ -2541,6 +2541,24 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 public float? NewRate { get; set; }
             }
         }
+
+        /// <summary>
+        /// <para>是否复用飞书账号，支持传入“reuse”或者“not_resue”，当字段为“reuse”时，需要传入reused_feishu_account_id</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：reuse</para>
+        /// </summary>
+        [JsonPropertyName("reuse_feishu_account")]
+        public string? ReuseFeishuAccount { get; set; }
+
+        /// <summary>
+        /// <para>复用的飞书账号，仅支持Lark Union ID，可以通过[搜索员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/employee/search)接口获取</para>
+        /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：on_773dd2c4d14c5c980a4d89a2da5c86d3</para>
+        /// </summary>
+        [JsonPropertyName("reused_feishu_account_id")]
+        public string? ReusedFeishuAccountId { get; set; }
     }
 
     /// <summary>
