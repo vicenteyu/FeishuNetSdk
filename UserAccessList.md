@@ -845,7 +845,7 @@
 <tr><td colspan="3">PostDrivePermissionMemberTransfer</td></tr>
 <tr><td rowspan="2">423</td><td rowspan="2">2022-07-18</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置V2</td></tr>
 <tr><td colspan="3">PostDrivePermissionV2Public</td></tr>
-<tr><td rowspan="2">424</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>云文档</td><td>获取文件夹中的文件清单</td></tr>
+<tr><td rowspan="2">424</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>获取文件夹中的文件清单</td></tr>
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">425</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
@@ -1247,7 +1247,7 @@
 <tr><td colspan="3">PostDirectoryV1EmployeesIdconvert</td></tr>
 <tr><td rowspan="2">624</td><td rowspan="2">2025-05-23</td><td><span style="color:red;">删除</span></td><td>组织架构</td><td>转换部门 ID</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
-<tr><td rowspan="2">625</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
+<tr><td rowspan="2">625</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 <tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>

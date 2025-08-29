@@ -47,7 +47,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
         "phones": [
             {
                 "international_area_code": "86_china",
-                "phone_number": "010-12345678",
+                "phone_number": "178xxxx1234",
                 "device_type": "mobile_phone",
                 "phone_usage": "work",
                 "is_primary": true,
@@ -116,7 +116,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                     {
                         "country_region_id": "6862995757234914824",
                         "national_id_type_id": "6863330041896371725",
-                        "national_id_number": "1231131333",
+                        "national_id_number": "1231131333xxxx222",
                         "issue_date": "2020-04-01",
                         "expiration_date": "2020-05-21",
                         "issued_by": "北京市公安局",
@@ -136,7 +136,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                 "job": "保安",
                 "phone": {
                     "international_area_code": "86_china",
-                    "phone_number": "010-12345678",
+                    "phone_number": "178xxxx1232",
                     "device_type": "mobile_phone",
                     "phone_usage": "home",
                     "is_primary": true,
@@ -176,7 +176,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
             {
                 "bank_name": "中国农业银行",
                 "branch_name": "中国农业银行支行",
-                "bank_account_number": "6231200000001223",
+                "bank_account_number": "6231200xxxx01223",
                 "account_holder": "孟十五",
                 "country_region_id": "6862995745889322510",
                 "bank_account_usages": [
@@ -224,7 +224,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                 "phones": [
                     {
                         "international_area_code": "86_china",
-                        "phone_number": "010-12345678",
+                        "phone_number": "178xxxx1232",
                         "device_type": "mobile_phone",
                         "phone_usage": "home",
                         "is_primary": true,
@@ -446,7 +446,9 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                     "new_rate": 50.2
                 }
             ]
-        }
+        },
+        "reuse_feishu_account": "reuse",
+        "reused_feishu_account_id": "on_773dd2c4d14c5c980a4d89a2da5c86d3"
     },
     "standard_update_fields": [
         "basic_info_update.names"

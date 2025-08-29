@@ -1283,7 +1283,9 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                 "new_rate": 50.2
                             }
                         ]
-                    }
+                    },
+                    "reuse_feishu_account": "reuse",
+                    "reused_feishu_account_id": "6738317738688661772"
                 },
                 "onboarding_info": {
                     "offer_id": "7032210902531327521",

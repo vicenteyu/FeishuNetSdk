@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-08-30
 // ************************************************************************
 // <copyright file="Test_GetCorehrV1CompaniesByCompanyIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -121,7 +121,6 @@ public class Test_GetCorehrV1CompaniesByCompanyIdResponseDto : TestBase
             ],
             "currency": {
                 "id": "1",
-                "country_region_id": "12",
                 "currency_name": [
                     {
                         "lang": "zh-CN",
@@ -129,7 +128,10 @@ public class Test_GetCorehrV1CompaniesByCompanyIdResponseDto : TestBase
                     }
                 ],
                 "numeric_code": 12,
-                "currency_alpha_3_code": "12"
+                "currency_alpha_3_code": "12",
+                "country_region_id_list": [
+                    "6862995757234914824"
+                ]
             },
             "phone": {
                 "area_code": {

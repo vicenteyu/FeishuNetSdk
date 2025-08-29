@@ -69,8 +69,8 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <item>0：待审批</item>
     /// <item>1：未通过</item>
     /// <item>2：已通过</item>
-    /// <item>3：已取消</item>
-    /// <item>4：已撤回</item>
+    /// <item>3：已撤回</item>
+    /// <item>4：已撤销</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("status")]

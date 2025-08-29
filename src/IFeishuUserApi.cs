@@ -13011,7 +13011,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>指定每页显示的数据项的数量。若获取根目录下的清单，将返回全部数据</para>
+    /// <para>指定每页显示的数据项的数量，默认值为100。若获取根目录下的清单，将返回全部数据</para>
     /// <para>示例值：50</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -13023,7 +13023,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="folder_token">
     /// <para>必填：否</para>
-    /// <para>文件夹的 token。不填写或填空字符串，将获取用户云空间根目录下的清单，且不支持分页。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
+    /// <para>文件夹的 token。不填写或填空字符串，将获取用户云空间根目录下的清单，且不支持分页和返回快捷方式。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -13039,7 +13039,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="direction">
     /// <para>必填：否</para>
-    /// <para>定义清单中文件的排序规则</para>
+    /// <para>定义清单中文件的排序规则，与 order_by 配合使用</para>
     /// <para>示例值：DESC</para>
     /// <list type="bullet">
     /// <item>ASC：按升序排序</item>

@@ -2626,6 +2626,24 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
                     public float? NewRate { get; set; }
                 }
             }
+
+            /// <summary>
+            /// <para>是否复用飞书账号</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：reuse</para>
+            /// </summary>
+            [JsonPropertyName("reuse_feishu_account")]
+            public string? ReuseFeishuAccount { get; set; }
+
+            /// <summary>
+            /// <para>复用的飞书账号，返回Lark Union ID</para>
+            /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6738317738688661772</para>
+            /// </summary>
+            [JsonPropertyName("reused_feishu_account_id")]
+            public string? ReusedFeishuAccountId { get; set; }
         }
 
         /// <summary>
