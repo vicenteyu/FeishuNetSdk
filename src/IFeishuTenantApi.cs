@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2025-08-30
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -14282,11 +14282,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token</para>
     /// <para>调用该接口查询当前企业内自定义用户字段的配置信息。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 仅当企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **组织架构** &gt; **字段管理** 页面添加了自定义用户字段，并且在 **API 调用设置** 中开启了 **允许开放平台通讯录 API 调用** 开关，当前接口才会获取到自定义用户字段数据。</para>
+    /// <para>- 仅当企业管理员在[管理后台](https://feishu.cn/admin/index) &gt; **组织架构** &gt; **字段管理** 页面添加了自定义用户字段，并且在 **API 调用设置** 中开启了 **允许开放平台通讯录 API 调用** 开关，当前接口才会获取到自定义用户字段数据。本接口只能获取「文本」、「网页」、「单选选项」、「电话」这几个类型的自定义字段。</para>
     /// <para>- 仅可获取字段来源为 **通用信息** 的自定义用户字段数据。如果字段来源为 **人事**，则无法通过该接口查询到对应的数据。</para>
     /// <para>- 仅可获取字段归属为 **成员** 的自定义字段数据。如果字段归属为 **部门**，则无法通过该接口查询到对应的数据。</para>
     /// <para>权限要求：<list type="bullet">
-    /// <item>contact:contact:readonly_as_app</item>
     /// <item>contact:contact.base:readonly</item>
     /// </list></para>
     /// </summary>
@@ -27162,7 +27161,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>指定每页显示的数据项的数量。若获取根目录下的清单，将返回全部数据</para>
+    /// <para>指定每页显示的数据项的数量，默认值为100。若获取根目录下的清单，将返回全部数据</para>
     /// <para>示例值：50</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -27174,7 +27173,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="folder_token">
     /// <para>必填：否</para>
-    /// <para>文件夹的 token。不填写或填空字符串，将获取用户云空间根目录下的清单，且不支持分页。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
+    /// <para>文件夹的 token。不填写或填空字符串，将获取用户云空间根目录下的清单，且不支持分页和返回快捷方式。了解如何获取文件夹 token，参考[文件夹概述](https://open.feishu.cn/document/ukTMukTMukTM/ugTNzUjL4UzM14CO1MTN/folder-overview)。</para>
     /// <para>示例值：fldbcO1UuPz8VwnpPx5a9abcef</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -27190,7 +27189,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="direction">
     /// <para>必填：否</para>
-    /// <para>定义清单中文件的排序规则</para>
+    /// <para>定义清单中文件的排序规则，与 order_by 配合使用</para>
     /// <para>示例值：DESC</para>
     /// <list type="bullet">
     /// <item>ASC：按升序排序</item>
@@ -28269,12 +28268,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：是</para>
     /// <para>审批实例创建时间的开始区间，毫秒时间戳。</para>
     /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。</para>
+    /// <para>单次查询时间范围不要超过10小时</para>
     /// <para>示例值：1567690398020</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：是</para>
     /// <para>审批实例创建时间的结束区间，毫秒时间戳。</para>
     /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的 Code。</para>
+    /// <para>单次查询时间范围不要超过10小时</para>
     /// <para>示例值：1567690398020</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -52810,6 +52811,135 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [FormDataContent] FormDataFile file,
         [PathQuery] string? tenant_type = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量创建经常性支付记录</para>
+    /// <para>接口ID：7441804833880211460</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/recurring_payment/batch_create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据传入的参数，校验并创建经常性支付记录，返回创建失败的原因或创建成功的数据ID</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.recurring_payment:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/recurring_payment/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1RecurringPaymentBatchCreateResponseDto>> PostCompensationV1RecurringPaymentBatchCreateAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1RecurringPaymentBatchCreateBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】查询经常性支付记录</para>
+    /// <para>接口ID：7441804833880227844</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/recurring_payment/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过筛选条件，批量查询经常性支付记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.recurring_payment:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/recurring_payment/query")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1RecurringPaymentQueryResponseDto>> PostCompensationV1RecurringPaymentQueryAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1RecurringPaymentQueryBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量更正经常性支付记录</para>
+    /// <para>接口ID：7441804833880244228</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/recurring_payment/batch_update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>批量更正经常性支付记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.recurring_payment:update</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/recurring_payment/batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1RecurringPaymentBatchUpdateResponseDto>> PostCompensationV1RecurringPaymentBatchUpdateAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1RecurringPaymentBatchUpdateBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】批量删除经常性支付记录</para>
+    /// <para>接口ID：7441804833880260612</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/recurring_payment/batch_remove</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>指定经常性支付记录ID，删除ID对应的经常性支付记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation.recurring_payment:delete</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/compensation/v1/recurring_payment/batch_remove")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1RecurringPaymentBatchRemoveResponseDto>> PostCompensationV1RecurringPaymentBatchRemoveAsync(
+        [JsonContent] CompensationManagement.PostCompensationV1RecurringPaymentBatchRemoveBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>

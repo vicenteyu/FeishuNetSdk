@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-22
+// Last Modified On : 2025-08-30
 // ************************************************************************
 // <copyright file="GetCorehrV1CompaniesByCompanyIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -396,14 +396,6 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>货币所属国家/地区id，详细信息可通过[【查询国家/地区信息】](https://open.feishu.cn/document/server-docs/corehr-v1/basic-infomation/location_data/list)接口查询获得</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：12</para>
-            /// </summary>
-            [JsonPropertyName("country_region_id")]
-            public string? CountryRegionId { get; set; }
-
-            /// <summary>
             /// <para>货币名称</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -447,6 +439,13 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
             /// </summary>
             [JsonPropertyName("currency_alpha_3_code")]
             public string? CurrencyAlpha3Code { get; set; }
+
+            /// <summary>
+            /// <para>货币所属国家/地区 ID 列表，详细信息可通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口查询获得</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("country_region_id_list")]
+            public string[]? CountryRegionIdList { get; set; }
         }
 
         /// <summary>

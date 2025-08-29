@@ -71,7 +71,7 @@
 <tr><td colspan="3">GetDriveExplorerV2RootFolderMeta</td></tr>
 <tr><td rowspan="2">36</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除用户组</td></tr>
 <tr><td colspan="3">DeleteContactV3GroupByGroupId</td></tr>
-<tr><td rowspan="2">37</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>云文档</td><td>获取文件夹中的文件清单</td></tr>
+<tr><td rowspan="2">37</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>获取文件夹中的文件清单</td></tr>
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">38</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
@@ -179,7 +179,7 @@
 <tr><td colspan="3">PatchDriveV2PermissionsByTokenPublic</td></tr>
 <tr><td rowspan="2">90</td><td rowspan="2">2025-04-08</td><td>&#10003;</td><td>云文档</td><td>获取云文档所有评论</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenComments</td></tr>
-<tr><td rowspan="2">91</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取企业自定义用户字段</td></tr>
+<tr><td rowspan="2">91</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>通讯录</td><td>获取企业自定义用户字段</td></tr>
 <tr><td colspan="3">GetContactV3CustomAttrs</td></tr>
 <tr><td rowspan="2">92</td><td rowspan="2">2025-05-26</td><td>&#10003;</td><td>云文档</td><td>添加全文评论</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenComments</td></tr>
@@ -671,7 +671,7 @@
 <tr><td colspan="3">DeleteContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">336</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单位列表</td></tr>
 <tr><td colspan="3">GetContactV3Unit</td></tr>
-<tr><td rowspan="2">337</td><td rowspan="2">2025-05-09</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批数据</td></tr>
+<tr><td rowspan="2">337</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
 <tr><td rowspan="2">338</td><td rowspan="2">2025-05-19</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
@@ -721,7 +721,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesPreview</td></tr>
 <tr><td rowspan="2">361</td><td rowspan="2">2025-05-12</td><td>&#10003;</td><td>审批</td><td>获取单个审批实例详情</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesByInstanceId</td></tr>
-<tr><td rowspan="2">362</td><td rowspan="2">2025-04-21</td><td>&#10003;</td><td>审批</td><td>批量获取审批实例 ID</td></tr>
+<tr><td rowspan="2">362</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>审批</td><td>批量获取审批实例 ID</td></tr>
 <tr><td colspan="3">GetApprovalV4Instances</td></tr>
 <tr><td rowspan="2">363</td><td rowspan="2">2025-04-21</td><td>&#10003;</td><td>审批</td><td>同意审批任务</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksApprove</td></tr>
@@ -1409,9 +1409,9 @@
 <tr><td colspan="3">PostCorehrV1Companies</td></tr>
 <tr><td rowspan="2">705</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>飞书人事</td><td>删除公司</td></tr>
 <tr><td colspan="3">DeleteCorehrV1CompaniesByCompanyId</td></tr>
-<tr><td rowspan="2">706</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>飞书人事</td><td>查询单个公司</td></tr>
+<tr><td rowspan="2">706</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>飞书人事</td><td>查询单个公司</td></tr>
 <tr><td colspan="3">GetCorehrV1CompaniesByCompanyId</td></tr>
-<tr><td rowspan="2">707</td><td rowspan="2">2024-11-27</td><td>&#10003;</td><td>飞书人事</td><td>批量查询公司</td></tr>
+<tr><td rowspan="2">707</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>飞书人事</td><td>批量查询公司</td></tr>
 <tr><td colspan="3">GetCorehrV1Companies</td></tr>
 <tr><td rowspan="2">708</td><td rowspan="2">2025-08-18</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据条件批量获取职级信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobLevelsBatchGet</td></tr>
@@ -2845,7 +2845,7 @@
 <tr><td colspan="3">PatchCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentId</td></tr>
 <tr><td rowspan="2">1423</td><td rowspan="2">2025-06-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除外派信息</td></tr>
 <tr><td colspan="3">DeleteCorehrV2EmployeesInternationalAssignmentsByInternationalAssignmentId</td></tr>
-<tr><td rowspan="2">1424</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
+<tr><td rowspan="2">1424</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
 <tr><td rowspan="2">1425</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
@@ -2893,4 +2893,12 @@
 <tr><td colspan="3">PostCompensationV1SocialPlansQuery</td></tr>
 <tr><td rowspan="2">1447</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>根据生效日期分页查询参保方案</td></tr>
 <tr><td colspan="3">GetCompensationV1SocialPlans</td></tr>
+<tr><td rowspan="2">1448</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量创建经常性支付记录</td></tr>
+<tr><td colspan="3">PostCompensationV1RecurringPaymentBatchCreate</td></tr>
+<tr><td rowspan="2">1449</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>查询经常性支付记录</td></tr>
+<tr><td colspan="3">PostCompensationV1RecurringPaymentQuery</td></tr>
+<tr><td rowspan="2">1450</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量更正经常性支付记录</td></tr>
+<tr><td colspan="3">PostCompensationV1RecurringPaymentBatchUpdate</td></tr>
+<tr><td rowspan="2">1451</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量删除经常性支付记录</td></tr>
+<tr><td colspan="3">PostCompensationV1RecurringPaymentBatchRemove</td></tr>
 </tbody></table>

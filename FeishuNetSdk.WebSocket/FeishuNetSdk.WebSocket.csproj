@@ -20,7 +20,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FeishuNetSdk" Version="3.5.0" />
+        <PackageReference Include="FeishuNetSdk" Version="3.5.1" />
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
         <PackageReference Include="protobuf-net" Version="3.2.56" />
         <PackageReference Include="WatsonWebsocket" Version="4.1.5" />

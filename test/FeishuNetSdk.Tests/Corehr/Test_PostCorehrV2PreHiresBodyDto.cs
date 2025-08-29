@@ -44,7 +44,7 @@ public class Test_PostCorehrV2PreHiresBodyDto : TestBase
         "personal_id_number": "311xxxx23127",
         "date_entered_workforce": "2100-09-09",
         "gender_id": "male",
-        "nationality_id": "6862995xxxx34914824",
+        "nationality_v2_id": "6862995xxxx34914824",
         "home_address": "home addr",
         "worker_id": "6862995757234914824"
     },
