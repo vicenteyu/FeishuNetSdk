@@ -1249,7 +1249,7 @@
 <tr><td colspan="3">GetContactV3WorkCitiesByWorkCityId</td></tr>
 <tr><td rowspan="2">625</td><td rowspan="2">2023-03-30</td><td>&#10003;</td><td>管理后台</td><td>重置用户的企业邮箱密码</td></tr>
 <tr><td colspan="3">PostAdminV1PasswordReset</td></tr>
-<tr><td rowspan="2">626</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
+<tr><td rowspan="2">626</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>管理后台</td><td>获取部门维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminDeptStats</td></tr>
 <tr><td rowspan="2">627</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>管理后台</td><td>获取用户维度的用户活跃和功能使用数据</td></tr>
 <tr><td colspan="3">GetAdminV1AdminUserStats</td></tr>
@@ -2057,7 +2057,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">1029</td><td rowspan="2">2024-01-26</td><td>&#10003;</td><td>应用信息</td><td>启停用应用</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdManagement</td></tr>
-<tr><td rowspan="2">1030</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">1030</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">1031</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
 <tr><td colspan="3">GetHireV1Talents</td></tr>
@@ -2633,7 +2633,7 @@
 <tr><td colspan="3">PostCorehrV2PreHiresRestoreFlowInstance</td></tr>
 <tr><td rowspan="2">1317</td><td rowspan="2">2025-07-31</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门操作日志</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsQueryOperationLogs</td></tr>
-<tr><td rowspan="2">1318</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>卡片</td><td>新增组件</td></tr>
+<tr><td rowspan="2">1318</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>卡片</td><td>新增组件</td></tr>
 <tr><td colspan="3">PostCardkitV1CardsByCardIdElements</td></tr>
 <tr><td rowspan="2">1319</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>卡片</td><td>更新组件属性</td></tr>
 <tr><td colspan="3">PatchCardkitV1CardsByCardIdElementsByElementId</td></tr>
@@ -2893,12 +2893,16 @@
 <tr><td colspan="3">PostCompensationV1SocialPlansQuery</td></tr>
 <tr><td rowspan="2">1447</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>根据生效日期分页查询参保方案</td></tr>
 <tr><td colspan="3">GetCompensationV1SocialPlans</td></tr>
-<tr><td rowspan="2">1448</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量创建经常性支付记录</td></tr>
+<tr><td rowspan="2">1448</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量创建经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchCreate</td></tr>
-<tr><td rowspan="2">1449</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>查询经常性支付记录</td></tr>
+<tr><td rowspan="2">1449</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>查询经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentQuery</td></tr>
-<tr><td rowspan="2">1450</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量更正经常性支付记录</td></tr>
+<tr><td rowspan="2">1450</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量更正经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchUpdate</td></tr>
-<tr><td rowspan="2">1451</td><td rowspan="2">2025-08-28</td><td>新增</td><td>薪酬管理</td><td>批量删除经常性支付记录</td></tr>
+<tr><td rowspan="2">1451</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量删除经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchRemove</td></tr>
+<tr><td rowspan="2">1452</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量获取主日历信息</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
+<tr><td rowspan="2">1453</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
+<tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
 </tbody></table>

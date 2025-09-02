@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-30
+// Last Modified On : 2025-09-03
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -8091,17 +8091,17 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="start_date">
     /// <para>必填：是</para>
-    /// <para>起始日期（包含），格式是YYYY-mm-dd</para>
+    /// <para>起始日期（包含），格式是YYYY-mm-dd（CN UTC+8，非CN UTC+0）</para>
     /// <para>示例值：2020-02-15</para>
     /// </param>
     /// <param name="end_date">
     /// <para>必填：是</para>
-    /// <para>终止日期（包含），格式是YYYY-mm-dd，起止日期之间相差不能超过91天（包含91天）</para>
+    /// <para>终止日期（包含），格式是YYYY-mm-dd，与起止日期start_date之间相差不能超过91天（包含91天）（CN UTC+8，非CN UTC+0）</para>
     /// <para>示例值：2020-02-15</para>
     /// </param>
     /// <param name="department_id">
     /// <para>必填：是</para>
-    /// <para>部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门</para>
+    /// <para>部门的 ID，取决于department_id_type，仅支持根部门及其下前4级子部门（通过管理后台部门详情获取）</para>
     /// <para>示例值：od-382e2793cfc9471f892e8a672987654c</para>
     /// </param>
     /// <param name="contains_child_dept">
@@ -8111,14 +8111,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>默认值是10，表示每页返回10条数据</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：2</para>
+    /// <para>示例值："2"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="target_geo">
@@ -8129,7 +8129,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="with_product_version">
     /// <para>必填：否</para>
-    /// <para>是否返回分产品版本数据（灰度功能，如需使用请联系 CMS 团队）</para>
+    /// <para>是否返回分产品版本数据，默认false，不返回</para>
     /// <para>示例值：true(默认是false)</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -44235,6 +44235,73 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【日历】批量获取主日历信息</para>
+    /// <para>接口ID：7327132452408393732</para>
+    /// <para>接口文档：https://open.feishu.cn/document/calendar-v4/calendar/primarys</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据user id列表批量查询指定用户的主日历信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>calendar:calendar:read</item>
+    /// <item>calendar:calendar:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/calendar/v4/calendars/primarys")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsPrimarysResponseDto>> PostCalendarV4CalendarsPrimarysAsync(
+        [JsonContent] Calendar.PostCalendarV4CalendarsPrimarysBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【日历】批量查询主日历日程忙闲信息</para>
+    /// <para>接口ID：7327132452408426500</para>
+    /// <para>接口文档：https://open.feishu.cn/document/calendar-v4/calendar/batch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据user id列表，批量查询指定用户的主日历在指定时间段内的忙碌时间段信息，适用于团队协作中，快速了解成员忙闲状态以安排会议或任务的场景。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>calendar:calendar</item>
+    /// <item>calendar:calendar:readonly</item>
+    /// <item>calendar:calendar.free_busy:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/calendar/v4/freebusy/batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4FreebusyBatchResponseDto>> PostCalendarV4FreebusyBatchAsync(
+        [JsonContent] Calendar.PostCalendarV4FreebusyBatchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【应用信息】启停用应用</para>
     /// <para>接口ID：7327327802326958081</para>
     /// <para>接口文档：https://open.feishu.cn/document/application-v6/admin/update</para>
@@ -44263,21 +44330,36 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7338460461824360449</para>
     /// <para>接口文档：https://open.feishu.cn/document/docs/board-v1/whiteboard-node/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取画板内所有的节点</para>
+    /// <para>获取画板内所有的节点，节点以数组方式返回，可通过 parent_id（父节点）、children（子节点） 关系组装成画板内容。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>board:whiteboard:node:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="whiteboard_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>画板唯一标识</para>
+    /// <para>画板唯一标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
     /// <para>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes")]
     System.Threading.Tasks.Task<FeishuResponse<Board.GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto>> GetBoardV1WhiteboardsByWhiteboardIdNodesAsync(
         [PathQuery] string whiteboard_id,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

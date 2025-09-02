@@ -989,7 +989,7 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
-<tr><td rowspan="2">496</td><td rowspan="2">2024-02-27</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">496</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
@@ -1255,4 +1255,8 @@
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
 <tr><td rowspan="2">628</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>招聘</td><td>获取申请表模板列表</td></tr>
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
+<tr><td rowspan="2">629</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量获取主日历信息</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
+<tr><td rowspan="2">630</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
+<tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
 </tbody></table>
