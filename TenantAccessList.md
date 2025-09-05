@@ -2905,4 +2905,6 @@
 <tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
 <tr><td rowspan="2">1453</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
+<tr><td rowspan="2">1454</td><td rowspan="2">2025-09-04</td><td>新增</td><td>日历</td><td>批量查询日历信息</td></tr>
+<tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
 </tbody></table>

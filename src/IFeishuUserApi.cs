@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-09-03
-// ************************************************************************
-// <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>适用于自建应用用户凭证（UserAccessToken）的接口</summary>
-// ************************************************************************
 using FeishuNetSdk.Attributes;
 using FeishuNetSdk.Parameters;
 using WebApiClientCore;
@@ -21052,6 +21039,29 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [JsonContent] Calendar.PostCalendarV4CalendarsPrimarysBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【日历】批量查询日历信息</para>
+    /// <para>接口ID：7327132452408410116</para>
+    /// <para>接口文档：https://open.feishu.cn/document/calendar-v4/calendar/mget-3</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>调用该接口批量查询指定日历的标题、描述、公开范围等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>calendar:calendar:read</item>
+    /// <item>calendar:calendar:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/calendar/v4/calendars/mget")]
+    System.Threading.Tasks.Task<FeishuResponse<Calendar.PostCalendarV4CalendarsMgetResponseDto>> PostCalendarV4CalendarsMgetAsync(
+        UserAccessToken access_token,
+        [JsonContent] Calendar.PostCalendarV4CalendarsMgetBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
