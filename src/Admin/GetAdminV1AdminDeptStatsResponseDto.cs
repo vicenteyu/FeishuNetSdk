@@ -266,7 +266,7 @@ public record GetAdminV1AdminDeptStatsResponseDto : IPageableResponse<GetAdminV1
         public string? AvgVcDuration { get; set; }
 
         /// <summary>
-        /// <para>人均飞书使用时长（分钟，私有化环境没值）</para>
+        /// <para>人均飞书使用时长（分钟）</para>
         /// <para>必填：否</para>
         /// <para>示例值：0.00</para>
         /// </summary>

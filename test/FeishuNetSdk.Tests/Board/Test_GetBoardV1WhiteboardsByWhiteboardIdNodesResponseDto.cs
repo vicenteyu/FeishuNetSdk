@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-09-03
 // ************************************************************************
 // <copyright file="Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,15 +48,23 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "font_weight": "regular",
                     "font_size": 14,
                     "horizontal_align": "center",
-                    "vertical_align": "mid"
+                    "vertical_align": "mid",
+                    "text_color": "#6db5a3",
+                    "text_background_color": "#6db5a3",
+                    "line_through": true,
+                    "underline": true,
+                    "italic": true,
+                    "angle": 90
                 },
                 "style": {
+                    "fill_color": "#6db5a3",
                     "fill_opacity": 50,
                     "border_style": "solid",
                     "border_width": "narrow",
                     "border_opacity": 50,
                     "h_flip": false,
-                    "v_flip": false
+                    "v_flip": false,
+                    "border_color": "#6db5a3"
                 },
                 "image": {
                     "token": "EeSHb3qs9oSBXoxvw33bqtOsczb"
@@ -65,11 +73,35 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "type": "circle"
                 },
                 "connector": {
-                    "start_object": {
-                        "id": "o1:1"
+                    "start": {
+                        "attched_object": {
+                            "id": "o1:1",
+                            "snap_to": "auto",
+                            "position": {
+                                "x": 0.5,
+                                "y": 0.5
+                            }
+                        },
+                        "position": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "arrow_style": "line_arrow"
                     },
-                    "end_object": {
-                        "id": "o1:1"
+                    "end": {
+                        "attched_object": {
+                            "id": "o1:1",
+                            "snap_to": "auto",
+                            "position": {
+                                "x": 0.5,
+                                "y": 0.5
+                            }
+                        },
+                        "position": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "arrow_style": "line_arrow"
                     },
                     "captions": {
                         "data": [
@@ -78,18 +110,58 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "font_weight": "regular",
                                 "font_size": 14,
                                 "horizontal_align": "center",
-                                "vertical_align": "mid"
+                                "vertical_align": "mid",
+                                "text_color": "#6db5a3",
+                                "text_background_color": "#6db5a3",
+                                "line_through": true,
+                                "underline": true,
+                                "italic": true,
+                                "angle": 90
                             }
                         ]
-                    }
+                    },
+                    "shape": "straight",
+                    "turning_points": [
+                        {
+                            "x": 0.5,
+                            "y": 0.5
+                        }
+                    ]
                 },
                 "section": {
                     "title": "分区"
                 },
                 "table": {
                     "meta": {
-                        "row_num": 3,
-                        "col_num": 3
+                        "row_sizes": [
+                            0.5
+                        ],
+                        "col_sizes": [
+                            0.5
+                        ],
+                        "style": {
+                            "fill_color": "#6db5a3",
+                            "fill_opacity": 50,
+                            "border_style": "solid",
+                            "border_width": "narrow",
+                            "border_opacity": 50,
+                            "h_flip": false,
+                            "v_flip": false,
+                            "border_color": "#6db5a3"
+                        },
+                        "text": {
+                            "text": "文字内容",
+                            "font_weight": "regular",
+                            "font_size": 14,
+                            "horizontal_align": "center",
+                            "vertical_align": "mid",
+                            "text_color": "#6db5a3",
+                            "text_background_color": "#6db5a3",
+                            "line_through": true,
+                            "underline": true,
+                            "italic": true,
+                            "angle": 90
+                        }
                     },
                     "title": "表格",
                     "cells": [
@@ -108,13 +180,54 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "font_weight": "regular",
                                 "font_size": 14,
                                 "horizontal_align": "center",
-                                "vertical_align": "mid"
+                                "vertical_align": "mid",
+                                "text_color": "#6db5a3",
+                                "text_background_color": "#6db5a3",
+                                "line_through": true,
+                                "underline": true,
+                                "italic": true,
+                                "angle": 90
+                            },
+                            "style": {
+                                "fill_color": "#6db5a3",
+                                "fill_opacity": 50,
+                                "border_style": "solid",
+                                "border_width": "narrow",
+                                "border_opacity": 50,
+                                "h_flip": false,
+                                "v_flip": false,
+                                "border_color": "#6db5a3"
                             }
                         }
                     ]
                 },
                 "mind_map": {
-                    "parent_id": "z1:1"
+                    "parent_id": "z1:1",
+                    "type": "mind_note_text"
+                },
+                "locked": true,
+                "z_index": 1,
+                "lifeline": {
+                    "size": 10,
+                    "type": "actor_lifeline"
+                },
+                "paint": {
+                    "type": "marker",
+                    "lines": [
+                        {
+                            "x": 10,
+                            "y": 10
+                        }
+                    ],
+                    "width": 7,
+                    "color": "#ffffff"
+                },
+                "svg": {
+                    "svg_code": "code"
+                },
+                "sticky_note": {
+                    "user_id": "12345678",
+                    "show_author_info": true
                 }
             }
         ]

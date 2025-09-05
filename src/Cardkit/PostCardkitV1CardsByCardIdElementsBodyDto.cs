@@ -44,7 +44,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <para>- 未填写默认为在卡片 body 末尾添加</para>
     /// <para>必填：否</para>
     /// <para>示例值：markdown_1</para>
-    /// <para>最大长度：64</para>
+    /// <para>最大长度：20</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("target_element_id")]
