@@ -4,7 +4,7 @@
 // Created          : 2024-12-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-01-05
+// Last Modified On : 2025-09-10
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -54,7 +54,7 @@ public record PostCorehrV2JobChangesBodyDto
 
     /// <summary>
     /// <para>关联流程唯一标识符，可通过接口[获取异动类型列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/transfer_type/query)获取</para>
-    /// <para>注意：当异动方式为2时，该字段为必填</para>
+    /// <para>注意：当transfer_mode（异动方式）为2时，该字段为必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：people_6963913041981490725_6983885526583627531</para>
     /// </summary>
@@ -100,17 +100,17 @@ public record PostCorehrV2JobChangesBodyDto
         public string? OfferInfo { get; set; }
 
         /// <summary>
-        /// <para>是否撤销虚线上级</para>
+        /// <para>是否撤销虚线上级，当值为true时，target_dotted_manager值为空。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：true</para>
+        /// <para>示例值：false</para>
         /// </summary>
         [JsonPropertyName("target_dotted_manager_clean")]
         public bool? TargetDottedManagerClean { get; set; }
 
         /// <summary>
-        /// <para>是否有试用期</para>
+        /// <para>是否有试用期，当值为true时，target_probation_end_date值不应为空。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：false</para>
+        /// <para>示例值：true</para>
         /// </summary>
         [JsonPropertyName("probation_exist")]
         public bool? ProbationExist { get; set; }
@@ -182,7 +182,7 @@ public record PostCorehrV2JobChangesBodyDto
         public string? TargetWorkforceType { get; set; }
 
         /// <summary>
-        /// <para>新人员子类型</para>
+        /// <para>新人员子类型，请填与工作地点和人员类型匹配的人员子类型。</para>
         /// <para>必填：否</para>
         /// <para>示例值：7036268995372303885</para>
         /// </summary>
@@ -270,7 +270,7 @@ public record PostCorehrV2JobChangesBodyDto
         public string? TargetProbationEndDate { get; set; }
 
         /// <summary>
-        /// <para>新周工作时长。取值范围1-168。</para>
+        /// <para>新周工作时长。取值范围1-168，单位是小时。</para>
         /// <para>必填：否</para>
         /// <para>示例值：160</para>
         /// </summary>
@@ -308,7 +308,7 @@ public record PostCorehrV2JobChangesBodyDto
             public string? CostCenterId { get; set; }
 
             /// <summary>
-            /// <para>分摊比例</para>
+            /// <para>分摊比例(整数)</para>
             /// <para>必填：否</para>
             /// <para>示例值：100</para>
             /// </summary>
@@ -431,6 +431,14 @@ public record PostCorehrV2JobChangesBodyDto
         /// </summary>
         [JsonPropertyName("is_transfer_with_workforce")]
         public bool? IsTransferWithWorkforce { get; set; }
+
+        /// <summary>
+        /// <para>新通道</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7289005963599693368</para>
+        /// </summary>
+        [JsonPropertyName("target_pathway")]
+        public string? TargetPathway { get; set; }
     }
 
     /// <summary>

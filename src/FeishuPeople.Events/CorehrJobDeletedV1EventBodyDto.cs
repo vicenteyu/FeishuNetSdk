@@ -22,7 +22,7 @@ namespace FeishuNetSdk.FeishuPeople.Events;
 public record CorehrJobDeletedV1EventBodyDto() : EventBodyDto("corehr.job.deleted_v1")
 {
     /// <summary>
-    /// <para>Job ID</para>
+    /// <para>职务 ID</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_id")]

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-09-10
+// ************************************************************************
+// <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>适用于自建应用用户凭证（UserAccessToken）的接口</summary>
+// ************************************************************************
 using FeishuNetSdk.Attributes;
 using FeishuNetSdk.Parameters;
 using WebApiClientCore;
@@ -24894,6 +24907,42 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? revision_id = -1,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【薪酬管理】创建薪资档案</para>
+    /// <para>接口ID：7451269641491939329</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/archive/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>- 该接口适用于员工入职定薪、调薪或者更正档案场景，通过创建调薪任务的方式，为员工生成对应薪资档案数据。</para>
+    /// <para>- 当员工在调薪生效日期存在档案数据时，则是对该档案进行更正操作。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation_archive:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以people_corehr_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/compensation/v1/archives")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1ArchivesResponseDto>> PostCompensationV1ArchivesAsync(
+        UserAccessToken access_token,
+        [JsonContent] CompensationManagement.PostCompensationV1ArchivesBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

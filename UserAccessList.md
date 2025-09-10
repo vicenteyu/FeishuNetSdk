@@ -1255,10 +1255,12 @@
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
 <tr><td rowspan="2">628</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>招聘</td><td>获取申请表模板列表</td></tr>
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
-<tr><td rowspan="2">629</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量获取主日历信息</td></tr>
+<tr><td rowspan="2">629</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量获取主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
-<tr><td rowspan="2">630</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">630</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
-<tr><td rowspan="2">631</td><td rowspan="2">2025-09-04</td><td>新增</td><td>日历</td><td>批量查询日历信息</td></tr>
+<tr><td rowspan="2">631</td><td rowspan="2">2025-09-04</td><td>&#10003;</td><td>日历</td><td>批量查询日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
+<tr><td rowspan="2">632</td><td rowspan="2">2025-09-10</td><td>新增</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
+<tr><td colspan="3">PostCompensationV1Archives</td></tr>
 </tbody></table>

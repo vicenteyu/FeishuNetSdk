@@ -56,7 +56,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string[]? Statuses { get; set; }
 
     /// <summary>
-    /// <para>异动生效日期 - 搜索范围开始，需要与搜索范围结束一同使用，格式："YYYY-MM-DD"</para>
+    /// <para>异动生效日期 - 搜索范围开始，需要与effective_date_end（异动生效日期 - 搜索范围结束）一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
@@ -64,7 +64,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? EffectiveDateStart { get; set; }
 
     /// <summary>
-    /// <para>异动生效日期 - 搜索范围结束，格式："YYYY-MM-DD"</para>
+    /// <para>异动生效日期 - 搜索范围结束，需要与effective_date_start（异动生效日期 - 搜索范围开始）一同使用，格式："YYYY-MM-DD"</para>
     /// <para>必填：否</para>
     /// <para>示例值：2022-01-01</para>
     /// </summary>
@@ -72,7 +72,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
-    /// <para>异动更新时间 - 搜索范围开始，需要与搜索范围结束一同使用，毫秒时间戳</para>
+    /// <para>异动更新时间 - 搜索范围开始，需要与updated_time_end（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1704084635000</para>
     /// </summary>
@@ -80,7 +80,7 @@ public record PostCorehrV2JobChangesSearchBodyDto
     public string? UpdatedTimeStart { get; set; }
 
     /// <summary>
-    /// <para>异动更新时间 - 搜索范围结束，毫秒时间戳</para>
+    /// <para>异动更新时间 - 搜索范围结束，需要与updated_time_start（异动更新时间 - 搜索范围结束）一同使用，毫秒时间戳</para>
     /// <para>必填：否</para>
     /// <para>示例值：1704084635000</para>
     /// </summary>

@@ -48,19 +48,6 @@ public class Test_PostCorehrV2JobChangesSearchResponseDto : TestBase
                     "probation_exist": false,
                     "original_department": "6966236933198579208",
                     "target_department": "6966236933198579208",
-                    "target_draft_department": "6966236933198579208",
-                    "original_department_id_path": [
-                        {
-                            "department_id": "6974659700705068581",
-                            "draft_department_id": "6974659700705068581"
-                        }
-                    ],
-                    "target_department_id_path": [
-                        {
-                            "department_id": "6974659700705068581",
-                            "draft_department_id": "6974659700705068581"
-                        }
-                    ],
                     "original_work_location": "6967271100992587295",
                     "target_work_location": "6967271100992587295",
                     "original_direct_manager": "6974641477444060708",
@@ -153,9 +140,10 @@ public class Test_PostCorehrV2JobChangesSearchResponseDto : TestBase
                     "target_service_company": "7289005963599693367",
                     "original_position": "7289005963599693367",
                     "target_position": "7289005963599693367",
-                    "target_draft_position": "7289005963599693367",
                     "original_social_security_city": "7289005963599693367",
                     "target_social_security_city": "7289005963599693367",
+                    "original_pathway": "7289005963599693367",
+                    "target_pathway": "7289005963599693367",
                     "is_transfer_with_workforce": false
                 },
                 "is_adjust_salary": true,
