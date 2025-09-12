@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2025-09-13
 // ************************************************************************
 // <copyright file="PostAttendanceV1ShiftsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -188,6 +188,24 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         /// </summary>
         [JsonPropertyName("late_minutes_as_serious_late")]
         public int? LateMinutesAsSeriousLate { get; set; }
+
+        /// <summary>
+        /// <para>true为需要打上班卡，false为不需要上班打卡。</para>
+        /// <para>注意和接口创建时的区别：接口创建时，no_need_on传参false表示需要打上班卡，true为不需要打上班卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("no_need_on")]
+        public bool? NoNeedOn { get; set; }
+
+        /// <summary>
+        /// <para>true为需要打下班卡，false为不需要下班打卡。</para>
+        /// <para>注意和接口创建时的区别：接口创建时，no_need_off传参false表示需要打下班卡，true为不需要打下班卡</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("no_need_off")]
+        public bool? NoNeedOff { get; set; }
     }
 
     /// <summary>
@@ -278,10 +296,185 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     }
 
     /// <summary>
-    /// <para>是否允许在非打卡时段申请打卡</para>
+    /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
     /// <para>必填：否</para>
-    /// <para>示例值：false</para>
+    /// <para>示例值：1</para>
     /// </summary>
-    [JsonPropertyName("allow_punch_approval")]
-    public bool? AllowPunchApproval { get; set; }
+    [JsonPropertyName("day_type")]
+    public int? DayType { get; set; }
+
+    /// <summary>
+    /// <para>班外休息规则</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("overtime_rest_time_rule")]
+    public RestRule[]? OvertimeRestTimeRules { get; set; }
+
+    /// <summary>
+    /// <para>晚到多久记为严重迟到（优先级比原有字段高）</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：40</para>
+    /// </summary>
+    [JsonPropertyName("late_minutes_as_serious_late")]
+    public int? LateMinutesAsSeriousLate { get; set; }
+
+    /// <summary>
+    /// <para>半天分割规则</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("shift_middle_time_rule")]
+    public PostAttendanceV1ShiftsQueryResponseDtoShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+
+    /// <summary>
+    /// <para>半天分割规则</para>
+    /// </summary>
+    public record PostAttendanceV1ShiftsQueryResponseDtoShiftMiddleTimeRule
+    {
+        /// <summary>
+        /// <para>半天分割类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：按全天班次时长（含休息）的中点分割</item>
+        /// <item>1：按全天班次时长（不含休息）的中点分割</item>
+        /// <item>2：按休息时间分割</item>
+        /// <item>3：按固定时间点分割</item>
+        /// </list></para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("middle_time_type")]
+        public int? MiddleTimeType { get; set; }
+
+        /// <summary>
+        /// <para>固定分割时间点（middle_time_type 为 3 时有效）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：12:00</para>
+        /// </summary>
+        [JsonPropertyName("fixed_middle_time")]
+        public string? FixedMiddleTime { get; set; }
+    }
+
+    /// <summary>
+    /// <para>应出勤配置</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("shift_attendance_time_config")]
+    public PostAttendanceV1ShiftsQueryResponseDtoShiftAttendanceTimeConfig? ShiftAttendanceTimeConfig { get; set; }
+
+    /// <summary>
+    /// <para>应出勤配置</para>
+    /// </summary>
+    public record PostAttendanceV1ShiftsQueryResponseDtoShiftAttendanceTimeConfig
+    {
+        /// <summary>
+        /// <para>应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("attendance_time")]
+        public float? AttendanceTime { get; set; }
+
+        /// <summary>
+        /// <para>上半天应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("on_attendance_time")]
+        public float? OnAttendanceTime { get; set; }
+
+        /// <summary>
+        /// <para>下半天应出勤时长</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：3</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：1</para>
+        /// </summary>
+        [JsonPropertyName("off_attendance_time")]
+        public float? OffAttendanceTime { get; set; }
+    }
+
+    /// <summary>
+    /// <para>晚走次日晚到配置规则</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("late_off_late_on_setting")]
+    public PostAttendanceV1ShiftsQueryResponseDtoLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+
+    /// <summary>
+    /// <para>晚走次日晚到配置规则</para>
+    /// </summary>
+    public record PostAttendanceV1ShiftsQueryResponseDtoLateOffLateOnSetting
+    {
+        /// <summary>
+        /// <para>当日晚走时间计算规则</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：弹性规则</item>
+        /// <item>1：固定规则</item>
+        /// </list></para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("late_off_base_on_time_type")]
+        public int? LateOffBaseOnTimeType { get; set; }
+
+        /// <summary>
+        /// <para>次日晚到时间计算规则</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：固定规则</item>
+        /// <item>1：弹性规则</item>
+        /// </list></para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("late_on_base_on_time_type")]
+        public int? LateOnBaseOnTimeType { get; set; }
+    }
+
+    /// <summary>
+    /// <para>班次id(更新班次时需要传递)</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6919358778597097404</para>
+    /// </summary>
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    /// <summary>
+    /// <para>休息弹性设置</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("rest_time_flexible_configs")]
+    public RestTimeFlexibleConfig[]? RestTimeFlexibleConfigs { get; set; }
+
+    /// <summary>
+    /// <para>休息弹性设置</para>
+    /// </summary>
+    public record RestTimeFlexibleConfig
+    {
+        /// <summary>
+        /// <para>是否开启休息弹性班次</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("need_flexible")]
+        public bool? NeedFlexible { get; set; }
+
+        /// <summary>
+        /// <para>休息弹性向后弹的分钟数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>最大值：1500</para>
+        /// <para>最小值：0</para>
+        /// </summary>
+        [JsonPropertyName("late_mins")]
+        public int? LateMins { get; set; }
+    }
 }

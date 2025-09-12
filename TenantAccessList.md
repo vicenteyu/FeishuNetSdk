@@ -637,11 +637,11 @@
 <tr><td colspan="3">PostAttendanceV1Shifts</td></tr>
 <tr><td rowspan="2">319</td><td rowspan="2">2024-08-27</td><td>&#10003;</td><td>考勤打卡</td><td>删除班次</td></tr>
 <tr><td colspan="3">DeleteAttendanceV1ShiftsByShiftId</td></tr>
-<tr><td rowspan="2">320</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询班次</td></tr>
+<tr><td rowspan="2">320</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1ShiftsByShiftId</td></tr>
-<tr><td rowspan="2">321</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>按名称查询班次</td></tr>
+<tr><td rowspan="2">321</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>按名称查询班次</td></tr>
 <tr><td colspan="3">PostAttendanceV1ShiftsQuery</td></tr>
-<tr><td rowspan="2">322</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
+<tr><td rowspan="2">322</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1Shifts</td></tr>
 <tr><td rowspan="2">323</td><td rowspan="2">2025-06-18</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
 <tr><td colspan="3">PostAttendanceV1Groups</td></tr>
