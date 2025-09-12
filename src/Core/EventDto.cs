@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2025-09-10
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -90,6 +90,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFileEditV1EventBodyDto>), typeDiscriminator: "drive.file.edit_v1")]
 //【云文档】文件协作者权限申请
 [JsonDerivedType(typeof(EventV2Dto<Ccm.Events.DriveFilePermissionMemberAppliedV1EventBodyDto>), typeDiscriminator: "drive.file.permission_member_applied_v1")]
+//【薪酬管理】薪资档案变更
+[JsonDerivedType(typeof(EventV2Dto<CompensationManagement.Events.CompensationArchiveChangedV1EventBodyDto>), typeDiscriminator: "compensation.archive.changed_v1")]
 //【通讯录】成员字段变更
 [JsonDerivedType(typeof(EventV2Dto<Contact.Events.ContactCustomAttrEventUpdatedV3EventBodyDto>), typeDiscriminator: "contact.custom_attr_event.updated_v3")]
 //【通讯录】部门新建

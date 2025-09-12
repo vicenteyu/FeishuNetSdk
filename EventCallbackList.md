@@ -153,6 +153,7 @@
 <tr><td>im.chat.member.user.deleted_v1</td><td>EventV2Dto&lt;Im.Events.ImChatMemberUserDeletedV1EventBodyDto&gt;</td><td>【消息与群组】用户出群</td></tr>
 <tr><td>im.chat.member.user.added_v1</td><td>EventV2Dto&lt;Im.Events.ImChatMemberUserAddedV1EventBodyDto&gt;</td><td>【消息与群组】用户进群</td></tr>
 <tr><td>im.chat.access_event.bot_p2p_chat_entered_v1</td><td>EventV2Dto&lt;Im.Events.ImChatAccessEventBotP2pChatEnteredV1EventBodyDto&gt;</td><td>【消息与群组】用户进入与机器人的会话</td></tr>
+<tr><td>compensation.archive.changed_v1</td><td>EventV2Dto&lt;CompensationManagement.Events.CompensationArchiveChangedV1EventBodyDto&gt;</td><td>【薪酬管理】薪资档案变更</td></tr>
 <tr><td>application.application.app_version.publish_revoke_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationApplicationAppVersionPublishRevokeV6EventBodyDto&gt;</td><td>【应用信息】撤回应用发布申请</td></tr>
 <tr><td>application.application.feedback.updated_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationApplicationFeedbackUpdatedV6EventBodyDto&gt;</td><td>【应用信息】反馈更新</td></tr>
 <tr><td>application.bot.menu_v6</td><td>EventV2Dto&lt;Application.Events.ApplicationBotMenuV6EventBodyDto&gt;</td><td>【应用信息】机器人自定义菜单事件</td></tr>

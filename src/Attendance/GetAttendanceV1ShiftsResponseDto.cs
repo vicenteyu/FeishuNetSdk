@@ -206,7 +206,8 @@ public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendance
             public int? LateMinutesAsSeriousLate { get; set; }
 
             /// <summary>
-            /// <para>不需要打上班卡</para>
+            /// <para>true为需要打上班卡，false为不需要上班打卡。</para>
+            /// <para>注意和接口创建时的区别：接口创建时，no_need_on传参false表示需要打上班卡，true为不需要打上班卡</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -214,7 +215,8 @@ public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendance
             public bool? NoNeedOn { get; set; }
 
             /// <summary>
-            /// <para>不需要打下班卡（优先级比原有字段高）</para>
+            /// <para>true为需要打下班卡，false为不需要下班打卡。</para>
+            /// <para>注意和接口创建时的区别：接口创建时，no_need_off传参false表示需要打下班卡，true为不需要打下班卡</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>

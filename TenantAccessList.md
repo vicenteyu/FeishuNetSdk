@@ -637,11 +637,11 @@
 <tr><td colspan="3">PostAttendanceV1Shifts</td></tr>
 <tr><td rowspan="2">319</td><td rowspan="2">2024-08-27</td><td>&#10003;</td><td>考勤打卡</td><td>删除班次</td></tr>
 <tr><td colspan="3">DeleteAttendanceV1ShiftsByShiftId</td></tr>
-<tr><td rowspan="2">320</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询班次</td></tr>
+<tr><td rowspan="2">320</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>按 ID 查询班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1ShiftsByShiftId</td></tr>
-<tr><td rowspan="2">321</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>按名称查询班次</td></tr>
+<tr><td rowspan="2">321</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>按名称查询班次</td></tr>
 <tr><td colspan="3">PostAttendanceV1ShiftsQuery</td></tr>
-<tr><td rowspan="2">322</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
+<tr><td rowspan="2">322</td><td rowspan="2">2025-09-12</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1Shifts</td></tr>
 <tr><td rowspan="2">323</td><td rowspan="2">2025-06-18</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
 <tr><td colspan="3">PostAttendanceV1Groups</td></tr>
@@ -1497,7 +1497,7 @@
 <tr><td colspan="3">GetCorehrV1TransferTypesQuery</td></tr>
 <tr><td rowspan="2">749</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事</td><td>发起员工异动(不推荐)</td></tr>
 <tr><td colspan="3">PostCorehrV1JobChanges</td></tr>
-<tr><td rowspan="2">750</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2025-09-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工异动信息</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesSearch</td></tr>
 <tr><td rowspan="2">751</td><td rowspan="2">2024-07-15</td><td>&#10003;</td><td>飞书人事</td><td>查询员工离职原因列表</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
@@ -1779,7 +1779,7 @@
 <tr><td colspan="3">GetLingoV1Repos</td></tr>
 <tr><td rowspan="2">890</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>通讯录</td><td>获取部门直属用户列表</td></tr>
 <tr><td colspan="3">GetContactV3UsersFindByDepartment</td></tr>
-<tr><td rowspan="2">891</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>消息与群组</td><td>延时更新消息卡片</td></tr>
+<tr><td rowspan="2">891</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>消息与群组</td><td>延时更新消息卡片</td></tr>
 <tr><td colspan="3">PostInteractiveV1CardUpdate</td></tr>
 <tr><td rowspan="2">892</td><td rowspan="2">2023-10-25</td><td>&#10003;</td><td>词典</td><td>上传图片</td></tr>
 <tr><td colspan="3">PostLingoV1FilesUpload</td></tr>
@@ -2609,7 +2609,7 @@
 <tr><td colspan="3">PostApaasV1UserTasksByTaskIdChatGroup</td></tr>
 <tr><td rowspan="2">1305</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>撤销异动</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChangesByJobChangeIdRevoke</td></tr>
-<tr><td rowspan="2">1306</td><td rowspan="2">2025-04-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>发起员工异动</td></tr>
+<tr><td rowspan="2">1306</td><td rowspan="2">2025-09-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>发起员工异动</td></tr>
 <tr><td colspan="3">PostCorehrV2JobChanges</td></tr>
 <tr><td rowspan="2">1307</td><td rowspan="2">2024-12-20</td><td>&#10003;</td><td>云文档</td><td>获取云文档的点赞者列表</td></tr>
 <tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
@@ -2901,10 +2901,12 @@
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchUpdate</td></tr>
 <tr><td rowspan="2">1451</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量删除经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchRemove</td></tr>
-<tr><td rowspan="2">1452</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量获取主日历信息</td></tr>
+<tr><td rowspan="2">1452</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量获取主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
-<tr><td rowspan="2">1453</td><td rowspan="2">2025-09-02</td><td>新增</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">1453</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
-<tr><td rowspan="2">1454</td><td rowspan="2">2025-09-04</td><td>新增</td><td>日历</td><td>批量查询日历信息</td></tr>
+<tr><td rowspan="2">1454</td><td rowspan="2">2025-09-04</td><td>&#10003;</td><td>日历</td><td>批量查询日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
+<tr><td rowspan="2">1455</td><td rowspan="2">2025-09-10</td><td>新增</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
+<tr><td colspan="3">PostCompensationV1Archives</td></tr>
 </tbody></table>

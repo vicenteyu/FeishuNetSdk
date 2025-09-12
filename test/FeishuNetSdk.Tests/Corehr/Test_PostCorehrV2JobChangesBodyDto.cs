@@ -35,8 +35,8 @@ public class Test_PostCorehrV2JobChangesBodyDto : TestBase
     "transfer_info": {
         "remark": "异动详情",
         "offer_info": "{\"resume_id\": \"xx\",    \"resume_detail\": \"yy\"}",
-        "target_dotted_manager_clean": true,
-        "probation_exist": false,
+        "target_dotted_manager_clean": false,
+        "probation_exist": true,
         "target_department": "6966236933198579208",
         "target_work_location": "6967271100992587295",
         "target_direct_manager": "7013619729281713671",
@@ -80,7 +80,8 @@ public class Test_PostCorehrV2JobChangesBodyDto : TestBase
         "target_service_company": "7289005963599693368",
         "target_position": "7289005963599693367",
         "target_social_security_city": "7289005963599693367",
-        "is_transfer_with_workforce": false
+        "is_transfer_with_workforce": false,
+        "target_pathway": "7289005963599693368"
     },
     "transfer_key": "transfer_3627531",
     "initiator_id": "ou_a294793e8fa21529f2a60e3e9de45520",

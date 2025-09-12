@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-21
+// Last Modified On : 2025-09-10
 // ************************************************************************
 // <copyright file="PostCorehrV2JobChangesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -175,50 +175,6 @@ public record PostCorehrV2JobChangesSearchResponseDto : IPageableResponse<PostCo
             /// </summary>
             [JsonPropertyName("target_department")]
             public string? TargetDepartment { get; set; }
-
-            /// <summary>
-            /// <para>新部门（新建部门审批完成前会返回 td_xxx 的临时 ID），可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6966236933198579208</para>
-            /// </summary>
-            [JsonPropertyName("target_draft_department")]
-            public string? TargetDraftDepartment { get; set; }
-
-            /// <summary>
-            /// <para>原部门全路径</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("original_department_id_path")]
-            public OrgdraftDepartmentId[]? OriginalDepartmentIdPaths { get; set; }
-
-            /// <summary>
-            /// <para>原部门全路径</para>
-            /// </summary>
-            public record OrgdraftDepartmentId
-            {
-                /// <summary>
-                /// <para>部门 ID （新建部门审批通过前会返回空值），可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6974659700705068581</para>
-                /// </summary>
-                [JsonPropertyName("department_id")]
-                public string? DepartmentId { get; set; }
-
-                /// <summary>
-                /// <para>调整部门 ID ，新建部门审批通过前会返回格式为 td_xxx 的临时 ID，可通过[【批量查询部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口获取</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6974659700705068581</para>
-                /// </summary>
-                [JsonPropertyName("draft_department_id")]
-                public string? DraftDepartmentId { get; set; }
-            }
-
-            /// <summary>
-            /// <para>新部门全路径</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("target_department_id_path")]
-            public OrgdraftDepartmentId[]? TargetDepartmentIdPaths { get; set; }
 
             /// <summary>
             /// <para>原工作地点，可通过[【批量查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口获取</para>
@@ -565,7 +521,7 @@ public record PostCorehrV2JobChangesSearchResponseDto : IPageableResponse<PostCo
                 public string? CostCenterId { get; set; }
 
                 /// <summary>
-                /// <para>分摊比例</para>
+                /// <para>分摊比例(整数)</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：100</para>
                 /// </summary>
@@ -755,14 +711,6 @@ public record PostCorehrV2JobChangesSearchResponseDto : IPageableResponse<PostCo
             public string? TargetPosition { get; set; }
 
             /// <summary>
-            /// <para>新岗位，新建岗位审批完成前会返回 td_xxx 的临时 ID</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：7289005963599693367</para>
-            /// </summary>
-            [JsonPropertyName("target_draft_position")]
-            public string? TargetDraftPosition { get; set; }
-
-            /// <summary>
             /// <para>原社保城市</para>
             /// <para>必填：否</para>
             /// <para>示例值：7289005963599693367</para>
@@ -777,6 +725,22 @@ public record PostCorehrV2JobChangesSearchResponseDto : IPageableResponse<PostCo
             /// </summary>
             [JsonPropertyName("target_social_security_city")]
             public string? TargetSocialSecurityCity { get; set; }
+
+            /// <summary>
+            /// <para>原通道</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693367</para>
+            /// </summary>
+            [JsonPropertyName("original_pathway")]
+            public string? OriginalPathway { get; set; }
+
+            /// <summary>
+            /// <para>新通道</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7289005963599693367</para>
+            /// </summary>
+            [JsonPropertyName("target_pathway")]
+            public string? TargetPathway { get; set; }
 
             /// <summary>
             /// <para>编制随人员一起调整</para>
