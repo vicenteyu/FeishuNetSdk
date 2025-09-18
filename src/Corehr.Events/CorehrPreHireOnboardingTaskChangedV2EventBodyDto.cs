@@ -4,7 +4,7 @@
 // Created          : 2024-09-20
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-20
+// Last Modified On : 2025-09-19
 // ************************************************************************
 // <copyright file="CorehrPreHireOnboardingTaskChangedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -130,4 +130,31 @@ public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto(
     /// </summary>
     [JsonPropertyName("onboarding_flow_id")]
     public string? OnboardingFlowId { get; set; }
+
+    /// <summary>
+    /// <para>流程信息</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("flow_info")]
+    public OnboardingFlow? FlowInfo { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public record OnboardingFlow
+    {
+        /// <summary>
+        /// <para>流程id</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("id")]
+        public string? Id { get; set; }
+
+        /// <summary>
+        /// <para>流程名称</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("name")]
+        public I18nLanguage<string>? Name { get; set; }
+    }
 }

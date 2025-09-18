@@ -1,40 +1,42 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-06-24
+// Created          : 2025-09-19
 //
 // Last Modified By : yxr
 // Last Modified On : 2025-09-19
 // ************************************************************************
-// <copyright file="GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
+// <copyright file="PostBoardV1WhiteboardsByWhiteboardIdNodesBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取所有节点 响应体</summary>
+// <summary>创建节点 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Board;
 /// <summary>
-/// 获取所有节点 响应体
-/// <para>获取画板内所有的节点，节点以数组方式返回，可通过 parent_id（父节点）、children（子节点） 关系组装成画板内容。</para>
-/// <para>接口ID：7338460461824360449</para>
-/// <para>文档地址：https://open.feishu.cn/document/docs/board-v1/whiteboard-node/list</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fboard-v1%2fwhiteboard-node%2flist</para>
+/// 创建节点 请求体
+/// <para>创建画板节点，支持批量创建、创建含父子关系的节点等。</para>
+/// <para>接口ID：7545367804831629314</para>
+/// <para>文档地址：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard-node/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuUDN04SN0QjL1QDN%2fboard-v1%2fwhiteboard-node%2fcreate</para>
 /// </summary>
-public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
+public record PostBoardV1WhiteboardsByWhiteboardIdNodesBodyDto
 {
     /// <summary>
-    /// <para>查询结果</para>
+    /// <para>子节点数据，不允许传入空数组</para>
     /// <para>必填：否</para>
+    /// <para>最大长度：3000</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("nodes")]
     public WhiteboardNode[]? Nodes { get; set; }
 
     /// <summary>
-    /// <para>查询结果</para>
+    /// <para>子节点数据，不允许传入空数组</para>
     /// </summary>
     public record WhiteboardNode
     {
         /// <summary>
-        /// <para>节点 id</para>
+        /// <para>节点 id，用于唯一标识此节点，不能重复，在创建父子节点、关联其它节点做标记使用</para>
         /// <para>必填：是</para>
         /// <para>示例值：o1:1</para>
         /// <para>最大长度：100</para>
@@ -48,7 +50,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：是</para>
         /// <para>示例值：composite_shape</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>image：图片属性</item>
+        /// <item>image：图片</item>
         /// <item>text_shape：文本</item>
         /// <item>group：组合</item>
         /// <item>composite_shape：基础图形</item>
@@ -72,23 +74,14 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public string Type { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>父节点 id，为空是表示根节点</para>
+        /// <para>父节点 id，必须是已存在的节点或者在本次创建的节点列表内</para>
         /// <para>必填：否</para>
-        /// <para>示例值：o1:1</para>
+        /// <para>示例值：n1:1</para>
         /// <para>最大长度：100</para>
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("parent_id")]
         public string? ParentId { get; set; }
-
-        /// <summary>
-        /// <para>子节点</para>
-        /// <para>必填：否</para>
-        /// <para>最大长度：3000</para>
-        /// <para>最小长度：0</para>
-        /// </summary>
-        [JsonPropertyName("children")]
-        public string[]? Children { get; set; }
 
         /// <summary>
         /// <para>图形相对画布的 x 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px</para>
@@ -160,7 +153,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public record WhiteboardNodeImage
         {
             /// <summary>
-            /// <para>图片 token</para>
+            /// <para>图片 token，通过云文档下的素材上传接口 [上传素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/upload_all) 上传图片后返回的 token</para>
             /// <para>必填：是</para>
             /// <para>示例值：EeSHb3qs9oSBXoxvw33bqtOsczb</para>
             /// <para>最大长度：27</para>
@@ -338,20 +331,6 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public record WhiteboardNodeConnector
         {
             /// <summary>
-            /// <para>开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段，start_object 设置也不会生效）</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("start_object")]
-            public ConnectorAttachedObject? StartObject { get; set; }
-
-            /// <summary>
-            /// <para>结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段，写入时设置字段也不会生效）</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("end_object")]
-            public ConnectorAttachedObject? EndObject { get; set; }
-
-            /// <summary>
             /// <para>连线端点信息</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -364,14 +343,14 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             public record ConnectorInfo
             {
                 /// <summary>
-                /// <para>连接图形信息</para>
+                /// <para>连接图形信息，与position参数二选一，同时设置时attached_object生效</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("attached_object")]
                 public ConnectorAttachedObject? AttachedObject { get; set; }
 
                 /// <summary>
-                /// <para>连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attached_object 生效</para>
+                /// <para>连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attched_object 生效</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("position")]
@@ -518,26 +497,6 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             public record TableMeta
             {
                 /// <summary>
-                /// <para>行数</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：3</para>
-                /// <para>最大值：10000</para>
-                /// <para>最小值：0</para>
-                /// </summary>
-                [JsonPropertyName("row_num")]
-                public int? RowNum { get; set; }
-
-                /// <summary>
-                /// <para>列数</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：2</para>
-                /// <para>最大值：10000</para>
-                /// <para>最小值：0</para>
-                /// </summary>
-                [JsonPropertyName("col_num")]
-                public int? ColNum { get; set; }
-
-                /// <summary>
                 /// <para>行高，单位 px</para>
                 /// <para>必填：否</para>
                 /// <para>最大长度：100</para>
@@ -673,7 +632,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         }
 
         /// <summary>
-        /// <para>图形是否锁定</para>
+        /// <para>图形是否锁定，锁定后无法编辑图形，默认false</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -792,9 +751,9 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public record WhiteboardNodeSvg
         {
             /// <summary>
-            /// <para>svg code</para>
+            /// <para>svg 代码</para>
             /// <para>必填：否</para>
-            /// <para>示例值：code</para>
+            /// <para>示例值：&lt;svg width="100" height="100"&gt;&lt;circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="red" /&gt;&lt;/svg&gt;</para>
             /// <para>最大长度：10000000000000000</para>
             /// <para>最小长度：1</para>
             /// </summary>
@@ -817,7 +776,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>用户id</para>
             /// <para>必填：否</para>
-            /// <para>示例值：1234237</para>
+            /// <para>示例值：12345678</para>
             /// </summary>
             [JsonPropertyName("user_id")]
             public string? UserId { get; set; }
@@ -846,7 +805,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图节点的父节点，必须为思维导图节点</para>
             /// <para>必填：是</para>
-            /// <para>示例值：12345678</para>
+            /// <para>示例值：z1:1</para>
             /// <para>最大长度：10000000</para>
             /// <para>最小长度：0</para>
             /// </summary>
@@ -856,7 +815,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图节点图形类型</para>
             /// <para>必填：否</para>
-            /// <para>示例值：true</para>
+            /// <para>示例值：mind_map_text</para>
             /// <para>可选值：<list type="bullet">
             /// <item>mind_map_text：思维导图文本节点类型</item>
             /// <item>mind_map_full_round_rect：思维导图全圆角矩形节点类型</item>
@@ -932,7 +891,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图根节点图形类型</para>
             /// <para>必填：否</para>
-            /// <para>示例值：mind_map_text</para>
+            /// <para>示例值：mind_map_round_rect</para>
             /// <para>可选值：<list type="bullet">
             /// <item>mind_map_text：思维导图文本节点类型</item>
             /// <item>mind_map_full_round_rect：思维导图全圆角矩形节点类型</item>
@@ -945,7 +904,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图图形连接线样式</para>
             /// <para>必填：否</para>
-            /// <para>示例值：rounf_angle</para>
+            /// <para>示例值：round_angle</para>
             /// <para>可选值：<list type="bullet">
             /// <item>curve：曲线</item>
             /// <item>right_angle：直角折线</item>
@@ -991,29 +950,6 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             [JsonPropertyName("right_children")]
             public string[]? RightChildren { get; set; }
         }
-
-        /// <summary>
-        /// <para>思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("mind_map")]
-        public WhiteboardNodeMindMap? MindMap { get; set; }
-
-        /// <summary>
-        /// <para>思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）</para>
-        /// </summary>
-        public record WhiteboardNodeMindMap
-        {
-            /// <summary>
-            /// <para>父节点id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：z1:1</para>
-            /// <para>最大长度：10000</para>
-            /// <para>最小长度：0</para>
-            /// </summary>
-            [JsonPropertyName("parent_id")]
-            public string? ParentId { get; set; }
-        }
     }
 
     /// <summary>
@@ -1044,7 +980,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public string? FontWeight { get; set; }
 
         /// <summary>
-        /// <para>文字大小，单位 px</para>
+        /// <para>文字大小，单位 px，默认为 14 px</para>
         /// <para>必填：否</para>
         /// <para>示例值：14</para>
         /// </summary>
@@ -1122,7 +1058,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public bool? Italic { get; set; }
 
         /// <summary>
-        /// <para>文字旋转角度</para>
+        /// <para>文字旋转角度，单位度</para>
         /// <para>必填：否</para>
         /// <para>示例值：90</para>
         /// <para>最大值：270</para>
@@ -1174,7 +1110,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public string? FillColor { get; set; }
 
         /// <summary>
-        /// <para>填充透明度</para>
+        /// <para>填充透明度，百分比</para>
         /// <para>必填：否</para>
         /// <para>示例值：50</para>
         /// <para>最大值：100</para>
@@ -1212,7 +1148,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public string? BorderWidth { get; set; }
 
         /// <summary>
-        /// <para>边框透明度</para>
+        /// <para>边框透明度，百分比</para>
         /// <para>必填：否</para>
         /// <para>示例值：50</para>
         /// <para>最大值：100</para>
@@ -1274,7 +1210,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
     public record Point
     {
         /// <summary>
-        /// <para>点位置x坐标</para>
+        /// <para>点位置x坐标，单位 px</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// <para>最大值：1000000000000000000</para>
@@ -1284,7 +1220,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public float? X { get; set; }
 
         /// <summary>
-        /// <para>点位置y坐标</para>
+        /// <para>点位置y坐标，单位 px</para>
         /// <para>必填：否</para>
         /// <para>示例值：10</para>
         /// <para>最大值：100000000000000000000</para>
@@ -1295,7 +1231,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
     }
 
     /// <summary>
-    /// <para>连接节点</para>
+    /// <para>连接</para>
     /// </summary>
     public record ConnectorAttachedObject
     {

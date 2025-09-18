@@ -144,7 +144,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? Tid { get; set; }
 
             /// <summary>
-            /// <para>参保方案ID，详细信息可通过[查询参保方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_plan/query)接口获取</para>
+            /// <para>参保方案ID，详细信息可通过[查询参保方案](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/compensation-v1/social_plan/query)接口获取。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：7199837930276308524</para>
             /// <para>最大长度：32</para>
@@ -154,7 +154,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? PlanId { get; set; }
 
             /// <summary>
-            /// <para>参保方案版本ID</para>
+            /// <para>参保方案版本ID。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：7199643907243361836</para>
             /// <para>最大长度：32</para>
@@ -164,7 +164,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? PlanTid { get; set; }
 
             /// <summary>
-            /// <para>参保城市ID，可通过[获取地点信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询详细信息</para>
+            /// <para>参保城市ID，可通过[获取地点信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询详细信息。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：7152398273176192556</para>
             /// <para>最大长度：64</para>
@@ -174,7 +174,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? LocationId { get; set; }
 
             /// <summary>
-            /// <para>社保缴纳主体ID，可通过[获取公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询详细信息</para>
+            /// <para>社保缴纳主体ID，可通过[获取公司主体](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/company/batch_get)接口查询详细信息。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：7096372135576618540</para>
             /// <para>最大长度：64</para>
@@ -184,7 +184,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? CompanyId { get; set; }
 
             /// <summary>
-            /// <para>社保账户类型</para>
+            /// <para>社保账户类型。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：associated_company</para>
             /// <para>最大长度：64</para>
@@ -194,7 +194,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? AccountType { get; set; }
 
             /// <summary>
-            /// <para>社保账号</para>
+            /// <para>社保账号。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：ac123456</para>
             /// <para>最大长度：64</para>
@@ -204,7 +204,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? InsuranceAccount { get; set; }
 
             /// <summary>
-            /// <para>申报缴纳基数，单位：元</para>
+            /// <para>申报缴纳基数，单位：元。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：1000.10</para>
             /// <para>最大长度：16</para>
@@ -214,7 +214,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? BaseSalary { get; set; }
 
             /// <summary>
-            /// <para>险种数据详情</para>
+            /// <para>险种数据详情。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>最大长度：32</para>
             /// <para>最小长度：0</para>
@@ -223,7 +223,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public SocialArchiveItem[]? InsuranceDetails { get; set; }
 
             /// <summary>
-            /// <para>险种数据详情</para>
+            /// <para>险种数据详情。当record_type为attrition时，不返回该数据</para>
             /// </summary>
             public record SocialArchiveItem
             {

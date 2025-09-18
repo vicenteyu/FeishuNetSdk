@@ -209,9 +209,9 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
 <tr><td rowspan="2">105</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">106</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
+<tr><td rowspan="2">106</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">107</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
+<tr><td rowspan="2">107</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
 <tr><td rowspan="2">108</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
@@ -2057,7 +2057,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">1029</td><td rowspan="2">2024-01-26</td><td>&#10003;</td><td>应用信息</td><td>启停用应用</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdManagement</td></tr>
-<tr><td rowspan="2">1030</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">1030</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">1031</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
 <tr><td colspan="3">GetHireV1Talents</td></tr>
@@ -2355,7 +2355,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">1178</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>绩效</td><td>获取指标标签列表</td></tr>
 <tr><td colspan="3">GetPerformanceV2MetricTags</td></tr>
-<tr><td rowspan="2">1179</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">1179</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 <tr><td rowspan="2">1180</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>管理后台</td><td>获取行为审计日志数据</td></tr>
 <tr><td colspan="3">GetAdminV1AuditInfos</td></tr>
@@ -2615,11 +2615,11 @@
 <tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
 <tr><td rowspan="2">1308</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>在群公告中创建块</td></tr>
 <tr><td colspan="3">PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">1309</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
+<tr><td rowspan="2">1309</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdate</td></tr>
 <tr><td rowspan="2">1310</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockId</td></tr>
-<tr><td rowspan="2">1311</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">1311</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">1312</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
 <tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
@@ -2883,7 +2883,7 @@
 <tr><td colspan="3">PostCorehrV2JobsBatchGet</td></tr>
 <tr><td rowspan="2">1442</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>招聘</td><td>查询背调信息列表</td></tr>
 <tr><td colspan="3">PostHireV1BackgroundCheckOrdersBatchQuery</td></tr>
-<tr><td rowspan="2">1443</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
+<tr><td rowspan="2">1443</td><td rowspan="2">2025-09-15</td><td>&#10003;</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveAdjustRecordQuery</td></tr>
 <tr><td rowspan="2">1444</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>批量获取员工参保档案</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveQuery</td></tr>
@@ -2907,6 +2907,10 @@
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
 <tr><td rowspan="2">1454</td><td rowspan="2">2025-09-04</td><td>&#10003;</td><td>日历</td><td>批量查询日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
-<tr><td rowspan="2">1455</td><td rowspan="2">2025-09-10</td><td>新增</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
+<tr><td rowspan="2">1455</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
+<tr><td rowspan="2">1456</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>获取画板主题</td></tr>
+<tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
+<tr><td rowspan="2">1457</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>创建节点</td></tr>
+<tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 </tbody></table>
