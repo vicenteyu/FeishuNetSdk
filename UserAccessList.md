@@ -31,9 +31,9 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
 <tr><td rowspan="2">16</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>创建块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">17</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
+<tr><td rowspan="2">17</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
-<tr><td rowspan="2">18</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
+<tr><td rowspan="2">18</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>批量更新块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdate</td></tr>
 <tr><td rowspan="2">19</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>删除块</td></tr>
 <tr><td colspan="3">DeleteDocxV1DocumentsByDocumentIdBlocksByBlockIdChildrenBatchDelete</td></tr>
@@ -287,8 +287,8 @@
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesMoveDocsToWiki</td></tr>
 <tr><td rowspan="2">144</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
 <tr><td colspan="3">GetWikiV2TasksByTaskId</td></tr>
-<tr><td rowspan="2">145</td><td rowspan="2">2024-09-18</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
-<tr><td colspan="3">PostWikiV1NodesSearch</td></tr>
+<tr><td rowspan="2">145</td><td rowspan="2">2025-09-15</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
+<tr><td colspan="3">PostWikiV2NodesSearch</td></tr>
 <tr><td rowspan="2">146</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionId</td></tr>
 <tr><td rowspan="2">147</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>解散群</td></tr>
@@ -989,7 +989,7 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
-<tr><td rowspan="2">496</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">496</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
@@ -1041,7 +1041,7 @@
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
 <tr><td rowspan="2">521</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">522</td><td rowspan="2">2024-08-02</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">522</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 <tr><td rowspan="2">523</td><td rowspan="2">2025-08-13</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
@@ -1091,11 +1091,11 @@
 <tr><td colspan="3">GetDriveV2FilesByFileTokenLikes</td></tr>
 <tr><td rowspan="2">546</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>在群公告中创建块</td></tr>
 <tr><td colspan="3">PostDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
-<tr><td rowspan="2">547</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
+<tr><td rowspan="2">547</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>批量更新群公告块的内容</td></tr>
 <tr><td colspan="3">PatchDocxV1ChatsByChatIdAnnouncementBlocksBatchUpdate</td></tr>
 <tr><td rowspan="2">548</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取群公告块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockId</td></tr>
-<tr><td rowspan="2">549</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
+<tr><td rowspan="2">549</td><td rowspan="2">2025-09-17</td><td>&#10003;</td><td>云文档</td><td>获取所有子块</td></tr>
 <tr><td colspan="3">GetDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildren</td></tr>
 <tr><td rowspan="2">550</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>删除群公告中的块</td></tr>
 <tr><td colspan="3">DeleteDocxV1ChatsByChatIdAnnouncementBlocksByBlockIdChildrenBatchDelete</td></tr>
@@ -1261,6 +1261,10 @@
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
 <tr><td rowspan="2">631</td><td rowspan="2">2025-09-04</td><td>&#10003;</td><td>日历</td><td>批量查询日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
-<tr><td rowspan="2">632</td><td rowspan="2">2025-09-10</td><td>新增</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
+<tr><td rowspan="2">632</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
+<tr><td rowspan="2">633</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>获取画板主题</td></tr>
+<tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
+<tr><td rowspan="2">634</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>创建节点</td></tr>
+<tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-03
+// Last Modified On : 2025-09-19
 // ************************************************************************
 // <copyright file="Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -41,7 +41,6 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                 "x": 100,
                 "y": 100,
                 "angle": 100,
-                "width": 100,
                 "height": 100,
                 "text": {
                     "text": "文字内容",
@@ -54,7 +53,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "line_through": true,
                     "underline": true,
                     "italic": true,
-                    "angle": 90
+                    "angle": 90,
+                    "theme_text_color_code": 0,
+                    "theme_text_background_color_code": -1
                 },
                 "style": {
                     "fill_color": "#6db5a3",
@@ -64,22 +65,46 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "border_opacity": 50,
                     "h_flip": false,
                     "v_flip": false,
-                    "border_color": "#6db5a3"
+                    "border_color": "#6db5a3",
+                    "theme_fill_color_code": 3,
+                    "theme_border_color_code": 4
                 },
                 "image": {
                     "token": "EeSHb3qs9oSBXoxvw33bqtOsczb"
                 },
                 "composite_shape": {
-                    "type": "circle"
+                    "type": "circle",
+                    "pie": {
+                        "start_radial_line_angle": 30.0,
+                        "central_angle": 40.0,
+                        "radius": 10,
+                        "sector_ratio": 1
+                    }
                 },
                 "connector": {
+                    "start_object": {
+                        "id": "o1:1",
+                        "snap_to": "auto",
+                        "position": {
+                            "x": 10,
+                            "y": 10
+                        }
+                    },
+                    "end_object": {
+                        "id": "o1:1",
+                        "snap_to": "auto",
+                        "position": {
+                            "x": 10,
+                            "y": 10
+                        }
+                    },
                     "start": {
-                        "attched_object": {
+                        "attached_object": {
                             "id": "o1:1",
                             "snap_to": "auto",
                             "position": {
-                                "x": 0.5,
-                                "y": 0.5
+                                "x": 10,
+                                "y": 10
                             }
                         },
                         "position": {
@@ -89,12 +114,12 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                         "arrow_style": "line_arrow"
                     },
                     "end": {
-                        "attched_object": {
+                        "attached_object": {
                             "id": "o1:1",
                             "snap_to": "auto",
                             "position": {
-                                "x": 0.5,
-                                "y": 0.5
+                                "x": 10,
+                                "y": 10
                             }
                         },
                         "position": {
@@ -116,7 +141,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "line_through": true,
                                 "underline": true,
                                 "italic": true,
-                                "angle": 90
+                                "angle": 90,
+                                "theme_text_color_code": 0,
+                                "theme_text_background_color_code": -1
                             }
                         ]
                     },
@@ -128,11 +155,14 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                         }
                     ]
                 },
+                "width": 100,
                 "section": {
                     "title": "分区"
                 },
                 "table": {
                     "meta": {
+                        "row_num": 3,
+                        "col_num": 2,
                         "row_sizes": [
                             0.5
                         ],
@@ -143,11 +173,13 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                             "fill_color": "#6db5a3",
                             "fill_opacity": 50,
                             "border_style": "solid",
-                            "border_width": "narrow",
+                            "border_width": "bold",
                             "border_opacity": 50,
                             "h_flip": false,
                             "v_flip": false,
-                            "border_color": "#6db5a3"
+                            "border_color": "#6db5a3",
+                            "theme_fill_color_code": 3,
+                            "theme_border_color_code": 4
                         },
                         "text": {
                             "text": "文字内容",
@@ -160,7 +192,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                             "line_through": true,
                             "underline": true,
                             "italic": true,
-                            "angle": 90
+                            "angle": 90,
+                            "theme_text_color_code": 0,
+                            "theme_text_background_color_code": -1
                         }
                     },
                     "title": "表格",
@@ -186,7 +220,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "line_through": true,
                                 "underline": true,
                                 "italic": true,
-                                "angle": 90
+                                "angle": 90,
+                                "theme_text_color_code": 0,
+                                "theme_text_background_color_code": -1
                             },
                             "style": {
                                 "fill_color": "#6db5a3",
@@ -196,14 +232,12 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "border_opacity": 50,
                                 "h_flip": false,
                                 "v_flip": false,
-                                "border_color": "#6db5a3"
+                                "border_color": "#6db5a3",
+                                "theme_fill_color_code": 3,
+                                "theme_border_color_code": 4
                             }
                         }
                     ]
-                },
-                "mind_map": {
-                    "parent_id": "z1:1",
-                    "type": "mind_note_text"
                 },
                 "locked": true,
                 "z_index": 1,
@@ -226,8 +260,37 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "svg_code": "code"
                 },
                 "sticky_note": {
-                    "user_id": "12345678",
+                    "user_id": "1234237",
                     "show_author_info": true
+                },
+                "mind_map_node": {
+                    "parent_id": "12345678",
+                    "type": "true",
+                    "z_index": 2,
+                    "layout_position": "left",
+                    "children": [
+                        "z2:3"
+                    ]
+                },
+                "mind_map_root": {
+                    "layout": "left_right",
+                    "type": "mind_map_text",
+                    "line_style": "rounf_angle",
+                    "up_children": [
+                        "z1:1"
+                    ],
+                    "down_children": [
+                        "z2:1"
+                    ],
+                    "left_children": [
+                        "z3:1"
+                    ],
+                    "right_children": [
+                        "z4:1"
+                    ]
+                },
+                "mind_map": {
+                    "parent_id": "z1:1"
                 }
             }
         ]

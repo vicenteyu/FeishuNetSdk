@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-09-19
 // ************************************************************************
 // <copyright file="Test_CorehrPreHireOnboardingTaskChangedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,7 +48,14 @@ public class Test_CorehrPreHireOnboardingTaskChangedV2EventBodyDto : TestBase
         "onboarding_flow_change": {
             "after_status": "in_progress"
         },
-        "onboarding_flow_id": "65c245b7859c6e77d2290e00"
+        "onboarding_flow_id": "65c245b7859c6e77d2290e00",
+        "flow_info": {
+            "id": "628caefb0eb4ac9c806982ee",
+            "name": {
+                "zh_cn": "王冰",
+                "en_us": "Bob"
+            }
+        }
     }
 }
 """;

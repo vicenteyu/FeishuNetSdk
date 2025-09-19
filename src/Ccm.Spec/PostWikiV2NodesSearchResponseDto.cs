@@ -4,9 +4,9 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-18
+// Last Modified On : 2025-09-19
 // ************************************************************************
-// <copyright file="PostWikiV1NodesSearchResponseDto.cs" company="Vicente Yu">
+// <copyright file="PostWikiV2NodesSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>搜索 Wiki 响应体</summary>
@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/wiki-v2/search_wiki</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuEzN0YjLxcDN24SM3QjN%2fsearch_wiki</para>
 /// </summary>
-public record PostWikiV1NodesSearchResponseDto : IPageableResponse<PostWikiV1NodesSearchResponseDto.Item>
+public record PostWikiV2NodesSearchResponseDto : IPageableResponse<PostWikiV2NodesSearchResponseDto.Item>
 {
     /// <summary>
     /// <para>wiki 信息数组</para>
