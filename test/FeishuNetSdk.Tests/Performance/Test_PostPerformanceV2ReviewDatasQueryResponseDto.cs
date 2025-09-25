@@ -50,7 +50,6 @@ public class Test_PostPerformanceV2ReviewDatasQueryResponseDto : TestBase
                                 "units": [
                                     {
                                         "unit_id": "7343513161666707459",
-                                        "is_unknown": false,
                                         "data": [
                                             {
                                                 "field_id": "7343513161666707459",

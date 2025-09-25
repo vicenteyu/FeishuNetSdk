@@ -446,10 +446,10 @@ public record PostCorehrV1OffboardingsSearchResponseDto : IPageableResponse<Post
         public record OffboardingOffboardingChecklist
         {
             /// <summary>
-            /// <para>离职办理状态，可选值有：</para>
+            /// <para>离职流转状态，可选值有：</para>
             /// <para>- AntiBegin：未发起</para>
-            /// <para>- Approving：审批中</para>
-            /// <para>- Finished：完成办理</para>
+            /// <para>- Approving：进行中</para>
+            /// <para>- Finished：已完成</para>
             /// <para>- Rejected：已拒绝</para>
             /// <para>- Withdrawn：已撤销</para>
             /// <para>必填：否</para>

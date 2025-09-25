@@ -41,7 +41,7 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
 
     /// <summary>
     /// <para>环节类型，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。</para>
-    /// <para>stage_types 和 stage_ids 至少要传一个，不传默认不返回任何环节评估数据。</para>
+    /// <para>stage_types 和 stage_ids 至少要传一个，不传默认不返回任何环节评估数据。如果返回数据为空，可以检查模板对应环节是否有内容。</para>
     /// <para>必填：否</para>
     /// <para>可选值：<list type="bullet">
     /// <item>summarize_key_outputs：工作总结环节</item>

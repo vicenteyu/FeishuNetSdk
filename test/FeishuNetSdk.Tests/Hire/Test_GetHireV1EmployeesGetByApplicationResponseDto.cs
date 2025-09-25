@@ -33,8 +33,8 @@ public class Test_GetHireV1EmployeesGetByApplicationResponseDto : TestBase
         "employee": {
             "id": "7095600054216542508",
             "application_id": "7073372582620416300",
-            "onboard_status": 1,
-            "conversion_status": 1,
+            "onboard_status": 2,
+            "conversion_status": 2,
             "onboard_time": 1637596800000,
             "expected_conversion_time": 1637596800000,
             "actual_conversion_time": 1637596800000,
@@ -46,7 +46,8 @@ public class Test_GetHireV1EmployeesGetByApplicationResponseDto : TestBase
             "sequence": "6937934036379650311",
             "level": "7006234385490345986",
             "employee_type": "1",
-            "job_requirement_id": "123123123213"
+            "job_requirement_id": "123123123213",
+            "external_employment_id": "6969595949493939291"
         }
     }
 }

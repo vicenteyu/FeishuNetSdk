@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-19
+// Last Modified On : 2025-09-25
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -7418,7 +7418,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6952888507003043867</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/patch</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
+    /// <para>以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
     /// <para>## 前提条件</para>
     /// <para>- 当前身份由 Header Authorization 的 Token 类型决定。tenant_access_token 指应用身份，user_access_token 指用户身份。如果使用应用身份调用该接口，则需要确保应用开启了[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>- 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取日历类型以及当前身份对该日历的访问权限。</para>
@@ -55610,6 +55610,27 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDocxDocumentsBlocksConvertResponseDto>> PostDocxDocumentsBlocksConvertAsync(
         [JsonContent] Ccm.PostDocxDocumentsBlocksConvertBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】流转入职任务</para>
+    /// <para>接口ID：7525488347772682242</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pre_hire/transform_onboarding_task</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>处于进行中的入职流程，可通过本接口实现手动开启、提交或审批入职任务</para>
+    /// <para>- 当任务处于「手动开启」时，可通过本接口手动开启任务，将任务状态流转到「进行中」</para>
+    /// <para>- 当任务处于「进行中」时，可通过本接口提交任务，将任务流转到「审批中」或「已完成」</para>
+    /// <para>- 当任务处于「审批中」时，可通过本接口审批任务，将任务流转到「已完成」或「已拒绝」</para>
+    /// <para>- 当任务处于「已拒绝」时，可通过本接口提交任务，将任务流转到「审批中」</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:pre_hire:transform_onboarding_task</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/pre_hires/transform_onboarding_task")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PreHiresTransformOnboardingTaskResponseDto>> PostCorehrV2PreHiresTransformOnboardingTaskAsync(
+        [JsonContent] Corehr.PostCorehrV2PreHiresTransformOnboardingTaskBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
