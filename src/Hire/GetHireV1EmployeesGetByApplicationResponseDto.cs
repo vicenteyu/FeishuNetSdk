@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-07
+// Last Modified On : 2025-09-25
 // ************************************************************************
 // <copyright file="GetHireV1EmployeesGetByApplicationResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -52,7 +52,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         /// <summary>
         /// <para>入职状态</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：2</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：已入职</item>
         /// <item>2：已离职</item>
@@ -64,7 +64,7 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         /// <summary>
         /// <para>转正状态</para>
         /// <para>必填：否</para>
-        /// <para>示例值：1</para>
+        /// <para>示例值：2</para>
         /// <para>可选值：<list type="bullet">
         /// <item>1：未转正</item>
         /// <item>2：已转正</item>
@@ -168,5 +168,13 @@ public record GetHireV1EmployeesGetByApplicationResponseDto
         /// </summary>
         [JsonPropertyName("job_requirement_id")]
         public string? JobRequirementId { get; set; }
+
+        /// <summary>
+        /// <para>飞书人事的雇佣ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6969595949493939291</para>
+        /// </summary>
+        [JsonPropertyName("external_employment_id")]
+        public string? ExternalEmploymentId { get; set; }
     }
 }

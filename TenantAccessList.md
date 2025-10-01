@@ -499,7 +499,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEvents</td></tr>
 <tr><td rowspan="2">250</td><td rowspan="2">2024-08-06</td><td>&#10003;</td><td>日历</td><td>删除日程</td></tr>
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
-<tr><td rowspan="2">251</td><td rowspan="2">2025-07-03</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
+<tr><td rowspan="2">251</td><td rowspan="2">2025-09-28</td><td>&#10003;</td><td>日历</td><td>更新日程</td></tr>
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
 <tr><td rowspan="2">252</td><td rowspan="2">2025-03-05</td><td>&#10003;</td><td>日历</td><td>获取日程</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsByEventId</td></tr>
@@ -1341,7 +1341,7 @@
 <tr><td colspan="3">GetCorehrV1Currencies</td></tr>
 <tr><td rowspan="2">671</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesBatchGet</td></tr>
-<tr><td rowspan="2">672</td><td rowspan="2">2025-05-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2025-09-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostCorehrV2EmployeesSearch</td></tr>
 <tr><td rowspan="2">673</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>飞书人事</td><td>创建雇佣信息</td></tr>
 <tr><td colspan="3">PostCorehrV1Employments</td></tr>
@@ -1503,7 +1503,7 @@
 <tr><td colspan="3">PostCorehrV1OffboardingsQuery</td></tr>
 <tr><td rowspan="2">752</td><td rowspan="2">2024-10-25</td><td>&#10003;</td><td>飞书人事</td><td>操作员工离职</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSubmit</td></tr>
-<tr><td rowspan="2">753</td><td rowspan="2">2025-01-14</td><td>&#10003;</td><td>飞书人事</td><td>搜索离职信息</td></tr>
+<tr><td rowspan="2">753</td><td rowspan="2">2025-09-24</td><td>&#10003;</td><td>飞书人事</td><td>搜索离职信息</td></tr>
 <tr><td colspan="3">PostCorehrV1OffboardingsSearch</td></tr>
 <tr><td rowspan="2">754</td><td rowspan="2">2024-08-20</td><td>&#10003;</td><td>飞书人事</td><td>创建假期发放记录</td></tr>
 <tr><td colspan="3">PostCorehrV1LeaveGrantingRecords</td></tr>
@@ -1635,7 +1635,7 @@
 <tr><td colspan="3">PostHireV1ApplicationsByApplicationIdTransferOnboard</td></tr>
 <tr><td rowspan="2">818</td><td rowspan="2">2025-03-04</td><td>&#10003;</td><td>招聘</td><td>更新员工状态</td></tr>
 <tr><td colspan="3">PatchHireV1EmployeesByEmployeeId</td></tr>
-<tr><td rowspan="2">819</td><td rowspan="2">2024-09-05</td><td>&#10003;</td><td>招聘</td><td>通过投递 ID 获取入职信息</td></tr>
+<tr><td rowspan="2">819</td><td rowspan="2">2025-09-25</td><td>&#10003;</td><td>招聘</td><td>通过投递 ID 获取入职信息</td></tr>
 <tr><td colspan="3">GetHireV1EmployeesGetByApplication</td></tr>
 <tr><td rowspan="2">820</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>通过员工 ID 获取入职信息</td></tr>
 <tr><td colspan="3">GetHireV1EmployeesByEmployeeId</td></tr>
@@ -2161,7 +2161,7 @@
 <tr><td colspan="3">PostPerformanceV2IndicatorsQuery</td></tr>
 <tr><td rowspan="2">1081</td><td rowspan="2">2024-07-10</td><td>&#10003;</td><td>绩效</td><td>获取标签填写题配置</td></tr>
 <tr><td colspan="3">PostPerformanceV2QuestionsQuery</td></tr>
-<tr><td rowspan="2">1082</td><td rowspan="2">2025-06-03</td><td>&#10003;</td><td>绩效</td><td>获取绩效详情数据</td></tr>
+<tr><td rowspan="2">1082</td><td rowspan="2">2025-09-23</td><td>&#10003;</td><td>绩效</td><td>获取绩效详情数据</td></tr>
 <tr><td colspan="3">PostPerformanceV2ReviewDatasQuery</td></tr>
 <tr><td rowspan="2">1083</td><td rowspan="2">2025-06-30</td><td>&#10003;</td><td>绩效</td><td>获取指标列表</td></tr>
 <tr><td colspan="3">PostPerformanceV2MetricLibsQuery</td></tr>
@@ -2909,8 +2909,10 @@
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
 <tr><td rowspan="2">1455</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
-<tr><td rowspan="2">1456</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>获取画板主题</td></tr>
+<tr><td rowspan="2">1456</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
-<tr><td rowspan="2">1457</td><td rowspan="2">2025-09-18</td><td>新增</td><td>画板</td><td>创建节点</td></tr>
+<tr><td rowspan="2">1457</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
+<tr><td rowspan="2">1458</td><td rowspan="2">2025-09-24</td><td>新增</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
+<tr><td colspan="3">PostCorehrV2PreHiresTransformOnboardingTask</td></tr>
 </tbody></table>

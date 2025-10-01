@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Calendar;
 /// <summary>
 /// 更新日程 请求体
-/// <para>调用该接口以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
+/// <para>以当前身份（应用或用户）更新指定日历上的一个日程，包括日程标题、描述、开始与结束时间、视频会议以及日程地点等信息。</para>
 /// <para>## 前提条件</para>
 /// <para>- 当前身份由 Header Authorization 的 Token 类型决定。tenant_access_token 指应用身份，user_access_token 指用户身份。如果使用应用身份调用该接口，则需要确保应用开启了[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
 /// <para>- 当前身份必须对日历有 writer 或 owner 权限，并且日历的类型只能为 primary 或 shared。你可以调用[查询日历信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/calendar-v4/calendar/get)接口，获取日历类型以及当前身份对该日历的访问权限。</para>
@@ -419,14 +419,20 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdBodyDto
     public string? Recurrence { get; set; }
 
     /// <summary>
-    /// <para>日程自定义信息，控制日程详情页的 UI 展示。不传值则表示不更新该字段。</para>
+    /// <para>日程自定义信息，控制日程详情页的 UI 展示。schemas字段不传值则表示不更新该字段。</para>
+    /// <para>**注意：**</para>
+    /// <para>1. schemas传值的情况下，每次都是覆盖更新，即用传入的列表去更新原来的列表。</para>
+    /// <para>2. 可以使用[]空列表来清空schemas原来的数据。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("schemas")]
     public Schema[]? Schemas { get; set; }
 
     /// <summary>
-    /// <para>日程自定义信息，控制日程详情页的 UI 展示。不传值则表示不更新该字段。</para>
+    /// <para>日程自定义信息，控制日程详情页的 UI 展示。schemas字段不传值则表示不更新该字段。</para>
+    /// <para>**注意：**</para>
+    /// <para>1. schemas传值的情况下，每次都是覆盖更新，即用传入的列表去更新原来的列表。</para>
+    /// <para>2. 可以使用[]空列表来清空schemas原来的数据。</para>
     /// </summary>
     public record Schema
     {
