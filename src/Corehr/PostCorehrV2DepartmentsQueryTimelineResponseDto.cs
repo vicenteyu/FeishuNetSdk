@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2025-10-11
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsQueryTimelineResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -252,5 +252,15 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;
         }
+
+        /// <summary>
+        /// <para>当前版本失效日期</para>
+        /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
+        /// <para>- 日期范围：1900-01-01 ～9999-12-31</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-02</para>
+        /// </summary>
+        [JsonPropertyName("expiration_date")]
+        public string? ExpirationDate { get; set; }
     }
 }

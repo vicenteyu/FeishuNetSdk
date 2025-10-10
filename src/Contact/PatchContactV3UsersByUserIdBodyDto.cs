@@ -157,6 +157,7 @@ public record PatchContactV3UsersByUserIdBodyDto
 
     /// <summary>
     /// <para>入职时间。秒级时间戳格式，表示从 1970 年 1 月 1 日开始所经过的秒数。</para>
+    /// <para>修改用户信息传入 0 时，入职时间则会置空。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2147483647</para>
     /// </summary>

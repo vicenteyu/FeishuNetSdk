@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-25
+// Last Modified On : 2025-10-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -47956,6 +47956,85 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】更新岗位信息</para>
+    /// <para>接口ID：7384280065851080705</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新岗位的版本信息，例如岗位关联的职务、职级、序列，以及岗位描述等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="position_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>岗位ID</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（ V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/corehr/v2/positions/{position_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2PositionsByPositionIdAsync(
+        [PathQuery] string position_id,
+        [JsonContent] Corehr.PatchCorehrV2PositionsByPositionIdBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建岗位信息</para>
+    /// <para>接口ID：7384280065851113473</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建岗位，可定义岗位关联的职务、职级、序列，以及岗位描述等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（ V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/positions")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PositionsResponseDto>> PostCorehrV2PositionsAsync(
+        [JsonContent] Corehr.PostCorehrV2PositionsBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书 aPaaS】删除记录</para>
     /// <para>接口ID：7384730094872936476</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-object-record/delete</para>
@@ -52073,6 +52152,64 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2OffboardingsRevokeAsync(
         [JsonContent] Corehr.PostCorehrV2OffboardingsRevokeBodyDto dto,
         [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询岗位调整内容</para>
+    /// <para>接口ID：7428890785897234433</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_position_change_list_by_ids</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据岗位调整记录 ID 批量查询岗位调整内容</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:approval_groups.orgdraft_position_change:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:position.direct_leader:read</item>
+    /// <item>corehr:position.employee_type:read</item>
+    /// <item>corehr:position.job_family:read</item>
+    /// <item>corehr:position.job_grade:read</item>
+    /// <item>corehr:position.job_level:read</item>
+    /// <item>corehr:position.job:read</item>
+    /// <item>corehr:position.working_hours_type:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>必填：是</para>
+    /// <para>组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成 一个或多个审批单据</para>
+    /// <para>示例值：6893014062142064111</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsResponseDto>> PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

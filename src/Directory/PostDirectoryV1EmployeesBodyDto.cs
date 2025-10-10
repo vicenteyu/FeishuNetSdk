@@ -474,7 +474,7 @@ public record PostDirectoryV1EmployeesBodyDto
     public record CreateEmployeeOptions
     {
         /// <summary>
-        /// <para>员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。</para>
+        /// <para>员工的数据驻留地。仅限开通了Multi-Geo的企业可选填，且仅能填入企业数据驻留地列表中的Geo。可通过**获取地理位置列表**接口查询企业开通的Geo，请注意这里需要传入**小写字母**。</para>
         /// <para>需要申请以下权限才能写入：</para>
         /// <para>- directory:employee.base.geo:write : 写入员工数据所在地</para>
         /// <para>必填：否</para>

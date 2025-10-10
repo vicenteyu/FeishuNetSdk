@@ -40,7 +40,8 @@ public record PostCorehrV2CustomOrgsQueryBodyDto
     /// <para>- org_roles</para>
     /// <para>- active</para>
     /// <para>- org_id</para>
-    /// <para>自定义字段类型，详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
+    /// <para>- custom_fields(自定义字段，需传入具体的"custom_api_name")</para>
+    /// <para>详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query) ,比如:"shifouleixing_7795__c"</para>
     /// <para>必填：否</para>
     /// <para>最大长度：200</para>
     /// <para>最小长度：0</para>

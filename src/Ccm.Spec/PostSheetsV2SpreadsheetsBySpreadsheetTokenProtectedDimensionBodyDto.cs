@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Ccm.Spec;
 public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionBodyDto
 {
     /// <summary>
-    /// <para>需要增加保护范围的维度信息。支持传入多个维度信息。</para>
+    /// <para>需要增加保护范围的维度信息。最多支持传入 50 个维度信息。</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("addProtectedDimension")]

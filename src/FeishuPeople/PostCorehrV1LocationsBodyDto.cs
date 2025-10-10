@@ -85,8 +85,9 @@ public record PostCorehrV1LocationsBodyDto
         public bool Active { get; set; }
 
         /// <summary>
-        /// <para>编码</para>
-        /// <para>- 编码 (不能与其他记录的编码重复)，当开启自动编码时，该字段会失效</para>
+        /// <para>地点编码 (不能与其他记录的编码重复)</para>
+        /// <para>- 开启自动编码时，以自动生成的编码值为准，传入值不生效</para>
+        /// <para>- 未开启自动编码时，编码字段值以传入值为准</para>
         /// <para>必填：否</para>
         /// <para>示例值：12456</para>
         /// </summary>
