@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-10-11
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2DepartmentsQueryTimelineResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -70,7 +70,8 @@ public class Test_PostCorehrV2DepartmentsQueryTimelineResponseDto : TestBase
                         "type": 1,
                         "value": "\"231\""
                     }
-                ]
+                ],
+                "expiration_date": "2020-05-02"
             }
         ]
     }

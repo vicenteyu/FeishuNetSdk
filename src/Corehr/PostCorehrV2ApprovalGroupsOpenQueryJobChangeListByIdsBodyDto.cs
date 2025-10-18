@@ -23,6 +23,8 @@ public record PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsBodyDto
 {
     /// <summary>
     /// <para>人员异动记录 ID List, 在组织架构调整发起后，会为调整涉及的员工生成一个 员工异动记录， 对应的记录 ID 即为 job_change_id。 调整记录可通过[【根据流程 ID 查询组织架构调整记录】](ssl://ttdocs/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get) 获取。</para>
+    /// <para>- 必须是查询参数process_id对应的流程下的人员调整记录ID。</para>
+    /// <para>- 未设置时查询到的人员调整记录为空。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

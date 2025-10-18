@@ -56,8 +56,8 @@ public record PostCorehrV2CostCentersBodyDto
 
     /// <summary>
     /// <para>成本中心编码 (不能与其他记录的编码重复)</para>
-    /// <para>- 开启自动编码时，如果不传值会自动生成编码，否则以传入值为准</para>
-    /// <para>- 未开启自动编码时，不传值不会自动生成编码</para>
+    /// <para>- 开启自动编码时，以自动生成的编码值为准，传入值不生效</para>
+    /// <para>- 未开启自动编码时，编码字段值以传入值为准</para>
     /// <para>必填：否</para>
     /// <para>示例值：MDPD00000023</para>
     /// </summary>

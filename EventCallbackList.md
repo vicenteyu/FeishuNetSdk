@@ -13,6 +13,7 @@
 <tr><td>corehr.department.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建部门V2</td></tr>
 <tr><td>corehr.cost_center.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建成本中心</td></tr>
 <tr><td>corehr.location.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrLocationCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建地点</td></tr>
+<tr><td>corehr.position.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPositionCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建岗位事件</td></tr>
 <tr><td>corehr.company.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCompanyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建公司</td></tr>
 <tr><td>corehr.job_family.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建序列</td></tr>
 <tr><td>corehr.job_grade.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobGradeCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建职等</td></tr>
@@ -20,6 +21,7 @@
 <tr><td>corehr.department.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新部门V2</td></tr>
 <tr><td>corehr.cost_center.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新成本中心</td></tr>
 <tr><td>corehr.location.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrLocationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新地点</td></tr>
+<tr><td>corehr.position.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPositionUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新岗位事件</td></tr>
 <tr><td>corehr.company.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCompanyUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新公司</td></tr>
 <tr><td>corehr.job_family.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新序列</td></tr>
 <tr><td>corehr.job_grade.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobGradeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新职等</td></tr>
@@ -34,6 +36,7 @@
 <tr><td>corehr.pre_hire.onboarding_task_changed_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】入职流程状态变更</td></tr>
 <tr><td>corehr.cost_center.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除成本中心</td></tr>
 <tr><td>corehr.location.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrLocationDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除地点</td></tr>
+<tr><td>corehr.position.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPositionDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除岗位事件</td></tr>
 <tr><td>corehr.company.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCompanyDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除公司</td></tr>
 <tr><td>corehr.job_family.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除序列</td></tr>
 <tr><td>corehr.job_grade.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobGradeDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除职等</td></tr>
@@ -63,7 +66,7 @@
 <tr><td>corehr.contract.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrContractCreatedV1EventBodyDto&gt;</td><td>【飞书人事】合同创建</td></tr>
 <tr><td>corehr.contract.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrContractUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】合同更新</td></tr>
 <tr><td>corehr.contract.deleted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrContractDeletedV1EventBodyDto&gt;</td><td>【飞书人事】合同删除</td></tr>
-<tr><td>corehr.offboarding.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrOffboardingUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】离职申请状态变更（不推荐）</td></tr>
+<tr><td>corehr.offboarding.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrOffboardingUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】离职申请状态变更</td></tr>
 <tr><td>corehr.job_data.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataCreatedV1EventBodyDto&gt;</td><td>【飞书人事】任职信息创建</td></tr>
 <tr><td>corehr.job_data.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】任职信息更新</td></tr>
 <tr><td>corehr.job_data.deleted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataDeletedV1EventBodyDto&gt;</td><td>【飞书人事】任职信息删除</td></tr>

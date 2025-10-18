@@ -22,7 +22,10 @@ namespace FeishuNetSdk.FeishuPeople;
 public record PostCorehrV1JobsBodyDto
 {
     /// <summary>
-    /// <para>职务编码 (不能与其他记录的编码重复)，最少1个字符，最多200个字符</para>
+    /// <para>职务编码（不能与其他记录的编码重复）</para>
+    /// <para>- 开启自动编码时，以自动生成的编码值为准，传入值不生效</para>
+    /// <para>- 未开启自动编码时，编码字段值以传入值为准</para>
+    /// <para>- 最少1个字符，最多200个字符</para>
     /// <para>必填：否</para>
     /// <para>示例值：JP422119</para>
     /// </summary>

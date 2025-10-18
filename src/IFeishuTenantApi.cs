@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-25
+// Last Modified On : 2025-10-18
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -43648,9 +43648,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7317581509003755524</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/approval_groups/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>用户通过『飞书人事-我的团队-组织架构』 发起一个组织架构调整会根据 审批流配置发起 一个或多个审批。 之后用户可通过流程 process 的单据 ID， 查询到该审批进行的状态， 以及该流程中涉及到的 组织架构信息（包括部门变更、人员变更记录 ID、岗位变更记录 ID）。</para>
-    /// <para>如需查询具体变更详情：</para>
-    /// <para>- 部门变更：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)</para>
+    /// <para>用户通过『飞书人事-我的团队-组织架构』 发起一个组织架构调整会根据 审批流配置发起 一个或多个审批。 之后用户可通过流程的单据 ID， 查询到该审批进行的状态， 以及该流程中涉及到的 组织架构信息（包括部门变更、人员变更记录 ID、岗位变更记录 ID）。</para>
+    /// <para>如需查询具体变更详情可按需调用以下独立的接口：</para>
+    /// <para>- 部门变更：[批量查询部门变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_position_change_list_by_ids)</para>
+    /// <para>- 岗位变更：[批量查询岗位调整内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)</para>
     /// <para>- 员工变更：[批量查询员工变更接口](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_job_change_list_by_ids)</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:approval_groups:read</item>
@@ -43662,7 +43663,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="process_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书 人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成 一个或多个审批单据。</para>
+    /// <para>组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书 人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成 一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取</para>
     /// <para>示例值：6893014062142064111</para>
     /// </param>
     /// <param name="user_id_type">
@@ -47956,6 +47957,119 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】更新岗位信息</para>
+    /// <para>接口ID：7384280065851080705</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/patch</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新岗位的版本信息，例如岗位关联的职务、职级、序列，以及岗位描述等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="position_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>岗位 ID 列表，详细信息可通过[查询岗位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)接口获得</para>
+    /// <para>示例值：6862995757234914824</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（ V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/corehr/v2/positions/{position_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchCorehrV2PositionsByPositionIdAsync(
+        [PathQuery] string position_id,
+        [JsonContent] Corehr.PatchCorehrV2PositionsByPositionIdBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】删除岗位</para>
+    /// <para>接口ID：7384280065851097089</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/del_position</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除整条岗位记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/positions/del_position")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2PositionsDelPositionAsync(
+        [JsonContent] Corehr.PostCorehrV2PositionsDelPositionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】创建岗位信息</para>
+    /// <para>接口ID：7384280065851113473</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>创建岗位，可定义岗位关联的职务、职级、序列，以及岗位描述等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>根据client_token是否一致来判断是否为同一请求</para>
+    /// <para>示例值：1245464678</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型，三种类型的 ID 都可通过飞书人事的[批量查询部门（ V2）](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 来获取</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/positions")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2PositionsResponseDto>> PostCorehrV2PositionsAsync(
+        [JsonContent] Corehr.PostCorehrV2PositionsBodyDto dto,
+        [PathQuery] string? client_token = null,
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】启停用岗位</para>
+    /// <para>接口ID：7384280065851129857</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/active</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>对岗位进行启用或停用操作</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/positions/active")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2PositionsActiveAsync(
+        [JsonContent] Corehr.PostCorehrV2PositionsActiveBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书 aPaaS】删除记录</para>
     /// <para>接口ID：7384730094872936476</para>
     /// <para>接口文档：https://open.feishu.cn/document/apaas-v1/application-object-record/delete</para>
@@ -52076,6 +52190,102 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】根据组织架构调整 ID 查询发起的流程信息</para>
+    /// <para>接口ID：7428890785897218049</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/approval_groups/get-2</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>用户通过『飞书人事-我的团队/人员管理-组织架构』 发起一个组织架构调整会根据 审批流配置发起 一个或多个审批。之后用户可以通过组织架构调整 ID 查询对应的流程ID，以及审批流状态。如需查询单个审批的详情数据，可通过[根据流程 ID 查询组织架构调整记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get)获取。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:draft:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="draft_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>组织架构调整 ID。用户在「飞书人事-我的团队/人员管理 -组织架构-发起调整」时生成的唯一 ID，可通过「组织架构调整状态变更事件」的事件获取</para>
+    /// <para>示例值：6893014062142064111</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/drafts/{draft_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2DraftsByDraftIdResponseDto>> GetCorehrV2DraftsByDraftIdAsync(
+        [PathQuery] string draft_id,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询岗位调整内容</para>
+    /// <para>接口ID：7428890785897234433</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/approval_groups/open_query_position_change_list_by_ids</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据岗位调整记录 ID 批量查询岗位调整内容</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:approval_groups.orgdraft_position_change:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:position.direct_leader:read</item>
+    /// <item>corehr:position.employee_type:read</item>
+    /// <item>corehr:position.job_family:read</item>
+    /// <item>corehr:position.job_grade:read</item>
+    /// <item>corehr:position.job_level:read</item>
+    /// <item>corehr:position.job:read</item>
+    /// <item>corehr:position.working_hours_type:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>必填：是</para>
+    /// <para>组织架构调整流程 ID， 用户通过『飞书人事-我的团队-组织架构』或『飞书人事-人员管理-组织架构』 发起一个组织架构调整，并提交审批后，系统会根据管理员在审批流程中配置的规则，生成一个或多个审批单据。可通过「组织架构调整状态变更」的事件来获取</para>
+    /// <para>示例值：6893014062142064111</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/approval_groups/open_query_position_change_list_by_ids")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsResponseDto>> PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsAsync(
+        [PathQuery] string process_id,
+        [JsonContent] Corehr.PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书 Aily】调用技能</para>
     /// <para>接口ID：7429225800963031042</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/start</para>
@@ -54838,6 +55048,48 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/corehr/v2/job_grades/query_recent_change")]
     System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2JobGradesQueryRecentChangeResponseDto>> GetCorehrV2JobGradesQueryRecentChangeAsync(
+        [PathQuery] string start_date,
+        [PathQuery] string end_date,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定时范围内当前版本信息发生变更的岗位</para>
+    /// <para>接口ID：7452973109948645378</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/position/query_recent_change</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询指定时间范围内信息发生变更的岗位，仅当岗位当前生效版本的生效时间在查询时间范围内，才返回该岗位id</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:position:read</item>
+    /// <item>corehr:position:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 2000</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_date">
+    /// <para>必填：是</para>
+    /// <para>查询的开始时间，支持"yyyy-MM-dd HH:MM:SS"</para>
+    /// <para>示例值：2024-01-01 00:00:00</para>
+    /// </param>
+    /// <param name="end_date">
+    /// <para>必填：是</para>
+    /// <para>查询的结束时间，格式 "yyyy-MM-dd HH:MM:SS"，必须晚于start_date（查询的开始时间）</para>
+    /// <para>示例值：2024-04-01 00:00:00</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/positions/query_recent_change")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2PositionsQueryRecentChangeResponseDto>> GetCorehrV2PositionsQueryRecentChangeAsync(
         [PathQuery] string start_date,
         [PathQuery] string end_date,
         [PathQuery] int page_size = 10,

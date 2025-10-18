@@ -51,7 +51,17 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineBodyDto
     public string? EffectiveDateEnd { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表，可选["department_name", "sub_type", "code", "active", "parent_department_id", "manager", "description", "effective_date"], 以及自定义字段field_name</para>
+    /// <para>需要返回的字段列表，字段可填写的列表如下：</para>
+    /// <para>- department_name</para>
+    /// <para>- sub_type</para>
+    /// <para>- code</para>
+    /// <para>- active</para>
+    /// <para>- parent_department_id</para>
+    /// <para>- manager</para>
+    /// <para>- description</para>
+    /// <para>- effective_date</para>
+    /// <para>- expiration_date</para>
+    /// <para>- custom_fields(自定义字段需传入具体的"custom_api_name"详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query) ,比如:"shifouleixing_7795__c)</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

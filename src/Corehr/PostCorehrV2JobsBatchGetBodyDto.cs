@@ -57,7 +57,8 @@ public record PostCorehrV2JobsBatchGetBodyDto
     /// <para>- "updated_time"：更新时间</para>
     /// <para>- "created_by"：创建人</para>
     /// <para>- "updated_by"：更新人</para>
-    /// <para>自定义字段详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query)</para>
+    /// <para>- "custom_fields"：自定义字段(需传入具体的"custom_api_name")</para>
+    /// <para>详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query) ,比如:"shifouleixing_7795__c"</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

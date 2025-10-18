@@ -37,13 +37,13 @@ public class Test_PostCorehrV2PositionsQueryResponseDto : TestBase
                 "names": [
                     {
                         "lang": "zh-CN",
-                        "value": "中文示例"
+                        "value": "高级产品经理"
                     }
                 ],
                 "descriptions": [
                     {
                         "lang": "zh-CN",
-                        "value": "中文示例"
+                        "value": "岗位的描述"
                     }
                 ],
                 "active": true,
