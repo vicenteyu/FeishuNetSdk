@@ -54,9 +54,9 @@ public record PostCorehrV2PositionsBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>支持 zh-CN 和 en-US，最大长度为 255 字符</para>
         /// <para>必填：是</para>
-        /// <para>示例值：张三</para>
+        /// <para>示例值：高级产品经理</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
@@ -142,7 +142,7 @@ public record PostCorehrV2PositionsBodyDto
 
     /// <summary>
     /// <para>部门 ID，详细信息可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
-    /// <para>- 类型与 department_id_type 一致</para>
+    /// <para>- ID 类型必须与查询参数 department_id_type 的取值一致</para>
     /// <para>必填：是</para>
     /// <para>示例值：4719519211875096301</para>
     /// </summary>
@@ -174,7 +174,7 @@ public record PostCorehrV2PositionsBodyDto
     public bool? IsKeyPosition { get; set; }
 
     /// <summary>
-    /// <para>生效日期</para>
+    /// <para>生效日期，输入日期格式的字符串</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-05-01</para>
     /// </summary>
@@ -196,7 +196,8 @@ public record PostCorehrV2PositionsBodyDto
     public record CustomFieldData
     {
         /// <summary>
-        /// <para>自定义字段 apiname，即自定义字段的唯一标识</para>
+        /// <para>自定义字段 apiname，即自定义字段的唯一标识，由租户自定义，可通过 [查询岗位信息] (https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query) 获取</para>
+        /// <para>- 最多传入 200 个自定义字段</para>
         /// <para>必填：是</para>
         /// <para>示例值：name</para>
         /// </summary>

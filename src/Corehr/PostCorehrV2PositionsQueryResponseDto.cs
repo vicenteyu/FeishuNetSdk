@@ -74,7 +74,7 @@ public record PostCorehrV2PositionsQueryResponseDto : IPageableResponse<PostCore
             /// <summary>
             /// <para>文本内容</para>
             /// <para>必填：是</para>
-            /// <para>示例值：中文示例</para>
+            /// <para>示例值：高级产品经理</para>
             /// </summary>
             [JsonPropertyName("value")]
             public string Value { get; set; } = string.Empty;

@@ -31,13 +31,13 @@ public class Test_PostCorehrV2PositionsBodyDto : TestBase
     "names": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "高级产品经理"
         }
     ],
     "descriptions": [
         {
             "lang": "zh-CN",
-            "value": "张三"
+            "value": "岗位的描述"
         }
     ],
     "job_family_ids": [

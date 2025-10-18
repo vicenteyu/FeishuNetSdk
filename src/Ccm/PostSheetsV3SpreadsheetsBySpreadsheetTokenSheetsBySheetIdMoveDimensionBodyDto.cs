@@ -52,8 +52,8 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimen
         public int? StartIndex { get; set; }
 
         /// <summary>
-        /// <para>要移动的行或列结束的位置。从 0 开始计数。若 `endIndex` 为 7，则要移动的范围至第 8 行或列结束。不包含第 8 行或列。</para>
-        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则移动第 4、5、6、7 行，共 4 行。</para>
+        /// <para>要移动的行或列结束的位置。从 0 开始计数。若 `endIndex` 为 7，则要移动的范围至第 8 行或列结束。包含第 8 行或列。</para>
+        /// <para>示例：当 `majorDimension`为 `ROWS`、 `startIndex` 为 3、`endIndex ` 为 7 时，则移动第 4、5、6、7、8 行，共 5 行。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

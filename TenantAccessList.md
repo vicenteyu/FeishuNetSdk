@@ -241,7 +241,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenInsertDimensionRange</td></tr>
 <tr><td rowspan="2">121</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>更新行列</td></tr>
 <tr><td colspan="3">PutSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
-<tr><td rowspan="2">122</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>移动行列</td></tr>
+<tr><td rowspan="2">122</td><td rowspan="2">2025-10-11</td><td>&#10003;</td><td>云文档</td><td>移动行列</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdMoveDimension</td></tr>
 <tr><td rowspan="2">123</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>云文档</td><td>删除行列</td></tr>
 <tr><td colspan="3">DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDimensionRange</td></tr>
@@ -2357,7 +2357,7 @@
 <tr><td colspan="3">GetPerformanceV2MetricTags</td></tr>
 <tr><td rowspan="2">1179</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
-<tr><td rowspan="2">1180</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>管理后台</td><td>获取行为审计日志数据</td></tr>
+<tr><td rowspan="2">1180</td><td rowspan="2">2025-10-17</td><td>&#10003;</td><td>管理后台</td><td>获取行为审计日志数据</td></tr>
 <tr><td colspan="3">GetAdminV1AuditInfos</td></tr>
 <tr><td rowspan="2">1181</td><td rowspan="2">2025-02-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定生效日期的部门架构树</td></tr>
 <tr><td colspan="3">PostCorehrV2DepartmentsTree</td></tr>
@@ -2509,7 +2509,7 @@
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">1255</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>获取企业安装的应用</td></tr>
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
-<tr><td rowspan="2">1256</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
+<tr><td rowspan="2">1256</td><td rowspan="2">2025-10-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
 <tr><td rowspan="2">1257</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
@@ -2867,7 +2867,7 @@
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
 <tr><td rowspan="2">1434</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 审批流列表</td></tr>
 <tr><td colspan="3">GetHireV1OfferApprovalTemplates</td></tr>
-<tr><td rowspan="2">1435</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询岗位信息</td></tr>
+<tr><td rowspan="2">1435</td><td rowspan="2">2025-10-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询岗位信息</td></tr>
 <tr><td colspan="3">PostCorehrV2PositionsQuery</td></tr>
 <tr><td rowspan="2">1436</td><td rowspan="2">2025-08-19</td><td>&#10003;</td><td>薪酬管理</td><td>查询一次性支付授予记录</td></tr>
 <tr><td colspan="3">PostCompensationV1LumpSumPaymentQuery</td></tr>
@@ -2921,4 +2921,12 @@
 <tr><td colspan="3">PostCorehrV2Positions</td></tr>
 <tr><td rowspan="2">1461</td><td rowspan="2">2025-10-09</td><td>新增</td><td>飞书人事（企业版）</td><td>批量查询岗位调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIds</td></tr>
+<tr><td rowspan="2">1462</td><td rowspan="2">2025-10-14</td><td>新增</td><td>飞书人事（企业版）</td><td>删除岗位</td></tr>
+<tr><td colspan="3">PostCorehrV2PositionsDelPosition</td></tr>
+<tr><td rowspan="2">1463</td><td rowspan="2">2025-10-14</td><td>新增</td><td>飞书人事（企业版）</td><td>启停用岗位</td></tr>
+<tr><td colspan="3">PostCorehrV2PositionsActive</td></tr>
+<tr><td rowspan="2">1464</td><td rowspan="2">2025-10-14</td><td>新增</td><td>飞书人事（企业版）</td><td>根据组织架构调整 ID 查询发起的流程信息</td></tr>
+<tr><td colspan="3">GetCorehrV2DraftsByDraftId</td></tr>
+<tr><td rowspan="2">1465</td><td rowspan="2">2025-10-14</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时范围内当前版本信息发生变更的岗位</td></tr>
+<tr><td colspan="3">GetCorehrV2PositionsQueryRecentChange</td></tr>
 </tbody></table>

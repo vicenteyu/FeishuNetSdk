@@ -53,7 +53,7 @@ public record PatchCorehrV2PositionsByPositionIdBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>支持 zh-CN 和 en-US，最大长度为 255 字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：张三</para>
         /// </summary>

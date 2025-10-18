@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople.Events;
 /// <summary>
-/// 离职申请状态变更（不推荐） 事件体
-/// <para>在离职发起审批、产生审批结果以及离职生效时触发该事件推送对应消息。审批结果产生的场景包括撤销、审批通过、审批拒绝。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=offboarding&amp;event=updated)</para>
+/// 离职申请状态变更 事件体
+/// <para>在发起离职审批、产生审批结果、离职生效、离职状态回退等离职申请状态变更时触发该事件推送对应消息。审批结果产生的场景包括撤销、通过、拒绝审批。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v1&amp;resource=offboarding&amp;event=updated)</para>
 /// <para>接口ID：7157997462637625347</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/offboarding/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2foffboarding%2fevents%2fupdated</para>

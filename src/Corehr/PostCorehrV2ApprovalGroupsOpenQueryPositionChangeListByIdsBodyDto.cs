@@ -23,6 +23,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryPositionChangeListByIdsBodyDto
 {
     /// <summary>
     /// <para>岗位调整记录 ID 列表。可通过[【根据流程 ID 查询组织架构调整记录】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/get) 获取</para>
+    /// <para>- 流程 ID 对应的查询参数名称 "process_id"</para>
     /// <para>- 必须是查询参数process_id对应的流程下的岗位调整记录ID。</para>
     /// <para>- 未设置时查询到的岗位调整记录为空。</para>
     /// <para>必填：否</para>
