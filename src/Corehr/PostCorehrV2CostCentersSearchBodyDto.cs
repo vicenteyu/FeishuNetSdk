@@ -23,6 +23,7 @@ public record PostCorehrV2CostCentersSearchBodyDto
 {
     /// <summary>
     /// <para>成本中心ID 列表</para>
+    /// <para>- 一次性最多传入100个成本中心ID</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("cost_center_id_list")]

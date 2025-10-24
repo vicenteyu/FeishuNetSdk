@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-18
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -38670,6 +38670,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个清单的任务列表，返回任务的摘要信息。</para>
     /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
     /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
+    /// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空情况。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:read</item>
     /// <item>task:tasklist:write</item>
@@ -52517,6 +52518,316 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【安全合规】审批设备申报</para>
+    /// <para>接口ID：7430737008881582082</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_apply_record/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口在设备管理中通过或驳回一条成员自主申报申请</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_apply_record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="device_apply_record_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>设备申报记录ID</para>
+    /// <para>示例值：7088763625288187923</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/security_and_compliance/v2/device_apply_records/{device_apply_record_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutSecurityAndComplianceV2DeviceApplyRecordsByDeviceApplyRecordIdAsync(
+        [PathQuery] string device_apply_record_id,
+        [JsonContent] SecurityAndCompliance.PutSecurityAndComplianceV2DeviceApplyRecordsByDeviceApplyRecordIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】新增设备</para>
+    /// <para>接口ID：7430737008881614850</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口在设备管理中新增一台设备。新增设备的类型为管理员导入</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/security_and_compliance/v2/device_records")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.PostSecurityAndComplianceV2DeviceRecordsResponseDto>> PostSecurityAndComplianceV2DeviceRecordsAsync(
+        [JsonContent] SecurityAndCompliance.PostSecurityAndComplianceV2DeviceRecordsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】查询设备信息</para>
+    /// <para>接口ID：7430737008881631234</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口可分页查询设备列表信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：7394463407091023892</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="device_record_id">
+    /// <para>必填：否</para>
+    /// <para>设备认证编码</para>
+    /// <para>示例值：7089353870308032531</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="current_user_id">
+    /// <para>必填：否</para>
+    /// <para>当前登录用户ID，ID 类型必须与查询参数user_id_type的取值一致</para>
+    /// <para>示例值：ou_b25e90585ef8c1adac4b379c2e257906</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="device_name">
+    /// <para>必填：否</para>
+    /// <para>设备名称</para>
+    /// <para>示例值：Q9C6RYMFDK</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="serial_number">
+    /// <para>必填：否</para>
+    /// <para>生产序列号</para>
+    /// <para>示例值：C02DTHRMML7H</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="disk_serial_number">
+    /// <para>必填：否</para>
+    /// <para>硬盘序列号</para>
+    /// <para>示例值：CC344362-5990-5A68-8DDD-64A23C99FA0C</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="mac_address">
+    /// <para>必填：否</para>
+    /// <para>MAC地址</para>
+    /// <para>示例值：ac:de:48:00:11:21</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="android_id">
+    /// <para>必填：否</para>
+    /// <para>Android标识符</para>
+    /// <para>示例值：02a11ac4a83b918e</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="uuid">
+    /// <para>必填：否</para>
+    /// <para>主板UUID</para>
+    /// <para>示例值：4C4C4544-0052-5A10-804E-B6C04F324433</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="idfv">
+    /// <para>必填：否</para>
+    /// <para>iOS供应商标识符</para>
+    /// <para>示例值：968F0E5C-C297-4122-ACB6-102494DEFD9A</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="aaid">
+    /// <para>必填：否</para>
+    /// <para>Harmony供应商标识符</para>
+    /// <para>示例值：ff3c2237-cd76-4331-9d72-0a4470854567</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="device_ownership">
+    /// <para>必填：否</para>
+    /// <para>设备归属</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：未知设备</item>
+    /// <item>1：个人设备</item>
+    /// <item>2：企业设备</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="device_status">
+    /// <para>必填：否</para>
+    /// <para>可信状态</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：未知状态</item>
+    /// <item>1：信任设备</item>
+    /// <item>2：非信任设备</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="device_terminal_type">
+    /// <para>必填：否</para>
+    /// <para>设备类型</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：未知</item>
+    /// <item>1：移动端</item>
+    /// <item>2：桌面端</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="os">
+    /// <para>必填：否</para>
+    /// <para>设备操作系统</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：未知</item>
+    /// <item>1：Windows</item>
+    /// <item>2：macOS</item>
+    /// <item>3：Linux</item>
+    /// <item>4：Android</item>
+    /// <item>5：iOS</item>
+    /// <item>6：OpenHarmony</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="latest_user_id">
+    /// <para>必填：否</para>
+    /// <para>最近登录用户ID，ID 类型必须与查询参数user_id_type的取值一致</para>
+    /// <para>示例值：ou_b25e90585ef8c1adac4b379c2e257906</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="did">
+    /// <para>必填：否</para>
+    /// <para>设备指纹</para>
+    /// <para>示例值：7089353870308032531</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/security_and_compliance/v2/device_records")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsResponseDto>> GetSecurityAndComplianceV2DeviceRecordsAsync(
+        [PathQuery] int page_size = 100,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? device_record_id = null,
+        [PathQuery] string? current_user_id = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? device_name = null,
+        [PathQuery] string? serial_number = null,
+        [PathQuery] string? disk_serial_number = null,
+        [PathQuery] string? mac_address = null,
+        [PathQuery] string? android_id = null,
+        [PathQuery] string? uuid = null,
+        [PathQuery] string? idfv = null,
+        [PathQuery] string? aaid = null,
+        [PathQuery] int? device_ownership = null,
+        [PathQuery] int? device_status = null,
+        [PathQuery] int? device_terminal_type = null,
+        [PathQuery] int? os = null,
+        [PathQuery] string? latest_user_id = null,
+        [PathQuery] string? did = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】获取设备信息</para>
+    /// <para>接口ID：7430737008881647618</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口在设备管理中获取设备的设备参数、设备归属、设备状态等信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="device_record_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>设备认证编码，通过调用查询设备信息接口获取</para>
+    /// <para>示例值：7089353870308032531</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/security_and_compliance/v2/device_records/{device_record_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDto>> GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdAsync(
+        [PathQuery] string device_record_id,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】更新设备</para>
+    /// <para>接口ID：7430737008881664002</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口在设备管理中修改一台设备的设备归属、设备状态等信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="device_record_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>设备认证编码</para>
+    /// <para>示例值：7089353870308032531</para>
+    /// </param>
+    /// <param name="version">
+    /// <para>必填：是</para>
+    /// <para>版本号</para>
+    /// <para>示例值：0</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/security_and_compliance/v2/device_records/{device_record_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdAsync(
+        [PathQuery] string device_record_id,
+        [PathQuery] string version,
+        [JsonContent] SecurityAndCompliance.PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】删除设备</para>
+    /// <para>接口ID：7430737008881680386</para>
+    /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/delete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>使用该接口在设备管理中删除一台设备</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="device_record_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>设备认证编码</para>
+    /// <para>示例值：7089353870308032531</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/security_and_compliance/v2/device_records/{device_record_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdAsync(
+        [PathQuery] string device_record_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【薪酬管理】批量更正一次性支付记录</para>
     /// <para>接口ID：7430824932635181060</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/lump_sum_payment/batch_update</para>
@@ -55094,6 +55405,62 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string end_date,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取流程数据</para>
+    /// <para>接口ID：7455284757275262995</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/flow_variable_data</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据流程实例 id（process_id）获取流程字段数据，包括业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="process_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>流程实例ID。可通过[查询流程实例列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process/list)接口获取</para>
+    /// <para>示例值：7341373094948242956</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="variable_keys">
+    /// <para>必填：否</para>
+    /// <para>需要查询变量key</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/processes/{process_id}/flow_variable_data")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto>> GetCorehrV2ProcessesByProcessIdFlowVariableDataAsync(
+        [PathQuery] string process_id,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        [PathQuery] string[]? variable_keys = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

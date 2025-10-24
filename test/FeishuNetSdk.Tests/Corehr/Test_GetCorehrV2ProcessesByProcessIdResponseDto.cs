@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="Test_GetCorehrV2ProcessesByProcessIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -188,11 +188,21 @@ public class Test_GetCorehrV2ProcessesByProcessIdResponseDto : TestBase
                     "en_us": "English"
                 },
                 "comment_time": "1694769814036",
-                "comment_msg": "评论内容"
+                "comment_msg": "评论内容",
+                "at_user_ids": [
+                    "7355397217231831060"
+                ],
+                "file_count": 10,
+                "image_count": 10,
+                "comment_id": "7355397217231831060"
             }
         ],
         "original_process_id": "7278949005675988535",
-        "is_last_completed_correct_process": false
+        "is_last_completed_correct_process": false,
+        "process_name": {
+            "zh_cn": "中文",
+            "en_us": "English"
+        }
     }
 }
 """;
