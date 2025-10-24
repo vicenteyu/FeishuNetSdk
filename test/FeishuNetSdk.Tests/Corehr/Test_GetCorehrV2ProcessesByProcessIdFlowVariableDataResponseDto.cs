@@ -1,26 +1,26 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2025-06-24
+// Created          : 2025-10-24
 //
 // Last Modified By : yxr
 // Last Modified On : 2025-10-24
 // ************************************************************************
-// <copyright file="Test_GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto.cs" company="Vicente Yu">
+// <copyright file="Test_GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>测试 获取流程表单数据 响应体</summary>
+// <summary>测试 获取流程数据 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>
-/// 测试 获取流程表单数据 响应体
-/// <para>接口ID：7362022982036717571</para>
-/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/get-2</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-form_variable_data%2fget</para>
+/// 测试 获取流程数据 响应体
+/// <para>接口ID：7455284757275262995</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/flow_variable_data</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess%2fflow_variable_data</para>
 /// </summary>
 [TestClass]
-public class Test_GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto : TestBase
+public class Test_GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto : TestBase
 {
     [TestMethod]
     public void TestDto()
@@ -118,7 +118,7 @@ public class Test_GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto : T
     }
 }
 """;
-        var result = Deserialize<FeishuResponse<FeishuNetSdk.Corehr.GetCorehrV2ProcessesByProcessIdFormVariableDataResponseDto>>(json);
+        var result = Deserialize<FeishuResponse<FeishuNetSdk.Corehr.GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto>>(json);
         Assert.IsNotNull(result);
     }
 }

@@ -9,6 +9,8 @@
 <tr><td>work_approval_revert</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalRevertEventBodyDto&gt;</td><td>【审批】加班审批通过并撤销</td></tr>
 <tr><td>url.preview.get</td><td>CallbackV2Dto&lt;CallbackEvents.UrlPreviewGetEventBodyDto&gt;</td><td>【回调】拉取链接预览数据</td></tr>
 <tr><td>card.action.trigger</td><td>CallbackV2Dto&lt;CallbackEvents.CardActionTriggerEventBodyDto&gt;</td><td>【回调】卡片回传交互</td></tr>
+<tr><td>security_and_compliance.device_apply_record.device_apply_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto&gt;</td><td>【安全合规】设备申报事件</td></tr>
+<tr><td>security_and_compliance.device_record.device_change_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto&gt;</td><td>【安全合规】设备信息变更事件</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
 <tr><td>corehr.department.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建部门V2</td></tr>
 <tr><td>corehr.cost_center.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建成本中心</td></tr>
@@ -32,6 +34,7 @@
 <tr><td>corehr.process.node.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessNodeUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程节点状态变更</td></tr>
 <tr><td>corehr.process.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程实例信息变更</td></tr>
 <tr><td>corehr.process.status.update_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessStatusUpdateV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程实例状态变化</td></tr>
+<tr><td>corehr.process_comment_info.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCommentInfoUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】流程下评论事件</td></tr>
 <tr><td>corehr.employee.domain_event_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrEmployeeDomainEventV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】人员信息变更</td></tr>
 <tr><td>corehr.pre_hire.onboarding_task_changed_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】入职流程状态变更</td></tr>
 <tr><td>corehr.cost_center.deleted_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterDeletedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】删除成本中心</td></tr>

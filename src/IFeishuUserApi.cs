@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-19
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -17589,6 +17589,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>获取一个清单的任务列表，返回任务的摘要信息。</para>
     /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
     /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
+    /// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空情况。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:read</item>
     /// <item>task:tasklist:write</item>
@@ -25396,6 +25397,23 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】获取客户端设备认证信息</para>
+    /// <para>接口ID：7563551656446263298</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/security_and_compliance-v2/device_record/mine</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>通过客户端授权信息获取对应设备认证信息，包含设备归属、可信状态等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:device_record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/security_and_compliance/v2/device_records/mine")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsMineResponseDto>> GetSecurityAndComplianceV2DeviceRecordsMineAsync(
+        UserAccessToken access_token,
         CancellationToken cancellation_token = default);
 }
 

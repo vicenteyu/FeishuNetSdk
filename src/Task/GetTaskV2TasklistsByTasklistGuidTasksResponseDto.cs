@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="GetTaskV2TasklistsByTasklistGuidTasksResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -17,6 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>获取一个清单的任务列表，返回任务的摘要信息。</para>
 /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
 /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
+/// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空情况。</para>
 /// <para>接口ID：7255580838154698780</para>
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist/tasks</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist%2ftasks</para>
@@ -157,6 +158,14 @@ public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto : IPageableRespon
             /// </summary>
             [JsonPropertyName("role")]
             public string? Role { get; set; }
+
+            /// <summary>
+            /// <para>成员名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：张明德（明德）</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
         }
 
         /// <summary>

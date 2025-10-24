@@ -639,7 +639,7 @@
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidAddMembers</td></tr>
 <tr><td rowspan="2">320</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>移除清单成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidRemoveMembers</td></tr>
-<tr><td rowspan="2">321</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取清单任务列表</td></tr>
+<tr><td rowspan="2">321</td><td rowspan="2">2025-10-24</td><td>&#10003;</td><td>任务</td><td>获取清单任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuidTasks</td></tr>
 <tr><td rowspan="2">322</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取清单列表</td></tr>
 <tr><td colspan="3">GetTaskV2Tasklists</td></tr>
@@ -1267,4 +1267,6 @@
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
 <tr><td rowspan="2">634</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
+<tr><td rowspan="2">635</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>获取客户端设备认证信息</td></tr>
+<tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>
 </tbody></table>

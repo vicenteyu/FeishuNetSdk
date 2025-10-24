@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="GetPayV1OrderGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,7 +26,7 @@ public record GetPayV1OrderGetResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("order")]
-    public string? Order { get; set; }
+    public OrderSuffix? Order { get; set; }
 
     /// <summary></summary>
     public record OrderSuffix
@@ -46,7 +46,7 @@ public record GetPayV1OrderGetResponseDto
         public string? PricePlanId { get; set; }
 
         /// <summary>
-        /// <para>价格方案类型 "trial" -试用；"permanent"-一次性付费；"per_year"-企业年付费；"per_month"-企业月付费；"per_seat_per_year"-按人按年付费；"per_seat_per_month"-按人按月付费；"permanent_count"-按次付费；</para>
+        /// <para>价格方案类型 "trial" -试用；"permanent"-一次性付费；"two_year"-企业两年付费；"per_year"-企业年付费；"per_month"-企业月付费；"per_seat_two_year"-按人按每两年付费；"per_seat_per_year"-按人按年付费；"per_seat_per_month"-按人按月付费；"permanent_count"-按次付费；</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("price_plan_type")]
@@ -88,7 +88,7 @@ public record GetPayV1OrderGetResponseDto
         public string? Status { get; set; }
 
         /// <summary>
-        /// <para>购买类型，"buy" - 普通购买;"upgrade"-为升级购买(仅price_plan_type 为per_year，per_month，per_seat_per_year，per_seat_per_month时可升级购买);"renew" - 续费购买；</para>
+        /// <para>购买类型，"buy" - 普通购买;"upgrade"-为升级购买(仅price_plan_type 为，two_year，per_year，per_month，per_seat_two_year，per_seat_per_year，per_seat_per_month时可升级购买);"renew" - 续费购买；</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("buy_type")]

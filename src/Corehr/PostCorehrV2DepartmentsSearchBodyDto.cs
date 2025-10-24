@@ -52,6 +52,7 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <summary>
     /// <para>部门 ID列表，用来做条件筛选</para>
     /// <para>- 传非空值返回指定部门ID，传空值则不加该筛选条件</para>
+    /// <para>- 一次性最多传入100个部门ID</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("department_id_list")]

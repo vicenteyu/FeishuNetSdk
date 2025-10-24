@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-18
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -198,6 +198,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessApproverUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.approver.updated_v2")]
 //【飞书人事（企业版）】抄送单据状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.cc.updated_v2")]
+//【飞书人事（企业版）】流程下评论事件
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessCommentInfoUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process_comment_info.updated_v2")]
 //【飞书人事（企业版）】流程节点状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessNodeUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.node.updated_v2")]
 //【飞书人事（企业版）】流程实例状态变化
@@ -374,6 +376,10 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Performance.Events.PerformanceReviewDataChangedV2EventBodyDto>), typeDiscriminator: "performance.review_data.changed_v2")]
 //【绩效】绩效结果开通
 [JsonDerivedType(typeof(EventV2Dto<Performance.Events.PerformanceStageTaskOpenResultV2EventBodyDto>), typeDiscriminator: "performance.stage_task.open_result_v2")]
+//【安全合规】设备申报事件
+[JsonDerivedType(typeof(EventV2Dto<SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto>), typeDiscriminator: "security_and_compliance.device_apply_record.device_apply_event_v2")]
+//【安全合规】设备信息变更事件
+[JsonDerivedType(typeof(EventV2Dto<SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto>), typeDiscriminator: "security_and_compliance.device_record.device_change_event_v2")]
 //【任务】任务评论信息变更
 [JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskCommentUpdatedV1EventBodyDto>), typeDiscriminator: "task.task.comment.updated_v1")]
 //【任务】任务信息变更（应用维度）

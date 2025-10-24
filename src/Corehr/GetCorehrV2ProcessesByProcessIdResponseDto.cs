@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-27
+// Last Modified On : 2025-10-24
 // ************************************************************************
 // <copyright file="GetCorehrV2ProcessesByProcessIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -972,6 +972,47 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
         /// </summary>
         [JsonPropertyName("comment_msg")]
         public string? CommentMsg { get; set; }
+
+        /// <summary>
+        /// <para>在评论中被提及（@）到的人的id列表</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：65535</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("at_user_ids")]
+        public string[]? AtUserIds { get; set; }
+
+        /// <summary>
+        /// <para>评论中附件数量</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：10</para>
+        /// <para>最大值：65535</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("file_count")]
+        public int? FileCount { get; set; }
+
+        /// <summary>
+        /// <para>评论中图片数量</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：10</para>
+        /// <para>最大值：65535</para>
+        /// <para>最小值：0</para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("image_count")]
+        public int? ImageCount { get; set; }
+
+        /// <summary>
+        /// <para>一条评论的唯一id</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7355397217231831060</para>
+        /// <para>最大长度：24</para>
+        /// <para>最小长度：18</para>
+        /// </summary>
+        [JsonPropertyName("comment_id")]
+        public string? CommentId { get; set; }
     }
 
     /// <summary>
@@ -989,4 +1030,11 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     /// </summary>
     [JsonPropertyName("is_last_completed_correct_process")]
     public bool? IsLastCompletedCorrectProcess { get; set; }
+
+    /// <summary>
+    /// <para>流程实例名称，取流程发起时的流程定义名称</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("process_name")]
+    public DataengineI18n? ProcessName { get; set; }
 }
