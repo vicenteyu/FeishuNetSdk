@@ -9,6 +9,8 @@
 <tr><td>work_approval_revert</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalRevertEventBodyDto&gt;</td><td>【审批】加班审批通过并撤销</td></tr>
 <tr><td>url.preview.get</td><td>CallbackV2Dto&lt;CallbackEvents.UrlPreviewGetEventBodyDto&gt;</td><td>【回调】拉取链接预览数据</td></tr>
 <tr><td>card.action.trigger</td><td>CallbackV2Dto&lt;CallbackEvents.CardActionTriggerEventBodyDto&gt;</td><td>【回调】卡片回传交互</td></tr>
+<tr><td>attendance.user_task.updated_v1</td><td>EventV2Dto&lt;Attendance.Events.AttendanceUserTaskUpdatedV1EventBodyDto&gt;</td><td>【考勤打卡】用户任务状态变更</td></tr>
+<tr><td>attendance.user_flow.created_v1</td><td>EventV2Dto&lt;Attendance.Events.AttendanceUserFlowCreatedV1EventBodyDto&gt;</td><td>【考勤打卡】打卡流水</td></tr>
 <tr><td>security_and_compliance.device_apply_record.device_apply_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto&gt;</td><td>【安全合规】设备申报事件</td></tr>
 <tr><td>security_and_compliance.device_record.device_change_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto&gt;</td><td>【安全合规】设备信息变更事件</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
@@ -61,7 +63,6 @@
 <tr><td>corehr.person.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrPersonUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】更新个人信息</td></tr>
 <tr><td>corehr.employment.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】更新雇佣信息</td></tr>
 <tr><td>corehr.employment.deleted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentDeletedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】删除雇佣信息</td></tr>
-<tr><td>corehr.org_role_authorization.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrOrgRoleAuthorizationUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】【事件】组织角色授权变更</td></tr>
 <tr><td>corehr.department.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrDepartmentCreatedV1EventBodyDto&gt;</td><td>【飞书人事】创建部门</td></tr>
 <tr><td>corehr.job.created_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobCreatedV1EventBodyDto&gt;</td><td>【飞书人事】创建职务</td></tr>
 <tr><td>corehr.department.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrDepartmentUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】更新部门</td></tr>
@@ -83,6 +84,7 @@
 <tr><td>corehr.job_data.employed_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataEmployedV1EventBodyDto&gt;</td><td>【飞书人事】员工完成入职</td></tr>
 <tr><td>corehr.job_data.changed_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrJobDataChangedV1EventBodyDto&gt;</td><td>【飞书人事】员工完成异动</td></tr>
 <tr><td>corehr.employment.converted_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrEmploymentConvertedV1EventBodyDto&gt;</td><td>【飞书人事】员工完成转正</td></tr>
+<tr><td>corehr.org_role_authorization.updated_v1</td><td>EventV2Dto&lt;FeishuPeople.Events.CorehrOrgRoleAuthorizationUpdatedV1EventBodyDto&gt;</td><td>【飞书人事】组织角色授权变更</td></tr>
 <tr><td>helpdesk.ticket.created_v1</td><td>EventV2Dto&lt;Helpdesk.Events.HelpdeskTicketCreatedV1EventBodyDto&gt;</td><td>【服务台】创建工单</td></tr>
 <tr><td>helpdesk.ticket_message.created_v1</td><td>EventV2Dto&lt;Helpdesk.Events.HelpdeskTicketMessageCreatedV1EventBodyDto&gt;</td><td>【服务台】工单消息事件</td></tr>
 <tr><td>helpdesk.ticket.updated_v1</td><td>EventV2Dto&lt;Helpdesk.Events.HelpdeskTicketUpdatedV1EventBodyDto&gt;</td><td>【服务台】工单状态变更</td></tr>

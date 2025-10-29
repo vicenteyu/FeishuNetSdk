@@ -62,7 +62,7 @@ public record GetHireV1OffersByOfferIdResponseDto
         public record ApplicationOfferBasicInfo
         {
             /// <summary>
-            /// <para>Offer 类型</para>
+            /// <para>Offer 类型，废弃字段</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>可选值：<list type="bullet">

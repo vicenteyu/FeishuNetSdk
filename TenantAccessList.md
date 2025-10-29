@@ -1381,7 +1381,7 @@
 <tr><td colspan="3">PostCorehrV2DepartmentsSearch</td></tr>
 <tr><td rowspan="2">691</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>转发消息</td></tr>
 <tr><td colspan="3">PostImV1MessagesByMessageIdForward</td></tr>
-<tr><td rowspan="2">692</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>飞书人事</td><td>创建部门</td></tr>
+<tr><td rowspan="2">692</td><td rowspan="2">2025-10-30</td><td>&#10003;</td><td>飞书人事</td><td>创建部门</td></tr>
 <tr><td colspan="3">PostCorehrV1Departments</td></tr>
 <tr><td rowspan="2">693</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>飞书人事</td><td>更新部门</td></tr>
 <tr><td colspan="3">PatchCorehrV1DepartmentsByDepartmentId</td></tr>
@@ -1619,7 +1619,7 @@
 <tr><td colspan="3">PutHireV1OffersByOfferId</td></tr>
 <tr><td rowspan="2">810</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 信息</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdOffer</td></tr>
-<tr><td rowspan="2">811</td><td rowspan="2">2025-07-30</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 详情</td></tr>
+<tr><td rowspan="2">811</td><td rowspan="2">2025-10-31</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 详情</td></tr>
 <tr><td colspan="3">GetHireV1OffersByOfferId</td></tr>
 <tr><td rowspan="2">812</td><td rowspan="2">2025-06-23</td><td>&#10003;</td><td>招聘</td><td>获取 Offer 列表</td></tr>
 <tr><td colspan="3">GetHireV1Offers</td></tr>
@@ -2909,7 +2909,7 @@
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
 <tr><td rowspan="2">1455</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
-<tr><td rowspan="2">1456</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
+<tr><td rowspan="2">1456</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
 <tr><td rowspan="2">1457</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
@@ -2929,18 +2929,20 @@
 <tr><td colspan="3">GetCorehrV2DraftsByDraftId</td></tr>
 <tr><td rowspan="2">1465</td><td rowspan="2">2025-10-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时范围内当前版本信息发生变更的岗位</td></tr>
 <tr><td colspan="3">GetCorehrV2PositionsQueryRecentChange</td></tr>
-<tr><td rowspan="2">1466</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>审批设备申报</td></tr>
+<tr><td rowspan="2">1466</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>审批设备申报</td></tr>
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceApplyRecordsByDeviceApplyRecordId</td></tr>
-<tr><td rowspan="2">1467</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>新增设备</td></tr>
+<tr><td rowspan="2">1467</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>新增设备</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV2DeviceRecords</td></tr>
-<tr><td rowspan="2">1468</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>查询设备信息</td></tr>
+<tr><td rowspan="2">1468</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>查询设备信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecords</td></tr>
-<tr><td rowspan="2">1469</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>获取设备信息</td></tr>
+<tr><td rowspan="2">1469</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取设备信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
-<tr><td rowspan="2">1470</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>更新设备</td></tr>
+<tr><td rowspan="2">1470</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>更新设备</td></tr>
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
-<tr><td rowspan="2">1471</td><td rowspan="2">2025-10-21</td><td>新增</td><td>安全合规</td><td>删除设备</td></tr>
+<tr><td rowspan="2">1471</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>删除设备</td></tr>
 <tr><td colspan="3">DeleteSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
-<tr><td rowspan="2">1472</td><td rowspan="2">2025-10-21</td><td>新增</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
+<tr><td rowspan="2">1472</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFlowVariableData</td></tr>
+<tr><td rowspan="2">1473</td><td rowspan="2">2025-10-29</td><td>新增</td><td>画板</td><td>更新画板主题</td></tr>
+<tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 </tbody></table>
