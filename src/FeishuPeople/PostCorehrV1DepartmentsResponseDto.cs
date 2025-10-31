@@ -34,7 +34,7 @@ public record PostCorehrV1DepartmentsResponseDto
     public record DepartmentCreate
     {
         /// <summary>
-        /// <para>部门ID</para>
+        /// <para>部门ID(返回的是people_corehr_department_id)</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520852</para>
         /// </summary>

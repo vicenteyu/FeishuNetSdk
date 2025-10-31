@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2025-10-29
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -25340,7 +25340,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="whiteboard_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>画板token，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
+    /// <para>画板标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
     /// <para>示例值：Ud8xwWH01hO5mwbakqHbHeqmcCI</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -25414,6 +25414,32 @@ public interface IFeishuUserApi : IHttpApi
     [HttpGet("/open-apis/security_and_compliance/v2/device_records/mine")]
     System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsMineResponseDto>> GetSecurityAndComplianceV2DeviceRecordsMineAsync(
         UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【画板】更新画板主题</para>
+    /// <para>接口ID：7566200424774680595</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard/update_theme</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新画板主题，具体主题介绍可以参考[主题简介](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/theme-introduction) 。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>board:whiteboard:node:create</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="whiteboard_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>画板 id，唯一标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
+    /// <para>示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/board/v1/whiteboards/{whiteboard_id}/update_theme")]
+    System.Threading.Tasks.Task<FeishuResponse> PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeAsync(
+        UserAccessToken access_token,
+        [PathQuery] string whiteboard_id,
+        [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

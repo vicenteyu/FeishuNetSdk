@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2025-10-31
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -25,6 +25,34 @@ namespace FeishuNetSdk;
 [HttpHost("https://open.feishu.cn/"), JsonReturn, OAuthToken]
 public interface IFeishuTenantApi : IHttpApi
 {
+    /// <summary>
+    /// <para>【飞书 Aily】上传文件</para>
+    /// <para>接口文档：https://aily.feishu.cn/hc/8qluoxsa/q57yth16</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该 API 用于上传临时文件（如富文本消息内的图片、文档），并在飞书 aily  应用的消息内引用该文件。</para>
+    /// </summary>
+    /// <param name="files">文件内容。传值方式可以参考请求体示例。</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/aily/v1/files")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.Spec.PostAilyV1FilesResponseDto>> PostAilyV1FilesAsync(
+        [FormDataContent] FormDataFile[] files,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 Aily】读取文件基础信息</para>
+    /// <para>接口文档：https://aily.feishu.cn/hc/8qluoxsa/q57yth16</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该 API 用于获取某个飞书 aily  应用的消息内的文件信息，包括文件名、文件类型、上传时间等。</para>
+    /// </summary>
+    /// <param name="file_id">文件Id</param>
+    /// <param name="with_preview_url">是否携带公网预览地址</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/aily/v1/files/{file_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.Spec.GetAilyV1FilesByFileIdResponseDto>> GetAilyV1FilesByFileIdAsync(
+        [PathQuery] string file_id,
+        [PathQuery] bool? with_preview_url = null,
+        CancellationToken cancellation_token = default);
+
     /// <summary>
     /// <para>【消息与群组】延时更新消息卡片</para>
     /// <para>接口ID：6907568030018469890</para>
@@ -56301,7 +56329,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="whiteboard_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>画板token，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
+    /// <para>画板标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
     /// <para>示例值：Ud8xwWH01hO5mwbakqHbHeqmcCI</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -56354,6 +56382,30 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesBodyDto dto,
         [PathQuery] string? client_token = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【画板】更新画板主题</para>
+    /// <para>接口ID：7566200424774680595</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard/update_theme</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新画板主题，具体主题介绍可以参考[主题简介](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/theme-introduction) 。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>board:whiteboard:node:create</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="whiteboard_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>画板 id，唯一标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
+    /// <para>示例值：KRy1wHU6dhmdWIbgkSIbqikMcQc</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/board/v1/whiteboards/{whiteboard_id}/update_theme")]
+    System.Threading.Tasks.Task<FeishuResponse> PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeAsync(
+        [PathQuery] string whiteboard_id,
+        [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

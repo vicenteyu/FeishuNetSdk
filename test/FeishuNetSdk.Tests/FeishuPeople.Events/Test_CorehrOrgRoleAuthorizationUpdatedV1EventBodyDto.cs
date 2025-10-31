@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.FeishuPeople.Events;
 
 /// <summary>
-/// 测试 【事件】组织角色授权变更 事件体
+/// 测试 组织角色授权变更 事件体
 /// <para>接口ID：7188912476535488540</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/corehr-v1/authorization/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2forg_role_authorization%2fevents%2fupdated</para>
