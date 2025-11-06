@@ -19,6 +19,11 @@ namespace FeishuNetSdk
     public class FeishuNetSdkOptions
     {
         /// <summary>
+        /// TOKEN过期缓冲时间（秒）
+        /// </summary>
+        public const long ExpirationTimeTolerancePeriod = 20 * 60; // 20 minutes
+
+        /// <summary>
         /// 事件内容序列化鉴别器
         /// </summary>
         public const string Discriminator = "event_type";
