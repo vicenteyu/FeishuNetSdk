@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr.Events;
 /// <summary>
 /// 流程节点状态变更 事件体
-/// <para>流程中节点状态发生变化会触发该事件。配置的节点为节点定义（node_definition_id 是唯一标识）。在流程实例中，每个流程实例生成的节点实例会不同。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.node&amp;event=updated)</para>
+/// <para>流程中节点状态发生变化会触发该事件。配置的节点为节点定义（node_definition_id 是唯一标识）。在流程实例中，每个流程实例生成的节点实例会不同（此功能不受数据权限范围控制）。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.node&amp;event=updated)</para>
 /// <para>接口ID：7340625370520780803</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/events/updated-4</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-node%2fevents%2fupdated</para>
@@ -67,7 +67,7 @@ public record CorehrProcessNodeUpdatedV2EventBodyDto() : EventBodyDto("corehr.pr
     /// <summary>
     /// <para>节点状态</para>
     /// <para>**可选值有**：</para>
-    /// <para>1:进行中,2:已拒绝,3:已通过,4:已撤回,5:已回退,6:已跳过</para>
+    /// <para>1:进行中,2:已拒绝,3:已通过,4:已撤回,5:已回退,6:已跳过,7:已干预</para>
     /// <para>必填：否</para>
     /// <para>可选值：<list type="bullet">
     /// <item>1：进行中</item>
@@ -76,6 +76,7 @@ public record CorehrProcessNodeUpdatedV2EventBodyDto() : EventBodyDto("corehr.pr
     /// <item>4：已撤回</item>
     /// <item>5：已回退</item>
     /// <item>6：已跳过</item>
+    /// <item>7：已干预</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("node_status")]

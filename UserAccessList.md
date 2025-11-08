@@ -989,7 +989,7 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
-<tr><td rowspan="2">496</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">496</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
@@ -1265,10 +1265,12 @@
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
 <tr><td rowspan="2">633</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
-<tr><td rowspan="2">634</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
+<tr><td rowspan="2">634</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">635</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取客户端设备认证信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>
-<tr><td rowspan="2">636</td><td rowspan="2">2025-10-29</td><td>新增</td><td>画板</td><td>更新画板主题</td></tr>
+<tr><td rowspan="2">636</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
+<tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>新增</td><td>画板</td><td>解析画板语法</td></tr>
+<tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
 </tbody></table>

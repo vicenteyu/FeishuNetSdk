@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Corehr.Events;
 /// <summary>
 /// 抄送单据状态变更 事件体
-/// <para>流程中生成抄送单据后会触发该事件。抄送节点会生成抄送单据任务。如果一个节点有多个人抄送人，则会生成多个抄送单据。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.cc&amp;event=updated)</para>
+/// <para>流程中生成抄送单据后会触发该事件。抄送节点会生成抄送单据任务。如果一个节点有多个人抄送人，则会生成多个抄送单据（此功能不受数据权限范围控制）。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=corehr&amp;version=v2&amp;resource=process.cc&amp;event=updated)</para>
 /// <para>接口ID：7296819819722539036</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/events/updated-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-cc%2fevents%2fupdated</para>

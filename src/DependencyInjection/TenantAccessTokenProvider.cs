@@ -44,7 +44,7 @@ namespace FeishuNetSdk
             return new TokenResult
             {
                 Access_token = token.TenantAccessToken,
-                Expires_in = token.Expire
+                Expires_in = token.Expire - FeishuNetSdkOptions.ExpirationTimeTolerancePeriod
             };
         }
     }
