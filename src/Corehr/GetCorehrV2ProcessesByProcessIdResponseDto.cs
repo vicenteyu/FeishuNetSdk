@@ -98,7 +98,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     public DataengineI18n? FlowDefinitionName { get; set; }
 
     /// <summary>
-    /// <para>流程发起人ID</para>
+    /// <para>流程发起人ID，当发起人为系统时，该字段返回为空</para>
     /// <para>必填：否</para>
     /// <para>示例值：7124991993901827628</para>
     /// </summary>

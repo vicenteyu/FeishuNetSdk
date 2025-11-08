@@ -328,7 +328,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string? ExpiryTimestamp { get; set; }
 
     /// <summary>
-    /// <para>面试登记表 ID，当在飞书招聘「设置 - 信息登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。可通过[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)接口获取。</para>
+    /// <para>面试登记表 ID，当在飞书招聘「设置 - 候选人信息管理 - 申请表和登记表使用设置 - 面试登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。可通过[获取面试登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_registration_schema/list)接口获取。</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114324</para>
     /// </summary>
@@ -336,7 +336,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string? InterviewRegistrationSchemaId { get; set; }
 
     /// <summary>
-    /// <para>入职登记表 ID，当在飞书招聘「设置 - 信息登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。可通过[获取信息登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list)接口获取。</para>
+    /// <para>入职登记表 ID，当在飞书招聘「设置 - 候选人信息管理 - 申请表和登记表使用设置 - 入职登记表使用方式」中选择「HR 按职位选择登记表」时，该字段为必填；否则该字段不生效。可通过[获取信息登记表模板列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/registration_schema/list)接口获取。</para>
     /// <para>必填：否</para>
     /// <para>示例值：6930815272790114325</para>
     /// </summary>
@@ -344,7 +344,7 @@ public record PostHireV1JobsCombinedCreateBodyDto
     public string? OnboardRegistrationSchemaId { get; set; }
 
     /// <summary>
-    /// <para>目标专业 ID 列表，可通过[「分页批量查询专业」](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/major/list)获取</para>
+    /// <para>目标专业 ID 列表</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("target_major_id_list")]

@@ -1009,7 +1009,7 @@ public record PostHireV1JobsCombinedCreateResponseDto
     public record TargetMajorInfo
     {
         /// <summary>
-        /// <para>目标专业ID，「0」 为不限专业，其他情况可通过[「根据主数据编码批量获取专业」](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/mdm-v3/batch_major/get)获取专业详情</para>
+        /// <para>目标专业ID，「0」 为不限专业</para>
         /// <para>必填：否</para>
         /// <para>示例值：6930815272790114324</para>
         /// </summary>

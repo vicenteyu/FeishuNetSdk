@@ -55,7 +55,73 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "italic": true,
                     "angle": 90,
                     "theme_text_color_code": 0,
-                    "theme_text_background_color_code": -1
+                    "theme_text_background_color_code": -1,
+                    "rich_text": {
+                        "paragraphs": [
+                            {
+                                "paragraph_type": 0,
+                                "elements": [
+                                    {
+                                        "element_type": 0,
+                                        "text_element": {
+                                            "text": "示例文案",
+                                            "text_style": {
+                                                "font_weight": "bold",
+                                                "font_size": 14,
+                                                "text_color": "#000000",
+                                                "text_background_color": "#000000",
+                                                "line_through": true,
+                                                "underline": true,
+                                                "italic": true
+                                            }
+                                        },
+                                        "link_element": {
+                                            "herf": "https://bytedance.larkoffice.com",
+                                            "text": "示例文案",
+                                            "text_style": {
+                                                "font_weight": "bold",
+                                                "font_size": 14,
+                                                "text_color": "#000000",
+                                                "text_background_color": "#000000",
+                                                "line_through": true,
+                                                "underline": true,
+                                                "italic": true
+                                            }
+                                        },
+                                        "mention_user_element": {
+                                            "user_id": "ou_da5****************dfe",
+                                            "text_style": {
+                                                "font_weight": "bold",
+                                                "font_size": 14,
+                                                "text_color": "#000000",
+                                                "text_background_color": "#000000",
+                                                "line_through": true,
+                                                "underline": true,
+                                                "italic": true
+                                            }
+                                        },
+                                        "mention_doc_element": {
+                                            "doc_url": "https://bytedance.larkoffice.com/wiki/xxxxx",
+                                            "text_style": {
+                                                "font_weight": "bold",
+                                                "font_size": 14,
+                                                "text_color": "#000000",
+                                                "text_background_color": "#000000",
+                                                "line_through": true,
+                                                "underline": true,
+                                                "italic": true
+                                            }
+                                        }
+                                    }
+                                ],
+                                "indent": 0,
+                                "list_begin_index": 0,
+                                "quote": true
+                            }
+                        ]
+                    },
+                    "text_color_type": 0,
+                    "text_background_color_type": 0
                 },
                 "style": {
                     "fill_color": "#6db5a3",
@@ -67,7 +133,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "v_flip": false,
                     "border_color": "#6db5a3",
                     "theme_fill_color_code": 3,
-                    "theme_border_color_code": 4
+                    "theme_border_color_code": 4,
+                    "fill_color_type": 0,
+                    "border_color_type": 0
                 },
                 "image": {
                     "token": "EeSHb3qs9oSBXoxvw33bqtOsczb"
@@ -75,6 +143,12 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                 "composite_shape": {
                     "type": "circle",
                     "pie": {
+                        "start_radial_line_angle": 30.0,
+                        "central_angle": 40.0,
+                        "radius": 10,
+                        "sector_ratio": 1
+                    },
+                    "circular_ring": {
                         "start_radial_line_angle": 30.0,
                         "central_angle": 40.0,
                         "radius": 10,
@@ -143,7 +217,73 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "italic": true,
                                 "angle": 90,
                                 "theme_text_color_code": 0,
-                                "theme_text_background_color_code": -1
+                                "theme_text_background_color_code": -1,
+                                "rich_text": {
+                                    "paragraphs": [
+                                        {
+                                            "paragraph_type": 0,
+                                            "elements": [
+                                                {
+                                                    "element_type": 0,
+                                                    "text_element": {
+                                                        "text": "示例文案",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "link_element": {
+                                                        "herf": "https://bytedance.larkoffice.com",
+                                                        "text": "示例文案",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "mention_user_element": {
+                                                        "user_id": "ou_da5****************dfe",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "mention_doc_element": {
+                                                        "doc_url": "https://bytedance.larkoffice.com/wiki/xxxxx",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "indent": 0,
+                                            "list_begin_index": 0,
+                                            "quote": true
+                                        }
+                                    ]
+                                },
+                                "text_color_type": 0,
+                                "text_background_color_type": 0
                             }
                         ]
                     },
@@ -153,7 +293,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                             "x": 0.5,
                             "y": 0.5
                         }
-                    ]
+                    ],
+                    "caption_auto_direction": true,
+                    "caption_position": 0.5
                 },
                 "width": 100,
                 "section": {
@@ -179,7 +321,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                             "v_flip": false,
                             "border_color": "#6db5a3",
                             "theme_fill_color_code": 3,
-                            "theme_border_color_code": 4
+                            "theme_border_color_code": 4,
+                            "fill_color_type": 0,
+                            "border_color_type": 0
                         },
                         "text": {
                             "text": "文字内容",
@@ -194,7 +338,73 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                             "italic": true,
                             "angle": 90,
                             "theme_text_color_code": 0,
-                            "theme_text_background_color_code": -1
+                            "theme_text_background_color_code": -1,
+                            "rich_text": {
+                                "paragraphs": [
+                                    {
+                                        "paragraph_type": 0,
+                                        "elements": [
+                                            {
+                                                "element_type": 0,
+                                                "text_element": {
+                                                    "text": "示例文案",
+                                                    "text_style": {
+                                                        "font_weight": "bold",
+                                                        "font_size": 14,
+                                                        "text_color": "#000000",
+                                                        "text_background_color": "#000000",
+                                                        "line_through": true,
+                                                        "underline": true,
+                                                        "italic": true
+                                                    }
+                                                },
+                                                "link_element": {
+                                                    "herf": "https://bytedance.larkoffice.com",
+                                                    "text": "示例文案",
+                                                    "text_style": {
+                                                        "font_weight": "bold",
+                                                        "font_size": 14,
+                                                        "text_color": "#000000",
+                                                        "text_background_color": "#000000",
+                                                        "line_through": true,
+                                                        "underline": true,
+                                                        "italic": true
+                                                    }
+                                                },
+                                                "mention_user_element": {
+                                                    "user_id": "ou_da5****************dfe",
+                                                    "text_style": {
+                                                        "font_weight": "bold",
+                                                        "font_size": 14,
+                                                        "text_color": "#000000",
+                                                        "text_background_color": "#000000",
+                                                        "line_through": true,
+                                                        "underline": true,
+                                                        "italic": true
+                                                    }
+                                                },
+                                                "mention_doc_element": {
+                                                    "doc_url": "https://bytedance.larkoffice.com/wiki/xxxxx",
+                                                    "text_style": {
+                                                        "font_weight": "bold",
+                                                        "font_size": 14,
+                                                        "text_color": "#000000",
+                                                        "text_background_color": "#000000",
+                                                        "line_through": true,
+                                                        "underline": true,
+                                                        "italic": true
+                                                    }
+                                                }
+                                            }
+                                        ],
+                                        "indent": 0,
+                                        "list_begin_index": 0,
+                                        "quote": true
+                                    }
+                                ]
+                            },
+                            "text_color_type": 0,
+                            "text_background_color_type": 0
                         }
                     },
                     "title": "表格",
@@ -222,7 +432,73 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "italic": true,
                                 "angle": 90,
                                 "theme_text_color_code": 0,
-                                "theme_text_background_color_code": -1
+                                "theme_text_background_color_code": -1,
+                                "rich_text": {
+                                    "paragraphs": [
+                                        {
+                                            "paragraph_type": 0,
+                                            "elements": [
+                                                {
+                                                    "element_type": 0,
+                                                    "text_element": {
+                                                        "text": "示例文案",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "link_element": {
+                                                        "herf": "https://bytedance.larkoffice.com",
+                                                        "text": "示例文案",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "mention_user_element": {
+                                                        "user_id": "ou_da5****************dfe",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    },
+                                                    "mention_doc_element": {
+                                                        "doc_url": "https://bytedance.larkoffice.com/wiki/xxxxx",
+                                                        "text_style": {
+                                                            "font_weight": "bold",
+                                                            "font_size": 14,
+                                                            "text_color": "#000000",
+                                                            "text_background_color": "#000000",
+                                                            "line_through": true,
+                                                            "underline": true,
+                                                            "italic": true
+                                                        }
+                                                    }
+                                                }
+                                            ],
+                                            "indent": 0,
+                                            "list_begin_index": 0,
+                                            "quote": true
+                                        }
+                                    ]
+                                },
+                                "text_color_type": 0,
+                                "text_background_color_type": 0
                             },
                             "style": {
                                 "fill_color": "#6db5a3",
@@ -234,7 +510,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                                 "v_flip": false,
                                 "border_color": "#6db5a3",
                                 "theme_fill_color_code": 3,
-                                "theme_border_color_code": 4
+                                "theme_border_color_code": 4,
+                                "fill_color_type": 0,
+                                "border_color_type": 0
                             }
                         }
                     ]
@@ -270,7 +548,8 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                     "layout_position": "left",
                     "children": [
                         "z2:3"
-                    ]
+                    ],
+                    "collapsed": true
                 },
                 "mind_map_root": {
                     "layout": "left_right",

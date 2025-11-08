@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-31
+// Last Modified On : 2025-11-08
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -52087,7 +52087,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <list type="bullet">
     /// <item>-2：跳过</item>
     /// <item>-1：发起</item>
-    /// <item>0：未开始</item>
+    /// <item>0：未开始(废弃，不再支持这个状态)</item>
     /// <item>1：进行中</item>
     /// <item>2：已拒绝</item>
     /// <item>3：已通过</item>
@@ -56406,6 +56406,30 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeAsync(
         [PathQuery] string whiteboard_id,
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdUpdateThemeBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【画板】解析画板语法</para>
+    /// <para>接口ID：7567790459344879618</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard-node/create_plantuml</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>用户可以将PlantUml/Mermaid图表导入画板进行协同编辑</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>board:whiteboard:node:create</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="whiteboard_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>画板唯一标识，可通过云文档下的文档接口 [获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list) 获取，`block_type` 为 43 的 block 即为画板，对应的 &lt;code&gt;block.token&lt;/code&gt; 就是画板的&lt;code&gt;whiteboard_id&lt;/code&gt;</para>
+    /// <para>示例值：VF5Bwo7Z5icC0bk8EWbb57Vbckh</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes/plantuml")]
+    System.Threading.Tasks.Task<FeishuResponse<Board.PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlResponseDto>> PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlAsync(
+        [PathQuery] string whiteboard_id,
+        [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

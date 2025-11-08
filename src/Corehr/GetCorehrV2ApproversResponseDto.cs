@@ -86,6 +86,7 @@ public record GetCorehrV2ApproversResponseDto : IPageableResponse<GetCorehrV2App
         /// <item>12：失败</item>
         /// <item>14：已回退</item>
         /// <item>16：发起撤销</item>
+        /// <item>18：已干预</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("approver_status")]
