@@ -145,7 +145,7 @@ public record PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto
         public string? PlanValue { get; set; }
 
         /// <summary>
-        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：15</para>
         /// <para>最小长度：0</para>
@@ -154,7 +154,7 @@ public record PostCorehrV2WorkforcePlanDetailRowBatchSaveBodyDto
         public WorkforcePlanMultiPeriodValue[]? MultiPeriodValues { get; set; }
 
         /// <summary>
-        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>自然周期的编制规划信息。当编制规划方案是按自然周期选择时，设置该字段。</para>
         /// </summary>
         public record WorkforcePlanMultiPeriodValue
         {

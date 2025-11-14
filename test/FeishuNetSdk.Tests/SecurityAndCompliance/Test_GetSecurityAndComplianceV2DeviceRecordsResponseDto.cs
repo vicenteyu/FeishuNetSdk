@@ -52,7 +52,10 @@ public class Test_GetSecurityAndComplianceV2DeviceRecordsResponseDto : TestBase
                 "latest_user_id": "ou_b25e90585ef8c1adac4b379c2e257906",
                 "dids": [
                     "7089353870308032531"
-                ]
+                ],
+                "is_managed": true,
+                "mdm_device_id": "123abc",
+                "mdm_provider_name": "Workspace_ONE"
             }
         ],
         "page_token": "7394463407091023892",
