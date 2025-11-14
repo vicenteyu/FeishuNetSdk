@@ -213,6 +213,30 @@ public record GetSecurityAndComplianceV2DeviceRecordsResponseDto : IPageableResp
         /// </summary>
         [JsonPropertyName("dids")]
         public string[]? Dids { get; set; }
+
+        /// <summary>
+        /// <para>是否为受管控设备</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_managed")]
+        public bool? IsManaged { get; set; }
+
+        /// <summary>
+        /// <para>MDM设备ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：123abc</para>
+        /// </summary>
+        [JsonPropertyName("mdm_device_id")]
+        public string? MdmDeviceId { get; set; }
+
+        /// <summary>
+        /// <para>MDM厂商名称</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Workspace_ONE</para>
+        /// </summary>
+        [JsonPropertyName("mdm_provider_name")]
+        public string? MdmProviderName { get; set; }
     }
 
     /// <summary>

@@ -1271,6 +1271,6 @@
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>
 <tr><td rowspan="2">636</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
-<tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>新增</td><td>画板</td><td>解析画板语法</td></tr>
+<tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
 </tbody></table>

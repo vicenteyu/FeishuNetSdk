@@ -22,7 +22,7 @@ namespace FeishuNetSdk.CompensationManagement;
 public record PostCompensationV1SocialArchiveAdjustRecordQueryBodyDto
 {
     /// <summary>
-    /// <para>用户ID列表，与入参 user_id_type 类型一致</para>
+    /// <para>用户ID列表，与入参 user_id_type 类型一致。ID可通过接口[批量查询员工信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)获取</para>
     /// <para>必填：是</para>
     /// <para>最大长度：200</para>
     /// <para>最小长度：0</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-11-08
+// Last Modified On : 2025-11-14
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -52742,6 +52742,24 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：7089353870308032531</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="is_managed">
+    /// <para>必填：否</para>
+    /// <para>是否为受管控设备</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="mdm_device_id">
+    /// <para>必填：否</para>
+    /// <para>MDM设备ID</para>
+    /// <para>示例值：123abc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="mdm_provider_name">
+    /// <para>必填：否</para>
+    /// <para>MDM厂商名称</para>
+    /// <para>示例值：Workspace_ONE</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/security_and_compliance/v2/device_records")]
     System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsResponseDto>> GetSecurityAndComplianceV2DeviceRecordsAsync(
@@ -52764,6 +52782,9 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? os = null,
         [PathQuery] string? latest_user_id = null,
         [PathQuery] string? did = null,
+        [PathQuery] bool? is_managed = null,
+        [PathQuery] string? mdm_device_id = null,
+        [PathQuery] string? mdm_provider_name = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

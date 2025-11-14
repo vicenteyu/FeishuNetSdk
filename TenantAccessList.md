@@ -2571,11 +2571,11 @@
 <tr><td colspan="3">GetHireV2InterviewRecords</td></tr>
 <tr><td rowspan="2">1286</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量删除填报行</td></tr>
 <tr><td colspan="3">PostCorehrV2ReportDetailRowBatchDelete</td></tr>
-<tr><td rowspan="2">1287</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新填报行</td></tr>
+<tr><td rowspan="2">1287</td><td rowspan="2">2025-11-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新填报行</td></tr>
 <tr><td colspan="3">PostCorehrV2ReportDetailRowBatchSave</td></tr>
 <tr><td rowspan="2">1288</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量删除明细行</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailRowBatchDelete</td></tr>
-<tr><td rowspan="2">1289</td><td rowspan="2">2025-06-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新明细行</td></tr>
+<tr><td rowspan="2">1289</td><td rowspan="2">2025-11-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新明细行</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailRowBatchSave</td></tr>
 <tr><td rowspan="2">1290</td><td rowspan="2">2025-02-28</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreateTemp</td></tr>
@@ -2883,7 +2883,7 @@
 <tr><td colspan="3">PostCorehrV2JobsBatchGet</td></tr>
 <tr><td rowspan="2">1442</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>招聘</td><td>查询背调信息列表</td></tr>
 <tr><td colspan="3">PostHireV1BackgroundCheckOrdersBatchQuery</td></tr>
-<tr><td rowspan="2">1443</td><td rowspan="2">2025-09-15</td><td>&#10003;</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
+<tr><td rowspan="2">1443</td><td rowspan="2">2025-11-14</td><td>&#10003;</td><td>薪酬管理</td><td>通过员工ID批量获取社保增减员记录</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveAdjustRecordQuery</td></tr>
 <tr><td rowspan="2">1444</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>薪酬管理</td><td>批量获取员工参保档案</td></tr>
 <tr><td colspan="3">PostCompensationV1SocialArchiveQuery</td></tr>
@@ -2933,9 +2933,9 @@
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceApplyRecordsByDeviceApplyRecordId</td></tr>
 <tr><td rowspan="2">1467</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>新增设备</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV2DeviceRecords</td></tr>
-<tr><td rowspan="2">1468</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>查询设备信息</td></tr>
+<tr><td rowspan="2">1468</td><td rowspan="2">2025-11-12</td><td>&#10003;</td><td>安全合规</td><td>查询设备信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecords</td></tr>
-<tr><td rowspan="2">1469</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取设备信息</td></tr>
+<tr><td rowspan="2">1469</td><td rowspan="2">2025-11-12</td><td>&#10003;</td><td>安全合规</td><td>获取设备信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
 <tr><td rowspan="2">1470</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>更新设备</td></tr>
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
@@ -2945,6 +2945,6 @@
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFlowVariableData</td></tr>
 <tr><td rowspan="2">1473</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
-<tr><td rowspan="2">1474</td><td rowspan="2">2025-11-04</td><td>新增</td><td>画板</td><td>解析画板语法</td></tr>
+<tr><td rowspan="2">1474</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
 </tbody></table>

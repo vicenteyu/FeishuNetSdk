@@ -38,7 +38,60 @@ public class Test_SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyD
     },
     "event": {
         "device_record_id": "7089353870308032531",
-        "version": "0"
+        "version": "0",
+        "change_type": 1,
+        "before": {
+            "device_record_id": "7089353870308032531",
+            "version": "0",
+            "current_user_id": {
+                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                "user_id": "e33ggbyz",
+                "open_id": "ou_84aad35d084aa403a838cf73ee18467"
+            },
+            "device_name": "Q9C6RYMFDK",
+            "model": "iPhone13,2",
+            "device_system": 0,
+            "serial_number": "C02DTHRMML7H",
+            "disk_serial_number": "CC344362-5990-5A68-8DDD-64A23C99FA0C",
+            "uuid": "621CDFF0-13D0-5AB1-9ADC-5F560095F6ED",
+            "mac_address": "ac:de:48:00:11:21",
+            "android_id": "02a11ac4a83b918e",
+            "idfv": "968F0E5C-C297-4122-ACB6-102494DEFD9A",
+            "aaid": "ff3c2237-cd76-4331-9d72-0a4470854567",
+            "device_ownership": 0,
+            "device_status": 0,
+            "certification_level": 0,
+            "device_terminal_type": 0,
+            "is_managed": true,
+            "mdm_device_id": "123abc",
+            "mdm_provider_name": "Workspace_ONE"
+        },
+        "after": {
+            "device_record_id": "7089353870308032531",
+            "version": "0",
+            "current_user_id": {
+                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                "user_id": "e33ggbyz",
+                "open_id": "ou_84aad35d084aa403a838cf73ee18467"
+            },
+            "device_name": "Q9C6RYMFDK",
+            "model": "iPhone13,2",
+            "device_system": 0,
+            "serial_number": "C02DTHRMML7H",
+            "disk_serial_number": "CC344362-5990-5A68-8DDD-64A23C99FA0C",
+            "uuid": "621CDFF0-13D0-5AB1-9ADC-5F560095F6ED",
+            "mac_address": "ac:de:48:00:11:21",
+            "android_id": "02a11ac4a83b918e",
+            "idfv": "968F0E5C-C297-4122-ACB6-102494DEFD9A",
+            "aaid": "ff3c2237-cd76-4331-9d72-0a4470854567",
+            "device_ownership": 0,
+            "device_status": 0,
+            "certification_level": 0,
+            "device_terminal_type": 0,
+            "is_managed": true,
+            "mdm_device_id": "123abc",
+            "mdm_provider_name": "Workspace_ONE"
+        }
     }
 }
 """;

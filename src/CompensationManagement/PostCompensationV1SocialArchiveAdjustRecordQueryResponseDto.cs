@@ -368,7 +368,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             }
 
             /// <summary>
-            /// <para>档案生效时间，yyyy-MM-dd</para>
+            /// <para>待增员参保年月/待减员停缴年月，HHHH-MM-DD</para>
             /// <para>必填：否</para>
             /// <para>示例值：2024-01-01</para>
             /// <para>最大长度：11</para>
