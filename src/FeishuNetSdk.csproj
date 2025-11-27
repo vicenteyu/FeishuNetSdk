@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFrameworks>net8.0; net9.0; net10.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -12,23 +12,13 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/vicenteyu/FeishuNetSdk</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>feishu; sdk; dotnet; .net8.0</PackageTags>
+        <PackageTags>feishu; sdk; dotnet; net8.0; net9.0; net10.0</PackageTags>
         <Copyright>MIT</Copyright>
         <Description>适用于飞书开放平台的.Net开发包</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <Version>3.6.1</Version>
+        <Version>4.0.0-beta1</Version>
         <IncludeSymbols>True</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <WarningLevel>4</WarningLevel>
-        <NoWarn>1701;1702;IDE0301</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <WarningLevel>4</WarningLevel>
-        <NoWarn>1701;1702;IDE0301</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
@@ -43,7 +33,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="9.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="10.0.0" />
         <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.1.5" />
     </ItemGroup>
 

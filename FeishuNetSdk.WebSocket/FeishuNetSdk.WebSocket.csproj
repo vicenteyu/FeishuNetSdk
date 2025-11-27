@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFrameworks>net8.0; net9.0; net10.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -12,7 +12,7 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryUrl>https://github.com/vicenteyu/FeishuNetSdk</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageTags>feishu; sdk; dotnet; .net10.0</PackageTags>
+        <PackageTags>feishu; sdk; dotnet; net8.0; net9.0; net10.0</PackageTags>
         <Copyright>MIT</Copyright>
         <Description>适用于飞书开放平台的.Net开发包</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>

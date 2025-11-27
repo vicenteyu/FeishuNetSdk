@@ -45,7 +45,11 @@ namespace FeishuNetSdk.WebSocket
         Services.IEventCallbackServiceProvider eventCallback)
         : BackgroundService
     {
+#if NET8_0
+        private readonly object _clientLock = new();
+#else 
         private readonly Lock _clientLock = new();
+#endif
         private WatsonWsClient? _wsClient;
         private int _reconnectAttempts = 0;
         private const int MaxReconnectAttempts = 10;
