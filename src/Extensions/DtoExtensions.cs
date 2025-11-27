@@ -354,7 +354,7 @@ namespace FeishuNetSdk
         /// </list>
         /// </param>
         /// <returns></returns>
-        public static Im.Dtos.DivElement SetIcon(this Im.Dtos.DivElement Dto, Im.Dtos.IAmDivIconElement Element)
+        public static Im.Dtos.DivElement SetIcon(this Im.Dtos.DivElement Dto, Im.Dtos.IconElement Element)
         {
             Dto.Icon = Element;
 
@@ -372,7 +372,25 @@ namespace FeishuNetSdk
         /// </list>
         /// </param>
         /// <returns></returns>
-        public static Im.Dtos.PersonListElement SetIcon(this Im.Dtos.PersonListElement Dto, Im.Dtos.IAmDivIconElement Element)
+        public static Im.Dtos.PersonListElement SetIcon(this Im.Dtos.PersonListElement Dto, Im.Dtos.IconElement Element)
+        {
+            Dto.Icon = Element;
+
+            return Dto;
+        }
+
+        /// <summary>
+        /// 设置文本图标
+        /// </summary>
+        /// <param name="Dto">按钮组件</param>
+        /// <param name="Element">普通文本图标，支持组件为：
+        /// <list type="bullet">
+        /// <item>StandardIconElement</item>
+        /// <item>CustomIconElement</item>
+        /// </list>
+        /// </param>
+        /// <returns></returns>
+        public static Im.Dtos.FormButtonElement SetIcon(this Im.Dtos.FormButtonElement Dto, Im.Dtos.IconElement Element)
         {
             Dto.Icon = Element;
 

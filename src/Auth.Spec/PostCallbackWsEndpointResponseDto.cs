@@ -1,4 +1,17 @@
-﻿namespace FeishuNetSdk.Auth.Spec
+﻿// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-08-31
+//
+// Last Modified By : yxr
+// Last Modified On : 2024-08-31
+// ************************************************************************
+// <copyright file="PostCallbackWsEndpointResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取长连接地址 响应体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Auth.Spec
 {
     /// <summary>
     /// 获取长连接地址 响应体

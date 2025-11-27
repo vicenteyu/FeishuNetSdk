@@ -23,23 +23,13 @@ namespace FeishuNetSdk.Im.Dtos
         /// 标签
         /// </summary>
         [JsonPropertyName("tag")]
-        public string Tag { get; } = Tag;
+        public virtual string Tag { get; } = Tag;
     }
 
     /// <summary>
     /// 普通文本内容
     /// </summary>
     public interface IAmDivTextElement { }
-
-    /// <summary>
-    /// 普通文本图标
-    /// </summary>
-    [JsonPolymorphic(TypeDiscriminatorPropertyName = "tag",
-     UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor,
-     IgnoreUnrecognizedTypeDiscriminators = true)]
-    [JsonDerivedType(typeof(StandardIconElement), typeDiscriminator: "standard_icon")]
-    [JsonDerivedType(typeof(CustomIconElement), typeDiscriminator: "custom_icon")]
-    public interface IAmDivIconElement { }
 
     /// <summary>
     /// 备注组件 子元素节点
@@ -50,9 +40,4 @@ namespace FeishuNetSdk.Im.Dtos
     /// 
     /// </summary>
     public interface IAmMessageContent { }
-
-    /// <summary>
-    /// 卡片交互
-    /// </summary>
-    public interface IAmBehaviors { }
 }

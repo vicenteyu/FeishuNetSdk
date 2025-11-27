@@ -1,31 +1,34 @@
-﻿namespace FeishuNetSdk.Im.Dtos
+﻿namespace FeishuNetSdk.Im.Dtos;
+
+/// <summary>
+/// 表单事件交互
+/// </summary>
+/// <param name="Behavior">表单事件类型。
+/// <list type="bullet">
+/// <item>submit</item>
+/// <item>reset</item>
+/// </list>
+/// </param>
+[JsonPolymorphic(TypeDiscriminatorPropertyName = FeishuNetSdkOptions.Discriminator.Type,
+    UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor,
+    IgnoreUnrecognizedTypeDiscriminators = true)]
+[JsonDerivedType(typeof(FormActionBehaviors), typeDiscriminator: "form_action")]
+public record FormActionBehaviors([property: JsonPropertyName("behavior")] FormActionBehaviors.BehaviorType? Behavior = null) : Behaviors("form_action")
 {
     /// <summary>
-    /// 表单事件交互
+    /// 表单事件类型。
     /// </summary>
-    /// <param name="Behavior">表单事件类型。
-    /// <list type="bullet">
-    /// <item>submit</item>
-    /// <item>reset</item>
-    /// </list>
-    /// </param>
-    public record FormActionBehaviors([property: JsonPropertyName("behavior")] FormActionBehaviors.BehaviorType? Behavior = null) : Behaviors("form_action")
+    [JsonConverter(typeof(SnakeCaseLowerConverter<BehaviorType>))]
+    public enum BehaviorType
     {
         /// <summary>
-        /// 表单事件类型。
+        /// 提交整个表单
         /// </summary>
-        [JsonConverter(typeof(SnakeCaseLowerConverter<BehaviorType>))]
-        public enum BehaviorType
-        {
-            /// <summary>
-            /// 提交整个表单
-            /// </summary>
-            Submit,
+        Submit,
 
-            /// <summary>
-            /// 重置整个表单
-            /// </summary>
-            Reset
-        }
+        /// <summary>
+        /// 重置整个表单
+        /// </summary>
+        Reset
     }
 }

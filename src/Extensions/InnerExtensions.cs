@@ -103,7 +103,7 @@ namespace FeishuNetSdk.Extensions
             return dic.TryGetValue(key, out var value) ? value : default;
         }
 
-        public static string FixDiscriminator(this string value, string propertyName = FeishuNetSdkOptions.Discriminator)
+        public static string FixDiscriminator(this string value, string propertyName = FeishuNetSdkOptions.Discriminator.EventType)
             => MatchEventV2Type().Match(value) is Match ma && ma.Success
                 ? value.Insert(1, ma.Value)
                 : MatchEventV1Type().Matches(value) is MatchCollection mb

@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Services
         /// <summary>
         /// 类型鉴别器
         /// </summary>
-        [JsonPropertyName(FeishuNetSdkOptions.Discriminator), JsonPropertyOrder(-1)]
+        [JsonIgnore]
         public override string? Discriminator => Event?.Discriminator;
 
         /// <summary>

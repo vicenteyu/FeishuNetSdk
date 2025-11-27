@@ -24,6 +24,6 @@ namespace FeishuNetSdk.Im.Dtos
         /// 表单容器的子节点。可内嵌其它容器类组件和展示、交互组件，不支持内嵌表格、图表、和表单容器组件。
         /// </summary>
         [property: JsonPropertyName("elements")]
-        public object[] Elements { get; set; } = Elements ?? Array.Empty<object>();
+        public object[] Elements { get; set; } = Elements ?? [];
     }
 }

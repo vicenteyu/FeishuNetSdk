@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Core;
 
 /// <summary>事件序列化定义</summary>
-[JsonPolymorphic(TypeDiscriminatorPropertyName = FeishuNetSdkOptions.Discriminator,
+[JsonPolymorphic(TypeDiscriminatorPropertyName = FeishuNetSdkOptions.Discriminator.EventType,
     UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FallBackToNearestAncestor,
     IgnoreUnrecognizedTypeDiscriminators = true)]
 [JsonDerivedType(typeof(UrlVerificationDto), typeDiscriminator: "url_verification")]
@@ -438,11 +438,11 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto>), typeDiscriminator: "drive.file.title_updated_v1")]
 //【云文档】文件删除到回收站
 [JsonDerivedType(typeof(ResourceEventV2Dto<Ccm.Events.DriveFileTrashedV1EventBodyDto>), typeDiscriminator: "drive.file.trashed_v1")]
-public record EventDto
+public record EventDto(string? Discriminator = null)
 {
     /// <summary>类型鉴别器</summary>
-    [JsonPropertyName(FeishuNetSdkOptions.Discriminator), JsonPropertyOrder(-1)]
-    public virtual string? Discriminator { get; set; }
+    [JsonIgnore]
+    public virtual string? Discriminator { get; set; } = Discriminator;
 
     /// <summary>事件 Token，即Verification Token。用于验证来自于同一个应用</summary>
     [JsonPropertyName("token")]
@@ -450,5 +450,5 @@ public record EventDto
 
     /// <summary>事件唯一Id</summary>
     [JsonPropertyName("event_id")]
-    public virtual string EventId { get; set; } = string.Empty;
+    public virtual string? EventId { get; set; }
 }

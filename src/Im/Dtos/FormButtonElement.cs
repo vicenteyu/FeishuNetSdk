@@ -92,17 +92,28 @@ namespace FeishuNetSdk.Im.Dtos
         [property: JsonPropertyName("required")] bool? Required = null,
         [property: JsonPropertyName("size")] string? Size = null,
         [property: JsonPropertyName("width")] string? Width = null,
-        [property: JsonPropertyName("icon")] IAmDivIconElement? Icon = null,
+        IconElement? Icon = null,
         [property: JsonPropertyName("hover_tips")] PlainTextElement? HoverTips = null,
         [property: JsonPropertyName("disabled")] bool? Disabled = null,
         [property: JsonPropertyName("disabled_tips")] PlainTextElement? DisabledTips = null,
-        [property: JsonPropertyName("behaviors")] Behaviors[]? Behaviors = null) : FormBaseElement("button", Name)
+        Behaviors[]? Behaviors = null) : FormBaseElement("button", Name)
     {
-        ///// <summary>
-        ///// 用于提交表单的按钮组件的交互类型。固定取值 form_submit，表示提交表单。
-        ///// </summary>
-        //[JsonPropertyName("action_type")]
-        //public string ActionType { get; } = "form_submit";
+        /// <summary>
+        /// 文本前缀图标
+        /// </summary>
+        [JsonPropertyName("icon")]
+        public IconElement? Icon { get; set; } = Icon;
+
+        /// <summary>
+        /// 配置交互类型和具体交互行为。支持同时生效跳转链接和回传交互。
+        /// <list type="bullet">
+        /// <item>OpenUrlBehaviors</item>
+        /// <item>CallbackBehaviors</item>
+        /// <item>FormActionBehaviors</item>
+        /// </list>
+        /// </summary>
+        [property: JsonPropertyName("behaviors")]
+        public Behaviors[]? Behaviors { get; set; } = Behaviors;
 
         /// <summary>
         /// 二次确认弹窗配置。指在用户提交时弹出二次确认弹窗提示；只有用户点击确认后，才提交输入的内容。该字段默认提供了确认和取消按钮，你只需要配置弹窗的标题与内容即可。

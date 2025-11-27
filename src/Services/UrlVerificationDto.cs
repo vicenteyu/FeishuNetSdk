@@ -11,20 +11,12 @@
 // </copyright>
 // <summary>事件终结点验证结构体</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Services
-{
-    /// <summary>
-    /// 事件终结点验证结构体
-    /// </summary>
-    /// <param name="Challenge"></param>
-    /// <param name="Type"></param>
-    public record UrlVerificationDto([property: JsonPropertyName("challenge")] string Challenge,
-        [property: JsonPropertyName("type")] string Type) : EventDto
-    {
-        /// <summary>
-        /// 
-        /// </summary>
-        [JsonPropertyName(FeishuNetSdkOptions.Discriminator), JsonPropertyOrder(-1)]
-        public override string? Discriminator => "url_verification";
-    }
-}
+namespace FeishuNetSdk.Services;
+
+/// <summary>
+/// 事件终结点验证结构体
+/// </summary>
+/// <param name="Challenge"></param>
+/// <param name="Type"></param>
+public record UrlVerificationDto([property: JsonPropertyName("challenge")] string Challenge,
+    [property: JsonPropertyName("type")] string Type) : EventDto("url_verification");
