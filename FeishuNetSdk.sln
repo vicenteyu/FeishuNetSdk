@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.7.34031.279
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{E59B03D4-DFEE-4592-9BE9-DDD1B8D4AEB0}"
 	ProjectSection(SolutionItems) = preProject
@@ -22,6 +22,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeishuNetSdk.WebSocket", "FeishuNetSdk.WebSocket\FeishuNetSdk.WebSocket.csproj", "{2B0A530E-54E9-445F-977B-BC64165AB71E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeishuNetSdk.Endpoint", "FeishuNetSdk.Endpoint\FeishuNetSdk.Endpoint.csproj", "{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2-net10", "samples\ConsoleApp2-net10\ConsoleApp2-net10.csproj", "{1FC0BD69-152E-4FCF-8764-C8786D90052E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +55,10 @@ Global
 		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +66,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{8CB112D5-89CF-4ABE-9F39-62C6047BC3EC} = {B1D967FA-F234-4093-AC96-653E34D447E8}
 		{4969EB46-D7B9-4A13-A732-8E826D1CF79F} = {B1D967FA-F234-4093-AC96-653E34D447E8}
+		{1FC0BD69-152E-4FCF-8764-C8786D90052E} = {B1D967FA-F234-4093-AC96-653E34D447E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {252D5281-E4B8-4705-9EE2-95C10176DCB0}
