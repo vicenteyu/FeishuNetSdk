@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-31
+// Last Modified On : 2025-11-27
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -210,24 +210,6 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessStatusUpdateV2EventBodyDto>), typeDiscriminator: "corehr.process.status.update_v2")]
 //【飞书人事（企业版）】流程实例信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.updated_v2")]
-//【组织架构】部门新建
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryDepartmentCreatedV1EventBodyDto>), typeDiscriminator: "directory.department.created_v1")]
-//【组织架构】部门被删除
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryDepartmentDeletedV1EventBodyDto>), typeDiscriminator: "directory.department.deleted_v1")]
-//【组织架构】部门信息被修改
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryDepartmentUpdatedV1EventBodyDto>), typeDiscriminator: "directory.department.updated_v1")]
-//【组织架构】员工入职
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeCreatedV1EventBodyDto>), typeDiscriminator: "directory.employee.created_v1")]
-//【组织架构】待离职恢复为在职
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeRegularV1EventBodyDto>), typeDiscriminator: "directory.employee.regular_v1")]
-//【组织架构】员工离职
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeResignedV1EventBodyDto>), typeDiscriminator: "directory.employee.resigned_v1")]
-//【组织架构】离职恢复在职
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeResurrectV1EventBodyDto>), typeDiscriminator: "directory.employee.resurrect_v1")]
-//【组织架构】员工被设置为待离职
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeToBeResignedV1EventBodyDto>), typeDiscriminator: "directory.employee.to_be_resigned_v1")]
-//【组织架构】员工信息被修改
-[JsonDerivedType(typeof(EventV2Dto<Directory.Events.DirectoryEmployeeUpdatedV1EventBodyDto>), typeDiscriminator: "directory.employee.updated_v1")]
 //【eLearning】课程学习进度新增事件
 [JsonDerivedType(typeof(EventV2Dto<Elearning.Events.ElearningCourseRegistrationCreatedV2EventBodyDto>), typeDiscriminator: "elearning.course_registration.created_v2")]
 //【eLearning】课程学习进度删除事件

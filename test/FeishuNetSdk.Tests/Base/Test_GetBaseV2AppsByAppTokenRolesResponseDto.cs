@@ -51,7 +51,24 @@ public class Test_GetBaseV2AppsByAppTokenRolesResponseDto : TestBase
                             ],
                             "conjunction": "and",
                             "perm": 1,
-                            "other_perm": 1
+                            "other_perm": 1,
+                            "condition_groups": [
+                                {
+                                    "condition_type": 2,
+                                    "conditions": [
+                                        {
+                                            "field_name": "单选",
+                                            "operator": "is",
+                                            "value": [
+                                                "optbdVHf4q"
+                                            ],
+                                            "field_type": 3
+                                        }
+                                    ],
+                                    "conjunction": "or"
+                                }
+                            ],
+                            "display_rec_rule_version": 1
                         },
                         "other_rec_rule": {
                             "conditions": [

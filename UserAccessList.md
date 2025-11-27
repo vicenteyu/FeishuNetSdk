@@ -1,7 +1,7 @@
 <table><thead><tr><th>序号</th><th>更新日期</th><th>可用</th><th>类别</th><th>说明</th></tr></thead><tbody>
 <tr><td rowspan="2">1</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>身份验证</td><td>获取用户信息</td></tr>
 <tr><td colspan="3">GetAuthenV1UserInfo</td></tr>
-<tr><td rowspan="2">2</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">2</td><td rowspan="2">2025-11-20</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">3</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>通讯录</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostContactV3DepartmentsSearch</td></tr>
@@ -1175,7 +1175,7 @@
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
 <tr><td rowspan="2">588</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
-<tr><td rowspan="2">589</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
+<tr><td rowspan="2">589</td><td rowspan="2">2025-11-20</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">590</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
@@ -1265,7 +1265,7 @@
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
 <tr><td rowspan="2">633</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
-<tr><td rowspan="2">634</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
+<tr><td rowspan="2">634</td><td rowspan="2">2025-11-27</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">635</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取客户端设备认证信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>

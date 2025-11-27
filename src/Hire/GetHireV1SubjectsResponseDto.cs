@@ -107,7 +107,7 @@ public record GetHireV1SubjectsResponseDto : IPageableResponse<GetHireV1Subjects
         public int? ActiveStatus { get; set; }
 
         /// <summary>
-        /// <para>投递职位数上限</para>
+        /// <para>投递职位数上限，已废弃</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>

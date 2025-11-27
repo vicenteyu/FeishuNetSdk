@@ -33,7 +33,7 @@ public record PostHireV1TalentsCombinedUpdateBodyDto
     public string TalentId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list)接口查询</para>
+    /// <para>简历来源 ID，可通过[获取简历来源列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/resume_source/list)接口查询，已弃用，请使用 resume_source_id 字段</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
