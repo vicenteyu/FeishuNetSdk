@@ -33,7 +33,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <PackageReference Include="FeishuNetSdk" Version="4.0.0" />
+      <ProjectReference Include="..\src\FeishuNetSdk.csproj" />
     </ItemGroup>
 
 </Project>
