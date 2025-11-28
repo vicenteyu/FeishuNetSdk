@@ -70,6 +70,7 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      # 恢复依赖项，用于生成 project.assets.json
       - name: Restore dependencies for Pack
         run: dotnet restore ${{ env.PROJECT_PATH }}
 
@@ -85,7 +86,7 @@ jobs:
       # -p:PackageVersion 确保生成的 NuGet 包版本号正确
       # 此处执行 dotnet pack 会生成包含所有目标框架的 NuGet 包
       - name: Pack project
-        run: dotnet pack $PROJECT_PATH --no-build --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
+        run: dotnet pack $PROJECT_PATH --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
 
       # 发布到 NuGet
       - name: Publish to NuGet
