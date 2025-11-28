@@ -169,7 +169,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? DateOfBirth { get; set; }
 
         /// <summary>
-        /// <para>证件号（待废弃，建议使用national_id_list）</para>
+        /// <para>证件号（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略）</para>
         /// <para>必填：否</para>
         /// <para>示例值：3101xxxx1234567890</para>
         /// </summary>
@@ -177,7 +177,7 @@ public record PostCorehrV2PreHiresBodyDto
         public string? PersonalIdNumber { get; set; }
 
         /// <summary>
-        /// <para>证件类型（待废弃，建议使用national_id_list），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取</para>
+        /// <para>证件类型（待废弃，建议使用national_id_list， 如果与national_id_list同时传值，则national_id_list会被忽略），可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获取</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914823</para>
         /// </summary>
@@ -506,7 +506,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -957,7 +957,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -1421,7 +1421,7 @@ public record PostCorehrV2PreHiresBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -1636,7 +1636,7 @@ public record PostCorehrV2PreHiresBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("address_types")]
-            public string[] AddressTypes { get; set; } = Array.Empty<string>();
+            public string[] AddressTypes { get; set; } = [];
 
             /// <summary>
             /// <para>主要地址</para>

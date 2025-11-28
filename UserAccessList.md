@@ -1273,4 +1273,6 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
+<tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
 </tbody></table>

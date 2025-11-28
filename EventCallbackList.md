@@ -22,6 +22,7 @@
 <tr><td>corehr.job_family.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建序列</td></tr>
 <tr><td>corehr.job_grade.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobGradeCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建职等</td></tr>
 <tr><td>corehr.job_level.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建职级</td></tr>
+<tr><td>corehr.signature_file.status_updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrSignatureFileStatusUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】电子签文件状态发生变更事件</td></tr>
 <tr><td>corehr.department.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新部门V2</td></tr>
 <tr><td>corehr.cost_center.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新成本中心</td></tr>
 <tr><td>corehr.location.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrLocationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新地点</td></tr>

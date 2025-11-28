@@ -1455,7 +1455,7 @@
 <tr><td colspan="3">GetCorehrV1JobsByJobId</td></tr>
 <tr><td rowspan="2">728</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>批量查询职务</td></tr>
 <tr><td colspan="3">GetCorehrV1Jobs</td></tr>
-<tr><td rowspan="2">729</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
+<tr><td rowspan="2">729</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHires</td></tr>
 <tr><td rowspan="2">730</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 更新待入职信息（不推荐）</td></tr>
 <tr><td colspan="3">PatchCorehrV1PreHiresByPreHireId</td></tr>
@@ -2947,4 +2947,20 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">1474</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
+<tr><td rowspan="2">1475</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
+<tr><td rowspan="2">1476</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签模板列表</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureTemplateInfoWithThumbnails</td></tr>
+<tr><td rowspan="2">1477</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>下载电子签文件</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesBySignatureFileIdDownload</td></tr>
+<tr><td rowspan="2">1478</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签模板内容</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureTemplatesSearch</td></tr>
+<tr><td rowspan="2">1479</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>根据流程获取电子签文件信息</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureFilesListByBizId</td></tr>
+<tr><td rowspan="2">1480</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取文件签署节点信息</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureNodesListByFileId</td></tr>
+<tr><td rowspan="2">1481</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>查询电子签文件详情</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesQuery</td></tr>
+<tr><td rowspan="2">1482</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>终止电子签文件</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesTerminate</td></tr>
 </tbody></table>
