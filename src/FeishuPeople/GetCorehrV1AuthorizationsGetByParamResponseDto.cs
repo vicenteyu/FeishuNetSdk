@@ -49,7 +49,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("permission_detail_list")]
-        public PermissionDetail[] PermissionDetailLists { get; set; } = Array.Empty<PermissionDetail>();
+        public PermissionDetail[] PermissionDetailLists { get; set; } = [];
 
         /// <summary>
         /// <para>授权列表。</para>
@@ -244,7 +244,7 @@ public record GetCorehrV1AuthorizationsGetByParamResponseDto
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("org_id_list")]
-                public string[] OrgIdList { get; set; } = Array.Empty<string>();
+                public string[] OrgIdList { get; set; } = [];
             }
 
             /// <summary>

@@ -36,5 +36,5 @@ public record PostAcsV1RuleExternalDeviceBindBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("rule_ids")]
-    public string[] RuleIds { get; set; } = Array.Empty<string>();
+    public string[] RuleIds { get; set; } = [];
 }

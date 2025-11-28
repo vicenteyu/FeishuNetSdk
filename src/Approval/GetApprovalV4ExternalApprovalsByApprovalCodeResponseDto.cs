@@ -262,7 +262,7 @@ public record GetApprovalV4ExternalApprovalsByApprovalCodeResponseDto
         /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
-        public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
+        public I18nResourceText[] Texts { get; set; } = [];
 
         /// <summary>
         /// <para>文案的 Key:Value。Key 以 @i18n@ 开头，并匹配其他各个参数 Key。</para>

@@ -27,7 +27,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2Respon
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("replies")]
-    public Reply[] Replies { get; set; } = Array.Empty<Reply>();
+    public Reply[] Replies { get; set; } = [];
 
     /// <summary></summary>
     public record Reply

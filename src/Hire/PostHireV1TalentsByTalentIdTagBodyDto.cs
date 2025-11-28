@@ -38,5 +38,5 @@ public record PostHireV1TalentsByTalentIdTagBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("tag_id_list")]
-    public string[] TagIdList { get; set; } = Array.Empty<string>();
+    public string[] TagIdList { get; set; } = [];
 }

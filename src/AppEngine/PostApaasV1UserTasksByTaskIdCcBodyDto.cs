@@ -28,7 +28,7 @@ public record PostApaasV1UserTasksByTaskIdCcBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("cc_user_ids")]
-    public string[] CcUserIds { get; set; } = Array.Empty<string>();
+    public string[] CcUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>操作人kunlunUserID,可通过Apaas用户管理页面获取</para>

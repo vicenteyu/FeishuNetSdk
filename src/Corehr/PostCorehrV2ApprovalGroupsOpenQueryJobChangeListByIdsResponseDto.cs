@@ -82,7 +82,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIdsResponseDto
             /// <summary>
             /// <para>新部门，为避免一个没有经过审批的组织架构调整影响正在运行的系统，如果是在组织架构调整中新生成的『部门』生成临时的 ID， 格式 "td_</para>
             /// <para>xxx"</para>
-            /// <para>可通过[查询单个部门](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID 类型需要为 ==people_corehr_department_id==。</para>
+            /// <para>可通过[批量查询部门调整内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/approval_groups/open_query_department_change_list_by_ids)获取详情，ID 类型需要为 ==people_corehr_department_id==。</para>
             /// <para>必填：否</para>
             /// <para>示例值：td_704442734715974602312</para>
             /// </summary>

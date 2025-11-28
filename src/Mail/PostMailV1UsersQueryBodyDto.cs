@@ -27,5 +27,5 @@ public record PostMailV1UsersQueryBodyDto
     /// <para>示例值：["aaa@lark.com","bbb@lark.com"]</para>
     /// </summary>
     [JsonPropertyName("email_list")]
-    public string[] EmailList { get; set; } = Array.Empty<string>();
+    public string[] EmailList { get; set; } = [];
 }

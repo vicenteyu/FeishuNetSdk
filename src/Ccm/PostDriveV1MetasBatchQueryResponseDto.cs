@@ -26,7 +26,7 @@ public record PostDriveV1MetasBatchQueryResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("metas")]
-    public Meta[] Metas { get; set; } = Array.Empty<Meta>();
+    public Meta[] Metas { get; set; } = [];
 
     /// <summary>
     /// <para>文件的元数据列表</para>

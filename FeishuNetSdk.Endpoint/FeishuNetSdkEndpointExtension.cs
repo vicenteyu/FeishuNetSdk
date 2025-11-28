@@ -4,7 +4,7 @@
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-07
+// Last Modified On : 2025-08-27
 // ************************************************************************
 // <copyright file="FeishuNetSdkEndpointExtension.cs" company="Vicente Yu">
 //     MIT
@@ -33,11 +33,15 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns></returns>
         public static IEndpointRouteBuilder UseFeishuEndpoint(this IEndpointRouteBuilder app, string pattern)
         {
-            app.MapPost(pattern, async (IEventCallbackServiceProvider provider, ILogger<WebApplication> logger, [FromBody] object input) =>
+            app.MapPost(pattern, async (IEventCallbackServiceProvider provider, ILogger<WebApplication> logger, [FromBody] object input, CancellationToken cancellationToken = default) =>
             {
-                logger.LogInformation("FeishuEndpoint: {json}", input);
-                var result = await provider.HandleAsync(input);
-                logger.LogInformation("EventHandle: {json}", JsonSerializer.Serialize(result));
+                if (logger.IsEnabled(LogLevel.Debug))
+                    logger.LogDebug("终结点收到的入参: {json}", input);
+
+                var result = await provider.HandleAsync(input, cancellationToken);
+
+                if (logger.IsEnabled(LogLevel.Debug))
+                    logger.LogDebug("终结点收到的处理结果: {json}", result);
 
                 if (result?.Success != true)
                     return Results.Problem(result?.Error);

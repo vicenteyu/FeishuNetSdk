@@ -102,7 +102,7 @@ public record PostAttendanceV1UserTasksQueryResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("records")]
-        public TaskResult[] Records { get; set; } = Array.Empty<TaskResult>();
+        public TaskResult[] Records { get; set; } = [];
 
         /// <summary>
         /// <para>用户考勤记录</para>

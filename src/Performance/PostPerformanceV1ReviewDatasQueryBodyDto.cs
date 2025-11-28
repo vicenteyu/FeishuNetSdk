@@ -51,7 +51,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("stage_types")]
-    public string[] StageTypes { get; set; } = Array.Empty<string>();
+    public string[] StageTypes { get; set; } = [];
 
     /// <summary>
     /// <para>环节状态，填写时按照指定状态获取绩效结果，不填查询所有状态的绩效结果</para>
@@ -85,7 +85,7 @@ public record PostPerformanceV1ReviewDatasQueryBodyDto
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("reviewee_user_id_list")]
-    public string[] RevieweeUserIdList { get; set; } = Array.Empty<string>();
+    public string[] RevieweeUserIdList { get; set; } = [];
 
     /// <summary>
     /// <para>环节更新时间最早时间，毫秒时间戳，可筛选出在此时间之后，有内容提交的环节数据</para>

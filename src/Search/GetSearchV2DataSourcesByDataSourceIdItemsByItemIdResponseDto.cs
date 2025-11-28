@@ -47,7 +47,7 @@ public record GetSearchV2DataSourcesByDataSourceIdItemsByItemIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("acl")]
-        public Acl[] Acls { get; set; } = Array.Empty<Acl>();
+        public Acl[] Acls { get; set; } = [];
 
         /// <summary>
         /// <para>item 的访问权限控制。 acl 字段为空数组，则默认数据不可见。如果数据是全员可见，需要设置 access="allow"; type="user"; value="everyone"</para>

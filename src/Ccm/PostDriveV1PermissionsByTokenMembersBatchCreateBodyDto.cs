@@ -35,7 +35,7 @@ public record PostDriveV1PermissionsByTokenMembersBatchCreateBodyDto
     /// <para>最大长度：10</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public BaseMember[] Members { get; set; } = Array.Empty<BaseMember>();
+    public BaseMember[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>本次要增加权限的协作者列表</para>

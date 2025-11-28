@@ -54,7 +54,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto : IPageableResponse<GetCore
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("leave_type_name")]
-        public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
+        public I18n[] LeaveTypeNames { get; set; } = [];
 
         /// <summary>
         /// <para>假期类型名称</para>
@@ -114,7 +114,7 @@ public record GetCorehrV1LeavesLeaveTypesResponseDto : IPageableResponse<GetCore
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("leave_type_name")]
-            public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
+            public I18n[] LeaveTypeNames { get; set; } = [];
 
             /// <summary>
             /// <para>假期子类名称</para>

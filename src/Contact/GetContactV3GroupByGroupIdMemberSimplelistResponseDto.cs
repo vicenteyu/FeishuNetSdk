@@ -34,7 +34,7 @@ public record GetContactV3GroupByGroupIdMemberSimplelistResponseDto : IPageableR
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("memberlist")]
-    public Memberlist[] Memberlists { get; set; } = Array.Empty<Memberlist>();
+    public Memberlist[] Memberlists { get; set; } = [];
 
     /// <summary>
     /// <para>成员列表。</para>

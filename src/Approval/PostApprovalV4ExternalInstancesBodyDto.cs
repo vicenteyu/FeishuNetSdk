@@ -681,7 +681,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("i18n_resources")]
-    public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
+    public I18nResource[] I18nResources { get; set; } = [];
 
     /// <summary>
     /// <para>国际化文案</para>
@@ -720,7 +720,7 @@ public record PostApprovalV4ExternalInstancesBodyDto
         /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
-        public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
+        public I18nResourceText[] Texts { get; set; } = [];
 
         /// <summary>
         /// <para>文案的 Key:Value。Key 需要以 @i18n@ 开头，并按照各个参数的要求传入 Value。该字段主要用于做国际化，允许用户同时传多个语言的文案，审批中心会根据用户当前的语言环境使用对应的文案，如果没有传用户当前的语言环境文案，则会使用默认的语言文案。</para>

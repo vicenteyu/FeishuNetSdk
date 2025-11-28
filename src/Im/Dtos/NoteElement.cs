@@ -28,6 +28,6 @@ namespace FeishuNetSdk.Im.Dtos
         /// 备注信息 子元素节点
         /// </summary>
         [property: JsonPropertyName("elements")]
-        public object[] Elements { get; set; } = Elements ?? Array.Empty<object>();
+        public object[] Elements { get; set; } = Elements ?? [];
     }
 }

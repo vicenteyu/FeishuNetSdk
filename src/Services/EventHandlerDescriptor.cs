@@ -11,36 +11,40 @@
 // </copyright>
 // <summary>事件处理方法类</summary>
 // ************************************************************************
-namespace FeishuNetSdk.Services
+namespace FeishuNetSdk.Services;
+
+/// <summary>
+/// 事件处理方法类
+/// </summary>
+public class EventHandlerDescriptor
 {
     /// <summary>
-    /// 事件处理方法类
+    /// 事件处理方法名称
     /// </summary>
-    public class EventHandlerDescriptor
-    {
-        /// <summary>
-        /// 事件处理方法名称
-        /// </summary>
-        public required string EventHandlerName { get; set; }
+    public required string EventHandlerName { get; init; }
 
-        /// <summary>
-        /// 事件处理类名称
-        /// </summary>
-        public required Type EventHandlerType { get; set; }
+    /// <summary>
+    /// 事件处理类名称 
+    /// </summary>
+    public required Type EventHandlerType { get; init; }
 
-        /// <summary>
-        /// 事件名称
-        /// </summary>
-        public required string EventName { get; set; }
+    /// <summary>
+    /// 事件名称 
+    /// </summary>
+    public required string EventName { get; init; }
 
-        /// <summary>
-        /// 事件类型
-        /// </summary>
-        public required Type EventType { get; set; }
+    /// <summary>
+    /// 事件类型 
+    /// </summary>
+    public required Type EventType { get; init; }
 
-        /// <summary>
-        /// 不允许重复的事件处理方法
-        /// </summary>
-        public bool NotAllowRepeat { get; set; }
-    }
+    /// <summary>
+    /// 不允许重复的事件处理方法 
+    /// </summary>
+    public required bool NotAllowRepeat { get; init; }
+
+    /// <summary>
+    /// 缓存反射方法
+    /// </summary>
+    public required MethodInfo ExecuteMethod { get; init; }
 }

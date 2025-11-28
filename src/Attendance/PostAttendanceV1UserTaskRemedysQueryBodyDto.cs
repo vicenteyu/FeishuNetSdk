@@ -27,7 +27,7 @@ public record PostAttendanceV1UserTaskRemedysQueryBodyDto
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询的起始时间，精确到秒的时间戳</para>
@@ -52,7 +52,7 @@ public record PostAttendanceV1UserTaskRemedysQueryBodyDto
     /// <para>可选值：<list type="bullet">
     /// <item>PeriodTime：单据作用时间</item>
     /// <item>CreateTime：单据创建时间（目前暂不支持）</item>
-    /// <item>UpdateTime：单据状态更新时间（灰度中，暂不开放）</item>
+    /// <item>UpdateTime：单据状态更新时间</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("check_date_type")]

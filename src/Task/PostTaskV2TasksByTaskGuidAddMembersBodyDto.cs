@@ -30,7 +30,7 @@ public record PostTaskV2TasksByTaskGuidAddMembersBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public Member[] Members { get; set; } = Array.Empty<Member>();
+    public Member[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>要添加的members列表，单请求支持最大50个成员（去重后)。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>

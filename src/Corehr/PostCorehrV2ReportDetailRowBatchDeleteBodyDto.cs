@@ -44,7 +44,7 @@ public record PostCorehrV2ReportDetailRowBatchDeleteBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public WorkforcePlanDetailRow[] Items { get; set; } = Array.Empty<WorkforcePlanDetailRow>();
+    public WorkforcePlanDetailRow[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>集中填报的填报行数量应介于 1 至 5 个之间。</para>
@@ -60,7 +60,7 @@ public record PostCorehrV2ReportDetailRowBatchDeleteBodyDto
         /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("dimensions")]
-        public DimensionEntity[] Dimensions { get; set; } = Array.Empty<DimensionEntity>();
+        public DimensionEntity[] Dimensions { get; set; } = [];
 
         /// <summary>
         /// <para>集中填报的维度信息要和用户创建的维度匹配，即传入除自动匹配维度外的所有维度，不多不少。</para>

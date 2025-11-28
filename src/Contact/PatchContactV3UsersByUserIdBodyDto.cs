@@ -371,6 +371,7 @@ public record PatchContactV3UsersByUserIdBodyDto
     /// <para>职务名称。字符数量上限为 255。</para>
     /// <para>- 你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取相应的租户名称。</para>
     /// <para>- 如果传入的职务名称不存在，则系统会自动创建并使用该名称。职务枚举值数量上限为 10,000。</para>
+    /// <para>- 如果传入空格字符串，则意味着清空职务。</para>
     /// <para>必填：否</para>
     /// <para>示例值：xxxxx</para>
     /// </summary>

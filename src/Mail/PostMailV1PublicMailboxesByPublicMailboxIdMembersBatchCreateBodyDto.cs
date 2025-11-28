@@ -27,7 +27,7 @@ public record PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreateBodyDt
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public PublicMailboxMember[] Items { get; set; } = Array.Empty<PublicMailboxMember>();
+    public PublicMailboxMember[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>本次调用添加的公共邮箱成员列表</para>

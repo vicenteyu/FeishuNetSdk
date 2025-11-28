@@ -47589,6 +47589,174 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】获取电子签文件列表</para>
+    /// <para>接口ID：7376163028442808348</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于获取电子签文件列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_file:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="signature_file_id">
+    /// <para>必填：否</para>
+    /// <para>电子签文件ID</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：{"cn":"[\"7371387495822411308\"]"}</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="states">
+    /// <para>必填：否</para>
+    /// <para>电子签文件状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)的signature_file_state枚举定义部分获得</para>
+    /// <para>注意：多个状态之间为「或」的关系；</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_start">
+    /// <para>必填：否</para>
+    /// <para>更新时间早于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-01 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_end">
+    /// <para>必填：否</para>
+    /// <para>更新时间晚于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-01 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="template_ids">
+    /// <para>必填：否</para>
+    /// <para>根据电子签模板id列表筛选电子签文件,返回的电子签文件使用的模板id在该list中</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/signature_files")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureFilesResponseDto>> GetCorehrV2SignatureFilesAsync(
+        [PathQuery] string? signature_file_id = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string[]? states = null,
+        [PathQuery] string? update_time_start = null,
+        [PathQuery] string? update_time_end = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string[]? template_ids = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取电子签模板列表</para>
+    /// <para>接口ID：7376163028442824732</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_template_info_with_thumbnail/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于批量获取电子签模板信息，包括模板类别、用途、适用区域等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_template:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小；如果不填，默认为10</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="name">
+    /// <para>必填：否</para>
+    /// <para>模版名</para>
+    /// <para>示例值：入职模板</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="category_apiname">
+    /// <para>必填：否</para>
+    /// <para>模版类别，多个类别之间请使用英文逗号分隔；</para>
+    /// <para>枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板类别（signature_template_category）枚举定义部分获得</para>
+    /// <para>示例值：contract_agreement,certificate</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="usage_apiname">
+    /// <para>必填：否</para>
+    /// <para>模板用途，多个用途之间使用英文逗号分隔；</para>
+    /// <para>枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板用途（signature_template_usage）枚举定义部分获得</para>
+    /// <para>示例值：dispatch,general</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="active">
+    /// <para>必填：否</para>
+    /// <para>是否停用</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="applicability_apinames">
+    /// <para>必填：否</para>
+    /// <para>电子签模板适用范围，多个用途之间使用英文逗号分隔；</para>
+    /// <para>枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)电子签模板适用范围（signature_template_applicability）枚举定义部分获得</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/signature_template_info_with_thumbnails")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureTemplateInfoWithThumbnailsResponseDto>> GetCorehrV2SignatureTemplateInfoWithThumbnailsAsync(
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? name = null,
+        [PathQuery] string? category_apiname = null,
+        [PathQuery] string? usage_apiname = null,
+        [PathQuery] bool? active = null,
+        [PathQuery] string[]? applicability_apinames = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】下载电子签文件</para>
+    /// <para>接口ID：7376163028442841116</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/download</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于下载电子签文件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_file:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="signature_file_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>电子签文件id，[【获取电子签文件列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// </param>
+    /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/signature_files/{signature_file_id}/download")]
+    System.Threading.Tasks.Task<HttpResponseMessage> PostCorehrV2SignatureFilesBySignatureFileIdDownloadAsync(
+        [PathQuery] string signature_file_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【消息与群组】添加跟随气泡</para>
     /// <para>接口ID：7377650885165268995</para>
     /// <para>接口文档：https://open.feishu.cn/document/im-v1/message/push_follow_up</para>
@@ -49281,6 +49449,35 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】获取电子签模板内容</para>
+    /// <para>接口ID：7395391068203089948</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_template_info_with_thumbnail/search</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据多个模板ID获取电子签模板基本信息和内容列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_template:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="template_ids">
+    /// <para>必填：否</para>
+    /// <para>电子签模板ids，用英文逗号分隔；如果不传 则返回所有电子签模版信息</para>
+    /// <para>示例值：7223256427270260268,7182520625066475540</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="select_custom_field">
+    /// <para>必填：否</para>
+    /// <para>是否需要模板自定义字段，如果不需要，则默认只返回模板的系统字段。</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/signature_templates/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureTemplatesSearchResponseDto>> GetCorehrV2SignatureTemplatesSearchAsync(
+        [PathQuery] string? template_ids = null,
+        [PathQuery] bool? select_custom_field = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【卡片】新增组件</para>
     /// <para>接口ID：7397253002364551171</para>
     /// <para>接口文档：https://open.feishu.cn/document/cardkit-v1/card-element/create</para>
@@ -49886,6 +50083,94 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】根据流程获取电子签文件信息</para>
+    /// <para>接口ID：7398535900936847363</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/list_by_biz_id</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口可以根据传入的业务类型和流程ID获取该流程中签署的电子签文件信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature.file:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="biz_process_id">
+    /// <para>必填：是</para>
+    /// <para>业务自定义流程ID，唯一不重复，不要超过100字符</para>
+    /// <para>示例值：129b83f5-c023-4e85-b2c7-80ce777e57fd</para>
+    /// </param>
+    /// <param name="biz_type">
+    /// <para>必填：是</para>
+    /// <para>业务类型，开放平台发起的流程传OpenAPI，BPM发起的流程传入Bpm，目前只支持这两种业务类型</para>
+    /// <para>示例值：OpenAPI、Bpm</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="select_sign_url">
+    /// <para>必填：否</para>
+    /// <para>是否需要返回签署链接</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/signature_files/list_by_biz_id")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureFilesListByBizIdResponseDto>> GetCorehrV2SignatureFilesListByBizIdAsync(
+        [PathQuery] string biz_process_id,
+        [PathQuery] string biz_type,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        [PathQuery] bool? select_sign_url = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】获取文件签署节点信息</para>
+    /// <para>接口ID：7398535900936863747</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/list_by_file_id</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口可以通过电子签文件ID查询到该电子签文件的签署流程的各个节点信息，包括签署节点、盖章节点、审阅节点等，各个节点有对应的内容、完成时间、审阅人、盖章人等信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature.file:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="file_id">
+    /// <para>必填：是</para>
+    /// <para>电子签文件ID，可以通过[【批量获取电子签文件</para>
+    /// <para>】](/ssl:ttdc/uAjLw4CM/ukTMukTMukTM/corehr-v2/signature_file/list)获取</para>
+    /// <para>示例值：7149088311624091180</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/signature_nodes/list_by_file_id")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureNodesListByFileIdResponseDto>> GetCorehrV2SignatureNodesListByFileIdAsync(
+        [PathQuery] string file_id,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【招聘】获取人才标签信息列表</para>
     /// <para>接口ID：7404770953199714306</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/application/list-2</para>
@@ -50398,6 +50683,74 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/corehr/v1/leaves/work_calendar")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.PostCorehrV1LeavesWorkCalendarResponseDto>> PostCorehrV1LeavesWorkCalendarAsync(
         [JsonContent] FeishuPeople.PostCorehrV1LeavesWorkCalendarBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询电子签文件详情</para>
+    /// <para>接口ID：7408897731056500740</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口可用于批量查询电子签文件列表，并且支持根据文件ID、更新时间范围、文件状态、模板ID等条件检索</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature.file:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="signature_file_id">
+    /// <para>必填：否</para>
+    /// <para>电子签文件ID，查询结果会返回满足所有筛选条件 signature_file_id 、states、template_ids的文件</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10 范围：0～100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：{"eu_nc":"[1724438210000,\"7405949343401772554\"]"}</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_start">
+    /// <para>必填：否</para>
+    /// <para>更新时间早于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-01 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_end">
+    /// <para>必填：否</para>
+    /// <para>更新时间晚于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-02 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/signature_files/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2SignatureFilesQueryResponseDto>> PostCorehrV2SignatureFilesQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2SignatureFilesQueryBodyDto dto,
+        [PathQuery] string? signature_file_id = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? update_time_start = null,
+        [PathQuery] string? update_time_end = null,
+        [PathQuery] string? user_id_type = "people_corehr_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -51753,6 +52106,39 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> DeleteCorehrV2LocationsByLocationIdAddressesByAddressIdAsync(
         [PathQuery] string location_id,
         [PathQuery] string address_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】终止电子签文件</para>
+    /// <para>接口ID：7420421437193633795</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/terminate</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于终止在签署流程中的电子签文件，不再执行后续的签署流程</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_file:terminate</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/signature_files/terminate")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2SignatureFilesTerminateResponseDto>> PostCorehrV2SignatureFilesTerminateAsync(
+        [JsonContent] Corehr.PostCorehrV2SignatureFilesTerminateBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

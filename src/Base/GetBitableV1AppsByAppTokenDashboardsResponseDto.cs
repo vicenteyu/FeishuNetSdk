@@ -32,7 +32,7 @@ public record GetBitableV1AppsByAppTokenDashboardsResponseDto : IPageableRespons
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("dashboards")]
-    public AppDashboard[] Dashboards { get; set; } = Array.Empty<AppDashboard>();
+    public AppDashboard[] Dashboards { get; set; } = [];
 
     /// <summary>
     /// <para>仪表盘信息</para>

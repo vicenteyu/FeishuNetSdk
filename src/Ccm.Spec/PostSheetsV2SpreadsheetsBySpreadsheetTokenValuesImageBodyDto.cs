@@ -35,7 +35,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesImageBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("image")]
-    public byte[] Image { get; set; } = Array.Empty<byte>();
+    public byte[] Image { get; set; } = [];
 
     /// <summary>
     /// <para>写入的图片名称。</para>

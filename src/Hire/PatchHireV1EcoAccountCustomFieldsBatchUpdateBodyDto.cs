@@ -38,7 +38,7 @@ public record PatchHireV1EcoAccountCustomFieldsBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("custom_field_list")]
-    public EcoAccountCustomFieldData[] CustomFieldLists { get; set; } = Array.Empty<EcoAccountCustomFieldData>();
+    public EcoAccountCustomFieldData[] CustomFieldLists { get; set; } = [];
 
     /// <summary>
     /// <para>自定义字段列表</para>

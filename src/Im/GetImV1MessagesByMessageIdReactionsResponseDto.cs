@@ -31,7 +31,7 @@ public record GetImV1MessagesByMessageIdReactionsResponseDto : IPageableResponse
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public MessageReaction[] Items { get; set; } = Array.Empty<MessageReaction>();
+    public MessageReaction[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>表情回复列表。</para>

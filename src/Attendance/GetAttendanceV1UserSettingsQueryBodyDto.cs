@@ -28,5 +28,5 @@ public record GetAttendanceV1UserSettingsQueryBodyDto
     /// <para>最大长度：100</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 }

@@ -76,5 +76,5 @@ public record PatchTaskV2SectionsBySectionGuidBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("update_fields")]
-    public string[] UpdateFields { get; set; } = Array.Empty<string>();
+    public string[] UpdateFields { get; set; } = [];
 }

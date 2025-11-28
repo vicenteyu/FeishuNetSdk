@@ -32,5 +32,5 @@ public record PostCalendarV4CalendarsMgetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("calendar_ids")]
-    public string[] CalendarIds { get; set; } = Array.Empty<string>();
+    public string[] CalendarIds { get; set; } = [];
 }

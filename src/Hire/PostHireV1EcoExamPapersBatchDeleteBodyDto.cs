@@ -35,5 +35,5 @@ public record PostHireV1EcoExamPapersBatchDeleteBodyDto
     /// <para>示例值：["7147998241542539512"]</para>
     /// </summary>
     [JsonPropertyName("paper_id_list")]
-    public string[] PaperIdList { get; set; } = Array.Empty<string>();
+    public string[] PaperIdList { get; set; } = [];
 }

@@ -34,5 +34,5 @@ public record PatchImV1MessagesByMessageIdUrgentSmsResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("invalid_user_id_list")]
-    public string[] InvalidUserIdList { get; set; } = Array.Empty<string>();
+    public string[] InvalidUserIdList { get; set; } = [];
 }

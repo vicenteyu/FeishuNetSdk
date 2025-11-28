@@ -33,5 +33,5 @@ public record PostContactV3FunctionalRolesByRoleIdMembersBatchCreateBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public string[] Members { get; set; } = Array.Empty<string>();
+    public string[] Members { get; set; } = [];
 }

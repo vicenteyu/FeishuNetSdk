@@ -38,7 +38,7 @@ public record PostDriveV1FilesByFileTokenCommentsBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("replies")]
-        public FileCommentReply[] Replies { get; set; } = Array.Empty<FileCommentReply>();
+        public FileCommentReply[] Replies { get; set; } = [];
 
         /// <summary>
         /// <para>回复列表</para>
@@ -62,7 +62,7 @@ public record PostDriveV1FilesByFileTokenCommentsBodyDto
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("elements")]
-                public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
+                public ReplyElement[] Elements { get; set; } = [];
 
                 /// <summary>
                 /// <para>回复内容的元素列表</para>

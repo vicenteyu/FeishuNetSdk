@@ -681,7 +681,7 @@
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedys</td></tr>
 <tr><td rowspan="2">341</td><td rowspan="2">2024-08-13</td><td>&#10003;</td><td>考勤打卡</td><td>获取可补卡时间</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedys</td></tr>
-<tr><td rowspan="2">342</td><td rowspan="2">2024-08-19</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
+<tr><td rowspan="2">342</td><td rowspan="2">2025-11-17</td><td>&#10003;</td><td>考勤打卡</td><td>获取补卡记录</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserTaskRemedysQuery</td></tr>
 <tr><td rowspan="2">343</td><td rowspan="2">2025-02-28</td><td>&#10003;</td><td>考勤打卡</td><td>导入打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchCreate</td></tr>
@@ -1111,7 +1111,7 @@
 <tr><td colspan="3">PatchApplicationV6ApplicationsByAppIdContactsRange</td></tr>
 <tr><td rowspan="2">556</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>应用信息</td><td>获取用户可用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV1UserVisibleApps</td></tr>
-<tr><td rowspan="2">557</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
+<tr><td rowspan="2">557</td><td rowspan="2">2025-11-20</td><td>&#10003;</td><td>通讯录</td><td>修改用户部分信息</td></tr>
 <tr><td colspan="3">PatchContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">558</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除序列</td></tr>
 <tr><td colspan="3">DeleteContactV3JobFamiliesByJobFamilyId</td></tr>
@@ -1455,7 +1455,7 @@
 <tr><td colspan="3">GetCorehrV1JobsByJobId</td></tr>
 <tr><td rowspan="2">728</td><td rowspan="2">2024-02-06</td><td>&#10003;</td><td>飞书人事</td><td>批量查询职务</td></tr>
 <tr><td colspan="3">GetCorehrV1Jobs</td></tr>
-<tr><td rowspan="2">729</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
+<tr><td rowspan="2">729</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>直接创建待入职</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHires</td></tr>
 <tr><td rowspan="2">730</td><td rowspan="2">2024-07-12</td><td>&#10003;</td><td>飞书人事</td><td><span style="color:red;">[不推荐]</span> 更新待入职信息（不推荐）</td></tr>
 <tr><td colspan="3">PatchCorehrV1PreHiresByPreHireId</td></tr>
@@ -2187,7 +2187,7 @@
 <tr><td colspan="3">PostHireV1Attachments</td></tr>
 <tr><td rowspan="2">1094</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取招聘官网下的职位广告列表</td></tr>
 <tr><td colspan="3">GetHireV1WebsitesByWebsiteIdJobPosts</td></tr>
-<tr><td rowspan="2">1095</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>招聘</td><td>获取项目列表</td></tr>
+<tr><td rowspan="2">1095</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>招聘</td><td>获取项目列表</td></tr>
 <tr><td colspan="3">GetHireV1Subjects</td></tr>
 <tr><td rowspan="2">1096</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>招聘</td><td>获取职能分类列表</td></tr>
 <tr><td colspan="3">GetHireV1JobFunctions</td></tr>
@@ -2271,7 +2271,7 @@
 <tr><td colspan="3">PostHireV1JobsByJobIdOpen</td></tr>
 <tr><td rowspan="2">1136</td><td rowspan="2">2024-07-22</td><td>&#10003;</td><td>招聘</td><td>添加笔试结果</td></tr>
 <tr><td colspan="3">PostHireV1Exams</td></tr>
-<tr><td rowspan="2">1137</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>招聘</td><td>更新人才</td></tr>
+<tr><td rowspan="2">1137</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>招聘</td><td>更新人才</td></tr>
 <tr><td colspan="3">PostHireV1TalentsCombinedUpdate</td></tr>
 <tr><td rowspan="2">1138</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>创建人才外部信息</td></tr>
 <tr><td colspan="3">PostHireV1TalentsByTalentIdExternalInfo</td></tr>
@@ -2377,7 +2377,7 @@
 <tr><td colspan="3">PatchImV2FeedCardsBotTimeSentive</td></tr>
 <tr><td rowspan="2">1189</td><td rowspan="2">2024-11-26</td><td>&#10003;</td><td>公司圈</td><td>查询帖子信息</td></tr>
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
-<tr><td rowspan="2">1190</td><td rowspan="2">2025-02-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除部门 V2</td></tr>
+<tr><td rowspan="2">1190</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除部门 V2</td></tr>
 <tr><td colspan="3">DeleteCorehrV2DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">1191</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新部门</td></tr>
 <tr><td colspan="3">PatchCorehrV2DepartmentsByDepartmentId</td></tr>
@@ -2511,9 +2511,9 @@
 <tr><td colspan="3">GetApplicationV6Applications</td></tr>
 <tr><td rowspan="2">1256</td><td rowspan="2">2025-10-14</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>根据流程 ID 查询组织架构调整记录</td></tr>
 <tr><td colspan="3">GetCorehrV2ApprovalGroupsByProcessId</td></tr>
-<tr><td rowspan="2">1257</td><td rowspan="2">2025-08-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
+<tr><td rowspan="2">1257</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询部门调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIds</td></tr>
-<tr><td rowspan="2">1258</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
+<tr><td rowspan="2">1258</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量查询人员调整内容</td></tr>
 <tr><td colspan="3">PostCorehrV2ApprovalGroupsOpenQueryJobChangeListByIds</td></tr>
 <tr><td rowspan="2">1259</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
@@ -2529,7 +2529,7 @@
 <tr><td colspan="3">PostHireV1TalentPoolsByTalentPoolIdBatchChangeTalentPool</td></tr>
 <tr><td rowspan="2">1265</td><td rowspan="2">2024-12-04</td><td>&#10003;</td><td>招聘</td><td>获取职位详情</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobIdGetDetail</td></tr>
-<tr><td rowspan="2">1266</td><td rowspan="2">2025-04-17</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
+<tr><td rowspan="2">1266</td><td rowspan="2">2025-11-19</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
 <tr><td rowspan="2">1267</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>招聘</td><td>查询外部面试列表</td></tr>
 <tr><td colspan="3">PostHireV1ExternalInterviewsBatchQuery</td></tr>
@@ -2731,7 +2731,7 @@
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
 <tr><td rowspan="2">1366</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
-<tr><td rowspan="2">1367</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
+<tr><td rowspan="2">1367</td><td rowspan="2">2025-11-20</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
 <tr><td rowspan="2">1368</td><td rowspan="2">2025-06-06</td><td>&#10003;</td><td>多维表格</td><td>新增自定义角色</td></tr>
 <tr><td colspan="3">PostBaseV2AppsByAppTokenRoles</td></tr>
@@ -2911,7 +2911,7 @@
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
 <tr><td rowspan="2">1456</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
-<tr><td rowspan="2">1457</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
+<tr><td rowspan="2">1457</td><td rowspan="2">2025-11-27</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">1458</td><td rowspan="2">2025-09-24</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>流转入职任务</td></tr>
 <tr><td colspan="3">PostCorehrV2PreHiresTransformOnboardingTask</td></tr>
@@ -2947,4 +2947,20 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">1474</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
+<tr><td rowspan="2">1475</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
+<tr><td rowspan="2">1476</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签模板列表</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureTemplateInfoWithThumbnails</td></tr>
+<tr><td rowspan="2">1477</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>下载电子签文件</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesBySignatureFileIdDownload</td></tr>
+<tr><td rowspan="2">1478</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签模板内容</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureTemplatesSearch</td></tr>
+<tr><td rowspan="2">1479</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>根据流程获取电子签文件信息</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureFilesListByBizId</td></tr>
+<tr><td rowspan="2">1480</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取文件签署节点信息</td></tr>
+<tr><td colspan="3">GetCorehrV2SignatureNodesListByFileId</td></tr>
+<tr><td rowspan="2">1481</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>查询电子签文件详情</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesQuery</td></tr>
+<tr><td rowspan="2">1482</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>终止电子签文件</td></tr>
+<tr><td colspan="3">PostCorehrV2SignatureFilesTerminate</td></tr>
 </tbody></table>

@@ -51,7 +51,7 @@ public record GetLingoV1EntitiesResponseDto : IPageableResponse<GetLingoV1Entiti
         /// <para>最大长度：1</para>
         /// </summary>
         [JsonPropertyName("main_keys")]
-        public Term[] MainKeys { get; set; } = Array.Empty<Term>();
+        public Term[] MainKeys { get; set; } = [];
 
         /// <summary>
         /// <para>词条名</para>

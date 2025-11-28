@@ -66,7 +66,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("message_ids")]
-    public string[] MessageIds { get; set; } = Array.Empty<string>();
+    public string[] MessageIds { get; set; } = [];
 
     /// <summary>
     /// <para>邮件卡片ID</para>

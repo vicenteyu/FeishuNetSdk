@@ -28,7 +28,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("user_id_list")]
-    public string[] UserIdList { get; set; } = Array.Empty<string>();
+    public string[] UserIdList { get; set; } = [];
 
     /// <summary>
     /// <para>增减员类型, increase: 增员; attrition: 减员</para>

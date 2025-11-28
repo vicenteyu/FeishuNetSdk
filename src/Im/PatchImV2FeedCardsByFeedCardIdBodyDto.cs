@@ -34,5 +34,5 @@ public record PatchImV2FeedCardsByFeedCardIdBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 }

@@ -26,7 +26,7 @@ public record PostAttendanceV1UserFlowsBatchCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("flow_records")]
-    public UserFlow[] FlowRecords { get; set; } = Array.Empty<UserFlow>();
+    public UserFlow[] FlowRecords { get; set; } = [];
 
     /// <summary>
     /// <para>打卡流水记录列表(数量限制50)</para>

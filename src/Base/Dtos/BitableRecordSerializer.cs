@@ -1,6 +1,17 @@
-﻿#pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
-namespace FeishuNetSdk;
-#pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
+﻿// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-11-28
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-11-28
+// ************************************************************************
+// <copyright file="BitableRecordSerializer.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary></summary>
+// ************************************************************************
+namespace FeishuNetSdk.Base.Dtos;
 
 /// <summary>
 /// 多维表格记录序列化规则
@@ -22,7 +33,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string AttachmentRecordToString(Base.Dtos.AttachmentRecord[]? record)
+    public virtual string AttachmentRecordToString(AttachmentRecord[]? record)
     {
         return JoinCollection(record?.Select(k => k.FileToken));
     }
@@ -34,7 +45,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string BarcodeRecordToString(Base.Dtos.TextRecord[]? record)
+    public virtual string BarcodeRecordToString(TextRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Text));
     }
@@ -58,7 +69,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string CreatedUserRecordToString(Base.Dtos.UserRecord[]? record)
+    public virtual string CreatedUserRecordToString(UserRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Name));
     }
@@ -76,19 +87,19 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string DuplexLinkRecordToString(Base.Dtos.LinkRecord? record)
+    public virtual string DuplexLinkRecordToString(LinkRecord? record)
     {
         return JoinCollection(record?.LinkRecordIds);
     }
 
     /// <inheritdoc/>
-    public virtual string GroupChatRecordToString(Base.Dtos.GroupChatRecord[]? record)
+    public virtual string GroupChatRecordToString(GroupChatRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Name));
     }
 
     /// <inheritdoc/>
-    public virtual string LocationRecordToString(Base.Dtos.LocationRecord[]? record)
+    public virtual string LocationRecordToString(LocationRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Name));
     }
@@ -100,7 +111,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string ModifiedUserRecordToString(Base.Dtos.UserRecord[]? record)
+    public virtual string ModifiedUserRecordToString(UserRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Name));
     }
@@ -136,7 +147,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string SingleLinkRecordToString(Base.Dtos.LinkRecord? record)
+    public virtual string SingleLinkRecordToString(LinkRecord? record)
     {
         return JoinCollection(record?.LinkRecordIds);
     }
@@ -154,19 +165,19 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     }
 
     /// <inheritdoc/>
-    public virtual string TextRecordToString(Base.Dtos.TextRecord[]? record)
+    public virtual string TextRecordToString(TextRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Text));
     }
 
     /// <inheritdoc/>
-    public virtual string UrlRecordToString(Base.Dtos.UrlRecord[]? record)
+    public virtual string UrlRecordToString(UrlRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Link));
     }
 
     /// <inheritdoc/>
-    public virtual string UserRecordToString(Base.Dtos.UserRecord[]? record)
+    public virtual string UserRecordToString(UserRecord[]? record)
     {
         return JoinCollection(record?.Select(p => p.Name));
     }
@@ -174,9 +185,9 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     /// <inheritdoc/>
     public virtual Dictionary<string, Type> TypePairs => new()
     {
-        { "Text", typeof(Base.Dtos.TextRecord[]) },
-        { "Email", typeof(Base.Dtos.TextRecord[]) },
-        { "Barcode", typeof(Base.Dtos.TextRecord[]) },
+        { "Text", typeof(TextRecord[]) },
+        { "Email", typeof(TextRecord[]) },
+        { "Barcode", typeof(TextRecord[]) },
         { "Number", typeof(decimal[]) },
         { "Progress", typeof(decimal[]) },
         { "Currency", typeof(decimal[]) },
@@ -185,47 +196,47 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
         { "MultiSelect", typeof(string[]) },
         { "DateTime", typeof(ulong[]) },
         { "Checkbox", typeof(bool[]) },
-        { "User", typeof(Base.Dtos.UserRecord[]) },
-        { "GroupChat", typeof(Base.Dtos.GroupChatRecord[]) },
+        { "User", typeof(UserRecord[]) },
+        { "GroupChat", typeof(GroupChatRecord[]) },
         { "Stage", typeof(object) },
         { "Phone", typeof(string[]) },
-        { "Url", typeof(Base.Dtos.UrlRecord[]) },
-        { "Attachment", typeof(Base.Dtos.AttachmentRecord[]) },
-        { "SingleLink", typeof(Base.Dtos.LinkRecord) },
-        { "Formula", typeof(Base.Dtos.FormulaRecord) },
-        { "Lookup", typeof(Base.Dtos.FormulaRecord) },
-        { "DuplexLink", typeof(Base.Dtos.LinkRecord) },
-        { "Location", typeof(Base.Dtos.LocationRecord[]) },
+        { "Url", typeof(UrlRecord[]) },
+        { "Attachment", typeof(AttachmentRecord[]) },
+        { "SingleLink", typeof(LinkRecord) },
+        { "Formula", typeof(FormulaRecord) },
+        { "Lookup", typeof(FormulaRecord) },
+        { "DuplexLink", typeof(LinkRecord) },
+        { "Location", typeof(LocationRecord[]) },
         { "CreatedTime", typeof(ulong[]) },
         { "ModifiedTime", typeof(ulong[]) },
-        { "CreatedUser", typeof(Base.Dtos.UserRecord[]) },
-        { "ModifiedUser", typeof(Base.Dtos.UserRecord[]) },
+        { "CreatedUser", typeof(UserRecord[]) },
+        { "ModifiedUser", typeof(UserRecord[]) },
         { "AutoNumber", typeof(string[]) },
         { "Button", typeof(object) },
-        { "Type1", typeof(Base.Dtos.TextRecord[]) },
+        { "Type1", typeof(TextRecord[]) },
         { "Type2", typeof(decimal[]) },
         { "Type3", typeof(string[]) },
         { "Type4", typeof(string[]) },
         { "Type5", typeof(ulong[]) },
         { "Type7", typeof(bool[]) },
-        { "Type11", typeof(Base.Dtos.UserRecord[]) },
+        { "Type11", typeof(UserRecord[]) },
         { "Type13", typeof(string[]) },
-        { "Type15", typeof(Base.Dtos.UrlRecord[]) },
-        { "Type17", typeof(Base.Dtos.AttachmentRecord[]) },
-        { "Type19", typeof(Base.Dtos.FormulaRecord) },
-        { "Type20", typeof(Base.Dtos.FormulaRecord) },
-        { "Type22", typeof(Base.Dtos.LocationRecord[]) },
-        { "Type23", typeof(Base.Dtos.GroupChatRecord[]) },
+        { "Type15", typeof(UrlRecord[]) },
+        { "Type17", typeof(AttachmentRecord[]) },
+        { "Type19", typeof(FormulaRecord) },
+        { "Type20", typeof(FormulaRecord) },
+        { "Type22", typeof(LocationRecord[]) },
+        { "Type23", typeof(GroupChatRecord[]) },
         { "Type1001", typeof(ulong[]) },
         { "Type1002", typeof(ulong[]) },
-        { "Type1003", typeof(Base.Dtos.UserRecord[]) },
-        { "Type1004", typeof(Base.Dtos.UserRecord[]) },
+        { "Type1003", typeof(UserRecord[]) },
+        { "Type1004", typeof(UserRecord[]) },
         { "Type1005", typeof(string[]) },
         { "JsonValueKindTrue", typeof(bool[]) },
         { "JsonValueKindFalse", typeof(bool[]) },
         { "JsonValueKindNumber", typeof(decimal[]) },
         { "JsonValueKindString", typeof(string[]) },
-        { "JsonValueKindArray", typeof(Base.Dtos.TextRecord[]) },
-        { "JsonValueKindObject", typeof(Base.Dtos.FormulaRecord) },
+        { "JsonValueKindArray", typeof(TextRecord[]) },
+        { "JsonValueKindObject", typeof(FormulaRecord) },
     };
 }

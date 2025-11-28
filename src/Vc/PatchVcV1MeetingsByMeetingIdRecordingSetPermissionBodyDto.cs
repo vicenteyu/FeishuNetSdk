@@ -26,7 +26,7 @@ public record PatchVcV1MeetingsByMeetingIdRecordingSetPermissionBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("permission_objects")]
-    public RecordingPermissionObject[] PermissionObjects { get; set; } = Array.Empty<RecordingPermissionObject>();
+    public RecordingPermissionObject[] PermissionObjects { get; set; } = [];
 
     /// <summary>
     /// <para>授权对象列表</para>

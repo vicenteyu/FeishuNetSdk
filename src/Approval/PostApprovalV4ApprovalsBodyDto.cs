@@ -61,7 +61,7 @@ public record PostApprovalV4ApprovalsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
-    public ApprovalCreateViewers[] Viewers { get; set; } = Array.Empty<ApprovalCreateViewers>();
+    public ApprovalCreateViewers[] Viewers { get; set; } = [];
 
     /// <summary>
     /// <para>viewers 字段指定了哪些人能从审批应用的前台发起该审批。使用说明：</para>
@@ -131,7 +131,7 @@ public record PostApprovalV4ApprovalsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("node_list")]
-    public ApprovalNode[] NodeLists { get; set; } = Array.Empty<ApprovalNode>();
+    public ApprovalNode[] NodeLists { get; set; } = [];
 
     /// <summary>
     /// <para>审批定义节点列表，用于设置审批流程所需要的各个节点，审批流程的始末固定为开始节点和结束节点，因此传值时需要将开始节点作为 list 第一个元素，结束节点作为 list 最后一个元素。</para>
@@ -247,7 +247,7 @@ public record PostApprovalV4ApprovalsBodyDto
             /// <para>示例值：9293493</para>
             /// </summary>
             [JsonPropertyName("writable")]
-            public string[] Writable { get; set; } = Array.Empty<string>();
+            public string[] Writable { get; set; } = [];
 
             /// <summary>
             /// <para>可读权限的表单控件项的 ID 列表，ID 需要与表单参数（form）内传入的控件 ID 值保持一致。</para>
@@ -255,7 +255,7 @@ public record PostApprovalV4ApprovalsBodyDto
             /// <para>示例值：9293493</para>
             /// </summary>
             [JsonPropertyName("readable")]
-            public string[] Readable { get; set; } = Array.Empty<string>();
+            public string[] Readable { get; set; } = [];
         }
 
         /// <summary>
@@ -447,7 +447,7 @@ public record PostApprovalV4ApprovalsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("i18n_resources")]
-    public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
+    public I18nResource[] I18nResources { get; set; } = [];
 
     /// <summary>
     /// <para>国际化文案</para>
@@ -473,7 +473,7 @@ public record PostApprovalV4ApprovalsBodyDto
         /// <para>示例值：{ "@i18n@1": "权限申请", "@i18n@2": "OA审批", "@i18n@3": "Permission" }</para>
         /// </summary>
         [JsonPropertyName("texts")]
-        public I18nResourceText[] Texts { get; set; } = Array.Empty<I18nResourceText>();
+        public I18nResourceText[] Texts { get; set; } = [];
 
         /// <summary>
         /// <para>文案的 key、value。</para>

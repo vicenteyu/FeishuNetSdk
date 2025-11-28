@@ -80,7 +80,7 @@ public record PutCorehrV2ProcessesByProcessIdExtraBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("extra_user_ids")]
-    public string[] ExtraUserIds { get; set; } = Array.Empty<string>();
+    public string[] ExtraUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>备注</para>

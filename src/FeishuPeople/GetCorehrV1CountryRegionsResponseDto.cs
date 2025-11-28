@@ -46,7 +46,7 @@ public record GetCorehrV1CountryRegionsResponseDto : IPageableResponse<GetCorehr
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("name")]
-        public I18n[] Names { get; set; } = Array.Empty<I18n>();
+        public I18n[] Names { get; set; } = [];
 
         /// <summary>
         /// <para>国家/地区名称</para>

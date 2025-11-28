@@ -321,6 +321,7 @@ public record GetHireV1ApplicationsByApplicationIdGetDetailResponseDto
 
             /// <summary>
             /// <para>简历附件 ID，详情请查看 ：[获取附件信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/attachment/get)</para>
+            /// <para>「备注信息：只有站内创投时上传的简历附件才能关联取值，渠道/官网/内推创投的简历附件不会关联」</para>
             /// <para>必填：否</para>
             /// <para>示例值：6960663240925956415</para>
             /// </summary>

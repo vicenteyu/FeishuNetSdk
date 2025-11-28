@@ -34,7 +34,7 @@ public record PostHireV1EcoExamPapersBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("paper_list")]
-    public EcoExamPaperData[] PaperLists { get; set; } = Array.Empty<EcoExamPaperData>();
+    public EcoExamPaperData[] PaperLists { get; set; } = [];
 
     /// <summary>
     /// <para>试卷列表</para>

@@ -29,7 +29,7 @@ public record PostHireV1TalentsAddToFolderBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("talent_id_list")]
-    public string[] TalentIdList { get; set; } = Array.Empty<string>();
+    public string[] TalentIdList { get; set; } = [];
 
     /// <summary>
     /// <para>文件夹 ID，可通过[获取人才文件夹列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/talent_folder/list)接口获取</para>

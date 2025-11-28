@@ -50,7 +50,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("reason")]
-    public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
+    public LangText[] Reasons { get; set; } = [];
 
     /// <summary>
     /// <para>修改发放记录原因</para>

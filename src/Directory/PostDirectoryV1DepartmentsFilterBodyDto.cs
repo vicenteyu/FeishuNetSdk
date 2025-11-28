@@ -40,7 +40,7 @@ public record PostDirectoryV1DepartmentsFilterBodyDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("conditions")]
-        public FilterCondition[] Conditions { get; set; } = Array.Empty<FilterCondition>();
+        public FilterCondition[] Conditions { get; set; } = [];
 
         /// <summary>
         /// <para>比较表达式列表。多个表达式之间的关系默认为“and”</para>
@@ -86,7 +86,7 @@ public record PostDirectoryV1DepartmentsFilterBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("required_fields")]
-    public string[] RequiredFields { get; set; } = Array.Empty<string>();
+    public string[] RequiredFields { get; set; } = [];
 
     /// <summary>
     /// <para>分页信息</para>

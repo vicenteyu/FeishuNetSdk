@@ -11,13 +11,12 @@
 // </copyright>
 // <summary>启用日志</summary>
 // ************************************************************************
-using FeishuNetSdk;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using WebApiClientCore;
+using WebApiClientCore.Attributes;
 
-#pragma warning disable IDE0130
-namespace WebApiClientCore.Attributes
-#pragma warning restore IDE0130
+namespace FeishuNetSdk.Attributes
 {
     /// <summary>
     /// 启用日志
@@ -36,12 +35,13 @@ namespace WebApiClientCore.Attributes
         /// <param name="context">上下文</param>
         /// <param name="logMessage">日志消息</param>
         /// <returns>Task.</returns>
-        protected override Task WriteLogAsync(ApiResponseContext context, LogMessage logMessage)
+        protected override System.Threading.Tasks.Task WriteLogAsync(ApiResponseContext context, LogMessage logMessage)
         {
             var sdkOptions = context.HttpContext.ServiceProvider
                    .GetRequiredService<IOptionsMonitor<FeishuNetSdkOptions>>();
 
-            if (!sdkOptions.CurrentValue.EnableLogging) return Task.CompletedTask;
+            if (!sdkOptions.CurrentValue.EnableLogging)
+                return System.Threading.Tasks.Task.CompletedTask;
 
             if (EnableCacheLogging
                 && context.HttpContext.ResponseMessage?.Headers?

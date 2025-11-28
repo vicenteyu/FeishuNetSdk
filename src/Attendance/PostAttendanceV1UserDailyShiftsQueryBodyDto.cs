@@ -27,7 +27,7 @@ public record PostAttendanceV1UserDailyShiftsQueryBodyDto
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询的起始工作日，格式为yyyyMMdd</para>

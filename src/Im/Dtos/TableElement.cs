@@ -29,8 +29,8 @@ namespace FeishuNetSdk.Im.Dtos
     /// </list>
     /// </param>
     /// <param name="HeaderStyle">表头样式风格。详见下方 header_style 字段说明。</param>
-    public record TableElement(TableElement.Column[] Columns = default!,
-        Dictionary<string, object>[] Rows = default!,
+    public record TableElement(TableElement.Column[]? Columns = default,
+        Dictionary<string, object>[]? Rows = default,
         [property: JsonPropertyName("page_size")] int? PageSize = null,
         [property: JsonPropertyName("row_height")] string? RowHeight = null,
         [property: JsonPropertyName("header_style")] TableElement.Style? HeaderStyle = null) : Element("table")
@@ -39,13 +39,13 @@ namespace FeishuNetSdk.Im.Dtos
         /// 列对象数组
         /// </summary>
         [property: JsonPropertyName("columns")]
-        public Column[] Columns { get; set; } = Columns ?? Array.Empty<Column>();
+        public Column[] Columns { get; set; } = Columns ?? [];
 
         /// <summary>
         /// 行对象数组
         /// </summary>
         [property: JsonPropertyName("rows")]
-        public Dictionary<string, object>[] Rows { get; set; } = Rows ?? Array.Empty<Dictionary<string, object>>();
+        public Dictionary<string, object>[] Rows { get; set; } = Rows ?? [];
 
         /// <summary>
         /// 用于设置表头的样式、风格等

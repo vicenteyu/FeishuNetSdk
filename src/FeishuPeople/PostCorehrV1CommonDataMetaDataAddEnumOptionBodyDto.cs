@@ -43,7 +43,7 @@ public record PostCorehrV1CommonDataMetaDataAddEnumOptionBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("enum_field_options")]
-    public EnumFieldOption[] EnumFieldOptions { get; set; } = Array.Empty<EnumFieldOption>();
+    public EnumFieldOption[] EnumFieldOptions { get; set; } = [];
 
     /// <summary>
     /// <para>新增枚举选项列表</para>

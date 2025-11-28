@@ -34,7 +34,7 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("management_scope_list")]
-    public ManagementScope[] ManagementScopeLists { get; set; } = Array.Empty<ManagementScope>();
+    public ManagementScope[] ManagementScopeLists { get; set; } = [];
 
     /// <summary>
     /// <para>管理范围信息</para>

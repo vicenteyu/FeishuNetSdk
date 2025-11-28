@@ -28,5 +28,5 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchCloseBody
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("user_list")]
-    public string[] UserList { get; set; } = Array.Empty<string>();
+    public string[] UserList { get; set; } = [];
 }

@@ -31,7 +31,7 @@ public record GetApprovalV4InstancesResponseDto : IPageableResponse<string>
     /// <para>示例值："357C21A0-2069-4F6B-955F-1DFBE6710C51"</para>
     /// </summary>
     [JsonPropertyName("instance_code_list")]
-    public string[] InstanceCodeList { get; set; } = Array.Empty<string>();
+    public string[] InstanceCodeList { get; set; } = [];
 
     /// <summary>
     /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>

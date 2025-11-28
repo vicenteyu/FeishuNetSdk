@@ -62,5 +62,5 @@ public record PostApprovalV4InstancesSpecifiedRollbackBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("task_def_key_list")]
-    public string[] TaskDefKeyList { get; set; } = Array.Empty<string>();
+    public string[] TaskDefKeyList { get; set; } = [];
 }

@@ -26,7 +26,7 @@ public record PostBaikeV1EntitiesExtractResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("entity_word")]
-    public EntityWord[] EntityWords { get; set; } = Array.Empty<EntityWord>();
+    public EntityWord[] EntityWords { get; set; } = [];
 
     /// <summary>
     /// <para>文本中可能的成为词条的词汇</para>

@@ -33,7 +33,7 @@ public record PostMeetingRoomBuildingCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("floors")]
-    public string[] Floors { get; set; } = Array.Empty<string>();
+    public string[] Floors { get; set; } = [];
 
     /// <summary>
     /// <para>国家/地区ID</para>

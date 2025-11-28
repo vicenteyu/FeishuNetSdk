@@ -4,7 +4,7 @@
 // Created          : 2025-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2025-11-27
 // ************************************************************************
 // <copyright file="GetBaseV2AppsByAppTokenRolesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -52,7 +52,7 @@ public record GetBaseV2AppsByAppTokenRolesResponseDto : IPageableResponse<GetBas
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("table_roles")]
-        public TableRole[] TableRoles { get; set; } = Array.Empty<TableRole>();
+        public TableRole[] TableRoles { get; set; } = [];
 
         /// <summary>
         /// <para>数据表权限列表</para>
@@ -207,6 +207,114 @@ public record GetBaseV2AppsByAppTokenRolesResponseDto : IPageableResponse<GetBas
                 /// </summary>
                 [JsonPropertyName("other_perm")]
                 public int? OtherPerm { get; set; }
+
+                /// <summary>
+                /// <para>条件组</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("condition_groups")]
+                public ConditionGroup[]? ConditionGroups { get; set; }
+
+                /// <summary>
+                /// <para>条件组</para>
+                /// </summary>
+                public record ConditionGroup
+                {
+                    /// <summary>
+                    /// <para>条件组类型</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：and</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>1：单个条件</item>
+                    /// <item>2：条件组</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("condition_type")]
+                    public int? ConditionType { get; set; }
+
+                    /// <summary>
+                    /// <para>条件列表</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("conditions")]
+                    public RecRuleCondition[]? Conditions { get; set; }
+
+                    /// <summary>
+                    /// <para>条件列表</para>
+                    /// </summary>
+                    public record RecRuleCondition
+                    {
+                        /// <summary>
+                        /// <para>字段名</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：单选</para>
+                        /// </summary>
+                        [JsonPropertyName("field_name")]
+                        public string FieldName { get; set; } = string.Empty;
+
+                        /// <summary>
+                        /// <para>运算符</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：is</para>
+                        /// <para>可选值：<list type="bullet">
+                        /// <item>is：等于</item>
+                        /// <item>isNot：不等于</item>
+                        /// <item>contains：包含</item>
+                        /// <item>doesNotContain：不包含</item>
+                        /// <item>isEmpty：为空</item>
+                        /// <item>isNotEmpty：不为空</item>
+                        /// </list></para>
+                        /// <para>默认值：is</para>
+                        /// </summary>
+                        [JsonPropertyName("operator")]
+                        public string? Operator { get; set; }
+
+                        /// <summary>
+                        /// <para>单选或多选字段的选项id</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：["optbdVHf4q", "optrpd3eIJ"]</para>
+                        /// <para>最大长度：50</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("value")]
+                        public string[]? Value { get; set; }
+
+                        /// <summary>
+                        /// <para>字段类型</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：3</para>
+                        /// <para>最大值：2000</para>
+                        /// <para>最小值：1</para>
+                        /// </summary>
+                        [JsonPropertyName("field_type")]
+                        public int? FieldType { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>条件符</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：or</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>and：满足所有条件</item>
+                    /// <item>or：满足任一条件</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("conjunction")]
+                    public string? Conjunction { get; set; }
+                }
+
+                /// <summary>
+                /// <para>条件版本</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>0：仅支持条件</item>
+                /// <item>1：支持条件组</item>
+                /// </list></para>
+                /// <para>默认值：0</para>
+                /// </summary>
+                [JsonPropertyName("display_rec_rule_version")]
+                public int? DisplayRecRuleVersion { get; set; }
             }
 
             /// <summary>

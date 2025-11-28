@@ -26,7 +26,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenRespo
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("result_list")]
-    public SystemStatusUserOpenResultEntity[] ResultLists { get; set; } = Array.Empty<SystemStatusUserOpenResultEntity>();
+    public SystemStatusUserOpenResultEntity[] ResultLists { get; set; } = [];
 
     /// <summary>
     /// <para>开启结果</para>

@@ -99,7 +99,7 @@ public record GetContactV3CustomAttrsResponseDto : IPageableResponse<GetContactV
             /// <para>示例值：[]</para>
             /// </summary>
             [JsonPropertyName("options")]
-            public CustomAttrOption[] Options { get; set; } = Array.Empty<CustomAttrOption>();
+            public CustomAttrOption[] Options { get; set; } = [];
 
             /// <summary>
             /// <para>选项列表。</para>

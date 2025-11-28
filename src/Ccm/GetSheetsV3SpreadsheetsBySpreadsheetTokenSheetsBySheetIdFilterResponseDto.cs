@@ -46,14 +46,14 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("filtered_out_rows")]
-        public int[] FilteredOutRows { get; set; } = Array.Empty<int>();
+        public int[] FilteredOutRows { get; set; } = [];
 
         /// <summary>
         /// <para>工作表的筛选条件</para>
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("filter_infos")]
-        public FilterInfo[] FilterInfos { get; set; } = Array.Empty<FilterInfo>();
+        public FilterInfo[] FilterInfos { get; set; } = [];
 
         /// <summary>
         /// <para>工作表的筛选条件</para>
@@ -73,7 +73,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("conditions")]
-            public Condition[] Conditions { get; set; } = Array.Empty<Condition>();
+            public Condition[] Conditions { get; set; } = [];
 
             /// <summary>
             /// <para>筛选条件</para>
@@ -106,7 +106,7 @@ public record GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterResp
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("expected")]
-                public string[] Expected { get; set; } = Array.Empty<string>();
+                public string[] Expected { get; set; } = [];
             }
         }
     }

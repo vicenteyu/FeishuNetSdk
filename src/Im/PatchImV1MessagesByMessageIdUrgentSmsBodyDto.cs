@@ -37,5 +37,5 @@ public record PatchImV1MessagesByMessageIdUrgentSmsBodyDto
     /// <para>示例值：["ou_6yf8af6bgb9100449565764t3382b168"]</para>
     /// </summary>
     [JsonPropertyName("user_id_list")]
-    public string[] UserIdList { get; set; } = Array.Empty<string>();
+    public string[] UserIdList { get; set; } = [];
 }

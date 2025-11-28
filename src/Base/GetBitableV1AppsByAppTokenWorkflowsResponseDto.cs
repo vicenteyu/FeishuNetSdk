@@ -26,7 +26,7 @@ public record GetBitableV1AppsByAppTokenWorkflowsResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("workflows")]
-    public AppWorkflow[] Workflows { get; set; } = Array.Empty<AppWorkflow>();
+    public AppWorkflow[] Workflows { get; set; } = [];
 
     /// <summary>
     /// <para>自动化流程信息</para>

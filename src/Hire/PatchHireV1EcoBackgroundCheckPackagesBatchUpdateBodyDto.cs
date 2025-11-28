@@ -34,7 +34,7 @@ public record PatchHireV1EcoBackgroundCheckPackagesBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("package_list")]
-    public EcoBackgroundCheckPackageData[] PackageLists { get; set; } = Array.Empty<EcoBackgroundCheckPackageData>();
+    public EcoBackgroundCheckPackageData[] PackageLists { get; set; } = [];
 
     /// <summary>
     /// <para>背调套餐列表</para>

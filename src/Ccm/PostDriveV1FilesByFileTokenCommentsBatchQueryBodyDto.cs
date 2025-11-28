@@ -27,5 +27,5 @@ public record PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto
     /// <para>示例值：1654857036541812356</para>
     /// </summary>
     [JsonPropertyName("comment_ids")]
-    public string[] CommentIds { get; set; } = Array.Empty<string>();
+    public string[] CommentIds { get; set; } = [];
 }

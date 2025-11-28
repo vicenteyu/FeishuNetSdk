@@ -1,5 +1,8 @@
 ﻿using FeishuNetSdk;
+using FeishuNetSdk.Approval.Events;
 using FeishuNetSdk.CallbackEvents;
+using FeishuNetSdk.Contact.Events;
+using FeishuNetSdk.Extensions;
 using FeishuNetSdk.Im.Dtos;
 using FeishuNetSdk.Im.Events;
 using FeishuNetSdk.Services;
@@ -84,52 +87,78 @@ namespace WebApplication1
         }
     }
 
+    /// <summary>
+    /// 事件方法
+    /// </summary>
+    /// <param name="logger"></param>
+    /// <param name="tenantApi"></param>
     public class EventHandler1(ILogger<EventHandler> logger, IFeishuTenantApi tenantApi) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
     {
-        public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
+        public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input, CancellationToken cancellationToken = default)
         {
-            await Task.Delay(600);
+            await Task.Delay(600, cancellationToken);
             logger.LogInformation("ExecuteAsync1: {info}", JsonSerializer.Serialize(input));
 
-            await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
-            {
-                ReceiveId = input.Event?.Sender?.SenderId?.OpenId ?? throw new Exception($"ReceiveId 异常")
-            }.SetContent(new ElementsCardV2Dto()
-            {
-                Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
-                Body = new ElementsCardV2Dto.BodySuffix()
+            var response = await tenantApi.PostImV1MessagesAsync("open_id",
+                new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
                 {
-                    Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
-                }
-            }));
+                    ReceiveId = input.Event?.Sender?.SenderId?.OpenId ?? throw new Exception($"ReceiveId 异常")
+                }.SetContent(new ElementsCardV2Dto()
+                {
+                    Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
+                    Body = new ElementsCardV2Dto.BodySuffix()
+                    {
+                        Elements = [
+                            new DivElement().SetText(new PlainTextElement("带图标的文本")).SetIcon(new StandardIconElement("check_outlined")),
+                            new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
+                    }
+                }), cancellationToken);
+
+            if (!response.IsSuccess)
+                throw new Exception(response.Msg);
+
+            logger.LogInformation("ExecuteAsync1 Finish. EventId: {EventId}", input.EventId);
         }
     }
 
-    //public class EventHandler3(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
-    //{
-    //    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
-    //    {
-    //        await Task.Delay(1500);
-    //        logger.LogInformation("ExecuteAsync3: {info}", JsonSerializer.Serialize(input));
-    //    }
-    //}
+    public class EventHandler1DepartmentCreatedAsync(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ContactDepartmentCreatedV3EventBodyDto>, ContactDepartmentCreatedV3EventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV2Dto<ContactDepartmentCreatedV3EventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            logger.LogInformation("EventHandler1DepartmentCreatedAsync: {info}", JsonSerializer.Serialize(input));
+        }
+    }
 
+    public class EventHandler1DepartmentUpdatedAsync(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ContactDepartmentUpdatedV3EventBodyDto>, ContactDepartmentUpdatedV3EventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV2Dto<ContactDepartmentUpdatedV3EventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            logger.LogInformation("EventHandler1DepartmentUpdatedAsync: {info}", JsonSerializer.Serialize(input));
+        }
+    }
 
-    //public class MyClass1(ILogger<MyClass1> logger) : IEventHandler<EventV1Dto<ApprovalEventBodyDto>, ApprovalEventBodyDto>
-    //{
-    //    public Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input)
-    //    {
-    //        logger.LogInformation("ExecuteAsync4: {info}", JsonSerializer.Serialize(input));
-    //        return Task.CompletedTask;
-    //    }
-    //}
+    public class EventHandler1DepartmentDeletedAsync(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ContactDepartmentDeletedV3EventBodyDto>, ContactDepartmentDeletedV3EventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV2Dto<ContactDepartmentDeletedV3EventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            logger.LogInformation("EventHandler1DepartmentDeletedAsync: {info}", JsonSerializer.Serialize(input));
+        }
+    }
+
+    public class EventHandler1WorkApprovaledAsync(ILogger<EventHandler> logger) : IEventHandler<EventV1Dto<WorkApprovalEventBodyDto>, WorkApprovalEventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV1Dto<WorkApprovalEventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            logger.LogInformation("EventHandler1WorkApprovaledAsync: {info}", input);
+        }
+    }
 
     /// <summary>
-    /// 
+    /// 回调方法
     /// </summary>
     public class MyCallbackHandler(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
     {
-        public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input)
+        public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input, CancellationToken cancellationToken = default)
         {
             await Task.CompletedTask;
             logger.LogWarning("{json}", JsonSerializer.Serialize(input));
@@ -153,26 +182,23 @@ namespace WebApplication1
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    //public class MyCallbackHandler2(ILogger<MyCallbackHandler> logger) : ICallbackHandler<CallbackV2Dto<CardActionTriggerEventBodyDto>, CardActionTriggerEventBodyDto, CardActionTriggerResponseDto>
-    //{
-    //    public async Task<CardActionTriggerResponseDto> ExecuteAsync(CallbackV2Dto<CardActionTriggerEventBodyDto> input)
-    //    {
-    //        await Task.Delay(1900);
-    //        logger.LogWarning("{json}", JsonSerializer.Serialize(input));
+    public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input, CancellationToken cancellationToken)
+        {
+            await Task.Delay(1200, cancellationToken);
 
-    //        return new();
-    //    }
-    //}
+            if (logger.IsEnabled(LogLevel.Information))
+                logger.LogInformation("ExecuteAsync2: {info}", JsonSerializer.Serialize(input));
+        }
+    }
 
-    //public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    //public class MyClass1(ILogger<MyClass1> logger) : IEventHandler<EventV1Dto<ApprovalEventBodyDto>, ApprovalEventBodyDto>
     //{
-    //    public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input)
+    //    public Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input)
     //    {
-    //        await Task.Delay(1200);
-    //        logger.LogInformation("ExecuteAsync2: {info}", System.Text.Json.JsonSerializer.Serialize(input));
+    //        logger.LogInformation("ExecuteAsync4: {info}", JsonSerializer.Serialize(input));
+    //        return Task.CompletedTask;
     //    }
     //}
 }

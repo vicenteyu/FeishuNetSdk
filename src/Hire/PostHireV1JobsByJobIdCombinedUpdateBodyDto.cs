@@ -148,7 +148,7 @@ public record PostHireV1JobsByJobIdCombinedUpdateBodyDto
         /// <para>示例值：6960663240925956554</para>
         /// </summary>
         [JsonPropertyName("hiring_manager_id_list")]
-        public string[] HiringManagerIdList { get; set; } = Array.Empty<string>();
+        public string[] HiringManagerIdList { get; set; } = [];
 
         /// <summary>
         /// <para>协助人 ID 列表，需与入参`user_id_type`类型一致</para>

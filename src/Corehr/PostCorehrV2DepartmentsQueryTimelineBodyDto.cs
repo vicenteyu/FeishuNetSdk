@@ -29,7 +29,7 @@ public record PostCorehrV2DepartmentsQueryTimelineBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
-    public string[] DepartmentIds { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIds { get; set; } = [];
 
     /// <summary>
     /// <para>版本生效日期</para>

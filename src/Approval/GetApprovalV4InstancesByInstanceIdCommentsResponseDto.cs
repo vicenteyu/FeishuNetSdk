@@ -26,7 +26,7 @@ public record GetApprovalV4InstancesByInstanceIdCommentsResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("comments")]
-    public Comment[] Comments { get; set; } = Array.Empty<Comment>();
+    public Comment[] Comments { get; set; } = [];
 
     /// <summary>
     /// <para>评论数据列表</para>

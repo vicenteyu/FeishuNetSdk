@@ -31,7 +31,7 @@ public record PostContactV3GroupByGroupIdMemberBatchRemoveBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public Memberlist[] Members { get; set; } = Array.Empty<Memberlist>();
+    public Memberlist[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>待移除成员信息。</para>

@@ -100,7 +100,7 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
-    public string[] UpdateFields { get; set; } = Array.Empty<string>();
+    public string[] UpdateFields { get; set; } = [];
 
     /// <summary>
     /// <para>该字段表示如果更新了新的所有者，则将原所有者设为指定的新的角色。仅在更新清单所有者时生效。支持"editor", "viewer"和"none"。默认为"none"。</para>

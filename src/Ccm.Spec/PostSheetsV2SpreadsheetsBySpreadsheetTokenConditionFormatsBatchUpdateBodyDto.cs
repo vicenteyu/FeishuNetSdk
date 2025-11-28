@@ -30,7 +30,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("sheet_condition_formats")]
-    public SheetConditionFormat[] SheetConditionFormats { get; set; } = Array.Empty<SheetConditionFormat>();
+    public SheetConditionFormat[] SheetConditionFormats { get; set; } = [];
 
     /// <summary></summary>
     public record SheetConditionFormat
@@ -73,7 +73,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("ranges")]
-            public string[] Ranges { get; set; } = Array.Empty<string>();
+            public string[] Ranges { get; set; } = [];
 
             /// <summary>
             /// <para>更新条件时的规则类型。可选值：</para>
@@ -96,7 +96,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenConditionFormatsBatchUpd
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("attrs")]
-            public Attr[] Attrs { get; set; } = Array.Empty<Attr>();
+            public Attr[] Attrs { get; set; } = [];
 
             /// <summary></summary>
             public record Attr

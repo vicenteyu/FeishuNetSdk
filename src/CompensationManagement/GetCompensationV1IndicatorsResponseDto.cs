@@ -26,7 +26,7 @@ public record GetCompensationV1IndicatorsResponseDto : IPageableResponse<GetComp
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public Indicator[] Items { get; set; } = Array.Empty<Indicator>();
+    public Indicator[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>薪资统计指标信息列表</para>
@@ -81,7 +81,7 @@ public record GetCompensationV1IndicatorsResponseDto : IPageableResponse<GetComp
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
-        public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNames { get; set; } = [];
 
         /// <summary>
         /// <para>多语言名称</para>

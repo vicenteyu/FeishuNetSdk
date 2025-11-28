@@ -26,7 +26,7 @@ public record PostCompensationV1SocialArchiveQueryResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("archives")]
-    public SocialArchive[] Archives { get; set; } = Array.Empty<SocialArchive>();
+    public SocialArchive[] Archives { get; set; } = [];
 
     /// <summary>
     /// <para>参保档案列表</para>
@@ -48,7 +48,7 @@ public record PostCompensationV1SocialArchiveQueryResponseDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("details")]
-        public SocialArchiveDetail[] Details { get; set; } = Array.Empty<SocialArchiveDetail>();
+        public SocialArchiveDetail[] Details { get; set; } = [];
 
         /// <summary>
         /// <para>员工参保档案，包含社保、公积金档案</para>
@@ -352,7 +352,7 @@ public record PostCompensationV1SocialArchiveQueryResponseDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("payment_months")]
-                public int[] PaymentMonths { get; set; } = Array.Empty<int>();
+                public int[] PaymentMonths { get; set; } = [];
             }
 
             /// <summary>

@@ -48,7 +48,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
-    public Viewer[] Viewers { get; set; } = Array.Empty<Viewer>();
+    public Viewer[] Viewers { get; set; } = [];
 
     /// <summary></summary>
     public record Viewer
@@ -89,7 +89,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("node_list")]
-    public Node[] NodeList { get; set; } = Array.Empty<Node>();
+    public Node[] NodeList { get; set; } = [];
 
     /// <summary></summary>
     public record Node
@@ -124,7 +124,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("approver")]
-        public Viewer[] Approver { get; set; } = Array.Empty<Viewer>();
+        public Viewer[] Approver { get; set; } = [];
 
         /// <summary>
         /// <para>抄送人列表，详见下方说明</para>
@@ -217,7 +217,7 @@ public record PostApprovalOpenapiV2ApprovalCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("i18n_resources")]
-    public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
+    public I18nResource[] I18nResources { get; set; } = [];
 
     /// <summary></summary>
     public record I18nResource

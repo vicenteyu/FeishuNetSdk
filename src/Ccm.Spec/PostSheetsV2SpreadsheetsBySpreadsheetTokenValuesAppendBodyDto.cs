@@ -49,6 +49,6 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesAppendBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("values")]
-        public object[][] Values { get; set; } = Array.Empty<object[]>();
+        public object[][] Values { get; set; } = [];
     }
 }

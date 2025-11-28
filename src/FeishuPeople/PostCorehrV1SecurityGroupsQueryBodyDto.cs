@@ -26,7 +26,7 @@ public record PostCorehrV1SecurityGroupsQueryBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("item_list")]
-    public BpRoleOrganization[] ItemLists { get; set; } = Array.Empty<BpRoleOrganization>();
+    public BpRoleOrganization[] ItemLists { get; set; } = [];
 
     /// <summary>
     /// <para>角色列表，一次最多支持查询 50 个</para>

@@ -26,7 +26,7 @@ public record PatchVcV1MeetingsByMeetingIdInviteBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("invitees")]
-    public MeetingUser[] Invitees { get; set; } = Array.Empty<MeetingUser>();
+    public MeetingUser[] Invitees { get; set; } = [];
 
     /// <summary>
     /// <para>被邀请的用户列表【一次性最多支持邀请10人】</para>

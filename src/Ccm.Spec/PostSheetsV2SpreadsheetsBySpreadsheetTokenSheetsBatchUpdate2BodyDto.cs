@@ -27,7 +27,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate2BodyDt
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("requests")]
-    public Request[] Requests { get; set; } = Array.Empty<Request>();
+    public Request[] Requests { get; set; } = [];
 
     /// <summary></summary>
     public record Request

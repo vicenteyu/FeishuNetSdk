@@ -41,7 +41,7 @@ public record PostDirectoryV1EmployeesFilterBodyDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("conditions")]
-        public FilterCondition[] Conditions { get; set; } = Array.Empty<FilterCondition>();
+        public FilterCondition[] Conditions { get; set; } = [];
 
         /// <summary>
         /// <para>比较表达式列表，内容如 base_info.mobile eq `"\"+8613000000001\""`的比较条件，多个表达式之间的关系为且。</para>
@@ -92,7 +92,7 @@ public record PostDirectoryV1EmployeesFilterBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("required_fields")]
-    public string[] RequiredFields { get; set; } = Array.Empty<string>();
+    public string[] RequiredFields { get; set; } = [];
 
     /// <summary>
     /// <para>分页参数</para>

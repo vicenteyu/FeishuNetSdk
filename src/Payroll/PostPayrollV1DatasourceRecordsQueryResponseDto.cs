@@ -47,7 +47,7 @@ public record PostPayrollV1DatasourceRecordsQueryResponseDto : IPageableResponse
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("records")]
-    public DatasourceRecord[] Records { get; set; } = Array.Empty<DatasourceRecord>();
+    public DatasourceRecord[] Records { get; set; } = [];
 
     /// <summary>
     /// <para>数据记录列表</para>
@@ -73,7 +73,7 @@ public record PostPayrollV1DatasourceRecordsQueryResponseDto : IPageableResponse
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("field_values")]
-        public DatasourceRecordField[] FieldValues { get; set; } = Array.Empty<DatasourceRecordField>();
+        public DatasourceRecordField[] FieldValues { get; set; } = [];
 
         /// <summary>
         /// <para>记录的字段值列表</para>

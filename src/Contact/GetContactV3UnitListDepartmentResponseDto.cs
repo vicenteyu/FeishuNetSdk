@@ -30,7 +30,7 @@ public record GetContactV3UnitListDepartmentResponseDto : IPageableResponse<GetC
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("departmentlist")]
-    public UnitDepartment[] Departmentlists { get; set; } = Array.Empty<UnitDepartment>();
+    public UnitDepartment[] Departmentlists { get; set; } = [];
 
     /// <summary>
     /// <para>单位绑定的部门列表。</para>

@@ -136,7 +136,7 @@ public record PostContactV3UsersBodyDto
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
-    public string[] DepartmentIds { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIds { get; set; } = [];
 
     /// <summary>
     /// <para>用户的直接主管的用户 ID，ID 类型与查询参数 `user_id_type` 保持一致。用户 ID 获取方式可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>

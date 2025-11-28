@@ -22,6 +22,7 @@
 <tr><td>corehr.job_family.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobFamilyCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建序列</td></tr>
 <tr><td>corehr.job_grade.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobGradeCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建职等</td></tr>
 <tr><td>corehr.job_level.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrJobLevelCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建职级</td></tr>
+<tr><td>corehr.signature_file.status_updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrSignatureFileStatusUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】电子签文件状态发生变更事件</td></tr>
 <tr><td>corehr.department.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新部门V2</td></tr>
 <tr><td>corehr.cost_center.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新成本中心</td></tr>
 <tr><td>corehr.location.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrLocationUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】更新地点</td></tr>
@@ -196,15 +197,6 @@
 <tr><td>hire.offer.status_changed_v1</td><td>EventV2Dto&lt;Hire.Events.HireOfferStatusChangedV1EventBodyDto&gt;</td><td>【招聘】Offer 状态变更</td></tr>
 <tr><td>acs.access_record.created_v1</td><td>EventV2Dto&lt;Acs.Events.AcsAccessRecordCreatedV1EventBodyDto&gt;</td><td>【智能门禁】新增门禁访问记录</td></tr>
 <tr><td>acs.user.updated_v1</td><td>EventV2Dto&lt;Acs.Events.AcsUserUpdatedV1EventBodyDto&gt;</td><td>【智能门禁】用户信息变更</td></tr>
-<tr><td>directory.department.deleted_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryDepartmentDeletedV1EventBodyDto&gt;</td><td>【组织架构】部门被删除</td></tr>
-<tr><td>directory.department.created_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryDepartmentCreatedV1EventBodyDto&gt;</td><td>【组织架构】部门新建</td></tr>
-<tr><td>directory.department.updated_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryDepartmentUpdatedV1EventBodyDto&gt;</td><td>【组织架构】部门信息被修改</td></tr>
-<tr><td>directory.employee.regular_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeRegularV1EventBodyDto&gt;</td><td>【组织架构】待离职恢复为在职</td></tr>
-<tr><td>directory.employee.resurrect_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeResurrectV1EventBodyDto&gt;</td><td>【组织架构】离职恢复在职</td></tr>
-<tr><td>directory.employee.to_be_resigned_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeToBeResignedV1EventBodyDto&gt;</td><td>【组织架构】员工被设置为待离职</td></tr>
-<tr><td>directory.employee.resigned_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeResignedV1EventBodyDto&gt;</td><td>【组织架构】员工离职</td></tr>
-<tr><td>directory.employee.created_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeCreatedV1EventBodyDto&gt;</td><td>【组织架构】员工入职</td></tr>
-<tr><td>directory.employee.updated_v1</td><td>EventV2Dto&lt;Directory.Events.DirectoryEmployeeUpdatedV1EventBodyDto&gt;</td><td>【组织架构】员工信息被修改</td></tr>
 <tr><td>elearning.course_registration.updated_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationUpdatedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度更新事件</td></tr>
 <tr><td>elearning.course_registration.deleted_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationDeletedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度删除事件</td></tr>
 <tr><td>elearning.course_registration.created_v2</td><td>EventV2Dto&lt;Elearning.Events.ElearningCourseRegistrationCreatedV2EventBodyDto&gt;</td><td>【eLearning】课程学习进度新增事件</td></tr>

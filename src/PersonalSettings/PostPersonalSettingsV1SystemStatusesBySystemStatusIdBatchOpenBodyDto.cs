@@ -27,7 +27,7 @@ public record PostPersonalSettingsV1SystemStatusesBySystemStatusIdBatchOpenBodyD
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("user_list")]
-    public SystemStatusUserOpenParam[] UserLists { get; set; } = Array.Empty<SystemStatusUserOpenParam>();
+    public SystemStatusUserOpenParam[] UserLists { get; set; } = [];
 
     /// <summary>
     /// <para>开启列表</para>

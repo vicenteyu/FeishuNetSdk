@@ -27,7 +27,7 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("children_id")]
-    public string[] ChildrenId { get; set; } = Array.Empty<string>();
+    public string[] ChildrenId { get; set; } = [];
 
     /// <summary>
     /// <para>当前 Block 在 Children 中的插入位置，起始值为 0，最大值为原 Children 长度</para>
@@ -46,5 +46,5 @@ public record PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendantBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("descendants")]
-    public Dtos.Block[] Descendants { get; set; } = Array.Empty<Dtos.Block>();
+    public Dtos.Block[] Descendants { get; set; } = [];
 }

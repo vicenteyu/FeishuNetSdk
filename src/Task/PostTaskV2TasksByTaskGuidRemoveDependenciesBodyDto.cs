@@ -29,7 +29,7 @@ public record PostTaskV2TasksByTaskGuidRemoveDependenciesBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("dependencies")]
-    public TaskDependency[] Dependencies { get; set; } = Array.Empty<TaskDependency>();
+    public TaskDependency[] Dependencies { get; set; } = [];
 
     /// <summary>
     /// <para>要移除的依赖</para>

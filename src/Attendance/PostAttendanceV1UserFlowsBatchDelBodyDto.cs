@@ -28,5 +28,5 @@ public record PostAttendanceV1UserFlowsBatchDelBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("record_ids")]
-    public string[] RecordIds { get; set; } = Array.Empty<string>();
+    public string[] RecordIds { get; set; } = [];
 }

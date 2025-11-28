@@ -58,7 +58,7 @@ public record PostAttendanceV1UserStatsFieldsQueryResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("fields")]
-        public Field[] Fields { get; set; } = Array.Empty<Field>();
+        public Field[] Fields { get; set; } = [];
 
         /// <summary>
         /// <para>字段列表</para>

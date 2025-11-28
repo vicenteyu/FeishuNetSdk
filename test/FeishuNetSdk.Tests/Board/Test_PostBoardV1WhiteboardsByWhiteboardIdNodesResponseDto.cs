@@ -31,7 +31,12 @@ public class Test_PostBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBas
     "msg": "success",
     "data": {
         "ids": [
-            "o1:1"
+            "o2:27",
+            "a2:4",
+            "c2:10",
+            "t2:8",
+            "n2:4",
+            "o2:28"
         ],
         "client_token": "fe599b60-450f-46ff-b2ef-9f6675625b97"
     }

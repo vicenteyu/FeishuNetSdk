@@ -34,5 +34,5 @@ public record PostImV1ChatsByChatIdMenuTreeSortBodyDto
     /// <para>示例值：7156553273518882844</para>
     /// </summary>
     [JsonPropertyName("chat_menu_top_level_ids")]
-    public string[] ChatMenuTopLevelIds { get; set; } = Array.Empty<string>();
+    public string[] ChatMenuTopLevelIds { get; set; } = [];
 }

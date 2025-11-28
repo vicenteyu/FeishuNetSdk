@@ -516,7 +516,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("address_type_list")]
-        public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
+        public Enum[] AddressTypeLists { get; set; } = [];
 
         /// <summary>
         /// <para>地址类型</para>
@@ -789,7 +789,7 @@ public record PatchCorehrV2PersonsByPersonIdBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("school")]
-        public I18n[] Schools { get; set; } = Array.Empty<I18n>();
+        public I18n[] Schools { get; set; } = [];
 
         /// <summary>
         /// <para>学校</para>

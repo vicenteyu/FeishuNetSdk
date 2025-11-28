@@ -29,5 +29,5 @@ public record PostCorehrV2CompaniesBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("company_ids")]
-    public string[] CompanyIds { get; set; } = Array.Empty<string>();
+    public string[] CompanyIds { get; set; } = [];
 }

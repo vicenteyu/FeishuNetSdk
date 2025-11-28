@@ -66,7 +66,7 @@ public record PostCorehrV1CompaniesResponseDto
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+            public I18n[] Names { get; set; } = [];
 
             /// <summary>
             /// <para>公司名称</para>

@@ -30,7 +30,7 @@ public record GetContactV3UnitResponseDto : IPageableResponse<GetContactV3UnitRe
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("unitlist")]
-    public Unit[] Unitlists { get; set; } = Array.Empty<Unit>();
+    public Unit[] Unitlists { get; set; } = [];
 
     /// <summary>
     /// <para>单位列表。</para>

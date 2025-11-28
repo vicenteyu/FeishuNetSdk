@@ -35,7 +35,7 @@ public record PostHireV1TalentOperationLogsSearchBodyDto
     /// <para>示例值：ou_e6139117c300506837def50545420c6a</para>
     /// </summary>
     [JsonPropertyName("operator_id_list")]
-    public string[] OperatorIdList { get; set; } = Array.Empty<string>();
+    public string[] OperatorIdList { get; set; } = [];
 
     /// <summary>
     /// <para>操作类型 ID 列表，操作类型枚举可查看[枚举常量介绍](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/enum)</para>
@@ -44,5 +44,5 @@ public record PostHireV1TalentOperationLogsSearchBodyDto
     /// <para>示例值："3001"</para>
     /// </summary>
     [JsonPropertyName("operation_list")]
-    public int[] OperationList { get; set; } = Array.Empty<int>();
+    public int[] OperationList { get; set; } = [];
 }

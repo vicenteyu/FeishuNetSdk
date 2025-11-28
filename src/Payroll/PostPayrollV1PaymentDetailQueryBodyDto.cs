@@ -62,7 +62,7 @@ public record PostPayrollV1PaymentDetailQueryBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employee_ids")]
-    public string[] EmployeeIds { get; set; } = Array.Empty<string>();
+    public string[] EmployeeIds { get; set; } = [];
 
     /// <summary>
     /// <para>发薪日开始时间，格式：YYYY-MM-dd，[pay_period_start_date, pay_period_end_date] 是一个左闭右闭区间。</para>

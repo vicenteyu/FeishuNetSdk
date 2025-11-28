@@ -37,5 +37,5 @@ public record DeletePerformanceV2AdditionalInformationsBatchBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("additional_informations")]
-    public string[] AdditionalInformations { get; set; } = Array.Empty<string>();
+    public string[] AdditionalInformations { get; set; } = [];
 }

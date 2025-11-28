@@ -28,7 +28,7 @@ public record PostCorehrV2CostCentersBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
-    public I18n[] Names { get; set; } = Array.Empty<I18n>();
+    public I18n[] Names { get; set; } = [];
 
     /// <summary>
     /// <para>成本中心名称</para>

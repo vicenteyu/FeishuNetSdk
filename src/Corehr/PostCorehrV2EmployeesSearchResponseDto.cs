@@ -671,7 +671,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("address_type_list")]
-            public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
+            public Enum[] AddressTypeLists { get; set; } = [];
 
             /// <summary>
             /// <para>主要地址</para>
@@ -942,7 +942,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+            public I18n[] Names { get; set; } = [];
 
             /// <summary>
             /// <para>描述</para>
@@ -1009,7 +1009,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+            public I18n[] Names { get; set; } = [];
 
             /// <summary>
             /// <para>描述</para>
@@ -1084,7 +1084,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+            public I18n[] Names { get; set; } = [];
 
             /// <summary>
             /// <para>是否启用</para>
@@ -1239,7 +1239,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18n[] Names { get; set; } = Array.Empty<I18n>();
+            public I18n[] Names { get; set; } = [];
 
             /// <summary>
             /// <para>描述</para>
@@ -1841,7 +1841,7 @@ public record PostCorehrV2EmployeesSearchResponseDto : IPageableResponse<PostCor
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("school")]
-                public I18n[] Schools { get; set; } = Array.Empty<I18n>();
+                public I18n[] Schools { get; set; } = [];
 
                 /// <summary>
                 /// <para>学历</para>

@@ -27,7 +27,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("requests")]
-    public UpdateBlockRequest[] Requests { get; set; } = Array.Empty<UpdateBlockRequest>();
+    public UpdateBlockRequest[] Requests { get; set; } = [];
 
     /// <summary>
     /// <para>批量更新 Block</para>
@@ -52,7 +52,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("elements")]
-            public Dtos.TextElement[] Elements { get; set; } = Array.Empty<Dtos.TextElement>();
+            public Dtos.TextElement[] Elements { get; set; } = [];
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// </list></para>
             /// </summary>
             [JsonPropertyName("fields")]
-            public int[] Fields { get; set; } = Array.Empty<int>();
+            public int[] Fields { get; set; } = [];
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("width_ratios")]
-            public int[] WidthRatios { get; set; } = Array.Empty<int>();
+            public int[] WidthRatios { get; set; } = [];
         }
 
         /// <summary>
@@ -442,7 +442,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("elements")]
-            public Dtos.TextElement[] Elements { get; set; } = Array.Empty<Dtos.TextElement>();
+            public Dtos.TextElement[] Elements { get; set; } = [];
 
             /// <summary>
             /// <para>更新的文本样式</para>
@@ -464,7 +464,7 @@ public record PatchDocxV1DocumentsByDocumentIdBlocksBatchUpdateBodyDto
             /// </list></para>
             /// </summary>
             [JsonPropertyName("fields")]
-            public int[] Fields { get; set; } = Array.Empty<int>();
+            public int[] Fields { get; set; } = [];
         }
     }
 }

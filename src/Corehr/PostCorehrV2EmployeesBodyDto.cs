@@ -2334,7 +2334,7 @@ public record PostCorehrV2EmployeesBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("custom_org_with_rates")]
-            public CreateEmpCustomOrg[] CustomOrgWithRates { get; set; } = Array.Empty<CreateEmpCustomOrg>();
+            public CreateEmpCustomOrg[] CustomOrgWithRates { get; set; } = [];
 
             /// <summary>
             /// <para>自定义组织列表</para>

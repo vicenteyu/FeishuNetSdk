@@ -36,7 +36,7 @@ public record PostCorehrV2PathwaysBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("names")]
-    public I18n[] Names { get; set; } = Array.Empty<I18n>();
+    public I18n[] Names { get; set; } = [];
 
     /// <summary>
     /// <para>名称</para>

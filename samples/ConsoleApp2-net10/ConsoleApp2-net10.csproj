@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RootNamespace>ConsoleApp2_net10</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\FeishuNetSdk.Endpoint\FeishuNetSdk.Endpoint.csproj" />
+    <ProjectReference Include="..\..\FeishuNetSdk.WebSocket\FeishuNetSdk.WebSocket.csproj" />
+    <ProjectReference Include="..\..\src\FeishuNetSdk.csproj" />
+  </ItemGroup>
+
+</Project>

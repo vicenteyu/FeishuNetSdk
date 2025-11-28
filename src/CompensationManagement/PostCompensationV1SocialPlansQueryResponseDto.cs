@@ -210,7 +210,7 @@ public record PostCompensationV1SocialPlansQueryResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("item_detail")]
-        public SocialPlanItemDetail[] ItemDetails { get; set; } = Array.Empty<SocialPlanItemDetail>();
+        public SocialPlanItemDetail[] ItemDetails { get; set; } = [];
 
         /// <summary>
         /// <para>参保信息</para>
@@ -363,7 +363,7 @@ public record PostCompensationV1SocialPlansQueryResponseDto
             /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("payment_months")]
-            public int[] PaymentMonths { get; set; } = Array.Empty<int>();
+            public int[] PaymentMonths { get; set; } = [];
         }
 
         /// <summary>

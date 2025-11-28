@@ -35,7 +35,7 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     /// <para>示例值：[ "abd754f7"]</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询的起始时间，秒级时间戳</para>

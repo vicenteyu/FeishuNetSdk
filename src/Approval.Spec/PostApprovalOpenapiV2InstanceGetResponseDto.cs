@@ -154,7 +154,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("task_list")]
-    public Task[] TaskList { get; set; } = Array.Empty<Task>();
+    public Task[] TaskList { get; set; } = [];
 
     /// <summary></summary>
     public record Task
@@ -246,7 +246,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("comment_list")]
-    public CommentSuffix[] CommentList { get; set; } = Array.Empty<CommentSuffix>();
+    public CommentSuffix[] CommentList { get; set; } = [];
 
     /// <summary></summary>
     public record CommentSuffix
@@ -292,7 +292,7 @@ public record PostApprovalOpenapiV2InstanceGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("timeline")]
-    public TimelineSuffix[] Timeline { get; set; } = Array.Empty<TimelineSuffix>();
+    public TimelineSuffix[] Timeline { get; set; } = [];
 
     /// <summary></summary>
     public record TimelineSuffix

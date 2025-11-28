@@ -28,7 +28,7 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public Member[] Members { get; set; } = Array.Empty<Member>();
+    public Member[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>要移除的member列表</para>

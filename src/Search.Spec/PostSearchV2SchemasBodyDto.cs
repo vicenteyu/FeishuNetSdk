@@ -26,7 +26,7 @@ public record PostSearchV2SchemasBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("properties")]
-    public SchemaProperty[] Properties { get; set; } = Array.Empty<SchemaProperty>();
+    public SchemaProperty[] Properties { get; set; } = [];
 
     /// <summary></summary>
     public record SchemaProperty

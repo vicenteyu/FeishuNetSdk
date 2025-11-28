@@ -56,7 +56,7 @@ public record PostApprovalV4InstancesCcBodyDto
     /// <para>示例值：f7cb567e</para>
     /// </summary>
     [JsonPropertyName("cc_user_ids")]
-    public string[] CcUserIds { get; set; } = Array.Empty<string>();
+    public string[] CcUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>抄送留言</para>

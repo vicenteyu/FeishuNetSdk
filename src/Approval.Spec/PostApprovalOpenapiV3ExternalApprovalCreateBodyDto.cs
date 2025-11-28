@@ -205,7 +205,7 @@ public record PostApprovalOpenapiV3ExternalApprovalCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("i18n_resources")]
-    public I18nResource[] I18nResources { get; set; } = Array.Empty<I18nResource>();
+    public I18nResource[] I18nResources { get; set; } = [];
 
     /// <summary></summary>
     public record I18nResource

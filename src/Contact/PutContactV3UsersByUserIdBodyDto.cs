@@ -108,7 +108,7 @@ public record PutContactV3UsersByUserIdBodyDto
     /// <para>示例值：od-4e6ac4d14bcd5071a37a39de902c7141</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
-    public string[] DepartmentIds { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIds { get; set; } = [];
 
     /// <summary>
     /// <para>用户的直接主管的用户ID，ID值与查询参数中的user_id_type 对应。</para>

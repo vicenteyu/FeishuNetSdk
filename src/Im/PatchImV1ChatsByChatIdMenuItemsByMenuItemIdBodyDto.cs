@@ -39,7 +39,7 @@ public record PatchImV1ChatsByChatIdMenuItemsByMenuItemIdBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
-    public string[] UpdateFields { get; set; } = Array.Empty<string>();
+    public string[] UpdateFields { get; set; } = [];
 
     /// <summary>
     /// <para>群菜单的元信息</para>

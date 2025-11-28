@@ -144,7 +144,7 @@ public record PutImV2AppFeedCardBatchBodyDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("buttons")]
-                public OpenAppFeedCardButton[] Buttons { get; set; } = Array.Empty<OpenAppFeedCardButton>();
+                public OpenAppFeedCardButton[] Buttons { get; set; } = [];
 
                 /// <summary>
                 /// <para>按钮组合</para>
@@ -358,6 +358,6 @@ public record PutImV2AppFeedCardBatchBodyDto
         /// </list></para>
         /// </summary>
         [JsonPropertyName("update_fields")]
-        public string[] UpdateFields { get; set; } = Array.Empty<string>();
+        public string[] UpdateFields { get; set; } = [];
     }
 }

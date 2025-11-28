@@ -22572,6 +22572,87 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】获取电子签文件列表</para>
+    /// <para>接口ID：7376163028442808348</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/siganture/signature_file/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于获取电子签文件列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:signature_file:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="signature_file_id">
+    /// <para>必填：否</para>
+    /// <para>电子签文件ID</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：{"cn":"[\"7371387495822411308\"]"}</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="states">
+    /// <para>必填：否</para>
+    /// <para>电子签文件状态，枚举值可通过文档[【飞书人事枚举常量】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)的signature_file_state枚举定义部分获得</para>
+    /// <para>注意：多个状态之间为「或」的关系；</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_start">
+    /// <para>必填：否</para>
+    /// <para>更新时间早于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-01 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_time_end">
+    /// <para>必填：否</para>
+    /// <para>更新时间晚于等于某个时间点，按照东八区时区</para>
+    /// <para>示例值：2022-01-01 00:00:00</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="template_ids">
+    /// <para>必填：否</para>
+    /// <para>根据电子签模板id列表筛选电子签文件,返回的电子签文件使用的模板id在该list中</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/corehr/v2/signature_files")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2SignatureFilesResponseDto>> GetCorehrV2SignatureFilesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string? signature_file_id = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string[]? states = null,
+        [PathQuery] string? update_time_start = null,
+        [PathQuery] string? update_time_end = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string[]? template_ids = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【多维表格】批量获取记录</para>
     /// <para>接口ID：7386702252390268956</para>
     /// <para>接口文档：https://open.feishu.cn/document/docs/bitable-v1/app-table-record/batch_get</para>

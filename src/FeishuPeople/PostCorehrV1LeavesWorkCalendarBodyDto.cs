@@ -26,7 +26,7 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("wk_calendar_ids")]
-    public string[] WkCalendarIds { get; set; } = Array.Empty<string>();
+    public string[] WkCalendarIds { get; set; } = [];
 
     /// <summary>
     /// <para>工作日历ID大于</para>

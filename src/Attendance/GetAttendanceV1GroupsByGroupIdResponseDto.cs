@@ -78,7 +78,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("group_leader_ids")]
-    public string[] GroupLeaderIds { get; set; } = Array.Empty<string>();
+    public string[] GroupLeaderIds { get; set; } = [];
 
     /// <summary>
     /// <para>考勤子负责人 ID 列表，对应employee_type</para>
@@ -549,7 +549,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("punch_day_shift_ids")]
-    public string[] PunchDayShiftIds { get; set; } = Array.Empty<string>();
+    public string[] PunchDayShiftIds { get; set; } = [];
 
     /// <summary>
     /// <para>配置自由班制</para>

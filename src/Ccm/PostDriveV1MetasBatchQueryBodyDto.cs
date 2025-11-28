@@ -28,7 +28,7 @@ public record PostDriveV1MetasBatchQueryBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("request_docs")]
-    public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
+    public RequestDoc[] RequestDocs { get; set; } = [];
 
     /// <summary>
     /// <para>请求的文件的 token 和类型。一次请求中不可超过 200 个</para>

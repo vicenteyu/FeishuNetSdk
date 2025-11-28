@@ -47,7 +47,7 @@ public record PostCalendarV4FreebusyBatchBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 
     /// <summary>
     /// <para>是否包含用户绑定的三方日历中的日程忙闲。</para>

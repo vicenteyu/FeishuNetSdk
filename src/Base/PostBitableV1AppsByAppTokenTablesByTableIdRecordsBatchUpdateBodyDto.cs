@@ -30,7 +30,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdateBodyDt
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("records")]
-    public AppTableRecord[] Records { get; set; } = Array.Empty<AppTableRecord>();
+    public AppTableRecord[] Records { get; set; } = [];
 
     /// <summary>
     /// <para>要更新的记录</para>

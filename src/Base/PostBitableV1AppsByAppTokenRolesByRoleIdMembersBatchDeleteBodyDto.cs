@@ -29,7 +29,7 @@ public record PostBitableV1AppsByAppTokenRolesByRoleIdMembersBatchDeleteBodyDto
     /// <para>最大长度：100</para>
     /// </summary>
     [JsonPropertyName("member_list")]
-    public AppRoleMemberId[] MemberLists { get; set; } = Array.Empty<AppRoleMemberId>();
+    public AppRoleMemberId[] MemberLists { get; set; } = [];
 
     /// <summary>
     /// <para>协作者列表</para>

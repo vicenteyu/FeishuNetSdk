@@ -29,7 +29,7 @@ public record PostCorehrV2EmployeesBpsBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
-    public string[] EmploymentIds { get; set; } = Array.Empty<string>();
+    public string[] EmploymentIds { get; set; } = [];
 
     /// <summary>
     /// <para>是否获取全部 BP，true 为获取员工所在部门及来自上级部门的全部 HRBP 和属地 BP，false 为仅获取员工的直属 HRBP 和属地 BP（当员工所在部门、属地无 BP 时，会上钻找到最近的 BP），默认为 false</para>

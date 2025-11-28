@@ -46,7 +46,7 @@ public record GetPayrollV1DatasourcesResponseDto : IPageableResponse<GetPayrollV
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("datasources")]
-    public Datasource[] Datasources { get; set; } = Array.Empty<Datasource>();
+    public Datasource[] Datasources { get; set; } = [];
 
     /// <summary>
     /// <para>数据源列表</para>
@@ -66,7 +66,7 @@ public record GetPayrollV1DatasourcesResponseDto : IPageableResponse<GetPayrollV
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
-        public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNames { get; set; } = [];
 
         /// <summary>
         /// <para>数据源名称</para>
@@ -122,7 +122,7 @@ public record GetPayrollV1DatasourcesResponseDto : IPageableResponse<GetPayrollV
         /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("fields")]
-        public DatasourceField[] Fields { get; set; } = Array.Empty<DatasourceField>();
+        public DatasourceField[] Fields { get; set; } = [];
 
         /// <summary>
         /// <para>数据源字段列表</para>
@@ -142,7 +142,7 @@ public record GetPayrollV1DatasourcesResponseDto : IPageableResponse<GetPayrollV
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("i18n_names")]
-            public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+            public I18nContent[] I18nNames { get; set; } = [];
 
             /// <summary>
             /// <para>数据源字段名称</para>

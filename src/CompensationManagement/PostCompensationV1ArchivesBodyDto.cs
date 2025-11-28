@@ -95,7 +95,7 @@ public record PostCompensationV1ArchivesBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("item_value_lists")]
-    public ArchiveItemValue[] ItemValueLists { get; set; } = Array.Empty<ArchiveItemValue>();
+    public ArchiveItemValue[] ItemValueLists { get; set; } = [];
 
     /// <summary>
     /// <para>- 薪资项值集合，所填薪资项信息必须是该方案中的薪资项</para>

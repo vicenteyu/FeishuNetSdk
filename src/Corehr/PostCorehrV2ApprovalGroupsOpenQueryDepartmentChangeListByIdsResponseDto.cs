@@ -53,7 +53,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
         public string? DepartmentId { get; set; }
 
         /// <summary>
-        /// <para>调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为 td_xxx 的过程部门 ID，生效后将返回正式的people_corehr_department_id</para>
+        /// <para>调整过程部门 ID 。固定返回people_corehr_department_id，不会根据部门 ID 类型进行转换。对于在本次调整中新建的部门，在调整未生效前会返回格式为 td_xxx 的过程部门 ID，生效后(数据写入成功，非部门生效状态)将返回正式的people_corehr_department_id</para>
         /// <para>必填：否</para>
         /// <para>示例值：6966236933196579208</para>
         /// </summary>
@@ -283,7 +283,7 @@ public record PostCorehrV2ApprovalGroupsOpenQueryDepartmentChangeListByIdsRespon
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("name")]
-                public I18n[] Names { get; set; } = Array.Empty<I18n>();
+                public I18n[] Names { get; set; } = [];
 
                 /// <summary>
                 /// <para>成本中心名称</para>

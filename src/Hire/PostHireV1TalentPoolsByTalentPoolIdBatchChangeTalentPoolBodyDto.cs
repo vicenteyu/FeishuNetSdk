@@ -30,7 +30,7 @@ public record PostHireV1TalentPoolsByTalentPoolIdBatchChangeTalentPoolBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("talent_id_list")]
-    public string[] TalentIdList { get; set; } = Array.Empty<string>();
+    public string[] TalentIdList { get; set; } = [];
 
     /// <summary>
     /// <para>操作类型</para>
