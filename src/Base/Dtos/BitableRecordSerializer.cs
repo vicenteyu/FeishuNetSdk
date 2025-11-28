@@ -29,7 +29,7 @@ public class BitableRecordSerializer(string? separator = ";") : IBitableRecordSe
     protected virtual string JoinCollection<T>(IEnumerable<T>? collection)
     {
         // 如果集合为空，则使用空集合，然后将集合元素拼接成以分号分隔的字符串
-        return string.Join(Separator, collection ?? Enumerable.Empty<T>());
+        return string.Join(Separator, collection ?? []);
     }
 
     /// <inheritdoc/>
