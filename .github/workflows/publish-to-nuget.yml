@@ -9,7 +9,6 @@ on:
 jobs:
   # ------------------------------------------------------------------
   # 阶段一：多目标编译 (Multi-Targeting Build) 和 测试 (Test)
-  # 确保项目在 .NET 8.0, 9.0, 10.0 下都能正确构建和运行
   # ------------------------------------------------------------------
   build-and-test:
     name: Build & Test on .NET ${{ matrix.dotnet-version }}
@@ -32,25 +31,18 @@ jobs:
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
 
-      # 恢复依赖项 (针对当前 TargetFramework)
       - name: Restore dependencies
-        run: dotnet restore $PROJECT_PATH
+        run: dotnet restore ${{ env.PROJECT_PATH }}
 
-      # 以 Release 配置构建项目 (针对当前 TargetFramework)
-      # 注意：如果你的 .csproj 文件中已经配置了 <TargetFrameworks>，
-      # 此处 build 会自动处理所有目标框架。
       - name: Build project in Release configuration
-        run: dotnet build $PROJECT_PATH --configuration Release --no-restore
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
 
-      # 运行测试
       - name: Run tests
-        # 确保你的测试项目也支持多目标，或者针对一个版本进行测试。
-        # 此处使用 dotnet test 会运行所有针对目标框架的测试。
-        run: dotnet test --configuration Release --verbosity normal
+        # 使用 --no-build 确保测试是针对上一步构建的产物运行
+        run: dotnet test ${{ env.PROJECT_PATH }} --configuration Release --no-build --verbosity normal
 
   # ------------------------------------------------------------------
-  # 阶段二：打包 (Pack) 和 发布 (Publish)
-  # 只有在 build-and-test 成功后才会执行
+  # 阶段二：打包 (Pack) 和 发布 (Publish) - 在一个独立且干净的虚拟机上运行
   # ------------------------------------------------------------------
   publish:
     name: Pack & Publish NuGet
@@ -63,18 +55,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 设置最新的 .NET SDK 版本用于打包和发布
-      # 推荐使用最高的版本 (10.0.x) 来执行 pack 和 push
       - name: Setup .NET 10.0.x for publishing
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '10.0.x'
 
-      # 恢复依赖项，用于生成 project.assets.json
+      # 修复 #1: 还原依赖项，生成 project.assets.json
       - name: Restore dependencies for Pack
         run: dotnet restore ${{ env.PROJECT_PATH }}
 
-      # 从 Git 标签中提取版本号
+      # 修复 #2: 强制构建所有目标框架的 DLLs，解决 DLL 文件未找到的错误
+      - name: Build All Target Frameworks
+        # /t:Rebuild 强制执行完整的重新构建，确保 net8.0, net9.0, net10.0 的 DLL 都生成
+        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release /t:Rebuild --no-restore
+
       - name: Extract version from tag
         id: extract_version
         run: |
@@ -82,21 +76,18 @@ jobs:
           VERSION="${TAG_NAME#v}"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      # 打包项目
-      # -p:PackageVersion 确保生成的 NuGet 包版本号正确
-      # 此处执行 dotnet pack 会生成包含所有目标框架的 NuGet 包
+      # 修复 #3: 现在 DLL 已经存在，使用 --no-build 确保 dotnet pack 只是执行打包逻辑
       - name: Pack project
-        run: dotnet pack $PROJECT_PATH --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
+        run: dotnet pack ${{ env.PROJECT_PATH }} --no-build --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
 
       # 发布到 NuGet
       - name: Publish to NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
-
+        
       # 发布到 GitHub Packages
       - name: Publish to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/vicenteyu/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
 
-      # 判断是否为预发布版本
       - name: Determine prerelease status
         id: prerelease_check
         run: |
