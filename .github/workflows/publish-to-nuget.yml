@@ -70,6 +70,9 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
+      - name: Restore dependencies for Pack
+        run: dotnet restore ${{ env.PROJECT_PATH }}
+
       # 从 Git 标签中提取版本号
       - name: Extract version from tag
         id: extract_version
@@ -87,7 +90,7 @@ jobs:
       # 发布到 NuGet
       - name: Publish to NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
-        
+
       # 发布到 GitHub Packages
       - name: Publish to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/vicenteyu/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
