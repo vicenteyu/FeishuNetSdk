@@ -2,6 +2,7 @@
 using FeishuNetSdk.Approval.Events;
 using FeishuNetSdk.CallbackEvents;
 using FeishuNetSdk.Contact.Events;
+using FeishuNetSdk.Extensions;
 using FeishuNetSdk.Im.Dtos;
 using FeishuNetSdk.Im.Events;
 using FeishuNetSdk.Services;

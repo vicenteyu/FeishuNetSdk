@@ -16,9 +16,7 @@ using WebApiClientCore.Extensions.OAuths;
 using WebApiClientCore.Extensions.OAuths.Exceptions;
 using WebApiClientCore.Extensions.OAuths.TokenProviders;
 
-#pragma warning disable IDE0130
-namespace FeishuNetSdk
-#pragma warning restore IDE0130
+namespace FeishuNetSdk.Services
 {
     internal class TenantAccessTokenProvider(IServiceProvider services, FeishuNetSdkOptions options) : TokenProvider(services)
     {

@@ -1,6 +1,17 @@
-﻿#pragma warning disable IDE0130 // 命名空间与文件夹结构不匹配
-namespace FeishuNetSdk;
-#pragma warning restore IDE0130 // 命名空间与文件夹结构不匹配
+﻿// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-11-28
+//
+// Last Modified By : yxr
+// Last Modified On : 2025-11-28
+// ************************************************************************
+// <copyright file="IBitableRecordSerializer.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary></summary>
+// ************************************************************************
+namespace FeishuNetSdk.Base.Dtos;
 
 /// <summary>
 /// 多维表格记录序列化规则
@@ -11,12 +22,12 @@ public interface IBitableRecordSerializer
     /// 将文本记录数组转换为字符串。包含：邮箱、提及、文本和条码
     /// <para>type 分为三种：text、url、mention </para>
     /// </summary>
-    string TextRecordToString(Base.Dtos.TextRecord[]? record);
+    string TextRecordToString(TextRecord[]? record);
 
     /// <summary>
     /// 将条码记录数组转换为字符串。
     /// </summary>
-    string BarcodeRecordToString(Base.Dtos.TextRecord[]? record);
+    string BarcodeRecordToString(TextRecord[]? record);
 
     /// <summary>
     /// 将数字记录数组转换为字符串。
@@ -61,12 +72,12 @@ public interface IBitableRecordSerializer
     /// <summary>
     /// 将人员记录数组转换为字符串。
     /// </summary>
-    string UserRecordToString(Base.Dtos.UserRecord[]? record);
+    string UserRecordToString(UserRecord[]? record);
 
     /// <summary>
     /// 将群组记录数组转换为字符串。
     /// </summary>
-    string GroupChatRecordToString(Base.Dtos.GroupChatRecord[]? record);
+    string GroupChatRecordToString(GroupChatRecord[]? record);
 
     /// <summary>
     /// 将流程记录数组转换为字符串。
@@ -81,27 +92,27 @@ public interface IBitableRecordSerializer
     /// <summary>
     /// 将超链接记录数组转换为字符串。
     /// </summary>
-    string UrlRecordToString(Base.Dtos.UrlRecord[]? record);
+    string UrlRecordToString(UrlRecord[]? record);
 
     /// <summary>
     /// 将附件记录数组转换为字符串。
     /// </summary>
-    string AttachmentRecordToString(Base.Dtos.AttachmentRecord[]? record);
+    string AttachmentRecordToString(AttachmentRecord[]? record);
 
     /// <summary>
     /// 将单向关联记录数组转换为字符串。
     /// </summary>
-    string SingleLinkRecordToString(Base.Dtos.LinkRecord? record);
+    string SingleLinkRecordToString(LinkRecord? record);
 
     /// <summary>
     /// 将双向关联记录数组转换为字符串。
     /// </summary>
-    string DuplexLinkRecordToString(Base.Dtos.LinkRecord? record);
+    string DuplexLinkRecordToString(LinkRecord? record);
 
     /// <summary>
     /// 将地理位置记录数组转换为字符串。
     /// </summary>
-    string LocationRecordToString(Base.Dtos.LocationRecord[]? record);
+    string LocationRecordToString(LocationRecord[]? record);
 
     /// <summary>
     /// 将创建时间记录数组转换为字符串。
@@ -116,12 +127,12 @@ public interface IBitableRecordSerializer
     /// <summary>
     /// 将创建人记录数组转换为字符串。
     /// </summary>
-    string CreatedUserRecordToString(Base.Dtos.UserRecord[]? record);
+    string CreatedUserRecordToString(UserRecord[]? record);
 
     /// <summary>
     /// 将修改人记录数组转换为字符串。
     /// </summary>
-    string ModifiedUserRecordToString(Base.Dtos.UserRecord[]? record);
+    string ModifiedUserRecordToString(UserRecord[]? record);
 
     /// <summary>
     /// 将自动编号记录数组转换为字符串。

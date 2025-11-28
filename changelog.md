@@ -5,6 +5,7 @@
 - 所有事件和回调需要实现参数：CancellationToken
 - 重新设计事件和回调服务
 - 终结点和长连接增加 CancellationToken
+- DTO扩展命名空间：FeishuNetSdk.Extensions
 
 **新增**
 
