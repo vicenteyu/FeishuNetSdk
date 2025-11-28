@@ -16,9 +16,9 @@
         <RepositoryType>git</RepositoryType>
         <PackageTags>feishu; sdk; dotnet; net8.0; net9.0; net10.0</PackageTags>
         <Copyright>MIT</Copyright>
-        <Description>适用于飞书开放平台的.Net开发包</Description>
+        <Description>适用于飞书开放平台的.Net开发包 - 终结点扩展</Description>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <Version>4.0.0-beta1</Version>
+        <Version>4.0.0</Version>
     </PropertyGroup>
     
     <ItemGroup>
@@ -33,7 +33,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\src\FeishuNetSdk.csproj" />
+      <PackageReference Include="FeishuNetSdk" Version="4.0.0" />
     </ItemGroup>
 
 </Project>
