@@ -7,33 +7,68 @@ on:
       - 'v*'
 
 jobs:
-  build-and-publish:
+  # ------------------------------------------------------------------
+  # 阶段一：多目标编译 (Multi-Targeting Build) 和 测试 (Test)
+  # 确保项目在 .NET 8.0, 9.0, 10.0 下都能正确构建和运行
+  # ------------------------------------------------------------------
+  build-and-test:
+    name: Build & Test on .NET ${{ matrix.dotnet-version }}
     runs-on: ubuntu-latest
     env:
-      PROJECT_PATH: src/FeishuNetSdk.csproj  # 定义项目路径的环境变量
+      PROJECT_PATH: src/FeishuNetSdk.csproj # 定义项目路径的环境变量
+
+    # 使用 matrix 策略来定义需要测试的 .NET 版本
+    strategy:
+      matrix:
+        dotnet-version: ['8.0.x', '9.0.x', '10.0.x'] # 指定 .NET 版本
 
     steps:
-      # 检出代码
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # 设置 .NET SDK 版本
-      - name: Setup .NET
+      # 设置当前 matrix 循环所需的 .NET SDK 版本
+      - name: Setup .NET ${{ matrix.dotnet-version }}
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.0.x'  # 根据项目需求修改 .NET 版本
+          dotnet-version: ${{ matrix.dotnet-version }}
 
-      # 恢复依赖项
+      # 恢复依赖项 (针对当前 TargetFramework)
       - name: Restore dependencies
         run: dotnet restore $PROJECT_PATH
 
-      # 以 Release 配置构建项目
+      # 以 Release 配置构建项目 (针对当前 TargetFramework)
+      # 注意：如果你的 .csproj 文件中已经配置了 <TargetFrameworks>，
+      # 此处 build 会自动处理所有目标框架。
       - name: Build project in Release configuration
         run: dotnet build $PROJECT_PATH --configuration Release --no-restore
 
-      # 运行测试（可选但推荐）
+      # 运行测试
       - name: Run tests
+        # 确保你的测试项目也支持多目标，或者针对一个版本进行测试。
+        # 此处使用 dotnet test 会运行所有针对目标框架的测试。
         run: dotnet test --configuration Release --verbosity normal
+
+  # ------------------------------------------------------------------
+  # 阶段二：打包 (Pack) 和 发布 (Publish)
+  # 只有在 build-and-test 成功后才会执行
+  # ------------------------------------------------------------------
+  publish:
+    name: Pack & Publish NuGet
+    runs-on: ubuntu-latest
+    needs: build-and-test # 依赖于 build-and-test Job 成功
+    env:
+      PROJECT_PATH: src/FeishuNetSdk.csproj # 定义项目路径的环境变量
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # 设置最新的 .NET SDK 版本用于打包和发布
+      # 推荐使用最高的版本 (10.0.x) 来执行 pack 和 push
+      - name: Setup .NET 10.0.x for publishing
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '10.0.x'
 
       # 从 Git 标签中提取版本号
       - name: Extract version from tag
@@ -44,13 +79,15 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       # 打包项目
+      # -p:PackageVersion 确保生成的 NuGet 包版本号正确
+      # 此处执行 dotnet pack 会生成包含所有目标框架的 NuGet 包
       - name: Pack project
         run: dotnet pack $PROJECT_PATH --no-build --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
 
       # 发布到 NuGet
       - name: Publish to NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
-
+        
       # 发布到 GitHub Packages
       - name: Publish to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/vicenteyu/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
