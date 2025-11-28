@@ -31,7 +31,7 @@ public record PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public Member[] Members { get; set; } = Array.Empty<Member>();
+    public Member[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>

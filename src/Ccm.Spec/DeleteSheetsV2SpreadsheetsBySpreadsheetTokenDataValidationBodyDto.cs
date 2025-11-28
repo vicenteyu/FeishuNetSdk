@@ -30,7 +30,7 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("dataValidationRanges")]
-    public DataValidationRange[] DataValidationRanges { get; set; } = Array.Empty<DataValidationRange>();
+    public DataValidationRange[] DataValidationRanges { get; set; } = [];
 
     /// <summary></summary>
     public record DataValidationRange

@@ -56,7 +56,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("node_list")]
-    public ApprovalNodeInfo[] NodeLists { get; set; } = Array.Empty<ApprovalNodeInfo>();
+    public ApprovalNodeInfo[] NodeLists { get; set; } = [];
 
     /// <summary>
     /// <para>节点信息</para>
@@ -167,7 +167,7 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
-    public ApprovalViewerInfo[] Viewers { get; set; } = Array.Empty<ApprovalViewerInfo>();
+    public ApprovalViewerInfo[] Viewers { get; set; } = [];
 
     /// <summary>
     /// <para>审批定义的可见人列表</para>

@@ -26,7 +26,7 @@ public record PostHelpdeskV1EventsUnsubscribeBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("events")]
-    public Event[] Events { get; set; } = Array.Empty<Event>();
+    public Event[] Events { get; set; } = [];
 
     /// <summary>
     /// <para>event list to unsubscribe</para>

@@ -27,5 +27,5 @@ public record PostVcV1RoomsMgetBodyDto
     /// <para>示例值：["omm_4de32cf10a4358788ff4e09e37ebbf9b","omm_3c5dd7e09bac0c1758fcf9511bd1a771"]</para>
     /// </summary>
     [JsonPropertyName("room_ids")]
-    public string[] RoomIds { get; set; } = Array.Empty<string>();
+    public string[] RoomIds { get; set; } = [];
 }

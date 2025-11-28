@@ -30,7 +30,7 @@ public record PostTaskV2TasksByTaskGuidAddRemindersBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("reminders")]
-    public Reminder[] Reminders { get; set; } = Array.Empty<Reminder>();
+    public Reminder[] Reminders { get; set; } = [];
 
     /// <summary>
     /// <para>要添加的reminder的列表，目前1个任务只支持一个提醒。</para>

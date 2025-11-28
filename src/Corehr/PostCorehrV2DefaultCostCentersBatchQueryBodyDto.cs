@@ -29,5 +29,5 @@ public record PostCorehrV2DefaultCostCentersBatchQueryBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
-    public string[] EmploymentIds { get; set; } = Array.Empty<string>();
+    public string[] EmploymentIds { get; set; } = [];
 }

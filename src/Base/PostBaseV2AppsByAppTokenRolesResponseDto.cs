@@ -52,7 +52,7 @@ public record PostBaseV2AppsByAppTokenRolesResponseDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("table_roles")]
-        public TableRole[] TableRoles { get; set; } = Array.Empty<TableRole>();
+        public TableRole[] TableRoles { get; set; } = [];
 
         /// <summary>
         /// <para>针对数据表的权限设置</para>

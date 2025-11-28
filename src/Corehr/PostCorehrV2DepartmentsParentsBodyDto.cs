@@ -29,5 +29,5 @@ public record PostCorehrV2DepartmentsParentsBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("department_id_list")]
-    public string[] DepartmentIdList { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIdList { get; set; } = [];
 }

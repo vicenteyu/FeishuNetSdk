@@ -28,7 +28,7 @@ public record PostCompensationV1SocialPlansQueryBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("plan_ids")]
-    public string[] PlanIds { get; set; } = Array.Empty<string>();
+    public string[] PlanIds { get; set; } = [];
 
     /// <summary>
     /// <para>生效日期，查询在该日期生效的参保方案数据，日期格式为：YYYY-mm-dd，长度为 10 字符</para>

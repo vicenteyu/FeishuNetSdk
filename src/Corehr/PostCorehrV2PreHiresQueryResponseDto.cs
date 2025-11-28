@@ -673,7 +673,7 @@ public record PostCorehrV2PreHiresQueryResponseDto : IPageableResponse<PostCoreh
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("address_type_list")]
-            public Enum[] AddressTypeLists { get; set; } = Array.Empty<Enum>();
+            public Enum[] AddressTypeLists { get; set; } = [];
 
             /// <summary>
             /// <para>主要地址</para>
@@ -1060,7 +1060,7 @@ public record PostCorehrV2PreHiresQueryResponseDto : IPageableResponse<PostCoreh
                 /// <para>必填：是</para>
                 /// </summary>
                 [JsonPropertyName("school")]
-                public I18n[] Schools { get; set; } = Array.Empty<I18n>();
+                public I18n[] Schools { get; set; } = [];
 
                 /// <summary>
                 /// <para>学历，枚举值可通过文档[枚举常量介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/feishu-people-enum-constant)学历（level_of_education）枚举定义获得</para>

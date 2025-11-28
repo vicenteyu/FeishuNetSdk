@@ -26,7 +26,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("valueRanges")]
-    public ValueRange[] ValueRanges { get; set; } = Array.Empty<ValueRange>();
+    public ValueRange[] ValueRanges { get; set; } = [];
 
     /// <summary></summary>
     public record ValueRange
@@ -46,6 +46,6 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenValuesBatchUpdateBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("values")]
-        public object[][] Values { get; set; } = Array.Empty<object[]>();
+        public object[][] Values { get; set; } = [];
     }
 }

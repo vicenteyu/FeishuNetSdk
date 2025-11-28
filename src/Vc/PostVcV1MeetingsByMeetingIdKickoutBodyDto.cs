@@ -26,7 +26,7 @@ public record PostVcV1MeetingsByMeetingIdKickoutBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("kickout_users")]
-    public MeetingUser[] KickoutUsers { get; set; } = Array.Empty<MeetingUser>();
+    public MeetingUser[] KickoutUsers { get; set; } = [];
 
     /// <summary>
     /// <para>需移除的用户列表</para>

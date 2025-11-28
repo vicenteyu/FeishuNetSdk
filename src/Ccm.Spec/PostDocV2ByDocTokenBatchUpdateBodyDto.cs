@@ -44,5 +44,5 @@ public record PostDocV2ByDocTokenBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("Requests")]
-    public string[] Requests { get; set; } = Array.Empty<string>();
+    public string[] Requests { get; set; } = [];
 }

@@ -106,7 +106,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdViewsByViewIdResponseDto
                 /// <para>最大长度：50</para>
                 /// </summary>
                 [JsonPropertyName("conditions")]
-                public AppTableViewPropertyFilterInfoCondition[] Conditions { get; set; } = Array.Empty<AppTableViewPropertyFilterInfoCondition>();
+                public AppTableViewPropertyFilterInfoCondition[] Conditions { get; set; } = [];
 
                 /// <summary>
                 /// <para>筛选条件</para>

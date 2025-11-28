@@ -102,7 +102,7 @@ public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("reason")]
-        public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
+        public LangText[] Reasons { get; set; } = [];
 
         /// <summary>
         /// <para>发放原因</para>

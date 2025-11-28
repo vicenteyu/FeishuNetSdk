@@ -30,7 +30,7 @@ public record PostCorehrV2DepartmentsQueryOperationLogsBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
-    public string[] DepartmentIds { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询的起始操作日期，格式 "YYYY-MM-DD"，不带时分秒，包含start_date传入的时间，系统会以start_date的00:00:00为开始时间进行查询</para>

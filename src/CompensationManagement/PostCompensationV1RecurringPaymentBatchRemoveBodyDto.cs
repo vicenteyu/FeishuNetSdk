@@ -28,7 +28,7 @@ public record PostCompensationV1RecurringPaymentBatchRemoveBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("record_ids")]
-    public string[] RecordIds { get; set; } = Array.Empty<string>();
+    public string[] RecordIds { get; set; } = [];
 
     /// <summary>
     /// <para>原因</para>

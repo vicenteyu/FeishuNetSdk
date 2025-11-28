@@ -28,7 +28,7 @@ public record PostCompensationV1SocialArchiveQueryBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("user_id_list")]
-    public string[] UserIdList { get; set; } = Array.Empty<string>();
+    public string[] UserIdList { get; set; } = [];
 
     /// <summary>
     /// <para>生效日期，查询在该日期生效的社保档案，格式为 YYYY-mm-dd，长度为 10 字符</para>

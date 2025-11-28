@@ -26,7 +26,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("data")]
-    public DataSuffix[] Data { get; set; } = Array.Empty<DataSuffix>();
+    public DataSuffix[] Data { get; set; } = [];
 
     /// <summary></summary>
     public record DataSuffix
@@ -38,7 +38,7 @@ public record PutSheetsV2SpreadsheetsBySpreadsheetTokenStylesBatchUpdateBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("ranges")]
-        public string[] Ranges { get; set; } = Array.Empty<string>();
+        public string[] Ranges { get; set; } = [];
 
         /// <summary>
         /// <para>需要更新的样式</para>

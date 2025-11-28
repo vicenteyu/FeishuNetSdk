@@ -67,7 +67,7 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_option_list")]
-    public int[] UpdateOptionList { get; set; } = Array.Empty<int>();
+    public int[] UpdateOptionList { get; set; } = [];
 
     /// <summary>
     /// <para>面试评价表 ID，可通过[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口获取，当同时满足以下两个条件时，该参数必填：</para>

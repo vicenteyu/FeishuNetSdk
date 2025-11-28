@@ -27,7 +27,7 @@ public record PostApprovalOpenapiV3ExternalInstanceCheckBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("update_times")]
-    public UpdateTimeSuffix[] UpdateTimes { get; set; } = Array.Empty<UpdateTimeSuffix>();
+    public UpdateTimeSuffix[] UpdateTimes { get; set; } = [];
 
     /// <summary></summary>
     public record UpdateTimeSuffix
@@ -51,7 +51,7 @@ public record PostApprovalOpenapiV3ExternalInstanceCheckBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("tasks")]
-        public Task[] Tasks { get; set; } = Array.Empty<Task>();
+        public Task[] Tasks { get; set; } = [];
 
         /// <summary></summary>
         public record Task

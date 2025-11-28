@@ -26,7 +26,7 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public PlanDetail[] Items { get; set; } = Array.Empty<PlanDetail>();
+    public PlanDetail[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>薪资方案信息列表</para>
@@ -185,7 +185,7 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("plan_items")]
-        public PlanItem[] PlanItems { get; set; } = Array.Empty<PlanItem>();
+        public PlanItem[] PlanItems { get; set; } = [];
 
         /// <summary>
         /// <para>方案关联的薪资项</para>
@@ -322,7 +322,7 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("plan_indicators")]
-        public PlanIndicator[] PlanIndicators { get; set; } = Array.Empty<PlanIndicator>();
+        public PlanIndicator[] PlanIndicators { get; set; } = [];
 
         /// <summary>
         /// <para>方案关联的薪资统计指标</para>
@@ -422,7 +422,7 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
-        public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNames { get; set; } = [];
 
         /// <summary>
         /// <para>多语言名称</para>
@@ -453,7 +453,7 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_descriptions")]
-        public I18nContent[] I18nDescriptions { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nDescriptions { get; set; } = [];
     }
 
     /// <summary>

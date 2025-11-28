@@ -58,7 +58,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto : IPageableRespons
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("employment_name")]
-        public I18n[] EmploymentNames { get; set; } = Array.Empty<I18n>();
+        public I18n[] EmploymentNames { get; set; } = [];
 
         /// <summary>
         /// <para>员工姓名</para>
@@ -95,7 +95,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto : IPageableRespons
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("leave_type_name")]
-        public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
+        public I18n[] LeaveTypeNames { get; set; } = [];
 
         /// <summary>
         /// <para>假期开始时间，格式可能为：</para>

@@ -81,6 +81,6 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterBod
         /// <para>示例值：6</para>
         /// </summary>
         [JsonPropertyName("expected")]
-        public string[] Expected { get; set; } = Array.Empty<string>();
+        public string[] Expected { get; set; } = [];
     }
 }

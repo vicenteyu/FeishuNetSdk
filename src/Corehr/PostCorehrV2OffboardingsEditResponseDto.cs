@@ -28,7 +28,7 @@ public record PostCorehrV2OffboardingsEditResponseDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("data")]
-    public ObjectFieldData[] Datas { get; set; } = Array.Empty<ObjectFieldData>();
+    public ObjectFieldData[] Datas { get; set; } = [];
 
     /// <summary>
     /// <para>编辑字段数据信息</para>

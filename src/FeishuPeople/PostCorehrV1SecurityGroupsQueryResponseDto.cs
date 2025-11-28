@@ -41,7 +41,7 @@ public record PostCorehrV1SecurityGroupsQueryResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("employment_id_list")]
-        public string[] EmploymentIdList { get; set; } = Array.Empty<string>();
+        public string[] EmploymentIdList { get; set; } = [];
 
         /// <summary>
         /// <para>部门 ID</para>

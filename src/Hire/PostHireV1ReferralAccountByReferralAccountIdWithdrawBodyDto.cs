@@ -30,7 +30,7 @@ public record PostHireV1ReferralAccountByReferralAccountIdWithdrawBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("withdraw_bonus_type")]
-    public int[] WithdrawBonusType { get; set; } = Array.Empty<int>();
+    public int[] WithdrawBonusType { get; set; } = [];
 
     /// <summary>
     /// <para>外部提取单 ID，由请求方提供，用于保证接口的幂等性，需要保证唯一。传入重复 ID 会返回原 ID 对应的提取详情</para>

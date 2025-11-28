@@ -26,7 +26,7 @@ public record PostMeetingRoomSummaryBatchGetBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("EventUids")]
-    public EventUid[] EventUids { get; set; } = Array.Empty<EventUid>();
+    public EventUid[] EventUids { get; set; } = [];
 
     /// <summary></summary>
     public record EventUid

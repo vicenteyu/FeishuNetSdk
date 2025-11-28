@@ -68,5 +68,5 @@ public record PostDirectoryV1EmployeesSearchBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("required_fields")]
-    public string[] RequiredFields { get; set; } = Array.Empty<string>();
+    public string[] RequiredFields { get; set; } = [];
 }

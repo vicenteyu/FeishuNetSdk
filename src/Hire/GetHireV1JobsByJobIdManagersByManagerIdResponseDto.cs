@@ -54,7 +54,7 @@ public record GetHireV1JobsByJobIdManagersByManagerIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiring_manager_id_list")]
-        public string[] HiringManagerIdList { get; set; } = Array.Empty<string>();
+        public string[] HiringManagerIdList { get; set; } = [];
 
         /// <summary>
         /// <para>协助人 ID 列表</para>

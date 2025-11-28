@@ -27,7 +27,7 @@ public record PostAttendanceV1UserApprovalsQueryBodyDto
     /// <para>示例值：["abd754f7"]</para>
     /// </summary>
     [JsonPropertyName("user_ids")]
-    public string[] UserIds { get; set; } = Array.Empty<string>();
+    public string[] UserIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询的起始日期。格式yyyyMMdd</para>

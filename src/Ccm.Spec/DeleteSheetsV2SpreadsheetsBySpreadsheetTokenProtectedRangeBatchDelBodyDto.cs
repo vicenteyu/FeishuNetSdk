@@ -26,5 +26,5 @@ public record DeleteSheetsV2SpreadsheetsBySpreadsheetTokenProtectedRangeBatchDel
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("protectIds")]
-    public string[] ProtectIds { get; set; } = Array.Empty<string>();
+    public string[] ProtectIds { get; set; } = [];
 }

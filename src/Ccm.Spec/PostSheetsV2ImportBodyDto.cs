@@ -27,7 +27,7 @@ public record PostSheetsV2ImportBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("file")]
-    public byte[] File { get; set; } = Array.Empty<byte>();
+    public byte[] File { get; set; } = [];
 
     /// <summary>
     /// <para>文件名，带上文件拓展名，如"hello.csv"、"hello.xlsx"。导入后sheet的标题将去除文件拓展名，如"hello.xlsx"导入后标题为"hello"。</para>

@@ -45,7 +45,7 @@ public record PostPerformanceV2MetricDetailsImportBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("imported_metrics")]
-    public ImportedMetric[] ImportedMetrics { get; set; } = Array.Empty<ImportedMetric>();
+    public ImportedMetric[] ImportedMetrics { get; set; } = [];
 
     /// <summary>
     /// <para>指标明细列表</para>
@@ -75,7 +75,7 @@ public record PostPerformanceV2MetricDetailsImportBodyDto
         /// <para>最小长度：1</para>
         /// </summary>
         [JsonPropertyName("fields")]
-        public ImportedMetricField[] Fields { get; set; } = Array.Empty<ImportedMetricField>();
+        public ImportedMetricField[] Fields { get; set; } = [];
 
         /// <summary>
         /// <para>指标字段信息</para>

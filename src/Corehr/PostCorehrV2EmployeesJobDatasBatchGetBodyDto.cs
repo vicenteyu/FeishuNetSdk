@@ -29,7 +29,7 @@ public record PostCorehrV2EmployeesJobDatasBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employment_ids")]
-    public string[] EmploymentIds { get; set; } = Array.Empty<string>();
+    public string[] EmploymentIds { get; set; } = [];
 
     /// <summary>
     /// <para>是否获取所有版本的任职记录</para>

@@ -29,5 +29,5 @@ public record PostOpticalCharRecognitionV1ImageBasicRecognizeResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("text_list")]
-    public string[] TextList { get; set; } = Array.Empty<string>();
+    public string[] TextList { get; set; } = [];
 }

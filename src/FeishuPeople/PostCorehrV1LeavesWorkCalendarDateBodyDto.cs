@@ -29,7 +29,7 @@ public record PostCorehrV1LeavesWorkCalendarDateBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("wk_calendar_ids")]
-    public string[] WkCalendarIds { get; set; } = Array.Empty<string>();
+    public string[] WkCalendarIds { get; set; } = [];
 
     /// <summary>
     /// <para>日期，格式："2006-01-02"，最多50个；</para>

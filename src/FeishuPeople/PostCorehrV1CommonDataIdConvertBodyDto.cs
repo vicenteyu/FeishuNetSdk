@@ -28,5 +28,5 @@ public record PostCorehrV1CommonDataIdConvertBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("ids")]
-    public string[] Ids { get; set; } = Array.Empty<string>();
+    public string[] Ids { get; set; } = [];
 }

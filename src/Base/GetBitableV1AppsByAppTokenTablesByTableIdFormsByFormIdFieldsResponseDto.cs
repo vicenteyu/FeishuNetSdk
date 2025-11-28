@@ -26,7 +26,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsRespon
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public AppTableFormField[] Items { get; set; } = Array.Empty<AppTableFormField>();
+    public AppTableFormField[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>表单问题信息</para>

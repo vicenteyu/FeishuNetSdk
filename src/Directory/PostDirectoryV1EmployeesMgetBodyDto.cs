@@ -29,7 +29,7 @@ public record PostDirectoryV1EmployeesMgetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("employee_ids")]
-    public string[] EmployeeIds { get; set; } = Array.Empty<string>();
+    public string[] EmployeeIds { get; set; } = [];
 
     /// <summary>
     /// <para>需要查询的字段列表。将按照传递的字段列表返回有权限的行、列数据。不传则不会返回任何字段。[了解更多：字段枚举说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/directory-v1/field-enumeration)</para>
@@ -38,5 +38,5 @@ public record PostDirectoryV1EmployeesMgetBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("required_fields")]
-    public string[] RequiredFields { get; set; } = Array.Empty<string>();
+    public string[] RequiredFields { get; set; } = [];
 }

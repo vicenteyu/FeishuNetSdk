@@ -32,5 +32,5 @@ public record PostCorehrV2PathwaysBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("pathway_ids")]
-    public string[] PathwayIds { get; set; } = Array.Empty<string>();
+    public string[] PathwayIds { get; set; } = [];
 }

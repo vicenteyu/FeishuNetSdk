@@ -591,7 +591,7 @@ public record GetBitableV1AppsByAppTokenTablesByTableIdFieldsResponseDto : IPage
                     /// <para>最大长度：50</para>
                     /// </summary>
                     [JsonPropertyName("conditions")]
-                    public AppTableFieldPropertyFilterInfoCondition[] Conditions { get; set; } = Array.Empty<AppTableFieldPropertyFilterInfoCondition>();
+                    public AppTableFieldPropertyFilterInfoCondition[] Conditions { get; set; } = [];
 
                     /// <summary>
                     /// <para>筛选条件</para>

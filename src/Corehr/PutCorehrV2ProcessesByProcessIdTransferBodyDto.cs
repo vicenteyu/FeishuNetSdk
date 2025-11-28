@@ -46,7 +46,7 @@ public record PutCorehrV2ProcessesByProcessIdTransferBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("approver_ids")]
-    public string[] ApproverIds { get; set; } = Array.Empty<string>();
+    public string[] ApproverIds { get; set; } = [];
 
     /// <summary>
     /// <para>备注</para>

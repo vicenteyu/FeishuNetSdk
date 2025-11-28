@@ -85,7 +85,7 @@ public record PostCorehrV1LeaveGrantingRecordsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("reason")]
-    public I18n[] Reasons { get; set; } = Array.Empty<I18n>();
+    public I18n[] Reasons { get; set; } = [];
 
     /// <summary>
     /// <para>发放原因</para>

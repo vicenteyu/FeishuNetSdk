@@ -46,7 +46,7 @@ public record PostLingoV1EntitiesHighlightResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("entity_ids")]
-        public string[] EntityIds { get; set; } = Array.Empty<string>();
+        public string[] EntityIds { get; set; } = [];
 
         /// <summary>
         /// <para>词条所在位置</para>

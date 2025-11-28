@@ -27,5 +27,5 @@ public record PostApprovalOpenapiV2InstanceListResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("instance_code_list")]
-    public string[] InstanceCodeList { get; set; } = Array.Empty<string>();
+    public string[] InstanceCodeList { get; set; } = [];
 }

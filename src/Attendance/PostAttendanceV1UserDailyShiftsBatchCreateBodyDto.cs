@@ -26,7 +26,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("user_daily_shifts")]
-    public UserDailyShift[] UserDailyShifts { get; set; } = Array.Empty<UserDailyShift>();
+    public UserDailyShift[] UserDailyShifts { get; set; } = [];
 
     /// <summary>
     /// <para>排班表信息列表（数量限制50以内）</para>

@@ -58,7 +58,7 @@ public record PostHireV1JobsByJobIdManagersBatchUpdateBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_option_list")]
-    public int[] UpdateOptionList { get; set; } = Array.Empty<int>();
+    public int[] UpdateOptionList { get; set; } = [];
 
     /// <summary>
     /// <para>操作者 ID，与入参`user_id_type`类型一致，不填默认系统操作</para>

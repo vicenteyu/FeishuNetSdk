@@ -33,7 +33,7 @@ public record GetContactV3GroupSimplelistResponseDto : IPageableResponse<GetCont
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("grouplist")]
-    public Group[] Grouplists { get; set; } = Array.Empty<Group>();
+    public Group[] Grouplists { get; set; } = [];
 
     /// <summary>
     /// <para>用户组列表信息。</para>

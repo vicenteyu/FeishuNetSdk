@@ -30,5 +30,5 @@ public record BlockText
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("elements")]
-    public TextElement[] Elements { get; set; } = Array.Empty<TextElement>();
+    public TextElement[] Elements { get; set; } = [];
 }

@@ -28,7 +28,7 @@ public record PostCompensationV1ArchivesQueryBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("user_id_list")]
-    public string[] UserIdList { get; set; } = Array.Empty<string>();
+    public string[] UserIdList { get; set; } = [];
 
     /// <summary>
     /// <para>档案Tid列表</para>

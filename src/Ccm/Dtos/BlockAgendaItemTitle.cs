@@ -24,7 +24,7 @@ public record BlockAgendaItemTitle
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("elements")]
-    public TextElement[] Elements { get; set; } = Array.Empty<TextElement>();
+    public TextElement[] Elements { get; set; } = [];
 
     /// <summary>
     /// <para>对齐方式</para>

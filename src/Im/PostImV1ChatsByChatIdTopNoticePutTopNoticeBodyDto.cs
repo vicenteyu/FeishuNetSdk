@@ -30,7 +30,7 @@ public record PostImV1ChatsByChatIdTopNoticePutTopNoticeBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("chat_top_notice")]
-    public ChatTopNotice[] ChatTopNotices { get; set; } = Array.Empty<ChatTopNotice>();
+    public ChatTopNotice[] ChatTopNotices { get; set; } = [];
 
     /// <summary>
     /// <para>群置顶配置</para>

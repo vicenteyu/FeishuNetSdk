@@ -36,7 +36,7 @@ public record PostSearchV2DataSourcesByDataSourceIdItemsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("acl")]
-    public AclSuffix[] Acl { get; set; } = Array.Empty<AclSuffix>();
+    public AclSuffix[] Acl { get; set; } = [];
 
     /// <summary></summary>
     public record AclSuffix

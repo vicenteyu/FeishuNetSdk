@@ -54,7 +54,7 @@ namespace FeishuNetSdk.Im.Dtos
             /// </list>
             /// </summary>
             [JsonPropertyName("content")]
-            public object[][] Content { get; set; } = Array.Empty<object[]>();
+            public object[][] Content { get; set; } = [];
         }
     }
 }

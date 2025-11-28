@@ -122,5 +122,5 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
-    public string[] UpdateFields { get; set; } = Array.Empty<string>();
+    public string[] UpdateFields { get; set; } = [];
 }

@@ -34,5 +34,5 @@ public record DeleteImV1ChatsByChatIdChatTabsDeleteTabsBodyDto
     /// <para>示例值：["7101214603622940671", "7101214603622940672"]</para>
     /// </summary>
     [JsonPropertyName("tab_ids")]
-    public string[] TabIds { get; set; } = Array.Empty<string>();
+    public string[] TabIds { get; set; } = [];
 }

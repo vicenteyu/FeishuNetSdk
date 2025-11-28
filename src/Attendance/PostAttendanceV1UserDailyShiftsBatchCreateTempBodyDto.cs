@@ -29,7 +29,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("user_tmp_daily_shifts")]
-    public UserTmpDailyShift[] UserTmpDailyShifts { get; set; } = Array.Empty<UserTmpDailyShift>();
+    public UserTmpDailyShift[] UserTmpDailyShifts { get; set; } = [];
 
     /// <summary>
     /// <para>临时班表信息列表（数量限制50以内）</para>
@@ -75,7 +75,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateTempBodyDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("punch_time_simple_rules")]
-        public PunchTimeSimpleRule[] PunchTimeSimpleRules { get; set; } = Array.Empty<PunchTimeSimpleRule>();
+        public PunchTimeSimpleRule[] PunchTimeSimpleRules { get; set; } = [];
 
         /// <summary>
         /// <para>打卡规则</para>

@@ -36,5 +36,5 @@ public record PostPerformanceV2MetricDetailsQueryBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("reviewee_user_ids")]
-    public string[] RevieweeUserIds { get; set; } = Array.Empty<string>();
+    public string[] RevieweeUserIds { get; set; } = [];
 }

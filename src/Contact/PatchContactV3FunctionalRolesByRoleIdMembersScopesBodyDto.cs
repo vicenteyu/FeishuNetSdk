@@ -31,7 +31,7 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersScopesBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("members")]
-    public string[] Members { get; set; } = Array.Empty<string>();
+    public string[] Members { get; set; } = [];
 
     /// <summary>
     /// <para>设置角色成员可管理的部门范围（部门 ID 列表），以 `["xxx", "yyy"]` 数组格式进行传值。ID 类型需要和查询参数 department_id_type 的取值保持一致。</para>
@@ -43,5 +43,5 @@ public record PatchContactV3FunctionalRolesByRoleIdMembersScopesBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("departments")]
-    public string[] Departments { get; set; } = Array.Empty<string>();
+    public string[] Departments { get; set; } = [];
 }

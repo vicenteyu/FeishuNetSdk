@@ -27,5 +27,5 @@ public record PostVcV1RoomLevelsMgetBodyDto
     /// <para>示例值：["omb_4ad1a2c7a2fbc5fc9570f38456931293"]</para>
     /// </summary>
     [JsonPropertyName("level_ids")]
-    public string[] LevelIds { get; set; } = Array.Empty<string>();
+    public string[] LevelIds { get; set; } = [];
 }

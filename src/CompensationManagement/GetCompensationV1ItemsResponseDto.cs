@@ -26,7 +26,7 @@ public record GetCompensationV1ItemsResponseDto : IPageableResponse<GetCompensat
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public Item[] Items { get; set; } = Array.Empty<Item>();
+    public Item[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>薪资项信息列表</para>
@@ -126,7 +126,7 @@ public record GetCompensationV1ItemsResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
-        public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNames { get; set; } = [];
 
         /// <summary>
         /// <para>多语言名称</para>
@@ -157,7 +157,7 @@ public record GetCompensationV1ItemsResponseDto : IPageableResponse<GetCompensat
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_descriptions")]
-        public I18nContent[] I18nDescriptions { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nDescriptions { get; set; } = [];
     }
 
     /// <summary>

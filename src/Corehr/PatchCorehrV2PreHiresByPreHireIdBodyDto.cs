@@ -421,7 +421,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -872,7 +872,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -1336,7 +1336,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = Array.Empty<string>();
+                public string[] AddressTypes { get; set; } = [];
 
                 /// <summary>
                 /// <para>主要地址</para>
@@ -1551,7 +1551,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("address_types")]
-            public string[] AddressTypes { get; set; } = Array.Empty<string>();
+            public string[] AddressTypes { get; set; } = [];
 
             /// <summary>
             /// <para>主要地址</para>

@@ -60,7 +60,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenDataValidationBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("conditionValues")]
-        public string[] ConditionValues { get; set; } = Array.Empty<string>();
+        public string[] ConditionValues { get; set; } = [];
 
         /// <summary>
         /// <para>下拉选项其它配置，包括是否支持多选、是否设置下拉选项样式等。</para>

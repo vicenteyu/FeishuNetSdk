@@ -74,7 +74,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("items")]
-            public RuleConditionItem[] Items { get; set; } = Array.Empty<RuleConditionItem>();
+            public RuleConditionItem[] Items { get; set; } = [];
 
             /// <summary>
             /// <para>匹配规则列表</para>
@@ -156,7 +156,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto
             /// <para>最小长度：1</para>
             /// </summary>
             [JsonPropertyName("items")]
-            public RuleActionItem[] Items { get; set; } = Array.Empty<RuleActionItem>();
+            public RuleActionItem[] Items { get; set; } = [];
 
             /// <summary>
             /// <para>匹配中规则后的操作列表</para>

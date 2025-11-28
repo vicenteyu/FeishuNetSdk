@@ -172,7 +172,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("node_list")]
-    public Node[] NodeList { get; set; } = Array.Empty<Node>();
+    public Node[] NodeList { get; set; } = [];
 
     /// <summary></summary>
     public record Node
@@ -223,7 +223,7 @@ public record PostApprovalOpenapiV2ApprovalGetResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("viewers")]
-    public Viewer[] Viewers { get; set; } = Array.Empty<Viewer>();
+    public Viewer[] Viewers { get; set; } = [];
 
     /// <summary></summary>
     public record Viewer

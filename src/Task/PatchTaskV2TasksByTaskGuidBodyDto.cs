@@ -460,5 +460,5 @@ public record PatchTaskV2TasksByTaskGuidBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("update_fields")]
-    public string[] UpdateFields { get; set; } = Array.Empty<string>();
+    public string[] UpdateFields { get; set; } = [];
 }

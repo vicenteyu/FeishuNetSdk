@@ -132,7 +132,7 @@ public record PostCompensationV1LumpSumPaymentBatchCreateBodyDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("details")]
-        public LumpSumPaymentDetailForCreate[] Details { get; set; } = Array.Empty<LumpSumPaymentDetailForCreate>();
+        public LumpSumPaymentDetailForCreate[] Details { get; set; } = [];
 
         /// <summary>
         /// <para>发放明细列表</para>

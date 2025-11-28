@@ -26,7 +26,7 @@ public record PostBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("ids")]
-    public string[] Ids { get; set; } = Array.Empty<string>();
+    public string[] Ids { get; set; } = [];
 
     /// <summary>
     /// <para>操作的唯一标识，更新请求中使用此值表示幂等的进行此次更新</para>

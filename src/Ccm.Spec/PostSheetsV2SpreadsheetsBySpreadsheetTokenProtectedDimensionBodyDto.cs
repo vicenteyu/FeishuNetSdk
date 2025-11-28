@@ -26,7 +26,7 @@ public record PostSheetsV2SpreadsheetsBySpreadsheetTokenProtectedDimensionBodyDt
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("addProtectedDimension")]
-    public ProtectedDimension[] AddProtectedDimension { get; set; } = Array.Empty<ProtectedDimension>();
+    public ProtectedDimension[] AddProtectedDimension { get; set; } = [];
 
     /// <summary></summary>
     public record ProtectedDimension

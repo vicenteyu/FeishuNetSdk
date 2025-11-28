@@ -34,5 +34,5 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDt
     /// <para>示例值：[ "recIcJBbvC", "recvmiCORa"]</para>
     /// </summary>
     [JsonPropertyName("records")]
-    public string[] Records { get; set; } = Array.Empty<string>();
+    public string[] Records { get; set; } = [];
 }

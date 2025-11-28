@@ -37,7 +37,7 @@ public record PostImV1MessagesByMessageIdPushFollowUpBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("follow_ups")]
-    public FollowUp[] FollowUps { get; set; } = Array.Empty<FollowUp>();
+    public FollowUp[] FollowUps { get; set; } = [];
 
     /// <summary>
     /// <para>跟随气泡列表。</para>

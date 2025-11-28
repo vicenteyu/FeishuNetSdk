@@ -364,7 +364,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("payment_months")]
-                public int[] PaymentMonths { get; set; } = Array.Empty<int>();
+                public int[] PaymentMonths { get; set; } = [];
             }
 
             /// <summary>

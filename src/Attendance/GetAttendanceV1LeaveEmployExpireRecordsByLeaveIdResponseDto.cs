@@ -26,7 +26,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("records")]
-    public LeaveEmployExpireRecord[] Records { get; set; } = Array.Empty<LeaveEmployExpireRecord>();
+    public LeaveEmployExpireRecord[] Records { get; set; } = [];
 
     /// <summary>
     /// <para>员工过期日期的发放记录</para>
@@ -102,7 +102,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("reason")]
-        public LangText[] Reasons { get; set; } = Array.Empty<LangText>();
+        public LangText[] Reasons { get; set; } = [];
 
         /// <summary>
         /// <para>发放原因</para>

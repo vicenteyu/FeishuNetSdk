@@ -130,7 +130,7 @@ public record PostImV2AppFeedCardBodyDto
             /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("buttons")]
-            public OpenAppFeedCardButton[] Buttons { get; set; } = Array.Empty<OpenAppFeedCardButton>();
+            public OpenAppFeedCardButton[] Buttons { get; set; } = [];
 
             /// <summary>
             /// <para>按钮组合</para>

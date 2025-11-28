@@ -28,5 +28,5 @@ public record DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDeleteBod
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("permission_member_id_list")]
-    public string[] PermissionMemberIdList { get; set; } = Array.Empty<string>();
+    public string[] PermissionMemberIdList { get; set; } = [];
 }

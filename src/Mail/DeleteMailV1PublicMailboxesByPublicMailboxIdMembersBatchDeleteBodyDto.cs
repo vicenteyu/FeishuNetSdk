@@ -28,5 +28,5 @@ public record DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDeleteBody
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("member_id_list")]
-    public string[] MemberIdList { get; set; } = Array.Empty<string>();
+    public string[] MemberIdList { get; set; } = [];
 }

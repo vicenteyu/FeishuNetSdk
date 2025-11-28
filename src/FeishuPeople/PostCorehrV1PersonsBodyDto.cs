@@ -26,7 +26,7 @@ public record PostCorehrV1PersonsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name_list")]
-    public PersonName[] NameLists { get; set; } = Array.Empty<PersonName>();
+    public PersonName[] NameLists { get; set; } = [];
 
     /// <summary>
     /// <para>姓名</para>
@@ -729,7 +729,7 @@ public record PostCorehrV1PersonsBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("school")]
-        public I18n[] Schools { get; set; } = Array.Empty<I18n>();
+        public I18n[] Schools { get; set; } = [];
 
         /// <summary>
         /// <para>学校</para>

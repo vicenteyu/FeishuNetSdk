@@ -113,7 +113,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("task_list")]
-    public InstanceTask[] TaskLists { get; set; } = Array.Empty<InstanceTask>();
+    public InstanceTask[] TaskLists { get; set; } = [];
 
     /// <summary>
     /// <para>审批任务列表</para>
@@ -220,7 +220,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("comment_list")]
-    public InstanceComment[] CommentLists { get; set; } = Array.Empty<InstanceComment>();
+    public InstanceComment[] CommentLists { get; set; } = [];
 
     /// <summary>
     /// <para>评论列表</para>
@@ -320,7 +320,7 @@ public record GetApprovalV4InstancesByInstanceIdResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("timeline")]
-    public InstanceTimeline[] Timelines { get; set; } = Array.Empty<InstanceTimeline>();
+    public InstanceTimeline[] Timelines { get; set; } = [];
 
     /// <summary>
     /// <para>审批动态</para>

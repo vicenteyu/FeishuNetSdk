@@ -37,7 +37,7 @@ public record PostMdmV1UserAuthDataRelationsUnbindBodyDto
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("sub_dimension_types")]
-    public string[] SubDimensionTypes { get; set; } = Array.Empty<string>();
+    public string[] SubDimensionTypes { get; set; } = [];
 
     /// <summary>
     /// <para>授权人的lark id</para>
@@ -46,7 +46,7 @@ public record PostMdmV1UserAuthDataRelationsUnbindBodyDto
     /// <para>最大长度：200</para>
     /// </summary>
     [JsonPropertyName("authorized_user_ids")]
-    public string[] AuthorizedUserIds { get; set; } = Array.Empty<string>();
+    public string[] AuthorizedUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>uams系统中应用id</para>

@@ -36,7 +36,7 @@ public record PostApaasV1UserTasksByTaskIdExpeditingBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("expediting_user_ids")]
-    public string[] ExpeditingUserIds { get; set; } = Array.Empty<string>();
+    public string[] ExpeditingUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>催办理由</para>

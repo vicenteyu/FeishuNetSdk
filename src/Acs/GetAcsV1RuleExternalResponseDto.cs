@@ -28,7 +28,7 @@ public record GetAcsV1RuleExternalResponseDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("rules")]
-    public Rule[] Rules { get; set; } = Array.Empty<Rule>();
+    public Rule[] Rules { get; set; } = [];
 
     /// <summary>
     /// <para>设备权限组信息</para>

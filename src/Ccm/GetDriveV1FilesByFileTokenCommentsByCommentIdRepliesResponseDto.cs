@@ -50,7 +50,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto : 
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("elements")]
-            public ReplyElement[] Elements { get; set; } = Array.Empty<ReplyElement>();
+            public ReplyElement[] Elements { get; set; } = [];
 
             /// <summary>
             /// <para>回复的内容</para>

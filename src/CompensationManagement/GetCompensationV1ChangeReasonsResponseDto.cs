@@ -26,7 +26,7 @@ public record GetCompensationV1ChangeReasonsResponseDto : IPageableResponse<GetC
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public ChangeReason[] Items { get; set; } = Array.Empty<ChangeReason>();
+    public ChangeReason[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>调薪原因信息列表</para>
@@ -76,7 +76,7 @@ public record GetCompensationV1ChangeReasonsResponseDto : IPageableResponse<GetC
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_names")]
-        public I18nContent[] I18nNames { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNames { get; set; } = [];
 
         /// <summary>
         /// <para>多语言名称</para>
@@ -107,7 +107,7 @@ public record GetCompensationV1ChangeReasonsResponseDto : IPageableResponse<GetC
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("i18n_notes")]
-        public I18nContent[] I18nNotes { get; set; } = Array.Empty<I18nContent>();
+        public I18nContent[] I18nNotes { get; set; } = [];
     }
 
     /// <summary>

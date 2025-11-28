@@ -34,7 +34,7 @@ public record PostImV1ChatsByChatIdChatTabsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("chat_tabs")]
-    public ChatTab[] ChatTabs { get; set; } = Array.Empty<ChatTab>();
+    public ChatTab[] ChatTabs { get; set; } = [];
 
     /// <summary>
     /// <para>会话标签页</para>

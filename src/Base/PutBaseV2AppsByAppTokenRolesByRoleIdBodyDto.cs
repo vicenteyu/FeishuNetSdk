@@ -40,7 +40,7 @@ public record PutBaseV2AppsByAppTokenRolesByRoleIdBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("table_roles")]
-    public TableRole[] TableRoles { get; set; } = Array.Empty<TableRole>();
+    public TableRole[] TableRoles { get; set; } = [];
 
     /// <summary>
     /// <para>针对数据表的权限设置，未设置该字段的情况下，保持旧值不变</para>

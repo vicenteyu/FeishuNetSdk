@@ -28,7 +28,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("department_ids")]
-    public string[] DepartmentIds { get; set; } = Array.Empty<string>();
+    public string[] DepartmentIds { get; set; } = [];
 
     /// <summary>
     /// <para>生效日期开始(包含)</para>

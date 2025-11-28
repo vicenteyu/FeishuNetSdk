@@ -35,7 +35,7 @@ public record PostPerformanceV1StageTasksFindByUserListBodyDto
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("user_id_lists")]
-    public string[] UserIdLists { get; set; } = Array.Empty<string>();
+    public string[] UserIdLists { get; set; } = [];
 
     /// <summary>
     /// <para>任务分类，填写则获取指定分类的任务</para>

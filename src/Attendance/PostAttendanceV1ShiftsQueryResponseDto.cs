@@ -110,7 +110,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("punch_time_rule")]
-    public PunchTimeRule[] PunchTimeRules { get; set; } = Array.Empty<PunchTimeRule>();
+    public PunchTimeRule[] PunchTimeRules { get; set; } = [];
 
     /// <summary>
     /// <para>打卡规则</para>

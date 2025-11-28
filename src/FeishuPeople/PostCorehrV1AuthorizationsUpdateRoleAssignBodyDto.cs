@@ -43,7 +43,7 @@ public record PostCorehrV1AuthorizationsUpdateRoleAssignBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("assigned_organization_items")]
-    public AssignedOrganizationWithCode[][] AssignedOrganizationItems { get; set; } = Array.Empty<AssignedOrganizationWithCode[]>();
+    public AssignedOrganizationWithCode[][] AssignedOrganizationItems { get; set; } = [];
 
     /// <summary>
     /// <para>被授权角色的授权范围。你需要按照请求体示例构造结构体。</para>

@@ -28,5 +28,5 @@ public record PostMailV1UserMailboxesByUserMailboxIdRulesReorderBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("rule_ids")]
-    public string[] RuleIds { get; set; } = Array.Empty<string>();
+    public string[] RuleIds { get; set; } = [];
 }

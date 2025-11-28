@@ -47,7 +47,7 @@ public record PostImV1ChatsByChatIdMenuTreeBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("chat_menu_top_levels")]
-        public ChatMenuTopLevel[] ChatMenuTopLevels { get; set; } = Array.Empty<ChatMenuTopLevel>();
+        public ChatMenuTopLevel[] ChatMenuTopLevels { get; set; } = [];
 
         /// <summary>
         /// <para>一级菜单列表</para>

@@ -47,7 +47,7 @@ public record PostCorehrV1JobLevelsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name")]
-    public I18n[] Names { get; set; } = Array.Empty<I18n>();
+    public I18n[] Names { get; set; } = [];
 
     /// <summary>
     /// <para>职级名称，注意事项：</para>

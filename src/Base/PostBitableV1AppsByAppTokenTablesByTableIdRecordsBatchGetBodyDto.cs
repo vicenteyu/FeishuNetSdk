@@ -30,7 +30,7 @@ public record PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("record_ids")]
-    public string[] RecordIds { get; set; } = Array.Empty<string>();
+    public string[] RecordIds { get; set; } = [];
 
     /// <summary>
     /// <para>此次调用中使用的用户 id 的类型</para>

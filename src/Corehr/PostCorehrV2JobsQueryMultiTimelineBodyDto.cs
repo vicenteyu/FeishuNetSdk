@@ -30,7 +30,7 @@ public record PostCorehrV2JobsQueryMultiTimelineBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("job_ids")]
-    public string[] JobIds { get; set; } = Array.Empty<string>();
+    public string[] JobIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询开始时间（包含），注意事项：</para>

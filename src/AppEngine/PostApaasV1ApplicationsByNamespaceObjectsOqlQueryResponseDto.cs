@@ -26,7 +26,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsOqlQueryResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("columns")]
-    public string[] Columns { get; set; } = Array.Empty<string>();
+    public string[] Columns { get; set; } = [];
 
     /// <summary>
     /// <para>每一行的值，以「key-value」的形式返回</para>

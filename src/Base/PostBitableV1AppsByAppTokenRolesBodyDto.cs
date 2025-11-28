@@ -37,7 +37,7 @@ public record PostBitableV1AppsByAppTokenRolesBodyDto
     /// <para>最大长度：100</para>
     /// </summary>
     [JsonPropertyName("table_roles")]
-    public AppRoleTableRole[] TableRoles { get; set; } = Array.Empty<AppRoleTableRole>();
+    public AppRoleTableRole[] TableRoles { get; set; } = [];
 
     /// <summary>
     /// <para>针对数据表的权限设置</para>
@@ -97,7 +97,7 @@ public record PostBitableV1AppsByAppTokenRolesBodyDto
             /// <para>最大长度：100</para>
             /// </summary>
             [JsonPropertyName("conditions")]
-            public AppRoleTableRoleRecRuleCondition[] Conditions { get; set; } = Array.Empty<AppRoleTableRoleRecRuleCondition>();
+            public AppRoleTableRoleRecRuleCondition[] Conditions { get; set; } = [];
 
             /// <summary>
             /// <para>记录筛选条件，用于指定可编辑或可阅读的记录。</para>

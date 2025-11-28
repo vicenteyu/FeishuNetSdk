@@ -27,7 +27,7 @@ public record PostSuiteDocsApiMetaBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("request_docs")]
-    public RequestDoc[] RequestDocs { get; set; } = Array.Empty<RequestDoc>();
+    public RequestDoc[] RequestDocs { get; set; } = [];
 
     /// <summary></summary>
     public record RequestDoc

@@ -29,7 +29,7 @@ public record PostImV2UrlPreviewsBatchUpdateBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("preview_tokens")]
-    public string[] PreviewTokens { get; set; } = Array.Empty<string>();
+    public string[] PreviewTokens { get; set; } = [];
 
     /// <summary>
     /// <para>需要更新 URL 预览的用户 open_id。若不传，则默认更新 URL 预览所在会话的所有成员；若用户不在 URL 所在会话，则无法触发更新该用户对应的 URL 预览结果。获取方式参见[如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)。</para>

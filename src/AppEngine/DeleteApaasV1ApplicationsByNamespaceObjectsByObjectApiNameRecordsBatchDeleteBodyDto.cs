@@ -28,5 +28,5 @@ public record DeleteApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsB
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("ids")]
-    public string[] Ids { get; set; } = Array.Empty<string>();
+    public string[] Ids { get; set; } = [];
 }

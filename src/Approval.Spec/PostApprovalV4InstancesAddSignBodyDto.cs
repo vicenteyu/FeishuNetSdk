@@ -66,7 +66,7 @@ public record PostApprovalV4InstancesAddSignBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("add_sign_user_ids")]
-    public string[] AddSignUserIds { get; set; } = Array.Empty<string>();
+    public string[] AddSignUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>加签方式，可选值有：</para>

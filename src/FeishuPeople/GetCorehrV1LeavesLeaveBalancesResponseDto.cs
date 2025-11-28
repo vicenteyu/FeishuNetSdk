@@ -51,7 +51,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto : IPageableResponse<GetC
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("employment_name")]
-        public I18n[] EmploymentNames { get; set; } = Array.Empty<I18n>();
+        public I18n[] EmploymentNames { get; set; } = [];
 
         /// <summary>
         /// <para>员工姓名</para>
@@ -88,7 +88,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto : IPageableResponse<GetC
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("leave_balance_list")]
-        public LeaveBalance[] LeaveBalanceLists { get; set; } = Array.Empty<LeaveBalance>();
+        public LeaveBalance[] LeaveBalanceLists { get; set; } = [];
 
         /// <summary>
         /// <para>假期余额列表</para>
@@ -112,7 +112,7 @@ public record GetCorehrV1LeavesLeaveBalancesResponseDto : IPageableResponse<GetC
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("leave_type_name")]
-            public I18n[] LeaveTypeNames { get; set; } = Array.Empty<I18n>();
+            public I18n[] LeaveTypeNames { get; set; } = [];
 
             /// <summary>
             /// <para>假期类型名称</para>

@@ -49,7 +49,7 @@ public record PostCorehrV2OffboardingsEditBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("update_data")]
-    public ObjectFieldData[] UpdateDatas { get; set; } = Array.Empty<ObjectFieldData>();
+    public ObjectFieldData[] UpdateDatas { get; set; } = [];
 
     /// <summary>
     /// <para>编辑字段数据信息，不允许为空。</para>

@@ -88,7 +88,7 @@ public record PostVcV1ReservesApplyBodyDto
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("permission_checkers")]
-            public ReservePermissionChecker[] PermissionCheckers { get; set; } = Array.Empty<ReservePermissionChecker>();
+            public ReservePermissionChecker[] PermissionCheckers { get; set; } = [];
 
             /// <summary>
             /// <para>权限检查器列表，权限检查器之间为"逻辑或"的关系（即 有一个为true则拥有该权限）</para>
@@ -126,7 +126,7 @@ public record PostVcV1ReservesApplyBodyDto
                 /// <para>示例值："ou_3ec3f6a28a0d08c45d895276e8e5e19b"</para>
                 /// </summary>
                 [JsonPropertyName("check_list")]
-                public string[] CheckList { get; set; } = Array.Empty<string>();
+                public string[] CheckList { get; set; } = [];
             }
         }
 

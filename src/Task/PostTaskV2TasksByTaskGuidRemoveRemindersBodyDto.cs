@@ -27,5 +27,5 @@ public record PostTaskV2TasksByTaskGuidRemoveRemindersBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("reminder_ids")]
-    public string[] ReminderIds { get; set; } = Array.Empty<string>();
+    public string[] ReminderIds { get; set; } = [];
 }

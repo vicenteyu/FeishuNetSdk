@@ -28,7 +28,7 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("semester_ids")]
-    public string[] SemesterIds { get; set; } = Array.Empty<string>();
+    public string[] SemesterIds { get; set; } = [];
 
     /// <summary>
     /// <para>被评估人 ID 列表，ID 类型与user_id_type 的取值一致</para>
@@ -37,7 +37,7 @@ public record PostPerformanceV2ReviewDatasQueryBodyDto
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("reviewee_user_ids")]
-    public string[] RevieweeUserIds { get; set; } = Array.Empty<string>();
+    public string[] RevieweeUserIds { get; set; } = [];
 
     /// <summary>
     /// <para>环节类型，如果同时传了环节 ID 和环节类型，优先返回环节 ID 对应的绩效数据。</para>

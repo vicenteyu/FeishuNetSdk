@@ -41,7 +41,7 @@ public record PostPayrollV1DatasourceRecordsSaveBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("records")]
-    public DatasourceRecord[] Records { get; set; } = Array.Empty<DatasourceRecord>();
+    public DatasourceRecord[] Records { get; set; } = [];
 
     /// <summary>
     /// <para>需保存的记录列表</para>
@@ -74,7 +74,7 @@ public record PostPayrollV1DatasourceRecordsSaveBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("field_values")]
-        public DatasourceRecordField[] FieldValues { get; set; } = Array.Empty<DatasourceRecordField>();
+        public DatasourceRecordField[] FieldValues { get; set; } = [];
 
         /// <summary>
         /// <para>需创建或者更新记录的具体字段值列表：</para>

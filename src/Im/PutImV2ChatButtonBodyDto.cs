@@ -60,7 +60,7 @@ public record PutImV2ChatButtonBodyDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("buttons")]
-        public OpenAppFeedCardButton[] Buttons { get; set; } = Array.Empty<OpenAppFeedCardButton>();
+        public OpenAppFeedCardButton[] Buttons { get; set; } = [];
 
         /// <summary>
         /// <para>按钮组合，该字段为全量更新字段，若未传入字段原有值，则会清空字段数据。例如：</para>

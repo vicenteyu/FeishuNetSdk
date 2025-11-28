@@ -52,5 +52,5 @@ public record PostImV1MessagesMergeForwardBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("message_id_list")]
-    public string[] MessageIdList { get; set; } = Array.Empty<string>();
+    public string[] MessageIdList { get; set; } = [];
 }

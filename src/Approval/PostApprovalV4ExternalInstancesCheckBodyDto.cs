@@ -27,7 +27,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("instances")]
-    public ExteranlInstanceCheck[] Instances { get; set; } = Array.Empty<ExteranlInstanceCheck>();
+    public ExteranlInstanceCheck[] Instances { get; set; } = [];
 
     /// <summary>
     /// <para>校验的实例信息</para>
@@ -56,7 +56,7 @@ public record PostApprovalV4ExternalInstancesCheckBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("tasks")]
-        public ExternalInstanceTask[] Tasks { get; set; } = Array.Empty<ExternalInstanceTask>();
+        public ExternalInstanceTask[] Tasks { get; set; } = [];
 
         /// <summary>
         /// <para>任务信息</para>

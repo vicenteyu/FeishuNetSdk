@@ -26,7 +26,7 @@ public record PostCompensationV1ArchivesQueryResponseDto : IPageableResponse<Pos
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public ArchiveDetail[] Items { get; set; } = Array.Empty<ArchiveDetail>();
+    public ArchiveDetail[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>档案信息列表</para>
@@ -144,7 +144,7 @@ public record PostCompensationV1ArchivesQueryResponseDto : IPageableResponse<Pos
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("archive_items")]
-        public ArchiveItem[] ArchiveItems { get; set; } = Array.Empty<ArchiveItem>();
+        public ArchiveItem[] ArchiveItems { get; set; } = [];
 
         /// <summary>
         /// <para>档案关联的薪资项</para>
@@ -183,7 +183,7 @@ public record PostCompensationV1ArchivesQueryResponseDto : IPageableResponse<Pos
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("archive_indicators")]
-        public ArchiveIndicator[] ArchiveIndicators { get; set; } = Array.Empty<ArchiveIndicator>();
+        public ArchiveIndicator[] ArchiveIndicators { get; set; } = [];
 
         /// <summary>
         /// <para>档案关联的薪资指标</para>

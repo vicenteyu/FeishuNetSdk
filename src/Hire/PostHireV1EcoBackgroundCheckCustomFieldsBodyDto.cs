@@ -34,7 +34,7 @@ public record PostHireV1EcoBackgroundCheckCustomFieldsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("custom_field_list")]
-    public EcoBackgroundCheckCustomFieldData[] CustomFieldLists { get; set; } = Array.Empty<EcoBackgroundCheckCustomFieldData>();
+    public EcoBackgroundCheckCustomFieldData[] CustomFieldLists { get; set; } = [];
 
     /// <summary>
     /// <para>自定义字段列表</para>

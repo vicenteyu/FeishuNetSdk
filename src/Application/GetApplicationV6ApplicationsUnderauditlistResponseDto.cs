@@ -26,7 +26,7 @@ public record GetApplicationV6ApplicationsUnderauditlistResponseDto : IPageableR
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("items")]
-    public Application[] Items { get; set; } = Array.Empty<Application>();
+    public Application[] Items { get; set; } = [];
 
     /// <summary>
     /// <para>待审核应用列表</para>

@@ -29,5 +29,5 @@ public record PostCorehrV2LocationsBatchGetBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("location_ids")]
-    public string[] LocationIds { get; set; } = Array.Empty<string>();
+    public string[] LocationIds { get; set; } = [];
 }

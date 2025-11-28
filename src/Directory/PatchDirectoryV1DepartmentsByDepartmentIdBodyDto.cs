@@ -270,7 +270,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("enum_ids")]
-                public string[] EnumIds { get; set; } = Array.Empty<string>();
+                public string[] EnumIds { get; set; } = [];
 
                 /// <summary>
                 /// <para>选项类型</para>
@@ -306,7 +306,7 @@ public record PatchDirectoryV1DepartmentsByDepartmentIdBodyDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("ids")]
-                public string[] Ids { get; set; } = Array.Empty<string>();
+                public string[] Ids { get; set; } = [];
             }
 
             /// <summary>

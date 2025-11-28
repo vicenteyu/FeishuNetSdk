@@ -28,7 +28,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBat
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("select")]
-    public string[] Select { get; set; } = Array.Empty<string>();
+    public string[] Select { get; set; } = [];
 
     /// <summary>
     /// <para>筛选条件，通过 JSON 格式指定条件</para>

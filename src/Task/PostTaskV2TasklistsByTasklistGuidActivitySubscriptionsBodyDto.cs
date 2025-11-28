@@ -37,7 +37,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>最大长度：50</para>
     /// </summary>
     [JsonPropertyName("subscribers")]
-    public Member[] Subscribers { get; set; } = Array.Empty<Member>();
+    public Member[] Subscribers { get; set; } = [];
 
     /// <summary>
     /// <para>订阅者列表</para>
@@ -83,7 +83,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("include_keys")]
-    public int[] IncludeKeys { get; set; } = Array.Empty<int>();
+    public int[] IncludeKeys { get; set; } = [];
 
     /// <summary>
     /// <para>该订阅是否为停用</para>

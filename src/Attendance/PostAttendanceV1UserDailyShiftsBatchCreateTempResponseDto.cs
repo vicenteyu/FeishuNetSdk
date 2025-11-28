@@ -75,7 +75,7 @@ public record PostAttendanceV1UserDailyShiftsBatchCreateTempResponseDto
         /// <para>最小长度：0</para>
         /// </summary>
         [JsonPropertyName("punch_time_simple_rules")]
-        public PunchTimeSimpleRule[] PunchTimeSimpleRules { get; set; } = Array.Empty<PunchTimeSimpleRule>();
+        public PunchTimeSimpleRule[] PunchTimeSimpleRules { get; set; } = [];
 
         /// <summary>
         /// <para>打卡规则</para>

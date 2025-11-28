@@ -29,7 +29,7 @@ public record PostContactV2DepartmentBatchAddBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("departments")]
-    public Department[] Departments { get; set; } = Array.Empty<Department>();
+    public Department[] Departments { get; set; } = [];
 
     /// <summary></summary>
     public record Department

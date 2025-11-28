@@ -31,7 +31,7 @@ public record PostCorehrV2JobFamiliesQueryMultiTimelineBodyDto
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("job_family_ids")]
-    public string[] JobFamilyIds { get; set; } = Array.Empty<string>();
+    public string[] JobFamilyIds { get; set; } = [];
 
     /// <summary>
     /// <para>查询开始时间（包含）</para>

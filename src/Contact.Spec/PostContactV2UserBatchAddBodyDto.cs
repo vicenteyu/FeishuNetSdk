@@ -29,7 +29,7 @@ public record PostContactV2UserBatchAddBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("users")]
-    public User[] Users { get; set; } = Array.Empty<User>();
+    public User[] Users { get; set; } = [];
 
     /// <summary></summary>
     public record User
@@ -47,7 +47,7 @@ public record PostContactV2UserBatchAddBodyDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("departments")]
-        public string[] Departments { get; set; } = Array.Empty<string>();
+        public string[] Departments { get; set; } = [];
 
         /// <summary>
         /// <para>用户企业内唯一标识。只能在创建用户时指定，不支持更新。</para>

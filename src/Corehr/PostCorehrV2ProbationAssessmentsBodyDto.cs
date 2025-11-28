@@ -34,7 +34,7 @@ public record PostCorehrV2ProbationAssessmentsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("assessments")]
-    public AssessmentForCreate[] Assessments { get; set; } = Array.Empty<AssessmentForCreate>();
+    public AssessmentForCreate[] Assessments { get; set; } = [];
 
     /// <summary>
     /// <para>试用期考核结果列表</para>
