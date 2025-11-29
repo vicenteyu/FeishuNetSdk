@@ -4,7 +4,7 @@
 // Created          : 2024-08-31
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-27
+// Last Modified On : 2025-11-30
 // ************************************************************************
 // <copyright file="EventCallbackServiceProvider.cs" company="Vicente Yu">
 //     MIT
@@ -18,6 +18,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace FeishuNetSdk.Services;
 
@@ -133,24 +134,133 @@ public class EventCallbackServiceProvider(
     /// <summary>
     /// 查找所有事件处理程序
     /// </summary>
-    public IEnumerable<EventHandlerDescriptor> FindAllHandlers() => _handlerCache.Value;
+    public static IEnumerable<EventHandlerDescriptor> FindAllHandlers() => _handlerCache.Value;
+
+    /// <summary>
+    /// 修复鉴别器，并确保鉴别器属性在序列化后的 JSON 字符串中位于第一位。
+    /// </summary>
+    /// <param name="input">原始的 JSON 对象。</param>
+    /// <param name="discriminatorPropertyName">鉴别器属性名。</param>
+    /// <returns>包含正确顺序鉴别器的 JSON 字符串。</returns>
+    public static string FixDiscriminator(JsonNode input,
+        string discriminatorPropertyName = FeishuNetSdkOptions.Discriminator.EventType)
+    {
+        if (input is not JsonObject originalObject)
+            throw new InvalidOperationException("仅支持 JSON Object 对象");
+
+        // 提取真实的事件类型
+        string? realEventType = ExtractEventType(originalObject);
+
+        if (realEventType is null)
+        {
+            return originalObject.ToJsonString();
+        }
+
+        using var stream = new MemoryStream();
+        using var writer = new Utf8JsonWriter(stream, new JsonWriterOptions { Indented = false });
+
+        writer.WriteStartObject();
+
+        // 强制将鉴别器作为第一个属性写入
+        writer.WriteString(discriminatorPropertyName, realEventType);
+
+        foreach (var property in originalObject)
+        {
+            if (property.Key.Equals(discriminatorPropertyName, StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+            writer.WritePropertyName(property.Key);
+            property.Value?.WriteTo(writer);
+        }
+
+        writer.WriteEndObject();
+        writer.Flush();
+
+        return System.Text.Encoding.UTF8.GetString(stream.ToArray());
+    }
+
+    // 提取事件类型的辅助方法
+    private static string? ExtractEventType(JsonObject jsonObject)
+    {
+        //2.0
+        if (jsonObject.TryGetPropertyValue("header", out var headerNode)
+            && headerNode is JsonObject headerObject
+            && headerObject.TryGetPropertyValue("event_type", out var eventTypeNode2)
+            && eventTypeNode2?.GetValueKind() == JsonValueKind.String)
+        {
+            return eventTypeNode2.GetValue<string>();
+        }
+        //1.0
+        else if (jsonObject.TryGetPropertyValue("event", out var eventNode)
+            && eventNode is JsonObject eventObject
+            && eventObject.TryGetPropertyValue("type", out var eventTypeNode1)
+            && eventTypeNode1?.GetValueKind() == JsonValueKind.String)
+        {
+            return eventTypeNode1.GetValue<string>();
+        }
+        //url_verification
+        else if (jsonObject.TryGetPropertyValue("type", out var eventType)
+            && eventType?.GetValueKind() == JsonValueKind.String)
+        {
+            return eventType.GetValue<string>();
+        }
+        return null;
+    }
 
     /// <summary>
     /// 处理事件入口
     /// </summary>
-    public async Task<HandleResult> HandleAsync(object input, CancellationToken cancellationToken = default)
+    public async Task<HandleResult> HandleAsync(JsonNode input, CancellationToken cancellationToken = default)
     {
-        var serializeString = JsonSerializer.Serialize(input);
+        using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
+        cts.CancelAfter(TimeoutMilliseconds);
+
+        if (input is not JsonObject jo)
+            return new HandleResult(Error: "只支持 JSON Object 对象");
+
         try
         {
-            var json = ProcessInputEncryption(serializeString);
-            return await HandleAsync(json, cancellationToken);
+            if (jo.TryGetPropertyValue("encrypt", out var encrypt) && encrypt?.GetValueKind() == JsonValueKind.String)
+            {
+                if (logger.IsEnabled(LogLevel.Debug))
+                    logger.LogDebug("加密消息：{json}", input.ToJsonString());
+
+                var encrypt_string = encrypt.GetValue<string>();
+                var decrypt_bytes = DecryptStringAsBytes(encrypt_string);
+                using var ms = new MemoryStream(decrypt_bytes);
+                input = JsonNode.Parse(ms) ?? throw new InvalidDataException();
+            }
+
+            if (logger.IsEnabled(LogLevel.Debug))
+                logger.LogDebug("事件入参：{json}", input.ToJsonString());
+
+            var event_node = FixDiscriminator(input);
+            var dto = JsonSerializer.Deserialize<EventDto>(event_node);
+
+            switch (dto)
+            {
+                case null:
+                    return new HandleResult(Error: "反序列化事件体失败");
+
+                case UrlVerificationDto verificationDto:
+                    return new HandleResult(true, Dto: verificationDto);
+
+                default:
+                    if (logger.IsEnabled(LogLevel.Debug))
+                        logger.LogDebug("反序列化成功 {EventType}", dto.Discriminator);
+
+                    if (!string.IsNullOrWhiteSpace(dto.Token) && dto.Token != options.CurrentValue.VerificationToken)
+                        return new HandleResult(Error: "应用标识不一致");
+
+                    return await ProcessEventDtoAsync(dto, cts.Token);
+            }
         }
         catch (Exception ex)
         {
             if (logger.IsEnabled(LogLevel.Debug))
-                logger.LogDebug("收到的加密消息：{input}", serializeString);
-            logger.LogError(ex, "事件处理入口异常");
+                logger.LogDebug("事件处理入口异常：{input}", input.ToString());
+
             return new HandleResult(Error: $"事件处理失败：{UnwrapException(ex).Message}");
         }
     }
@@ -158,72 +268,25 @@ public class EventCallbackServiceProvider(
     /// <summary>
     /// 处理输入加密
     /// </summary>
-    private string ProcessInputEncryption(string serializeString)
+    private byte[] DecryptStringAsBytes(string encryptedString)
     {
-        if (serializeString.IsEncryptedObject(out var encryptedString) && encryptedString != null)
+        if (options.CurrentValue.EncryptKey == null)
         {
-            if (options.CurrentValue.EncryptKey == null)
-            {
-                throw new InvalidOperationException("未设置解密密钥");
-            }
-
-            try
-            {
-                return AesCipher.DecryptString(encryptedString, options.CurrentValue.EncryptKey);
-            }
-            catch (FormatException ex)
-            {
-                throw new CryptographicException("Base64格式无效", ex);
-            }
-            catch (CryptographicException ex)
-            {
-                throw new CryptographicException("解密失败（密钥或数据错误）", ex);
-            }
+            throw new InvalidOperationException("未设置解密密钥");
         }
 
-        return serializeString;
-    }
-
-    /// <summary>
-    /// 处理JSON输入
-    /// </summary>
-    public async Task<HandleResult> HandleAsync(string json, CancellationToken cancellationToken = default)
-    {
-        // 创建关联取消令牌，用于强制终止超时任务
-        using var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken);
-        cts.CancelAfter(TimeoutMilliseconds);
-
-        if (logger.IsEnabled(LogLevel.Debug))
-            logger.LogDebug("收到事件消息：{Json}", json);
-
-        var fixedJson = json.FixDiscriminator();
-        var dto = JsonSerializer.Deserialize<EventDto>(fixedJson); // TODO: 添加JsonSerializerOptions配置
-
-        if (dto == null)
+        try
         {
-            return new HandleResult(Error: $"反序列化事件体失败：{json}");
+            return AesCipher.DecryptStringAsBytes(encryptedString, options.CurrentValue.EncryptKey);
         }
-
-        if (logger.IsEnabled(LogLevel.Debug))
-            logger.LogDebug("反序列化成功 {EventType}", dto.Discriminator);
-
-        if (!IsValidVerificationToken(dto))
+        catch (FormatException ex)
         {
-            return new HandleResult(Error: "应用标识不一致");
+            throw new CryptographicException("Base64格式无效", ex);
         }
-
-        return dto is UrlVerificationDto verificationDto
-            ? new HandleResult(true, Dto: verificationDto)
-            : await ProcessEventDtoAsync(dto, cts.Token);
-    }
-
-    /// <summary>
-    /// 验证飞书Token
-    /// </summary>s
-    private bool IsValidVerificationToken(EventDto dto)
-    {
-        return string.IsNullOrWhiteSpace(dto.Token) || // 允许空Token（部分场景）
-               dto.Token == options.CurrentValue.VerificationToken;
+        catch (CryptographicException ex)
+        {
+            throw new CryptographicException("解密失败（密钥或数据错误）", ex);
+        }
     }
 
     /// <summary>
@@ -237,24 +300,28 @@ public class EventCallbackServiceProvider(
 
         if (handlers.Length == default)
         {
-            var error_result = new HandleResult(Error: $"未定义事件处理方法：{eventDto.Discriminator}");
+            var error = $"未定义事件处理方法：{eventDto.Discriminator}";
+
             if (logger.IsEnabled(LogLevel.Error))
-                logger.LogError("Error: {msg}", error_result.Error);
-            return error_result;
+                logger.LogError("Error: {msg}", error);
+
+            return new HandleResult(Error: error);
         }
 
+        (bool iscallback, string event_type) = eventDto is IAmCallbackDto ? (true, "回调") : (false, "事件");
+
         if (logger.IsEnabled(LogLevel.Debug))
-            logger.LogDebug("找到 {HandlerCount} 个事件处理方法", handlers.Length);
+            logger.LogDebug("找到 {HandlerCount} 个 {event} 处理方法", handlers.Length, event_type);
 
         using var scope = scopeFactory.CreateScope();
-        return eventDto is IAmCallbackDto
+        return iscallback
             ? await ExecuteSingleHandlerAsync(handlers[0], eventDto, scope.ServiceProvider, cancellationToken)
             : await ExecuteMultipleHandlersAsync(handlers, eventDto, scope.ServiceProvider, cancellationToken);
     }
 
     /// <summary>s
     ///执行单个处理器（回调事件）
-    /// </summary>// 移除内层超时控制
+    /// </summary>
     private async Task<HandleResult> ExecuteSingleHandlerAsync(
         EventHandlerDescriptor handler,
         EventDto eventDto,
@@ -322,7 +389,7 @@ public class EventCallbackServiceProvider(
 
     /// <summary>
     /// 执行单个处理器（支持取消令牌传递）
-    /// </summary>// 简化参数，移除重复超时控制
+    /// </summary>
     private async Task<HandleResult> ExecuteHandlerAsync(
         EventHandlerDescriptor handler,
         object eventDto,

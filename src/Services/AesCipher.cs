@@ -14,34 +14,47 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace FeishuNetSdk.Services
+namespace FeishuNetSdk.Services;
+
+/// <summary>
+/// AES解密方法类
+/// </summary>
+public class AesCipher
 {
+    const int BlockSize = 16;
+
     /// <summary>
-    /// AES解密方法类
+    /// 字符串解密
     /// </summary>
-    public class AesCipher
+    /// <param name="encryptString">加密串</param>
+    /// <param name="encryptKey">解密密钥</param>
+    /// <returns></returns>
+    public static string DecryptString(string encryptString, string encryptKey)
     {
-        const int BlockSize = 16;
+        var blockBytes = DecryptStringAsBytes(encryptString, encryptKey);
+        return Encoding.UTF8.GetString(blockBytes);
+    }
 
-        /// <summary>
-        /// 字符串解密
-        /// </summary>
-        public static string DecryptString(string encryptString, string encryptKey)
-        {
-            byte[] encBytes = Convert.FromBase64String(encryptString);
-            var rijndaelManaged = Aes.Create();
-            rijndaelManaged.Key = SHA256Hash(encryptKey);
-            rijndaelManaged.Mode = CipherMode.CBC;
-            rijndaelManaged.IV = [.. encBytes.Take(BlockSize)];
-            ICryptoTransform transform = rijndaelManaged.CreateDecryptor();
-            byte[] blockBytes = transform.TransformFinalBlock(encBytes, BlockSize, encBytes.Length - BlockSize);
-            return Encoding.UTF8.GetString(blockBytes);
-        }
+    /// <summary>
+    /// 字符串解密
+    /// </summary>
+    /// <param name="encryptString">加密串</param>
+    /// <param name="encryptKey">解密密钥</param>
+    /// <returns></returns>
+    public static byte[] DecryptStringAsBytes(string encryptString, string encryptKey)
+    {
+        byte[] encBytes = Convert.FromBase64String(encryptString);
+        var rijndaelManaged = Aes.Create();
+        rijndaelManaged.Key = SHA256Hash(encryptKey);
+        rijndaelManaged.Mode = CipherMode.CBC;
+        rijndaelManaged.IV = [.. encBytes.Take(BlockSize)];
+        ICryptoTransform transform = rijndaelManaged.CreateDecryptor();
+        return transform.TransformFinalBlock(encBytes, BlockSize, encBytes.Length - BlockSize);
+    }
 
-        private static byte[] SHA256Hash(string str)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(str);
-            return SHA256.HashData(bytes);
-        }
+    private static byte[] SHA256Hash(string str)
+    {
+        byte[] bytes = Encoding.UTF8.GetBytes(str);
+        return SHA256.HashData(bytes);
     }
 }

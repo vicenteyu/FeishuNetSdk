@@ -4,7 +4,7 @@
 // Created          : 2024-08-31
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-27
+// Last Modified On : 2025-11-30
 // ************************************************************************
 // <copyright file="EventCallbackServiceProvider.cs" company="Vicente Yu">
 //     MIT
@@ -20,24 +20,12 @@ namespace FeishuNetSdk.Services;
 public interface IEventCallbackServiceProvider
 {
     /// <summary>
-    /// 
+    /// 事件处理方法
     /// </summary>
-    /// <param name="input"></param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="input">事件体</param>
+    /// <param name="cancellationToken">取消令牌</param>
     /// <returns></returns>
-    Task<EventCallbackServiceProvider.HandleResult> HandleAsync(object input, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="json"></param>
-    /// <param name="cancellationToken"></param>
-    /// <returns></returns>
-    Task<EventCallbackServiceProvider.HandleResult> HandleAsync(string json, CancellationToken cancellationToken = default);
-
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
-    IEnumerable<EventHandlerDescriptor> FindAllHandlers();
+    Task<EventCallbackServiceProvider.HandleResult> HandleAsync(
+        System.Text.Json.Nodes.JsonNode input,
+        CancellationToken cancellationToken = default);
 }

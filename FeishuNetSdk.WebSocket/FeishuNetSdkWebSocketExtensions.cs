@@ -12,30 +12,26 @@
 // <summary>提供注册SDK的扩展</summary>
 // ************************************************************************
 #pragma warning disable IDE0130
-namespace Microsoft.Extensions.DependencyInjection
+namespace Microsoft.Extensions.DependencyInjection;
 #pragma warning restore IDE0130
+
+/// <summary>
+/// 提供注册SDK的扩展
+/// </summary>
+public static class FeishuNetSdkWebSocketExtensions
 {
     /// <summary>
-    /// 提供注册SDK的扩展
+    /// 注册 FeishuNetSdk 的 WebSocket 服务。
+    /// 依赖于 IFeishuApi 和 IOptionsMonitor&lt;FeishuNetSdkOptions&gt; 服务已注册。
     /// </summary>
-    public static class FeishuNetSdkWebSocketExtensions
+    /// <param name="services">用于注册服务的 IServiceCollection。</param>
+    /// <returns>返回传入的 IServiceCollection 实例，以支持链式调用。</returns>
+    /// <exception cref="ArgumentNullException">当 services 参数为空时抛出。</exception>
+    public static IServiceCollection AddFeishuWebSocket(this IServiceCollection services)
     {
-        /// <summary>
-        /// 注册SDK
-        /// </summary>
-        /// <param name="services"></param>
-        /// <returns></returns>
-        public static IServiceCollection AddFeishuWebSocket(this IServiceCollection services)
-        {
-            var serviceProvider = services.BuildServiceProvider();
+        ArgumentNullException.ThrowIfNull(services);
+        services.AddHostedService<FeishuNetSdk.WebSocket.WssService>();
 
-            _ = serviceProvider.GetService<FeishuNetSdk.IFeishuApi>()
-                ?? throw new NotSupportedException("缺少关键服务：FeishuNetSdk");
-            _ = serviceProvider.GetService<Options.IOptionsMonitor<FeishuNetSdk.FeishuNetSdkOptions>>()
-                ?? throw new NotSupportedException("缺少关键服务：FeishuNetSdk");
-
-            services.AddHostedService<FeishuNetSdk.WebSocket.WssService>();
-            return services;
-        }
+        return services;
     }
 }

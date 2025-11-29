@@ -430,7 +430,7 @@ public record EventDto(string? Discriminator = null)
 
     /// <summary>事件 Token，即Verification Token。用于验证来自于同一个应用</summary>
     [JsonPropertyName("token")]
-    public virtual string Token { get; set; } = string.Empty;
+    public virtual string? Token { get; set; }
 
     /// <summary>事件唯一Id</summary>
     [JsonPropertyName("event_id")]

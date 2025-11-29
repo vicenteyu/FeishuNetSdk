@@ -4,7 +4,7 @@
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-27
+// Last Modified On : 2025-11-30
 // ************************************************************************
 // <copyright file="WssService.cs" company="Vicente Yu">
 //     MIT
@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using WatsonWebsocket;
 
@@ -33,7 +34,8 @@ namespace FeishuNetSdk.WebSocket
     /// <para>长连接模式仅支持企业自建应用。</para>
     /// <para>与 将事件发送至开发者服务器 方式的要求相同，长连接模式下接收到消息后，也需要在 3 秒内处理完成，否则会触发超时重推机制。</para>
     /// <para>每个应用最多建立 50 个连接（在配置长连接时，每初始化一个 client 就是一个连接）。</para>
-    /// <para>长连接模式的消息推送为 集群模式，不支持广播，即如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
+    /// <para>长连接模式的消息推送为 集群模式，不支持广播。</para>
+    /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
     /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
     /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
     /// <para>务必注意：仅建议在测试环境使用长连接模式，不当使用则可能导致正式环境的事件消息被误收！！！</para>
@@ -160,6 +162,7 @@ namespace FeishuNetSdk.WebSocket
             var dataSegment = new ArraySegment<byte>(dataCopy);
             // 获取当前有效的取消令牌
             var cts = _messageProcessingCts;
+            //cts?.CancelAfter(3000);
             var cancellationToken = cts?.Token ?? CancellationToken.None;
             try
             {
@@ -175,35 +178,53 @@ namespace FeishuNetSdk.WebSocket
             }
         }
 
-        private async System.Threading.Tasks.Task ProcessMessageAsync(WatsonWsClient client, ArraySegment<byte> data, CancellationToken cancellationToken)
+        /// <summary>
+        /// 处理传入的 WebSocket 消息
+        /// </summary>
+        private async System.Threading.Tasks.Task ProcessMessageAsync(
+            WatsonWsClient client,
+            ArraySegment<byte> data,
+            CancellationToken cancellationToken)
         {
             cancellationToken.ThrowIfCancellationRequested();
-            // 反序列化消息帧
+
+            // 1. 反序列化消息帧 
             var frame = ProtoBuf.Serializer.Deserialize<Frame>(data.AsSpan());
-            if (frame == null)
+            if (frame?.Payload == null)
             {
                 if (logger.IsEnabled(LogLevel.Error))
                     logger.LogError("消息帧反序列化失败，数据长度：{Length}", data.Count);
                 return;
             }
-            // 处理业务逻辑
-            var inJson = frame.PayloadToJson() ?? throw new InvalidDataException("消息 payload 为空");
 
-            if (logger.IsEnabled(LogLevel.Debug))
-                logger.LogDebug("WSS收到的入参：{json}", inJson);
-
-            var result = await eventCallback.HandleAsync(inJson, cancellationToken);
-
-            if (!result.Success)
+            JsonNode jsonPayloadNode;
+            try
             {
-                if (logger.IsEnabled(LogLevel.Debug))
-                    logger.LogDebug("WSS收到的处理结果：{error}", result.Error);
+                jsonPayloadNode = JsonNode.Parse(frame.Payload.AsSpan())
+                    ?? throw new InvalidDataException();
+            }
+            catch (Exception ex) when (ex is JsonException || ex is InvalidDataException)
+            {
+                logger.LogError(ex, "WSS payload 解析为 JsonNode 失败");
                 return;
             }
 
-            var dto_string = JsonSerializer.Serialize(result.Dto, serializerOptions);
-            var dto_bytes = Encoding.UTF8.GetBytes(dto_string);
-            var dto_response_body = new { code = 200, data = result.Dto == null ? null : dto_bytes };
+            // 2. 业务处理
+            var result = await eventCallback.HandleAsync(jsonPayloadNode, cancellationToken);
+
+            if (result.Error is not null && logger.IsEnabled(LogLevel.Debug))
+            {
+                logger.LogDebug("WSS 错误信息：{error}", result.Error);
+            }
+
+            byte[]? dto_bytes = null;
+            if (result.Dto is not null)
+            {
+                var dto_string = JsonSerializer.Serialize(result.Dto, serializerOptions);
+                dto_bytes = Encoding.UTF8.GetBytes(dto_string);
+            }
+            var dto_response_body = new { code = 200, data = dto_bytes };
+
             // 构建响应消息
             var responseJson = JsonSerializer.Serialize(dto_response_body, serializerOptions);
 
@@ -218,18 +239,7 @@ namespace FeishuNetSdk.WebSocket
 
             if (messageStream.TryGetBuffer(out var arraySegment))
             {
-                try
-                {
-                    await client.SendAsync(arraySegment, System.Net.WebSockets.WebSocketMessageType.Binary, cancellationToken);
-                }
-                catch when (cancellationToken.IsCancellationRequested)
-                {
-                    logger.LogError("消息被取消发送");
-                }
-                catch (Exception ex)
-                {
-                    logger.LogError(ex, "发送响应消息时出现异常");
-                }
+                await client.SendAsync(arraySegment, System.Net.WebSockets.WebSocketMessageType.Binary, cancellationToken);
             }
         }
 
