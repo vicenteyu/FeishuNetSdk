@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-11-08
+// Last Modified On : 2025-12-05
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -22936,7 +22936,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7398376458043310083</para>
     /// <para>接口文档：https://open.feishu.cn/document/docs/board-v1/whiteboard/download_as_image</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取画板的缩略图片，响应数据为 Content-Type=image/png 的二进制图片流。</para>
+    /// <para>获取画板的缩略图片，响应数据为图片的二进制图片流。根据 Content-Type 值区图片格式：image/png、image/jpeg、image/gif、image/svg+xml。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>board:whiteboard:node:read</item>
     /// </list></para>
@@ -25547,6 +25547,327 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string whiteboard_id,
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】执行SQL</para>
+    /// <para>接口ID：7574027220335840199</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace/sql_commands</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>在工作空间下执行 SQL 语句</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.sql_commands:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/apaas/v1/workspaces/{workspace_id}/sql_commands")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1WorkspacesByWorkspaceIdSqlCommandsResponseDto>> PostApaasV1WorkspacesByWorkspaceIdSqlCommandsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [JsonContent] AppEngine.PostApaasV1WorkspacesByWorkspaceIdSqlCommandsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】查询数据表数据记录</para>
+    /// <para>接口ID：7574027220335856583</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/records_get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询数据表数据记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:read</item>
+    /// <item>app_engine:workspace.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名，可以从数据平台获取对应的数据表名。</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="select">
+    /// <para>必填：否</para>
+    /// <para>返回的列，默认为 *，即返回所有列。</para>
+    /// <para>遵循 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`</para>
+    /// <para>示例值：_id,_created_at,name</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：否</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`</para>
+    /// <para>- 示例：</para>
+    /// <para>查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。</para>
+    /// <para>示例值：age%3Dgt.10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="order">
+    /// <para>必填：否</para>
+    /// <para>排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。</para>
+    /// <para>尊许 PostgREST 语法，详情可查看</para>
+    /// <para>`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`</para>
+    /// <para>示例值：age.desc,score.asc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsResponseDto>> GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? select = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string? order = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】向数据表中添加或更新记录</para>
+    /// <para>接口ID：7574027220335872967</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/records_post</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>向数据表中添加或更新记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名，可以从数据平台获取对应的数据表名。</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="columns">
+    /// <para>必填：否</para>
+    /// <para>UPSERT 时使用，指定列，多列英文逗号拼接</para>
+    /// <para>示例值：name,age</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsResponseDto>> PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        [JsonContent] AppEngine.PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBodyDto dto,
+        [PathQuery] string? columns = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】按条件更新数据表中的记录</para>
+    /// <para>接口ID：7574027220335889351</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/records_patch</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>按条件更新数据表中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名，可以从数据平台获取对应的数据表名。</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：是</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`</para>
+    /// <para>此处用法和查询数据记录一致。</para>
+    /// <para>- 示例：查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。</para>
+    /// <para>示例值：age%3Dgt.10</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsResponseDto>> PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        [PathQuery] string filter,
+        [JsonContent] AppEngine.PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】批量更新数据表中的记录</para>
+    /// <para>接口ID：7574027220335905735</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/records_batch_update</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量更新数据表中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名，可以从数据平台获取对应的数据表名。</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}/records_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBatchUpdateResponseDto>> PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBatchUpdateAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        [JsonContent] AppEngine.PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBatchUpdateBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】删除数据表中的记录</para>
+    /// <para>接口ID：7574027220335922119</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/records_delete</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>删除数据表中的记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名，可以从数据平台获取对应的数据表名。</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：是</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`</para>
+    /// <para>此处用法和查询数据记录一致。</para>
+    /// <para>- 示例：查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。</para>
+    /// <para>示例值：age%3Dgt.10</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        [PathQuery] string filter,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】查询视图数据记录</para>
+    /// <para>接口ID：7574027220335938503</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-view/views_get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询视图数据记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table.record:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 `https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage` 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="view_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>视图名称，可以从数据平台获取对应的视图名称。</para>
+    /// <para>示例值：view_name_1</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="select">
+    /// <para>必填：否</para>
+    /// <para>返回的列，默认为 *，即返回所有列。</para>
+    /// <para>遵循 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering`</para>
+    /// <para>示例值：_id,_created_at,name</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：否</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 `https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering`</para>
+    /// <para>- 示例：查找 student 表中 age 大于 10 的学生列表：age=gt.10, URLEncode 后拼在 filter 中。</para>
+    /// <para>示例值：age%3Dgt.10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="order">
+    /// <para>必填：否</para>
+    /// <para>排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。</para>
+    /// <para>尊许 PostgREST 语法，详情可查看</para>
+    /// <para>`https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering`</para>
+    /// <para>示例值：age.desc,score.asc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/views/{view_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdViewsByViewNameRecordsResponseDto>> GetApaasV1WorkspacesByWorkspaceIdViewsByViewNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string view_name,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? select = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string? order = null,
         CancellationToken cancellation_token = default);
 }
 

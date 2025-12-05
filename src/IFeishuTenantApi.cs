@@ -50064,7 +50064,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7398376458043310083</para>
     /// <para>接口文档：https://open.feishu.cn/document/docs/board-v1/whiteboard/download_as_image</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取画板的缩略图片，响应数据为 Content-Type=image/png 的二进制图片流。</para>
+    /// <para>获取画板的缩略图片，响应数据为图片的二进制图片流。根据 Content-Type 值区图片格式：image/png、image/jpeg、image/gif、image/svg+xml。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>board:whiteboard:node:read</item>
     /// </list></para>
@@ -51081,7 +51081,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7413697955198074884</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/get-candidates/agency/batch_query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>可根据猎头供应商 ID 列表或关键字、筛选项查询供应商信息。</para>
+    /// <para>可根据猎头供应商 ID 列表或关键字、筛选项查询供应商信息。暂不支持获取【邀请中】的供应商列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:agency</item>
     /// <item>hire:agency:readonly</item>

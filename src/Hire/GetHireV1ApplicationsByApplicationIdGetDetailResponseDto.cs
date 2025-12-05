@@ -530,7 +530,7 @@ public record GetHireV1ApplicationsByApplicationIdGetDetailResponseDto
             /// <summary>
             /// <para>投递创建者 ID，与入参 `user_id_type` 类型一致</para>
             /// <para>**注意**：</para>
-            /// <para>仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递）</para>
+            /// <para>仅当投递创建人为企业内部员工时可获取（如员工手动上传简历 / 加入职位 / 内推），其余情况返回为空（如候选人主动投递。当投递创建者是外部租户，user_id_type默认为lark_id</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_ce613028fe74745421f5dc320bb9c709</para>
             /// </summary>
@@ -1963,14 +1963,14 @@ public record GetHireV1ApplicationsByApplicationIdGetDetailResponseDto
         }
 
         /// <summary>
-        /// <para>投递 Offer 信息</para>
+        /// <para>投递 Offer 信息（正式offer）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("offer")]
         public OfferInfoV2? Offer { get; set; }
 
         /// <summary>
-        /// <para>投递 Offer 信息</para>
+        /// <para>投递 Offer 信息（正式offer）</para>
         /// </summary>
         public record OfferInfoV2
         {

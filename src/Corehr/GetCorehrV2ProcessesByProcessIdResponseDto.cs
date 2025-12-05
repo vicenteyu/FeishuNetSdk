@@ -227,7 +227,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
     public record ProcessTodoItem
     {
         /// <summary>
-        /// <para>单据ID</para>
+        /// <para>单据ID,注意单据id和operator_id并不是一对一的</para>
         /// <para>必填：否</para>
         /// <para>示例值：7278949005675988535</para>
         /// </summary>
@@ -284,7 +284,7 @@ public record GetCorehrV2ProcessesByProcessIdResponseDto
         }
 
         /// <summary>
-        /// <para>操作人ID</para>
+        /// <para>待办人ID，每个节点下待办人标识唯一</para>
         /// <para>必填：否</para>
         /// <para>示例值：7124991993901827628</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-07-02
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-02
+// Last Modified On : 2025-12-05
 // ************************************************************************
 // <copyright file="PostPerformanceV2ReviewTemplatesQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -116,6 +116,14 @@ public record PostPerformanceV2ReviewTemplatesQueryResponseDto : IPageableRespon
             /// </summary>
             [JsonPropertyName("review_stage_role")]
             public string? ReviewStageRole { get; set; }
+
+            /// <summary>
+            /// <para>评估型环节评估模式</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：cooperate,independent</para>
+            /// </summary>
+            [JsonPropertyName("review_stage_data_write_mode")]
+            public string? ReviewStageDataWriteMode { get; set; }
         }
 
         /// <summary>

@@ -48,7 +48,9 @@ public class Test_PostCompensationV1LumpSumPaymentBatchUpdateBodyDto : TestBase
                     "issuance_country_region_id": "6862995757234914824",
                     "issuance_pay_group_id": "6862995757234914824"
                 }
-            ]
+            ],
+            "binding_period_decimal": "12",
+            "operation_source": "apaas_spot"
         }
     ]
 }

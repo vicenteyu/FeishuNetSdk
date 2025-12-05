@@ -1041,7 +1041,7 @@
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
 <tr><td rowspan="2">521</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">522</td><td rowspan="2">2025-09-18</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">522</td><td rowspan="2">2025-12-03</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 <tr><td rowspan="2">523</td><td rowspan="2">2025-08-13</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
@@ -1273,6 +1273,20 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
-<tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>新增</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
+<tr><td rowspan="2">639</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>执行SQL</td></tr>
+<tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdSqlCommands</td></tr>
+<tr><td rowspan="2">640</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>查询数据表数据记录</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">641</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>向数据表中添加或更新记录</td></tr>
+<tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">642</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>按条件更新数据表中的记录</td></tr>
+<tr><td colspan="3">PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">643</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>批量更新数据表中的记录</td></tr>
+<tr><td colspan="3">PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBatchUpdate</td></tr>
+<tr><td rowspan="2">644</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>删除数据表中的记录</td></tr>
+<tr><td colspan="3">DeleteApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">645</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>查询视图数据记录</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdViewsByViewNameRecords</td></tr>
 </tbody></table>

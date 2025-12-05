@@ -40,7 +40,8 @@ public class Test_PostPerformanceV2ReviewTemplatesQueryResponseDto : TestBase
                             "en_us": "Interactive experience"
                         },
                         "stage_type": "leader_review",
-                        "review_stage_role": "reviewee"
+                        "review_stage_role": "reviewee",
+                        "review_stage_data_write_mode": "cooperate,independent"
                     }
                 ],
                 "units": [

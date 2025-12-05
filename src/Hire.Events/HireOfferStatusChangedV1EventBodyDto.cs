@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire.Events;
 /// <summary>
 /// Offer 状态变更 事件体
-/// <para>当 Offer 状态发生变更时发送该事件。除 Offer 创建时不会发送以外，其它 Offer 状态变更均会发送事件，Offer 状态变更场景可参考「Offer 状态流转图」。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=hire&amp;version=v1&amp;resource=offer&amp;event=status_changed)</para>
+/// <para>当 Offer 状态发生变更时发送该事件。除 Offer 创建时不会发送以外，其它 Offer 状态变更均会发送事件，Offer 状态变更场景可参考「Offer 状态流转图」。注意：仅推送正式 Offer 的状态变更信息，实习 Offer 相关状态不推送。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=hire&amp;version=v1&amp;resource=offer&amp;event=status_changed)</para>
 /// <para>接口ID：7143809848869683203</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/candidate-management/delivery-process-management/offer/events/status_changed</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2foffer%2fevents%2fstatus_changed</para>

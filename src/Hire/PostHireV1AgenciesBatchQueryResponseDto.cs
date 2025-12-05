@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 搜索猎头供应商列表 响应体
-/// <para>可根据猎头供应商 ID 列表或关键字、筛选项查询供应商信息。</para>
+/// <para>可根据猎头供应商 ID 列表或关键字、筛选项查询供应商信息。暂不支持获取【邀请中】的供应商列表。</para>
 /// <para>接口ID：7413697955198074884</para>
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/get-candidates/agency/batch_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fagency%2fbatch_query</para>

@@ -88,6 +88,7 @@ public record PostCompensationV1LumpSumPaymentBatchUpdateResponseDto
         /// <item>21270228："This bonus does not currently support custom binding periods. Please configure and write according to the rules for the binding period of the salary item" 该奖金暂不支持自定义绑定期，请按照薪酬项绑定期规则配置写入</item>
         /// <item>21270229："The application issuance date must not be later than the issuance date" 申请发放日期不得晚于发放日期</item>
         /// <item>21270230："The application payment date format of the bonus details is incorrect" 奖金明细的申请发放日期格式不正确</item>
+        /// <item>21270070："The binding period and the ownership period start and end dates do not match" 绑定期和所属期开始结束日期不匹配</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("code")]
