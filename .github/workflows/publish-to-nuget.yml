@@ -39,7 +39,7 @@ jobs:
 
       - name: Run tests
         # 使用 --no-build 确保测试是针对上一步构建的产物运行
-        run: dotnet test ${{ env.PROJECT_PATH }} --configuration Release --no-build --verbosity normal
+        run: dotnet test ${{ env.PROJECT_PATH }} --configuration Release --verbosity normal
 
   # ------------------------------------------------------------------
   # 阶段二：打包 (Pack) 和 发布 (Publish) - 在一个独立且干净的虚拟机上运行
