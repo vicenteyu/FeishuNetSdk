@@ -4,7 +4,7 @@
 // Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2025-12-05
 // ************************************************************************
 // <copyright file="PostCompensationV1LumpSumPaymentBatchUpdateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -217,5 +217,25 @@ public record PostCompensationV1LumpSumPaymentBatchUpdateBodyDto
             [JsonPropertyName("issuance_pay_group_id")]
             public string? IssuancePayGroupId { get; set; }
         }
+
+        /// <summary>
+        /// <para>绑定期带小数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：12</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("binding_period_decimal")]
+        public string? BindingPeriodDecimal { get; set; }
+
+        /// <summary>
+        /// <para>操作来源</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：apaas_spot</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("operation_source")]
+        public string? OperationSource { get; set; }
     }
 }

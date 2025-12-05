@@ -692,7 +692,7 @@ public record GetHireV1OffersByOfferIdResponseDto
         public string? SchemaId { get; set; }
 
         /// <summary>
-        /// <para>Offer 状态</para>
+        /// <para>Offer 状态，注意：除标注「仅实习 Offer 适用」的状态外，其余状态对「实习 Offer」与「正式 Offer」通用</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">

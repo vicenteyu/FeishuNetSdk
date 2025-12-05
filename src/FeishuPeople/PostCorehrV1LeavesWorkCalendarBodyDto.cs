@@ -144,7 +144,7 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
             /// <summary>
             /// <para>是否按照枚举类型 value_order 排序</para>
             /// <para>必填：否</para>
-            /// <para>示例值：false</para>
+            /// <para>示例值：true</para>
             /// </summary>
             [JsonPropertyName("sort_by_enum_value_order")]
             public bool? SortByEnumValueOrder { get; set; }
@@ -152,7 +152,7 @@ public record PostCorehrV1LeavesWorkCalendarBodyDto
     }
 
     /// <summary>
-    /// <para>是否只返回启用的工作日历，不填默认true</para>
+    /// <para>是否只返回启用的工作日历。（暂不支持，目前只返回启用状态的工作日历）</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// <para>默认值：true</para>

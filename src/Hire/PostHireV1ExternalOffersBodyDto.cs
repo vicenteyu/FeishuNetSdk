@@ -67,7 +67,7 @@ public record PostHireV1ExternalOffersBodyDto
     /// <para>Offer 详情附件 ID 列表，可通过[创建附件](https://open.feishu.cn/document/ukTMukTMukTM/uIDN1YjLyQTN24iM0UjN/create_attachment)</para>
     /// <para>接口返回</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：10</para>
+    /// <para>最大长度：20</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("attachment_id_list")]

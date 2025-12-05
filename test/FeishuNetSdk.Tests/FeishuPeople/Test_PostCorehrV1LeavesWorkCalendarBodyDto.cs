@@ -28,7 +28,7 @@ public class Test_PostCorehrV1LeavesWorkCalendarBodyDto : TestBase
         var json = """
 {
     "wk_calendar_ids": [
-        "7136914415957591596"
+        "71369144159575915967136914415957591596"
     ],
     "wk_calendar_id_gt": "7136914415957591596",
     "wk_option": {
@@ -42,7 +42,7 @@ public class Test_PostCorehrV1LeavesWorkCalendarBodyDto : TestBase
                 "sort_i18n": 1,
                 "sort_by_strand_length": false,
                 "sort_by_pinyin": false,
-                "sort_by_enum_value_order": false
+                "sort_by_enum_value_order": true
             }
         ]
     },

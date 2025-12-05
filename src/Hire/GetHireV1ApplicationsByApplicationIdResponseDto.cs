@@ -138,7 +138,7 @@ public record GetHireV1ApplicationsByApplicationIdResponseDto
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>可选值：<list type="bullet">
-        /// <item>1：HR寻访</item>
+        /// <item>1：HR 寻访</item>
         /// <item>2：候选人主动投递</item>
         /// </list></para>
         /// </summary>
