@@ -44,7 +44,7 @@ public record PostCorehrV1LocationsBodyDto
 
         /// <summary>
         /// <para>地点名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- 地点中英文名称会有全局唯一校验</para>
         /// <para>必填：是</para>
         /// </summary>
@@ -53,7 +53,7 @@ public record PostCorehrV1LocationsBodyDto
 
         /// <summary>
         /// <para>地点名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- 地点中英文名称会有全局唯一校验</para>
         /// </summary>
         public record I18n
@@ -103,14 +103,14 @@ public record PostCorehrV1LocationsBodyDto
     }
 
     /// <summary>
-    /// <para>地点用途</para>
+    /// <para>地点用途(当地点用途是"工作地点"时，地址必填)</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("location_usage_list")]
     public Enum[]? LocationUsageLists { get; set; }
 
     /// <summary>
-    /// <para>地点用途</para>
+    /// <para>地点用途(当地点用途是"工作地点"时，地址必填)</para>
     /// </summary>
     public record Enum
     {

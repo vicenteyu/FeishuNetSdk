@@ -63,6 +63,7 @@ public record PatchCorehrV2JobGradesByJobGradeIdBodyDto
 
         /// <summary>
         /// <para>文本内容</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：中文示例</para>
         /// </summary>

@@ -150,7 +150,7 @@ public record PostCorehrV1DepartmentsResponseDto
 
                 /// <summary>
                 /// <para>名称信息的内容，支持中文和英文。填写规范</para>
-                /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+                /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
                 /// <para>- 同一个上级部门的启用的部门名称不允许重复</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：张三</para>

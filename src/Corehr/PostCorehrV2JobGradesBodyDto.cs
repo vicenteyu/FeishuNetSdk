@@ -41,6 +41,7 @@ public record PostCorehrV2JobGradesBodyDto
 
     /// <summary>
     /// <para>名称</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」、「'」字符</para>
     /// <para>必填：是</para>
     /// <para>最大长度：2</para>
     /// <para>最小长度：0</para>
@@ -50,6 +51,7 @@ public record PostCorehrV2JobGradesBodyDto
 
     /// <summary>
     /// <para>名称</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」、「'」字符</para>
     /// </summary>
     public record I18n
     {

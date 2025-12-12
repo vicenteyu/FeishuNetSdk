@@ -89,7 +89,7 @@ public record PatchCorehrV2DepartmentsByDepartmentIdBodyDto
 
         /// <summary>
         /// <para>部门名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- 中英文名称会有重名校验规则（依赖租户配置规则）</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -98,7 +98,7 @@ public record PatchCorehrV2DepartmentsByDepartmentIdBodyDto
 
         /// <summary>
         /// <para>部门名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- 中英文名称会有重名校验规则（依赖租户配置规则）</para>
         /// </summary>
         public record I18n

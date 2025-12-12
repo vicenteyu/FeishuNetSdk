@@ -54,7 +54,8 @@ public record PostCorehrV2PositionsBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>支持 zh-CN 和 en-US，最大长度为 255 字符</para>
+        /// <para>- 支持 zh-CN 和 en-US，最大长度为 255 字符</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：高级产品经理</para>
         /// </summary>

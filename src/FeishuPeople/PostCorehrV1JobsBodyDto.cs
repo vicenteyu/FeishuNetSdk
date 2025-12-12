@@ -34,7 +34,7 @@ public record PostCorehrV1JobsBodyDto
 
     /// <summary>
     /// <para>职务名称</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>- 每个name元素必须包含lang和value参数，表明对应语言下具体的name值</para>
     /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>
@@ -45,7 +45,7 @@ public record PostCorehrV1JobsBodyDto
 
     /// <summary>
     /// <para>职务名称</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- 职务中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>- 每个name元素必须包含lang和value参数，表明对应语言下具体的name值</para>
     /// <para>- 目前name最大元素个数为2，仅支持中、英文</para>

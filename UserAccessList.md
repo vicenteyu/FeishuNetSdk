@@ -303,7 +303,7 @@
 <tr><td colspan="3">DeleteCalendarV4CalendarsByCalendarId</td></tr>
 <tr><td rowspan="2">152</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimary</td></tr>
-<tr><td rowspan="2">153</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">153</td><td rowspan="2">2025-12-12</td><td>&#10003;</td><td>日历</td><td>查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyList</td></tr>
 <tr><td rowspan="2">154</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日历信息</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarId</td></tr>
@@ -963,7 +963,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td><span style="color:red;">删除</span></td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2025-12-11</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">484</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
@@ -1075,9 +1075,9 @@
 <tr><td colspan="3">GetDocsV1Content</td></tr>
 <tr><td rowspan="2">538</td><td rowspan="2">2024-11-21</td><td>&#10003;</td><td>考勤打卡</td><td>查询考勤组下所有成员</td></tr>
 <tr><td colspan="3">GetAttendanceV1GroupsByGroupIdListUser</td></tr>
-<tr><td rowspan="2">539</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取面试评价详细信息（新版）</td></tr>
+<tr><td rowspan="2">539</td><td rowspan="2">2025-12-11</td><td>&#10003;</td><td>招聘</td><td>获取面试评价详细信息（新版）</td></tr>
 <tr><td colspan="3">GetHireV2InterviewRecordsByInterviewRecordId</td></tr>
-<tr><td rowspan="2">540</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>批量获取面试评价详细信息（新版）</td></tr>
+<tr><td rowspan="2">540</td><td rowspan="2">2025-12-11</td><td>&#10003;</td><td>招聘</td><td>批量获取面试评价详细信息（新版）</td></tr>
 <tr><td colspan="3">GetHireV2InterviewRecords</td></tr>
 <tr><td rowspan="2">541</td><td rowspan="2">2025-02-28</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreateTemp</td></tr>
@@ -1249,7 +1249,7 @@
 <tr><td colspan="3">PostDirectoryV1DepartmentsIdconvert</td></tr>
 <tr><td rowspan="2">625</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>Markdown/HTML 内容转换为文档块</td></tr>
 <tr><td colspan="3">PostDocxDocumentsBlocksConvert</td></tr>
-<tr><td rowspan="2">626</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
+<tr><td rowspan="2">626</td><td rowspan="2">2025-12-12</td><td>&#10003;</td><td>Payroll</td><td>查询成本分摊报表明细</td></tr>
 <tr><td colspan="3">GetPayrollV1CostAllocationDetails</td></tr>
 <tr><td rowspan="2">627</td><td rowspan="2">2025-07-24</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查看应用基本信息</td></tr>
 <tr><td colspan="3">GetApaasV1Apps</td></tr>
@@ -1257,7 +1257,7 @@
 <tr><td colspan="3">GetHireV1PortalApplySchemas</td></tr>
 <tr><td rowspan="2">629</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量获取主日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsPrimarys</td></tr>
-<tr><td rowspan="2">630</td><td rowspan="2">2025-09-02</td><td>&#10003;</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
+<tr><td rowspan="2">630</td><td rowspan="2">2025-12-12</td><td>&#10003;</td><td>日历</td><td>批量查询主日历日程忙闲信息</td></tr>
 <tr><td colspan="3">PostCalendarV4FreebusyBatch</td></tr>
 <tr><td rowspan="2">631</td><td rowspan="2">2025-09-04</td><td>&#10003;</td><td>日历</td><td>批量查询日历信息</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
@@ -1275,18 +1275,18 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
 <tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
-<tr><td rowspan="2">639</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>执行SQL</td></tr>
+<tr><td rowspan="2">639</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>执行SQL</td></tr>
 <tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdSqlCommands</td></tr>
-<tr><td rowspan="2">640</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>查询数据表数据记录</td></tr>
+<tr><td rowspan="2">640</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询数据表数据记录</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
-<tr><td rowspan="2">641</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>向数据表中添加或更新记录</td></tr>
+<tr><td rowspan="2">641</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>向数据表中添加或更新记录</td></tr>
 <tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
-<tr><td rowspan="2">642</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>按条件更新数据表中的记录</td></tr>
+<tr><td rowspan="2">642</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>按条件更新数据表中的记录</td></tr>
 <tr><td colspan="3">PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
-<tr><td rowspan="2">643</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>批量更新数据表中的记录</td></tr>
+<tr><td rowspan="2">643</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>批量更新数据表中的记录</td></tr>
 <tr><td colspan="3">PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">644</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>删除数据表中的记录</td></tr>
+<tr><td rowspan="2">644</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>删除数据表中的记录</td></tr>
 <tr><td colspan="3">DeleteApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
-<tr><td rowspan="2">645</td><td rowspan="2">2025-12-01</td><td>新增</td><td>飞书 aPaaS</td><td>查询视图数据记录</td></tr>
+<tr><td rowspan="2">645</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询视图数据记录</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdViewsByViewNameRecords</td></tr>
 </tbody></table>

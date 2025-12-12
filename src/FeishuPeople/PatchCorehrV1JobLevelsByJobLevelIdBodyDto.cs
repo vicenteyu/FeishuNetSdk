@@ -67,6 +67,7 @@ public record PatchCorehrV1JobLevelsByJobLevelIdBodyDto
         /// <summary>
         /// <para>名称信息的内容</para>
         /// <para>- 最小1字符，最大200字符</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：P5</para>
         /// </summary>

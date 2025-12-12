@@ -35,7 +35,8 @@ public class Test_PostCalendarV4FreebusyBatchResponseDto : TestBase
                 "freebusy_items": [
                     {
                         "start_time": "2020-10-28T22:30:00+08:00",
-                        "end_time": "2020-10-28T22:45:00+08:00"
+                        "end_time": "2020-10-28T22:45:00+08:00",
+                        "rsvp_status": "needs_action"
                     }
                 ],
                 "user_id": "ou_c186b6833e2d5faf2bc587e71ddabcef"

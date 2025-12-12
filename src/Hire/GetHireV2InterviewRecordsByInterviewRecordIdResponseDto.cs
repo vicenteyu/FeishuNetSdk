@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取面试评价详细信息（新版） 响应体
-/// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
+/// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息（含模块评价）。</para>
 /// <para>接口ID：7356428725080358914</para>
 /// <para>文档地址：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/interview/get-3</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fhire-v2%2finterview_record%2fget</para>

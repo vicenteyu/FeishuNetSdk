@@ -45,7 +45,7 @@ public record PatchCorehrV1JobFamiliesByJobFamilyIdBodyDto
 
         /// <summary>
         /// <para>序列名称。最小1字符，最大200字符</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- 序列中英文名称会有全局唯一校验</para>
         /// <para>- 语言需与lang参数的取值一致</para>
         /// <para>必填：是</para>

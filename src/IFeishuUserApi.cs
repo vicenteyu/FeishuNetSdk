@@ -21158,7 +21158,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7356428725080358914</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/interview/get-3</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
+    /// <para>获取面试评价详细信息，如面试结论、面试得分和面试官等信息（含模块评价）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>
@@ -21198,7 +21198,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7356428725080375298</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/interview/list-4</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>批量获取面试评价详细信息，如面试结论、面试得分和面试官等信息。</para>
+    /// <para>批量获取面试评价详细信息，如面试结论、面试得分和面试官等信息（含模块评价）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:interview</item>
     /// <item>hire:interview:readonly</item>

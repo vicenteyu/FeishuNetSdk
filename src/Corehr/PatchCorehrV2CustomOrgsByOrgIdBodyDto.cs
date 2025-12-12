@@ -34,7 +34,7 @@ public record PatchCorehrV2CustomOrgsByOrgIdBodyDto
     /// <summary>
     /// <para>组织名称</para>
     /// <para>- 相同上级的自定义组织中英文名称不允许重复。</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：5</para>
     /// <para>最小长度：0</para>
@@ -45,7 +45,7 @@ public record PatchCorehrV2CustomOrgsByOrgIdBodyDto
     /// <summary>
     /// <para>组织名称</para>
     /// <para>- 相同上级的自定义组织中英文名称不允许重复。</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
     /// </summary>
     public record I18n
     {
