@@ -33,7 +33,8 @@ public class Test_PostCalendarV4FreebusyBatchBodyDto : TestBase
         "ou_c186b6833e2d5faf2bc587e71ddabcef"
     ],
     "include_external_calendar": true,
-    "only_busy": true
+    "only_busy": true,
+    "need_rsvp_status": true
 }
 """;
         var result = Deserialize<FeishuNetSdk.Calendar.PostCalendarV4FreebusyBatchBodyDto>(json);

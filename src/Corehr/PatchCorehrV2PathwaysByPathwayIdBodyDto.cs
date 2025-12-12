@@ -52,7 +52,8 @@ public record PatchCorehrV2PathwaysByPathwayIdBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>文本内容，最长支持255个字符</para>
+        /// <para>- 文本内容，最长支持255个字符</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
         /// <para>必填：是</para>
         /// <para>示例值：中文示例</para>
         /// </summary>

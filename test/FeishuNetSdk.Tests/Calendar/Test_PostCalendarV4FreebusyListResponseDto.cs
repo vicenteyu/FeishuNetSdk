@@ -33,7 +33,8 @@ public class Test_PostCalendarV4FreebusyListResponseDto : TestBase
         "freebusy_list": [
             {
                 "start_time": "2020-10-28T22:30:00+08:00",
-                "end_time": "2020-10-28T22:45:00+08:00"
+                "end_time": "2020-10-28T22:45:00+08:00",
+                "rsvp_status": "needs_action"
             }
         ]
     }

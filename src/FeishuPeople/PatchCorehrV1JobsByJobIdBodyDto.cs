@@ -32,7 +32,7 @@ public record PatchCorehrV1JobsByJobIdBodyDto
 
     /// <summary>
     /// <para>职务名称。注意事项：</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- xx中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>- 不传值时默认不更新此字段，保持原值</para>
     /// <para>- 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供</para>
@@ -43,7 +43,7 @@ public record PatchCorehrV1JobsByJobIdBodyDto
 
     /// <summary>
     /// <para>职务名称。注意事项：</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- xx中英文名称会有全局唯一校验（已停用职务也会校验）</para>
     /// <para>- 不传值时默认不更新此字段，保持原值</para>
     /// <para>- 包含lang（语言）和value（序列名称）两个子参数，更新时需同时提供</para>

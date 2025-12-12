@@ -48,7 +48,7 @@ public record PostCorehrV1JobFamiliesBodyDto
 
         /// <summary>
         /// <para>名称信息的内容，注意事项：</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
         /// <para>- 序列中英文名称会有全局唯一校验</para>
         /// <para>- 最小1字符，最大200字符</para>
         /// <para>- 必须与 lang 字段同时传入</para>

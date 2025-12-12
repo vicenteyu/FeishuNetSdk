@@ -43,7 +43,7 @@ public record PostCorehrV1CompaniesBodyDto
 
         /// <summary>
         /// <para>公司名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- xx中英文名称会有全局唯一校验</para>
         /// <para>必填：是</para>
         /// </summary>
@@ -52,7 +52,7 @@ public record PostCorehrV1CompaniesBodyDto
 
         /// <summary>
         /// <para>公司名称</para>
-        /// <para>- 名称不能包含「/」「；」「;」字符。</para>
+        /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符。</para>
         /// <para>- xx中英文名称会有全局唯一校验</para>
         /// </summary>
         public record I18n

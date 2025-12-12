@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2025-12-12
 // ************************************************************************
 // <copyright file="PostCalendarV4FreebusyListBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -78,4 +78,12 @@ public record PostCalendarV4FreebusyListBodyDto
     /// </summary>
     [JsonPropertyName("only_busy")]
     public bool? OnlyBusy { get; set; }
+
+    /// <summary>
+    /// <para>是否需要RSVP状态信息</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("need_rsvp_status")]
+    public bool? NeedRsvpStatus { get; set; }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-11-03
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-03
+// Last Modified On : 2025-12-12
 // ************************************************************************
 // <copyright file="PatchCorehrV2LocationsByLocationIdAddressesByAddressIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -56,6 +56,78 @@ public record PatchCorehrV2LocationsByLocationIdAddressesByAddressIdBodyDto
     /// </summary>
     [JsonPropertyName("distinct_id")]
     public string? DistinctId { get; set; }
+
+    /// <summary>
+    /// <para>地址行 1</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：丹佛测试地址-纽埃时区</para>
+    /// </summary>
+    [JsonPropertyName("address_line1")]
+    public string? AddressLine1 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 2</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：PoewH</para>
+    /// </summary>
+    [JsonPropertyName("address_line2")]
+    public string? AddressLine2 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 3</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：PoewH</para>
+    /// </summary>
+    [JsonPropertyName("address_line3")]
+    public string? AddressLine3 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 4</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：jmwJc</para>
+    /// </summary>
+    [JsonPropertyName("address_line4")]
+    public string? AddressLine4 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 5</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：jmwJc</para>
+    /// </summary>
+    [JsonPropertyName("address_line5")]
+    public string? AddressLine5 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 6</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：jmwJc</para>
+    /// </summary>
+    [JsonPropertyName("address_line6")]
+    public string? AddressLine6 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 7</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：jmwJc</para>
+    /// </summary>
+    [JsonPropertyName("address_line7")]
+    public string? AddressLine7 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 8</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：rafSu</para>
+    /// </summary>
+    [JsonPropertyName("address_line8")]
+    public string? AddressLine8 { get; set; }
+
+    /// <summary>
+    /// <para>地址行 9</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：McPRG</para>
+    /// </summary>
+    [JsonPropertyName("address_line9")]
+    public string? AddressLine9 { get; set; }
 
     /// <summary>
     /// <para>地址行 1（非拉丁语系的本地文字）</para>

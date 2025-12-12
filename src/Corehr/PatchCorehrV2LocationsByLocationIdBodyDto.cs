@@ -31,7 +31,7 @@ public record PatchCorehrV2LocationsByLocationIdBodyDto
 
     /// <summary>
     /// <para>地点名称</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- 地点中英文名称会有全局唯一校验</para>
     /// <para>必填：否</para>
     /// <para>最大长度：5</para>
@@ -42,7 +42,7 @@ public record PatchCorehrV2LocationsByLocationIdBodyDto
 
     /// <summary>
     /// <para>地点名称</para>
-    /// <para>- 名称不能包含「/」「；」「;」字符</para>
+    /// <para>- 名称不能包含「/」「；」「;」「\」「'」字符</para>
     /// <para>- 地点中英文名称会有全局唯一校验</para>
     /// </summary>
     public record I18n

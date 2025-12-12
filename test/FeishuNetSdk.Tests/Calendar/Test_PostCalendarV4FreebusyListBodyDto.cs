@@ -32,7 +32,8 @@ public class Test_PostCalendarV4FreebusyListBodyDto : TestBase
     "user_id": "ou_xxxxxxxxxx",
     "room_id": "omm_xxxxxxxxxx",
     "include_external_calendar": true,
-    "only_busy": true
+    "only_busy": true,
+    "need_rsvp_status": true
 }
 """;
         var result = Deserialize<FeishuNetSdk.Calendar.PostCalendarV4FreebusyListBodyDto>(json);
