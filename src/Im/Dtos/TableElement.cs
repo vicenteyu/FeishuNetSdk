@@ -4,7 +4,7 @@
 // Created          : 2024-06-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2025-12-25
 // ************************************************************************
 // <copyright file="TableElement.cs" company="Vicente Yu">
 //     MIT
@@ -127,12 +127,32 @@ namespace FeishuNetSdk.Im.Dtos
         /// </list>
         /// </param>
         /// <param name="Format">该字段仅当 data_type 为 number 时生效，你可以在该字段内选择设置小数点位数、货币单位以及千分位样式。</param>
+        /// <param name="DateFormat">该字段仅当 data_type 为 date 时生效。你可按需选择以下日期时间占位符，并使用任意分隔符组合。
+        /// <list type="bullet">
+        /// <item>YYYY：年</item>
+        /// <item>MM：月</item>
+        /// <item>DD：日</item>
+        /// <item>HH：小时</item>
+        /// <item>mm：分钟</item>
+        /// <item>ss：秒</item>
+        /// </list>
+        /// 推荐使用以下日期格式。默认按 RFC 3339 标准格式展示日期时间。
+        /// <list type="bullet">
+        /// <item>YYYY/MM/DD</item>
+        /// <item>YYYY/MM/DD HH:mm</item>
+        /// <item>YYYY-MM-DD</item>
+        /// <item>YYYY-MM-DD HH:mm</item>
+        /// <item>DD/MM/YYYY</item>
+        /// <item>MM/DD/YYYY</item>
+        /// </list>
+        /// </param>
         public record Column([property: JsonPropertyName("name")] string Name = "",
             [property: JsonPropertyName("data_type")] string DataType = "",
             [property: JsonPropertyName("display_name")] string? DisplayName = null,
             [property: JsonPropertyName("width")] string? Width = null,
             [property: JsonPropertyName("horizontal_align")] string? HorizontalAlign = null,
-            [property: JsonPropertyName("format")] Column.FormatSuffix? Format = null)
+            [property: JsonPropertyName("format")] Column.FormatSuffix? Format = null,
+            [property: JsonPropertyName("date_format")] string? DateFormat = null)
         {
             /// <summary>
             /// 仅当 data_type 为 number 时生效，你可以在该字段内选择设置小数点位数、货币单位以及千分位样式。
