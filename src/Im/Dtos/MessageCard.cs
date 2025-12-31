@@ -14,8 +14,14 @@
 namespace FeishuNetSdk.Im.Dtos
 {
     /// <summary>
-    /// 消息卡片
+    /// 消息卡片对象，包括以下：
+    /// <list type="bullet">
+    /// <item>ElementsCardDto</item>
+    /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
+    /// </list>
     /// </summary>
     /// <param name="MessageType">消息类型固定为：interactive</param>
+
     public abstract record MessageCard([property: JsonIgnore] string MessageType = "interactive") : IHasMessageType;
 }

@@ -90,11 +90,8 @@ public static class DtoExtensions
     /// 设置消息卡片内容
     /// </summary>
     /// <param name="Dto">更新应用发送的消息卡片 请求体</param>
-    /// <param name="CardObject">消息卡片对象，包括以下：
-    /// <list type="bullet">
-    /// <item>ElementsCardDto</item>
-    /// <item>TemplateCardDto</item>
-    /// </list>
+    /// <param name="CardObject">
+    /// <inheritdoc cref="Im.Dtos.MessageCard" path="/summary"/>
     /// </param>
     public static Im.PatchImV1MessagesByMessageIdBodyDto SetCardObject(this Im.PatchImV1MessagesByMessageIdBodyDto Dto,
         Im.Dtos.MessageCard CardObject)
@@ -108,11 +105,8 @@ public static class DtoExtensions
     /// 设置消息类型及内容
     /// </summary>
     /// <param name="Dto">发送仅特定人可见的消息卡片 请求体</param>
-    /// <param name="CardObject">消息卡片对象，包括以下：
-    /// <list type="bullet">
-    /// <item>ElementsCardDto</item>
-    /// <item>TemplateCardDto</item>
-    /// </list>
+    /// <param name="CardObject">
+    /// <inheritdoc cref="Im.Dtos.MessageCard" path="/summary"/>
     /// </param>
     public static Im.Spec.PostEphemeralV1SendBodyDto SetCardObject(this Im.Spec.PostEphemeralV1SendBodyDto Dto,
         Im.Dtos.MessageCard CardObject)
@@ -141,6 +135,7 @@ public static class DtoExtensions
     /// <item>SystemDividerContent</item>
     /// <item>ElementsCardDto</item>
     /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
     /// </list>
     /// </param>
     private static string SerializeSingleReceiverContent(Im.Dtos.IHasMessageType CardOrContent)
@@ -170,6 +165,7 @@ public static class DtoExtensions
     /// <item>SystemDividerContent</item>
     /// <item>ElementsCardDto</item>
     /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
     /// </list>
     /// </param>
     public static Im.PostImV1MessagesBodyDto SetContent(this Im.PostImV1MessagesBodyDto Dto,
@@ -199,6 +195,7 @@ public static class DtoExtensions
     /// <item>SystemDividerContent</item>
     /// <item>ElementsCardDto</item>
     /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
     /// </list>
     /// </param>
     public static Im.PostImV1MessagesByMessageIdReplyBodyDto SetContent(this Im.PostImV1MessagesByMessageIdReplyBodyDto Dto,
@@ -228,6 +225,7 @@ public static class DtoExtensions
     /// <item>SystemDividerContent</item>
     /// <item>ElementsCardDto</item>
     /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
     /// </list>
     /// </param>
     public static Im.PutImV1MessagesByMessageIdBodyDto SetContent(this Im.PutImV1MessagesByMessageIdBodyDto Dto,
@@ -257,6 +255,7 @@ public static class DtoExtensions
     /// <item>SystemDividerContent</item>
     /// <item>ElementsCardDto</item>
     /// <item>TemplateCardDto</item>
+    /// <item>EntityCardDto</item>
     /// </list>
     /// </param>
     public static Im.Spec.PostMessageV4BatchSendBodyDto SetCardOrContent(this Im.Spec.PostMessageV4BatchSendBodyDto Dto,
