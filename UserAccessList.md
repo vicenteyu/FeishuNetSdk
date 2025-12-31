@@ -287,7 +287,7 @@
 <tr><td colspan="3">PostWikiV2SpacesBySpaceIdNodesMoveDocsToWiki</td></tr>
 <tr><td rowspan="2">144</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取任务结果</td></tr>
 <tr><td colspan="3">GetWikiV2TasksByTaskId</td></tr>
-<tr><td rowspan="2">145</td><td rowspan="2">2025-09-15</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
+<tr><td rowspan="2">145</td><td rowspan="2">2025-12-22</td><td>&#10003;</td><td>云文档</td><td>搜索 Wiki</td></tr>
 <tr><td colspan="3">PostWikiV2NodesSearch</td></tr>
 <tr><td rowspan="2">146</td><td rowspan="2">2023-12-29</td><td>&#10003;</td><td>云文档</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenSubscriptionsBySubscriptionId</td></tr>
@@ -1049,7 +1049,7 @@
 <tr><td colspan="3">GetMomentsV1PostsByPostId</td></tr>
 <tr><td rowspan="2">525</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>飞书人事</td><td>根据适用条件获取工作日历 ID</td></tr>
 <tr><td colspan="3">GetCorehrV1LeavesCalendarByScope</td></tr>
-<tr><td rowspan="2">526</td><td rowspan="2">2024-09-12</td><td>&#10003;</td><td>飞书人事</td><td>获取工作日历日期详情</td></tr>
+<tr><td rowspan="2">526</td><td rowspan="2">2025-12-22</td><td>&#10003;</td><td>飞书人事</td><td>获取工作日历日期详情</td></tr>
 <tr><td colspan="3">PostCorehrV1LeavesWorkCalendarDate</td></tr>
 <tr><td rowspan="2">527</td><td rowspan="2">2024-09-24</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询审计日志列表</td></tr>
 <tr><td colspan="3">GetApaasV1ApplicationsByNamespaceAuditLogAuditLogList</td></tr>
@@ -1279,7 +1279,7 @@
 <tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdSqlCommands</td></tr>
 <tr><td rowspan="2">640</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询数据表数据记录</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
-<tr><td rowspan="2">641</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>向数据表中添加或更新记录</td></tr>
+<tr><td rowspan="2">641</td><td rowspan="2">2025-12-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>向数据表中添加或更新记录</td></tr>
 <tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
 <tr><td rowspan="2">642</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>按条件更新数据表中的记录</td></tr>
 <tr><td colspan="3">PatchApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
@@ -1289,4 +1289,12 @@
 <tr><td colspan="3">DeleteApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecords</td></tr>
 <tr><td rowspan="2">645</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>查询视图数据记录</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdViewsByViewNameRecords</td></tr>
+<tr><td rowspan="2">646</td><td rowspan="2">2025-12-29</td><td>新增</td><td>飞书 aPaaS</td><td>获取自定义枚举详细信息</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnumsByEnumName</td></tr>
+<tr><td rowspan="2">647</td><td rowspan="2">2025-12-29</td><td>新增</td><td>飞书 aPaaS</td><td>获取工作空间下的数据表列表</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTables</td></tr>
+<tr><td rowspan="2">648</td><td rowspan="2">2025-12-29</td><td>新增</td><td>飞书 aPaaS</td><td>获取数据表详细信息</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableName</td></tr>
+<tr><td rowspan="2">649</td><td rowspan="2">2025-12-29</td><td>新增</td><td>飞书 aPaaS</td><td>获取工作空间下的自定义枚举列表</td></tr>
+<tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-12-05
+// Last Modified On : 2025-12-31
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -22965,6 +22965,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
+    /// <item>corehr:work_calendar:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -25675,6 +25676,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：name,age</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="on_conflict">
+    /// <para>必填：否</para>
+    /// <para>UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。</para>
+    /// <para>假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束。</para>
+    /// <para>示例值：user_id,product_id</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -25685,6 +25693,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string table_name,
         [JsonContent] AppEngine.PostApaasV1WorkspacesByWorkspaceIdTablesByTableNameRecordsBodyDto dto,
         [PathQuery] string? columns = null,
+        [PathQuery] string? on_conflict = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -25868,6 +25877,148 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? select = null,
         [PathQuery] string? filter = null,
         [PathQuery] string? order = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】获取自定义枚举详细信息</para>
+    /// <para>接口ID：7587254819413986517</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-enum/enum_get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取自定义枚举详细信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table:read</item>
+    /// <item>app_engine:workspace.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="enum_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>枚举名称</para>
+    /// <para>示例值：enum_demo_1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/enums/{enum_name}")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdEnumsByEnumNameResponseDto>> GetApaasV1WorkspacesByWorkspaceIdEnumsByEnumNameAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string enum_name,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】获取工作空间下的数据表列表</para>
+    /// <para>接口ID：7587254819414002901</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取工作空间下的数据表列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table:read</item>
+    /// <item>app_engine:workspace.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500。</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/tables")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdTablesResponseDto>> GetApaasV1WorkspacesByWorkspaceIdTablesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】获取数据表详细信息</para>
+    /// <para>接口ID：7587254819414019285</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-table/table_get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取数据表详细信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table:read</item>
+    /// <item>app_engine:workspace.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>数据表表名</para>
+    /// <para>示例值：table_name_1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/tables/{table_name}")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameResponseDto>> GetApaasV1WorkspacesByWorkspaceIdTablesByTableNameAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] string table_name,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aPaaS】获取工作空间下的自定义枚举列表</para>
+    /// <para>接口ID：7587254819414035669</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/workspace-enum/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取工作空间下的自定义枚举列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:workspace.table:read</item>
+    /// <item>app_engine:workspace.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="workspace_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>工作空间id，可以从数据平台的 URL 中获取，如 https://apaas.feishu.cn/suda/workspace/workspace_aadimx5uzpsls/table-manage/main?tableId=table_1846786627963081&amp;tab=objectManage 中的 workspace_aadimx5uzpsls 就是 workspace_id</para>
+    /// <para>示例值：workspace_aadimx5uzpsls</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/apaas/v1/workspaces/{workspace_id}/enums")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.GetApaasV1WorkspacesByWorkspaceIdEnumsResponseDto>> GetApaasV1WorkspacesByWorkspaceIdEnumsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string workspace_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 }
 
