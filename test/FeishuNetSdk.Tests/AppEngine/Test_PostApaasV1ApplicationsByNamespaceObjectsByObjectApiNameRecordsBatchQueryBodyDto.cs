@@ -42,7 +42,7 @@ public class Test_PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecord
                     "type": "constant",
                     "settings": "{\"data\":\"123456\"}"
                 },
-                "operator": "equal"
+                "operator": "equals"
             }
         ],
         "logic_expression": "1 and 2"

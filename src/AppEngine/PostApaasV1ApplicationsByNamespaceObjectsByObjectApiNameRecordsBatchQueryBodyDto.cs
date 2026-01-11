@@ -103,7 +103,7 @@ public record PostApaasV1ApplicationsByNamespaceObjectsByObjectApiNameRecordsBat
             /// <summary>
             /// <para>操作符</para>
             /// <para>必填：否</para>
-            /// <para>示例值：equal</para>
+            /// <para>示例值：equals</para>
             /// </summary>
             [JsonPropertyName("operator")]
             public string? Operator { get; set; }

@@ -40,8 +40,7 @@ public record PostCardkitV1CardsByCardIdElementsBodyDto
     /// <summary>
     /// <para>目标组件的 ID。 填写规则如下所示：</para>
     /// <para>- 当 `type` 为 `insert_before`、`insert_after` 时，字段必填，为用于定位的目标组件</para>
-    /// <para>- 当 `type` 为 `append` 时，该字段必填且仅支持容器类组件，为用于指定末尾添加的目标组件</para>
-    /// <para>- 未填写默认为在卡片 body 末尾添加</para>
+    /// <para>- 当 `type` 为 `append` 时，该字段仅支持容器类组件，用于指定在末尾添加的目标组件。若未填写，则默认在卡片 body 末尾添加</para>
     /// <para>必填：否</para>
     /// <para>示例值：markdown_1</para>
     /// <para>最大长度：20</para>
