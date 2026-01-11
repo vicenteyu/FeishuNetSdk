@@ -13,7 +13,7 @@ jobs:
     name: Build & Test (.NET 8/9/10)
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true # 关键：任何版本失败即熔断，不发布
+      fail-fast: true # 任何框架失败即停止发布
       matrix:
         dotnet-version: ['8.0.x', '9.0.x', '10.0.x']
 
@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-          cache: true
+          cache: true # 移除 cache-dependency-path，自动识别
 
       - name: Restore & Build
         run: |
@@ -35,7 +35,6 @@ jobs:
       - name: Run tests
         run: dotnet test ${{ env.PROJECT_PATH }} -c Release --no-build
 
-      # 仅在 .NET 10 节点生成全框架包
       - name: Pack
         if: matrix.dotnet-version == '10.0.x'
         run: |
@@ -57,7 +56,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # 获取历史记录以提取 Commit
+          fetch-depth: 0
 
       - name: Download Artifact
         uses: actions/download-artifact@v4
@@ -65,14 +64,12 @@ jobs:
           name: nuget-package
           path: ./nupkg
 
-      # 自动提取 Commit 记录并生成临时文件
-      - name: Generate Clean Commit Log
+      - name: Generate Commit Log
         run: |
-          echo "### 🔍 Commit History (Since last tag)" > auto_gen_log.txt
-          # 获取上一个 tag 到当前 tag 之间的 commit
-          # --no-merges: 剔除合并记录
-          # grep -ivE: 忽略大小写，剔除包含 bump 或 version 的记录
-          git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD --oneline --no-merges | grep -ivE "bump|version" >> auto_gen_log.txt || true
+          echo "### 📜 详细更新记录 (Raw Commits)" > auto_gen_log.txt
+          # 提取 commit，不使用 PR 分类，直接按时间线展示
+          git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD \
+            --no-merges --format="- %s" | grep -ivE "bump|version" >> auto_gen_log.txt || true
 
       - name: Push to NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
@@ -84,11 +81,8 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: ./nupkg/*.nupkg
-          # 组合：body = 手写的 changelog.md
           body_path: changelog.md
-          # 自动生成的记录会作为追记
-          append_body: true 
-          # 使用我们刚才清洗过的 commit log
+          append_body: true
           body: |
             
             $(cat auto_gen_log.txt)
