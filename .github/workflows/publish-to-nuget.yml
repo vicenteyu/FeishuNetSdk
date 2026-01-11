@@ -1,110 +1,97 @@
 name: Publish NuGet Package
 
-# 定义触发条件，当创建 Git 标签（如 v*）时触发
 on:
   push:
     tags:
       - 'v*'
 
-jobs:
-  # ------------------------------------------------------------------
-  # 阶段一：多目标编译 (Multi-Targeting Build) 和 测试 (Test)
-  # ------------------------------------------------------------------
-  build-and-test:
-    name: Build & Test on .NET ${{ matrix.dotnet-version }}
-    runs-on: ubuntu-latest
-    env:
-      PROJECT_PATH: src/FeishuNetSdk.csproj # 定义项目路径的环境变量
+env:
+  PROJECT_PATH: src/FeishuNetSdk.csproj
 
-    # 使用 matrix 策略来定义需要测试的 .NET 版本
+jobs:
+  build-and-test:
+    name: Build & Test (.NET 8/9/10)
+    runs-on: ubuntu-latest
     strategy:
+      fail-fast: true # 关键：任何版本失败即熔断，不发布
       matrix:
-        dotnet-version: ['8.0.x', '9.0.x', '10.0.x'] # 指定 .NET 版本
+        dotnet-version: ['8.0.x', '9.0.x', '10.0.x']
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # 设置当前 matrix 循环所需的 .NET SDK 版本
       - name: Setup .NET ${{ matrix.dotnet-version }}
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
+          cache: true
 
-      - name: Restore dependencies
-        run: dotnet restore ${{ env.PROJECT_PATH }}
-
-      - name: Build project in Release configuration
-        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release --no-restore
+      - name: Restore & Build
+        run: |
+          dotnet restore ${{ env.PROJECT_PATH }}
+          dotnet build ${{ env.PROJECT_PATH }} -c Release --no-restore
 
       - name: Run tests
-        # 使用 --no-build 确保测试是针对上一步构建的产物运行
-        run: dotnet test ${{ env.PROJECT_PATH }} --configuration Release --verbosity normal
+        run: dotnet test ${{ env.PROJECT_PATH }} -c Release --no-build
 
-  # ------------------------------------------------------------------
-  # 阶段二：打包 (Pack) 和 发布 (Publish) - 在一个独立且干净的虚拟机上运行
-  # ------------------------------------------------------------------
+      # 仅在 .NET 10 节点生成全框架包
+      - name: Pack
+        if: matrix.dotnet-version == '10.0.x'
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          dotnet pack ${{ env.PROJECT_PATH }} -c Release -p:PackageVersion=$VERSION -o ./nupkg
+
+      - name: Upload Artifact
+        if: matrix.dotnet-version == '10.0.x'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: ./nupkg/*.nupkg
+
   publish:
-    name: Pack & Publish NuGet
+    name: Publish NuGet & Release
+    needs: build-and-test
     runs-on: ubuntu-latest
-    needs: build-and-test # 依赖于 build-and-test Job 成功
-    env:
-      PROJECT_PATH: src/FeishuNetSdk.csproj # 定义项目路径的环境变量
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup .NET 10.0.x for publishing
-        uses: actions/setup-dotnet@v3
+        uses: actions/checkout@v4
         with:
-          dotnet-version: '10.0.x'
+          fetch-depth: 0 # 获取历史记录以提取 Commit
 
-      # 修复 #1: 还原依赖项，生成 project.assets.json
-      - name: Restore dependencies for Pack
-        run: dotnet restore ${{ env.PROJECT_PATH }}
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: nuget-package
+          path: ./nupkg
 
-      # 修复 #2: 强制构建所有目标框架的 DLLs，解决 DLL 文件未找到的错误
-      - name: Build All Target Frameworks
-        # /t:Rebuild 强制执行完整的重新构建，确保 net8.0, net9.0, net10.0 的 DLL 都生成
-        run: dotnet build ${{ env.PROJECT_PATH }} --configuration Release /t:Rebuild --no-restore
-
-      - name: Extract version from tag
-        id: extract_version
+      # 自动提取 Commit 记录并生成临时文件
+      - name: Generate Clean Commit Log
         run: |
-          TAG_NAME="${{ github.ref_name }}"
-          VERSION="${TAG_NAME#v}"
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "### 🔍 Commit History (Since last tag)" > auto_gen_log.txt
+          # 获取上一个 tag 到当前 tag 之间的 commit
+          # --no-merges: 剔除合并记录
+          # grep -ivE: 忽略大小写，剔除包含 bump 或 version 的记录
+          git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD --oneline --no-merges | grep -ivE "bump|version" >> auto_gen_log.txt || true
 
-      # 修复 #3: 现在 DLL 已经存在，使用 --no-build 确保 dotnet pack 只是执行打包逻辑
-      - name: Pack project
-        run: dotnet pack ${{ env.PROJECT_PATH }} --no-build --configuration Release -p:PackageVersion=${{ steps.extract_version.outputs.version }} -o ./nupkg
+      - name: Push to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
 
-      # 发布到 NuGet
-      - name: Publish to NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
-        
-      # 发布到 GitHub Packages
-      - name: Publish to GitHub Packages
-        run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/vicenteyu/index.json --api-key ${{ secrets.GITHUB_TOKEN }}
+      - name: Push to GitHub Packages
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 
-      - name: Determine prerelease status
-        id: prerelease_check
-        run: |
-          TAG_NAME="${{ github.ref_name }}"
-          if [[ "$TAG_NAME" == *"preview"* || "$TAG_NAME" == *"beta"* || "$TAG_NAME" == *"rc"* ]]; then
-            echo "prerelease=true" >> $GITHUB_OUTPUT
-          else
-            echo "prerelease=false" >> $GITHUB_OUTPUT
-          fi
-
-      # 创建 GitHub Release
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
-          files: |
-            ./nupkg/*.nupkg
+          files: ./nupkg/*.nupkg
+          # 组合：body = 手写的 changelog.md
           body_path: changelog.md
-          prerelease: ${{ steps.prerelease_check.outputs.prerelease }}
+          # 自动生成的记录会作为追记
+          append_body: true 
+          # 使用我们刚才清洗过的 commit log
+          body: |
+            
+            $(cat auto_gen_log.txt)
+          prerelease: ${{ contains(github.ref_name, 'preview') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
