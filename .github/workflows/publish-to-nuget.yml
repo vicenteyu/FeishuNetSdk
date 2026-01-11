@@ -13,7 +13,7 @@ jobs:
     name: Build & Test (.NET 8/9/10)
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true # 任何框架失败即停止发布
+      fail-fast: true
       matrix:
         dotnet-version: ['8.0.x', '9.0.x', '10.0.x']
 
@@ -25,7 +25,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ matrix.dotnet-version }}
-          cache: true # 移除 cache-dependency-path，自动识别
+          cache: true
+          cache-dependency-path: ${{ env.PROJECT_PATH }}
 
       - name: Restore & Build
         run: |
@@ -67,7 +68,6 @@ jobs:
       - name: Generate Commit Log
         run: |
           echo "### 📜 详细更新记录 (Raw Commits)" > auto_gen_log.txt
-          # 提取 commit，不使用 PR 分类，直接按时间线展示
           git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD \
             --no-merges --format="- %s" | grep -ivE "bump|version" >> auto_gen_log.txt || true
 
