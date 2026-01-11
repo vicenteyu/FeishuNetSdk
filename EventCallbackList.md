@@ -13,6 +13,7 @@
 <tr><td>attendance.user_flow.created_v1</td><td>EventV2Dto&lt;Attendance.Events.AttendanceUserFlowCreatedV1EventBodyDto&gt;</td><td>【考勤打卡】打卡流水</td></tr>
 <tr><td>security_and_compliance.device_apply_record.device_apply_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto&gt;</td><td>【安全合规】设备申报事件</td></tr>
 <tr><td>security_and_compliance.device_record.device_change_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto&gt;</td><td>【安全合规】设备信息变更事件</td></tr>
+<tr><td>apaas.workspace.record_change_v1</td><td>EventV2Dto&lt;AppEngine.Events.ApaasWorkspaceRecordChangeV1EventBodyDto&gt;</td><td>【飞书 aPaaS】数据记录变更</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
 <tr><td>corehr.department.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建部门V2</td></tr>
 <tr><td>corehr.cost_center.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建成本中心</td></tr>

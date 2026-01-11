@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-11-28
+// Last Modified On : 2026-01-09
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -58,6 +58,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Acs.Events.AcsAccessRecordCreatedV1EventBodyDto>), typeDiscriminator: "acs.access_record.created_v1")]
 //【智能门禁】用户信息变更
 [JsonDerivedType(typeof(EventV2Dto<Acs.Events.AcsUserUpdatedV1EventBodyDto>), typeDiscriminator: "acs.user.updated_v1")]
+//【飞书 aPaaS】数据记录变更
+[JsonDerivedType(typeof(EventV2Dto<AppEngine.Events.ApaasWorkspaceRecordChangeV1EventBodyDto>), typeDiscriminator: "apaas.workspace.record_change_v1")]
 //【应用信息】应用审核
 [JsonDerivedType(typeof(EventV2Dto<Application.Events.ApplicationApplicationAppVersionAuditV6EventBodyDto>), typeDiscriminator: "application.application.app_version.audit_v6")]
 //【应用信息】申请发布应用

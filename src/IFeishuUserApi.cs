@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-12-31
+// Last Modified On : 2026-01-11
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -26019,6 +26019,25 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string workspace_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【搜索】搜索文档</para>
+    /// <para>接口ID：7589313298248600535</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/doc_wiki/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>该接口用于根据搜索关键词（query）对当前用户可见的云文档进行搜索</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>search:docs:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/search/v2/doc_wiki/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Search.PostSearchV2DocWikiSearchResponseDto>> PostSearchV2DocWikiSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Search.PostSearchV2DocWikiSearchBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

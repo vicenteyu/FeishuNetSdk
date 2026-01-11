@@ -383,6 +383,7 @@ public record PostHireV1OffersBodyDto
         /// <para>7. 多行文本："xxx "</para>
         /// <para>8. 数字："123"</para>
         /// <para>9. 金额："123.1"</para>
+        /// <para>10. 附件："[{\"common_attachment_id\":\"通用附件 ID\"},...]"</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
