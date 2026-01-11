@@ -67,9 +67,15 @@ jobs:
 
       - name: Generate Commit Log
         run: |
-          echo "### 📜 详细更新记录 (Raw Commits)" > auto_gen_log.txt
-          git log $(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)..HEAD \
-            --no-merges --format="- %s" | grep -ivE "bump|version" >> auto_gen_log.txt || true
+          echo "### 📜 详细更新记录 (Detailed Changes)" > auto_gen_log.txt
+          
+          # 获取上一个标签
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)
+          
+          git log $PREV_TAG..HEAD --format="%B" | \
+            grep -ivE "^v?[0-9]+(\.[0-9]+)+$" | \
+            grep -ivE "Merge branch|Merge pull request" | \
+            sed '/^[[:space:]]*$/d' >> auto_gen_log.txt || true
 
       - name: Push to NuGet
         run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
