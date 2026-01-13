@@ -1297,6 +1297,6 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableName</td></tr>
 <tr><td rowspan="2">649</td><td rowspan="2">2025-12-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取工作空间下的自定义枚举列表</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
-<tr><td rowspan="2">650</td><td rowspan="2">2026-01-07</td><td>新增</td><td>搜索</td><td>搜索文档</td></tr>
+<tr><td rowspan="2">650</td><td rowspan="2">2026-01-07</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
 </tbody></table>

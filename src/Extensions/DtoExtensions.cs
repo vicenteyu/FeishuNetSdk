@@ -11,19 +11,31 @@
 // </copyright>
 // <summary></summary>
 // ************************************************************************
-using System.Text.Json;
-
 namespace FeishuNetSdk.Extensions;
 
 /// <summary>
 /// DTO扩展方法
 /// </summary>
-public static class DtoExtensions
+public static partial class DtoExtensions
 {
     static readonly JsonSerializerOptions options = new()
     {
         DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
     };
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="Dto"></param>
+    /// <param name="FormControls"></param>
+    /// <returns></returns>
+    public static Approval.Spec.PostApprovalOpenapiV2InstanceCreateBodyDto SetFormControls(this Approval.Spec.PostApprovalOpenapiV2InstanceCreateBodyDto Dto,
+        Approval.Shared.FormSuffixDto[] FormControls)
+    {
+        Dto.Form = JsonSerializer.Serialize(FormControls);
+
+        return Dto;
+    }
 
     /// <summary>
     /// 设置控件的方法

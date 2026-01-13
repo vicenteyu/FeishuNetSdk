@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-12-12
+// Last Modified On : 2026-01-13
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -42284,16 +42284,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="modify_time_from">
     /// <para>必填：是</para>
-    /// <para>任务查询开始时间，闭区间</para>
+    /// <para>流程实例修改时间的查询起始值，闭区间。</para>
+    /// <para>修改时间的更新时机：流程中有审批人操作、流程数据更新、流程状态变化等</para>
     /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
-    /// <para>注意：开始时间和结束时间跨度要小于 31 天</para>
+    /// <para>注意：起始时间和终止时间跨度要小于 31 天</para>
     /// <para>示例值：1547654251506</para>
     /// </param>
     /// <param name="modify_time_to">
     /// <para>必填：是</para>
-    /// <para>任务查询结束时间，闭区间</para>
+    /// <para>流程实例修改时间的查询终止值，闭区间</para>
+    /// <para>修改时间的更新时机：流程中有审批人操作、流程数据更新、流程状态变化等</para>
     /// <para>单位：ms。从 1970 年 1 月 1 日 (UTC/GMT的午夜) 开始经过的毫秒数</para>
-    /// <para>注意：开始时间和结束时间跨度要小于 31 天</para>
+    /// <para>注意：起始时间和终止时间跨度要小于 31 天</para>
     /// <para>示例值：1547654251506</para>
     /// </param>
     /// <param name="flow_definition_id">
@@ -50601,6 +50603,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:corehr:readonly</item>
+    /// <item>corehr:work_calendar:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="dto">请求体</param>
@@ -56163,6 +56166,50 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string end_date,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【绩效】获取绩效周期的人员信息</para>
+    /// <para>接口ID：7477768482569650178</para>
+    /// <para>接口文档：https://open.feishu.cn/document/performance-v1/review_config/semester_activity/reviewee/query-2</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取指定绩效周期下，被评估人在评估时的部门、序列、职级等人员信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>performance:performance</item>
+    /// <item>performance:performance:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>performance:user_snapshot.department:read</item>
+    /// <item>performance:user_snapshot.direct_leader:read</item>
+    /// <item>performance:user_snapshot.job_family:read</item>
+    /// <item>performance:user_snapshot.job_level:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0) 说明。</para>
+    /// <para>示例值：open_department_id **可选值有：** - `department_id`：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。 - `open_department_id`：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。 **默认值：** open_department_id</para>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/performance/v2/user_info/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Performance.PostPerformanceV2UserInfoQueryResponseDto>> PostPerformanceV2UserInfoQueryAsync(
+        [JsonContent] Performance.PostPerformanceV2UserInfoQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

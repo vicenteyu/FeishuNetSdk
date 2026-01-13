@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11222.15 d18.0
+VisualStudioVersion = 18.0.11222.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决方案项", "{E59B03D4-DFEE-4592-9BE9-DDD1B8D4AEB0}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,6 +24,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeishuNetSdk.Endpoint", "FeishuNetSdk.Endpoint\FeishuNetSdk.Endpoint.csproj", "{E7A299FF-4B33-4DE2-A8CF-5149C27CEDB9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2-net10", "samples\ConsoleApp2-net10\ConsoleApp2-net10.csproj", "{1FC0BD69-152E-4FCF-8764-C8786D90052E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FeishuNetSdk.Extensions", "FeishuNetSdk.Extensions\FeishuNetSdk.Extensions.csproj", "{34D4B172-5679-4256-BD58-AE876BBC0E86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FC0BD69-152E-4FCF-8764-C8786D90052E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34D4B172-5679-4256-BD58-AE876BBC0E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34D4B172-5679-4256-BD58-AE876BBC0E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34D4B172-5679-4256-BD58-AE876BBC0E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34D4B172-5679-4256-BD58-AE876BBC0E86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

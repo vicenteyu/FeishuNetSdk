@@ -2963,4 +2963,6 @@
 <tr><td colspan="3">PostCorehrV2SignatureFilesQuery</td></tr>
 <tr><td rowspan="2">1482</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>终止电子签文件</td></tr>
 <tr><td colspan="3">PostCorehrV2SignatureFilesTerminate</td></tr>
+<tr><td rowspan="2">1483</td><td rowspan="2">2026-01-13</td><td>&#10003;</td><td>绩效</td><td>获取绩效周期的人员信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2UserInfoQuery</td></tr>
 </tbody></table>
