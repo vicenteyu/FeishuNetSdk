@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-13
+// Last Modified On : 2026-01-15
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -28259,6 +28259,61 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? locale = null,
         [PathQuery] bool? with_admin_id = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】批量获取审批实例 ID</para>
+    /// <para>接口ID：7114621541589876739</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/approval-v4/instance/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据审批定义的 approval_code 批量获取审批实例的 instance_code，用于拉取企业下某个审批定义的全部审批实例。默认以审批创建时间先后顺序排列。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
+    /// <item>approval:approval:readonly</item>
+    /// <item>approval:instance</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于指定一次请求所返回的数据量上限。</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：nF1ZXJ5VGhlbkZldGNoCgAAAAAA6PZwFmUzSldvTC1yU</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="approval_code">
+    /// <para>必填：是</para>
+    /// <para>审批定义 Code。获取方式：</para>
+    /// <para>- 调用[创建审批定义](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/create)接口后，从响应参数 approval_code 获取。</para>
+    /// <para>- 登录审批管理后台，在指定审批定义的 URL 中获取，具体操作参见[什么是 Approval Code](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/overview-of-approval-resources#8151e0ae)。</para>
+    /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：是</para>
+    /// <para>审批实例创建时间的开始区间，毫秒时间戳。</para>
+    /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例数据。</para>
+    /// <para>单次查询时间范围不要超过10小时</para>
+    /// <para>示例值：1567690398020</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：是</para>
+    /// <para>审批实例创建时间的结束区间，毫秒时间戳。</para>
+    /// <para>**说明**：start_time 与 end_time 组成时间区间查询条件，接口会返回在该时间区间内创建的审批实例的 Code。</para>
+    /// <para>单次查询时间范围不要超过10小时</para>
+    /// <para>示例值：1567690398020</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/approval/v4/instances")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4InstancesResponseDto>> GetApprovalV4InstancesAsync(
+        [PathQuery] string approval_code,
+        [PathQuery] string start_time,
+        [PathQuery] string end_time,
+        [PathQuery] int? page_size = 100,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
