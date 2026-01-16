@@ -11,6 +11,8 @@
 // </copyright>
 // <summary></summary>
 // ************************************************************************
+global using System.Text.Json;
+global using System.Text.Json.Nodes;
 using FeishuNetSdk;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection.Extensions;
