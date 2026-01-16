@@ -721,7 +721,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesPreview</td></tr>
 <tr><td rowspan="2">361</td><td rowspan="2">2025-05-12</td><td>&#10003;</td><td>审批</td><td>获取单个审批实例详情</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesByInstanceId</td></tr>
-<tr><td rowspan="2">362</td><td rowspan="2">2025-08-29</td><td><span style="color:red;">删除</span></td><td>审批</td><td>批量获取审批实例 ID</td></tr>
+<tr><td rowspan="2">362</td><td rowspan="2">2026-01-14</td><td>&#10003;</td><td>审批</td><td>批量获取审批实例 ID</td></tr>
 <tr><td colspan="3">GetApprovalV4Instances</td></tr>
 <tr><td rowspan="2">363</td><td rowspan="2">2025-04-21</td><td>&#10003;</td><td>审批</td><td>同意审批任务</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksApprove</td></tr>
@@ -2355,7 +2355,7 @@
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
 <tr><td rowspan="2">1178</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>绩效</td><td>获取指标标签列表</td></tr>
 <tr><td colspan="3">GetPerformanceV2MetricTags</td></tr>
-<tr><td rowspan="2">1179</td><td rowspan="2">2025-12-03</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">1179</td><td rowspan="2">2026-01-14</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 <tr><td rowspan="2">1180</td><td rowspan="2">2025-10-17</td><td>&#10003;</td><td>管理后台</td><td>获取行为审计日志数据</td></tr>
 <tr><td colspan="3">GetAdminV1AuditInfos</td></tr>
@@ -2963,4 +2963,6 @@
 <tr><td colspan="3">PostCorehrV2SignatureFilesQuery</td></tr>
 <tr><td rowspan="2">1482</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>终止电子签文件</td></tr>
 <tr><td colspan="3">PostCorehrV2SignatureFilesTerminate</td></tr>
+<tr><td rowspan="2">1483</td><td rowspan="2">2026-01-13</td><td>&#10003;</td><td>绩效</td><td>获取绩效周期的人员信息</td></tr>
+<tr><td colspan="3">PostPerformanceV2UserInfoQuery</td></tr>
 </tbody></table>
