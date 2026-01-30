@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-28
+// Last Modified On : 2026-01-30
 // ************************************************************************
 // <copyright file="PostHireV1JobRequirementsSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘需求信息 响应体
-/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询</para>
+/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询。</para>
+/// <para>注意：本接口不返回审批状态为「审批中」的招聘需求信息。</para>
 /// <para>接口ID：7218888199548633092</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/list_by_id</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement%2flist_by_id</para>
@@ -611,5 +612,48 @@ public record PostHireV1JobRequirementsSearchResponseDto
         /// </summary>
         [JsonPropertyName("approval_status")]
         public int? ApprovalStatus { get; set; }
+
+        /// <summary>
+        /// <para>招聘需求招聘进展统计数值</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("count_data")]
+        public JrCountDataInfo? CountData { get; set; }
+
+        /// <summary>
+        /// <para>招聘需求招聘进展统计数值</para>
+        /// </summary>
+        public record JrCountDataInfo
+        {
+            /// <summary>
+            /// <para>Offer 沟通中的数量</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>最大值：999999999999</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("offer_count")]
+            public int? OfferCount { get; set; }
+
+            /// <summary>
+            /// <para>待入职中的数量</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2</para>
+            /// <para>最大值：999999999999</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("pre_hire_count")]
+            public int? PreHireCount { get; set; }
+
+            /// <summary>
+            /// <para>已完成的数量</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：3</para>
+            /// <para>最大值：999999999999</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("complete_count")]
+            public int? CompleteCount { get; set; }
+        }
     }
 }

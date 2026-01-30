@@ -174,7 +174,12 @@ public class Test_PostHireV1JobRequirementsSearchResponseDto : TestBase
                 "employment_job_id": "6807407987381831949",
                 "position_id": "7094136522860922111",
                 "completion_time": "1736846689278",
-                "approval_status": 1
+                "approval_status": 1,
+                "count_data": {
+                    "offer_count": 1,
+                    "pre_hire_count": 2,
+                    "complete_count": 3
+                }
             }
         ]
     }

@@ -22,7 +22,8 @@ namespace FeishuNetSdk.Performance;
 public record PostPerformanceV2UserGroupUserRelsWriteBodyDto
 {
     /// <summary>
-    /// <para>人员组 ID</para>
+    /// <para>人员组 ID，可以从**人员组管理**页面获取</para>
+    /// <para>**必填：** 是</para>
     /// <para>必填：否</para>
     /// <para>示例值：ABCDEFG</para>
     /// <para>最大长度：128</para>
@@ -33,6 +34,7 @@ public record PostPerformanceV2UserGroupUserRelsWriteBodyDto
 
     /// <summary>
     /// <para>人员组可见性配置</para>
+    /// <para>**必填：** 是</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// <para>最大值：10</para>
@@ -48,6 +50,7 @@ public record PostPerformanceV2UserGroupUserRelsWriteBodyDto
 
     /// <summary>
     /// <para>人员 ID 列表，ID 类型与查询参数 user_id_type 取值一致</para>
+    /// <para>**必填：** 是</para>
     /// <para>必填：否</para>
     /// <para>最大长度：10000</para>
     /// <para>最小长度：0</para>

@@ -483,7 +483,7 @@
 <tr><td colspan="3">PatchCalendarV4CalendarsByCalendarId</td></tr>
 <tr><td rowspan="2">242</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>日历</td><td>搜索日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsSearch</td></tr>
-<tr><td rowspan="2">243</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
+<tr><td rowspan="2">243</td><td rowspan="2">2026-01-19</td><td>&#10003;</td><td>日历</td><td>订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdSubscribe</td></tr>
 <tr><td rowspan="2">244</td><td rowspan="2">2024-08-14</td><td>&#10003;</td><td>日历</td><td>取消订阅日历</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdUnsubscribe</td></tr>
@@ -1549,7 +1549,7 @@
 <tr><td colspan="3">GetHireV1JobTypes</td></tr>
 <tr><td rowspan="2">775</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>招聘</td><td>创建招聘需求</td></tr>
 <tr><td colspan="3">PostHireV1JobRequirements</td></tr>
-<tr><td rowspan="2">776</td><td rowspan="2">2025-02-26</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求信息</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2026-01-26</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求信息</td></tr>
 <tr><td colspan="3">PostHireV1JobRequirementsSearch</td></tr>
 <tr><td rowspan="2">777</td><td rowspan="2">2025-02-26</td><td>&#10003;</td><td>招聘</td><td>获取招聘需求列表</td></tr>
 <tr><td colspan="3">GetHireV1JobRequirements</td></tr>
@@ -1993,7 +1993,7 @@
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">997</td><td rowspan="2">2025-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询流程实例列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Processes</td></tr>
-<tr><td rowspan="2">998</td><td rowspan="2">2025-12-04</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取单个流程详情</td></tr>
+<tr><td rowspan="2">998</td><td rowspan="2">2026-01-26</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取单个流程详情</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessId</td></tr>
 <tr><td rowspan="2">999</td><td rowspan="2">2024-06-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询国籍信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoNationalitiesSearch</td></tr>
@@ -2431,7 +2431,7 @@
 <tr><td colspan="3">PostCorehrV2JobGrades</td></tr>
 <tr><td rowspan="2">1216</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendant</td></tr>
-<tr><td rowspan="2">1217</td><td rowspan="2">2024-10-10</td><td>&#10003;</td><td>绩效</td><td>更新人员组成员</td></tr>
+<tr><td rowspan="2">1217</td><td rowspan="2">2026-01-29</td><td>&#10003;</td><td>绩效</td><td>更新人员组成员</td></tr>
 <tr><td colspan="3">PostPerformanceV2UserGroupUserRelsWrite</td></tr>
 <tr><td rowspan="2">1218</td><td rowspan="2">2024-10-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询语言信息</td></tr>
 <tr><td colspan="3">PostCorehrV2BasicInfoLanguagesSearch</td></tr>
@@ -2941,7 +2941,7 @@
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
 <tr><td rowspan="2">1471</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>删除设备</td></tr>
 <tr><td colspan="3">DeleteSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
-<tr><td rowspan="2">1472</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
+<tr><td rowspan="2">1472</td><td rowspan="2">2026-01-26</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFlowVariableData</td></tr>
 <tr><td rowspan="2">1473</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
@@ -2965,4 +2965,6 @@
 <tr><td colspan="3">PostCorehrV2SignatureFilesTerminate</td></tr>
 <tr><td rowspan="2">1483</td><td rowspan="2">2026-01-13</td><td>&#10003;</td><td>绩效</td><td>获取绩效周期的人员信息</td></tr>
 <tr><td colspan="3">PostPerformanceV2UserInfoQuery</td></tr>
+<tr><td rowspan="2">1484</td><td rowspan="2">2026-01-29</td><td>新增</td><td>飞书人事（企业版）</td><td>查询流程数据参数模板</td></tr>
+<tr><td colspan="3">PostCorehrV2QueryFlowDataTemplate</td></tr>
 </tbody></table>

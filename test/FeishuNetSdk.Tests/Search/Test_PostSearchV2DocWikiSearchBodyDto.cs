@@ -43,7 +43,11 @@ public class Test_PostSearchV2DocWikiSearchBodyDto : TestBase
             "start": 1742348544,
             "end": 1742348544
         },
-        "sort_type": "CREATE_TIME_ASC"
+        "sort_type": "CREATE_TIME",
+        "create_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        }
     },
     "wiki_filter": {
         "creator_ids": [
@@ -60,10 +64,14 @@ public class Test_PostSearchV2DocWikiSearchBodyDto : TestBase
             "start": 1742348544,
             "end": 1742348544
         },
-        "sort_type": "CREATE_TIME_ASC"
+        "sort_type": "CREATE_TIME",
+        "create_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        }
     },
     "page_token": "token_1234567890fedcba",
-    "page_size": 20
+    "page_size": 15
 }
 """;
         var result = Deserialize<FeishuNetSdk.Search.PostSearchV2DocWikiSearchBodyDto>(json);
