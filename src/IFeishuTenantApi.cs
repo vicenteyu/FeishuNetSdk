@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-15
+// Last Modified On : 2026-01-30
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -35492,7 +35492,8 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7218888199548633092</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/list_by_id</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询</para>
+    /// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询。</para>
+    /// <para>注意：本接口不返回审批状态为「审批中」的招聘需求信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job_requirement</item>
     /// <item>hire:job_requirement:readonly</item>
@@ -51701,7 +51702,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string[]? job_grade_id_list = null,
         [PathQuery] string[]? working_hours_type_id_list = null,
         [PathQuery] string[]? service_company_list = null,
-        [PathQuery] float? weekly_working_hours_v2 = null,
+        [PathQuery] double? weekly_working_hours_v2 = null,
         [PathQuery] string[]? work_shift_list = null,
         [PathQuery] string[]? compensation_type_list = null,
         [PathQuery] string? international_assignment_expected_end_date = null,
@@ -55864,7 +55865,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7455284757275262995</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/flow_variable_data</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>根据流程实例 id（process_id）获取流程字段数据，包括业务字段和自定义字段。仅支持飞书人事、假勤相关业务流程。</para>
+    /// <para>根据流程实例 id（process_id）获取流程字段数据，包括业务字段和自定义字段，还有流程的数据（比如流程发起人、发起时间等），仅支持飞书人事、假勤相关业务流程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:process:read</item>
     /// </list></para>
@@ -56849,6 +56850,39 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string whiteboard_id,
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesBodyDto dto,
         [PathQuery] string? client_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询流程数据参数模板</para>
+    /// <para>接口ID：7554060175772434434</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-query_flow_data_template/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过传入流程定义 ID 和变量的 ApiName，获取 process_form_variable_v2[] 类型参数模板。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/query_flow_data_template")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2QueryFlowDataTemplateResponseDto>> PostCorehrV2QueryFlowDataTemplateAsync(
+        [JsonContent] Corehr.PostCorehrV2QueryFlowDataTemplateBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 

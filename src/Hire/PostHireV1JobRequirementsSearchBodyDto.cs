@@ -14,7 +14,8 @@
 namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取招聘需求信息 请求体
-/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询</para>
+/// <para>根据「招聘需求ID」获取招聘需求信息，支持批量查询。</para>
+/// <para>注意：本接口不返回审批状态为「审批中」的招聘需求信息。</para>
 /// <para>接口ID：7218888199548633092</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job_requirement/list_by_id</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2fjob_requirement%2flist_by_id</para>

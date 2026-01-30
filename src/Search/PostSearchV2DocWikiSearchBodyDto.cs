@@ -4,7 +4,7 @@
 // Created          : 2026-01-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-11
+// Last Modified On : 2026-01-30
 // ************************************************************************
 // <copyright file="PostSearchV2DocWikiSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Search;
 public record PostSearchV2DocWikiSearchBodyDto
 {
     /// <summary>
-    /// <para>搜索关键词</para>
+    /// <para>搜索关键词（query至少搭配一种doc/wiki筛选器）</para>
     /// <para>必填：是</para>
     /// <para>示例值：飞书文档使用指南</para>
     /// <para>最大长度：50</para>
@@ -37,12 +37,12 @@ public record PostSearchV2DocWikiSearchBodyDto
     /// <para>示例值：{"folder_tokens": ["fld_123456"]}</para>
     /// </summary>
     [JsonPropertyName("doc_filter")]
-    public PostSearchV2DocWikiSearchBodyDtoDocFilter? DocFilter { get; set; }
+    public DocFilterSuffix? DocFilter { get; set; }
 
     /// <summary>
     /// <para>文档过滤参数</para>
     /// </summary>
-    public record PostSearchV2DocWikiSearchBodyDtoDocFilter
+    public record DocFilterSuffix
     {
         /// <summary>
         /// <para>文档所有者OpenID</para>
@@ -64,7 +64,7 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <item>BITABLE：多维表格</item>
         /// <item>MINDNOTE：思维导图</item>
         /// <item>FILE：文件</item>
-        /// <item>WIKI：维基</item>
+        /// <item>WIKI：wiki</item>
         /// <item>DOCX：新版文档</item>
         /// <item>FOLDER：space文件夹</item>
         /// <item>CATALOG：wiki2.0文件夹</item>
@@ -77,6 +77,7 @@ public record PostSearchV2DocWikiSearchBodyDto
 
         /// <summary>
         /// <para>搜索文件夹内的文档（文件夹token列表）</para>
+        /// <para>注：如果存在该字段则wiki筛选器失效</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -113,7 +114,7 @@ public record PostSearchV2DocWikiSearchBodyDto
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("start")]
-            public int? Start { get; set; }
+            public long? Start { get; set; }
 
             /// <summary>
             /// <para>时间范围的截止时间戳</para>
@@ -123,13 +124,13 @@ public record PostSearchV2DocWikiSearchBodyDto
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("end")]
-            public int? End { get; set; }
+            public long? End { get; set; }
         }
 
         /// <summary>
         /// <para>排序方式</para>
         /// <para>必填：否</para>
-        /// <para>示例值：CREATE_TIME_ASC</para>
+        /// <para>示例值：CREATE_TIME</para>
         /// <para>可选值：<list type="bullet">
         /// <item>DEFAULT_TYPE：默认排序</item>
         /// <item>OPEN_TIME：User打开时间排序</item>
@@ -138,11 +139,18 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序</item>
         /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序</item>
         /// <item>CREATE_TIME：按文档创建时间排序</item>
-        /// <item>CREATE_TIME_ASC：按文档创建时间正序</item>
+        /// <item>CREATE_TIME_ASC：按文档创建时间正序（该排序暂不支持）</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("sort_type")]
         public string? SortType { get; set; }
+
+        /// <summary>
+        /// <para>文档创建的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public TimeRange? CreateTime { get; set; }
     }
 
     /// <summary>
@@ -151,12 +159,12 @@ public record PostSearchV2DocWikiSearchBodyDto
     /// <para>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}</para>
     /// </summary>
     [JsonPropertyName("wiki_filter")]
-    public PostSearchV2DocWikiSearchBodyDtoWikiFilter? WikiFilter { get; set; }
+    public WikiFilterSuffix? WikiFilter { get; set; }
 
     /// <summary>
     /// <para>Wiki过滤参数</para>
     /// </summary>
-    public record PostSearchV2DocWikiSearchBodyDtoWikiFilter
+    public record WikiFilterSuffix
     {
         /// <summary>
         /// <para>Wiki所有者OpenID</para>
@@ -243,7 +251,7 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <summary>
         /// <para>排序方式</para>
         /// <para>必填：否</para>
-        /// <para>示例值：CREATE_TIME_ASC</para>
+        /// <para>示例值：CREATE_TIME</para>
         /// <para>可选值：<list type="bullet">
         /// <item>DEFAULT_TYPE：默认排序</item>
         /// <item>OPEN_TIME：User打开时间排序</item>
@@ -252,11 +260,18 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序</item>
         /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序</item>
         /// <item>CREATE_TIME：按文档创建时间排序</item>
-        /// <item>CREATE_TIME_ASC：按文档创建时间正序</item>
+        /// <item>CREATE_TIME_ASC：按文档创建时间正序（该排序暂不支持）</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("sort_type")]
         public string? SortType { get; set; }
+
+        /// <summary>
+        /// <para>Wiki创建的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("create_time")]
+        public TimeRange? CreateTime { get; set; }
     }
 
     /// <summary>
@@ -270,10 +285,10 @@ public record PostSearchV2DocWikiSearchBodyDto
     /// <summary>
     /// <para>分页大小</para>
     /// <para>必填：否</para>
-    /// <para>示例值：20</para>
-    /// <para>最大值：100</para>
-    /// <para>最小值：1</para>
-    /// <para>默认值：20</para>
+    /// <para>示例值：15</para>
+    /// <para>最大值：20</para>
+    /// <para>最小值：0</para>
+    /// <para>默认值：0</para>
     /// </summary>
     [JsonPropertyName("page_size")]
     public int? PageSize { get; set; }
