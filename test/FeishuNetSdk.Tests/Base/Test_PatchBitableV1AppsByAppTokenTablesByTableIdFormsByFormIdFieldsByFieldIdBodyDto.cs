@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-02-06
 // ************************************************************************
 // <copyright file="Test_PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,7 +31,14 @@ public class Test_PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFields
     "title": "任务名称",
     "description": "请概述该任务",
     "required": true,
-    "visible": true
+    "visible": true,
+    "rich_description": [
+        {
+            "segment_type": "text",
+            "text": "这是一个开放性问题",
+            "link": "https://open.larkoffice.com/"
+        }
+    ]
 }
 """;
         var result = Deserialize<FeishuNetSdk.Base.PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto>(json);

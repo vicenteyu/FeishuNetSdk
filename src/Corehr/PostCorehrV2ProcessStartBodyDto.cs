@@ -1,82 +1,66 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-07-24
+// Created          : 2026-02-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-08
+// Last Modified On : 2026-02-06
 // ************************************************************************
-// <copyright file="PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto.cs" company="Vicente Yu">
+// <copyright file="PostCorehrV2ProcessStartBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>通过/拒绝审批任务 请求体</summary>
+// <summary>发起流程 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
-/// 通过/拒绝审批任务 请求体
-/// <para>对于单个审批任务进行通过（提交）或拒绝操作。对于多人或签节点，一个审批任务通过则整个节点通过；对于多人会签节点，所有审批任务通过则节点通过。在通过（提交）时，若表单中有必填字段，支持写入表单字段。</para>
-/// <para>接口ID：7340625370520797187</para>
-/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/update</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-approver%2fupdate</para>
+/// 发起流程 请求体
+/// <para>发起一个流程实例，目前只支持发起自定义业务类型的流程。</para>
+/// <para>接口ID：7451908159096766468</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess_start%2fcreate</para>
 /// </summary>
-public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
+public record PostCorehrV2ProcessStartBodyDto
 {
     /// <summary>
-    /// <para>将审批任务修改为同意/拒绝</para>
+    /// <para>流程定义id</para>
     /// <para>必填：是</para>
-    /// <para>示例值：2</para>
-    /// <para>可选值：<list type="bullet">
-    /// <item>2：拒绝</item>
-    /// <item>3：通过</item>
-    /// </list></para>
+    /// <para>示例值：people_7023711013443944467_7437160904904494892</para>
     /// </summary>
-    [JsonPropertyName("status")]
-    public int Status { get; set; }
+    [JsonPropertyName("flow_definition_id")]
+    public string FlowDefinitionId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>用户id，按user_id_type类型传递。如果system_approval为false，则必填审批任务“approver_id”对应的原审批人的user_id；为true时非必填。</para>
+    /// <para>发起人用户ID，按user_id_type类型传递。如果system_initiator为false，则必填；为true时非必填。</para>
     /// <para>必填：否</para>
     /// <para>示例值：ou_91791271921729102012</para>
     /// </summary>
-    [JsonPropertyName("user_id")]
-    public string? UserId { get; set; }
+    [JsonPropertyName("initiator_id")]
+    public string? InitiatorId { get; set; }
 
     /// <summary>
-    /// <para>是否为系统身份审批。</para>
-    /// <para>true - 使用系统身份审批，若使用系统身份，将代替approver_id对应的原审批人进行审批，原审批人将失去审批任务的查看权限；false - 按照所传的人员身份审批</para>
+    /// <para>是否为系统身份发起流程，如果为false，则initiator_id必填</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
-    /// <para>默认值：false</para>
     /// </summary>
-    [JsonPropertyName("system_approval")]
-    public bool? SystemApproval { get; set; }
+    [JsonPropertyName("system_initiator")]
+    public bool? SystemInitiator { get; set; }
 
     /// <summary>
-    /// <para>通过/拒绝原因，当拒绝时原因必填</para>
-    /// <para>**默认值**：""</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：原因自定义字符串</para>
-    /// <para>最大长度：1000</para>
-    /// </summary>
-    [JsonPropertyName("reason")]
-    public string? Reason { get; set; }
-
-    /// <summary>
-    /// <para>表单数据</para>
+    /// <para>业务数据</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100000</para>
     /// <para>最小长度：0</para>
     /// </summary>
-    [JsonPropertyName("field_values_v2")]
-    public ProcessFormVariableV2[]? FieldValuesV2s { get; set; }
+    [JsonPropertyName("flow_data")]
+    public ProcessFormVariableV2[]? FlowDatas { get; set; }
 
     /// <summary>
-    /// <para>表单数据</para>
+    /// <para>业务数据</para>
     /// </summary>
     public record ProcessFormVariableV2
     {
         /// <summary>
-        /// <para>变量唯一标识，可通过[获取流程表单数据](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/process-form_variable_data/get)查询变量</para>
+        /// <para>变量唯一标识</para>
         /// <para>必填：否</para>
         /// <para>示例值：custom123</para>
         /// </summary>
@@ -174,7 +158,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             }
 
             /// <summary>
-            /// <para>对象值</para>
+            /// <para>对象值，包括对象id和对象类型</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
             /// </summary>
@@ -182,15 +166,12 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             public FieldVariableValueToObject? ObjectValue { get; set; }
 
             /// <summary>
-            /// <para>对象值</para>
+            /// <para>对象值，包括对象id和对象类型</para>
             /// </summary>
             public record FieldVariableValueToObject
             {
                 /// <summary>
-                /// <para>飞书人事主数据对象唯一标识。</para>
-                /// <para>例如：</para>
-                /// <para>wk_api_name为"job"时，wk_id代表职务ID。详请可参考[查询单个职务（V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
-                /// <para>wk_api_name为"job_level"时，wk_id代表职级ID。详情可参考[查询单个职级](https://open.larkoffice.com/document/server-docs/corehr-v1/job-management/job_level/get)</para>
+                /// <para>wukong的对象唯一标识</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：6863326263210149383</para>
                 /// </summary>
@@ -198,10 +179,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public string? WkId { get; set; }
 
                 /// <summary>
-                /// <para>飞书人事元数据对象的唯一标识。</para>
-                /// <para>例如：</para>
-                /// <para>职务的wk_api_name为"job"；职级的wk_api_name为"job_level"；</para>
-                /// <para>如需获取更多对象信息，可查询[获取飞书人事对象列表](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口</para>
+                /// <para>wukong的元数据唯一标识</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：country_region_subdivision</para>
                 /// </summary>
@@ -210,8 +188,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             }
 
             /// <summary>
-            /// <para>部门id，根据查询参数department_id_type类型选择对应的部门id。</para>
-            /// <para>可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search) 或 [批量查询部门（ V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。</para>
+            /// <para>部门id，根据入参选择对应的部门id</para>
             /// <para>必填：否</para>
             /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
             /// </summary>
@@ -219,8 +196,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             public string? DepartmentValue { get; set; }
 
             /// <summary>
-            /// <para>员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。</para>
-            /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
+            /// <para>员工类型字段值，为用户id，根据入参选择返回的用户id</para>
             /// <para>必填：否</para>
             /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
             /// </summary>
@@ -228,7 +204,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             public string? EmploymentValue { get; set; }
 
             /// <summary>
-            /// <para>数组类型值，里面包含多个值，每个元素都对应sub_values中的key</para>
+            /// <para>数组类型值，里面包含多个值，每个元素都对应subValues中的key</para>
             /// <para>必填：否</para>
             /// <para>最大长度：10000</para>
             /// <para>最小长度：0</para>
@@ -249,7 +225,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
             public record FieldVariableValueToFileForWrite
             {
                 /// <summary>
-                /// <para>通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID</para>
+                /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
                 /// </summary>
@@ -274,6 +250,43 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 [JsonPropertyName("length")]
                 public int? Length { get; set; }
             }
+
+            /// <summary>
+            /// <para>record类型字段值</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("record_values")]
+            public FieldVariableValueToRecord[]? RecordValues { get; set; }
+
+            /// <summary>
+            /// <para>record类型字段值</para>
+            /// </summary>
+            public record FieldVariableValueToRecord
+            {
+                /// <summary>
+                /// <para>变量唯一标识</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：city_v2</para>
+                /// </summary>
+                [JsonPropertyName("variable_api_name")]
+                public string? VariableApiName { get; set; }
+
+                /// <summary>
+                /// <para>变量值，对应subValues中的key</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：key1</para>
+                /// </summary>
+                [JsonPropertyName("sub_value_key")]
+                public string? SubValueKey { get; set; }
+
+                /// <summary>
+                /// <para>记录唯一ID</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：6863326263210149383</para>
+                /// </summary>
+                [JsonPropertyName("record_id")]
+                public string? RecordId { get; set; }
+            }
         }
 
         /// <summary>
@@ -291,7 +304,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
         public record FieldVariableSubVlaueForReview
         {
             /// <summary>
-            /// <para>用于关联list_values和record_values类型变量值中的key</para>
+            /// <para>用于关联list和record类型变量值中的key</para>
             /// <para>必填：否</para>
             /// <para>示例值：key1</para>
             /// </summary>
@@ -402,10 +415,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public record FieldVariableValueToObject
                 {
                     /// <summary>
-                    /// <para>飞书人事主数据对象唯一标识。</para>
-                    /// <para>例如：</para>
-                    /// <para>wk_api_name为"job"时，wk_id代表职务ID。详请可参考[查询单个职务（V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/job/get)</para>
-                    /// <para>wk_api_name为"job_level"时，wk_id代表职级ID。详情可参考[查询单个职级](https://open.larkoffice.com/document/server-docs/corehr-v1/job-management/job_level/get)</para>
+                    /// <para>wukong的对象唯一标识</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：6863326263210149383</para>
                     /// </summary>
@@ -413,10 +423,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                     public string? WkId { get; set; }
 
                     /// <summary>
-                    /// <para>飞书人事元数据对象的唯一标识。</para>
-                    /// <para>例如：</para>
-                    /// <para>职务的wk_api_name为"job"；职级的wk_api_name为"job_level"；</para>
-                    /// <para>如需获取更多对象信息，可查询[获取飞书人事对象列表](https://open.larkoffice.com/document/server-docs/corehr-v1/basic-infomation/custom_field/list_object_api_name)接口</para>
+                    /// <para>wukong的元数据唯一标识</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：country_region_subdivision</para>
                     /// </summary>
@@ -425,8 +432,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 }
 
                 /// <summary>
-                /// <para>部门id，根据查询参数department_id_type类型选择对应的部门id。</para>
-                /// <para>可通过[搜索部门信息](https://open.larkoffice.com/document/server-docs/corehr-v1/organization-management/department/search) 或 [批量查询部门（ V2）](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get)接口查询详情。</para>
+                /// <para>部门id，根据入参选择对应的部门id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：od-a761814f6bc3f14bd3b00905ec1d7c6f</para>
                 /// </summary>
@@ -434,8 +440,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public string? DepartmentValue { get; set; }
 
                 /// <summary>
-                /// <para>员工类型字段值，为用户id，根据入参选择的user_id_type类型返回的用户id。</para>
-                /// <para>可通过[搜索员工信息](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/search) 或 [批量查询员工信息](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/employee/batch_get)接口查询详情。</para>
+                /// <para>员工类型字段值，为用户id，根据入参选择返回的用户id</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：ou_c57053dad6eea0aea4696c48433d8562</para>
                 /// </summary>
@@ -443,7 +448,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public string? EmploymentValue { get; set; }
 
                 /// <summary>
-                /// <para>数组类型值，里面包含多个值，每个元素都对应sub_values中的key</para>
+                /// <para>数组类型值，里面包含多个值，每个元素都对应subValues中的key</para>
                 /// <para>必填：否</para>
                 /// <para>最大长度：10000</para>
                 /// <para>最小长度：0</para>
@@ -464,7 +469,7 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                 public record FieldVariableValueToFileForWrite
                 {
                     /// <summary>
-                    /// <para>通过在[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)上传文件后获得的ID</para>
+                    /// <para>通过[上传文件接口](https://open.larkoffice.com/document/server-docs/corehr-v1/employee/person/upload)获得的id</para>
                     /// <para>必填：否</para>
                     /// <para>示例值：66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53</para>
                     /// </summary>
@@ -488,6 +493,43 @@ public record PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto
                     /// </summary>
                     [JsonPropertyName("length")]
                     public int? Length { get; set; }
+                }
+
+                /// <summary>
+                /// <para>record类型字段值</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("record_values")]
+                public FieldVariableValueToRecord[]? RecordValues { get; set; }
+
+                /// <summary>
+                /// <para>record类型字段值</para>
+                /// </summary>
+                public record FieldVariableValueToRecord
+                {
+                    /// <summary>
+                    /// <para>变量唯一标识</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：city_v2</para>
+                    /// </summary>
+                    [JsonPropertyName("variable_api_name")]
+                    public string? VariableApiName { get; set; }
+
+                    /// <summary>
+                    /// <para>变量值，对应subValues中的key</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：key1</para>
+                    /// </summary>
+                    [JsonPropertyName("sub_value_key")]
+                    public string? SubValueKey { get; set; }
+
+                    /// <summary>
+                    /// <para>记录唯一ID</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6863326263210149383</para>
+                    /// </summary>
+                    [JsonPropertyName("record_id")]
+                    public string? RecordId { get; set; }
                 }
             }
         }

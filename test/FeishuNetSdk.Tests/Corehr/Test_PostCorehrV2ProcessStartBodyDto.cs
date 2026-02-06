@@ -1,37 +1,36 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2025-06-24
+// Created          : 2026-02-06
 //
 // Last Modified By : yxr
 // Last Modified On : 2026-02-06
 // ************************************************************************
-// <copyright file="Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto.cs" company="Vicente Yu">
+// <copyright file="Test_PostCorehrV2ProcessStartBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>测试 通过/拒绝审批任务 请求体</summary>
+// <summary>测试 发起流程 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Tests.Corehr;
 
 /// <summary>
-/// 测试 通过/拒绝审批任务 请求体
-/// <para>接口ID：7340625370520797187</para>
-/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/update</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess-approver%2fupdate</para>
+/// 测试 发起流程 请求体
+/// <para>接口ID：7451908159096766468</para>
+/// <para>文档地址：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/create</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fprocess_start%2fcreate</para>
 /// </summary>
 [TestClass]
-public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : TestBase
+public class Test_PostCorehrV2ProcessStartBodyDto : TestBase
 {
     [TestMethod]
     public void TestDto()
     {
         var json = """
 {
-    "status": 2,
-    "user_id": "ou_91791271921729102012",
-    "system_approval": true,
-    "reason": "原因自定义字符串",
-    "field_values_v2": [
+    "flow_definition_id": "people_7023711013443944467_7437160904904494892",
+    "initiator_id": "ou_91791271921729102012",
+    "system_initiator": true,
+    "flow_data": [
         {
             "variable_api_name": "custom123",
             "variable_value": {
@@ -58,7 +57,14 @@ public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : 
                     "open_file_id": "66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53",
                     "file_name": "file_name.jpg",
                     "length": 65535
-                }
+                },
+                "record_values": [
+                    {
+                        "variable_api_name": "city_v2",
+                        "sub_value_key": "key1",
+                        "record_id": "6863326263210149383"
+                    }
+                ]
             },
             "sub_values": [
                 {
@@ -87,7 +93,14 @@ public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : 
                             "open_file_id": "66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53",
                             "file_name": "file_name.jpg",
                             "length": 65535
-                        }
+                        },
+                        "record_values": [
+                            {
+                                "variable_api_name": "city_v2",
+                                "sub_value_key": "key1",
+                                "record_id": "6863326263210149383"
+                            }
+                        ]
                     }
                 }
             ]
@@ -95,7 +108,7 @@ public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : 
     ]
 }
 """;
-        var result = Deserialize<FeishuNetSdk.Corehr.PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto>(json);
+        var result = Deserialize<FeishuNetSdk.Corehr.PostCorehrV2ProcessStartBodyDto>(json);
         Assert.IsNotNull(result);
     }
 }

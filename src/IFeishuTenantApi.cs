@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-30
+// Last Modified On : 2026-02-06
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -6307,12 +6307,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。</para>
     /// <para>示例值：recpCsf4ME</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Base.DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdResponseDto>> DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordIdAsync(
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string record_id,
+        [PathQuery] bool? ignore_consistency_check = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -6640,6 +6649,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/batch_delete")]
@@ -6647,6 +6664,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto,
+        [PathQuery] bool? ignore_consistency_check = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -55660,6 +55678,51 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.PostCompensationV1ArchivesResponseDto>> PostCompensationV1ArchivesAsync(
         [JsonContent] CompensationManagement.PostCompensationV1ArchivesBodyDto dto,
         [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】发起流程</para>
+    /// <para>接口ID：7451908159096766468</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/process-instance/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>发起一个流程实例，目前只支持发起自定义业务类型的流程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:process.instance:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/process_start")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2ProcessStartResponseDto>> PostCorehrV2ProcessStartAsync(
+        [JsonContent] Corehr.PostCorehrV2ProcessStartBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>
