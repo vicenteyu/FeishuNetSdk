@@ -205,7 +205,7 @@
 <tr><td colspan="3">GetImV1MessagesByMessageIdReactions</td></tr>
 <tr><td rowspan="2">103</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>获取表单元数据</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormId</td></tr>
-<tr><td rowspan="2">104</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>更新表单问题</td></tr>
+<tr><td rowspan="2">104</td><td rowspan="2">2026-02-04</td><td>&#10003;</td><td>多维表格</td><td>更新表单问题</td></tr>
 <tr><td colspan="3">PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldId</td></tr>
 <tr><td rowspan="2">105</td><td rowspan="2">2024-11-13</td><td>&#10003;</td><td>多维表格</td><td>列出表单问题</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFields</td></tr>
@@ -217,7 +217,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecords</td></tr>
 <tr><td rowspan="2">109</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>更新记录</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
-<tr><td rowspan="2">110</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除记录</td></tr>
+<tr><td rowspan="2">110</td><td rowspan="2">2026-02-02</td><td>&#10003;</td><td>多维表格</td><td>删除记录</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenTablesByTableIdRecordsByRecordId</td></tr>
 <tr><td rowspan="2">111</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>新增多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
@@ -227,7 +227,7 @@
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
-<tr><td rowspan="2">115</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>删除多条记录</td></tr>
+<tr><td rowspan="2">115</td><td rowspan="2">2026-02-02</td><td>&#10003;</td><td>多维表格</td><td>删除多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDelete</td></tr>
 <tr><td rowspan="2">116</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>多维表格</td><td>列出字段</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenTablesByTableIdFields</td></tr>

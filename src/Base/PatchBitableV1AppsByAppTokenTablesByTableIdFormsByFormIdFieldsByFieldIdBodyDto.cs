@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-02-06
 // ************************************************************************
 // <copyright file="PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,4 +64,53 @@ public record PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFi
     /// </summary>
     [JsonPropertyName("visible")]
     public bool? Visible { get; set; }
+
+    /// <summary>
+    /// <para>富文本描述</para>
+    /// <para>必填：否</para>
+    /// <para>最大长度：500</para>
+    /// <para>最小长度：1</para>
+    /// </summary>
+    [JsonPropertyName("rich_description")]
+    public AppRichDescriptionSegment[]? RichDescriptions { get; set; }
+
+    /// <summary>
+    /// <para>富文本描述</para>
+    /// </summary>
+    public record AppRichDescriptionSegment
+    {
+        /// <summary>
+        /// <para>元素类型</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：text</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：1</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>text：纯文本</item>
+        /// <item>url：链接</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("segment_type")]
+        public string SegmentType { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>文本值</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：这是一个开放性问题</para>
+        /// <para>最大长度：1000</para>
+        /// <para>最小长度：1</para>
+        /// </summary>
+        [JsonPropertyName("text")]
+        public string Text { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>链接</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://open.larkoffice.com/</para>
+        /// <para>最大长度：1000</para>
+        /// <para>最小长度：1</para>
+        /// </summary>
+        [JsonPropertyName("link")]
+        public string? Link { get; set; }
+    }
 }

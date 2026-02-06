@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-11
+// Last Modified On : 2026-02-06
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -3416,6 +3416,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>数据表中一条记录的唯一标识。通过[查询记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-record/search)接口获取。</para>
     /// <para>示例值：recpCsf4ME</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpDelete("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/records/{record_id}")]
@@ -3424,6 +3432,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [PathQuery] string record_id,
+        [PathQuery] bool? ignore_consistency_check = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -3757,6 +3766,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
     /// <para>示例值：tblsRc9GRRXKqhvW</para>
     /// </param>
+    /// <param name="ignore_consistency_check">
+    /// <para>必填：否</para>
+    /// <para>是否忽略一致性读写检查，默认为 false，即在进行读写操作时，系统将确保读取到的数据和写入的数据是一致的。可选值：</para>
+    /// <para>- true：忽略读写一致性检查，提高性能，但可能会导致某些节点的数据不同步，出现暂时不一致</para>
+    /// <para>- false：开启读写一致性检查，确保数据在读写过程中一致</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -3766,6 +3783,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string app_token,
         [PathQuery] string table_id,
         [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchDeleteBodyDto dto,
+        [PathQuery] bool? ignore_consistency_check = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

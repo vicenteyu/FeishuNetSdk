@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-02-06
 // ************************************************************************
 // <copyright file="Test_PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFieldsByFieldIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,12 +30,19 @@ public class Test_PatchBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdFields
     "code": 0,
     "msg": "success",
     "data": {
-        "field": {
-            "pre_field_id": "fldjX7dUj5",
-            "title": "任务名称",
-            "description": "请概述该任务",
+        "fields": {
+            "pre_field_id": "fld1241a13b",
+            "title": "请选择你更倾向的方案",
+            "description": "这是一个开放性问题",
             "required": true,
-            "visible": true
+            "visible": true,
+            "rich_description": [
+                {
+                    "segment_type": "text",
+                    "text": "这是一个开放性问题",
+                    "link": "https://open.larkoffice.com/"
+                }
+            ]
         }
     }
 }
