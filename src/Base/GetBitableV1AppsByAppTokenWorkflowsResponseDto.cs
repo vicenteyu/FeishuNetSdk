@@ -4,7 +4,7 @@
 // Created          : 2024-12-12
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-12
+// Last Modified On : 2026-03-01
 // ************************************************************************
 // <copyright file="GetBitableV1AppsByAppTokenWorkflowsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetBitableV1AppsByAppTokenWorkflowsResponseDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("workflows")]
-    public AppWorkflow[] Workflows { get; set; } = [];
+    public DisplayWorkflow[] Workflows { get; set; } = [];
 
     /// <summary>
     /// <para>自动化流程信息</para>
     /// </summary>
-    public record AppWorkflow
+    public record DisplayWorkflow
     {
         /// <summary>
         /// <para>自动化流程的 ID</para>

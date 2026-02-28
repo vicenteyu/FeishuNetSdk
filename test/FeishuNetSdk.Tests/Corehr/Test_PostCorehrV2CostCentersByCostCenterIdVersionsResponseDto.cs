@@ -36,7 +36,7 @@ public class Test_PostCorehrV2CostCentersByCostCenterIdVersionsResponseDto : Tes
             "name": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "中文示例"
                 }
             ],
             "code": "MDPD00000023",
@@ -47,7 +47,7 @@ public class Test_PostCorehrV2CostCentersByCostCenterIdVersionsResponseDto : Tes
             "description": [
                 {
                     "lang": "zh-CN",
-                    "value": "张三"
+                    "value": "中文示例"
                 }
             ],
             "effective_time": "2020-01-01",

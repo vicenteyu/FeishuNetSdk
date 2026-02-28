@@ -82,6 +82,7 @@ public record PostCorehrV2CustomOrgsQueryResponseDto : IPageableResponse<PostCor
 
         /// <summary>
         /// <para>上级自定义组织 ID</para>
+        /// <para>- 若查询的是一级自定义组织，则该字段不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>

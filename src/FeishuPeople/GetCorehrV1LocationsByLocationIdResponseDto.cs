@@ -26,12 +26,12 @@ public record GetCorehrV1LocationsByLocationIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("location")]
-    public GetCorehrV1LocationsByLocationIdResponseDtoLocation? Location { get; set; }
+    public LocationSuffix? Location { get; set; }
 
     /// <summary>
     /// <para>地点信息</para>
     /// </summary>
-    public record GetCorehrV1LocationsByLocationIdResponseDtoLocation
+    public record LocationSuffix
     {
         /// <summary>
         /// <para>地点维护管理员在 飞书人事系统，组织管理模块维护的地点记录 ID。</para>
@@ -46,16 +46,17 @@ public record GetCorehrV1LocationsByLocationIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
-        public GetCorehrV1LocationsByLocationIdResponseDtoLocationHiberarchyCommon HiberarchyCommon { get; set; } = new();
+        public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
         /// <summary>
         /// <para>地点基本信息，该结构维护了地点的名称、编码、启用状态、上级地点 等基础信息。</para>
         /// </summary>
-        public record GetCorehrV1LocationsByLocationIdResponseDtoLocationHiberarchyCommon
+        public record HiberarchyCommonSuffix
         {
             /// <summary>
             /// <para>上级地点ID</para>
             /// <para>- 可通过[查询单个地点](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/get)获取详情。</para>
+            /// <para>- 若查询的是一级地点，则该字段不展示</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -622,7 +623,7 @@ public record GetCorehrV1LocationsByLocationIdResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>当前版本生效日期</para>
+        /// <para>当前版本失效日期</para>
         /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>- 详情可以参考[时间轴介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/about-timeline-version)</para>

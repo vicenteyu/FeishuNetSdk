@@ -26,12 +26,12 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("company")]
-    public GetCorehrV1CompaniesByCompanyIdResponseDtoCompany? Company { get; set; }
+    public CompanySuffix? Company { get; set; }
 
     /// <summary>
     /// <para>公司信息</para>
     /// </summary>
-    public record GetCorehrV1CompaniesByCompanyIdResponseDtoCompany
+    public record CompanySuffix
     {
         /// <summary>
         /// <para>公司 ID</para>
@@ -46,15 +46,16 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
-        public GetCorehrV1CompaniesByCompanyIdResponseDtoCompanyHiberarchyCommon HiberarchyCommon { get; set; } = new();
+        public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
         /// <summary>
         /// <para>公司基本信息，该结构维护了公司的名称、编码、启用状态、上级公司等基础信息。</para>
         /// </summary>
-        public record GetCorehrV1CompaniesByCompanyIdResponseDtoCompanyHiberarchyCommon
+        public record HiberarchyCommonSuffix
         {
             /// <summary>
             /// <para>上级 ID</para>
+            /// <para>- 若查询的是一级公司，则该字段不展示</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -379,12 +380,12 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("currency")]
-        public GetCorehrV1CompaniesByCompanyIdResponseDtoCompanyCurrency? Currency { get; set; }
+        public CurrencySuffix? Currency { get; set; }
 
         /// <summary>
         /// <para>默认币种</para>
         /// </summary>
-        public record GetCorehrV1CompaniesByCompanyIdResponseDtoCompanyCurrency
+        public record CurrencySuffix
         {
             /// <summary>
             /// <para>货币 ID。</para>

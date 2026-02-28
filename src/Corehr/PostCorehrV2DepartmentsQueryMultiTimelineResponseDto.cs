@@ -133,7 +133,9 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto : IPageableRe
         }
 
         /// <summary>
-        /// <para>上级部门 ID ，详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+        /// <para>上级部门 ID</para>
+        /// <para>- 详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
+        /// <para>- 若查询的是一级部门，则该字段不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520111</para>
         /// </summary>

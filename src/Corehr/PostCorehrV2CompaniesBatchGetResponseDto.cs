@@ -46,15 +46,16 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
-        public CompanyHiberarchyCommon HiberarchyCommon { get; set; } = new();
+        public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
         /// <summary>
         /// <para>公司基本信息</para>
         /// </summary>
-        public record CompanyHiberarchyCommon
+        public record HiberarchyCommonSuffix
         {
             /// <summary>
             /// <para>上级公司ID</para>
+            /// <para>- 若查询的是一级公司，则该字段不展示</para>
             /// <para>必填：否</para>
             /// <para>示例值：4719168654814483759</para>
             /// </summary>
@@ -367,12 +368,12 @@ public record PostCorehrV2CompaniesBatchGetResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("currency")]
-        public CompanyCurrency? Currency { get; set; }
+        public CurrencySuffix? Currency { get; set; }
 
         /// <summary>
         /// <para>默认币种</para>
         /// </summary>
-        public record CompanyCurrency
+        public record CurrencySuffix
         {
             /// <summary>
             /// <para>货币 ID。</para>

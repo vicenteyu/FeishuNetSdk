@@ -839,11 +839,11 @@
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenChildren</td></tr>
 <tr><td rowspan="2">420</td><td rowspan="2">2022-05-07</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveExplorerV2FolderByFolderToken</td></tr>
-<tr><td rowspan="2">421</td><td rowspan="2">2024-07-02</td><td>&#10003;</td><td>云文档</td><td>判断协作者是否有某权限</td></tr>
+<tr><td rowspan="2">421</td><td rowspan="2">2024-07-02</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>判断协作者是否有某权限</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberPermitted</td></tr>
-<tr><td rowspan="2">422</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>云文档</td><td>转移拥有者</td></tr>
+<tr><td rowspan="2">422</td><td rowspan="2">2024-04-15</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>转移拥有者</td></tr>
 <tr><td colspan="3">PostDrivePermissionMemberTransfer</td></tr>
-<tr><td rowspan="2">423</td><td rowspan="2">2022-07-18</td><td>&#10003;</td><td>云文档</td><td>获取云文档权限设置V2</td></tr>
+<tr><td rowspan="2">423</td><td rowspan="2">2022-07-18</td><td><span style="color:red;">删除</span></td><td>云文档</td><td>获取云文档权限设置V2</td></tr>
 <tr><td colspan="3">PostDrivePermissionV2Public</td></tr>
 <tr><td rowspan="2">424</td><td rowspan="2">2025-08-29</td><td>&#10003;</td><td>云文档</td><td>获取文件夹中的文件清单</td></tr>
 <tr><td colspan="3">GetDriveV1Files</td></tr>
@@ -963,7 +963,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td><span style="color:red;">删除</span></td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2025-12-11</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">484</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
@@ -1081,9 +1081,9 @@
 <tr><td colspan="3">GetHireV2InterviewRecords</td></tr>
 <tr><td rowspan="2">541</td><td rowspan="2">2025-02-28</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreateTemp</td></tr>
-<tr><td rowspan="2">542</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>多维表格</td><td>列出自动化流程</td></tr>
+<tr><td rowspan="2">542</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出自动化流程</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenWorkflows</td></tr>
-<tr><td rowspan="2">543</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>多维表格</td><td>更新自动化流程状态</td></tr>
+<tr><td rowspan="2">543</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>更新自动化流程状态</td></tr>
 <tr><td colspan="3">PutBitableV1AppsByAppTokenWorkflowsByWorkflowId</td></tr>
 <tr><td rowspan="2">544</td><td rowspan="2">2024-12-19</td><td>&#10003;</td><td>Payroll</td><td>批量查询算薪项</td></tr>
 <tr><td colspan="3">GetPayrollV1AcctItems</td></tr>
@@ -1227,9 +1227,9 @@
 <tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">614</td><td rowspan="2">2025-08-20</td><td>&#10003;</td><td>组织架构</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
-<tr><td rowspan="2">615</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
+<tr><td rowspan="2">615</td><td rowspan="2">2026-02-26</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1Employees</td></tr>
-<tr><td rowspan="2">616</td><td rowspan="2">2025-10-09</td><td>&#10003;</td><td>组织架构</td><td>更新员工信息</td></tr>
+<tr><td rowspan="2">616</td><td rowspan="2">2026-02-26</td><td>&#10003;</td><td>组织架构</td><td>更新员工信息</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">617</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesFilter</td></tr>
@@ -1299,4 +1299,6 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
 <tr><td rowspan="2">650</td><td rowspan="2">2026-01-29</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
+<tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>新增</td><td>多维表格</td><td>列出工作流</td></tr>
+<tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
 </tbody></table>
