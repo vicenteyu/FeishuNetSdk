@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-02-06
+// Last Modified On : 2026-03-01
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -543,31 +543,6 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【云文档】获取云文档权限设置V2</para>
-    /// <para>接口ID：6907569524099940353</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/historic-version/docs/drive/permission/get-document-sharing-settings-v2</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 获取云文档的权限设置。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>docs:doc</item>
-    /// <item>docs:doc:readonly</item>
-    /// <item>drive:drive</item>
-    /// <item>drive:drive:readonly</item>
-    /// <item>drive:drive.metadata:readonly</item>
-    /// <item>drive:file</item>
-    /// <item>drive:file:readonly</item>
-    /// <item>sheets:spreadsheet</item>
-    /// <item>sheets:spreadsheet:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/drive/permission/v2/public/")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionV2PublicResponseDto>> PostDrivePermissionV2PublicAsync(
-        [JsonContent] Ccm.Spec.PostDrivePermissionV2PublicBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
     /// <para>【云文档】获取文件夹元数据</para>
     /// <para>接口ID：6907569524099989505</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/get-folder-meta</para>
@@ -909,30 +884,6 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【云文档】判断协作者是否有某权限</para>
-    /// <para>接口ID：6907569524101087233</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/historic-version/docs/drive/permission/querying-if-a-collaborator-has-a-specific-permission</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据 filetoken 判断当前登录用户是否具有某权限。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>docs:doc</item>
-    /// <item>docs:doc:readonly</item>
-    /// <item>drive:drive</item>
-    /// <item>drive:drive:readonly</item>
-    /// <item>drive:file</item>
-    /// <item>drive:file:readonly</item>
-    /// <item>sheets:spreadsheet</item>
-    /// <item>sheets:spreadsheet:readonly</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/drive/permission/member/permitted")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberPermittedResponseDto>> PostDrivePermissionMemberPermittedAsync(
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberPermittedBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
     /// <para>【云文档】更新行列</para>
     /// <para>接口ID：6907569742383562754</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/sheets-v3/sheet-rowcol/update-rows-or-columns</para>
@@ -1070,23 +1021,6 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【应用信息】查询订单详情</para>
-    /// <para>接口ID：6907569742384037890</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/application-v6/appstore-paid-info/query-order-information</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于查询某个订单的具体信息</para>
-    /// </summary>
-    /// <param name="order_id">
-    /// <para>必填：是</para>
-    /// <para>订单ID</para>
-    /// </param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpGet("/open-apis/pay/v1/order/get")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderGetResponseDto>> GetPayV1OrderGetAsync(
-        [PathQuery] string order_id,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
     /// <para>【应用信息】获取用户可用的应用</para>
     /// <para>接口ID：6907569742384070658</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/application-v6/admin/obtain-the-apps-available-to-a-user</para>
@@ -1138,30 +1072,6 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? lang = null,
-        [PathQuery] string? open_id = null,
-        [PathQuery] string? user_id = null,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【应用信息】查询用户是否在应用开通范围</para>
-    /// <para>接口ID：6907569742384087042</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/application-v6/appstore-paid-info/query-a-user's-app-access</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>当付费套餐是按人数收费 或者 限制最大使用人数时，开放平台会引导企业管理员设置“付费功能开通范围”。 但是受开通范围限制，部分用户就无法使用对应的付费功能。 可以通过此接口，在付费功能点入口判断是否允许某个用户进入使用。</para>
-    /// </summary>
-    /// <param name="open_id">
-    /// <para>必填：否</para>
-    /// <para>用户 open_id，open_id 和 user_id 两个参数必须包含其一，若同时传入取 open_id</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="user_id">
-    /// <para>必填：否</para>
-    /// <para>用户 user_id，user_id 和 open_id 两个参数必须包含其一，若同时传入取 open_id</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpGet("/open-apis/pay/v1/paid_scope/check_user")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1PaidScopeCheckUserResponseDto>> GetPayV1PaidScopeCheckUserAsync(
         [PathQuery] string? open_id = null,
         [PathQuery] string? user_id = null,
         CancellationToken cancellation_token = default);
@@ -1478,43 +1388,6 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.GetContactV1UserAdminScopeGetResponseDto>> GetContactV1UserAdminScopeGetAsync(
         [PathQuery] string employee_id,
         [PathQuery] string open_id,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【应用信息】查询租户购买的付费方案</para>
-    /// <para>接口ID：6907569742384988162</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/application-v6/appstore-paid-info/query-an-app-tenant’s-paid-orders</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于分页查询应用租户下的已付费订单，每次购买对应一个唯一的订单，订单会记录购买的套餐的相关信息，业务方需要自行处理套餐的有效期和付费方案的升级。</para>
-    /// <para>备注：免费模式的应用不会产生订单，仅收费应用会产生订单 (含免费版)。</para>
-    /// </summary>
-    /// <param name="status">
-    /// <para>必填：否</para>
-    /// <para>获取用户购买套餐信息设置的过滤条件， normal为正常状态，refunded为已退款，该字段为空或者all表示所有，未支付的订单无法查到</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="page_size">
-    /// <para>必填：是</para>
-    /// <para>每页显示的订单数量</para>
-    /// <para>默认值：10</para>
-    /// </param>
-    /// <param name="page_token">
-    /// <para>必填：否</para>
-    /// <para>翻页标识，可以从上次请求的响应中获取，不填或者为空时表示从开头获取</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="tenant_key">
-    /// <para>必填：否</para>
-    /// <para>购买应用的租户唯一标识，为空表示获取应用下所有订单，有值表示获取应用下该租户购买的订单</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpGet("/open-apis/pay/v1/order/list")]
-    System.Threading.Tasks.Task<FeishuResponse<Application.Spec.GetPayV1OrderListResponseDto>> GetPayV1OrderListAsync(
-        [PathQuery] string? status = null,
-        [PathQuery] int page_size = 10,
-        [PathQuery] string? page_token = null,
-        [PathQuery] string? tenant_key = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -1856,26 +1729,6 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/contact/v2/user/batch_add")]
     System.Threading.Tasks.Task<FeishuResponse<Contact.Spec.PostContactV2UserBatchAddResponseDto>> PostContactV2UserBatchAddAsync(
         [JsonContent] Contact.Spec.PostContactV2UserBatchAddBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【云文档】转移拥有者</para>
-    /// <para>接口ID：6907569744329719809</para>
-    /// <para>接口文档：https://open.feishu.cn/document/server-docs/historic-version/docs/drive/permission/transfer-ownership</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文档信息和用户信息转移文档的所有者。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>docs:doc</item>
-    /// <item>drive:drive</item>
-    /// <item>drive:file</item>
-    /// <item>sheets:spreadsheet</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/drive/permission/member/transfer")]
-    System.Threading.Tasks.Task<FeishuResponse<Ccm.Spec.PostDrivePermissionMemberTransferResponseDto>> PostDrivePermissionMemberTransferAsync(
-        [JsonContent] Ccm.Spec.PostDrivePermissionMemberTransferBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -54925,6 +54778,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于列出多维表格的自动化流程。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:workflow:read</item>
     /// <item>bitable:app</item>
     /// <item>bitable:app:readonly</item>
     /// </list></para>
@@ -54939,24 +54793,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
     /// <para>示例值：appbcbWCzen6D8dezhoCH2RpMAh</para>
     /// </param>
-    /// <param name="page_token">
-    /// <para>必填：否</para>
-    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
-    /// <para>默认值：null</para>
-    /// </param>
-    /// <param name="page_size">
-    /// <para>必填：否</para>
-    /// <para>分页大小</para>
-    /// <para>示例值：10</para>
-    /// <para>默认值：20</para>
-    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/bitable/v1/apps/{app_token}/workflows")]
     System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenWorkflowsResponseDto>> GetBitableV1AppsByAppTokenWorkflowsAsync(
         [PathQuery] string app_token,
-        [PathQuery] string? page_token = null,
-        [PathQuery] int? page_size = 20,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -54966,6 +54806,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>开启或关闭自动化流程。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>base:workflow:write</item>
     /// <item>bitable:app</item>
     /// </list></para>
     /// </summary>
@@ -56045,6 +55886,44 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定时间范围地点版本</para>
+    /// <para>接口ID：7473071080241528836</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/location/query_multi_timeline</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>- 接口支持查询出对象生效时间段在指定的start_date和end_date之间的版本（即：会查询出生效时间段和查询时间段有交集的版本）</para>
+    /// <para>- 接口支持对象版本相关字段的查询和返回（默认返回id和version_id）</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:locations:read</item>
+    /// <item>corehr:locations:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/locations/query_multi_timeline")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2LocationsQueryMultiTimelineResponseDto>> PostCorehrV2LocationsQueryMultiTimelineAsync(
+        [JsonContent] Corehr.PostCorehrV2LocationsQueryMultiTimelineBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定时间范围公司版本</para>
+    /// <para>接口ID：7473071080241545220</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/organization-management/company/query_multi_timeline</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>- 接口支持查询出对象生效时间段在指定的start_date和end_date之间的版本（即：会查询出生效时间段和查询时间段有交集的版本）</para>
+    /// <para>- 接口支持对象版本相关字段的查询和返回（默认返回id和version_id）</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:company:read</item>
+    /// <item>corehr:company:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/companies/query_multi_timeline")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CompaniesQueryMultiTimelineResponseDto>> PostCorehrV2CompaniesQueryMultiTimelineAsync(
+        [JsonContent] Corehr.PostCorehrV2CompaniesQueryMultiTimelineBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】查询指定时间范围序列版本</para>
     /// <para>接口ID：7473071080241561604</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/job-management/job_family/query_multi_timeline</para>
@@ -56846,6 +56725,33 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2JobsBatchGetResponseDto>> PostCorehrV2JobsBatchGetAsync(
         [JsonContent] Corehr.PostCorehrV2JobsBatchGetBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【多维表格】列出工作流</para>
+    /// <para>接口ID：7530602249640755201</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-block_workflow/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>此接口用于返回多维表格中所有工作流，多维表格管理员可通过此接口来管理表中的工作流</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:workflow:read</item>
+    /// <item>bitable:app</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：U9sGw5wyoiOIqdk1C4mcbYmMnbt</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/bitable/v1/apps/{app_token}/block_workflows")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.GetBitableV1AppsByAppTokenBlockWorkflowsResponseDto>> GetBitableV1AppsByAppTokenBlockWorkflowsAsync(
+        [PathQuery] string app_token,
         CancellationToken cancellation_token = default);
 
     /// <summary>

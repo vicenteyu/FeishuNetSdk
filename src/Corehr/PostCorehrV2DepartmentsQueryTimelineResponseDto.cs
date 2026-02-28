@@ -135,6 +135,7 @@ public record PostCorehrV2DepartmentsQueryTimelineResponseDto
         /// <summary>
         /// <para>上级部门 ID</para>
         /// <para>- 可通过[批量查询部门V2](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/batch_get) 或者[搜索部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/department/search) 获取详情</para>
+        /// <para>- 若查询的是一级部门，则该字段不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520111</para>
         /// </summary>

@@ -88,6 +88,7 @@ public record PostCorehrV2CostCentersSearchResponseDto : IPageableResponse<PostC
 
         /// <summary>
         /// <para>上级成本中心ID</para>
+        /// <para>- 若查询的是一级成本中心，则该字段不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：6862995757234914824</para>
         /// </summary>

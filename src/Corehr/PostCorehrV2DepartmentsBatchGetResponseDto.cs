@@ -133,7 +133,7 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
         }
 
         /// <summary>
-        /// <para>上级部门 ID</para>
+        /// <para>上级部门 ID（若查询的是一级部门，则该字段不展示）</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719456877659520111</para>
         /// </summary>

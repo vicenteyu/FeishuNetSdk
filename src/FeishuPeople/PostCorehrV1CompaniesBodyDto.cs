@@ -26,12 +26,12 @@ public record PostCorehrV1CompaniesBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
-    public PostCorehrV1CompaniesBodyDtoHiberarchyCommon HiberarchyCommon { get; set; } = new();
+    public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
     /// <summary>
     /// <para>公司基本信息，该结构维护了公司的名称、编码、启用状态、上级公司等基础信息。</para>
     /// </summary>
-    public record PostCorehrV1CompaniesBodyDtoHiberarchyCommon
+    public record HiberarchyCommonSuffix
     {
         /// <summary>
         /// <para>上级公司ID，在创建场景下， 该字段必填，枚举值及详细信息可通过[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)接口查询获得</para>
@@ -170,18 +170,22 @@ public record PostCorehrV1CompaniesBodyDto
     public Enum[]? IndustryLists { get; set; }
 
     /// <summary>
-    /// <para>法定代表人。</para>
-    /// <para>仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
-    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>法定代表人</para>
+    /// <para>- 仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
+    /// <para>- 若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>- 不是分公司时，法人字段填入才有效。</para>
+    /// <para>- 是分公司时，填入法人字段无效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("legal_representative")]
     public I18n[]? LegalRepresentatives { get; set; }
 
     /// <summary>
-    /// <para>法定代表人。</para>
-    /// <para>仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
-    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>法定代表人</para>
+    /// <para>- 仅注册地址中的 国家 / 地区为中国大陆时，法人字段填入才有效。</para>
+    /// <para>- 若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>- 不是分公司时，法人字段填入才有效。</para>
+    /// <para>- 是分公司时，填入法人字段无效。</para>
     /// </summary>
     public record I18n
     {
@@ -203,7 +207,7 @@ public record PostCorehrV1CompaniesBodyDto
     }
 
     /// <summary>
-    /// <para>邮编</para>
+    /// <para>邮编（该字段已废弃，可忽略）</para>
     /// <para>必填：否</para>
     /// <para>示例值：100000</para>
     /// </summary>
@@ -235,6 +239,8 @@ public record PostCorehrV1CompaniesBodyDto
 
     /// <summary>
     /// <para>是否为分公司</para>
+    /// <para>- 是分公司时，主要负责人生效。</para>
+    /// <para>- 不是分公司时，法定代表人生效。</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -243,6 +249,8 @@ public record PostCorehrV1CompaniesBodyDto
 
     /// <summary>
     /// <para>主要负责人</para>
+    /// <para>- 是分公司时，该字段填入才有效。</para>
+    /// <para>- 不是分公司时，填入该字段无效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("primary_manager")]
@@ -282,12 +290,12 @@ public record PostCorehrV1CompaniesBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("currency")]
-    public PostCorehrV1CompaniesBodyDtoCurrency? Currency { get; set; }
+    public CurrencySuffix? Currency { get; set; }
 
     /// <summary>
     /// <para>默认币种</para>
     /// </summary>
-    public record PostCorehrV1CompaniesBodyDtoCurrency
+    public record CurrencySuffix
     {
         /// <summary>
         /// <para>货币名称</para>

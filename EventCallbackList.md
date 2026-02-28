@@ -112,6 +112,7 @@
 <tr><td>calendar.calendar.event.changed_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarEventChangedV4EventBodyDto&gt;</td><td>【日历】日程变更</td></tr>
 <tr><td>calendar.calendar.changed_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarChangedV4EventBodyDto&gt;</td><td>【日历】日历变更</td></tr>
 <tr><td>calendar.calendar.acl.deleted_v4</td><td>EventV2Dto&lt;Calendar.Events.CalendarCalendarAclDeletedV4EventBodyDto&gt;</td><td>【日历】删除 ACL</td></tr>
+<tr><td>auth.user_access_token.revoked_v4</td><td>EventV2Dto&lt;Auth.Events.AuthUserAccessTokenRevokedV4EventBodyDto&gt;</td><td>【身份验证】撤销用户授权事件</td></tr>
 <tr><td>approval.instance.remedy_group_update_v4</td><td>EventV1Dto&lt;Approval.Events.ApprovalInstanceRemedyGroupUpdateV4EventBodyDto&gt;</td><td>【审批】补卡审批</td></tr>
 <tr><td>approval.instance.trip_group_update_v4</td><td>EventV1Dto&lt;Approval.Events.ApprovalInstanceTripGroupUpdateV4EventBodyDto&gt;</td><td>【审批】出差审批</td></tr>
 <tr><td>shift_approval</td><td>EventV1Dto&lt;Approval.Events.ShiftApprovalEventBodyDto&gt;</td><td>【审批】换班审批</td></tr>

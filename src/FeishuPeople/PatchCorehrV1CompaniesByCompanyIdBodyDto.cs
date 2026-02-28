@@ -26,12 +26,12 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
-    public PatchCorehrV1CompaniesByCompanyIdBodyDtoHiberarchyCommon? HiberarchyCommon { get; set; }
+    public HiberarchyCommonSuffix? HiberarchyCommon { get; set; }
 
     /// <summary>
     /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// </summary>
-    public record PatchCorehrV1CompaniesByCompanyIdBodyDtoHiberarchyCommon
+    public record HiberarchyCommonSuffix
     {
         /// <summary>
         /// <para>上级组织</para>
@@ -139,16 +139,22 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     public Enum[]? IndustryLists { get; set; }
 
     /// <summary>
-    /// <para>法定代表人。仅注册地址中的 国家 / 地区 为中国大陆时，法人字段填入才有效。</para>
-    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>法定代表人</para>
+    /// <para>- 仅注册地址中的 国家 / 地区 为中国大陆时，法人字段填入才有效。</para>
+    /// <para>- 若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>- 不是分公司时，法人字段填入才有效。</para>
+    /// <para>- 是分公司时，填入法人字段无效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("legal_representative")]
     public I18n[]? LegalRepresentatives { get; set; }
 
     /// <summary>
-    /// <para>法定代表人。仅注册地址中的 国家 / 地区 为中国大陆时，法人字段填入才有效。</para>
-    /// <para>若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>法定代表人</para>
+    /// <para>- 仅注册地址中的 国家 / 地区 为中国大陆时，法人字段填入才有效。</para>
+    /// <para>- 若注册地址中的 国家 / 地区 不为中国大陆时，则填入法人字段无效。</para>
+    /// <para>- 不是分公司时，法人字段填入才有效。</para>
+    /// <para>- 是分公司时，填入法人字段无效。</para>
     /// </summary>
     public record I18n
     {
@@ -170,9 +176,9 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     }
 
     /// <summary>
-    /// <para>邮编</para>
+    /// <para>邮编（该字段已废弃，可忽略）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：邮编</para>
+    /// <para>示例值：100000</para>
     /// </summary>
     [JsonPropertyName("post_code")]
     public string? PostCode { get; set; }
@@ -202,6 +208,8 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
     /// <summary>
     /// <para>是否为分公司</para>
+    /// <para>- 是分公司时，主要负责人生效。</para>
+    /// <para>- 不是分公司时，法定代表人生效。</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -210,6 +218,8 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
 
     /// <summary>
     /// <para>主要负责人</para>
+    /// <para>- 是分公司时，该字段填入才有效。</para>
+    /// <para>- 不是分公司时，填入该字段无效。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("primary_manager")]
@@ -220,12 +230,12 @@ public record PatchCorehrV1CompaniesByCompanyIdBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("currency")]
-    public PatchCorehrV1CompaniesByCompanyIdBodyDtoCurrency? Currency { get; set; }
+    public CurrencySuffix? Currency { get; set; }
 
     /// <summary>
     /// <para>默认币种</para>
     /// </summary>
-    public record PatchCorehrV1CompaniesByCompanyIdBodyDtoCurrency
+    public record CurrencySuffix
     {
         /// <summary>
         /// <para>货币名称</para>

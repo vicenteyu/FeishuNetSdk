@@ -168,7 +168,7 @@ public record PostDirectoryV1EmployeesBodyDto
             public string? OrderWeightAmongDeparments { get; set; }
 
             /// <summary>
-            /// <para>是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用排序第一的部门作为主部门),可选值:true/false。</para>
+            /// <para>是否为用户的主部门（用户只能有一个主部门，且排序权重应最大，不填则默认使用系统默认排序下的第一个部门作为主部门，系统默认排序与部门数组传入顺序无关）</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
             /// </summary>
@@ -310,12 +310,12 @@ public record PostDirectoryV1EmployeesBodyDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("url_value")]
-            public CustomFieldValueUrlValue? UrlValue { get; set; }
+            public UrlValueSuffix? UrlValue { get; set; }
 
             /// <summary>
             /// <para>网页链接字段值</para>
             /// </summary>
-            public record CustomFieldValueUrlValue
+            public record UrlValueSuffix
             {
                 /// <summary>
                 /// <para>网页标题</para>
@@ -346,12 +346,12 @@ public record PostDirectoryV1EmployeesBodyDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("enum_value")]
-            public CustomFieldValueEnumValue? EnumValue { get; set; }
+            public EnumValueSuffix? EnumValue { get; set; }
 
             /// <summary>
             /// <para>枚举字段值</para>
             /// </summary>
-            public record CustomFieldValueEnumValue
+            public record EnumValueSuffix
             {
                 /// <summary>
                 /// <para>选项结果ID</para>
@@ -404,12 +404,12 @@ public record PostDirectoryV1EmployeesBodyDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("phone_value")]
-            public CustomFieldValuePhoneValue? PhoneValue { get; set; }
+            public PhoneValueSuffix? PhoneValue { get; set; }
 
             /// <summary>
             /// <para>电话字段值</para>
             /// </summary>
-            public record CustomFieldValuePhoneValue
+            public record PhoneValueSuffix
             {
                 /// <summary>
                 /// <para>电话号</para>

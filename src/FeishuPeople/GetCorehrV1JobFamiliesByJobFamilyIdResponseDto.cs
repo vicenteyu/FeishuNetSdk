@@ -26,12 +26,12 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_family")]
-    public GetCorehrV1JobFamiliesByJobFamilyIdResponseDtoJobFamily? JobFamily { get; set; }
+    public JobFamilySuffix? JobFamily { get; set; }
 
     /// <summary>
     /// <para>序列信息</para>
     /// </summary>
-    public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDtoJobFamily
+    public record JobFamilySuffix
     {
         /// <summary>
         /// <para>序列 ID</para>
@@ -87,7 +87,7 @@ public record GetCorehrV1JobFamiliesByJobFamilyIdResponseDto
         public bool? Selectable { get; set; }
 
         /// <summary>
-        /// <para>上级序列 ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得</para>
+        /// <para>上级序列 ID，详细信息可通过[【查询单个序列】](/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/get)接口查询获得（若查询的是一级序列，则该字段不展示）</para>
         /// <para>必填：否</para>
         /// <para>示例值：4698020757495316313</para>
         /// </summary>

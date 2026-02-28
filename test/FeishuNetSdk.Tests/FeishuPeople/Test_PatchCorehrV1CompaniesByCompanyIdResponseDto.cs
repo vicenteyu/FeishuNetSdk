@@ -94,7 +94,7 @@ public class Test_PatchCorehrV1CompaniesByCompanyIdResponseDto : TestBase
                     "value": "张三"
                 }
             ],
-            "post_code": "邮编",
+            "post_code": "100000",
             "tax_payer_id": "123456840",
             "confidential": true,
             "sub_type_list": [

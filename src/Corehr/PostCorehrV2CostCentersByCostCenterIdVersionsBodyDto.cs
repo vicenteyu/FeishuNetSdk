@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-03-01
 // ************************************************************************
 // <copyright file="PostCorehrV2CostCentersByCostCenterIdVersionsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -42,13 +42,24 @@ public record PostCorehrV2CostCentersByCostCenterIdVersionsBodyDto
         public string Lang { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>内容</para>
+        /// <para>文本内容</para>
         /// <para>必填：是</para>
         /// <para>示例值：基础架构</para>
         /// </summary>
         [JsonPropertyName("value")]
         public string Value { get; set; } = string.Empty;
     }
+
+    /// <summary>
+    /// <para>成本中心编码(不能与其他记录的编码重复)</para>
+    /// <para>- 开启自动编码时，以自动生成的编码值为准，传入值不生效</para>
+    /// <para>- 未开启自动编码时，编码字段值以传入值为准</para>
+    /// <para>- 新建版本不支持将code设置为空，如需要将 code 设置为空请使用[【更正成本中心版本】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center-version/patch)</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：MDPD00000023</para>
+    /// </summary>
+    [JsonPropertyName("code")]
+    public string? Code { get; set; }
 
     /// <summary>
     /// <para>上级成本中心ID，可通过[【搜索成本中心信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口查询获得</para>

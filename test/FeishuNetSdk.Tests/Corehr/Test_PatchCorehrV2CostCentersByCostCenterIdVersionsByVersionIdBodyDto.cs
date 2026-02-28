@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-03-01
 // ************************************************************************
 // <copyright file="Test_PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,6 +33,7 @@ public class Test_PatchCorehrV2CostCentersByCostCenterIdVersionsByVersionIdBodyD
             "value": "基础架构"
         }
     ],
+    "code": "MDPD00000023",
     "parent_cost_center_id": "6862995757234914824",
     "managers": [
         "6862995757234914824"

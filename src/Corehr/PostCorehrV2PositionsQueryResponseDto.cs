@@ -167,6 +167,7 @@ public record PostCorehrV2PositionsQueryResponseDto : IPageableResponse<PostCore
 
         /// <summary>
         /// <para>直属上级岗位 ID，可通过本接口查询详细信息</para>
+        /// <para>- 若查询的是一级岗位，则该字段不展示</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719519211875096301</para>
         /// </summary>
