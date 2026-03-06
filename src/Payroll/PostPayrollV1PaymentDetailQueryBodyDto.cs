@@ -19,6 +19,7 @@ namespace FeishuNetSdk.Payroll;
 /// <para>1. 批量查询发薪明细接口提供的请求参数中，用户必须填写「__发薪日起止时间__（pay_period_start_date，pay_period_end_date）」或「__发薪活动 ID 列表__」，当传入的三个参数均为空时，开放接口将返回 2500006 错误码。</para>
 /// <para>2. 每一次调用接口时，系统最多会扫描 __50__ 个发薪活动，当用户传入的查询条件命中的发薪活动个数大于 __50__ 时，开放接口将根据查询参数返回 2500003 或 2500008 错误码，请合理使用查询参数。</para>
 /// <para>3. 开放接口中的「员工的飞书人事雇佣 ID 列表（employee_ids）」参数为必填。</para>
+/// <para>4. **批量查询发薪明细接口数据取自发薪活动**，调用前请先创建发薪活动并完成算薪活动关联。</para>
 /// <para>接口ID：7431973248228638722</para>
 /// <para>文档地址：https://open.feishu.cn/document/payroll-v1/payment_detail/query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fpayroll-v1%2fpayment_detail%2fquery</para>

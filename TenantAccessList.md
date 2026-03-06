@@ -1579,7 +1579,7 @@
 <tr><td colspan="3">PutHireV1ExternalApplicationsByExternalApplicationId</td></tr>
 <tr><td rowspan="2">790</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>删除外部投递</td></tr>
 <tr><td colspan="3">DeleteHireV1ExternalApplicationsByExternalApplicationId</td></tr>
-<tr><td rowspan="2">791</td><td rowspan="2">2024-11-19</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
+<tr><td rowspan="2">791</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>消息与群组</td><td>批量发送消息</td></tr>
 <tr><td colspan="3">PostMessageV4BatchSend</td></tr>
 <tr><td rowspan="2">792</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>创建外部面试</td></tr>
 <tr><td colspan="3">PostHireV1ExternalInterviews</td></tr>
@@ -2685,7 +2685,7 @@
 <tr><td colspan="3">GetPayrollV1PaymentActivityDetails</td></tr>
 <tr><td rowspan="2">1343</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>查询发薪活动列表</td></tr>
 <tr><td colspan="3">GetPayrollV1PaymentActivitys</td></tr>
-<tr><td rowspan="2">1344</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
+<tr><td rowspan="2">1344</td><td rowspan="2">2026-03-02</td><td>&#10003;</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentDetailQuery</td></tr>
 <tr><td rowspan="2">1345</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>封存发薪活动</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentActivitysArchive</td></tr>
@@ -2969,10 +2969,16 @@
 <tr><td colspan="3">PostCorehrV2QueryFlowDataTemplate</td></tr>
 <tr><td rowspan="2">1485</td><td rowspan="2">2026-02-02</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>发起流程</td></tr>
 <tr><td colspan="3">PostCorehrV2ProcessStart</td></tr>
-<tr><td rowspan="2">1486</td><td rowspan="2">2026-02-09</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时间范围地点版本</td></tr>
+<tr><td rowspan="2">1486</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时间范围地点版本</td></tr>
 <tr><td colspan="3">PostCorehrV2LocationsQueryMultiTimeline</td></tr>
-<tr><td rowspan="2">1487</td><td rowspan="2">2026-02-09</td><td>新增</td><td>飞书人事（企业版）</td><td>查询指定时间范围公司版本</td></tr>
+<tr><td rowspan="2">1487</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定时间范围公司版本</td></tr>
 <tr><td colspan="3">PostCorehrV2CompaniesQueryMultiTimeline</td></tr>
-<tr><td rowspan="2">1488</td><td rowspan="2">2026-02-11</td><td>新增</td><td>多维表格</td><td>列出工作流</td></tr>
+<tr><td rowspan="2">1488</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出工作流</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
+<tr><td rowspan="2">1489</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>创建字段编组</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
+<tr><td rowspan="2">1490</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>升级表单</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
+<tr><td rowspan="2">1491</td><td rowspan="2">2026-03-06</td><td>新增</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
 </tbody></table>
