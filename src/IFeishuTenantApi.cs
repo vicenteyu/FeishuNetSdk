@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-01
+// Last Modified On : 2026-03-06
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -53357,6 +53357,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>1. 批量查询发薪明细接口提供的请求参数中，用户必须填写「__发薪日起止时间__（pay_period_start_date，pay_period_end_date）」或「__发薪活动 ID 列表__」，当传入的三个参数均为空时，开放接口将返回 2500006 错误码。</para>
     /// <para>2. 每一次调用接口时，系统最多会扫描 __50__ 个发薪活动，当用户传入的查询条件命中的发薪活动个数大于 __50__ 时，开放接口将根据查询参数返回 2500003 或 2500008 错误码，请合理使用查询参数。</para>
     /// <para>3. 开放接口中的「员工的飞书人事雇佣 ID 列表（employee_ids）」参数为必填。</para>
+    /// <para>4. **批量查询发薪明细接口数据取自发薪活动**，调用前请先创建发薪活动并完成算薪活动关联。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>payroll:payment_details:read</item>
     /// </list></para>
@@ -56901,6 +56902,119 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Board.PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlResponseDto>> PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlAsync(
         [PathQuery] string whiteboard_id,
         [JsonContent] Board.PostBoardV1WhiteboardsByWhiteboardIdNodesPlantumlBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【多维表格】创建字段编组</para>
+    /// <para>接口ID：7600708368865856725</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field_group/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于为多维表格数据表的字段创建编组。创建字段编组后，字段将被组织到该编组中，便于多维表格的数据管理</para>
+    /// <para>#### 业务使用场景</para>
+    /// <para>适用于多维表格字段较多，需要分类管理字段的场景</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:field_group:create</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 app_token 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 app_token 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 obj_type 的值为 bitable 时，obj_token 字段的值才是多维表格的 app_token。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：bascnv1jIEppJdTCn3jOosaxxxxx</para>
+    /// </param>
+    /// <param name="table_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 长度范围：`0` ～ `50` 字符</para>
+    /// <para>示例值：tblz8nadEUdxNMt5</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/field_groups")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldGroupsResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdFieldGroupsAsync(
+        [PathQuery] string app_token,
+        [PathQuery] string table_id,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdFieldGroupsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【多维表格】升级表单</para>
+    /// <para>接口ID：7600708368865873109</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-form/upgrade</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>升级旧版表单至收集表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>base:form:update</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格 App 的唯一标识。不同形态的多维表格，其 `app_token` 的获取方式不同：</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/base**== 开头，该多维表格的 `app_token` 是下图高亮部分：</para>
+    /// <para>![app_token.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/6916f8cfac4045ba6585b90e3afdfb0a_GxbfkJHZBa.png?height=766&amp;lazyload=true&amp;width=3004)</para>
+    /// <para>- 如果多维表格的 URL 以 ==**feishu.cn/wiki**== 开头，你需调用知识库相关[获取知识空间节点信息](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/wiki-v2/space/get_node)接口获取多维表格的 app_token。当 `obj_type` 的值为 `bitable` 时，`obj_token` 字段的值才是多维表格的 `app_token`。</para>
+    /// <para>了解更多，参考[多维表格 app_token 获取方式](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/bitable-overview#-752212c)。</para>
+    /// <para>示例值：bascnv1jIEppJdTCn3jOosabcef</para>
+    /// </param>
+    /// <param name="table_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格数据表的唯一标识。获取方式：</para>
+    /// <para>- 你可通过多维表格 URL 获取 `table_id`，下图高亮部分即为当前数据表的 `table_id`</para>
+    /// <para>- 也可通过[列出数据表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table/list)接口获取 `table_id`</para>
+    /// <para>![](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/18741fe2a0d3cafafaf9949b263bb57d_yD1wkOrSju.png?height=746&amp;lazyload=true&amp;maxWidth=700&amp;width=2976)</para>
+    /// <para>**数据校验规则**：</para>
+    /// <para>- 长度范围：`0` ～ `50` 字符</para>
+    /// <para>示例值：tblz8nadEUdxNMt5</para>
+    /// </param>
+    /// <param name="form_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>多维表格中表单的唯一标识。表单也是视图的一种，其获取方式与获取 `view_id` 相同：</para>
+    /// <para>- 在多维表格的 URL 地址栏中，`form_id` 是下图中高亮部分：</para>
+    /// <para>![view_id.png](//sf3-cn.feishucdn.com/obj/open-platform-opendoc/140668632c97e0095832219001d17c54_DJMgVH9x2S.png?height=748&amp;lazyload=true&amp;width=2998)</para>
+    /// <para>- 通过[列出视图](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-view/list)接口获取。暂时无法获取到嵌入到云文档中的多维表格的 `form_id`</para>
+    /// <para>示例值：vew6oMbAa4</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/bitable/v1/apps/{app_token}/tables/{table_id}/forms/{form_id}/upgrade")]
+    System.Threading.Tasks.Task<FeishuResponse<Base.PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgradeResponseDto>> PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgradeAsync(
+        [PathQuery] string app_token,
+        [PathQuery] string table_id,
+        [PathQuery] string form_id,
+        [JsonContent] Base.PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgradeBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】妙搭和飞书用户 ID 转换</para>
+    /// <para>接口ID：7613807342706871517</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/directory-user/id_convert</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>转换飞书妙搭和飞书开放平台之间的用户 ID</para>
+    /// <para>#### 使用场景</para>
+    /// <para>适用于需要在飞书妙搭和飞书开放平台之间转换用户身份的场景</para>
+    /// <para>#### 实现方式</para>
+    /// <para>通过指定转换类型（id_convert_type）和待转换的 ID 列表（ids）实现指定 ID 转换</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:directory.user.id_convert:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/spark/v1/directory/user/id_convert")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1DirectoryUserIdConvertResponseDto>> PostSparkV1DirectoryUserIdConvertAsync(
+        [JsonContent] Miaoda.PostSparkV1DirectoryUserIdConvertBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

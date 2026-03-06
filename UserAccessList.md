@@ -1125,7 +1125,7 @@
 <tr><td colspan="3">GetPayrollV1PaymentActivityDetails</td></tr>
 <tr><td rowspan="2">563</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>查询发薪活动列表</td></tr>
 <tr><td colspan="3">GetPayrollV1PaymentActivitys</td></tr>
-<tr><td rowspan="2">564</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
+<tr><td rowspan="2">564</td><td rowspan="2">2026-03-02</td><td>&#10003;</td><td>Payroll</td><td>批量查询发薪明细</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentDetailQuery</td></tr>
 <tr><td rowspan="2">565</td><td rowspan="2">2025-03-10</td><td>&#10003;</td><td>Payroll</td><td>封存发薪活动</td></tr>
 <tr><td colspan="3">PostPayrollV1PaymentActivitysArchive</td></tr>
@@ -1299,6 +1299,12 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
 <tr><td rowspan="2">650</td><td rowspan="2">2026-01-29</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
-<tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>新增</td><td>多维表格</td><td>列出工作流</td></tr>
+<tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出工作流</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
+<tr><td rowspan="2">652</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>创建字段编组</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
+<tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>升级表单</td></tr>
+<tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
+<tr><td rowspan="2">654</td><td rowspan="2">2026-03-06</td><td>新增</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
 </tbody></table>
