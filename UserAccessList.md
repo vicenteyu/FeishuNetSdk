@@ -991,27 +991,27 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">496</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
-<tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取 Aily 消息</td></tr>
+<tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
-<tr><td rowspan="2">498</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>列出 Aily 消息</td></tr>
+<tr><td rowspan="2">498</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>列出 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">499</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>创建运行</td></tr>
+<tr><td rowspan="2">499</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 aily</td><td>创建运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">500</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>列出运行</td></tr>
+<tr><td rowspan="2">500</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 aily</td><td>列出运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRuns</td></tr>
-<tr><td rowspan="2">501</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>取消运行</td></tr>
+<tr><td rowspan="2">501</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 aily</td><td>取消运行</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdRunsByRunIdCancel</td></tr>
-<tr><td rowspan="2">502</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>更新会话</td></tr>
+<tr><td rowspan="2">502</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>更新会话</td></tr>
 <tr><td colspan="3">PutAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">503</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取会话</td></tr>
+<tr><td rowspan="2">503</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取会话</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">504</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>删除会话</td></tr>
+<tr><td rowspan="2">504</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>删除会话</td></tr>
 <tr><td colspan="3">DeleteAilyV1SessionsByAilySessionId</td></tr>
-<tr><td rowspan="2">505</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>发送 Aily 消息</td></tr>
+<tr><td rowspan="2">505</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>发送 Aily 消息</td></tr>
 <tr><td colspan="3">PostAilyV1SessionsByAilySessionIdMessages</td></tr>
-<tr><td rowspan="2">506</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 Aily</td><td>获取运行</td></tr>
+<tr><td rowspan="2">506</td><td rowspan="2">2025-07-11</td><td>&#10003;</td><td>飞书 aily</td><td>获取运行</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdRunsByRunId</td></tr>
-<tr><td rowspan="2">507</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>创建会话</td></tr>
+<tr><td rowspan="2">507</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1Sessions</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2025-01-23</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询员工薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1ArchivesQuery</td></tr>
@@ -1059,17 +1059,17 @@
 <tr><td colspan="3">PostReportV1TasksQuery</td></tr>
 <tr><td rowspan="2">530</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>创建嵌套块</td></tr>
 <tr><td colspan="3">PostDocxV1DocumentsByDocumentIdBlocksByBlockIdDescendant</td></tr>
-<tr><td rowspan="2">531</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>执行数据知识问答</td></tr>
+<tr><td rowspan="2">531</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>执行数据知识问答</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdKnowledgesAsk</td></tr>
-<tr><td rowspan="2">532</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>查询数据知识列表</td></tr>
+<tr><td rowspan="2">532</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>查询数据知识列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">533</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取数据知识分类列表</td></tr>
+<tr><td rowspan="2">533</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取数据知识分类列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetTags</td></tr>
-<tr><td rowspan="2">534</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>调用技能</td></tr>
+<tr><td rowspan="2">534</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>调用技能</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdSkillsBySkillIdStart</td></tr>
-<tr><td rowspan="2">535</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取技能信息</td></tr>
+<tr><td rowspan="2">535</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取技能信息</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkillsBySkillId</td></tr>
-<tr><td rowspan="2">536</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>查询技能列表</td></tr>
+<tr><td rowspan="2">536</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>查询技能列表</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdSkills</td></tr>
 <tr><td rowspan="2">537</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>云文档</td><td>获取云文档内容</td></tr>
 <tr><td colspan="3">GetDocsV1Content</td></tr>
@@ -1205,13 +1205,13 @@
 <tr><td colspan="3">GetTrustPartyV1CollaborationTenantsByTargetTenantKeyVisibleOrganization</td></tr>
 <tr><td rowspan="2">603</td><td rowspan="2">2025-04-29</td><td>&#10003;</td><td>组织架构</td><td>新增可搜可见规则</td></tr>
 <tr><td colspan="3">PostDirectoryV1CollaborationRules</td></tr>
-<tr><td rowspan="2">604</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>创建数据知识</td></tr>
+<tr><td rowspan="2">604</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>创建数据知识</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssets</td></tr>
-<tr><td rowspan="2">605</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>删除数据知识</td></tr>
+<tr><td rowspan="2">605</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>删除数据知识</td></tr>
 <tr><td colspan="3">DeleteAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">606</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>获取数据知识</td></tr>
+<tr><td rowspan="2">606</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取数据知识</td></tr>
 <tr><td colspan="3">GetAilyV1AppsByAppIdDataAssetsByDataAssetId</td></tr>
-<tr><td rowspan="2">607</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 Aily</td><td>上传文件用于数据知识管理</td></tr>
+<tr><td rowspan="2">607</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>上传文件用于数据知识管理</td></tr>
 <tr><td colspan="3">PostAilyV1AppsByAppIdDataAssetsUploadFile</td></tr>
 <tr><td rowspan="2">608</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>删除部门</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1DepartmentsByDepartmentId</td></tr>
@@ -1297,14 +1297,18 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableName</td></tr>
 <tr><td rowspan="2">649</td><td rowspan="2">2025-12-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取工作空间下的自定义枚举列表</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
-<tr><td rowspan="2">650</td><td rowspan="2">2026-01-29</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
+<tr><td rowspan="2">650</td><td rowspan="2">2026-03-12</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
 <tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出工作流</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
-<tr><td rowspan="2">652</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>创建字段编组</td></tr>
+<tr><td rowspan="2">652</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>多维表格</td><td>创建字段编组</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
-<tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>新增</td><td>多维表格</td><td>升级表单</td></tr>
+<tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>多维表格</td><td>升级表单</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
-<tr><td rowspan="2">654</td><td rowspan="2">2026-03-06</td><td>新增</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td rowspan="2">654</td><td rowspan="2">2026-03-06</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
 <tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
+<tr><td rowspan="2">655</td><td rowspan="2">2026-03-13</td><td>新增</td><td>审批</td><td>搜索地理库信息</td></tr>
+<tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
+<tr><td rowspan="2">656</td><td rowspan="2">2026-03-13</td><td>新增</td><td>审批</td><td>查询地理库信息</td></tr>
+<tr><td colspan="3">GetApprovalV4Districts</td></tr>
 </tbody></table>

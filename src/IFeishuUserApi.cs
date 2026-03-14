@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-06
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -21191,7 +21191,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取 Aily 消息</para>
+    /// <para>【飞书 aily】获取 Aily 消息</para>
     /// <para>接口ID：7358047310868152324</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21226,7 +21226,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】列出 Aily 消息</para>
+    /// <para>【飞书 aily】列出 Aily 消息</para>
     /// <para>接口ID：7358047310868168708</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21284,7 +21284,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】创建运行</para>
+    /// <para>【飞书 aily】创建运行</para>
     /// <para>接口ID：7358047310868185092</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21314,7 +21314,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】列出运行</para>
+    /// <para>【飞书 aily】列出运行</para>
     /// <para>接口ID：7358047310868201476</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21356,7 +21356,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】取消运行</para>
+    /// <para>【飞书 aily】取消运行</para>
     /// <para>接口ID：7358047310868217860</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/cancel</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21391,7 +21391,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】更新会话</para>
+    /// <para>【飞书 aily】更新会话</para>
     /// <para>接口ID：7358047310868234244</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/update</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21417,7 +21417,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取会话</para>
+    /// <para>【飞书 aily】获取会话</para>
     /// <para>接口ID：7358047310868250628</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21441,7 +21441,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】删除会话</para>
+    /// <para>【飞书 aily】删除会话</para>
     /// <para>接口ID：7358047310868267012</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21465,7 +21465,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】发送 Aily 消息</para>
+    /// <para>【飞书 aily】发送 Aily 消息</para>
     /// <para>接口ID：7358047310868283396</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-aily_message/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21495,7 +21495,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取运行</para>
+    /// <para>【飞书 aily】获取运行</para>
     /// <para>接口ID：7358047310868299780</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session-run/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -21530,7 +21530,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】创建会话</para>
+    /// <para>【飞书 aily】创建会话</para>
     /// <para>接口ID：7358047310868316164</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/aily_session/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23322,7 +23322,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】执行数据知识问答</para>
+    /// <para>【飞书 aily】执行数据知识问答</para>
     /// <para>接口ID：7424752773160779780</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/ask</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23348,7 +23348,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】查询数据知识列表</para>
+    /// <para>【飞书 aily】查询数据知识列表</para>
     /// <para>接口ID：7424752773160796164</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23419,7 +23419,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取数据知识分类列表</para>
+    /// <para>【飞书 aily】获取数据知识分类列表</para>
     /// <para>接口ID：7424752773160812548</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/list-2</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23470,7 +23470,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】调用技能</para>
+    /// <para>【飞书 aily】调用技能</para>
     /// <para>接口ID：7429225800963031042</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/start</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23505,7 +23505,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取技能信息</para>
+    /// <para>【飞书 aily】获取技能信息</para>
     /// <para>接口ID：7429225800963047426</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23536,7 +23536,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】查询技能列表</para>
+    /// <para>【飞书 aily】查询技能列表</para>
     /// <para>接口ID：7429225800963063810</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/app-skill/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23720,7 +23720,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】创建数据知识</para>
+    /// <para>【飞书 aily】创建数据知识</para>
     /// <para>接口ID：7441589456115892227</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23755,7 +23755,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】删除数据知识</para>
+    /// <para>【飞书 aily】删除数据知识</para>
     /// <para>接口ID：7441589456115908611</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/delete</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23795,7 +23795,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】获取数据知识</para>
+    /// <para>【飞书 aily】获取数据知识</para>
     /// <para>接口ID：7441589456115924995</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -23847,7 +23847,7 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 Aily】上传文件用于数据知识管理</para>
+    /// <para>【飞书 aily】上传文件用于数据知识管理</para>
     /// <para>接口ID：7441589456115941379</para>
     /// <para>接口文档：https://open.feishu.cn/document/aily-v1/data-knowledge/data-knowledge-management/upload_file</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
@@ -25838,6 +25838,98 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? select = null,
         [PathQuery] string? filter = null,
         [PathQuery] string? order = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】搜索地理库信息</para>
+    /// <para>接口ID：7579169568158502093</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/district/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>搜索审批的地理库数据，可用于在发起审批时填写地址控件的区域信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
+    /// <item>approval:approval:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="locale">
+    /// <para>必填：否</para>
+    /// <para>返回值的语言，目前仅部分数据支持中文，不支持中文的数据默认返回英文</para>
+    /// <para>示例值：zh-CN</para>
+    /// <list type="bullet">
+    /// <item>zh-CN：中文</item>
+    /// <item>en-us：英文</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/approval/v4/districts/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4DistrictsSearchResponseDto>> PostApprovalV4DistrictsSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Approval.PostApprovalV4DistrictsSearchBodyDto dto,
+        [PathQuery] string? locale = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】查询地理库信息</para>
+    /// <para>接口ID：7579169568158518477</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/district/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取审批的地理库数据，用于在发起审批时填写地址控件的区域信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval</item>
+    /// <item>approval:approval:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于指定一次请求所返回的数据量上限，最大100，默认20</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="root_district_id">
+    /// <para>必填：否</para>
+    /// <para>指定节点进行遍历，仅返回该节点下的数据，默认遍历根节点，返回值内容可参考list_type参数描述</para>
+    /// <para>示例值：1816670</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="list_type">
+    /// <para>必填：否</para>
+    /// <para>遍历类型，不同的类型内容会有差异</para>
+    /// <para>示例值：sub_level</para>
+    /// <list type="bullet">
+    /// <item>sub_level：遍历指定节点的下一层区域，默认方式</item>
+    /// <item>leaf_level：遍历指定节点的所有叶子节点，指定该参数时会返回parent_district</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="locale">
+    /// <para>必填：否</para>
+    /// <para>返回指定语言的内容，默认返回英文数据</para>
+    /// <para>示例值：zh-CN</para>
+    /// <list type="bullet">
+    /// <item>zh-CN：中文</item>
+    /// <item>en-US：英文</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/approval/v4/districts")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4DistrictsResponseDto>> GetApprovalV4DistrictsAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? root_district_id = null,
+        [PathQuery] string? list_type = null,
+        [PathQuery] string? locale = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

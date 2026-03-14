@@ -4,7 +4,7 @@
 // Created          : 2025-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="PostCorehrV2PathwaysBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -19,7 +19,7 @@ namespace FeishuNetSdk.Corehr;
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fcorehr-v2%2fpathway%2fbatch_get</para>
 /// </summary>
-public record PostCorehrV2PathwaysBatchGetResponseDto
+public record PostCorehrV2PathwaysBatchGetResponseDto : IPageableResponse<PostCorehrV2PathwaysBatchGetResponseDto.Pathway>
 {
     /// <summary>
     /// <para>查询的通道信息</para>
@@ -97,4 +97,20 @@ public record PostCorehrV2PathwaysBatchGetResponseDto
         [JsonPropertyName("active")]
         public bool? Active { get; set; }
     }
+
+    /// <summary>
+    /// <para>分页标记，当 has_more 为 true 时，会同时返回新的 page_token，否则不返回 page_token</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// </summary>
+    [JsonPropertyName("page_token")]
+    public string? PageToken { get; set; }
+
+    /// <summary>
+    /// <para>是否还有更多项</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：true</para>
+    /// </summary>
+    [JsonPropertyName("has_more")]
+    public bool? HasMore { get; set; }
 }

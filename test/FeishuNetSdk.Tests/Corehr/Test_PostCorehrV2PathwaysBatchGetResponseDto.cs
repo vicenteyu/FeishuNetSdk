@@ -4,7 +4,7 @@
 // Created          : 2025-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PathwaysBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,7 +48,9 @@ public class Test_PostCorehrV2PathwaysBatchGetResponseDto : TestBase
                 ],
                 "active": true
             }
-        ]
+        ],
+        "page_token": "eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=",
+        "has_more": true
     }
 }
 """;

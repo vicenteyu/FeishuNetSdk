@@ -184,7 +184,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? CompanyId { get; set; }
 
             /// <summary>
-            /// <para>社保账户类型。当record_type为attrition时，不返回该数据</para>
+            /// <para>社保/公积金账户类型。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：associated_company</para>
             /// <para>最大长度：64</para>
@@ -194,7 +194,7 @@ public record PostCompensationV1SocialArchiveAdjustRecordQueryResponseDto
             public string? AccountType { get; set; }
 
             /// <summary>
-            /// <para>社保账号。当record_type为attrition时，不返回该数据</para>
+            /// <para>社保/公积金账号。当record_type为attrition时，不返回该数据</para>
             /// <para>必填：否</para>
             /// <para>示例值：ac123456</para>
             /// <para>最大长度：64</para>
