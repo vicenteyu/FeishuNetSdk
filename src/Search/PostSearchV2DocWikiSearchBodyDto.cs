@@ -32,7 +32,7 @@ public record PostSearchV2DocWikiSearchBodyDto
     public string Query { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>文档过滤参数</para>
+    /// <para>文档过滤参数（doc_filter与wiki_filter至少传一个）</para>
     /// <para>必填：否</para>
     /// <para>示例值：{"folder_tokens": ["fld_123456"]}</para>
     /// </summary>
@@ -40,7 +40,7 @@ public record PostSearchV2DocWikiSearchBodyDto
     public DocFilterSuffix? DocFilter { get; set; }
 
     /// <summary>
-    /// <para>文档过滤参数</para>
+    /// <para>文档过滤参数（doc_filter与wiki_filter至少传一个）</para>
     /// </summary>
     public record DocFilterSuffix
     {
@@ -136,8 +136,8 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <item>OPEN_TIME：User打开时间排序</item>
         /// <item>EDIT_TIME：User编辑时间降序</item>
         /// <item>EDIT_TIME_ASC：User编辑时间升序</item>
-        /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序</item>
-        /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序</item>
+        /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序（已废弃）</item>
+        /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序（已废弃）</item>
         /// <item>CREATE_TIME：按文档创建时间排序</item>
         /// <item>CREATE_TIME_ASC：按文档创建时间正序（该排序暂不支持）</item>
         /// </list></para>
@@ -154,7 +154,7 @@ public record PostSearchV2DocWikiSearchBodyDto
     }
 
     /// <summary>
-    /// <para>Wiki过滤参数</para>
+    /// <para>Wiki过滤参数（doc_filter与wiki_filter至少传一个）</para>
     /// <para>必填：否</para>
     /// <para>示例值：{"creator_ids": ["ou_789012"], "space_ids": ["space_123456"]}</para>
     /// </summary>
@@ -162,7 +162,7 @@ public record PostSearchV2DocWikiSearchBodyDto
     public WikiFilterSuffix? WikiFilter { get; set; }
 
     /// <summary>
-    /// <para>Wiki过滤参数</para>
+    /// <para>Wiki过滤参数（doc_filter与wiki_filter至少传一个）</para>
     /// </summary>
     public record WikiFilterSuffix
     {
@@ -257,8 +257,8 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// <item>OPEN_TIME：User打开时间排序</item>
         /// <item>EDIT_TIME：User编辑时间降序</item>
         /// <item>EDIT_TIME_ASC：User编辑时间升序</item>
-        /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序</item>
-        /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序</item>
+        /// <item>ENTITY_CREATE_TIME_ASC：实体创建时间升序（已废弃）</item>
+        /// <item>ENTITY_CREATE_TIME_DESC：实体创建时间降序（已废弃）</item>
         /// <item>CREATE_TIME：按文档创建时间排序</item>
         /// <item>CREATE_TIME_ASC：按文档创建时间正序（该排序暂不支持）</item>
         /// </list></para>

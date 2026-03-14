@@ -4,7 +4,7 @@
 // Created          : 2025-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PathwaysBatchGetBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,7 +29,11 @@ public class Test_PostCorehrV2PathwaysBatchGetBodyDto : TestBase
 {
     "pathway_ids": [
         "4692446793125560154"
-    ]
+    ],
+    "pathway_codes": [
+        "A1234"
+    ],
+    "active": true
 }
 """;
         var result = Deserialize<FeishuNetSdk.Corehr.PostCorehrV2PathwaysBatchGetBodyDto>(json);

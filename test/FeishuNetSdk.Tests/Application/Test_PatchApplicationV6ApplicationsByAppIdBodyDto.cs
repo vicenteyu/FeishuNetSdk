@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="Test_PatchApplicationV6ApplicationsByAppIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,7 +29,15 @@ public class Test_PatchApplicationV6ApplicationsByAppIdBodyDto : TestBase
 {
     "common_categories": [
         "分析工具"
-    ]
+    ],
+    "allow_refresh_token": false,
+    "callback_info": {
+        "callback_type": "webhook",
+        "request_url": "https://open.feishu.cn/",
+        "subscribed_callbacks": [
+            "url.preview.get"
+        ]
+    }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Application.PatchApplicationV6ApplicationsByAppIdBodyDto>(json);

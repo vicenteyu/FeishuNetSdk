@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-03-14
 // ************************************************************************
 // <copyright file="PatchApplicationV6ApplicationsByAppIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,7 +26,58 @@ public record PatchApplicationV6ApplicationsByAppIdBodyDto
     /// <para>必填：否</para>
     /// <para>示例值：["办公效率"]</para>
     /// <para>最大长度：3</para>
+    /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("common_categories")]
     public string[]? CommonCategories { get; set; }
+
+    /// <summary>
+    /// <para>是否允许刷新user_access_token</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("allow_refresh_token")]
+    public bool? AllowRefreshToken { get; set; }
+
+    /// <summary>
+    /// <para>应用回调配置</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("callback_info")]
+    public CallbackInfoSuffix? CallbackInfo { get; set; }
+
+    /// <summary>
+    /// <para>应用回调配置</para>
+    /// </summary>
+    public record CallbackInfoSuffix
+    {
+        /// <summary>
+        /// <para>回调类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：webhook</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>webhook：将回调发送至开发者服务器</item>
+        /// <item>websocket：使用长连接接收回调</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("callback_type")]
+        public string? CallbackType { get; set; }
+
+        /// <summary>
+        /// <para>回调地址</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：https://open.feishu.cn/</para>
+        /// </summary>
+        [JsonPropertyName("request_url")]
+        public string? RequestUrl { get; set; }
+
+        /// <summary>
+        /// <para>订阅的回调列表</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：99999</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("subscribed_callbacks")]
+        public string[]? SubscribedCallbacks { get; set; }
+    }
 }
