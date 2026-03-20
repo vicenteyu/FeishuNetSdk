@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-08-10
-// ************************************************************************
-// <copyright file="GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>获取邮件详情 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 获取邮件详情 响应体
@@ -26,12 +13,12 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("message")]
-    public GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDtoMessage? Message { get; set; }
+    public MessageSuffix? Message { get; set; }
 
     /// <summary>
     /// <para>邮件体</para>
     /// </summary>
-    public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDtoMessage
+    public record MessageSuffix
     {
         /// <summary>
         /// <para>主题</para>
@@ -78,7 +65,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
         public MailAddress[]? Ccs { get; set; }
 
         /// <summary>
-        /// <para>秘送</para>
+        /// <para>密送</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("bcc")]

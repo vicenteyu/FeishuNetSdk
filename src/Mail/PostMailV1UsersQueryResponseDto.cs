@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-06-24
-// ************************************************************************
-// <copyright file="PostMailV1UsersQueryResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>查询邮箱地址状态 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 查询邮箱地址状态 响应体
@@ -22,14 +9,14 @@ namespace FeishuNetSdk.Mail;
 public record PostMailV1UsersQueryResponseDto
 {
     /// <summary>
-    /// <para>邮箱地址以及其对应的类型类型和状态</para>
+    /// <para>邮箱地址以及其对应的类型和状态</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user_list")]
     public User[]? UserLists { get; set; }
 
     /// <summary>
-    /// <para>邮箱地址以及其对应的类型类型和状态</para>
+    /// <para>邮箱地址以及其对应的类型和状态</para>
     /// </summary>
     public record User
     {

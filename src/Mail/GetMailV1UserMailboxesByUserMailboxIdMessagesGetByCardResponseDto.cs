@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-04-11
-// ************************************************************************
-// <copyright file="GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>获取邮件卡片的邮件列表 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 获取邮件卡片的邮件列表 响应体
@@ -22,14 +9,14 @@ namespace FeishuNetSdk.Mail;
 public record GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCardResponseDto
 {
     /// <summary>
-    /// <para>邮件Owner信息</para>
+    /// <para>邮件 Owner 信息</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("owner_info")]
     public UserInfo OwnerInfo { get; set; } = new();
 
     /// <summary>
-    /// <para>邮件Owner信息</para>
+    /// <para>邮件 Owner 信息</para>
     /// </summary>
     public record UserInfo
     {

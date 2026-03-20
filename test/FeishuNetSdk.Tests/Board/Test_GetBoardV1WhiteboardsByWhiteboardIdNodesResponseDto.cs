@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-09-19
-// ************************************************************************
-// <copyright file="Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>测试 获取所有节点 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Tests.Board;
 
 /// <summary>
@@ -543,7 +530,7 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                 },
                 "mind_map_node": {
                     "parent_id": "12345678",
-                    "type": "true",
+                    "type": "mind_map_round_rect",
                     "z_index": 2,
                     "layout_position": "left",
                     "children": [
@@ -554,7 +541,7 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                 "mind_map_root": {
                     "layout": "left_right",
                     "type": "mind_map_text",
-                    "line_style": "rounf_angle",
+                    "line_style": "round_angle",
                     "up_children": [
                         "z1:1"
                     ],

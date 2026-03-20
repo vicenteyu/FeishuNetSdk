@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-04-11
-// ************************************************************************
-// <copyright file="GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>列出收信规则 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 列出收信规则 响应体
@@ -150,7 +137,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto
         public record RuleAction
         {
             /// <summary>
-            /// <para>匹配中规则后的操作列表</para>
+            /// <para>匹配命中规则后的操作列表</para>
             /// <para>必填：是</para>
             /// <para>最大长度：32</para>
             /// <para>最小长度：1</para>
@@ -159,7 +146,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto
             public RuleActionItem[] Items { get; set; } = [];
 
             /// <summary>
-            /// <para>匹配中规则后的操作列表</para>
+            /// <para>匹配命中规则后的操作列表</para>
             /// </summary>
             public record RuleActionItem
             {
@@ -197,7 +184,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdRulesResponseDto
         }
 
         /// <summary>
-        /// <para>是否终点规则</para>
+        /// <para>是否终止规则</para>
         /// <para>必填：是</para>
         /// <para>示例值：false</para>
         /// </summary>

@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-10-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-10-24
-// ************************************************************************
-// <copyright file="GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>获取流程数据 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
 /// 获取流程数据 响应体
@@ -43,7 +30,7 @@ public record GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto
         public string? VariableApiName { get; set; }
 
         /// <summary>
-        /// <para>变量名称</para>
+        /// <para>变量名称，在查询流程数据场景不会返回变量名称</para>
         /// <para>必填：否</para>
         /// <para>示例值：日期</para>
         /// </summary>
@@ -51,7 +38,7 @@ public record GetCorehrV2ProcessesByProcessIdFlowVariableDataResponseDto
         public FieldVariableValueI18n? VariableName { get; set; }
 
         /// <summary>
-        /// <para>变量名称</para>
+        /// <para>变量名称，在查询流程数据场景不会返回变量名称</para>
         /// </summary>
         public record FieldVariableValueI18n
         {

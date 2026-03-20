@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-04-11
-// ************************************************************************
-// <copyright file="PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>创建邮箱联系人 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮箱联系人 响应体
@@ -26,12 +13,12 @@ public record PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("mail_contact")]
-    public PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDtoMailContact? MailContact { get; set; }
+    public MailContactSuffix? MailContact { get; set; }
 
     /// <summary>
     /// <para>联系人实体</para>
     /// </summary>
-    public record PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDtoMailContact
+    public record MailContactSuffix
     {
         /// <summary>
         /// <para>联系人 id</para>
@@ -99,7 +86,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto
         /// <summary>
         /// <para>联系人头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://exampeimg.com/xxxx.jpg</para>
+        /// <para>示例值：https://exampleimg.com/xxxx.jpg</para>
         /// </summary>
         [JsonPropertyName("avatar")]
         public string? Avatar { get; set; }
