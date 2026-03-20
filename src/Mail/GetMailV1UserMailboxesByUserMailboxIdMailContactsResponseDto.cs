@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-04-11
-// ************************************************************************
-// <copyright file="GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>列出邮箱联系人 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 列出邮箱联系人 响应体
@@ -99,7 +86,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto : IPa
         /// <summary>
         /// <para>联系人头像</para>
         /// <para>必填：否</para>
-        /// <para>示例值：https://exampeimg.com/xxxx.jpg</para>
+        /// <para>示例值：https://exampleimg.com/xxxx.jpg</para>
         /// </summary>
         [JsonPropertyName("avatar")]
         public string? Avatar { get; set; }

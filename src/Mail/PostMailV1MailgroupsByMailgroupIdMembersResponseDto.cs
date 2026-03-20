@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-06-24
-// ************************************************************************
-// <copyright file="PostMailV1MailgroupsByMailgroupIdMembersResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>创建邮件组成员 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件组成员 响应体
@@ -32,7 +19,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersResponseDto
     /// <summary>
     /// <para>成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）</para>
     /// <para>必填：否</para>
-    /// <para>示例值：test_memeber@xxx.xx</para>
+    /// <para>示例值：test_member@xxx.xx</para>
     /// </summary>
     [JsonPropertyName("email")]
     public string? Email { get; set; }
@@ -63,7 +50,7 @@ public record PostMailV1MailgroupsByMailgroupIdMembersResponseDto
     /// <item>COMPANY：全员</item>
     /// <item>EXTERNAL_USER：外部用户</item>
     /// <item>MAIL_GROUP：邮件组</item>
-    /// <item>PUBLIC_MAILBOX：memberisapublicmailbox</item>
+    /// <item>PUBLIC_MAILBOX：member is a public mailbox</item>
     /// <item>OTHER_MEMBER：内部成员</item>
     /// </list></para>
     /// </summary>

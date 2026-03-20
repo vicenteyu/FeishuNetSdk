@@ -445,7 +445,7 @@
 <tr><td colspan="3">DeleteWikiV2SpacesBySpaceIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">223</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>更新知识空间设置</td></tr>
 <tr><td colspan="3">PutWikiV2SpacesBySpaceIdSetting</td></tr>
-<tr><td rowspan="2">224</td><td rowspan="2">2025-05-27</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
+<tr><td rowspan="2">224</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>通讯录</td><td>创建用户</td></tr>
 <tr><td colspan="3">PostContactV3Users</td></tr>
 <tr><td rowspan="2">225</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>通讯录</td><td>获取子部门列表</td></tr>
 <tr><td colspan="3">GetContactV3DepartmentsByDepartmentIdChildren</td></tr>
@@ -999,73 +999,73 @@
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
 <tr><td rowspan="2">500</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
-<tr><td rowspan="2">501</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组</td></tr>
+<tr><td rowspan="2">501</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组</td></tr>
 <tr><td colspan="3">PostMailV1Mailgroups</td></tr>
 <tr><td rowspan="2">502</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>删除职级</td></tr>
 <tr><td colspan="3">DeleteContactV3JobLevelsByJobLevelId</td></tr>
 <tr><td rowspan="2">503</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">504</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组部分信息</td></tr>
+<tr><td rowspan="2">504</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组部分信息</td></tr>
 <tr><td colspan="3">PatchMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">505</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组全部信息</td></tr>
+<tr><td rowspan="2">505</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改邮件组全部信息</td></tr>
 <tr><td colspan="3">PutMailV1MailgroupsByMailgroupId</td></tr>
 <tr><td rowspan="2">506</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupId</td></tr>
-<tr><td rowspan="2">507</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组</td></tr>
+<tr><td rowspan="2">507</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组</td></tr>
 <tr><td colspan="3">GetMailV1Mailgroups</td></tr>
 <tr><td rowspan="2">508</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组管理员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdManagersBatchCreate</td></tr>
-<tr><td rowspan="2">509</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组管理员</td></tr>
+<tr><td rowspan="2">509</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组管理员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdManagersBatchDelete</td></tr>
-<tr><td rowspan="2">510</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组管理员</td></tr>
+<tr><td rowspan="2">510</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组管理员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdManagers</td></tr>
-<tr><td rowspan="2">511</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组成员</td></tr>
+<tr><td rowspan="2">511</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdMembers</td></tr>
 <tr><td rowspan="2">512</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdMembersByMemberId</td></tr>
 <tr><td rowspan="2">513</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>更新职级</td></tr>
 <tr><td colspan="3">PutContactV3JobLevelsByJobLevelId</td></tr>
-<tr><td rowspan="2">514</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组成员</td></tr>
+<tr><td rowspan="2">514</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询指定邮件组成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">515</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取所有邮件组成员</td></tr>
+<tr><td rowspan="2">515</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取所有邮件组成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdMembers</td></tr>
-<tr><td rowspan="2">516</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组成员</td></tr>
+<tr><td rowspan="2">516</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdMembersBatchCreate</td></tr>
-<tr><td rowspan="2">517</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组成员</td></tr>
+<tr><td rowspan="2">517</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdMembersBatchDelete</td></tr>
-<tr><td rowspan="2">518</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组别名</td></tr>
+<tr><td rowspan="2">518</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组别名</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdAliases</td></tr>
 <tr><td rowspan="2">519</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组别名</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">520</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组所有别名</td></tr>
+<tr><td rowspan="2">520</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组所有别名</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdAliases</td></tr>
-<tr><td rowspan="2">521</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组权限成员</td></tr>
+<tr><td rowspan="2">521</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮件组权限成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdPermissionMembers</td></tr>
 <tr><td rowspan="2">522</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮件组权限成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdPermissionMembersByPermissionMemberId</td></tr>
-<tr><td rowspan="2">523</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组权限成员</td></tr>
+<tr><td rowspan="2">523</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件组权限成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdPermissionMembersByPermissionMemberId</td></tr>
 <tr><td rowspan="2">524</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职级信息</td></tr>
 <tr><td colspan="3">GetContactV3JobLevelsByJobLevelId</td></tr>
-<tr><td rowspan="2">525</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组权限成员</td></tr>
+<tr><td rowspan="2">525</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件组权限成员</td></tr>
 <tr><td colspan="3">GetMailV1MailgroupsByMailgroupIdPermissionMembers</td></tr>
-<tr><td rowspan="2">526</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组权限成员</td></tr>
+<tr><td rowspan="2">526</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量创建邮件组权限成员</td></tr>
 <tr><td colspan="3">PostMailV1MailgroupsByMailgroupIdPermissionMembersBatchCreate</td></tr>
-<tr><td rowspan="2">527</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组权限成员</td></tr>
+<tr><td rowspan="2">527</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件组权限成员</td></tr>
 <tr><td colspan="3">DeleteMailV1MailgroupsByMailgroupIdPermissionMembersBatchDelete</td></tr>
-<tr><td rowspan="2">528</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱</td></tr>
+<tr><td rowspan="2">528</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">529</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱部分信息</td></tr>
+<tr><td rowspan="2">529</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱部分信息</td></tr>
 <tr><td colspan="3">PatchMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">530</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱全部信息</td></tr>
+<tr><td rowspan="2">530</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改公共邮箱全部信息</td></tr>
 <tr><td colspan="3">PutMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">531</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱</td></tr>
+<tr><td rowspan="2">531</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">532</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
+<tr><td rowspan="2">532</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">533</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>永久删除公共邮箱</td></tr>
+<tr><td rowspan="2">533</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>永久删除公共邮箱</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxId</td></tr>
-<tr><td rowspan="2">534</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>添加公共邮箱成员</td></tr>
+<tr><td rowspan="2">534</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>添加公共邮箱成员</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembers</td></tr>
 <tr><td rowspan="2">535</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职级列表</td></tr>
 <tr><td colspan="3">GetContactV3JobLevels</td></tr>
@@ -1075,29 +1075,29 @@
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembersClear</td></tr>
 <tr><td rowspan="2">538</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询指定公共邮箱成员信息</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">539</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱成员信息</td></tr>
+<tr><td rowspan="2">539</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱成员信息</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdMembers</td></tr>
-<tr><td rowspan="2">540</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量添加公共邮箱成员</td></tr>
+<tr><td rowspan="2">540</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>批量添加公共邮箱成员</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdMembersBatchCreate</td></tr>
 <tr><td rowspan="2">541</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>批量删除公共邮箱成员</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxIdMembersBatchDelete</td></tr>
-<tr><td rowspan="2">542</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱别名</td></tr>
+<tr><td rowspan="2">542</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建公共邮箱别名</td></tr>
 <tr><td colspan="3">PostMailV1PublicMailboxesByPublicMailboxIdAliases</td></tr>
 <tr><td rowspan="2">543</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除公共邮箱别名</td></tr>
 <tr><td colspan="3">DeleteMailV1PublicMailboxesByPublicMailboxIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">544</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询公共邮箱的所有别名</td></tr>
+<tr><td rowspan="2">544</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询公共邮箱的所有别名</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxesByPublicMailboxIdAliases</td></tr>
-<tr><td rowspan="2">545</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>从回收站删除用户邮箱地址</td></tr>
+<tr><td rowspan="2">545</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>从回收站删除用户邮箱地址</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxId</td></tr>
 <tr><td rowspan="2">546</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>创建序列</td></tr>
 <tr><td colspan="3">PostContactV3JobFamilies</td></tr>
-<tr><td rowspan="2">547</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
+<tr><td rowspan="2">547</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建用户邮箱别名</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdAliases</td></tr>
 <tr><td rowspan="2">548</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除用户邮箱别名</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdAliasesByAliasId</td></tr>
-<tr><td rowspan="2">549</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取用户邮箱所有别名</td></tr>
+<tr><td rowspan="2">549</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取用户邮箱所有别名</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdAliases</td></tr>
-<tr><td rowspan="2">550</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>查询邮箱地址状态</td></tr>
+<tr><td rowspan="2">550</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询邮箱地址状态</td></tr>
 <tr><td colspan="3">PostMailV1UsersQuery</td></tr>
 <tr><td rowspan="2">551</td><td rowspan="2">2022-03-15</td><td>&#10003;</td><td>应用信息</td><td>校验应用管理员</td></tr>
 <tr><td colspan="3">GetApplicationV3IsUserAdmin</td></tr>
@@ -2057,7 +2057,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
 <tr><td rowspan="2">1029</td><td rowspan="2">2024-01-26</td><td>&#10003;</td><td>应用信息</td><td>启停用应用</td></tr>
 <tr><td colspan="3">PutApplicationV6ApplicationsByAppIdManagement</td></tr>
-<tr><td rowspan="2">1030</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">1030</td><td rowspan="2">2026-03-16</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">1031</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>招聘</td><td>获取人才列表</td></tr>
 <tr><td colspan="3">GetHireV1Talents</td></tr>
@@ -2697,39 +2697,39 @@
 <tr><td colspan="3">GetPayrollV1Datasources</td></tr>
 <tr><td rowspan="2">1349</td><td rowspan="2">2025-07-01</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询当前生效信息发生变更的职务</td></tr>
 <tr><td colspan="3">GetCorehrV2JobsQueryRecentChange</td></tr>
-<tr><td rowspan="2">1350</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
+<tr><td rowspan="2">1350</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱联系人</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
 <tr><td rowspan="2">1351</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱联系人</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">1352</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
+<tr><td rowspan="2">1352</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱联系人信息</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
-<tr><td rowspan="2">1353</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
+<tr><td rowspan="2">1353</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
 <tr><td rowspan="2">1354</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">1355</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
+<tr><td rowspan="2">1355</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">1356</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td rowspan="2">1356</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">1357</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td rowspan="2">1357</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
 <tr><td rowspan="2">1358</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">1359</td><td rowspan="2">2025-08-15</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">1359</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
-<tr><td rowspan="2">1360</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
+<tr><td rowspan="2">1360</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
 <tr><td rowspan="2">1361</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
-<tr><td rowspan="2">1362</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td rowspan="2">1362</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">1363</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">1363</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
-<tr><td rowspan="2">1364</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
+<tr><td rowspan="2">1364</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">1365</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
+<tr><td rowspan="2">1365</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
-<tr><td rowspan="2">1366</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
+<tr><td rowspan="2">1366</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
 <tr><td rowspan="2">1367</td><td rowspan="2">2025-11-20</td><td>&#10003;</td><td>多维表格</td><td>列出自定义角色</td></tr>
 <tr><td colspan="3">GetBaseV2AppsByAppTokenRoles</td></tr>
@@ -2941,7 +2941,7 @@
 <tr><td colspan="3">PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
 <tr><td rowspan="2">1471</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>删除设备</td></tr>
 <tr><td colspan="3">DeleteSecurityAndComplianceV2DeviceRecordsByDeviceRecordId</td></tr>
-<tr><td rowspan="2">1472</td><td rowspan="2">2026-01-26</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
+<tr><td rowspan="2">1472</td><td rowspan="2">2026-03-19</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取流程数据</td></tr>
 <tr><td colspan="3">GetCorehrV2ProcessesByProcessIdFlowVariableData</td></tr>
 <tr><td rowspan="2">1473</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
@@ -2981,10 +2981,22 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
 <tr><td rowspan="2">1491</td><td rowspan="2">2026-03-06</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
 <tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
-<tr><td rowspan="2">1492</td><td rowspan="2">2026-03-11</td><td>新增</td><td>飞书人事（企业版）</td><td>编辑试用期</td></tr>
+<tr><td rowspan="2">1492</td><td rowspan="2">2026-03-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>编辑试用期</td></tr>
 <tr><td colspan="3">PostCorehrV2ProbationEdit</td></tr>
-<tr><td rowspan="2">1493</td><td rowspan="2">2026-03-13</td><td>新增</td><td>审批</td><td>搜索地理库信息</td></tr>
+<tr><td rowspan="2">1493</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>搜索地理库信息</td></tr>
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
-<tr><td rowspan="2">1494</td><td rowspan="2">2026-03-13</td><td>新增</td><td>审批</td><td>查询地理库信息</td></tr>
+<tr><td rowspan="2">1494</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>查询地理库信息</td></tr>
 <tr><td colspan="3">GetApprovalV4Districts</td></tr>
+<tr><td rowspan="2">1495</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>取消用户迁移</td></tr>
+<tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsCancel</td></tr>
+<tr><td rowspan="2">1496</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>获取地理位置列表</td></tr>
+<tr><td colspan="3">GetSecurityAndComplianceV1MultiGeoEntityTenant</td></tr>
+<tr><td rowspan="2">1497</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>迁移用户</td></tr>
+<tr><td colspan="3">PostSecurityAndComplianceV1UserMigrations</td></tr>
+<tr><td rowspan="2">1498</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>获取单个用户迁移状态</td></tr>
+<tr><td colspan="3">GetSecurityAndComplianceV1UserMigrationsByUserId</td></tr>
+<tr><td rowspan="2">1499</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
+<tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsSearch</td></tr>
+<tr><td rowspan="2">1500</td><td rowspan="2">2026-03-17</td><td>新增</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
+<tr><td colspan="3">PostContactV3UsersBasicBatch</td></tr>
 </tbody></table>

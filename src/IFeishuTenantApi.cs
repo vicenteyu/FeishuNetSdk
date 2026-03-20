@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2026-03-14
-// ************************************************************************
-// <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>适用于自建应用租户凭证（TenantAccessToken）的接口</summary>
-// ************************************************************************
 using FeishuNetSdk.Attributes;
 using WebApiClientCore;
 using WebApiClientCore.Attributes;
@@ -16139,7 +16126,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="public_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>公共邮箱id或公共邮箱地址</para>
+    /// <para>公共邮箱ID或公共邮箱地址</para>
     /// <para>示例值：xxxxxx 或 xxx@xx.xxx</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -16186,7 +16173,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="mailgroup_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>邮件组id或邮件组邮箱地址</para>
+    /// <para>邮件组ID或邮件组邮箱地址</para>
     /// <para>示例值：xxxxxx 或者 xxx@xx.xxx</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -19425,7 +19412,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="transfer_mailbox">
     /// <para>必填：否</para>
-    /// <para>用于接受转移的邮箱地址</para>
+    /// <para>用于接收转移的邮箱地址</para>
     /// <para>示例值：888888@abc.com</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -34220,6 +34207,161 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【安全合规】取消用户迁移</para>
+    /// <para>接口ID：7202615512558977027</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/user_migration/cancel</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>取消用户迁移任务，仅能对未启动迁移的用户做此操作。用户迁移状态可通过「获取单个用户迁移状态」查询。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:user_migration</item>
+    /// <item>security_and_compliance:user_migration:multi-geo</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：user_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/security_and_compliance/v1/user_migrations/cancel")]
+    System.Threading.Tasks.Task<FeishuResponse> PostSecurityAndComplianceV1UserMigrationsCancelAsync(
+        [JsonContent] SecurityAndCompliance.PostSecurityAndComplianceV1UserMigrationsCancelBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】获取地理位置列表</para>
+    /// <para>接口ID：7202615512559009795</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/user_migration/get-2</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取租户可用的数据驻留地理位置列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:multi_geo_entity.tenant:readonly</item>
+    /// <item>security_and_compliance:user_migration:multi-geo</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/security_and_compliance/v1/multi_geo_entity/tenant")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV1MultiGeoEntityTenantResponseDto>> GetSecurityAndComplianceV1MultiGeoEntityTenantAsync(
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】迁移用户</para>
+    /// <para>接口ID：7202615512559026179</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/user_migration/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>将用户的数据驻留位置迁移到目标地理位置。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:user_migration</item>
+    /// <item>security_and_compliance:user_migration:multi-geo</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：user_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/security_and_compliance/v1/user_migrations")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.PostSecurityAndComplianceV1UserMigrationsResponseDto>> PostSecurityAndComplianceV1UserMigrationsAsync(
+        [JsonContent] SecurityAndCompliance.PostSecurityAndComplianceV1UserMigrationsBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】获取单个用户迁移状态</para>
+    /// <para>接口ID：7202615512559042563</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/user_migration/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过user_id获取指定用户当前的迁移状态</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:user_migration</item>
+    /// <item>security_and_compliance:user_migration:multi-geo</item>
+    /// <item>security_and_compliance:user_migration:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>ID类型必须与查询参数user_id_type的取值一致</para>
+    /// <para>示例值：ou_1234567890abcdef1234567890abcdef</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：user_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/security_and_compliance/v1/user_migrations/{user_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV1UserMigrationsByUserIdResponseDto>> GetSecurityAndComplianceV1UserMigrationsByUserIdAsync(
+        [PathQuery] string user_id,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【安全合规】批量获取用户迁移状态</para>
+    /// <para>接口ID：7202615512559058947</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/security_and_compliance-v1/user_migration/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>传入用户 ID 列表，批量获取用户迁移状态</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>security_and_compliance:user_migration</item>
+    /// <item>security_and_compliance:user_migration:multi-geo</item>
+    /// <item>security_and_compliance:user_migration:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/security_and_compliance/v1/user_migrations/search")]
+    System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.PostSecurityAndComplianceV1UserMigrationsSearchResponseDto>> PostSecurityAndComplianceV1UserMigrationsSearchAsync(
+        [JsonContent] SecurityAndCompliance.PostSecurityAndComplianceV1UserMigrationsSearchBodyDto dto,
+        [PathQuery] string user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【企业信息】获取企业席位信息接口</para>
     /// <para>接口ID：7204729599813222401</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/tenant-v2/tenant-product_assign_info/query</para>
@@ -41084,7 +41226,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
+    /// <para>文件夹 id，id 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -41229,7 +41371,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>文件夹 id，id 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
+    /// <para>文件夹 id，id 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：111111</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -41271,7 +41413,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="folder_id">
     /// <para>必填：是</para>
-    /// <para>文件夹 id， 获取方式见 [列出文邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
+    /// <para>文件夹 id， 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：INBOX 或者用户文件夹 id</para>
     /// </param>
     /// <param name="only_unread">
@@ -54863,7 +55005,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="owner_id">
     /// <para>必填：是</para>
-    /// <para>邮件卡片OwnerID，可通过[接收消息]( https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）</para>
+    /// <para>邮件卡片Owner ID，可通过[接收消息]( https://open.feishu.cn/document/server-docs/im-v1/message/events/receive)事件的推送获取（与`user_id_type`无关）</para>
     /// <para>示例值：1234567890</para>
     /// </param>
     /// <param name="user_id_type">
@@ -57151,6 +57293,38 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/spark/v1/directory/user/id_convert")]
     System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1DirectoryUserIdConvertResponseDto>> PostSparkV1DirectoryUserIdConvertAsync(
         [JsonContent] Miaoda.PostSparkV1DirectoryUserIdConvertBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【通讯录】通过 ID 获取用户姓名</para>
+    /// <para>接口ID：7616208028610694095</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/basic_batch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据用户 ID 获取用户姓名，仅返回核心信息（姓名），不含扩展字段及敏感信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>contact:user.basic_profile:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/contact/v3/users/basic_batch")]
+    System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3UsersBasicBatchResponseDto>> PostContactV3UsersBasicBatchAsync(
+        [JsonContent] Contact.PostContactV3UsersBasicBatchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 }
 

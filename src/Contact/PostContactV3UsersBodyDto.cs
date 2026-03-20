@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-06-24
-// ************************************************************************
-// <copyright file="PostContactV3UsersBodyDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>创建用户 请求体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Contact;
 /// <summary>
 /// 创建用户 请求体
@@ -178,7 +165,7 @@ public record PostContactV3UsersBodyDto
     public string? WorkStation { get; set; }
 
     /// <summary>
-    /// <para>入职时间。秒级时间戳格式，表示从 1970 年 1 月 1 日开始所经过的秒数。如果不传入该参数，则默认填充当前请求时的时间。</para>
+    /// <para>入职时间。秒级时间戳格式，表示从 1970 年 1 月 1 日开始所经过的秒数。如果不传入该参数，则默认填充当前请求时的时间。创建用户传入 0 时，入职时间是1970-01-01。</para>
     /// <para>必填：否</para>
     /// <para>示例值：2147483647</para>
     /// </summary>
@@ -405,6 +392,7 @@ public record PostContactV3UsersBodyDto
     /// <para>职务名称。字符数量上限为 255。</para>
     /// <para>- 你可以调用[获取租户职务列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_title/list)接口获取相应的职务名称。</para>
     /// <para>- 如果传入的职务名称不存在，则系统会自动创建并使用该名称。职务枚举值数量上限为 10,000。</para>
+    /// <para>- 如果传入空格字符串，则意味着清空职务。</para>
     /// <para>**默认值**：空</para>
     /// <para>必填：否</para>
     /// <para>示例值：xxxxx</para>

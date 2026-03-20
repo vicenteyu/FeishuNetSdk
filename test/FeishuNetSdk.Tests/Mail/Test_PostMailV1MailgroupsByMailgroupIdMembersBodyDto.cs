@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-06-24
-// ************************************************************************
-// <copyright file="Test_PostMailV1MailgroupsByMailgroupIdMembersBodyDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>测试 创建邮件组成员 请求体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Tests.Mail;
 
 /// <summary>
@@ -27,7 +14,7 @@ public class Test_PostMailV1MailgroupsByMailgroupIdMembersBodyDto : TestBase
     {
         var json = """
 {
-    "email": "test_memeber@xxx.xx",
+    "email": "test_member@xxx.xx",
     "user_id": "xxxxxxxxxx",
     "department_id": "xxxxxxxxxx",
     "type": "USER"

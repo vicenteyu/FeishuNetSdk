@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-11-07
-// ************************************************************************
-// <copyright file="GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>获取所有节点 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Board;
 /// <summary>
 /// 获取所有节点 响应体
@@ -97,7 +84,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("x")]
-        public float? X { get; set; }
+        public double? X { get; set; }
 
         /// <summary>
         /// <para>图形相对画布的 y 轴位置信息（存在父容器时为相对父容器的坐标，父容器为组合图形 group 时，坐标是穿透的），单位为 px</para>
@@ -108,7 +95,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("y")]
-        public float? Y { get; set; }
+        public double? Y { get; set; }
 
         /// <summary>
         /// <para>图形旋转角度，单位度</para>
@@ -119,7 +106,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>默认值：0</para>
         /// </summary>
         [JsonPropertyName("angle")]
-        public float? Angle { get; set; }
+        public double? Angle { get; set; }
 
         /// <summary>
         /// <para>图形高度，单位为 px</para>
@@ -129,7 +116,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("height")]
-        public float? Height { get; set; }
+        public double? Height { get; set; }
 
         /// <summary>
         /// <para>图形内文字</para>
@@ -139,6 +126,679 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public TextSuffix? Text { get; set; }
 
         /// <summary>
+        /// <para>图形内文字</para>
+        /// </summary>
+        public record TextSuffix
+        {
+            /// <summary>
+            /// <para>文字内容</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：文字内容</para>
+            /// <para>最大长度：1024</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("text")]
+            public string? Text { get; set; }
+
+            /// <summary>
+            /// <para>文字字重</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：regular</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>regular：常规</item>
+            /// <item>bold：加粗</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("font_weight")]
+            public string? FontWeight { get; set; }
+
+            /// <summary>
+            /// <para>文字大小，单位 px</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：14</para>
+            /// </summary>
+            [JsonPropertyName("font_size")]
+            public int? FontSize { get; set; }
+
+            /// <summary>
+            /// <para>水平对齐</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：center</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>left：向左对齐</item>
+            /// <item>center：居中对齐</item>
+            /// <item>right：向右对齐</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("horizontal_align")]
+            public string? HorizontalAlign { get; set; }
+
+            /// <summary>
+            /// <para>垂直对齐</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：mid</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>top：顶部对齐</item>
+            /// <item>mid：垂直居中</item>
+            /// <item>bottom：底部对齐</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("vertical_align")]
+            public string? VerticalAlign { get; set; }
+
+            /// <summary>
+            /// <para>文字颜色，16 进制 rgb 值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：#6db5a3</para>
+            /// <para>最大长度：10</para>
+            /// <para>最小长度：7</para>
+            /// </summary>
+            [JsonPropertyName("text_color")]
+            public string? TextColor { get; set; }
+
+            /// <summary>
+            /// <para>文字背景色，16 进制 rgb 值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：#6db5a3</para>
+            /// <para>最大长度：10</para>
+            /// <para>最小长度：7</para>
+            /// </summary>
+            [JsonPropertyName("text_background_color")]
+            public string? TextBackgroundColor { get; set; }
+
+            /// <summary>
+            /// <para>是否存在删除线</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("line_through")]
+            public bool? LineThrough { get; set; }
+
+            /// <summary>
+            /// <para>是否存在下划线</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("underline")]
+            public bool? Underline { get; set; }
+
+            /// <summary>
+            /// <para>是否斜体</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("italic")]
+            public bool? Italic { get; set; }
+
+            /// <summary>
+            /// <para>文字旋转角度</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：90</para>
+            /// <para>最大值：270</para>
+            /// <para>最小值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：文字旋转角度0度</item>
+            /// <item>90：文字旋转角度90度</item>
+            /// <item>180：文字旋转角度180度</item>
+            /// <item>270：文字旋转角度270度</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("angle")]
+            public int? Angle { get; set; }
+
+            /// <summary>
+            /// <para>文字颜色主题配色编码值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：-2</para>
+            /// </summary>
+            [JsonPropertyName("theme_text_color_code")]
+            public int? ThemeTextColorCode { get; set; }
+
+            /// <summary>
+            /// <para>文字背景颜色主题配色编码值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：-1</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：-2</para>
+            /// </summary>
+            [JsonPropertyName("theme_text_background_color_code")]
+            public int? ThemeTextBackgroundColorCode { get; set; }
+
+            /// <summary>
+            /// <para>富文本</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("rich_text")]
+            public RichTextSuffix? RichText { get; set; }
+
+            /// <summary>
+            /// <para>富文本</para>
+            /// </summary>
+            public record RichTextSuffix
+            {
+                /// <summary>
+                /// <para>段落列表</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：1000</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("paragraphs")]
+                public RichTextParagraph[]? Paragraphs { get; set; }
+
+                /// <summary>
+                /// <para>段落列表</para>
+                /// </summary>
+                public record RichTextParagraph
+                {
+                    /// <summary>
+                    /// <para>段落类别</para>
+                    /// <para>必填：是</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：普通段落</item>
+                    /// <item>1：无序列表</item>
+                    /// <item>2：有序列表</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("paragraph_type")]
+                    public int ParagraphType { get; set; }
+
+                    /// <summary>
+                    /// <para>元素列表</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：1000</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("elements")]
+                    public RichTextElement[]? Elements { get; set; }
+
+                    /// <summary>
+                    /// <para>元素列表</para>
+                    /// </summary>
+                    public record RichTextElement
+                    {
+                        /// <summary>
+                        /// <para>元素类别</para>
+                        /// <para>必填：是</para>
+                        /// <para>示例值：0</para>
+                        /// <para>可选值：<list type="bullet">
+                        /// <item>0：文本</item>
+                        /// <item>1：链接</item>
+                        /// <item>2：@用户</item>
+                        /// <item>3：文档</item>
+                        /// </list></para>
+                        /// </summary>
+                        [JsonPropertyName("element_type")]
+                        public int ElementType { get; set; }
+
+                        /// <summary>
+                        /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("text_element")]
+                        public RichTextElementText? TextElement { get; set; }
+
+                        /// <summary>
+                        /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                        /// </summary>
+                        public record RichTextElementText
+                        {
+                            /// <summary>
+                            /// <para>文字</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：示例文案</para>
+                            /// <para>最大长度：10000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("text")]
+                            public string Text { get; set; } = string.Empty;
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("text_style")]
+                            public RichTextElementTextStyle? TextStyle { get; set; }
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// </summary>
+                            public record RichTextElementTextStyle
+                            {
+                                /// <summary>
+                                /// <para>文字字重(regular：常规,bold：加粗)</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：bold</para>
+                                /// <para>最大长度：10</para>
+                                /// <para>最小长度：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_weight")]
+                                public string? FontWeight { get; set; }
+
+                                /// <summary>
+                                /// <para>文字大小，单位 px</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：14</para>
+                                /// <para>最大值：1000</para>
+                                /// <para>最小值：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_size")]
+                                public int? FontSize { get; set; }
+
+                                /// <summary>
+                                /// <para>文字颜色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_color")]
+                                public string? TextColor { get; set; }
+
+                                /// <summary>
+                                /// <para>文字背景色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_background_color")]
+                                public string? TextBackgroundColor { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在删除线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("line_through")]
+                                public bool? LineThrough { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在下划线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("underline")]
+                                public bool? Underline { get; set; }
+
+                                /// <summary>
+                                /// <para>是否斜体</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("italic")]
+                                public bool? Italic { get; set; }
+                            }
+                        }
+
+                        /// <summary>
+                        /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("link_element")]
+                        public RichTextElementLink? LinkElement { get; set; }
+
+                        /// <summary>
+                        /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                        /// </summary>
+                        public record RichTextElementLink
+                        {
+                            /// <summary>
+                            /// <para>链接</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：https://bytedance.larkoffice.com</para>
+                            /// <para>最大长度：1000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("herf")]
+                            public string Herf { get; set; } = string.Empty;
+
+                            /// <summary>
+                            /// <para>文字</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：示例文案</para>
+                            /// <para>最大长度：10000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("text")]
+                            public string? Text { get; set; }
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("text_style")]
+                            public RichTextElementTextStyle? TextStyle { get; set; }
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// </summary>
+                            public record RichTextElementTextStyle
+                            {
+                                /// <summary>
+                                /// <para>文字字重</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：bold</para>
+                                /// <para>最大长度：10</para>
+                                /// <para>最小长度：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_weight")]
+                                public string? FontWeight { get; set; }
+
+                                /// <summary>
+                                /// <para>文字大小</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：14</para>
+                                /// <para>最大值：1000</para>
+                                /// <para>最小值：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_size")]
+                                public int? FontSize { get; set; }
+
+                                /// <summary>
+                                /// <para>文字颜色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_color")]
+                                public string? TextColor { get; set; }
+
+                                /// <summary>
+                                /// <para>文字背景色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_background_color")]
+                                public string? TextBackgroundColor { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在删除线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("line_through")]
+                                public bool? LineThrough { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在下划线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("underline")]
+                                public bool? Underline { get; set; }
+
+                                /// <summary>
+                                /// <para>是否斜体</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("italic")]
+                                public bool? Italic { get; set; }
+                            }
+                        }
+
+                        /// <summary>
+                        /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("mention_user_element")]
+                        public RichTextElementMentionUser? MentionUserElement { get; set; }
+
+                        /// <summary>
+                        /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                        /// </summary>
+                        public record RichTextElementMentionUser
+                        {
+                            /// <summary>
+                            /// <para>用户openID，可通过 [获取指定用户的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：ou_da5****************dfe</para>
+                            /// </summary>
+                            [JsonPropertyName("user_id")]
+                            public string UserId { get; set; } = string.Empty;
+
+                            /// <summary>
+                            /// <para>文字属性</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("text_style")]
+                            public RichTextElementTextStyle? TextStyle { get; set; }
+
+                            /// <summary>
+                            /// <para>文字属性</para>
+                            /// </summary>
+                            public record RichTextElementTextStyle
+                            {
+                                /// <summary>
+                                /// <para>文字字重</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：bold</para>
+                                /// <para>最大长度：10</para>
+                                /// <para>最小长度：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_weight")]
+                                public string? FontWeight { get; set; }
+
+                                /// <summary>
+                                /// <para>文字大小</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：14</para>
+                                /// <para>最大值：1000</para>
+                                /// <para>最小值：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_size")]
+                                public int? FontSize { get; set; }
+
+                                /// <summary>
+                                /// <para>文字颜色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_color")]
+                                public string? TextColor { get; set; }
+
+                                /// <summary>
+                                /// <para>文字背景色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_background_color")]
+                                public string? TextBackgroundColor { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在删除线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("line_through")]
+                                public bool? LineThrough { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在下划线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("underline")]
+                                public bool? Underline { get; set; }
+
+                                /// <summary>
+                                /// <para>是否斜体</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("italic")]
+                                public bool? Italic { get; set; }
+                            }
+                        }
+
+                        /// <summary>
+                        /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                        /// <para>必填：否</para>
+                        /// </summary>
+                        [JsonPropertyName("mention_doc_element")]
+                        public RichTextElementMentionDoc? MentionDocElement { get; set; }
+
+                        /// <summary>
+                        /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                        /// </summary>
+                        public record RichTextElementMentionDoc
+                        {
+                            /// <summary>
+                            /// <para>文档超链接</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：https://bytedance.larkoffice.com/wiki/xxxxx</para>
+                            /// <para>最大长度：1000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("doc_url")]
+                            public string DocUrl { get; set; } = string.Empty;
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// <para>必填：否</para>
+                            /// </summary>
+                            [JsonPropertyName("text_style")]
+                            public RichTextElementTextStyle? TextStyle { get; set; }
+
+                            /// <summary>
+                            /// <para>文字样式</para>
+                            /// </summary>
+                            public record RichTextElementTextStyle
+                            {
+                                /// <summary>
+                                /// <para>文字字重</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：bold</para>
+                                /// <para>最大长度：10</para>
+                                /// <para>最小长度：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_weight")]
+                                public string? FontWeight { get; set; }
+
+                                /// <summary>
+                                /// <para>文字大小</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：14</para>
+                                /// <para>最大值：1000</para>
+                                /// <para>最小值：0</para>
+                                /// </summary>
+                                [JsonPropertyName("font_size")]
+                                public int? FontSize { get; set; }
+
+                                /// <summary>
+                                /// <para>文字颜色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_color")]
+                                public string? TextColor { get; set; }
+
+                                /// <summary>
+                                /// <para>文字背景色，16 进制 rgb 值</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：#000000</para>
+                                /// <para>最大长度：7</para>
+                                /// <para>最小长度：7</para>
+                                /// </summary>
+                                [JsonPropertyName("text_background_color")]
+                                public string? TextBackgroundColor { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在删除线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("line_through")]
+                                public bool? LineThrough { get; set; }
+
+                                /// <summary>
+                                /// <para>是否存在下划线</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("underline")]
+                                public bool? Underline { get; set; }
+
+                                /// <summary>
+                                /// <para>是否斜体</para>
+                                /// <para>必填：否</para>
+                                /// <para>示例值：true</para>
+                                /// </summary>
+                                [JsonPropertyName("italic")]
+                                public bool? Italic { get; set; }
+                            }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>缩进</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("indent")]
+                    public int? Indent { get; set; }
+
+                    /// <summary>
+                    /// <para>有序列表开始序号(第一个有序列表的序号为list_begin_index+1)</para>
+                    /// <para>例如：list_begin_index = 0， 则第一个有序列表的序号为1</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>最大值：10000</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("list_begin_index")]
+                    public int? ListBeginIndex { get; set; }
+
+                    /// <summary>
+                    /// <para>引用</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("quote")]
+                    public bool? Quote { get; set; }
+                }
+            }
+
+            /// <summary>
+            /// <para>文字颜色类型，0=系统颜色，1=自定义颜色</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：系统颜色</item>
+            /// <item>1：自定义颜色</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("text_color_type")]
+            public int? TextColorType { get; set; }
+
+            /// <summary>
+            /// <para>文字背景颜色类型，0=系统颜色，1=自定义颜色</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：系统颜色</item>
+            /// <item>1：自定义颜色</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("text_background_color_type")]
+            public int? TextBackgroundColorType { get; set; }
+        }
+
+        /// <summary>
         /// <para>图形样式</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -146,16 +806,150 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         public StyleSuffix? Style { get; set; }
 
         /// <summary>
+        /// <para>图形样式</para>
+        /// </summary>
+        public record StyleSuffix
+        {
+            /// <summary>
+            /// <para>填充颜色，16 进制 rbg 值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：#6db5a3</para>
+            /// <para>最大长度：10</para>
+            /// <para>最小长度：7</para>
+            /// </summary>
+            [JsonPropertyName("fill_color")]
+            public string? FillColor { get; set; }
+
+            /// <summary>
+            /// <para>填充透明度</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：50</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("fill_opacity")]
+            public double? FillOpacity { get; set; }
+
+            /// <summary>
+            /// <para>边框样式</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：solid</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>solid：实线</item>
+            /// <item>none：无边框</item>
+            /// <item>dash：虚线</item>
+            /// <item>dot：点状虚线</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("border_style")]
+            public string? BorderStyle { get; set; }
+
+            /// <summary>
+            /// <para>边框宽度</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：narrow</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>extra_narrow：极细</item>
+            /// <item>narrow：细</item>
+            /// <item>medium：中</item>
+            /// <item>bold：粗</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("border_width")]
+            public string? BorderWidth { get; set; }
+
+            /// <summary>
+            /// <para>边框透明度</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：50</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("border_opacity")]
+            public double? BorderOpacity { get; set; }
+
+            /// <summary>
+            /// <para>水平翻折</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("h_flip")]
+            public bool? HFlip { get; set; }
+
+            /// <summary>
+            /// <para>垂直翻折</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("v_flip")]
+            public bool? VFlip { get; set; }
+
+            /// <summary>
+            /// <para>边框颜色，16 进制 rgb 值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：#6db5a3</para>
+            /// <para>最大长度：10</para>
+            /// <para>最小长度：7</para>
+            /// </summary>
+            [JsonPropertyName("border_color")]
+            public string? BorderColor { get; set; }
+
+            /// <summary>
+            /// <para>填充颜色主题配色编码值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：3</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：-2</para>
+            /// </summary>
+            [JsonPropertyName("theme_fill_color_code")]
+            public int? ThemeFillColorCode { get; set; }
+
+            /// <summary>
+            /// <para>边框颜色主题配色编码值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：4</para>
+            /// <para>最大值：100</para>
+            /// <para>最小值：-2</para>
+            /// </summary>
+            [JsonPropertyName("theme_border_color_code")]
+            public int? ThemeBorderColorCode { get; set; }
+
+            /// <summary>
+            /// <para>填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：系统颜色</item>
+            /// <item>1：自定义颜色</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("fill_color_type")]
+            public int? FillColorType { get; set; }
+
+            /// <summary>
+            /// <para>边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：系统颜色</item>
+            /// <item>1：自定义颜色</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("border_color_type")]
+            public int? BorderColorType { get; set; }
+        }
+
+        /// <summary>
         /// <para>图片</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("image")]
-        public WhiteboardNodeImage? Image { get; set; }
+        public ImageSuffix? Image { get; set; }
 
         /// <summary>
         /// <para>图片</para>
         /// </summary>
-        public record WhiteboardNodeImage
+        public record ImageSuffix
         {
             /// <summary>
             /// <para>图片 token</para>
@@ -173,12 +967,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("composite_shape")]
-        public WhiteboardNodeCompositeShape? CompositeShape { get; set; }
+        public CompositeShapeSuffix? CompositeShape { get; set; }
 
         /// <summary>
         /// <para>基础图形属性</para>
         /// </summary>
-        public record WhiteboardNodeCompositeShape
+        public record CompositeShapeSuffix
         {
             /// <summary>
             /// <para>基础图形的具体类型</para>
@@ -273,12 +1067,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("pie")]
-            public WhiteboardNodeCompositeShapePie? Pie { get; set; }
+            public PieSuffix? Pie { get; set; }
 
             /// <summary>
             /// <para>饼图属性，type=pie时需要设置</para>
             /// </summary>
-            public record WhiteboardNodeCompositeShapePie
+            public record PieSuffix
             {
                 /// <summary>
                 /// <para>开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增，单位度</para>
@@ -288,7 +1082,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小值：0.0</para>
                 /// </summary>
                 [JsonPropertyName("start_radial_line_angle")]
-                public float StartRadialLineAngle { get; set; }
+                public double StartRadialLineAngle { get; set; }
 
                 /// <summary>
                 /// <para>圆心角角度，角度方向为始径向边逆时针方向，单位度</para>
@@ -298,7 +1092,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小值：0.0</para>
                 /// </summary>
                 [JsonPropertyName("central_angle")]
-                public float CentralAngle { get; set; }
+                public double CentralAngle { get; set; }
 
                 /// <summary>
                 /// <para>半径长度，单位 px</para>
@@ -308,7 +1102,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小值：1</para>
                 /// </summary>
                 [JsonPropertyName("radius")]
-                public float Radius { get; set; }
+                public double Radius { get; set; }
 
                 /// <summary>
                 /// <para>扇区占比，0为一个圆周线，1为一个圆盘</para>
@@ -319,7 +1113,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>默认值：1</para>
                 /// </summary>
                 [JsonPropertyName("sector_ratio")]
-                public float? SectorRatio { get; set; }
+                public double? SectorRatio { get; set; }
             }
 
             /// <summary>
@@ -328,53 +1122,6 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("circular_ring")]
             public PieSuffix? CircularRing { get; set; }
-
-            /// <summary>
-            /// <para>圆环属性，type=circular_ring时需要设置</para>
-            /// </summary>
-            public record PieSuffix
-            {
-                /// <summary>
-                /// <para>开始径向边角度，水平向右x轴正方向为0度，顺时针方向角度值递增</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：30.0</para>
-                /// <para>最大值：360.0</para>
-                /// <para>最小值：0.0</para>
-                /// </summary>
-                [JsonPropertyName("start_radial_line_angle")]
-                public float StartRadialLineAngle { get; set; }
-
-                /// <summary>
-                /// <para>圆心角角度，角度方向为始径向边逆时针方向</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：40.0</para>
-                /// <para>最大值：360.0</para>
-                /// <para>最小值：0.0</para>
-                /// </summary>
-                [JsonPropertyName("central_angle")]
-                public float CentralAngle { get; set; }
-
-                /// <summary>
-                /// <para>半径长度</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：10</para>
-                /// <para>最大值：10000000000</para>
-                /// <para>最小值：1</para>
-                /// </summary>
-                [JsonPropertyName("radius")]
-                public float Radius { get; set; }
-
-                /// <summary>
-                /// <para>扇区占比，0为一个圆周线，1为一个圆盘</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：1</para>
-                /// <para>最大值：1</para>
-                /// <para>最小值：0</para>
-                /// <para>默认值：1</para>
-                /// </summary>
-                [JsonPropertyName("sector_ratio")]
-                public float? SectorRatio { get; set; }
-            }
         }
 
         /// <summary>
@@ -382,12 +1129,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("connector")]
-        public WhiteboardNodeConnector? Connector { get; set; }
+        public ConnectorSuffix? Connector { get; set; }
 
         /// <summary>
         /// <para>连线属性</para>
         /// </summary>
-        public record WhiteboardNodeConnector
+        public record ConnectorSuffix
         {
             /// <summary>
             /// <para>开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段，start_object 设置也不会生效）</para>
@@ -395,6 +1142,72 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("start_object")]
             public ConnectorAttachedObject? StartObject { get; set; }
+
+            /// <summary>
+            /// <para>开始连接节点信息（兼容线上数据，只读，写操作使用 start 字段，start_object 设置也不会生效）</para>
+            /// </summary>
+            public record ConnectorAttachedObject
+            {
+                /// <summary>
+                /// <para>连接图形的 id</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：o1:1</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("id")]
+                public string? Id { get; set; }
+
+                /// <summary>
+                /// <para>连接图形的方向</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：auto</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>auto：连接方向自动匹配</item>
+                /// <item>top：连接图形顶部方向</item>
+                /// <item>right：连接图形右边方向</item>
+                /// <item>bottom：连接图形底部方向</item>
+                /// <item>left：连接图形左边方向</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("snap_to")]
+                public string? SnapTo { get; set; }
+
+                /// <summary>
+                /// <para>连接图形的相对坐标，0-1</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("position")]
+                public Point? Position { get; set; }
+
+                /// <summary>
+                /// <para>连接图形的相对坐标，0-1</para>
+                /// </summary>
+                public record Point
+                {
+                    /// <summary>
+                    /// <para>点位置x坐标</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：10</para>
+                    /// <para>最大值：1000000000000000000</para>
+                    /// <para>最小值：-1000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("x")]
+                    public double? X { get; set; }
+
+                    /// <summary>
+                    /// <para>点位置y坐标</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：10</para>
+                    /// <para>最大值：100000000000000000000</para>
+                    /// <para>最小值：-10000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("y")]
+                    public double? Y { get; set; }
+                }
+            }
 
             /// <summary>
             /// <para>结束连接点信息（兼容线上数据， 只读，写操作使用 end 字段，写入时设置字段也不会生效）</para>
@@ -423,11 +1236,103 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 public ConnectorAttachedObject? AttachedObject { get; set; }
 
                 /// <summary>
+                /// <para>连接图形信息</para>
+                /// </summary>
+                public record ConnectorAttachedObject
+                {
+                    /// <summary>
+                    /// <para>连接图形的 id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：o1:1</para>
+                    /// <para>最大长度：100</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("id")]
+                    public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>连接图形的方向</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：auto</para>
+                    /// <para>最大长度：100</para>
+                    /// <para>最小长度：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>auto：连接方向自动匹配</item>
+                    /// <item>top：连接图形顶部方向</item>
+                    /// <item>right：连接图形右边方向</item>
+                    /// <item>bottom：连接图形底部方向</item>
+                    /// <item>left：连接图形左边方向</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("snap_to")]
+                    public string? SnapTo { get; set; }
+
+                    /// <summary>
+                    /// <para>连接图形的相对坐标，0-1</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("position")]
+                    public Point? Position { get; set; }
+
+                    /// <summary>
+                    /// <para>连接图形的相对坐标，0-1</para>
+                    /// </summary>
+                    public record Point
+                    {
+                        /// <summary>
+                        /// <para>点位置x坐标</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：10</para>
+                        /// <para>最大值：1000000000000000000</para>
+                        /// <para>最小值：-1000000000000000000</para>
+                        /// </summary>
+                        [JsonPropertyName("x")]
+                        public double? X { get; set; }
+
+                        /// <summary>
+                        /// <para>点位置y坐标</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：10</para>
+                        /// <para>最大值：100000000000000000000</para>
+                        /// <para>最小值：-10000000000000000000</para>
+                        /// </summary>
+                        [JsonPropertyName("y")]
+                        public double? Y { get; set; }
+                    }
+                }
+
+                /// <summary>
                 /// <para>连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attached_object 生效</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("position")]
                 public Point? Position { get; set; }
+
+                /// <summary>
+                /// <para>连线端点在画布内的坐标，position与attached_object二选一，position与attached_object 同时设置时 attached_object 生效</para>
+                /// </summary>
+                public record Point
+                {
+                    /// <summary>
+                    /// <para>点位置x坐标，单位百分比</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0.5</para>
+                    /// <para>最大值：1000000000000000000</para>
+                    /// <para>最小值：-1000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("x")]
+                    public double? X { get; set; }
+
+                    /// <summary>
+                    /// <para>点位置y坐标，单位百分比</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0.5</para>
+                    /// <para>最大值：100000000000000000000</para>
+                    /// <para>最小值：-10000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("y")]
+                    public double? Y { get; set; }
+                }
 
                 /// <summary>
                 /// <para>连线端点箭头样式</para>
@@ -483,7 +1388,680 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小长度：0</para>
                 /// </summary>
                 [JsonPropertyName("data")]
-                public TextSuffix[]? Datas { get; set; }
+                public Text[]? Datas { get; set; }
+
+                /// <summary>
+                /// <para>文本</para>
+                /// </summary>
+                public record Text
+                {
+                    /// <summary>
+                    /// <para>文字内容</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：文字内容</para>
+                    /// <para>最大长度：1024</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("text")]
+                    public string? TextSuffix { get; set; }
+
+                    /// <summary>
+                    /// <para>文字字重</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：regular</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>regular：常规</item>
+                    /// <item>bold：加粗</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("font_weight")]
+                    public string? FontWeight { get; set; }
+
+                    /// <summary>
+                    /// <para>文字大小，单位 px</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：14</para>
+                    /// </summary>
+                    [JsonPropertyName("font_size")]
+                    public int? FontSize { get; set; }
+
+                    /// <summary>
+                    /// <para>水平对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：center</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>left：向左对齐</item>
+                    /// <item>center：居中对齐</item>
+                    /// <item>right：向右对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("horizontal_align")]
+                    public string? HorizontalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>垂直对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：mid</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>top：顶部对齐</item>
+                    /// <item>mid：垂直居中</item>
+                    /// <item>bottom：底部对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("vertical_align")]
+                    public string? VerticalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_color")]
+                    public string? TextColor { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color")]
+                    public string? TextBackgroundColor { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在删除线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("line_through")]
+                    public bool? LineThrough { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在下划线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("underline")]
+                    public bool? Underline { get; set; }
+
+                    /// <summary>
+                    /// <para>是否斜体</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("italic")]
+                    public bool? Italic { get; set; }
+
+                    /// <summary>
+                    /// <para>文字旋转角度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：90</para>
+                    /// <para>最大值：270</para>
+                    /// <para>最小值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：文字旋转角度0度</item>
+                    /// <item>90：文字旋转角度90度</item>
+                    /// <item>180：文字旋转角度180度</item>
+                    /// <item>270：文字旋转角度270度</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("angle")]
+                    public int? Angle { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_color_code")]
+                    public int? ThemeTextColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：-1</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_background_color_code")]
+                    public int? ThemeTextBackgroundColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("rich_text")]
+                    public RichTextSuffix? RichText { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// </summary>
+                    public record RichTextSuffix
+                    {
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：1000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("paragraphs")]
+                        public RichTextParagraph[]? Paragraphs { get; set; }
+
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// </summary>
+                        public record RichTextParagraph
+                        {
+                            /// <summary>
+                            /// <para>段落类别</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：0</para>
+                            /// <para>可选值：<list type="bullet">
+                            /// <item>0：普通段落</item>
+                            /// <item>1：无序列表</item>
+                            /// <item>2：有序列表</item>
+                            /// </list></para>
+                            /// </summary>
+                            [JsonPropertyName("paragraph_type")]
+                            public int ParagraphType { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// <para>必填：否</para>
+                            /// <para>最大长度：1000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("elements")]
+                            public RichTextElement[]? Elements { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// </summary>
+                            public record RichTextElement
+                            {
+                                /// <summary>
+                                /// <para>元素类别</para>
+                                /// <para>必填：是</para>
+                                /// <para>示例值：0</para>
+                                /// <para>可选值：<list type="bullet">
+                                /// <item>0：文本</item>
+                                /// <item>1：链接</item>
+                                /// <item>2：@用户</item>
+                                /// <item>3：文档</item>
+                                /// </list></para>
+                                /// </summary>
+                                [JsonPropertyName("element_type")]
+                                public int ElementType { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("text_element")]
+                                public RichTextElementText? TextElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementText
+                                {
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string Text { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("link_element")]
+                                public RichTextElementLink? LinkElement { get; set; }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementLink
+                                {
+                                    /// <summary>
+                                    /// <para>链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("herf")]
+                                    public string Herf { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：否</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string? Text { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_user_element")]
+                                public RichTextElementMentionUser? MentionUserElement { get; set; }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionUser
+                                {
+                                    /// <summary>
+                                    /// <para>用户openID，可通过 [获取指定用户的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：ou_da5****************dfe</para>
+                                    /// </summary>
+                                    [JsonPropertyName("user_id")]
+                                    public string UserId { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_doc_element")]
+                                public RichTextElementMentionDoc? MentionDocElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionDoc
+                                {
+                                    /// <summary>
+                                    /// <para>文档超链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com/wiki/xxxxx</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("doc_url")]
+                                    public string DocUrl { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+                            }
+
+                            /// <summary>
+                            /// <para>缩进</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：100</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("indent")]
+                            public int? Indent { get; set; }
+
+                            /// <summary>
+                            /// <para>有序列表开始序号(第一个有序列表的序号为list_begin_index+1)</para>
+                            /// <para>例如：list_begin_index = 0， 则第一个有序列表的序号为1</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：10000</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("list_begin_index")]
+                            public int? ListBeginIndex { get; set; }
+
+                            /// <summary>
+                            /// <para>引用</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：true</para>
+                            /// </summary>
+                            [JsonPropertyName("quote")]
+                            public bool? Quote { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>文字颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_color_type")]
+                    public int? TextColorType { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color_type")]
+                    public int? TextBackgroundColorType { get; set; }
+                }
             }
 
             /// <summary>
@@ -512,6 +2090,32 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             public Point[]? TurningPoints { get; set; }
 
             /// <summary>
+            /// <para>连线转向点</para>
+            /// </summary>
+            public record Point
+            {
+                /// <summary>
+                /// <para>点位置x坐标，单位百分比</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：0.5</para>
+                /// <para>最大值：1000000000000000000</para>
+                /// <para>最小值：-1000000000000000000</para>
+                /// </summary>
+                [JsonPropertyName("x")]
+                public double? X { get; set; }
+
+                /// <summary>
+                /// <para>点位置y坐标，单位百分比</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：0.5</para>
+                /// <para>最大值：100000000000000000000</para>
+                /// <para>最小值：-10000000000000000000</para>
+                /// </summary>
+                [JsonPropertyName("y")]
+                public double? Y { get; set; }
+            }
+
+            /// <summary>
             /// <para>连线上的文本方向是否自动跟随连线方向</para>
             /// <para>必填：否</para>
             /// <para>示例值：true</para>
@@ -527,7 +2131,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("caption_position")]
-            public float? CaptionPosition { get; set; }
+            public double? CaptionPosition { get; set; }
         }
 
         /// <summary>
@@ -538,19 +2142,19 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>最小值：0</para>
         /// </summary>
         [JsonPropertyName("width")]
-        public float? Width { get; set; }
+        public double? Width { get; set; }
 
         /// <summary>
         /// <para>分区属性</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("section")]
-        public WhiteboardNodeSection? Section { get; set; }
+        public SectionSuffix? Section { get; set; }
 
         /// <summary>
         /// <para>分区属性</para>
         /// </summary>
-        public record WhiteboardNodeSection
+        public record SectionSuffix
         {
             /// <summary>
             /// <para>分区标题</para>
@@ -568,12 +2172,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("table")]
-        public WhiteboardNodeTable? Table { get; set; }
+        public TableSuffix? Table { get; set; }
 
         /// <summary>
         /// <para>表格属性</para>
         /// </summary>
-        public record WhiteboardNodeTable
+        public record TableSuffix
         {
             /// <summary>
             /// <para>元信息</para>
@@ -614,7 +2218,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("row_sizes")]
-                public float[]? RowSizes { get; set; }
+                public double[]? RowSizes { get; set; }
 
                 /// <summary>
                 /// <para>列宽，单位 px</para>
@@ -623,7 +2227,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 /// <para>最小长度：1</para>
                 /// </summary>
                 [JsonPropertyName("col_sizes")]
-                public float[]? ColSizes { get; set; }
+                public double[]? ColSizes { get; set; }
 
                 /// <summary>
                 /// <para>整个表格的样式</para>
@@ -633,11 +2237,818 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 public StyleSuffix? Style { get; set; }
 
                 /// <summary>
+                /// <para>整个表格的样式</para>
+                /// </summary>
+                public record StyleSuffix
+                {
+                    /// <summary>
+                    /// <para>填充颜色，16 进制 rbg 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("fill_color")]
+                    public string? FillColor { get; set; }
+
+                    /// <summary>
+                    /// <para>填充透明度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：50</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("fill_opacity")]
+                    public double? FillOpacity { get; set; }
+
+                    /// <summary>
+                    /// <para>边框样式</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：solid</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>solid：实线</item>
+                    /// <item>none：无边框</item>
+                    /// <item>dash：虚线</item>
+                    /// <item>dot：点状虚线</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_style")]
+                    public string? BorderStyle { get; set; }
+
+                    /// <summary>
+                    /// <para>边框宽度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：bold</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>extra_narrow：极细</item>
+                    /// <item>narrow：细</item>
+                    /// <item>medium：中</item>
+                    /// <item>bold：粗</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_width")]
+                    public string? BorderWidth { get; set; }
+
+                    /// <summary>
+                    /// <para>边框透明度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：50</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("border_opacity")]
+                    public double? BorderOpacity { get; set; }
+
+                    /// <summary>
+                    /// <para>水平翻折</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：false</para>
+                    /// </summary>
+                    [JsonPropertyName("h_flip")]
+                    public bool? HFlip { get; set; }
+
+                    /// <summary>
+                    /// <para>垂直翻折</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：false</para>
+                    /// </summary>
+                    [JsonPropertyName("v_flip")]
+                    public bool? VFlip { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("border_color")]
+                    public string? BorderColor { get; set; }
+
+                    /// <summary>
+                    /// <para>填充颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：3</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_fill_color_code")]
+                    public int? ThemeFillColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：4</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_border_color_code")]
+                    public int? ThemeBorderColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("fill_color_type")]
+                    public int? FillColorType { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_color_type")]
+                    public int? BorderColorType { get; set; }
+                }
+
+                /// <summary>
                 /// <para>整个表格的文字样式</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("text")]
                 public TextSuffix? Text { get; set; }
+
+                /// <summary>
+                /// <para>整个表格的文字样式</para>
+                /// </summary>
+                public record TextSuffix
+                {
+                    /// <summary>
+                    /// <para>文字内容</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：文字内容</para>
+                    /// <para>最大长度：1024</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("text")]
+                    public string? Text { get; set; }
+
+                    /// <summary>
+                    /// <para>文字字重</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：regular</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>regular：常规</item>
+                    /// <item>bold：加粗</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("font_weight")]
+                    public string? FontWeight { get; set; }
+
+                    /// <summary>
+                    /// <para>文字大小，单位 px</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：14</para>
+                    /// </summary>
+                    [JsonPropertyName("font_size")]
+                    public int? FontSize { get; set; }
+
+                    /// <summary>
+                    /// <para>水平对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：center</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>left：向左对齐</item>
+                    /// <item>center：居中对齐</item>
+                    /// <item>right：向右对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("horizontal_align")]
+                    public string? HorizontalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>垂直对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：mid</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>top：顶部对齐</item>
+                    /// <item>mid：垂直居中</item>
+                    /// <item>bottom：底部对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("vertical_align")]
+                    public string? VerticalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_color")]
+                    public string? TextColor { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color")]
+                    public string? TextBackgroundColor { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在删除线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("line_through")]
+                    public bool? LineThrough { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在下划线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("underline")]
+                    public bool? Underline { get; set; }
+
+                    /// <summary>
+                    /// <para>是否斜体</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("italic")]
+                    public bool? Italic { get; set; }
+
+                    /// <summary>
+                    /// <para>文字旋转角度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：90</para>
+                    /// <para>最大值：270</para>
+                    /// <para>最小值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：文字旋转角度0度</item>
+                    /// <item>90：文字旋转角度90度</item>
+                    /// <item>180：文字旋转角度180度</item>
+                    /// <item>270：文字旋转角度270度</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("angle")]
+                    public int? Angle { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_color_code")]
+                    public int? ThemeTextColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：-1</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_background_color_code")]
+                    public int? ThemeTextBackgroundColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("rich_text")]
+                    public RichTextSuffix? RichText { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// </summary>
+                    public record RichTextSuffix
+                    {
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：1000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("paragraphs")]
+                        public RichTextParagraph[]? Paragraphs { get; set; }
+
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// </summary>
+                        public record RichTextParagraph
+                        {
+                            /// <summary>
+                            /// <para>段落类别</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：0</para>
+                            /// <para>可选值：<list type="bullet">
+                            /// <item>0：普通段落</item>
+                            /// <item>1：无序列表</item>
+                            /// <item>2：有序列表</item>
+                            /// </list></para>
+                            /// </summary>
+                            [JsonPropertyName("paragraph_type")]
+                            public int ParagraphType { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// <para>必填：否</para>
+                            /// <para>最大长度：1000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("elements")]
+                            public RichTextElement[]? Elements { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// </summary>
+                            public record RichTextElement
+                            {
+                                /// <summary>
+                                /// <para>元素类别</para>
+                                /// <para>必填：是</para>
+                                /// <para>示例值：0</para>
+                                /// <para>可选值：<list type="bullet">
+                                /// <item>0：文本</item>
+                                /// <item>1：链接</item>
+                                /// <item>2：@用户</item>
+                                /// <item>3：文档</item>
+                                /// </list></para>
+                                /// </summary>
+                                [JsonPropertyName("element_type")]
+                                public int ElementType { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("text_element")]
+                                public RichTextElementText? TextElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementText
+                                {
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string Text { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("link_element")]
+                                public RichTextElementLink? LinkElement { get; set; }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementLink
+                                {
+                                    /// <summary>
+                                    /// <para>链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("herf")]
+                                    public string Herf { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：否</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string? Text { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_user_element")]
+                                public RichTextElementMentionUser? MentionUserElement { get; set; }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionUser
+                                {
+                                    /// <summary>
+                                    /// <para>用户openID，可通过 [获取指定用户的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：ou_da5****************dfe</para>
+                                    /// </summary>
+                                    [JsonPropertyName("user_id")]
+                                    public string UserId { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_doc_element")]
+                                public RichTextElementMentionDoc? MentionDocElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionDoc
+                                {
+                                    /// <summary>
+                                    /// <para>文档超链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com/wiki/xxxxx</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("doc_url")]
+                                    public string DocUrl { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+                            }
+
+                            /// <summary>
+                            /// <para>缩进</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：100</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("indent")]
+                            public int? Indent { get; set; }
+
+                            /// <summary>
+                            /// <para>有序列表开始序号(第一个有序列表的序号为list_begin_index+1)</para>
+                            /// <para>例如：list_begin_index = 0， 则第一个有序列表的序号为1</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：10000</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("list_begin_index")]
+                            public int? ListBeginIndex { get; set; }
+
+                            /// <summary>
+                            /// <para>引用</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：true</para>
+                            /// </summary>
+                            [JsonPropertyName("quote")]
+                            public bool? Quote { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>文字颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_color_type")]
+                    public int? TextColorType { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color_type")]
+                    public int? TextBackgroundColorType { get; set; }
+                }
             }
 
             /// <summary>
@@ -734,11 +3145,818 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
                 public TextSuffix? Text { get; set; }
 
                 /// <summary>
+                /// <para>单元格内文字</para>
+                /// </summary>
+                public record TextSuffix
+                {
+                    /// <summary>
+                    /// <para>文字内容</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：文字内容</para>
+                    /// <para>最大长度：1024</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("text")]
+                    public string? Text { get; set; }
+
+                    /// <summary>
+                    /// <para>文字字重</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：regular</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>regular：常规</item>
+                    /// <item>bold：加粗</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("font_weight")]
+                    public string? FontWeight { get; set; }
+
+                    /// <summary>
+                    /// <para>文字大小，单位 px</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：14</para>
+                    /// </summary>
+                    [JsonPropertyName("font_size")]
+                    public int? FontSize { get; set; }
+
+                    /// <summary>
+                    /// <para>水平对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：center</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>left：向左对齐</item>
+                    /// <item>center：居中对齐</item>
+                    /// <item>right：向右对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("horizontal_align")]
+                    public string? HorizontalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>垂直对齐</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：mid</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>top：顶部对齐</item>
+                    /// <item>mid：垂直居中</item>
+                    /// <item>bottom：底部对齐</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("vertical_align")]
+                    public string? VerticalAlign { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_color")]
+                    public string? TextColor { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color")]
+                    public string? TextBackgroundColor { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在删除线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("line_through")]
+                    public bool? LineThrough { get; set; }
+
+                    /// <summary>
+                    /// <para>是否存在下划线</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("underline")]
+                    public bool? Underline { get; set; }
+
+                    /// <summary>
+                    /// <para>是否斜体</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("italic")]
+                    public bool? Italic { get; set; }
+
+                    /// <summary>
+                    /// <para>文字旋转角度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：90</para>
+                    /// <para>最大值：270</para>
+                    /// <para>最小值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：文字旋转角度0度</item>
+                    /// <item>90：文字旋转角度90度</item>
+                    /// <item>180：文字旋转角度180度</item>
+                    /// <item>270：文字旋转角度270度</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("angle")]
+                    public int? Angle { get; set; }
+
+                    /// <summary>
+                    /// <para>文字颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_color_code")]
+                    public int? ThemeTextColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：-1</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_text_background_color_code")]
+                    public int? ThemeTextBackgroundColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("rich_text")]
+                    public RichTextSuffix? RichText { get; set; }
+
+                    /// <summary>
+                    /// <para>富文本</para>
+                    /// </summary>
+                    public record RichTextSuffix
+                    {
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// <para>必填：否</para>
+                        /// <para>最大长度：1000</para>
+                        /// <para>最小长度：0</para>
+                        /// </summary>
+                        [JsonPropertyName("paragraphs")]
+                        public RichTextParagraph[]? Paragraphs { get; set; }
+
+                        /// <summary>
+                        /// <para>段落列表</para>
+                        /// </summary>
+                        public record RichTextParagraph
+                        {
+                            /// <summary>
+                            /// <para>段落类别</para>
+                            /// <para>必填：是</para>
+                            /// <para>示例值：0</para>
+                            /// <para>可选值：<list type="bullet">
+                            /// <item>0：普通段落</item>
+                            /// <item>1：无序列表</item>
+                            /// <item>2：有序列表</item>
+                            /// </list></para>
+                            /// </summary>
+                            [JsonPropertyName("paragraph_type")]
+                            public int ParagraphType { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// <para>必填：否</para>
+                            /// <para>最大长度：1000</para>
+                            /// <para>最小长度：0</para>
+                            /// </summary>
+                            [JsonPropertyName("elements")]
+                            public RichTextElement[]? Elements { get; set; }
+
+                            /// <summary>
+                            /// <para>元素列表</para>
+                            /// </summary>
+                            public record RichTextElement
+                            {
+                                /// <summary>
+                                /// <para>元素类别</para>
+                                /// <para>必填：是</para>
+                                /// <para>示例值：0</para>
+                                /// <para>可选值：<list type="bullet">
+                                /// <item>0：文本</item>
+                                /// <item>1：链接</item>
+                                /// <item>2：@用户</item>
+                                /// <item>3：文档</item>
+                                /// </list></para>
+                                /// </summary>
+                                [JsonPropertyName("element_type")]
+                                public int ElementType { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("text_element")]
+                                public RichTextElementText? TextElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementText
+                                {
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string Text { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("link_element")]
+                                public RichTextElementLink? LinkElement { get; set; }
+
+                                /// <summary>
+                                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
+                                /// </summary>
+                                public record RichTextElementLink
+                                {
+                                    /// <summary>
+                                    /// <para>链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("herf")]
+                                    public string Herf { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字</para>
+                                    /// <para>必填：否</para>
+                                    /// <para>示例值：示例文案</para>
+                                    /// <para>最大长度：10000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text")]
+                                    public string? Text { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_user_element")]
+                                public RichTextElementMentionUser? MentionUserElement { get; set; }
+
+                                /// <summary>
+                                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionUser
+                                {
+                                    /// <summary>
+                                    /// <para>用户openID，可通过 [获取指定用户的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：ou_da5****************dfe</para>
+                                    /// </summary>
+                                    [JsonPropertyName("user_id")]
+                                    public string UserId { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字属性</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// <para>必填：否</para>
+                                /// </summary>
+                                [JsonPropertyName("mention_doc_element")]
+                                public RichTextElementMentionDoc? MentionDocElement { get; set; }
+
+                                /// <summary>
+                                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
+                                /// </summary>
+                                public record RichTextElementMentionDoc
+                                {
+                                    /// <summary>
+                                    /// <para>文档超链接</para>
+                                    /// <para>必填：是</para>
+                                    /// <para>示例值：https://bytedance.larkoffice.com/wiki/xxxxx</para>
+                                    /// <para>最大长度：1000</para>
+                                    /// <para>最小长度：0</para>
+                                    /// </summary>
+                                    [JsonPropertyName("doc_url")]
+                                    public string DocUrl { get; set; } = string.Empty;
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// <para>必填：否</para>
+                                    /// </summary>
+                                    [JsonPropertyName("text_style")]
+                                    public RichTextElementTextStyle? TextStyle { get; set; }
+
+                                    /// <summary>
+                                    /// <para>文字样式</para>
+                                    /// </summary>
+                                    public record RichTextElementTextStyle
+                                    {
+                                        /// <summary>
+                                        /// <para>文字字重</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：bold</para>
+                                        /// <para>最大长度：10</para>
+                                        /// <para>最小长度：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_weight")]
+                                        public string? FontWeight { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字大小</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：14</para>
+                                        /// <para>最大值：1000</para>
+                                        /// <para>最小值：0</para>
+                                        /// </summary>
+                                        [JsonPropertyName("font_size")]
+                                        public int? FontSize { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字颜色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_color")]
+                                        public string? TextColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>文字背景色，16 进制 rgb 值</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：#000000</para>
+                                        /// <para>最大长度：7</para>
+                                        /// <para>最小长度：7</para>
+                                        /// </summary>
+                                        [JsonPropertyName("text_background_color")]
+                                        public string? TextBackgroundColor { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在删除线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("line_through")]
+                                        public bool? LineThrough { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否存在下划线</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("underline")]
+                                        public bool? Underline { get; set; }
+
+                                        /// <summary>
+                                        /// <para>是否斜体</para>
+                                        /// <para>必填：否</para>
+                                        /// <para>示例值：true</para>
+                                        /// </summary>
+                                        [JsonPropertyName("italic")]
+                                        public bool? Italic { get; set; }
+                                    }
+                                }
+                            }
+
+                            /// <summary>
+                            /// <para>缩进</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：100</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("indent")]
+                            public int? Indent { get; set; }
+
+                            /// <summary>
+                            /// <para>有序列表开始序号(第一个有序列表的序号为list_begin_index+1)</para>
+                            /// <para>例如：list_begin_index = 0， 则第一个有序列表的序号为1</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：0</para>
+                            /// <para>最大值：10000</para>
+                            /// <para>最小值：0</para>
+                            /// </summary>
+                            [JsonPropertyName("list_begin_index")]
+                            public int? ListBeginIndex { get; set; }
+
+                            /// <summary>
+                            /// <para>引用</para>
+                            /// <para>必填：否</para>
+                            /// <para>示例值：true</para>
+                            /// </summary>
+                            [JsonPropertyName("quote")]
+                            public bool? Quote { get; set; }
+                        }
+                    }
+
+                    /// <summary>
+                    /// <para>文字颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_color_type")]
+                    public int? TextColorType { get; set; }
+
+                    /// <summary>
+                    /// <para>文字背景颜色类型，0=系统颜色，1=自定义颜色</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("text_background_color_type")]
+                    public int? TextBackgroundColorType { get; set; }
+                }
+
+                /// <summary>
                 /// <para>单元格样式，设置后会覆盖表格样式</para>
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("style")]
                 public StyleSuffix? Style { get; set; }
+
+                /// <summary>
+                /// <para>单元格样式，设置后会覆盖表格样式</para>
+                /// </summary>
+                public record StyleSuffix
+                {
+                    /// <summary>
+                    /// <para>填充颜色，16 进制 rbg 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("fill_color")]
+                    public string? FillColor { get; set; }
+
+                    /// <summary>
+                    /// <para>填充透明度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：50</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("fill_opacity")]
+                    public double? FillOpacity { get; set; }
+
+                    /// <summary>
+                    /// <para>边框样式</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：solid</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>solid：实线</item>
+                    /// <item>none：无边框</item>
+                    /// <item>dash：虚线</item>
+                    /// <item>dot：点状虚线</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_style")]
+                    public string? BorderStyle { get; set; }
+
+                    /// <summary>
+                    /// <para>边框宽度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：narrow</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>extra_narrow：极细</item>
+                    /// <item>narrow：细</item>
+                    /// <item>medium：中</item>
+                    /// <item>bold：粗</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_width")]
+                    public string? BorderWidth { get; set; }
+
+                    /// <summary>
+                    /// <para>边框透明度</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：50</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("border_opacity")]
+                    public double? BorderOpacity { get; set; }
+
+                    /// <summary>
+                    /// <para>水平翻折</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：false</para>
+                    /// </summary>
+                    [JsonPropertyName("h_flip")]
+                    public bool? HFlip { get; set; }
+
+                    /// <summary>
+                    /// <para>垂直翻折</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：false</para>
+                    /// </summary>
+                    [JsonPropertyName("v_flip")]
+                    public bool? VFlip { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色，16 进制 rgb 值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：#6db5a3</para>
+                    /// <para>最大长度：10</para>
+                    /// <para>最小长度：7</para>
+                    /// </summary>
+                    [JsonPropertyName("border_color")]
+                    public string? BorderColor { get; set; }
+
+                    /// <summary>
+                    /// <para>填充颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：3</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_fill_color_code")]
+                    public int? ThemeFillColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色主题配色编码值</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：4</para>
+                    /// <para>最大值：100</para>
+                    /// <para>最小值：-2</para>
+                    /// </summary>
+                    [JsonPropertyName("theme_border_color_code")]
+                    public int? ThemeBorderColorCode { get; set; }
+
+                    /// <summary>
+                    /// <para>填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("fill_color_type")]
+                    public int? FillColorType { get; set; }
+
+                    /// <summary>
+                    /// <para>边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：0</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：系统颜色</item>
+                    /// <item>1：自定义颜色</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("border_color_type")]
+                    public int? BorderColorType { get; set; }
+                }
             }
         }
 
@@ -765,12 +3983,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("lifeline")]
-        public WhiteboardNodeLifeline? Lifeline { get; set; }
+        public LifelineSuffix? Lifeline { get; set; }
 
         /// <summary>
         /// <para>生命对象属性</para>
         /// </summary>
-        public record WhiteboardNodeLifeline
+        public record LifelineSuffix
         {
             /// <summary>
             /// <para>生命线长度，单位 px</para>
@@ -780,7 +3998,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("size")]
-            public float? Size { get; set; }
+            public double? Size { get; set; }
 
             /// <summary>
             /// <para>生命线类型</para>
@@ -798,12 +4016,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("paint")]
-        public WhiteboardNodePaint? Paint { get; set; }
+        public PaintSuffix? Paint { get; set; }
 
         /// <summary>
         /// <para>画笔属性</para>
         /// </summary>
-        public record WhiteboardNodePaint
+        public record PaintSuffix
         {
             /// <summary>
             /// <para>画笔类型</para>
@@ -827,6 +4045,32 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("lines")]
             public Point[]? Lines { get; set; }
+
+            /// <summary>
+            /// <para>画板线段，由系列坐标点表示</para>
+            /// </summary>
+            public record Point
+            {
+                /// <summary>
+                /// <para>点位置x坐标，单位 px</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：10</para>
+                /// <para>最大值：1000000000000000000</para>
+                /// <para>最小值：-1000000000000000000</para>
+                /// </summary>
+                [JsonPropertyName("x")]
+                public double? X { get; set; }
+
+                /// <summary>
+                /// <para>点位置y坐标，单位 px</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：10</para>
+                /// <para>最大值：100000000000000000000</para>
+                /// <para>最小值：-10000000000000000000</para>
+                /// </summary>
+                [JsonPropertyName("y")]
+                public double? Y { get; set; }
+            }
 
             /// <summary>
             /// <para>画笔粗细，单位px</para>
@@ -854,12 +4098,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("svg")]
-        public WhiteboardNodeSvg? Svg { get; set; }
+        public SvgSuffix? Svg { get; set; }
 
         /// <summary>
         /// <para>svg图形属性</para>
         /// </summary>
-        public record WhiteboardNodeSvg
+        public record SvgSuffix
         {
             /// <summary>
             /// <para>svg code</para>
@@ -877,12 +4121,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sticky_note")]
-        public WhiteboardNodeStickyNote? StickyNote { get; set; }
+        public StickyNoteSuffix? StickyNote { get; set; }
 
         /// <summary>
         /// <para>便签图形属性</para>
         /// </summary>
-        public record WhiteboardNodeStickyNote
+        public record StickyNoteSuffix
         {
             /// <summary>
             /// <para>用户id</para>
@@ -906,12 +4150,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("mind_map_node")]
-        public WhiteboardNodeMindMapNode? MindMapNode { get; set; }
+        public MindMapNodeSuffix? MindMapNode { get; set; }
 
         /// <summary>
         /// <para>思维导图节点属性</para>
         /// </summary>
-        public record WhiteboardNodeMindMapNode
+        public record MindMapNodeSuffix
         {
             /// <summary>
             /// <para>思维导图节点的父节点，必须为思维导图节点</para>
@@ -926,7 +4170,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图节点图形类型</para>
             /// <para>必填：否</para>
-            /// <para>示例值：true</para>
+            /// <para>示例值：mind_map_round_rect</para>
             /// <para>可选值：<list type="bullet">
             /// <item>mind_map_text：思维导图文本节点类型</item>
             /// <item>mind_map_full_round_rect：思维导图全圆角矩形节点类型</item>
@@ -983,12 +4227,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("mind_map_root")]
-        public WhiteboardNodeMindMapRoot? MindMapRoot { get; set; }
+        public MindMapRootSuffix? MindMapRoot { get; set; }
 
         /// <summary>
         /// <para>思维导图根节点属性</para>
         /// </summary>
-        public record WhiteboardNodeMindMapRoot
+        public record MindMapRootSuffix
         {
             /// <summary>
             /// <para>思维导图布局方式</para>
@@ -1023,7 +4267,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <summary>
             /// <para>思维导图图形连接线样式</para>
             /// <para>必填：否</para>
-            /// <para>示例值：rounf_angle</para>
+            /// <para>示例值：round_angle</para>
             /// <para>可选值：<list type="bullet">
             /// <item>curve：曲线</item>
             /// <item>right_angle：直角折线</item>
@@ -1075,12 +4319,12 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("mind_map")]
-        public WhiteboardNodeMindMap? MindMap { get; set; }
+        public MindMapSuffix? MindMap { get; set; }
 
         /// <summary>
         /// <para>思维导图节点（v1版本，只读，写操作请使用mind_map_root/mind_map_node结构）</para>
         /// </summary>
-        public record WhiteboardNodeMindMap
+        public record MindMapSuffix
         {
             /// <summary>
             /// <para>父节点id</para>
@@ -1092,668 +4336,5 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             [JsonPropertyName("parent_id")]
             public string? ParentId { get; set; }
         }
-    }
-
-    /// <summary>
-    /// <para>文字</para>
-    /// </summary>
-    public record TextSuffix
-    {
-        /// <summary>
-        /// <para>文字内容</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：文字内容</para>
-        /// <para>最大长度：1024</para>
-        /// <para>最小长度：0</para>
-        /// </summary>
-        [JsonPropertyName("text")]
-        public string? Text { get; set; }
-
-        /// <summary>
-        /// <para>文字字重</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：regular</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>regular：常规</item>
-        /// <item>bold：加粗</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("font_weight")]
-        public string? FontWeight { get; set; }
-
-        /// <summary>
-        /// <para>文字大小，单位 px</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：14</para>
-        /// </summary>
-        [JsonPropertyName("font_size")]
-        public int? FontSize { get; set; }
-
-        /// <summary>
-        /// <para>水平对齐</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：center</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>left：向左对齐</item>
-        /// <item>center：居中对齐</item>
-        /// <item>right：向右对齐</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("horizontal_align")]
-        public string? HorizontalAlign { get; set; }
-
-        /// <summary>
-        /// <para>垂直对齐</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：mid</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>top：顶部对齐</item>
-        /// <item>mid：垂直居中</item>
-        /// <item>bottom：底部对齐</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("vertical_align")]
-        public string? VerticalAlign { get; set; }
-
-        /// <summary>
-        /// <para>文字颜色，16 进制 rgb 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#6db5a3</para>
-        /// <para>最大长度：10</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("text_color")]
-        public string? TextColor { get; set; }
-
-        /// <summary>
-        /// <para>文字背景色，16 进制 rgb 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#6db5a3</para>
-        /// <para>最大长度：10</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("text_background_color")]
-        public string? TextBackgroundColor { get; set; }
-
-        /// <summary>
-        /// <para>是否存在删除线</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("line_through")]
-        public bool? LineThrough { get; set; }
-
-        /// <summary>
-        /// <para>是否存在下划线</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("underline")]
-        public bool? Underline { get; set; }
-
-        /// <summary>
-        /// <para>是否斜体</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("italic")]
-        public bool? Italic { get; set; }
-
-        /// <summary>
-        /// <para>文字旋转角度</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：90</para>
-        /// <para>最大值：270</para>
-        /// <para>最小值：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>0：文字旋转角度0度</item>
-        /// <item>90：文字旋转角度90度</item>
-        /// <item>180：文字旋转角度180度</item>
-        /// <item>270：文字旋转角度270度</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("angle")]
-        public int? Angle { get; set; }
-
-        /// <summary>
-        /// <para>文字颜色主题配色编码值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：-2</para>
-        /// </summary>
-        [JsonPropertyName("theme_text_color_code")]
-        public int? ThemeTextColorCode { get; set; }
-
-        /// <summary>
-        /// <para>文字背景颜色主题配色编码值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：-1</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：-2</para>
-        /// </summary>
-        [JsonPropertyName("theme_text_background_color_code")]
-        public int? ThemeTextBackgroundColorCode { get; set; }
-
-        /// <summary>
-        /// <para>富文本</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("rich_text")]
-        public RichTextSuffix? RichText { get; set; }
-
-        /// <summary>
-        /// <para>文字颜色类型，0=系统颜色，1=自定义颜色</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>0：系统颜色</item>
-        /// <item>1：自定义颜色</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("text_color_type")]
-        public int? TextColorType { get; set; }
-
-        /// <summary>
-        /// <para>文字背景颜色类型，0=系统颜色，1=自定义颜色</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>0：系统颜色</item>
-        /// <item>1：自定义颜色</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("text_background_color_type")]
-        public int? TextBackgroundColorType { get; set; }
-    }
-
-    /// <summary>
-    /// <para>富文本</para>
-    /// </summary>
-    public record RichTextSuffix
-    {
-        /// <summary>
-        /// <para>段落列表</para>
-        /// <para>必填：否</para>
-        /// <para>最大长度：1000</para>
-        /// <para>最小长度：0</para>
-        /// </summary>
-        [JsonPropertyName("paragraphs")]
-        public RichTextParagraph[]? Paragraphs { get; set; }
-
-        /// <summary>
-        /// <para>段落列表</para>
-        /// </summary>
-        public record RichTextParagraph
-        {
-            /// <summary>
-            /// <para>段落类别</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：0</para>
-            /// <para>可选值：<list type="bullet">
-            /// <item>0：普通段落</item>
-            /// <item>1：无序列表</item>
-            /// <item>2：有序列表</item>
-            /// </list></para>
-            /// </summary>
-            [JsonPropertyName("paragraph_type")]
-            public int ParagraphType { get; set; }
-
-            /// <summary>
-            /// <para>元素列表</para>
-            /// <para>必填：否</para>
-            /// <para>最大长度：1000</para>
-            /// <para>最小长度：0</para>
-            /// </summary>
-            [JsonPropertyName("elements")]
-            public RichTextElement[]? Elements { get; set; }
-
-            /// <summary>
-            /// <para>元素列表</para>
-            /// </summary>
-            public record RichTextElement
-            {
-                /// <summary>
-                /// <para>元素类别</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：0</para>
-                /// <para>可选值：<list type="bullet">
-                /// <item>0：文本</item>
-                /// <item>1：链接</item>
-                /// <item>2：@用户</item>
-                /// <item>3：文档</item>
-                /// </list></para>
-                /// </summary>
-                [JsonPropertyName("element_type")]
-                public int ElementType { get; set; }
-
-                /// <summary>
-                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("text_element")]
-                public RichTextElementText? TextElement { get; set; }
-
-                /// <summary>
-                /// <para>文本类别信息，如果元素类别为文本时需要设置</para>
-                /// </summary>
-                public record RichTextElementText
-                {
-                    /// <summary>
-                    /// <para>文字</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：示例文案</para>
-                    /// <para>最大长度：10000</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("text")]
-                    public string Text { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>文字样式</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("text_style")]
-                    public RichTextElementTextStyle? TextStyle { get; set; }
-                }
-
-                /// <summary>
-                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("link_element")]
-                public RichTextElementLink? LinkElement { get; set; }
-
-                /// <summary>
-                /// <para>超链接类别信息，元素类别为链接时需要设置</para>
-                /// </summary>
-                public record RichTextElementLink
-                {
-                    /// <summary>
-                    /// <para>链接</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：https://bytedance.larkoffice.com</para>
-                    /// <para>最大长度：1000</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("herf")]
-                    public string Herf { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>文字</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：示例文案</para>
-                    /// <para>最大长度：10000</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("text")]
-                    public string? Text { get; set; }
-
-                    /// <summary>
-                    /// <para>文字样式</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("text_style")]
-                    public RichTextElementTextStyle? TextStyle { get; set; }
-                }
-
-                /// <summary>
-                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("mention_user_element")]
-                public RichTextElementMentionUser? MentionUserElement { get; set; }
-
-                /// <summary>
-                /// <para>@用户类别信息，元素类别是@用户时候需要设置</para>
-                /// </summary>
-                public record RichTextElementMentionUser
-                {
-                    /// <summary>
-                    /// <para>用户openID，可通过 [获取指定用户的 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid) 获取</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：ou_da5****************dfe</para>
-                    /// </summary>
-                    [JsonPropertyName("user_id")]
-                    public string UserId { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>文字属性</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("text_style")]
-                    public RichTextElementTextStyle? TextStyle { get; set; }
-                }
-
-                /// <summary>
-                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("mention_doc_element")]
-                public RichTextElementMentionDoc? MentionDocElement { get; set; }
-
-                /// <summary>
-                /// <para>文档类别信息，元素类别是文档时候需要设置</para>
-                /// </summary>
-                public record RichTextElementMentionDoc
-                {
-                    /// <summary>
-                    /// <para>文档超链接</para>
-                    /// <para>必填：是</para>
-                    /// <para>示例值：https://bytedance.larkoffice.com/wiki/xxxxx</para>
-                    /// <para>最大长度：1000</para>
-                    /// <para>最小长度：0</para>
-                    /// </summary>
-                    [JsonPropertyName("doc_url")]
-                    public string DocUrl { get; set; } = string.Empty;
-
-                    /// <summary>
-                    /// <para>文字样式</para>
-                    /// <para>必填：否</para>
-                    /// </summary>
-                    [JsonPropertyName("text_style")]
-                    public RichTextElementTextStyle? TextStyle { get; set; }
-                }
-            }
-
-            /// <summary>
-            /// <para>缩进</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：0</para>
-            /// <para>最大值：100</para>
-            /// <para>最小值：0</para>
-            /// </summary>
-            [JsonPropertyName("indent")]
-            public int? Indent { get; set; }
-
-            /// <summary>
-            /// <para>有序列表开始序号(第一个有序列表的序号为list_begin_index+1)</para>
-            /// <para>例如：list_begin_index = 0， 则第一个有序列表的序号为1</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：0</para>
-            /// <para>最大值：10000</para>
-            /// <para>最小值：0</para>
-            /// </summary>
-            [JsonPropertyName("list_begin_index")]
-            public int? ListBeginIndex { get; set; }
-
-            /// <summary>
-            /// <para>引用</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("quote")]
-            public bool? Quote { get; set; }
-        }
-    }
-
-    /// <summary>
-    /// <para>文字样式</para>
-    /// </summary>
-    public record RichTextElementTextStyle
-    {
-        /// <summary>
-        /// <para>文字字重(regular：常规,bold：加粗)</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：bold</para>
-        /// <para>最大长度：10</para>
-        /// <para>最小长度：0</para>
-        /// </summary>
-        [JsonPropertyName("font_weight")]
-        public string? FontWeight { get; set; }
-
-        /// <summary>
-        /// <para>文字大小，单位 px</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：14</para>
-        /// <para>最大值：1000</para>
-        /// <para>最小值：0</para>
-        /// </summary>
-        [JsonPropertyName("font_size")]
-        public int? FontSize { get; set; }
-
-        /// <summary>
-        /// <para>文字颜色，16 进制 rgb 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#000000</para>
-        /// <para>最大长度：7</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("text_color")]
-        public string? TextColor { get; set; }
-
-        /// <summary>
-        /// <para>文字背景色，16 进制 rgb 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#000000</para>
-        /// <para>最大长度：7</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("text_background_color")]
-        public string? TextBackgroundColor { get; set; }
-
-        /// <summary>
-        /// <para>是否存在删除线</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("line_through")]
-        public bool? LineThrough { get; set; }
-
-        /// <summary>
-        /// <para>是否存在下划线</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("underline")]
-        public bool? Underline { get; set; }
-
-        /// <summary>
-        /// <para>是否斜体</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：true</para>
-        /// </summary>
-        [JsonPropertyName("italic")]
-        public bool? Italic { get; set; }
-    }
-
-    /// <summary>
-    /// <para>样式</para>
-    /// </summary>
-    public record StyleSuffix
-    {
-        /// <summary>
-        /// <para>填充颜色，16 进制 rbg 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#6db5a3</para>
-        /// <para>最大长度：10</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("fill_color")]
-        public string? FillColor { get; set; }
-
-        /// <summary>
-        /// <para>填充透明度</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：50</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：0</para>
-        /// </summary>
-        [JsonPropertyName("fill_opacity")]
-        public float? FillOpacity { get; set; }
-
-        /// <summary>
-        /// <para>边框样式</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：solid</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>solid：实线</item>
-        /// <item>none：无边框</item>
-        /// <item>dash：虚线</item>
-        /// <item>dot：点状虚线</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("border_style")]
-        public string? BorderStyle { get; set; }
-
-        /// <summary>
-        /// <para>边框宽度</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：narrow</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>extra_narrow：极细</item>
-        /// <item>narrow：细</item>
-        /// <item>medium：中</item>
-        /// <item>bold：粗</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("border_width")]
-        public string? BorderWidth { get; set; }
-
-        /// <summary>
-        /// <para>边框透明度</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：50</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：0</para>
-        /// </summary>
-        [JsonPropertyName("border_opacity")]
-        public float? BorderOpacity { get; set; }
-
-        /// <summary>
-        /// <para>水平翻折</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("h_flip")]
-        public bool? HFlip { get; set; }
-
-        /// <summary>
-        /// <para>垂直翻折</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("v_flip")]
-        public bool? VFlip { get; set; }
-
-        /// <summary>
-        /// <para>边框颜色，16 进制 rgb 值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：#6db5a3</para>
-        /// <para>最大长度：10</para>
-        /// <para>最小长度：7</para>
-        /// </summary>
-        [JsonPropertyName("border_color")]
-        public string? BorderColor { get; set; }
-
-        /// <summary>
-        /// <para>填充颜色主题配色编码值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：3</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：-2</para>
-        /// </summary>
-        [JsonPropertyName("theme_fill_color_code")]
-        public int? ThemeFillColorCode { get; set; }
-
-        /// <summary>
-        /// <para>边框颜色主题配色编码值</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：4</para>
-        /// <para>最大值：100</para>
-        /// <para>最小值：-2</para>
-        /// </summary>
-        [JsonPropertyName("theme_border_color_code")]
-        public int? ThemeBorderColorCode { get; set; }
-
-        /// <summary>
-        /// <para>填充颜色类型：0=系统颜色，取theme_fill_color_code，1=自定义颜色，取fill_color</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>0：系统颜色</item>
-        /// <item>1：自定义颜色</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("fill_color_type")]
-        public int? FillColorType { get; set; }
-
-        /// <summary>
-        /// <para>边框颜色类型：0=系统颜色，取theme_border_color_code，1=自定义颜色，取border_color</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>0：系统颜色</item>
-        /// <item>1：自定义颜色</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("border_color_type")]
-        public int? BorderColorType { get; set; }
-    }
-
-    /// <summary>
-    /// <para>坐标</para>
-    /// </summary>
-    public record Point
-    {
-        /// <summary>
-        /// <para>点位置x坐标</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：10</para>
-        /// <para>最大值：1000000000000000000</para>
-        /// <para>最小值：-1000000000000000000</para>
-        /// </summary>
-        [JsonPropertyName("x")]
-        public float? X { get; set; }
-
-        /// <summary>
-        /// <para>点位置y坐标</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：10</para>
-        /// <para>最大值：100000000000000000000</para>
-        /// <para>最小值：-10000000000000000000</para>
-        /// </summary>
-        [JsonPropertyName("y")]
-        public float? Y { get; set; }
-    }
-
-    /// <summary>
-    /// <para>连接节点</para>
-    /// </summary>
-    public record ConnectorAttachedObject
-    {
-        /// <summary>
-        /// <para>连接图形的 id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：o1:1</para>
-        /// <para>最大长度：100</para>
-        /// <para>最小长度：0</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// <para>连接图形的方向</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：auto</para>
-        /// <para>最大长度：100</para>
-        /// <para>最小长度：0</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>auto：连接方向自动匹配</item>
-        /// <item>top：连接图形顶部方向</item>
-        /// <item>right：连接图形右边方向</item>
-        /// <item>bottom：连接图形底部方向</item>
-        /// <item>left：连接图形左边方向</item>
-        /// </list></para>
-        /// </summary>
-        [JsonPropertyName("snap_to")]
-        public string? SnapTo { get; set; }
-
-        /// <summary>
-        /// <para>连接图形的相对坐标，0-1</para>
-        /// <para>必填：否</para>
-        /// </summary>
-        [JsonPropertyName("position")]
-        public Point? Position { get; set; }
     }
 }

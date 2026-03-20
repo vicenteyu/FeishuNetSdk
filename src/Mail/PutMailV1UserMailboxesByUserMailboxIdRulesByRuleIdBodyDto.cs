@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-04-11
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-04-11
-// ************************************************************************
-// <copyright file="PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>更新收信规则 请求体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 更新收信规则 请求体
@@ -130,7 +117,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto
     public record RuleAction
     {
         /// <summary>
-        /// <para>匹配中规则后的操作列表</para>
+        /// <para>匹配命中规则后的操作列表</para>
         /// <para>必填：是</para>
         /// <para>最大长度：32</para>
         /// <para>最小长度：1</para>
@@ -139,7 +126,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto
         public RuleActionItem[] Items { get; set; } = [];
 
         /// <summary>
-        /// <para>匹配中规则后的操作列表</para>
+        /// <para>匹配命中规则后的操作列表</para>
         /// </summary>
         public record RuleActionItem
         {
@@ -177,7 +164,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdRulesByRuleIdBodyDto
     }
 
     /// <summary>
-    /// <para>是否终点规则</para>
+    /// <para>是否终止规则</para>
     /// <para>必填：是</para>
     /// <para>示例值：false</para>
     /// </summary>

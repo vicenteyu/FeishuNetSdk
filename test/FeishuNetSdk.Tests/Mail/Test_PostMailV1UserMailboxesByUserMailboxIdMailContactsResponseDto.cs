@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2025-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2025-06-24
-// ************************************************************************
-// <copyright file="Test_PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>测试 创建邮箱联系人 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Tests.Mail;
 
 /// <summary>
@@ -38,7 +25,7 @@ public class Test_PostMailV1UserMailboxesByUserMailboxIdMailContactsResponseDto 
             "mail_address": "zhangsan@example.com",
             "tag": "朋友",
             "remark": "飞书发布会认识",
-            "avatar": "https://exampeimg.com/xxxx.jpg",
+            "avatar": "https://exampleimg.com/xxxx.jpg",
             "position": "CEO"
         }
     }

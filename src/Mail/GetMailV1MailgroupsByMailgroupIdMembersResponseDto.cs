@@ -1,16 +1,3 @@
-// ************************************************************************
-// Assembly         : FeishuNetSdk
-// Author           : yxr
-// Created          : 2024-06-24
-//
-// Last Modified By : yxr
-// Last Modified On : 2024-06-24
-// ************************************************************************
-// <copyright file="GetMailV1MailgroupsByMailgroupIdMembersResponseDto.cs" company="Vicente Yu">
-//     MIT
-// </copyright>
-// <summary>获取所有邮件组成员 响应体</summary>
-// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 获取所有邮件组成员 响应体
@@ -60,7 +47,7 @@ public record GetMailV1MailgroupsByMailgroupIdMembersResponseDto : IPageableResp
         /// <summary>
         /// <para>成员邮箱地址（当成员类型是EXTERNAL_USER/MAIL_GROUP/OTHER_MEMBER时有值）</para>
         /// <para>必填：否</para>
-        /// <para>示例值：test_memeber@xxx.xx</para>
+        /// <para>示例值：test_member@xxx.xx</para>
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
