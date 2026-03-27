@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="GetVcV1MeetingsByMeetingIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取会议详情 响应体
-/// <para>获取一个会议的详细数据。</para>
+/// <para>根据会议 ID 获取指定会议的详细信息，包括会议主题、链接、主持人、参会人员、状态、时间信息及关联纪要 ID。</para>
 /// <para>接口ID：6960861158128926723</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting%2fget</para>
@@ -26,12 +26,12 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("meeting")]
-    public GetVcV1MeetingsByMeetingIdResponseDtoMeeting? Meeting { get; set; }
+    public MeetingSuffix? Meeting { get; set; }
 
     /// <summary>
     /// <para>会议数据</para>
     /// </summary>
-    public record GetVcV1MeetingsByMeetingIdResponseDtoMeeting
+    public record MeetingSuffix
     {
         /// <summary>
         /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
@@ -134,6 +134,14 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             [JsonPropertyName("user_type")]
             public int? UserType { get; set; }
         }
+
+        /// <summary>
+        /// <para>该会议是否支持互通</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("meeting_connect")]
+        public bool? MeetingConnect { get; set; }
 
         /// <summary>
         /// <para>会议状态</para>
@@ -326,5 +334,48 @@ public record GetVcV1MeetingsByMeetingIdResponseDto
             [JsonPropertyName("use_pstn")]
             public bool? UsePstn { get; set; }
         }
+
+        /// <summary>
+        /// <para>纪要ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6943848821689040898</para>
+        /// </summary>
+        [JsonPropertyName("note_id")]
+        public string? NoteId { get; set; }
+    }
+
+    /// <summary>
+    /// <para>会议产物相关信息</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("related_artifacts")]
+    public MeetingRelatedArtifacts? RelatedArtifacts { get; set; }
+
+    /// <summary>
+    /// <para>会议产物相关信息</para>
+    /// </summary>
+    public record MeetingRelatedArtifacts
+    {
+        /// <summary>
+        /// <para>智能纪要的 doc_token</para>
+        /// <para>- 文档一旦生成，就可以查到对应 token</para>
+        /// <para>- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中</para>
+        /// <para>- 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g</para>
+        /// </summary>
+        [JsonPropertyName("note_doc_token")]
+        public string? NoteDocToken { get; set; }
+
+        /// <summary>
+        /// <para>逐字稿的 doc_token</para>
+        /// <para>- 文档一旦生成，就可以查到对应 token</para>
+        /// <para>- 无字段权限时，该 key 不会出现在 related_artifacts 结构当中</para>
+        /// <para>- 有字段权限而无内容时，related_artifacts 结构中会包含该 key，同时其值为空字符串</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：J1X5wG7bFilbFDk42VNdhfS6n6g</para>
+        /// </summary>
+        [JsonPropertyName("verbatim_doc_token")]
+        public string? VerbatimDocToken { get; set; }
     }
 }

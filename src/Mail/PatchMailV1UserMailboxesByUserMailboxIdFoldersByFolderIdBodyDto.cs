@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-04-11
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-03-27
+// ************************************************************************
+// <copyright file="PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>修改邮箱文件夹 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 修改邮箱文件夹 请求体
@@ -9,7 +22,7 @@ namespace FeishuNetSdk.Mail;
 public record PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdBodyDto
 {
     /// <summary>
-    /// <para>文件夹名称</para>
+    /// <para>文件夹名字</para>
     /// <para>必填：否</para>
     /// <para>示例值：newsletter 相关</para>
     /// <para>最大长度：250</para>

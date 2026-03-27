@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-26
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("basic_info_update")]
-    public PatchCorehrV2PreHiresByPreHireIdBodyDtoBasicInfoUpdate? BasicInfoUpdate { get; set; }
+    public BasicInfoUpdateSuffix? BasicInfoUpdate { get; set; }
 
     /// <summary>
     /// <para>更新个人（person）信息</para>
     /// </summary>
-    public record PatchCorehrV2PreHiresByPreHireIdBodyDtoBasicInfoUpdate
+    public record BasicInfoUpdateSuffix
     {
         /// <summary>
         /// <para>姓名，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
@@ -154,111 +154,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public PhoneForUpdate[]? Phones { get; set; }
 
         /// <summary>
-        /// <para>电话，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
-        /// </summary>
-        public record PhoneForUpdate
-        {
-            /// <summary>
-            /// <para>电话区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name = phone</para>
-            /// <para>- custom_api_name = international_area_code</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：86_china</para>
-            /// </summary>
-            [JsonPropertyName("international_area_code")]
-            public string InternationalAreaCode { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>电话号码</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：178xxxx1234</para>
-            /// </summary>
-            [JsonPropertyName("phone_number")]
-            public string PhoneNumber { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name = phone</para>
-            /// <para>- custom_api_name = device_type</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：mobile_phone</para>
-            /// </summary>
-            [JsonPropertyName("device_type")]
-            public string DeviceType { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name = phone</para>
-            /// <para>- custom_api_name = phone_usage</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：work</para>
-            /// </summary>
-            [JsonPropertyName("phone_usage")]
-            public string PhoneUsage { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>主要电话，若有多个电话，只能有一个电话的「is_primary」为true</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_primary")]
-            public bool IsPrimary { get; set; }
-
-            /// <summary>
-            /// <para>公开电话</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_public")]
-            public bool IsPublic { get; set; }
-        }
-
-        /// <summary>
         /// <para>邮箱，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("emails")]
         public EmailForUpdate[]? Emails { get; set; }
-
-        /// <summary>
-        /// <para>邮箱，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
-        /// </summary>
-        public record EmailForUpdate
-        {
-            /// <summary>
-            /// <para>邮箱地址</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：1234567@bytedance.com</para>
-            /// </summary>
-            [JsonPropertyName("email")]
-            public string Email { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_primary")]
-            public bool IsPrimary { get; set; }
-
-            /// <summary>
-            /// <para>是否为公开邮箱</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_public")]
-            public bool IsPublic { get; set; }
-
-            /// <summary>
-            /// <para>邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name = email</para>
-            /// <para>- custom_api_name = email_usage</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：work</para>
-            /// </summary>
-            [JsonPropertyName("email_usage")]
-            public string EmailUsage { get; set; } = string.Empty;
-        }
 
         /// <summary>
         /// <para>国籍，可以通过[查询国籍信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口获取</para>
@@ -310,151 +210,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("tax_address")]
             public AddressForUpdate? TaxAddress { get; set; }
-
-            /// <summary>
-            /// <para>纳税地址</para>
-            /// </summary>
-            public record AddressForUpdate
-            {
-                /// <summary>
-                /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：6862995757234914824</para>
-                /// </summary>
-                [JsonPropertyName("country_region_id")]
-                public string CountryRegionId { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863326815667095047</para>
-                /// </summary>
-                [JsonPropertyName("region_id")]
-                public string? RegionId { get; set; }
-
-                /// <summary>
-                /// <para>地址行 1（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市海淀区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line1")]
-                public string? LocalAddressLine1 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 2（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：上海市杨浦区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line2")]
-                public string? LocalAddressLine2 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 3（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市房山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line3")]
-                public string? LocalAddressLine3 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 4（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：天津滨海高新区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line4")]
-                public string? LocalAddressLine4 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 5（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：成都市成华区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line5")]
-                public string? LocalAddressLine5 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 6（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：深圳市南山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line6")]
-                public string? LocalAddressLine6 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 7（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：南京市鼓楼区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line7")]
-                public string? LocalAddressLine7 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 8（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：杭州市滨江区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line8")]
-                public string? LocalAddressLine8 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 9（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：郑州市中原区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line9")]
-                public string? LocalAddressLine9 { get; set; }
-
-                /// <summary>
-                /// <para>邮政编码</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：611530</para>
-                /// </summary>
-                [JsonPropertyName("postal_code")]
-                public string? PostalCode { get; set; }
-
-                /// <summary>
-                /// <para>地址类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：address</para>
-                /// <para>- custom_api_name：address_type</para>
-                /// <para>必填：是</para>
-                /// <para>最大长度：1000</para>
-                /// <para>最小长度：1</para>
-                /// </summary>
-                [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = [];
-
-                /// <summary>
-                /// <para>主要地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>公开地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-
-                /// <summary>
-                /// <para>城市，可以通过接口[查询城市信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-city/search)获取详情</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333254578046471</para>
-                /// </summary>
-                [JsonPropertyName("city_id_v2")]
-                public string? CityIdV2 { get; set; }
-
-                /// <summary>
-                /// <para>区/县，可以通过接口[查询区/县信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)获取详情</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333516579440141</para>
-                /// </summary>
-                [JsonPropertyName("district_id_v2")]
-                public string? DistrictIdV2 { get; set; }
-            }
 
             /// <summary>
             /// <para>居民纳税身份说明</para>
@@ -578,67 +333,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public NationalIdForUpdate[]? NationalIds { get; set; }
 
             /// <summary>
-            /// <para>证件号码</para>
-            /// </summary>
-            public record NationalIdForUpdate
-            {
-                /// <summary>
-                /// <para>国家 / 地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获得</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：6862995757234914824</para>
-                /// </summary>
-                [JsonPropertyName("country_region_id")]
-                public string CountryRegionId { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>国家证件类型，可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获得</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：6863330041896371725</para>
-                /// </summary>
-                [JsonPropertyName("national_id_type_id")]
-                public string NationalIdTypeId { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>证件号码</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1231131333xxxx222</para>
-                /// </summary>
-                [JsonPropertyName("national_id_number")]
-                public string NationalIdNumber { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>证件签发日期</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：2020-04-01</para>
-                /// </summary>
-                [JsonPropertyName("issue_date")]
-                public string? IssueDate { get; set; }
-
-                /// <summary>
-                /// <para>证件到期日期</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：2020-05-21</para>
-                /// </summary>
-                [JsonPropertyName("expiration_date")]
-                public string? ExpirationDate { get; set; }
-
-                /// <summary>
-                /// <para>证件签发机构</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市公安局</para>
-                /// </summary>
-                [JsonPropertyName("issued_by")]
-                public string? IssuedBy { get; set; }
-
-                /// <summary>
-                /// <para>自定义字段</para>
-                /// <para>必填：否</para>
-                /// </summary>
-                [JsonPropertyName("custom_fields")]
-                public ObjectFieldData[]? CustomFields { get; set; }
-            }
-
-            /// <summary>
             /// <para>配偶工作状态，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
             /// <para>- object_api_name：dependent</para>
             /// <para>- custom_api_name：spouses_working_status</para>
@@ -696,216 +390,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public PhoneForUpdate? Phone { get; set; }
 
             /// <summary>
-            /// <para>电话</para>
-            /// </summary>
-            public record PhoneForUpdate
-            {
-                /// <summary>
-                /// <para>国家区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：international_area_code</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：86_china</para>
-                /// </summary>
-                [JsonPropertyName("international_area_code")]
-                public string InternationalAreaCode { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>电话号码</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：178xxxx1232</para>
-                /// </summary>
-                [JsonPropertyName("phone_number")]
-                public string PhoneNumber { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：device_type</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：mobile_phone</para>
-                /// </summary>
-                [JsonPropertyName("device_type")]
-                public string DeviceType { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：phone_usage</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：home</para>
-                /// </summary>
-                [JsonPropertyName("phone_usage")]
-                public string PhoneUsage { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>主要电话，若有多个电话，只能有一个电话的「is_primary」为true</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>公开电话</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-            }
-
-            /// <summary>
             /// <para>联系地址</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("address")]
             public AddressForUpdate? Address { get; set; }
-
-            /// <summary>
-            /// <para>联系地址</para>
-            /// </summary>
-            public record AddressForUpdate
-            {
-                /// <summary>
-                /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：6862995757234914824</para>
-                /// </summary>
-                [JsonPropertyName("country_region_id")]
-                public string CountryRegionId { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863326815667095047</para>
-                /// </summary>
-                [JsonPropertyName("region_id")]
-                public string? RegionId { get; set; }
-
-                /// <summary>
-                /// <para>地址行 1（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市海淀区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line1")]
-                public string? LocalAddressLine1 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 2（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：上海市杨浦区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line2")]
-                public string? LocalAddressLine2 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 3（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市房山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line3")]
-                public string? LocalAddressLine3 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 4（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：天津滨海高新区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line4")]
-                public string? LocalAddressLine4 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 5（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：成都市成华区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line5")]
-                public string? LocalAddressLine5 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 6（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：深圳市南山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line6")]
-                public string? LocalAddressLine6 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 7（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：南京市鼓楼区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line7")]
-                public string? LocalAddressLine7 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 8（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：杭州市滨江区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line8")]
-                public string? LocalAddressLine8 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 9（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：郑州市中原区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line9")]
-                public string? LocalAddressLine9 { get; set; }
-
-                /// <summary>
-                /// <para>邮政编码</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：611530</para>
-                /// </summary>
-                [JsonPropertyName("postal_code")]
-                public string? PostalCode { get; set; }
-
-                /// <summary>
-                /// <para>地址类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：address</para>
-                /// <para>- custom_api_name：address_type</para>
-                /// <para>必填：是</para>
-                /// <para>最大长度：1000</para>
-                /// <para>最小长度：1</para>
-                /// </summary>
-                [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = [];
-
-                /// <summary>
-                /// <para>主要地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>公开地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-
-                /// <summary>
-                /// <para>城市</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333254578046471</para>
-                /// </summary>
-                [JsonPropertyName("city_id_v2")]
-                public string? CityIdV2 { get; set; }
-
-                /// <summary>
-                /// <para>区/县</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333516579440141</para>
-                /// </summary>
-                [JsonPropertyName("district_id_v2")]
-                public string? DistrictIdV2 { get; set; }
-            }
 
             /// <summary>
             /// <para>自定义字段</para>
@@ -1014,67 +503,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public NationalIdForUpdate[]? NationalIdLists { get; set; }
 
         /// <summary>
-        /// <para>证件账号</para>
-        /// </summary>
-        public record NationalIdForUpdate
-        {
-            /// <summary>
-            /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：6862995757234914824</para>
-            /// </summary>
-            [JsonPropertyName("country_region_id")]
-            public string CountryRegionId { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>国家证件类型，可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获得</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：6863330041896371725</para>
-            /// </summary>
-            [JsonPropertyName("national_id_type_id")]
-            public string NationalIdTypeId { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>证件号码</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：1231131333</para>
-            /// </summary>
-            [JsonPropertyName("national_id_number")]
-            public string NationalIdNumber { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>证件签发日期</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：2020-04-01</para>
-            /// </summary>
-            [JsonPropertyName("issue_date")]
-            public string? IssueDate { get; set; }
-
-            /// <summary>
-            /// <para>证件到期日期</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：2020-05-21</para>
-            /// </summary>
-            [JsonPropertyName("expiration_date")]
-            public string? ExpirationDate { get; set; }
-
-            /// <summary>
-            /// <para>证件签发机构</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：北京市公安局</para>
-            /// </summary>
-            [JsonPropertyName("issued_by")]
-            public string? IssuedBy { get; set; }
-
-            /// <summary>
-            /// <para>自定义字段</para>
-            /// <para>必填：否</para>
-            /// </summary>
-            [JsonPropertyName("custom_fields")]
-            public ObjectFieldData[]? CustomFields { get; set; }
-        }
-
-        /// <summary>
         /// <para>个人资料</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -1160,66 +588,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public PhoneForUpdate[]? Phones { get; set; }
 
             /// <summary>
-            /// <para>电话</para>
-            /// </summary>
-            public record PhoneForUpdate
-            {
-                /// <summary>
-                /// <para>国家区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：international_area_code</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：86_china</para>
-                /// </summary>
-                [JsonPropertyName("international_area_code")]
-                public string InternationalAreaCode { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>电话号码</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：178xxxx1232</para>
-                /// </summary>
-                [JsonPropertyName("phone_number")]
-                public string PhoneNumber { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：device_type</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：mobile_phone</para>
-                /// </summary>
-                [JsonPropertyName("device_type")]
-                public string DeviceType { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：phone</para>
-                /// <para>- custom_api_name：phone_usage</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：home</para>
-                /// </summary>
-                [JsonPropertyName("phone_usage")]
-                public string PhoneUsage { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>主要电话，若有多个电话，只能有一个电话的「is_primary」为true</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>公开电话</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-            }
-
-            /// <summary>
             /// <para>地址</para>
             /// <para>必填：否</para>
             /// </summary>
@@ -1227,196 +595,11 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             public AddressForUpdate? Address { get; set; }
 
             /// <summary>
-            /// <para>地址</para>
-            /// </summary>
-            public record AddressForUpdate
-            {
-                /// <summary>
-                /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：6862995757234914824</para>
-                /// </summary>
-                [JsonPropertyName("country_region_id")]
-                public string CountryRegionId { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863326815667095047</para>
-                /// </summary>
-                [JsonPropertyName("region_id")]
-                public string? RegionId { get; set; }
-
-                /// <summary>
-                /// <para>地址行 1（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市海淀区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line1")]
-                public string? LocalAddressLine1 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 2（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：上海市杨浦区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line2")]
-                public string? LocalAddressLine2 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 3（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：北京市房山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line3")]
-                public string? LocalAddressLine3 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 4（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：天津滨海高新区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line4")]
-                public string? LocalAddressLine4 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 5（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：成都市成华区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line5")]
-                public string? LocalAddressLine5 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 6（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：深圳市南山区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line6")]
-                public string? LocalAddressLine6 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 7（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：南京市鼓楼区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line7")]
-                public string? LocalAddressLine7 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 8（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：杭州市滨江区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line8")]
-                public string? LocalAddressLine8 { get; set; }
-
-                /// <summary>
-                /// <para>地址行 9（非拉丁语系的本地文字）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：郑州市中原区</para>
-                /// </summary>
-                [JsonPropertyName("local_address_line9")]
-                public string? LocalAddressLine9 { get; set; }
-
-                /// <summary>
-                /// <para>邮政编码</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：611530</para>
-                /// </summary>
-                [JsonPropertyName("postal_code")]
-                public string? PostalCode { get; set; }
-
-                /// <summary>
-                /// <para>地址类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：address</para>
-                /// <para>- custom_api_name：address_type</para>
-                /// <para>必填：是</para>
-                /// <para>最大长度：1000</para>
-                /// <para>最小长度：1</para>
-                /// </summary>
-                [JsonPropertyName("address_types")]
-                public string[] AddressTypes { get; set; } = [];
-
-                /// <summary>
-                /// <para>主要地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>公开地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-
-                /// <summary>
-                /// <para>城市</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333254578046471</para>
-                /// </summary>
-                [JsonPropertyName("city_id_v2")]
-                public string? CityIdV2 { get; set; }
-
-                /// <summary>
-                /// <para>区/县</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6863333516579440141</para>
-                /// </summary>
-                [JsonPropertyName("district_id_v2")]
-                public string? DistrictIdV2 { get; set; }
-            }
-
-            /// <summary>
             /// <para>邮箱</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("email")]
             public EmailForUpdate? Email { get; set; }
-
-            /// <summary>
-            /// <para>邮箱</para>
-            /// </summary>
-            public record EmailForUpdate
-            {
-                /// <summary>
-                /// <para>邮箱地址</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：1234567@bytedance.com</para>
-                /// </summary>
-                [JsonPropertyName("email")]
-                public string Email { get; set; } = string.Empty;
-
-                /// <summary>
-                /// <para>是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool IsPrimary { get; set; }
-
-                /// <summary>
-                /// <para>是否为公开邮箱</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_public")]
-                public bool IsPublic { get; set; }
-
-                /// <summary>
-                /// <para>邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-                /// <para>- object_api_name：email</para>
-                /// <para>- custom_api_name：email_usage</para>
-                /// <para>必填：是</para>
-                /// <para>示例值：work</para>
-                /// </summary>
-                [JsonPropertyName("email_usage")]
-                public string EmailUsage { get; set; } = string.Empty;
-            }
 
             /// <summary>
             /// <para>主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true</para>
@@ -1440,151 +623,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// </summary>
         [JsonPropertyName("address_list")]
         public AddressForUpdate[]? AddressLists { get; set; }
-
-        /// <summary>
-        /// <para>联系地址</para>
-        /// </summary>
-        public record AddressForUpdate
-        {
-            /// <summary>
-            /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：6862995757234914824</para>
-            /// </summary>
-            [JsonPropertyName("country_region_id")]
-            public string CountryRegionId { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6863326815667095047</para>
-            /// </summary>
-            [JsonPropertyName("region_id")]
-            public string? RegionId { get; set; }
-
-            /// <summary>
-            /// <para>地址行 1（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：北京市海淀区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line1")]
-            public string? LocalAddressLine1 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 2（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：上海市杨浦区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line2")]
-            public string? LocalAddressLine2 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 3（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：北京市房山区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line3")]
-            public string? LocalAddressLine3 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 4（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：天津滨海高新区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line4")]
-            public string? LocalAddressLine4 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 5（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：成都市成华区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line5")]
-            public string? LocalAddressLine5 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 6（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：深圳市南山区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line6")]
-            public string? LocalAddressLine6 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 7（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：南京市鼓楼区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line7")]
-            public string? LocalAddressLine7 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 8（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：杭州市滨江区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line8")]
-            public string? LocalAddressLine8 { get; set; }
-
-            /// <summary>
-            /// <para>地址行 9（非拉丁语系的本地文字）</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：郑州市中原区</para>
-            /// </summary>
-            [JsonPropertyName("local_address_line9")]
-            public string? LocalAddressLine9 { get; set; }
-
-            /// <summary>
-            /// <para>邮政编码</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：611530</para>
-            /// </summary>
-            [JsonPropertyName("postal_code")]
-            public string? PostalCode { get; set; }
-
-            /// <summary>
-            /// <para>地址类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name：address</para>
-            /// <para>- custom_api_name：address_type</para>
-            /// <para>必填：是</para>
-            /// <para>最大长度：1000</para>
-            /// <para>最小长度：1</para>
-            /// </summary>
-            [JsonPropertyName("address_types")]
-            public string[] AddressTypes { get; set; } = [];
-
-            /// <summary>
-            /// <para>主要地址</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_primary")]
-            public bool IsPrimary { get; set; }
-
-            /// <summary>
-            /// <para>公开地址</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_public")]
-            public bool IsPublic { get; set; }
-
-            /// <summary>
-            /// <para>城市</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6863333254578046471</para>
-            /// </summary>
-            [JsonPropertyName("city_id_v2")]
-            public string? CityIdV2 { get; set; }
-
-            /// <summary>
-            /// <para>区/县</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6863333516579440141</para>
-            /// </summary>
-            [JsonPropertyName("district_id_v2")]
-            public string? DistrictIdV2 { get; set; }
-        }
 
         /// <summary>
         /// <para>婚姻状况，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -1652,7 +690,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>生日</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2011-99-99</para>
+        /// <para>示例值：2019-06-07T00:00:00.000Z</para>
         /// </summary>
         [JsonPropertyName("date_of_birth")]
         public string? DateOfBirth { get; set; }
@@ -1793,7 +831,27 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("field_of_study")]
             public string? FieldOfStudy { get; set; }
+
+            /// <summary>
+            /// <para>学位，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+            /// <para>- object_api_name：education</para>
+            /// <para>- custom_api_name：degree</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：phd</para>
+            /// </summary>
+            [JsonPropertyName("degree")]
+            public string? Degree { get; set; }
         }
+
+        /// <summary>
+        /// <para>政治面貌，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：person_info_chn</para>
+        /// <para>- custom_api_name：political_affiliation</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：public</para>
+        /// </summary>
+        [JsonPropertyName("political_affiliation")]
+        public string? PoliticalAffiliation { get; set; }
     }
 
     /// <summary>
@@ -1801,12 +859,12 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("offer_info_update")]
-    public PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdate? OfferInfoUpdate { get; set; }
+    public OfferInfoUpdateSuffix? OfferInfoUpdate { get; set; }
 
     /// <summary>
     /// <para>更新待入职（prehire）信息</para>
     /// </summary>
-    public record PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdate
+    public record OfferInfoUpdateSuffix
     {
         /// <summary>
         /// <para>入职日期</para>
@@ -1884,83 +942,12 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public EmailForUpdate[]? WorkEmails { get; set; }
 
         /// <summary>
-        /// <para>工作邮箱，该值是一个list，会全量更新。即使只更新 list 中的某一个元素，也需要把其它元素都完整传值，否则将丢失数据。</para>
-        /// </summary>
-        public record EmailForUpdate
-        {
-            /// <summary>
-            /// <para>邮箱地址</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：1234567@bytedance.com</para>
-            /// </summary>
-            [JsonPropertyName("email")]
-            public string Email { get; set; } = string.Empty;
-
-            /// <summary>
-            /// <para>是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_primary")]
-            public bool IsPrimary { get; set; }
-
-            /// <summary>
-            /// <para>是否为公开邮箱</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：true</para>
-            /// </summary>
-            [JsonPropertyName("is_public")]
-            public bool IsPublic { get; set; }
-
-            /// <summary>
-            /// <para>邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
-            /// <para>- object_api_name = email</para>
-            /// <para>- custom_api_name = email_usage</para>
-            /// <para>必填：是</para>
-            /// <para>示例值：work</para>
-            /// </summary>
-            [JsonPropertyName("email_usage")]
-            public string EmailUsage { get; set; } = string.Empty;
-        }
-
-        /// <summary>
         /// <para>成本中心分摊信息</para>
         /// <para>- 待废弃，建议使用cost_allocation</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("cost_center_rates")]
         public JobDataCostCenter[]? CostCenterRates { get; set; }
-
-        /// <summary>
-        /// <para>成本中心分摊信息</para>
-        /// <para>- 待废弃，建议使用cost_allocation</para>
-        /// </summary>
-        public record JobDataCostCenter
-        {
-            /// <summary>
-            /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：6950635856373745165</para>
-            /// </summary>
-            [JsonPropertyName("cost_center_id")]
-            public string? CostCenterId { get; set; }
-
-            /// <summary>
-            /// <para>分摊比例，大于0小于等于100的正整数</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：100</para>
-            /// </summary>
-            [JsonPropertyName("rate")]
-            public int? Rate { get; set; }
-
-            /// <summary>
-            /// <para>分摊比例</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：50.2</para>
-            /// </summary>
-            [JsonPropertyName("new_rate")]
-            public float? NewRate { get; set; }
-        }
 
         /// <summary>
         /// <para>自定义字段</para>
@@ -2265,7 +1252,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// <para>最小值：0</para>
             /// </summary>
             [JsonPropertyName("seniority_adjustment")]
-            public float? SeniorityAdjustment { get; set; }
+            public double? SeniorityAdjustment { get; set; }
 
             /// <summary>
             /// <para>调整类型</para>
@@ -2314,6 +1301,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             /// </summary>
             [JsonPropertyName("custom_fields")]
             public ObjectFieldData[]? CustomFields { get; set; }
+
         }
 
         /// <summary>
@@ -2407,7 +1395,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <para>示例值：8.5</para>
         /// </summary>
         [JsonPropertyName("weekly_working_hours_v2")]
-        public float? WeeklyWorkingHoursV2 { get; set; }
+        public double? WeeklyWorkingHoursV2 { get; set; }
 
         /// <summary>
         /// <para>工位</para>
@@ -2478,13 +1466,13 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("cost_allocation")]
-        public PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdateCostAllocation? CostAllocation { get; set; }
+        public CostAllocationSuffix? CostAllocation { get; set; }
 
         /// <summary>
         /// <para>成本分摊</para>
         /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// </summary>
-        public record PatchCorehrV2PreHiresByPreHireIdBodyDtoOfferInfoUpdateCostAllocation
+        public record CostAllocationSuffix
         {
             /// <summary>
             /// <para>分摊生效日期</para>
@@ -2511,35 +1499,6 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
             [JsonPropertyName("cost_center_rates")]
             public JobDataCostCenter[]? CostCenterRates { get; set; }
 
-            /// <summary>
-            /// <para>成本分摊信息</para>
-            /// </summary>
-            public record JobDataCostCenter
-            {
-                /// <summary>
-                /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：6950635856373745165</para>
-                /// </summary>
-                [JsonPropertyName("cost_center_id")]
-                public string? CostCenterId { get; set; }
-
-                /// <summary>
-                /// <para>分摊比例(整数)</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：100</para>
-                /// </summary>
-                [JsonPropertyName("rate")]
-                public int? Rate { get; set; }
-
-                /// <summary>
-                /// <para>分摊比例</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：50.2</para>
-                /// </summary>
-                [JsonPropertyName("new_rate")]
-                public float? NewRate { get; set; }
-            }
         }
 
         /// <summary>
@@ -2589,6 +1548,424 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
     /// </summary>
     [JsonPropertyName("person_custom_update_fields")]
     public string[]? PersonCustomUpdateFields { get; set; }
+
+    /// <summary>
+    /// <para>电话</para>
+    /// </summary>
+    public record PhoneForUpdate
+    {
+        /// <summary>
+        /// <para>国家区号，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：phone</para>
+        /// <para>- custom_api_name：international_area_code</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：86_china</para>
+        /// </summary>
+        [JsonPropertyName("international_area_code")]
+        public string InternationalAreaCode { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>电话号码</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：178xxxx1232</para>
+        /// </summary>
+        [JsonPropertyName("phone_number")]
+        public string PhoneNumber { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>设备类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：phone</para>
+        /// <para>- custom_api_name：device_type</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：mobile_phone</para>
+        /// </summary>
+        [JsonPropertyName("device_type")]
+        public string DeviceType { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>电话用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：phone</para>
+        /// <para>- custom_api_name：phone_usage</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：home</para>
+        /// </summary>
+        [JsonPropertyName("phone_usage")]
+        public string PhoneUsage { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>主要电话，若有多个电话，只能有一个电话的「is_primary」为true</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_primary")]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// <para>公开电话</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool IsPublic { get; set; }
+    }
+
+    /// <summary>
+    /// <para>邮箱</para>
+    /// </summary>
+    public record EmailForUpdate
+    {
+        /// <summary>
+        /// <para>邮箱地址</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1234567@bytedance.com</para>
+        /// </summary>
+        [JsonPropertyName("email")]
+        public string Email { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>是否为主要邮箱,若有多个邮箱，只能有一个邮箱的「is_primary」为true</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_primary")]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// <para>是否为公开邮箱</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool IsPublic { get; set; }
+
+        /// <summary>
+        /// <para>邮箱用途，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：email</para>
+        /// <para>- custom_api_name：email_usage</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：work</para>
+        /// </summary>
+        [JsonPropertyName("email_usage")]
+        public string EmailUsage { get; set; } = string.Empty;
+    }
+
+    /// <summary>
+    /// <para>地址</para>
+    /// </summary>
+    public record AddressForUpdate
+    {
+        /// <summary>
+        /// <para>国家 / 地区，可以通过接口[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)获得</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6862995757234914824</para>
+        /// </summary>
+        [JsonPropertyName("country_region_id")]
+        public string CountryRegionId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>主要行政区，可以通过接口[查询省份/行政区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region_subdivision/search)获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863326815667095047</para>
+        /// </summary>
+        [JsonPropertyName("region_id")]
+        public string? RegionId { get; set; }
+
+        /// <summary>
+        /// <para>地址行 1（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：北京市海淀区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line1")]
+        public string? LocalAddressLine1 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 2（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：上海市杨浦区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line2")]
+        public string? LocalAddressLine2 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 3（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：北京市房山区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line3")]
+        public string? LocalAddressLine3 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 4（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：天津滨海高新区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line4")]
+        public string? LocalAddressLine4 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 5（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：成都市成华区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line5")]
+        public string? LocalAddressLine5 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 6（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：深圳市南山区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line6")]
+        public string? LocalAddressLine6 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 7（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：南京市鼓楼区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line7")]
+        public string? LocalAddressLine7 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 8（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：杭州市滨江区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line8")]
+        public string? LocalAddressLine8 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 9（非拉丁语系的本地文字）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：郑州市中原区</para>
+        /// </summary>
+        [JsonPropertyName("local_address_line9")]
+        public string? LocalAddressLine9 { get; set; }
+
+        /// <summary>
+        /// <para>邮政编码</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：611530</para>
+        /// </summary>
+        [JsonPropertyName("postal_code")]
+        public string? PostalCode { get; set; }
+
+        /// <summary>
+        /// <para>地址类型，枚举值可查询[获取字段详情](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
+        /// <para>- object_api_name：address</para>
+        /// <para>- custom_api_name：address_type</para>
+        /// <para>必填：是</para>
+        /// <para>最大长度：1000</para>
+        /// <para>最小长度：1</para>
+        /// </summary>
+        [JsonPropertyName("address_types")]
+        public string[] AddressTypes { get; set; } = [];
+
+        /// <summary>
+        /// <para>主要地址</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_primary")]
+        public bool IsPrimary { get; set; }
+
+        /// <summary>
+        /// <para>公开地址</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool IsPublic { get; set; }
+
+        /// <summary>
+        /// <para>城市</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333254578046471</para>
+        /// </summary>
+        [JsonPropertyName("city_id_v2")]
+        public string? CityIdV2 { get; set; }
+
+        /// <summary>
+        /// <para>区/县</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6863333516579440141</para>
+        /// </summary>
+        [JsonPropertyName("district_id_v2")]
+        public string? DistrictIdV2 { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
+
+
+        /// <summary>
+        /// <para>地址行 1</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：丹佛测试地址-纽埃时区</para>
+        /// </summary>
+        [JsonPropertyName("address_line1")]
+        public string? AddressLine1 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 2</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：PoewH</para>
+        /// </summary>
+        [JsonPropertyName("address_line2")]
+        public string? AddressLine2 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 3</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：PoewH</para>
+        /// </summary>
+        [JsonPropertyName("address_line3")]
+        public string? AddressLine3 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 4</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line4")]
+        public string? AddressLine4 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 5</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line5")]
+        public string? AddressLine5 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 6</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line6")]
+        public string? AddressLine6 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 7</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：jmwJc</para>
+        /// </summary>
+        [JsonPropertyName("address_line7")]
+        public string? AddressLine7 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 8</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：rafSu</para>
+        /// </summary>
+        [JsonPropertyName("address_line8")]
+        public string? AddressLine8 { get; set; }
+
+        /// <summary>
+        /// <para>地址行 9</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：McPRG</para>
+        /// </summary>
+        [JsonPropertyName("address_line9")]
+        public string? AddressLine9 { get; set; }
+    }
+
+    /// <summary>
+    /// <para>证件号码</para>
+    /// </summary>
+    public record NationalIdForUpdate
+    {
+        /// <summary>
+        /// <para>国家 / 地区，可以通过[查询国家/地区信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-country_region/search)接口获得</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6862995757234914824</para>
+        /// </summary>
+        [JsonPropertyName("country_region_id")]
+        public string CountryRegionId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>国家证件类型，可以通过[批量查询国家证件类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/national_id_type/list)接口获得</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：6863330041896371725</para>
+        /// </summary>
+        [JsonPropertyName("national_id_type_id")]
+        public string NationalIdTypeId { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>证件号码</para>
+        /// <para>必填：是</para>
+        /// <para>示例值：1231131333xxxx222</para>
+        /// </summary>
+        [JsonPropertyName("national_id_number")]
+        public string NationalIdNumber { get; set; } = string.Empty;
+
+        /// <summary>
+        /// <para>证件签发日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-04-01</para>
+        /// </summary>
+        [JsonPropertyName("issue_date")]
+        public string? IssueDate { get; set; }
+
+        /// <summary>
+        /// <para>证件到期日期</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2020-05-21</para>
+        /// </summary>
+        [JsonPropertyName("expiration_date")]
+        public string? ExpirationDate { get; set; }
+
+        /// <summary>
+        /// <para>证件签发机构</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：北京市公安局</para>
+        /// </summary>
+        [JsonPropertyName("issued_by")]
+        public string? IssuedBy { get; set; }
+
+        /// <summary>
+        /// <para>自定义字段</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("custom_fields")]
+        public ObjectFieldData[]? CustomFields { get; set; }
+    }
+
+    /// <summary>
+    /// <para>成本分摊信息</para>
+    /// </summary>
+    public record JobDataCostCenter
+    {
+        /// <summary>
+        /// <para>成本中心 ID，可以通过[搜索成本中心信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/search)接口获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6950635856373745165</para>
+        /// </summary>
+        [JsonPropertyName("cost_center_id")]
+        public string? CostCenterId { get; set; }
+
+        /// <summary>
+        /// <para>分摊比例(整数)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：100</para>
+        /// </summary>
+        [JsonPropertyName("rate")]
+        public int? Rate { get; set; }
+
+        /// <summary>
+        /// <para>分摊比例</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：50.2</para>
+        /// </summary>
+        [JsonPropertyName("new_rate")]
+        public double? NewRate { get; set; }
+    }
 
     /// <summary>
     /// <para>自定义字段</para>

@@ -393,9 +393,9 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdSetHost</td></tr>
 <tr><td rowspan="2">197</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>结束会议</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdEnd</td></tr>
-<tr><td rowspan="2">198</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>获取会议详情</td></tr>
+<tr><td rowspan="2">198</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>视频会议</td><td>获取会议详情</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingId</td></tr>
-<tr><td rowspan="2">199</td><td rowspan="2">2024-05-20</td><td>&#10003;</td><td>视频会议</td><td>获取与会议号关联的会议列表</td></tr>
+<tr><td rowspan="2">199</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>视频会议</td><td>获取与会议号关联的会议列表</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsListByNo</td></tr>
 <tr><td rowspan="2">200</td><td rowspan="2">2024-06-14</td><td>&#10003;</td><td>视频会议</td><td>开始录制</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStart</td></tr>
@@ -765,7 +765,7 @@
 <tr><td colspan="3">GetLingoV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">383</td><td rowspan="2">2025-06-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记统计数据</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenStatistics</td></tr>
-<tr><td rowspan="2">384</td><td rowspan="2">2025-06-18</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
+<tr><td rowspan="2">384</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>妙记</td><td>获取妙记信息</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteToken</td></tr>
 <tr><td rowspan="2">385</td><td rowspan="2">2023-04-07</td><td>&#10003;</td><td>应用信息</td><td>获取用户自定义常用的应用</td></tr>
 <tr><td colspan="3">GetApplicationV5ApplicationsFavourite</td></tr>
@@ -1147,13 +1147,13 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
 <tr><td rowspan="2">574</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">575</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td rowspan="2">575</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">576</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td rowspan="2">576</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">577</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
+<tr><td rowspan="2">577</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
 <tr><td rowspan="2">579</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>
@@ -1161,9 +1161,9 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
 <tr><td rowspan="2">581</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
-<tr><td rowspan="2">582</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td rowspan="2">582</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">583</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">583</td><td rowspan="2">2026-03-24</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
 <tr><td rowspan="2">584</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdEventSubscription</td></tr>
@@ -1311,16 +1311,32 @@
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
 <tr><td rowspan="2">656</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>查询地理库信息</td></tr>
 <tr><td colspan="3">GetApprovalV4Districts</td></tr>
-<tr><td rowspan="2">657</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>取消用户迁移</td></tr>
+<tr><td rowspan="2">657</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>取消用户迁移</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsCancel</td></tr>
-<tr><td rowspan="2">658</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>获取地理位置列表</td></tr>
+<tr><td rowspan="2">658</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取地理位置列表</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1MultiGeoEntityTenant</td></tr>
-<tr><td rowspan="2">659</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>迁移用户</td></tr>
+<tr><td rowspan="2">659</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>迁移用户</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrations</td></tr>
-<tr><td rowspan="2">660</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>获取单个用户迁移状态</td></tr>
+<tr><td rowspan="2">660</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取单个用户迁移状态</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1UserMigrationsByUserId</td></tr>
-<tr><td rowspan="2">661</td><td rowspan="2">2026-03-17</td><td>新增</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
+<tr><td rowspan="2">661</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsSearch</td></tr>
-<tr><td rowspan="2">662</td><td rowspan="2">2026-03-17</td><td>新增</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
+<tr><td rowspan="2">662</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
 <tr><td colspan="3">PostContactV3UsersBasicBatch</td></tr>
+<tr><td rowspan="2">663</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>提交发布自建应用</td></tr>
+<tr><td colspan="3">PostApplicationV7ApplicationsByAppIdPublish</td></tr>
+<tr><td rowspan="2">664</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>上传应用图标</td></tr>
+<tr><td colspan="3">PostApplicationV7AppAvatarUpload</td></tr>
+<tr><td rowspan="2">665</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用基础信息配置</td></tr>
+<tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdBase</td></tr>
+<tr><td rowspan="2">666</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用能力配置</td></tr>
+<tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
+<tr><td rowspan="2">667</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用开发配置</td></tr>
+<tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
+<tr><td rowspan="2">668</td><td rowspan="2">2026-03-26</td><td>新增</td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
+<tr><td rowspan="2">669</td><td rowspan="2">2026-03-27</td><td>新增</td><td>视频会议</td><td>搜索会议记录</td></tr>
+<tr><td colspan="3">PostVcV1MeetingsSearch</td></tr>
+<tr><td rowspan="2">670</td><td rowspan="2">2026-03-27</td><td>新增</td><td>视频会议</td><td>获取纪要详情</td></tr>
+<tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
 </tbody></table>

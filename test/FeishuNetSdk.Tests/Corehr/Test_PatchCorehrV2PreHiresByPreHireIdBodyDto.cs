@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="Test_PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -89,7 +89,22 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                     "is_primary": true,
                     "is_public": true,
                     "city_id_v2": "6863333254578046471",
-                    "district_id_v2": "6863333516579440141"
+                    "district_id_v2": "6863333516579440141",
+                    "custom_fields": [
+                        {
+                            "field_name": "name",
+                            "value": "Sandy"
+                        }
+                    ],
+                    "address_line1": "丹佛测试地址-纽埃时区",
+                    "address_line2": "PoewH",
+                    "address_line3": "PoewH",
+                    "address_line4": "jmwJc",
+                    "address_line5": "jmwJc",
+                    "address_line6": "jmwJc",
+                    "address_line7": "jmwJc",
+                    "address_line8": "rafSu",
+                    "address_line9": "McPRG"
                 },
                 "resident_status_specification": "文本内容，对纳税身份的补充说明信息",
                 "year_resident_tax": "2006-01-01",
@@ -161,7 +176,22 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                     "is_primary": true,
                     "is_public": true,
                     "city_id_v2": "6863333254578046471",
-                    "district_id_v2": "6863333516579440141"
+                    "district_id_v2": "6863333516579440141",
+                    "custom_fields": [
+                        {
+                            "field_name": "name",
+                            "value": "Sandy"
+                        }
+                    ],
+                    "address_line1": "丹佛测试地址-纽埃时区",
+                    "address_line2": "PoewH",
+                    "address_line3": "PoewH",
+                    "address_line4": "jmwJc",
+                    "address_line5": "jmwJc",
+                    "address_line6": "jmwJc",
+                    "address_line7": "jmwJc",
+                    "address_line8": "rafSu",
+                    "address_line9": "McPRG"
                 },
                 "custom_fields": [
                     {
@@ -250,7 +280,22 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                     "is_primary": true,
                     "is_public": true,
                     "city_id_v2": "6863333254578046471",
-                    "district_id_v2": "6863333516579440141"
+                    "district_id_v2": "6863333516579440141",
+                    "custom_fields": [
+                        {
+                            "field_name": "name",
+                            "value": "Sandy"
+                        }
+                    ],
+                    "address_line1": "丹佛测试地址-纽埃时区",
+                    "address_line2": "PoewH",
+                    "address_line3": "PoewH",
+                    "address_line4": "jmwJc",
+                    "address_line5": "jmwJc",
+                    "address_line6": "jmwJc",
+                    "address_line7": "jmwJc",
+                    "address_line8": "rafSu",
+                    "address_line9": "McPRG"
                 },
                 "email": {
                     "email": "1234567@bytedance.com",
@@ -287,7 +332,22 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                 "is_primary": true,
                 "is_public": true,
                 "city_id_v2": "6863333254578046471",
-                "district_id_v2": "6863333516579440141"
+                "district_id_v2": "6863333516579440141",
+                "custom_fields": [
+                    {
+                        "field_name": "name",
+                        "value": "Sandy"
+                    }
+                ],
+                "address_line1": "丹佛测试地址-纽埃时区",
+                "address_line2": "PoewH",
+                "address_line3": "PoewH",
+                "address_line4": "jmwJc",
+                "address_line5": "jmwJc",
+                "address_line6": "jmwJc",
+                "address_line7": "jmwJc",
+                "address_line8": "rafSu",
+                "address_line9": "McPRG"
             }
         ],
         "marital_status": "single",
@@ -302,7 +362,7 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
         "hukou_type": "local_urban_residence",
         "hukou_location": "北京市海淀区北三环西路",
         "gender_id": "male",
-        "date_of_birth": "2011-99-99",
+        "date_of_birth": "2019-06-07T00:00:00.000Z",
         "date_entered_workforce": "2100-09-09",
         "expected_graduate_date": "2023-01-10",
         "citizenship_status_id_list": [
@@ -324,9 +384,11 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
                 "education": "phd",
                 "start_time": "2017-04-01",
                 "end_time": "2018-04-01",
-                "field_of_study": "医学影像技术"
+                "field_of_study": "医学影像技术",
+                "degree": "phd"
             }
-        ]
+        ],
+        "political_affiliation": "public"
     },
     "offer_info_update": {
         "onboarding_date": "2022-10-08",

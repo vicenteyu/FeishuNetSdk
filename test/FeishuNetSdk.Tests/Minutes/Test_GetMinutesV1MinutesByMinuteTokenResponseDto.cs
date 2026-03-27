@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="Test_GetMinutesV1MinutesByMinuteTokenResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,10 +34,11 @@ public class Test_GetMinutesV1MinutesByMinuteTokenResponseDto : TestBase
             "token": "obcnq3b9jl72l83w4f14xxxx",
             "owner_id": "ou_612b787ccd3259fb3c816b3f678dxxxx",
             "create_time": "1669098360477",
-            "title": "xxx的视频会议",
+            "title": "产品周会的视频会议",
             "cover": "https://internal-api-drive-stream.feishu-pre.cn/space/api/box/stream/download/all/boxcncsI4EIhCSA1RLDsXDpxxxx",
             "duration": "314000",
-            "url": "https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx"
+            "url": "https://bytedance.feishu-pre.cn/minutes/obcnq3b9jl72l83w4f14xxxx",
+            "note_id": "7616590025794260496"
         }
     }
 }

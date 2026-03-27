@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2024-06-24
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-03-27
+// ************************************************************************
+// <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>适用于自建应用租户凭证（TenantAccessToken）的接口</summary>
+// ************************************************************************
 using FeishuNetSdk.Attributes;
 using WebApiClientCore;
 using WebApiClientCore.Attributes;
@@ -10719,29 +10732,32 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6960861158128926723</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/vc-v1/meeting/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取一个会议的详细数据。</para>
+    /// <para>根据会议 ID 获取指定会议的详细信息，包括会议主题、链接、主持人、参会人员、状态、时间信息及关联纪要 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting:readonly</item>
+    /// <item>vc:meeting.meetingevent:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>vc:meeting.artifact.note:read</item>
+    /// <item>vc:meeting.artifact.verbatim:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="meeting_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）</para>
+    /// <para>会议ID（视频会议的唯一标识，视频会议开始后才会产生）可通过调用[获取与会议号关联的会议列表](https://open.larkoffice.com/document/server-docs/vc-v1/meeting/list_by_no)获取</para>
     /// <para>示例值：6911188411932033028</para>
     /// </param>
     /// <param name="with_participants">
     /// <para>必填：否</para>
-    /// <para>是否需要参会人列表</para>
+    /// <para>是否返回参会人列表，默认值为 false，不返回参会人列表；设为 true 时返回参会人列表。当 user_id_type 为 user_id 时，参会人列表仅能获取 Lark 用户。</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="with_meeting_ability">
     /// <para>必填：否</para>
-    /// <para>是否需要会中使用能力统计（仅限tenant_access_token）</para>
+    /// <para>是否返回会中使用能力统计，默认值为 false，不返回能力统计；设为 true 时返回会中使用能力统计（仅限tenant_access_token）</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -10756,6 +10772,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="query_mode">
+    /// <para>必填：否</para>
+    /// <para>此次查询的查询模式，不传，或传0，只查询会议信息；传1，只查询会议产物</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：只查询会议信息（默认）</item>
+    /// <item>1：只查询会议产物（纪要、逐字稿）</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/vc/v1/meetings/{meeting_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1MeetingsByMeetingIdResponseDto>> GetVcV1MeetingsByMeetingIdAsync(
@@ -10763,6 +10789,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool? with_participants = null,
         [PathQuery] bool? with_meeting_ability = null,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] int? query_mode = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -17732,19 +17759,20 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7013251669786116097</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/vc-v1/meeting/list_by_no</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取指定时间范围（90天内)会议号关联的会议简要信息列表。</para>
+    /// <para>获取指定时间范围内与会议号关联的会议简要信息列表。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting:readonly</item>
+    /// <item>vc:meeting.meetingid:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="meeting_no">
     /// <para>必填：是</para>
-    /// <para>9位会议号</para>
+    /// <para>9位会议号（会议链接最后9位数）</para>
     /// <para>示例值：123456789</para>
     /// </param>
     /// <param name="start_time">
     /// <para>必填：是</para>
-    /// <para>查询开始时间（unix时间，单位sec）</para>
+    /// <para>查询开始时间（unix时间，单位sec），需小于end_time的值</para>
     /// <para>示例值：1608888867</para>
     /// </param>
     /// <param name="end_time">
@@ -32160,7 +32188,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7181729161035628545</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/minutes-v1/minute/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过这个接口，可以得到一篇妙记的基础概述信息，包含 `owner_id`、`create_time`、标题、封面、时长和 URL。</para>
+    /// <para>获取一篇妙记的基础概述信息，包含 `owner_id`（妙记所有者）、`create_time`（妙记创建时间）、标题、封面、时长和 URL</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>minutes:minutes</item>
     /// <item>minutes:minutes:readonly</item>
@@ -41297,11 +41325,23 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>用户邮件 id，获取方式见 [列出邮件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list)</para>
     /// <para>示例值：TUlHc1NoWFhJMXgyUi9VZTNVL3h6UnlkRUdzPQ==</para>
     /// </param>
+    /// <param name="format">
+    /// <para>必填：否</para>
+    /// <para>获取类型</para>
+    /// <para>示例值：full</para>
+    /// <list type="bullet">
+    /// <item>full：全文</item>
+    /// <item>plain_text_full：全文，但只返回plain_text，不返回html</item>
+    /// <item>metadata：邮件元数据信息</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAsync(
         [PathQuery] string user_mailbox_id,
         [PathQuery] string message_id,
+        [PathQuery] string? format = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -41412,9 +41452,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="folder_id">
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>文件夹 id， 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
     /// <para>示例值：INBOX 或者用户文件夹 id</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="only_unread">
     /// <para>必填：否</para>
@@ -41422,14 +41463,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：true</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="label_id">
+    /// <para>必填：否</para>
+    /// <para>标签id</para>
+    /// <para>示例值：FLAGGED</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesAsync(
         [PathQuery] string user_mailbox_id,
-        [PathQuery] string folder_id,
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? folder_id = null,
         [PathQuery] bool? only_unread = null,
+        [PathQuery] string? label_id = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -57325,6 +57373,170 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Contact.PostContactV3UsersBasicBatchResponseDto>> PostContactV3UsersBasicBatchAsync(
         [JsonContent] Contact.PostContactV3UsersBasicBatchBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】提交发布自建应用</para>
+    /// <para>接口ID：7621030901518552023</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-publish/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>自建应用提交应用发布，如果当前自建应用没有待发布的版本，则会自动创建一个版本，如果有待发布的版本，则直接提交该版本。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:application:patch</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用的app_id [如何获取应用的 App ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</para>
+    /// <para>示例值：cli_a508dbf34038d01c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/application/v7/applications/{app_id}/publish")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.PostApplicationV7ApplicationsByAppIdPublishResponseDto>> PostApplicationV7ApplicationsByAppIdPublishAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Application.PostApplicationV7ApplicationsByAppIdPublishBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】上传应用图标</para>
+    /// <para>接口ID：7621030901518568407</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/app_avatar-upload/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>上传应用图标</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:application:patch</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="avatar">
+    /// <para>必填：是</para>
+    /// <para>图片，JPEG/PNG/SVG/BMP 格式，2 MB 以内，大于 240*240 px，无圆角</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/application/v7/app_avatar/upload")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.PostApplicationV7AppAvatarUploadResponseDto>> PostApplicationV7AppAvatarUploadAsync(
+        [FormDataContent] FormDataFile avatar,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】更新应用基础信息配置</para>
+    /// <para>接口ID：7621030901518584791</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-base/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过该接口可更新自建应用的基础信息（名称、头像等），不传入的参数则保持不变，仅针对传入的参数则进行更新。如果应用正在审核中，则无法更新配置</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:application:patch</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用的app_id [如何获取应用的 App ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</para>
+    /// <para>示例值：cli_a306c5476fb8d00c</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/application/v7/applications/{app_id}/base")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV7ApplicationsByAppIdBaseAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Application.PatchApplicationV7ApplicationsByAppIdBaseBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】更新应用能力配置</para>
+    /// <para>接口ID：7621030901518601175</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-ability/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过该接口可更新自建应用的应用能力（机器人、网页应用等）相关配置，不传入的参数则保持不变，仅针对传入的参数则进行更新。如果应用正在审核中，则无法更新配置</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:application:patch</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用的app_id [如何获取应用的 App ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</para>
+    /// <para>示例值：cli_a42d0b833ab8d01b</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/application/v7/applications/{app_id}/ability")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV7ApplicationsByAppIdAbilityAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Application.PatchApplicationV7ApplicationsByAppIdAbilityBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】更新应用开发配置</para>
+    /// <para>接口ID：7621030901518617559</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-config/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过该接口可更新自建应用的应用的开发配置（通讯录、安全、可见性等），不传入的参数则保持不变，仅针对传入的参数则进行更新。如果应用正在审核中，则无法更新配置</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:application:patch</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用的app_id [如何获取应用的 App ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-app-id)</para>
+    /// <para>示例值：cli_a306c5476fb8d00c</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门id 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以open_department_id标识部门</item>
+    /// <item>department_id：以department_id标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/application/v7/applications/{app_id}/config")]
+    System.Threading.Tasks.Task<FeishuResponse> PatchApplicationV7ApplicationsByAppIdConfigAsync(
+        [PathQuery] string app_id,
+        [JsonContent] Application.PatchApplicationV7ApplicationsByAppIdConfigBodyDto dto,
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【妙记】获取妙记AI产物</para>
+    /// <para>接口ID：7621494177948142790</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过妙记唯一标识minute_token获取AI产物</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minutes.artifacts:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="minute_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx</para>
+    /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/artifacts")]
+    System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto>> GetMinutesV1MinutesByMinuteTokenArtifactsAsync(
+        [PathQuery] string minute_token,
         CancellationToken cancellation_token = default);
 }
 

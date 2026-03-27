@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-10
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,7 +59,6 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRespon
             "message_state": 1,
             "smtp_message_id": "ay0azrJDvbs3FJAg@outlook.com",
             "message_id": "tfuh9N4WnzU6jdDw=",
-            "body_plain_text": "xxxxx",
             "attachments": [
                 {
                     "filename": "helloworld.txt",
@@ -69,7 +68,26 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRespon
                     "cid": "image1@example.com"
                 }
             ],
-            "thread_id": "tfuh9N4WnzU6jdDw="
+            "body_plain_text": "xxxxx",
+            "thread_id": "tfuh9N4WnzU6jdDw=",
+            "body_preview": "xxxxx",
+            "label_ids": [
+                "FLAGGED"
+            ],
+            "folder_id": "INBOX",
+            "in_reply_to": "06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com",
+            "reply_to": "06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com",
+            "priority_type": "0",
+            "security_level": {
+                "is_risk": true,
+                "risk_banner_level": "1",
+                "risk_banner_reason": "101",
+                "is_header_from_external": false,
+                "via_domain": "larksuite.com",
+                "spam_banner_type": "1",
+                "spam_user_rule_id": "7618365627924925388",
+                "spam_banner_info": "larksuite.com"
+            }
         }
     }
 }

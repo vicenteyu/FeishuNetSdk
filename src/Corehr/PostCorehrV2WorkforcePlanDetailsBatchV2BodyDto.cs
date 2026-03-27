@@ -72,6 +72,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto
         /// <para>- "job_family" ：序列。</para>
         /// <para>- "job_level" ：职级。</para>
         /// <para>- "job" ：职务。</para>
+        /// <para>- "pathway"：通道。</para>
         /// <para>自定义组织：</para>
         /// <para>- "custom_org_01"</para>
         /// <para>- "custom_org_02"</para>
@@ -93,12 +94,13 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto
         /// <para>- job_level_id：可从[查询职级](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_level/list)获得。</para>
         /// <para>- job_family_id：可从[查询序列](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/job_family/list)获得。</para>
         /// <para>- employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。</para>
-        /// <para>- position_id：岗位，功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-        /// <para>- custom_org_01_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-        /// <para>- custom_org_02_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-        /// <para>- custom_org_03_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-        /// <para>- custom_org_04_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-        /// <para>- custom_org_05_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>- position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。</para>
+        /// <para>- pathway_id: 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。</para>
+        /// <para>- custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+        /// <para>- custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+        /// <para>- custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+        /// <para>- custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+        /// <para>- custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：1000</para>
         /// <para>最小长度：0</para>
