@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="Test_VcMeetingRecordingReadyV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -41,12 +41,34 @@ public class Test_VcMeetingRecordingReadyV1EventBodyDto : TestBase
             "id": "6911188411934433028",
             "topic": "my meeting",
             "meeting_no": "235812466",
+            "meeting_source": 1,
             "owner": {
                 "id": {
                     "union_id": "on_8ed6aa67826108097d9ee143816345",
                     "user_id": "e33ggbyz",
                     "open_id": "ou_84aad35d084aa403a838cf73ee18467"
                 }
+            },
+            "meeting_sub_type": 1,
+            "security_setting": {
+                "security_level": 1,
+                "group_ids": [
+                    "[oc_XXXXf6a28a0d08c45d895267e8b4a91i]"
+                ],
+                "user_ids": [
+                    {
+                        "union_id": "on_785a8cda5345f665f7187d7d876cb790",
+                        "user_id": "f3e15a6a",
+                        "open_id": "ou_2cc0462a0597358575e771bea74e3304"
+                    }
+                ],
+                "room_ids": [
+                    "[omm_XXe32cf10a4358788ff4e09e37ebbf9b]"
+                ],
+                "has_set_security_contacts_and_group": true
+            },
+            "webinar_setting": {
+                "webinar_type": 1
             }
         },
         "url": "https://meetings.feishu.cn/minutes/obcn37dxcftoc3656rgyejm7",

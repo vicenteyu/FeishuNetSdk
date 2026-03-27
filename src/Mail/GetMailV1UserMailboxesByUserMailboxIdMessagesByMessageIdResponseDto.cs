@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2025-04-11
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-03-27
+// ************************************************************************
+// <copyright file="GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取邮件详情 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 获取邮件详情 响应体
@@ -119,14 +132,6 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
         public string? MessageId { get; set; }
 
         /// <summary>
-        /// <para>正文纯文本(base64url)</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：xxxxx</para>
-        /// </summary>
-        [JsonPropertyName("body_plain_text")]
-        public string? BodyPlainText { get; set; }
-
-        /// <summary>
         /// <para>邮件附件列表</para>
         /// <para>必填：否</para>
         /// <para>最大长度：501</para>
@@ -188,11 +193,175 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
         }
 
         /// <summary>
+        /// <para>正文纯文本(base64url)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：xxxxx</para>
+        /// </summary>
+        [JsonPropertyName("body_plain_text")]
+        public string? BodyPlainText { get; set; }
+
+        /// <summary>
         /// <para>会话id</para>
         /// <para>必填：否</para>
         /// <para>示例值：tfuh9N4WnzU6jdDw=</para>
         /// </summary>
         [JsonPropertyName("thread_id")]
         public string? ThreadId { get; set; }
+
+        /// <summary>
+        /// <para>邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：xxxxx</para>
+        /// </summary>
+        [JsonPropertyName("body_preview")]
+        public string? BodyPreview { get; set; }
+
+        /// <summary>
+        /// <para>标签ID</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：500</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("label_ids")]
+        public string[]? LabelIds { get; set; }
+
+        /// <summary>
+        /// <para>文件夹ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：INBOX</para>
+        /// </summary>
+        [JsonPropertyName("folder_id")]
+        public string? FolderId { get; set; }
+
+        /// <summary>
+        /// <para>In-Reply-To邮件头</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com</para>
+        /// </summary>
+        [JsonPropertyName("in_reply_to")]
+        public string? InReplyTo { get; set; }
+
+        /// <summary>
+        /// <para>Reply-To邮件头</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：06d20.dbf451a3.808a.475a.acc9.1363dfd20f36@larksuite.com</para>
+        /// </summary>
+        [JsonPropertyName("reply_to")]
+        public string? ReplyTo { get; set; }
+
+        /// <summary>
+        /// <para>邮件优先级</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：无优先级</item>
+        /// <item>1：高优先级</item>
+        /// <item>3：正常优先级</item>
+        /// <item>5：低优先级</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("priority_type")]
+        public string? PriorityType { get; set; }
+
+        /// <summary>
+        /// <para>安全信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("security_level")]
+        public SecurityLevelSuffix? SecurityLevel { get; set; }
+
+        /// <summary>
+        /// <para>安全信息</para>
+        /// </summary>
+        public record SecurityLevelSuffix
+        {
+            /// <summary>
+            /// <para>是否风险邮件</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：true</para>
+            /// </summary>
+            [JsonPropertyName("is_risk")]
+            public bool? IsRisk { get; set; }
+
+            /// <summary>
+            /// <para>风险邮件等级</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>WARNING：警告</item>
+            /// <item>DANGER：危险</item>
+            /// <item>INFO：提示</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("risk_banner_level")]
+            public string? RiskBannerLevel { get; set; }
+
+            /// <summary>
+            /// <para>风险邮件原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：101</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>NO_REASON：未知</item>
+            /// <item>IMPERSONATE_DOMAIN：相似域名仿冒</item>
+            /// <item>IMPERSONATE_KP_NAME：KP姓名仿冒</item>
+            /// <item>UNAUTH_EXTERNAL：未认证外部域名</item>
+            /// <item>MALICIOUS_URL：恶意链接</item>
+            /// <item>MALICIOUS_ATTACHMENT：高危附件</item>
+            /// <item>PHISHING：钓鱼邮件</item>
+            /// <item>IMPERSONATE_PARTNER：仿冒合作伙伴</item>
+            /// <item>EXTERNAL_ENCRYPTION_ATTACHMENT：外部邮件携带加密附件</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("risk_banner_reason")]
+            public string? RiskBannerReason { get; set; }
+
+            /// <summary>
+            /// <para>发件人是否外部邮件</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_header_from_external")]
+            public bool? IsHeaderFromExternal { get; set; }
+
+            /// <summary>
+            /// <para>代发或伪造邮件展示SPF或DKIM域名</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：larksuite.com</para>
+            /// </summary>
+            [JsonPropertyName("via_domain")]
+            public string? ViaDomain { get; set; }
+
+            /// <summary>
+            /// <para>垃圾邮件原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>USER_REPORT：用户曾标记邮件是垃圾邮件</item>
+            /// <item>USER_BLOCK：用户曾将发件人的邮件标记为垃圾邮件</item>
+            /// <item>ANTI_SPAM：系统判为垃圾邮件</item>
+            /// <item>USER_RULE：命中收信规则进入垃圾邮件</item>
+            /// <item>BLOCK_DOMIN：用户已拦截来自该域名的邮件</item>
+            /// <item>BLOCK_ADDRESS：用户已拦截来自该邮件地址的邮件</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("spam_banner_type")]
+            public string? SpamBannerType { get; set; }
+
+            /// <summary>
+            /// <para>命中的收信规则ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7618365627924925388</para>
+            /// </summary>
+            [JsonPropertyName("spam_user_rule_id")]
+            public string? SpamUserRuleId { get; set; }
+
+            /// <summary>
+            /// <para>命中用户黑名单的地址或域名信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：larksuite.com</para>
+            /// </summary>
+            [JsonPropertyName("spam_banner_info")]
+            public string? SpamBannerInfo { get; set; }
+        }
     }
 }

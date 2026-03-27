@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-03-27
 // ************************************************************************
 // <copyright file="GetVcV1MeetingsListByNoResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取与会议号关联的会议列表 响应体
-/// <para>获取指定时间范围（90天内)会议号关联的会议简要信息列表。</para>
+/// <para>获取指定时间范围内与会议号关联的会议简要信息列表。</para>
 /// <para>接口ID：7013251669786116097</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/vc-v1/meeting/list_by_no</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fmeeting%2flist_by_no</para>
@@ -92,5 +92,21 @@ public record GetVcV1MeetingsListByNoResponseDto : IPageableResponse<GetVcV1Meet
         /// </summary>
         [JsonPropertyName("password")]
         public string? Password { get; set; }
+
+        /// <summary>
+        /// <para>该会议是否支持互通</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("meeting_connect")]
+        public bool? MeetingConnect { get; set; }
+
+        /// <summary>
+        /// <para>纪要ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：6943848821689040898</para>
+        /// </summary>
+        [JsonPropertyName("note_id")]
+        public string? NoteId { get; set; }
     }
 }
