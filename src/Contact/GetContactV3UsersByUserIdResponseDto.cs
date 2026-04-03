@@ -28,12 +28,12 @@ public record GetContactV3UsersByUserIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user")]
-    public GetContactV3UsersByUserIdResponseDtoUser? User { get; set; }
+    public UserSuffix? User { get; set; }
 
     /// <summary>
     /// <para>用户信息。</para>
     /// </summary>
-    public record GetContactV3UsersByUserIdResponseDtoUser
+    public record UserSuffix
     {
         /// <summary>
         /// <para>用户的 union_id，是应用开发商发布的不同应用中同一用户的标识。不同用户 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
@@ -173,7 +173,7 @@ public record GetContactV3UsersByUserIdResponseDto
 
         /// <summary>
         /// <para>用户状态。通过 is_frozen、is_resigned、is_activated、is_exited 布尔值类型参数进行展示。</para>
-        /// <para>用户状态的转关逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
+        /// <para>用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("status")]
@@ -181,7 +181,7 @@ public record GetContactV3UsersByUserIdResponseDto
 
         /// <summary>
         /// <para>用户状态。通过 is_frozen、is_resigned、is_activated、is_exited 布尔值类型参数进行展示。</para>
-        /// <para>用户状态的转关逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
+        /// <para>用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
         /// </summary>
         public record UserStatus
         {
@@ -718,12 +718,12 @@ public record GetContactV3UsersByUserIdResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("department_path")]
-            public DepartmentDetailDepartmentPath? DepartmentPath { get; set; }
+            public DepartmentPathSuffix? DepartmentPath { get; set; }
 
             /// <summary>
             /// <para>部门路径。</para>
             /// </summary>
-            public record DepartmentDetailDepartmentPath
+            public record DepartmentPathSuffix
             {
                 /// <summary>
                 /// <para>部门路径 ID 列表。</para>
@@ -737,12 +737,12 @@ public record GetContactV3UsersByUserIdResponseDto
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("department_path_name")]
-                public DepartmentDetailDepartmentPathDepartmentPathName? DepartmentPathName { get; set; }
+                public DepartmentPathNameSuffix? DepartmentPathName { get; set; }
 
                 /// <summary>
                 /// <para>部门路径名字信息。</para>
                 /// </summary>
-                public record DepartmentDetailDepartmentPathDepartmentPathName
+                public record DepartmentPathNameSuffix
                 {
                     /// <summary>
                     /// <para>部门名。</para>

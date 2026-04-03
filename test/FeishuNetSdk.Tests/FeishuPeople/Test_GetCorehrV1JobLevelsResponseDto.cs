@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-03
 // ************************************************************************
 // <copyright file="Test_GetCorehrV1JobLevelsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,7 +59,8 @@ public class Test_GetCorehrV1JobLevelsResponseDto : TestBase
                 ],
                 "pathway_ids": [
                     "4719519211875096301"
-                ]
+                ],
+                "view_order": 123
             }
         ],
         "has_more": true,

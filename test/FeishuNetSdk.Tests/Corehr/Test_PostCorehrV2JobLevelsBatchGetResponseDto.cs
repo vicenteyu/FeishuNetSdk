@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-03
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2JobLevelsBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,7 +64,8 @@ public class Test_PostCorehrV2JobLevelsBatchGetResponseDto : TestBase
                 ],
                 "pathway_ids": [
                     "4719519211875096301"
-                ]
+                ],
+                "view_order": 9999
             }
         ]
     }

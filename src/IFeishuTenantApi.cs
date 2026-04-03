@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-04-03
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -32957,7 +32957,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>必填：否</para>
     /// <para>职级名称。</para>
     /// <para>- 传入该字段时，可查询指定职级名称对应的职级信息（不支持模糊查询）。</para>
-    /// <para>- 不传入该字段时，查询当前租户下所以职级的信息。</para>
+    /// <para>- 不传入该字段时，查询当前租户下所有职级的信息。</para>
     /// <para>示例值：高级专家</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -52505,6 +52505,204 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】删除人员自定义组织变更记录</para>
+    /// <para>接口ID：7425878850969387012</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/employee-custom_org/del</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据记录版本 ID 删除员工某一自定义组织某一版本记录信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employment.custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/custom_org/del")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CustomOrgDelResponseDto>> PostCorehrV2CustomOrgDelAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgDelBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】新增人员自定义组织变更记录</para>
+    /// <para>接口ID：7425878850969403396</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/employee-custom_org/create_emp_custom_org</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>为指定员工添加某一自定义组织变更记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employment.custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/custom_org/create_emp_custom_org")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CustomOrgCreateEmpCustomOrgResponseDto>> PostCorehrV2CustomOrgCreateEmpCustomOrgAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgCreateEmpCustomOrgBodyDto dto,
+        [PathQuery] string user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询单个人员自定义组织变更记录</para>
+    /// <para>接口ID：7425878850969419780</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/employee-custom_org/querybyid</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据自定义组织 id 查询自定义组织变更记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employment.custom_org:read</item>
+    /// <item>corehr:employment.custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.custom_org_field:read</item>
+    /// <item>corehr:employment.custom_org_field:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="job_data_custom_org_id">
+    /// <para>必填：是</para>
+    /// <para>自定义组织ID</para>
+    /// <para>示例值：7293841029445207596</para>
+    /// </param>
+    /// <param name="version_id">
+    /// <para>必填：否</para>
+    /// <para>版本IDs 。为空是查 全部的版本记录</para>
+    /// <para>示例值：7293841029445207593</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="object_api_name">
+    /// <para>必填：是</para>
+    /// <para>自定义组织类型编码</para>
+    /// <para>示例值：custom_org_03</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/custom_org/querybyid")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2CustomOrgQuerybyidResponseDto>> GetCorehrV2CustomOrgQuerybyidAsync(
+        [PathQuery] string job_data_custom_org_id,
+        [PathQuery] string object_api_name,
+        [PathQuery] string[]? version_id = null,
+        [PathQuery] string user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询人员自定义组织变更记录</para>
+    /// <para>接口ID：7425878850969436164</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/employee-custom_org/employment_custom_org_record</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>通过员工 ID 批量查询自定义组织变更记录信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employment.custom_org:read</item>
+    /// <item>corehr:employment.custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:employment.custom_org_field:read</item>
+    /// <item>corehr:employment.custom_org_field:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_ids">
+    /// <para>必填：是</para>
+    /// <para>用户ID</para>
+    /// <para>示例值：7293641346149138452</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="object_api_names">
+    /// <para>必填：是</para>
+    /// <para>组织类型编码，可在「飞书人事-设置-组织设置」中相应的自定义组织目录下查看</para>
+    /// <para>示例值：custom_org_01</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/corehr/v2/custom_org/employment_custom_org_record")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.GetCorehrV2CustomOrgEmploymentCustomOrgRecordResponseDto>> GetCorehrV2CustomOrgEmploymentCustomOrgRecordAsync(
+        [PathQuery] string[] user_ids,
+        [PathQuery] string[] object_api_names,
+        [PathQuery] string user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】更新人员自定义组织变更记录</para>
+    /// <para>接口ID：7425878850969452548</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/employee/employee-custom_org/edit_emp_custom_org</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>更新指定员工的某一条自定义组织变更记录</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:employment.custom_org:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：是</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/custom_org/edit_emp_custom_org")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CustomOrgEditEmpCustomOrgResponseDto>> PostCorehrV2CustomOrgEditEmpCustomOrgAsync(
+        [JsonContent] Corehr.PostCorehrV2CustomOrgEditEmpCustomOrgBodyDto dto,
+        [PathQuery] string user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【飞书人事（企业版）】获取指定人员审批任务列表</para>
     /// <para>接口ID：7426325309484040193</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/process-form_variable_data/approver-task/list</para>
@@ -57537,6 +57735,73 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/artifacts")]
     System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto>> GetMinutesV1MinutesByMinuteTokenArtifactsAsync(
         [PathQuery] string minute_token,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】订阅用户云文档事件</para>
+    /// <para>接口ID：7623827135371201487</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>订阅用户云文档的各类通知事件，调用后目前可获取接收者视角的云文档评论、回复添加事件 ，未来 还会陆续扩充其它通知事件。</para>
+    /// <para>## 注意事项</para>
+    /// <para>仅用户身份订阅“用户云文档事件”时，需要调用该接口。应用身份无需调用。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/drive/v1/user/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostDriveV1UserSubscriptionAsync(
+        [JsonContent] Ccm.PostDriveV1UserSubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】取消用户云文档事件订阅</para>
+    /// <para>接口ID：7623827135371217871</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/remove_subscription</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于取消订阅用户云文档的通知事件。取消订阅后，用户将不再收到云文档评论、回复添加事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="event_type">
+    /// <para>必填：是</para>
+    /// <para>事件类型</para>
+    /// <para>路由到 云文档事件列表，当前仅支持一种事件</para>
+    /// <para>可选值：</para>
+    /// <para>drive.notice.comment_add_v1：添加评论、回复通知事件</para>
+    /// <para>示例值：drive.notice.comment_add_v1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/drive/v1/user/remove_subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1UserRemoveSubscriptionAsync(
+        [PathQuery] string event_type,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】查询用户云文档事件订阅状态</para>
+    /// <para>接口ID：7623827135371234255</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription_status</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于查询用户云文档事件的订阅状态。仅当is_subscribe（订阅状态）为 true，应用才可收到 “用户云文档事件”下的各类通知事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="event_type">
+    /// <para>必填：是</para>
+    /// <para>事件类型</para>
+    /// <para>路由到 云文档事件列表，当前仅支持一种事件</para>
+    /// <para>可选值：</para>
+    /// <para>drive.notice.comment_add_v1：添加评论、回复通知事件</para>
+    /// <para>示例值：drive.notice.comment_add_v1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/drive/v1/user/subscription_status")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1UserSubscriptionStatusResponseDto>> GetDriveV1UserSubscriptionStatusAsync(
+        [PathQuery] string event_type,
         CancellationToken cancellation_token = default);
 }
 
