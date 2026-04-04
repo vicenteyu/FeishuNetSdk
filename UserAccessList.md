@@ -25,7 +25,7 @@
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocks</td></tr>
 <tr><td rowspan="2">13</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>创建文档</td></tr>
 <tr><td colspan="3">PostDocxV1Documents</td></tr>
-<tr><td rowspan="2">14</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
+<tr><td rowspan="2">14</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>通讯录</td><td>获取单个职务信息</td></tr>
 <tr><td colspan="3">GetContactV3JobTitlesByJobTitleId</td></tr>
 <tr><td rowspan="2">15</td><td rowspan="2">2025-07-18</td><td>&#10003;</td><td>云文档</td><td>获取块的内容</td></tr>
 <tr><td colspan="3">GetDocxV1DocumentsByDocumentIdBlocksByBlockId</td></tr>
@@ -47,7 +47,7 @@
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
 <tr><td rowspan="2">24</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
-<tr><td rowspan="2">25</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
+<tr><td rowspan="2">25</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
 <tr><td rowspan="2">26</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
@@ -91,7 +91,7 @@
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenUnmergeCells</td></tr>
 <tr><td rowspan="2">46</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>查找单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFind</td></tr>
-<tr><td rowspan="2">47</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取租户工作城市列表</td></tr>
+<tr><td rowspan="2">47</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>通讯录</td><td>获取租户工作城市列表</td></tr>
 <tr><td colspan="3">GetContactV3WorkCities</td></tr>
 <tr><td rowspan="2">48</td><td rowspan="2">2024-07-31</td><td>&#10003;</td><td>云文档</td><td>替换单元格</td></tr>
 <tr><td colspan="3">PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdReplace</td></tr>
@@ -223,7 +223,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchCreate</td></tr>
 <tr><td rowspan="2">112</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>多维表格</td><td>更新多条记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchUpdate</td></tr>
-<tr><td rowspan="2">113</td><td rowspan="2">2025-07-21</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
+<tr><td rowspan="2">113</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>通讯录</td><td>获取单个用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersByUserId</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>消息与群组</td><td>Pin 消息</td></tr>
 <tr><td colspan="3">PostImV1Pins</td></tr>
@@ -1323,20 +1323,48 @@
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsSearch</td></tr>
 <tr><td rowspan="2">662</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
 <tr><td colspan="3">PostContactV3UsersBasicBatch</td></tr>
-<tr><td rowspan="2">663</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>提交发布自建应用</td></tr>
+<tr><td rowspan="2">663</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>应用信息</td><td>提交发布自建应用</td></tr>
 <tr><td colspan="3">PostApplicationV7ApplicationsByAppIdPublish</td></tr>
-<tr><td rowspan="2">664</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>上传应用图标</td></tr>
+<tr><td rowspan="2">664</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>应用信息</td><td>上传应用图标</td></tr>
 <tr><td colspan="3">PostApplicationV7AppAvatarUpload</td></tr>
-<tr><td rowspan="2">665</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用基础信息配置</td></tr>
+<tr><td rowspan="2">665</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>应用信息</td><td>更新应用基础信息配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdBase</td></tr>
-<tr><td rowspan="2">666</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用能力配置</td></tr>
+<tr><td rowspan="2">666</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>应用信息</td><td>更新应用能力配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
-<tr><td rowspan="2">667</td><td rowspan="2">2026-03-25</td><td>新增</td><td>应用信息</td><td>更新应用开发配置</td></tr>
+<tr><td rowspan="2">667</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
-<tr><td rowspan="2">668</td><td rowspan="2">2026-03-26</td><td>新增</td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td rowspan="2">668</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
-<tr><td rowspan="2">669</td><td rowspan="2">2026-03-27</td><td>新增</td><td>视频会议</td><td>搜索会议记录</td></tr>
+<tr><td rowspan="2">669</td><td rowspan="2">2026-03-28</td><td>&#10003;</td><td>视频会议</td><td>搜索会议记录</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsSearch</td></tr>
-<tr><td rowspan="2">670</td><td rowspan="2">2026-03-27</td><td>新增</td><td>视频会议</td><td>获取纪要详情</td></tr>
+<tr><td rowspan="2">670</td><td rowspan="2">2026-03-27</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
+<tr><td rowspan="2">671</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>向数据表中添加或更新记录</td></tr>
+<tr><td colspan="3">PostSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">672</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>按条件更新数据表中的记录</td></tr>
+<tr><td colspan="3">PatchSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">673</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>批量更新数据表中的记录</td></tr>
+<tr><td colspan="3">PatchSparkV1AppsByAppIdTablesByTableNameRecordsBatchUpdate</td></tr>
+<tr><td rowspan="2">674</td><td rowspan="2">2026-03-30</td><td>新增</td><td>飞书妙搭</td><td>删除数据表中的记录</td></tr>
+<tr><td colspan="3">DeleteSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">675</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>查询视图数据记录</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdViewsByViewNameRecords</td></tr>
+<tr><td rowspan="2">676</td><td rowspan="2">2026-03-30</td><td>新增</td><td>飞书妙搭</td><td>执行 SQL</td></tr>
+<tr><td colspan="3">PostSparkV1AppsByAppIdSqlCommands</td></tr>
+<tr><td rowspan="2">677</td><td rowspan="2">2026-03-30</td><td>新增</td><td>飞书妙搭</td><td>获取数据表详细信息</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdTablesByTableName</td></tr>
+<tr><td rowspan="2">678</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>查询数据表数据记录</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
+<tr><td rowspan="2">679</td><td rowspan="2">2026-03-30</td><td>新增</td><td>飞书妙搭</td><td>获取自定义枚举列表</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdEnums</td></tr>
+<tr><td rowspan="2">680</td><td rowspan="2">2026-03-30</td><td>新增</td><td>飞书妙搭</td><td>获取自定义枚举详细信息</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdEnumsByEnumName</td></tr>
+<tr><td rowspan="2">681</td><td rowspan="2">2026-04-03</td><td>新增</td><td>飞书妙搭</td><td>获取数据表列表</td></tr>
+<tr><td colspan="3">GetSparkV1AppsByAppIdTables</td></tr>
+<tr><td rowspan="2">682</td><td rowspan="2">2026-04-02</td><td>新增</td><td>云文档</td><td>订阅用户云文档事件</td></tr>
+<tr><td colspan="3">PostDriveV1UserSubscription</td></tr>
+<tr><td rowspan="2">683</td><td rowspan="2">2026-04-02</td><td>新增</td><td>云文档</td><td>取消用户云文档事件订阅</td></tr>
+<tr><td colspan="3">DeleteDriveV1UserRemoveSubscription</td></tr>
+<tr><td rowspan="2">684</td><td rowspan="2">2026-04-02</td><td>新增</td><td>云文档</td><td>查询用户云文档事件订阅状态</td></tr>
+<tr><td colspan="3">GetDriveV1UserSubscriptionStatus</td></tr>
 </tbody></table>

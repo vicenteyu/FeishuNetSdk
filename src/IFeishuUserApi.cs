@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-04-03
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -26447,6 +26447,609 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书妙搭】向数据表中添加或更新记录</para>
+    /// <para>接口ID：7620858064161770703</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/post_table_records</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>向应用下的数据表中添加或更新记录。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="columns">
+    /// <para>必填：否</para>
+    /// <para>UPSERT 时使用，指定列，多列英文逗号拼接</para>
+    /// <para>示例值：name,age</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="on_conflict">
+    /// <para>必填：否</para>
+    /// <para>UPSERT 时使用，指定使用哪一个或多个具有唯一约束的字段作为冲突判断依据，默认为表主键。</para>
+    /// <para>假设 user_products 表有一个由 user_id 和 product_id 组成的复合唯一约束</para>
+    /// <para>示例值：user_id,product_id</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="user_identifier_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。</para>
+    /// <para>示例值：`miaoda_user_id`</para>
+    /// <para>可选值：</para>
+    /// <para>- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？</para>
+    /// <para>示例值：miaoda_user_id</para>
+    /// <para>默认值：miaoda_user_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdTablesByTableNameRecordsResponseDto>> PostSparkV1AppsByAppIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [JsonContent] Miaoda.PostSparkV1AppsByAppIdTablesByTableNameRecordsBodyDto dto,
+        [PathQuery] string? columns = null,
+        [PathQuery] string? on_conflict = null,
+        [PathQuery] string? env = "online",
+        [PathQuery] string? user_identifier_type = "miaoda_user_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】按条件更新数据表中的记录</para>
+    /// <para>接口ID：7620858064161787087</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/patch_table_records</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>将数据表中符合filter条件的记录更新为record参数指定的内容。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：是</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering</para>
+    /// <para>示例值：age=gt.10</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="user_identifier_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。</para>
+    /// <para>示例值：`miaoda_user_id`</para>
+    /// <para>可选值：</para>
+    /// <para>- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？</para>
+    /// <para>示例值：miaoda_user_id</para>
+    /// <para>默认值：miaoda_user_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PatchSparkV1AppsByAppIdTablesByTableNameRecordsResponseDto>> PatchSparkV1AppsByAppIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [PathQuery] string filter,
+        [JsonContent] Miaoda.PatchSparkV1AppsByAppIdTablesByTableNameRecordsBodyDto dto,
+        [PathQuery] string? env = "online",
+        [PathQuery] string? user_identifier_type = "miaoda_user_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】批量更新数据表中的记录</para>
+    /// <para>接口ID：7620858064161803471</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/batch_update_table_records</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量更新应用下的数据表中的记录，每条记录需包含主键如_id，单次最多500条。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="user_identifier_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。</para>
+    /// <para>示例值：`miaoda_user_id`</para>
+    /// <para>可选值：</para>
+    /// <para>- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？</para>
+    /// <para>示例值：miaoda_user_id</para>
+    /// <para>默认值：miaoda_user_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}/records_batch_update")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PatchSparkV1AppsByAppIdTablesByTableNameRecordsBatchUpdateResponseDto>> PatchSparkV1AppsByAppIdTablesByTableNameRecordsBatchUpdateAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [JsonContent] Miaoda.PatchSparkV1AppsByAppIdTablesByTableNameRecordsBatchUpdateBodyDto dto,
+        [PathQuery] string? env = "online",
+        [PathQuery] string? user_identifier_type = "miaoda_user_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】删除数据表中的记录</para>
+    /// <para>接口ID：7620858064161819855</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/delete_table_records</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>删除指定应用下数据表中符合filter筛选条件的记录，删除后记录不可恢复。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：是</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering</para>
+    /// <para>此处用法和查询数据记录一致</para>
+    /// <para>示例值：age=gt.10</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteSparkV1AppsByAppIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [PathQuery] string filter,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】查询视图数据记录</para>
+    /// <para>接口ID：7620858064161836239</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-view/get_view_record_list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询应用下的视图数据记录，包括指定列、字段值及分页信息，适用于需要获取应用下某视图数据的记录、展示等场景。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:read</item>
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="view_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭视图表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理视图列表中获取</para>
+    /// <para>示例值：student_table_view</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="select">
+    /// <para>必填：否</para>
+    /// <para>返回的列，默认为 *，即返回所有列。</para>
+    /// <para>遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering</para>
+    /// <para>示例值：_id,_created_at,name</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：否</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering</para>
+    /// <para>示例值：age=gt.10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="order">
+    /// <para>必填：否</para>
+    /// <para>排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。</para>
+    /// <para>尊许 PostgREST 语法，详情可查看</para>
+    /// <para>https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering</para>
+    /// <para>示例值：age.desc,score.asc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="user_identifier_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。</para>
+    /// <para>示例值：`miaoda_user_id`</para>
+    /// <para>可选值：</para>
+    /// <para>- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？</para>
+    /// <para>示例值：miaoda_user_id</para>
+    /// <para>默认值：miaoda_user_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/views/{view_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdViewsByViewNameRecordsResponseDto>> GetSparkV1AppsByAppIdViewsByViewNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string view_name,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? select = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string? order = null,
+        [PathQuery] string? env = "online",
+        [PathQuery] string? user_identifier_type = "miaoda_user_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】执行 SQL</para>
+    /// <para>接口ID：7620858064161852623</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/sql_commands</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>在应用下执行 SQL。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.sql_commands:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：online</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/sql_commands")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdSqlCommandsResponseDto>> PostSparkV1AppsByAppIdSqlCommandsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PostSparkV1AppsByAppIdSqlCommandsBodyDto dto,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取数据表详细信息</para>
+    /// <para>接口ID：7620858064161869007</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/get_table_detail</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取应用下的数据表详情，包含数据表名称、描述，以及数据表列信息等字段。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table:read</item>
+    /// <item>spark:app.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdTablesByTableNameResponseDto>> GetSparkV1AppsByAppIdTablesByTableNameAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】查询数据表数据记录</para>
+    /// <para>接口ID：7620858064161885391</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/get_table_record_list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询应用下的数据表数据记录，包括指定列、字段值及分页信息，适用于需要获取应用下某数据表数据的记录、展示等场景。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table.record:read</item>
+    /// <item>spark:app.table.record:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="table_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭数据表表名，必须属于 app_id 对应的妙搭应用，可从妙搭应用数据库管理中获取</para>
+    /// <para>示例值：student_table</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="select">
+    /// <para>必填：否</para>
+    /// <para>返回的列，默认为 *，即返回所有列。</para>
+    /// <para>遵循 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#vertical-filtering</para>
+    /// <para>示例值：_id,_created_at,name</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="filter">
+    /// <para>必填：否</para>
+    /// <para>筛选条件，尊许 PostgREST 语法，详情可查看 https://docs.postgrest.org/en/v13/references/api/tables_views.html#horizontal-filtering</para>
+    /// <para>示例值：age=gt.10</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="order">
+    /// <para>必填：否</para>
+    /// <para>排序条件，如果没指定 asc/desc，默认为 asc，null 值可排在最前或最后。</para>
+    /// <para>尊许 PostgREST 语法，详情可查看</para>
+    /// <para>https://docs.postgrest.org/en/v13/references/api/tables_views.html#ordering</para>
+    /// <para>示例值：age.desc,score.asc</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="user_identifier_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用使用的用户 ID 类型，将使用指定的 ID 来标示某个用户在接口入参和出参中的值。</para>
+    /// <para>示例值：`miaoda_user_id`</para>
+    /// <para>可选值：</para>
+    /// <para>- `miaoda_user_id`：标识一个用户在飞书开发套件应用中的身份。示例值：1838493619298330</para>
+    /// <para>- `open_id`：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。示例值：ou_bdbbd8f3f919829064b3ffc1b9476105 了解更多：如何获取 Open ID</para>
+    /// <para>- `union_id`：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。示例值：on_b1b44199e8f3def4ebda5355409e2033 了解更多：如何获取 Union ID？</para>
+    /// <para>示例值：miaoda_user_id</para>
+    /// <para>默认值：miaoda_user_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/tables/{table_name}/records")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdTablesByTableNameRecordsResponseDto>> GetSparkV1AppsByAppIdTablesByTableNameRecordsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string table_name,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? select = null,
+        [PathQuery] string? filter = null,
+        [PathQuery] string? order = null,
+        [PathQuery] string? env = "online",
+        [PathQuery] string? user_identifier_type = "miaoda_user_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取自定义枚举列表</para>
+    /// <para>接口ID：7620858064161901775</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-enum/get_enum_list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取应用下的自定义枚举列表，包括枚举名称、描述、枚举值列表等字段信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table:read</item>
+    /// <item>spark:app.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：AQD9/Rn9eij9Pm39ED40/RD/cIFmu77WxpxPB/2oHfQLZ+G8JG6tK7+ZnHiT7COhD2hMSICh/eBl7cpzU6JEC3J7COKNe4jrQ8ExwBCR</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/enums")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdEnumsResponseDto>> GetSparkV1AppsByAppIdEnumsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取自定义枚举详细信息</para>
+    /// <para>接口ID：7620858064161918159</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-enum/get_enum_detail</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取应用下的自定义枚举详细信息，包括枚举名称、描述、枚举值列表等字段信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table:read</item>
+    /// <item>spark:app.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="enum_name">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>枚举名称，可以从`获取自定义枚举列表`接口返回列表中，获取到枚举名称。</para>
+    /// <para>示例值：enum_demo_1</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/enums/{enum_name}")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdEnumsByEnumNameResponseDto>> GetSparkV1AppsByAppIdEnumsByEnumNameAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string enum_name,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取数据表列表</para>
+    /// <para>接口ID：7620858064161934543</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-table/get_table_list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取应用下的数据表列表，包含数据表名称、描述，以及数据表列信息等字段。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.table:read</item>
+    /// <item>spark:app.table:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，用于限制一次请求所返回的数据条目数。默认10，最大500</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="env">
+    /// <para>必填：否</para>
+    /// <para>访问的 database 环境，默认为 online（线上环境）</para>
+    /// <para>示例值：`online`、`dev`</para>
+    /// <para>默认值：online</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/tables")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdTablesResponseDto>> GetSparkV1AppsByAppIdTablesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? env = "online",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【应用信息】提交发布自建应用</para>
     /// <para>接口ID：7621030901518552023</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-publish/create</para>
@@ -26640,7 +27243,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小，最小值为 1，最大值为 200，默认值为 15。</para>
+    /// <para>分页大小，**默认15**，最大单页**不超过30**</para>
     /// <para>**注意：** 最多返回**150条**记录</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
@@ -26693,6 +27296,79 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string note_id,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】订阅用户云文档事件</para>
+    /// <para>接口ID：7623827135371201487</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>订阅用户云文档的各类通知事件，调用后目前可获取接收者视角的云文档评论、回复添加事件 ，未来 还会陆续扩充其它通知事件。</para>
+    /// <para>## 注意事项</para>
+    /// <para>仅用户身份订阅“用户云文档事件”时，需要调用该接口。应用身份无需调用。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/drive/v1/user/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostDriveV1UserSubscriptionAsync(
+        UserAccessToken access_token,
+        [JsonContent] Ccm.PostDriveV1UserSubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】取消用户云文档事件订阅</para>
+    /// <para>接口ID：7623827135371217871</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/remove_subscription</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于取消订阅用户云文档的通知事件。取消订阅后，用户将不再收到云文档评论、回复添加事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="event_type">
+    /// <para>必填：是</para>
+    /// <para>事件类型</para>
+    /// <para>路由到 云文档事件列表，当前仅支持一种事件</para>
+    /// <para>可选值：</para>
+    /// <para>drive.notice.comment_add_v1：添加评论、回复通知事件</para>
+    /// <para>示例值：drive.notice.comment_add_v1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/drive/v1/user/remove_subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteDriveV1UserRemoveSubscriptionAsync(
+        UserAccessToken access_token,
+        [PathQuery] string event_type,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】查询用户云文档事件订阅状态</para>
+    /// <para>接口ID：7623827135371234255</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription_status</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于查询用户云文档事件的订阅状态。仅当is_subscribe（订阅状态）为 true，应用才可收到 “用户云文档事件”下的各类通知事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:event:subscribe</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="event_type">
+    /// <para>必填：是</para>
+    /// <para>事件类型</para>
+    /// <para>路由到 云文档事件列表，当前仅支持一种事件</para>
+    /// <para>可选值：</para>
+    /// <para>drive.notice.comment_add_v1：添加评论、回复通知事件</para>
+    /// <para>示例值：drive.notice.comment_add_v1</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/drive/v1/user/subscription_status")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1UserSubscriptionStatusResponseDto>> GetDriveV1UserSubscriptionStatusAsync(
+        UserAccessToken access_token,
+        [PathQuery] string event_type,
         CancellationToken cancellation_token = default);
 }
 

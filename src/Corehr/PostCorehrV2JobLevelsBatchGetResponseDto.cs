@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-31
+// Last Modified On : 2026-04-03
 // ************************************************************************
 // <copyright file="PostCorehrV2JobLevelsBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -181,5 +181,17 @@ public record PostCorehrV2JobLevelsBatchGetResponseDto
         /// </summary>
         [JsonPropertyName("pathway_ids")]
         public string[]? PathwayIds { get; set; }
+
+        /// <summary>
+        /// <para>排序</para>
+        /// <para>- 数值越小，排序越靠前</para>
+        /// <para>- 取值范围： 1 ～ 999999</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：9999</para>
+        /// <para>最大值：99999999</para>
+        /// <para>最小值：1</para>
+        /// </summary>
+        [JsonPropertyName("view_order")]
+        public int? ViewOrder { get; set; }
     }
 }

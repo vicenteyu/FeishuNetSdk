@@ -176,6 +176,7 @@
 <tr><td>mail.user_mailbox.event.message_received_v1</td><td>EventV2Dto&lt;Mail.Events.MailUserMailboxEventMessageReceivedV1EventBodyDto&gt;</td><td>【邮箱】收信通知</td></tr>
 <tr><td>drive.file.bitable_record_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableRecordChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格记录变更</td></tr>
 <tr><td>drive.file.bitable_field_changed_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileBitableFieldChangedV1EventBodyDto&gt;</td><td>【云文档】多维表格字段变更</td></tr>
+<tr><td>drive.notice.comment_add_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveNoticeCommentAddV1EventBodyDto&gt;</td><td>【云文档】添加评论、回复通知事件</td></tr>
 <tr><td>drive.file.edit_v1</td><td>EventV2Dto&lt;Ccm.Events.DriveFileEditV1EventBodyDto&gt;</td><td>【云文档】文件编辑</td></tr>
 <tr><td>drive.file.title_updated_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileTitleUpdatedV1EventBodyDto&gt;</td><td>【云文档】文件标题变更</td></tr>
 <tr><td>drive.file.deleted_v1</td><td>ResourceEventV2Dto&lt;Ccm.Events.DriveFileDeletedV1EventBodyDto&gt;</td><td>【云文档】文件彻底删除</td></tr>
