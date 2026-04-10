@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,10 +36,10 @@ public class Test_PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto : Tes
                 "user_id": "ou_cc19b2bfb93f8a44db4b4d6eababcef",
                 "create_time": 1610281603,
                 "update_time": 1610281603,
-                "is_solved": false,
+                "is_solved": true,
                 "solved_time": 1610281603,
-                "solver_user_id": "null",
-                "has_more": false,
+                "solver_user_id": null,
+                "has_more": true,
                 "page_token": "6916106822734512356",
                 "is_whole": true,
                 "quote": "划词评论引用内容",
@@ -54,10 +54,10 @@ public class Test_PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto : Tes
                                             "text": "comment text"
                                         },
                                         "docs_link": {
-                                            "url": "https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef"
+                                            "url": null
                                         },
                                         "person": {
-                                            "user_id": "ou_cc19b2bfb93f8a44db4b4d6eababcef"
+                                            "user_id": null
                                         }
                                     }
                                 ]
@@ -70,7 +70,16 @@ public class Test_PostDriveV1FilesByFileTokenCommentsBatchQueryResponseDto : Tes
                                 "image_list": [
                                     "xfsfseewewabcef"
                                 ]
-                            }
+                            },
+                            "reactions": [
+                                {
+                                    "reaction_key": "ANGRY",
+                                    "count": 10,
+                                    "ahead_users": [
+                                        "ou_8f1991a29a47f1ad295a119dadf224d1"
+                                    ]
+                                }
+                            ]
                         }
                     ]
                 }

@@ -13,8 +13,8 @@
 // ************************************************************************
 namespace FeishuNetSdk.Im;
 /// <summary>
-/// 查询消息已读信息 响应体
-/// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
+/// 消息发送者查询消息已读状态 响应体
+/// <para>作为消息发送者，查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
 /// <para>## 前提条件</para>
 /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
 /// <para>- 查询消息已读信息时，机器人需要在待查询消息所在的会话内。</para>

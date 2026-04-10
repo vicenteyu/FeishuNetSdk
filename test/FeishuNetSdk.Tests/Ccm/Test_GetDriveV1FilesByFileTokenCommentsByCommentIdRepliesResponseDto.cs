@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,7 +37,7 @@ public class Test_GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDt
                         {
                             "type": "text_run",
                             "text_run": {
-                                "text": "comment text"
+                                "text": "reply text"
                             },
                             "docs_link": {
                                 "url": "https://example.feishu.cn/docs/doccnHh7U87HOFpii5u5Gabcef"
@@ -56,7 +56,16 @@ public class Test_GetDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDt
                     "image_list": [
                         "xfsfseewewabcef"
                     ]
-                }
+                },
+                "reactions": [
+                    {
+                        "reaction_key": "ANGRY",
+                        "count": 10,
+                        "ahead_users": [
+                            "ou_8f1991a29a47f1ad295a119dadf224d1"
+                        ]
+                    }
+                ]
             }
         ],
         "page_token": "6916106822734512356",

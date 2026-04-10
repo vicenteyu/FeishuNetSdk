@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,7 +29,8 @@ public class Test_PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto : TestBas
 {
     "comment_ids": [
         "1654857036541812356"
-    ]
+    ],
+    "need_reaction": true
 }
 """;
         var result = Deserialize<FeishuNetSdk.Ccm.PostDriveV1FilesByFileTokenCommentsBatchQueryBodyDto>(json);

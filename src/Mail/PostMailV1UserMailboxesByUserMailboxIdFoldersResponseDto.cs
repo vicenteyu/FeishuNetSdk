@@ -26,17 +26,17 @@ public record PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("folder")]
-    public PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDtoFolder? Folder { get; set; }
+    public FolderSuffix? Folder { get; set; }
 
     /// <summary>
     /// <para>文件夹实体</para>
     /// </summary>
-    public record PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDtoFolder
+    public record FolderSuffix
     {
         /// <summary>
         /// <para>folder id</para>
         /// <para>必填：否</para>
-        /// <para>示例值：12314123123123123</para>
+        /// <para>示例值：7620003644728938013</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }

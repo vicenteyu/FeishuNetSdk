@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_GetImV1MessagesByMessageIdReadUsersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Tests.Im;
 
 /// <summary>
-/// 测试 查询消息已读信息 响应体
+/// 测试 消息发送者查询消息已读状态 响应体
 /// <para>接口ID：6946222929790386204</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/read_users</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fread_users</para>

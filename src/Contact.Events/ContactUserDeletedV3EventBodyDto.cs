@@ -186,7 +186,7 @@ public record ContactUserDeletedV3EventBodyDto() : EventBodyDto("contact.user.de
 
         /// <summary>
         /// <para>用户状态。通过 is_frozen、is_resigned、is_activated、is_exited 布尔值类型参数进行展示。</para>
-        /// <para>用户状态的转关逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
+        /// <para>用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
         /// <para>**字段权限要求（满足任一）**：</para>
         /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
         /// <para>- contact:user.employee:readonly : 获取用户受雇信息</para>

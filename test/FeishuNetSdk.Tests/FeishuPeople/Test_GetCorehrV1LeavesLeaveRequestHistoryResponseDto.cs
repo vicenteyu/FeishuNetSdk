@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_GetCorehrV1LeavesLeaveRequestHistoryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -44,7 +44,7 @@ public class Test_GetCorehrV1LeavesLeaveRequestHistoryResponseDto : TestBase
                 "leave_type_name": [
                     {
                         "lang": "zh-CN",
-                        "value": "张三"
+                        "value": "年假"
                     }
                 ],
                 "start_time": "2022-07-06",
@@ -92,7 +92,23 @@ public class Test_GetCorehrV1LeavesLeaveRequestHistoryResponseDto : TestBase
                         "process_status": "passed",
                         "process_apply_time": "2024-01-01 00:00:00"
                     }
-                ]
+                ],
+                "workday_extend_infos": [
+                    {
+                        "key": "SampleKey",
+                        "value": "SampleValue"
+                    }
+                ],
+                "leave_tag_conf": {
+                    "tags": [
+                        {
+                            "key": "leave_category",
+                            "values": [
+                                "Life events"
+                            ]
+                        }
+                    ]
+                }
             }
         ],
         "has_more": true,

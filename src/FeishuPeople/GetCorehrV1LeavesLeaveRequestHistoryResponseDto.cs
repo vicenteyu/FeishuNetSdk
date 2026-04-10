@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-11-08
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="GetCorehrV1LeavesLeaveRequestHistoryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -386,6 +386,88 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto : IPageableRespons
             /// </summary>
             [JsonPropertyName("process_apply_time")]
             public string ProcessApplyTime { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>workday扩展字段信息</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：10000</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("workday_extend_infos")]
+        public LeaveExtendItem[]? WorkdayExtendInfos { get; set; }
+
+        /// <summary>
+        /// <para>workday扩展字段信息</para>
+        /// </summary>
+        public record LeaveExtendItem
+        {
+            /// <summary>
+            /// <para>扩展字段的键</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：SampleKey</para>
+            /// <para>最大长度：10000</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("key")]
+            public string? Key { get; set; }
+
+            /// <summary>
+            /// <para>扩展字段的值</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：SampleValue</para>
+            /// <para>最大长度：10000</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("value")]
+            public string? Value { get; set; }
+        }
+
+        /// <summary>
+        /// <para>（暂未开放）请假标签配置</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：{"tag_list":[{"key":"leave_type","values":["Annual Leave"]},{"key":"leave_term","values":["Short Leave"]}]}</para>
+        /// </summary>
+        [JsonPropertyName("leave_tag_conf")]
+        public LeaveTagConfSuffix? LeaveTagConf { get; set; }
+
+        /// <summary>
+        /// <para>（暂未开放）请假标签配置</para>
+        /// </summary>
+        public record LeaveTagConfSuffix
+        {
+            /// <summary>
+            /// <para>请假标签列表</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：[{"key":"leave_category","values":["Life events"]},{"key":"payment_status","values":["Fully paid by company"]}]</para>
+            /// <para>最大长度：100</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("tags")]
+            public Tag[]? Tags { get; set; }
+
+            /// <summary>
+            /// <para>请假标签列表</para>
+            /// </summary>
+            public record Tag
+            {
+                /// <summary>
+                /// <para>标签键</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：leave_category</para>
+                /// </summary>
+                [JsonPropertyName("key")]
+                public string? Key { get; set; }
+
+                /// <summary>
+                /// <para>标签值列表</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("values")]
+                public string[]? Values { get; set; }
+            }
         }
     }
 

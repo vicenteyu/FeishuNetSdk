@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_GetImV1MessagesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,7 @@ public class Test_GetImV1MessagesResponseDto : TestBase
     "code": 0,
     "msg": "success",
     "data": {
-        "has_more": false,
+        "has_more": true,
         "page_token": "GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==",
         "items": [
             {

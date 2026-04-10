@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,7 +31,7 @@ public class Test_PostMailV1UserMailboxesByUserMailboxIdFoldersResponseDto : Tes
     "msg": "success",
     "data": {
         "folder": {
-            "id": "12314123123123123",
+            "id": "7620003644728938013",
             "name": "newsletter 相关",
             "parent_folder_id": "725627422334644",
             "folder_type": 1,
