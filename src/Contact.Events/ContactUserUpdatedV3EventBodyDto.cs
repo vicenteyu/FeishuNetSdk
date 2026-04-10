@@ -206,7 +206,7 @@ public record ContactUserUpdatedV3EventBodyDto() : EventBodyDto("contact.user.up
 
         /// <summary>
         /// <para>用户状态。通过 is_frozen、is_resigned、is_activated、is_exited 布尔值类型参数进行展示。</para>
-        /// <para>用户状态的转关逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
+        /// <para>用户状态的流转逻辑可参见[用户资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/field-overview#4302b5a1)。</para>
         /// <para>**字段权限要求（满足任一）**：</para>
         /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
         /// <para>- contact:user.employee:readonly : 获取用户受雇信息</para>
@@ -274,7 +274,8 @@ public record ContactUserUpdatedV3EventBodyDto() : EventBodyDto("contact.user.up
         }
 
         /// <summary>
-        /// <para>用户所属部门的 ID 列表。部门 ID 类型为open_department_id，了解部门 ID 可参见[部门 ID 说明](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview#23857fe0)。</para>
+        /// <para>用户所属部门的 ID 列表。</para>
+        /// <para>**注意**：该参数实际无返回值。该事件返回的用户所属部门 ID 请通过 old_object.department_ids 参数获取。</para>
         /// <para>**字段权限要求（满足任一）**：</para>
         /// <para>- contact:contact:readonly_as_app : 以应用身份读取通讯录</para>
         /// <para>- contact:user.department:readonly : 获取用户组织架构信息</para>

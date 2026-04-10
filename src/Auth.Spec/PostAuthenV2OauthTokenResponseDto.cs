@@ -45,7 +45,7 @@ public record PostAuthenV2OauthTokenResponseDto
 
     /// <summary>
     /// <para>用于刷新 `user_access_token`，详见[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token)。该字段仅在请求成功且用户授予 `offline_access` 权限时返回。</para>
-    /// <para>如果你在获取 `user_access_token` 时设置了 `scope` 请求参数，且需要返回 `refresh_token`，则需要在 `scope` 参数中包括 `offline_access`。另外，`refresh_token` 仅能被使用一次。</para>
+    /// <para>`refresh_token` 仅能被使用一次。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("refresh_token")]
@@ -67,7 +67,7 @@ public record PostAuthenV2OauthTokenResponseDto
     public string? TokenType { get; set; }
 
     /// <summary>
-    /// <para>本次请求所获得的 `access_token` 所具备的权限列表，以空格分隔，仅在请求成功时返回</para>
+    /// <para>本次请求所获得的 `access_token` 实际具备的权限列表，以空格分隔。服务端会根据情况对申请的 scope 进行裁剪，最终实际授予的权限范围请以该字段为准。该字段仅在请求成功时返回。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("scope")]

@@ -4,7 +4,7 @@
 // Created          : 2025-04-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -363,5 +363,13 @@ public record GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDt
             [JsonPropertyName("spam_banner_info")]
             public string? SpamBannerInfo { get; set; }
         }
+
+        /// <summary>
+        /// <para>References邮件头</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：&lt;5678.abcd@test.com&gt;\r\n\t&lt;1234.abcd@message-id&gt;</para>
+        /// </summary>
+        [JsonPropertyName("references")]
+        public string? References { get; set; }
     }
 }

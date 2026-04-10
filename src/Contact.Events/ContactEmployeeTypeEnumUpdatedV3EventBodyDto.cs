@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Contact.Events;
 /// <summary>
 /// 修改人员类型名称 事件体
-/// <para>当应用订阅该事件后，若果更新了人员类型的选项内容（包括默认内容 content 参数和国际化内容 i18n_content），则会触发该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=contact&amp;version=v3&amp;resource=employee_type_enum&amp;event=updated)</para>
+/// <para>当应用订阅该事件后，如果更新了人员类型的选项内容（包括默认内容 content 参数和国际化内容 i18n_content），则会触发该事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=contact&amp;version=v3&amp;resource=employee_type_enum&amp;event=updated)</para>
 /// <para>接口ID：6985055606752591900</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/contact-v3/employee_type_enum/events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcontact-v3%2femployee_type_enum%2fevents%2fupdated</para>

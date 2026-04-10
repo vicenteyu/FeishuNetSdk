@@ -70,7 +70,7 @@ public record DeleteContactV3UsersByUserIdBodyDto
     public string? CalendarAcceptorUserId { get; set; }
 
     /// <summary>
-    /// <para>应用接受者的用户 ID。用户被删除时，其创建的应用转让给接收者。</para>
+    /// <para>应用接收者的用户 ID。用户被删除时，其创建的应用转让给接收者。</para>
     /// <para>**注意**：</para>
     /// <para>- ID 类型需要与查询参数中的 user_id_type 类型保持一致。用户 ID 获取方式可参见[如何获取不同的用户 ID](https://open.feishu.cn/document/home/user-identity-introduction/open-id)。</para>
     /// <para>- 不指定接收者则默认转让给被删除用户的直属上级。如果被删除用户无直属上级，则保留应用在该用户名下，但该用户无法登录开发者后台进行应用管理。企业管理员可以在管理后台手动转移应用给其他人。</para>

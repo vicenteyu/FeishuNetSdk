@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -87,7 +87,8 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRespon
                 "spam_banner_type": "1",
                 "spam_user_rule_id": "7618365627924925388",
                 "spam_banner_info": "larksuite.com"
-            }
+            },
+            "references": "<5678.abcd@test.com>\r\n\t<1234.abcd@message-id>"
         }
     }
 }

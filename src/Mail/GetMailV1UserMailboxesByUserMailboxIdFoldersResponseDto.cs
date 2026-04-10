@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 列出邮箱文件夹 响应体
-/// <para>列出邮箱文件夹</para>
+/// <para>列出用户文件夹，可获取文件夹名称、文件夹ID、文件夹下的未读邮件和未读会话数量</para>
 /// <para>接口ID：7275929163676123139</para>
 /// <para>文档地址：https://open.feishu.cn/document/mail-v1/user_mailbox-folder/list</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-folder%2flist</para>

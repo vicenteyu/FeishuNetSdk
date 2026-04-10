@@ -27,7 +27,7 @@ public record GetImV1MessagesResponseDto : IPageableResponse<GetImV1MessagesResp
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
-    /// <para>示例值：false</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
@@ -142,12 +142,12 @@ public record GetImV1MessagesResponseDto : IPageableResponse<GetImV1MessagesResp
         /// <para>示例值：object</para>
         /// </summary>
         [JsonPropertyName("sender")]
-        public MessageSender? Sender { get; set; }
+        public SenderSuffix? Sender { get; set; }
 
         /// <summary>
         /// <para>当前消息的发送者信息。</para>
         /// </summary>
-        public record MessageSender
+        public record SenderSuffix
         {
             /// <summary>
             /// <para>发送者的 ID。</para>

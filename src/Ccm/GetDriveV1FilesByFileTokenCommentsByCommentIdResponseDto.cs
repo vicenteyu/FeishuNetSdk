@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,7 +38,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     public string? UserId { get; set; }
 
     /// <summary>
-    /// <para>创建时间</para>
+    /// <para>创建时间（单位：秒）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1610281603</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     public long? CreateTime { get; set; }
 
     /// <summary>
-    /// <para>更新时间</para>
+    /// <para>更新时间（单位：秒）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1610281603</para>
     /// </summary>
@@ -56,13 +56,13 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     /// <summary>
     /// <para>是否已解决</para>
     /// <para>必填：否</para>
-    /// <para>示例值：false</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("is_solved")]
     public bool? IsSolved { get; set; }
 
     /// <summary>
-    /// <para>解决评论时间</para>
+    /// <para>解决评论时间（单位：秒）</para>
     /// <para>必填：否</para>
     /// <para>示例值：1610281603</para>
     /// </summary>
@@ -80,7 +80,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     /// <summary>
     /// <para>是否还有更多项</para>
     /// <para>必填：否</para>
-    /// <para>示例值：false</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("has_more")]
     public bool? HasMore { get; set; }
@@ -114,12 +114,12 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("reply_list")]
-    public GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDtoReplyList? ReplyList { get; set; }
+    public ReplyListSuffix? ReplyList { get; set; }
 
     /// <summary>
     /// <para>评论里的回复列表</para>
     /// </summary>
-    public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDtoReplyList
+    public record ReplyListSuffix
     {
         /// <summary>
         /// <para>回复列表</para>
@@ -175,12 +175,12 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("text_run")]
-                    public ReplyElementTextRun? TextRun { get; set; }
+                    public TextRunSuffix? TextRun { get; set; }
 
                     /// <summary>
                     /// <para>文本内容</para>
                     /// </summary>
-                    public record ReplyElementTextRun
+                    public record TextRunSuffix
                     {
                         /// <summary>
                         /// <para>回复 普通文本</para>
@@ -196,12 +196,12 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("docs_link")]
-                    public ReplyElementDocsLink? DocsLink { get; set; }
+                    public DocsLinkSuffix? DocsLink { get; set; }
 
                     /// <summary>
                     /// <para>添加云文档链接</para>
                     /// </summary>
-                    public record ReplyElementDocsLink
+                    public record DocsLinkSuffix
                     {
                         /// <summary>
                         /// <para>回复 at 云文档</para>
@@ -217,12 +217,12 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                     /// <para>必填：否</para>
                     /// </summary>
                     [JsonPropertyName("person")]
-                    public ReplyElementPerson? Person { get; set; }
+                    public PersonSuffix? Person { get; set; }
 
                     /// <summary>
                     /// <para>添加用户的 user_id</para>
                     /// </summary>
-                    public record ReplyElementPerson
+                    public record PersonSuffix
                     {
                         /// <summary>
                         /// <para>添加用户的 user_id 以@用户</para>
@@ -252,7 +252,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
             public string? UserId { get; set; }
 
             /// <summary>
-            /// <para>创建时间</para>
+            /// <para>创建时间（单位：秒）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1610281603</para>
             /// </summary>
@@ -260,7 +260,7 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
             public long? CreateTime { get; set; }
 
             /// <summary>
-            /// <para>更新时间</para>
+            /// <para>更新时间（单位：秒）</para>
             /// <para>必填：否</para>
             /// <para>示例值：1610281603</para>
             /// </summary>
@@ -285,6 +285,48 @@ public record GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto
                 /// </summary>
                 [JsonPropertyName("image_list")]
                 public string[]? ImageList { get; set; }
+            }
+
+            /// <summary>
+            /// <para>评论回复卡片上对应的表情回复信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("reactions")]
+            public FileCommentV2BatchQueryReactionData[]? Reactions { get; set; }
+
+            /// <summary>
+            /// <para>评论回复卡片上对应的表情回复信息</para>
+            /// </summary>
+            public record FileCommentV2BatchQueryReactionData
+            {
+                /// <summary>
+                /// <para>表情回复的唯一标识，用于区分不同类型的评论表情（如点赞、鼓掌等）。</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：ANGRY</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：1</para>
+                /// </summary>
+                [JsonPropertyName("reaction_key")]
+                public string ReactionKey { get; set; } = string.Empty;
+
+                /// <summary>
+                /// <para>该表情回复的累计使用次数，统计范围为当前评论下所有用户的有效回复记录。</para>
+                /// <para>必填：是</para>
+                /// <para>示例值：10</para>
+                /// <para>最大值：500000</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("count")]
+                public int Count { get; set; }
+
+                /// <summary>
+                /// <para>用于在界面优先展示核心互动用户。用户ID可通过用户信息查询接口获取。</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：1000</para>
+                /// <para>最小长度：1</para>
+                /// </summary>
+                [JsonPropertyName("ahead_users")]
+                public string[]? AheadUsers { get; set; }
             }
         }
     }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-03
+// Last Modified On : 2026-04-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -3272,7 +3272,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 发送请求时，未传递的参数不会更新。</para>
     /// <para>- 并发操作冻结用户时，因事务冲突会遇到概率性的接口调用失败。因此，请尝试降低请求速率或改为串行执行。</para>
     /// <para>- 更新 `department_ids`、`is_frozen` 时，限制调用频率为 1 QPS。</para>
-    /// <para>- userAccessToken只允许修改这三个字段'Name'、'EnName'、'AvatarKey'。</para>
+    /// <para>- user_access_token 只允许修改这三个字段'name'、'en_name'、'avatar_key'。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>contact:contact</item>
     /// <item>contact:user.base</item>
@@ -4139,11 +4139,11 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【消息与群组】查询消息已读信息</para>
+    /// <para>【消息与群组】消息发送者查询消息已读状态</para>
     /// <para>接口ID：6946222929790386204</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/read_users</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
+    /// <para>作为消息发送者，查询指定消息是否已读。接口只返回已读用户的信息，不返回未读用户的信息。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability) 。</para>
     /// <para>- 查询消息已读信息时，机器人需要在待查询消息所在的会话内。</para>
@@ -4283,7 +4283,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】获取指定消息的内容</para>
     /// <para>接口ID：6946222929790451740</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/get</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口通过消息的 `message_id` 查询消息内容。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
@@ -4316,11 +4316,22 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="card_msg_content_type">
+    /// <para>必填：否</para>
+    /// <para>`card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。</para>
+    /// <para>1. **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片 JSON。</para>
+    /// <para>2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0 卡片请参考[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>* **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。</para>
+    /// <para>&gt; **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**</para>
+    /// <para>示例值：user_card_content</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/im/v1/messages/{message_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesByMessageIdResponseDto>> GetImV1MessagesByMessageIdAsync(
         [PathQuery] string message_id,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? card_msg_content_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -4380,7 +4391,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】回复消息</para>
     /// <para>接口ID：6946222929790500892</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/reply</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口回复指定消息。回复的内容支持文本、富文本、卡片、群名片、个人名片、图片、视频、文件等多种类型。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
@@ -4974,7 +4985,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】发送消息</para>
     /// <para>接口ID：6946222931479527425</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/create</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口向指定用户或者群聊发送消息。支持发送的消息类型包括文本、富文本、卡片、群名片、个人名片、图片、视频、音频、文件以及表情包等。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。 开启能力后需要发布版本才能生效，参考 [发布应用](https://open.feishu.cn/document/home/introduction-to-custom-app-development/self-built-application-development-process#baf09c7d)。</para>
@@ -5060,7 +5071,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】获取会话历史消息</para>
     /// <para>接口ID：6946222931479560193</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/list</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定会话（包括单聊、群组）内的历史消息（即聊天记录）。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
@@ -5124,6 +5135,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：GxmvlNRvP0NdQZpa7yIqf_Lv_QuBwTQ8tXkX7w-irAghVD_TvuYd1aoJ1LQph86O-XImC4X9j9FhUPhXQDvtrQ==</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="card_msg_content_type">
+    /// <para>必填：否</para>
+    /// <para>`card_msg_content_type` 参数仅控制卡片消息的返回格式，不会影响其他类型消息的返回格式。</para>
+    /// <para>1. **不传该参数（默认）**：返回的卡片结构参考[接收消息内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/im-v1/message/events/message_content)中的卡片消息结构，不支持返回发送时的原始卡片 JSON。</para>
+    /// <para>2. **传入 `user_card_content`**：返回发送时的原始卡片 JSON。1.0 卡片请参考[卡片 JSON 1.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-structure)；2.0 卡片请参考[卡片 JSON 2.0 结构](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-structure)。</para>
+    /// <para>* **版本区分**：当返回的消息体为卡片时，可通过 `schema` 字段来区分该卡片是 1.0 还是 2.0 版本，详情参考[卡片 JSON 2.0 版本更新说明](https://open.feishu.cn/document/uAjLw4CM/ukzMukzMukzM/feishu-cards/card-json-v2-breaking-changes-release-notes)。</para>
+    /// <para>&gt; **注意：如果 `card_msg_content_type` 参数的传值方式发生变更，请务必在代码中做好返回格式的兼容处理。**</para>
+    /// <para>示例值：user_card_content</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/im/v1/messages")]
     System.Threading.Tasks.Task<FeishuResponse<Im.GetImV1MessagesResponseDto>> GetImV1MessagesAsync(
@@ -5134,6 +5155,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? sort_type = "ByCreateTimeAsc",
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? card_msg_content_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -9179,12 +9201,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 Token</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。</para>
     /// <para>示例值：doccnHh7U87HOFpii5u5G*****</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论 ID</para>
+    /// <para>可通过调用 添加评论、获取评论 接口获取</para>
     /// <para>示例值：6916106822734578184</para>
     /// </param>
     /// <param name="file_type">
@@ -9209,6 +9233,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="need_reaction">
+    /// <para>必填：否</para>
+    /// <para>是否需要获取评论卡片上挂载的Reaction数据，默认值为false</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsByCommentIdResponseDto>> GetDriveV1FilesByFileTokenCommentsByCommentIdAsync(
@@ -9216,6 +9246,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string comment_id,
         [PathQuery] string file_type,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? need_reaction = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -9223,7 +9254,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：6955017385137799169</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/CommentAPI/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论（可通过 is_whole 字段区分）。默认每页返回 50 个评论。</para>
+    /// <para>该接口用于根据云文档 Token 分页获取文档所有评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。该接口支持返回全局评论以及局部评论，可通过 is_whole（是否为全局评论）字段区分。默认每页返回 50 个评论。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:doc</item>
     /// <item>docs:doc:readonly</item>
@@ -9257,13 +9288,13 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="is_whole">
     /// <para>必填：否</para>
-    /// <para>是否全文评论</para>
+    /// <para>是否全文评论，默认值为false</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="is_solved">
     /// <para>必填：否</para>
-    /// <para>是否已解决（可选）</para>
+    /// <para>是否已解决（可选），默认值为false</para>
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -9290,6 +9321,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="need_reaction">
+    /// <para>必填：否</para>
+    /// <para>是否需要获取评论卡片上挂载的Reaction数据，默认值为false</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/drive/v1/files/{file_token}/comments")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1FilesByFileTokenCommentsResponseDto>> GetDriveV1FilesByFileTokenCommentsAsync(
@@ -9300,6 +9337,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? need_reaction = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -29282,7 +29320,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7123144042921590786</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/CommentAPI/batch_query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据评论 ID 列表批量获取云文档评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。支持返回全局评论以及局部评论（可通过 is_whole 字段区分）。</para>
+    /// <para>该接口用于根据评论 ID 列表批量获取云文档评论信息，包括评论和回复 ID、回复的内容、评论人和回复人的用户 ID 等。支持返回全局评论以及局部评论，可通过 is_whole （是否为全局评论标识）字段区分。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document.comment:read</item>
     /// <item>drive:drive</item>
@@ -29296,6 +29334,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 Token</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。</para>
     /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="file_type">
@@ -29350,17 +29389,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文档 Token</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。</para>
     /// <para>示例值：doxbcdl03Vsxhm7Qmnj110abcef</para>
     /// </param>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>评论 ID</para>
+    /// <para>可通过调用 添加评论、获取评论 接口获取</para>
     /// <para>示例值：1654857036541812356</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，每页返回的数据量。默认值为50</para>
     /// <para>示例值：10</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -29382,6 +29423,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>slides：幻灯片</item>
     /// </list>
     /// </param>
+    /// <param name="need_reaction">
+    /// <para>必填：否</para>
+    /// <para>是否需要获取评论卡片上挂载的Reaction数据，默认值为false</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
@@ -29401,6 +29448,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string file_type,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] bool? need_reaction = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
@@ -29712,12 +29760,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值：[1712932008000,"7356863257632491046"]</para>
+    /// <para>示例值："7356863257632491046"</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
     /// <para>必填：是</para>
-    /// <para>分页大小</para>
+    /// <para>分页大小，最小10，最大1000</para>
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
@@ -41224,7 +41272,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -41248,14 +41296,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件夹 id，id 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
-    /// <para>示例值：111111</para>
+    /// <para>示例值：7620003644728938013</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
@@ -41269,7 +41317,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7275929163676123139</para>
     /// <para>接口文档：https://open.feishu.cn/document/mail-v1/user_mailbox-folder/list</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>列出邮箱文件夹</para>
+    /// <para>列出用户文件夹，可获取文件夹名称、文件夹ID、文件夹下的未读邮件和未读会话数量</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>mail:user_mailbox.folder:read</item>
     /// <item>mail:user_mailbox.folder:write</item>
@@ -41278,7 +41326,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="folder_type">
@@ -41327,12 +41375,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="format">
     /// <para>必填：否</para>
-    /// <para>获取类型</para>
+    /// <para>需要获取的邮件内容。支持选择full/plain_text_full/metadata</para>
     /// <para>示例值：full</para>
     /// <list type="bullet">
-    /// <item>full：全文</item>
-    /// <item>plain_text_full：全文，但只返回plain_text，不返回html</item>
-    /// <item>metadata：邮件元数据信息</item>
+    /// <item>full：全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息</item>
+    /// <item>plain_text_full：全文，只返回纯文本正文内容，不返回HTML。返回内容包括标签、文件夹、主题、收发件人、纯文本等信息</item>
+    /// <item>metadata：邮件元数据信息，包括标签、文件夹、主题、收发件人、摘要等信息，不返回正文内容</item>
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
@@ -41405,14 +41453,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="folder_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>文件夹 id，id 获取方式见 [列出邮箱文件夹](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/list)</para>
-    /// <para>示例值：111111</para>
+    /// <para>示例值：7620003644728938013</para>
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -41436,7 +41484,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="page_size">
@@ -41465,7 +41513,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="label_id">
     /// <para>必填：否</para>
-    /// <para>标签id</para>
+    /// <para>标签id，支持IMPORTANT、OTHER、FLAGGED、SCHEDULED以及自定义文件夹标签</para>
     /// <para>示例值：FLAGGED</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -57802,6 +57850,141 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpGet("/open-apis/drive/v1/user/subscription_status")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetDriveV1UserSubscriptionStatusResponseDto>> GetDriveV1UserSubscriptionStatusAsync(
         [PathQuery] string event_type,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】添加回复</para>
+    /// <para>接口ID：7625922449226419390</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/file-comment-reply/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>使用该接口可对云文档中的某条评论进行回复，回复内容支持普通文本、云文档链接等。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:doc</item>
+    /// <item>docs:doc:readonly</item>
+    /// <item>docs:document.comment:create</item>
+    /// <item>drive:drive</item>
+    /// <item>drive:drive:readonly</item>
+    /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="file_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文档token</para>
+    /// <para>可以通过浏览器该文档的 URL 栏上直接获取文档 Token 。</para>
+    /// <para>示例值：TLLKdcpDro9ijQxA33ycNMabcef</para>
+    /// </param>
+    /// <param name="comment_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>评论ID</para>
+    /// <para>在 添加评论、获取评论 等接口中有返回。</para>
+    /// <para>示例值：69161068xxxxx512356</para>
+    /// </param>
+    /// <param name="file_type">
+    /// <para>必填：是</para>
+    /// <para>云文档类型</para>
+    /// <para>示例值：doc</para>
+    /// <list type="bullet">
+    /// <item>doc：文档</item>
+    /// <item>sheet：表格</item>
+    /// <item>file：文件</item>
+    /// <item>docx：新版文档</item>
+    /// </list>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/drive/v1/files/{file_token}/comments/{comment_id}/replies")]
+    System.Threading.Tasks.Task<FeishuResponse<Ccm.PostDriveV1FilesByFileTokenCommentsByCommentIdRepliesResponseDto>> PostDriveV1FilesByFileTokenCommentsByCommentIdRepliesAsync(
+        [PathQuery] string file_token,
+        [PathQuery] string comment_id,
+        [PathQuery] string file_type,
+        [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsByCommentIdRepliesBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【云文档】添加/取消表情回应</para>
+    /// <para>接口ID：7626674272942312397</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uIzNzUjLyczM14iM3MTN/drive-v2/comment_reaction/update_reaction</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>使用该接口可对云文档中的某条评论进行emoji表情回应或取消emoji表情回应。适用于用户需要对云文档评论进行emoji表情互动的场景。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>docs:document.comment:create</item>
+    /// <item>docs:document.comment:write_only</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="file_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>文件的唯一标识令牌，用于定位目标文件。可通过调用「获取文件元信息」或「文件上传」接口获取。</para>
+    /// <para>示例值：ppHV2Xepq2BQk3K79FTB</para>
+    /// </param>
+    /// <param name="file_type">
+    /// <para>必填：是</para>
+    /// <para>文件类型，用于区分不同类型的云文档，可选值需参考[开放平台文件类型枚举](https://open.feishu.cn/document/ukTMukTMukTM/uczNzUjL3czM14yN3MTN)</para>
+    /// <para>示例值：docx</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/drive/v2/files/{file_token}/comments/reaction")]
+    System.Threading.Tasks.Task<FeishuResponse> PostDriveV2FilesByFileTokenCommentsReactionAsync(
+        [PathQuery] string file_token,
+        [PathQuery] string file_type,
+        [JsonContent] Ccm.PostDriveV2FilesByFileTokenCommentsReactionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】批量获取消息表情回复</para>
+    /// <para>接口ID：7626724000588991682</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message-reaction/batch_query</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>支持批量分页的获取消息上的表情详情、支持批量获取消息上表情的统计</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用身份调用接口需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 调用当前接口的机器人或者用户，需要在待查询的消息所属的会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>已被撤回的消息、消息不可见等情况无法获取表情回复列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message:readonly</item>
+    /// <item>im:message.reactions:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/im/messages/reactions/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImMessagesReactionsBatchQueryResponseDto>> PostImMessagesReactionsBatchQueryAsync(
+        [JsonContent] Im.PostImMessagesReactionsBatchQueryBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 }
 
