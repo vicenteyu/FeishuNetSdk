@@ -2571,11 +2571,11 @@
 <tr><td colspan="3">GetHireV2InterviewRecords</td></tr>
 <tr><td rowspan="2">1286</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量删除填报行</td></tr>
 <tr><td colspan="3">PostCorehrV2ReportDetailRowBatchDelete</td></tr>
-<tr><td rowspan="2">1287</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新填报行</td></tr>
+<tr><td rowspan="2">1287</td><td rowspan="2">2026-04-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新填报行</td></tr>
 <tr><td colspan="3">PostCorehrV2ReportDetailRowBatchSave</td></tr>
 <tr><td rowspan="2">1288</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量删除明细行</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailRowBatchDelete</td></tr>
-<tr><td rowspan="2">1289</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新明细行</td></tr>
+<tr><td rowspan="2">1289</td><td rowspan="2">2026-04-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>批量创建/更新明细行</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailRowBatchSave</td></tr>
 <tr><td rowspan="2">1290</td><td rowspan="2">2025-02-28</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改临时排班</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserDailyShiftsBatchCreateTemp</td></tr>
@@ -2705,29 +2705,29 @@
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdMailContactsByMailContactId</td></tr>
 <tr><td rowspan="2">1353</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱联系人</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMailContacts</td></tr>
-<tr><td rowspan="2">1354</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
+<tr><td rowspan="2">1354</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>删除收信规则</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">1355</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
+<tr><td rowspan="2">1355</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出收信规则</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">1356</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
+<tr><td rowspan="2">1356</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>创建邮箱文件夹</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">1357</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
+<tr><td rowspan="2">1357</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>删除邮箱文件夹</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">1358</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
+<tr><td rowspan="2">1358</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">1359</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">1359</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
-<tr><td rowspan="2">1360</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
+<tr><td rowspan="2">1360</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
-<tr><td rowspan="2">1361</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
+<tr><td rowspan="2">1361</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>对收信规则进行排序</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
-<tr><td rowspan="2">1362</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
+<tr><td rowspan="2">1362</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">1363</td><td rowspan="2">2026-04-08</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">1363</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
-<tr><td rowspan="2">1364</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
+<tr><td rowspan="2">1364</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
-<tr><td rowspan="2">1365</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
+<tr><td rowspan="2">1365</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取附件下载链接</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdAttachmentsDownloadUrl</td></tr>
 <tr><td rowspan="2">1366</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>获取邮件卡片的邮件列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesGetByCard</td></tr>
@@ -3027,10 +3027,50 @@
 <tr><td colspan="3">DeleteDriveV1UserRemoveSubscription</td></tr>
 <tr><td rowspan="2">1514</td><td rowspan="2">2026-04-02</td><td>&#10003;</td><td>云文档</td><td>查询用户云文档事件订阅状态</td></tr>
 <tr><td colspan="3">GetDriveV1UserSubscriptionStatus</td></tr>
-<tr><td rowspan="2">1515</td><td rowspan="2">2026-04-07</td><td>新增</td><td>云文档</td><td>添加回复</td></tr>
+<tr><td rowspan="2">1515</td><td rowspan="2">2026-04-07</td><td>&#10003;</td><td>云文档</td><td>添加回复</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
-<tr><td rowspan="2">1516</td><td rowspan="2">2026-04-09</td><td>新增</td><td>云文档</td><td>添加/取消表情回应</td></tr>
+<tr><td rowspan="2">1516</td><td rowspan="2">2026-04-09</td><td>&#10003;</td><td>云文档</td><td>添加/取消表情回应</td></tr>
 <tr><td colspan="3">PostDriveV2FilesByFileTokenCommentsReaction</td></tr>
-<tr><td rowspan="2">1517</td><td rowspan="2">2026-04-10</td><td>新增</td><td>消息与群组</td><td>批量获取消息表情回复</td></tr>
+<tr><td rowspan="2">1517</td><td rowspan="2">2026-04-10</td><td>&#10003;</td><td>消息与群组</td><td>批量获取消息表情回复</td></tr>
 <tr><td colspan="3">PostImMessagesReactionsBatchQuery</td></tr>
+<tr><td rowspan="2">1518</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>查询会话下邮件信息</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdMessages</td></tr>
+<tr><td rowspan="2">1519</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>批量获取邮件详情</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGet</td></tr>
+<tr><td rowspan="2">1520</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>获取邮箱文件信息</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
+<tr><td rowspan="2">1521</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>更新标签</td></tr>
+<tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdLabelsByLabelId</td></tr>
+<tr><td rowspan="2">1522</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>删除标签</td></tr>
+<tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdLabelsByLabelId</td></tr>
+<tr><td rowspan="2">1523</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>列出标签</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdLabels</td></tr>
+<tr><td rowspan="2">1524</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>获取标签信息</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdLabelsByLabelId</td></tr>
+<tr><td rowspan="2">1525</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>创建标签</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdLabels</td></tr>
+<tr><td rowspan="2">1526</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>批量修改邮件会话</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsBatchModify</td></tr>
+<tr><td rowspan="2">1527</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>删除邮件会话</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdTrash</td></tr>
+<tr><td rowspan="2">1528</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>批量修改邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesBatchModify</td></tr>
+<tr><td rowspan="2">1529</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>列出可发信邮箱</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdSettingsSendAs</td></tr>
+<tr><td rowspan="2">1530</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>批量删除邮件会话</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsBatchTrash</td></tr>
+<tr><td rowspan="2">1531</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>列出邮件会话</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreads</td></tr>
+<tr><td rowspan="2">1532</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>修改邮件</td></tr>
+<tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModify</td></tr>
+<tr><td rowspan="2">1533</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>修改邮件会话</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdModify</td></tr>
+<tr><td rowspan="2">1534</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>批量删除邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesBatchTrash</td></tr>
+<tr><td rowspan="2">1535</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>列出可访问的邮箱</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdAccessibleMailboxes</td></tr>
+<tr><td rowspan="2">1536</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>删除邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdTrash</td></tr>
+<tr><td rowspan="2">1537</td><td rowspan="2">2026-04-13</td><td>新增</td><td>邮箱</td><td>获取邮件会话详情</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadId</td></tr>
 </tbody></table>
