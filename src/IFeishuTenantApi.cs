@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-11
+// Last Modified On : 2026-04-18
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -57240,6 +57240,52 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【邮箱】查询会话下邮件信息</para>
+    /// <para>接口ID：7535351280176414739</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/list_thread_message</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过用户邮箱地址和邮件会话ID，获取该会话下的所有邮件关键信息列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message.address:read</item>
+    /// <item>mail:user_mailbox.message.body:read</item>
+    /// <item>mail:user_mailbox.message.subject:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="thread_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。</para>
+    /// <para>示例值：xxxxxxxxxxxx</para>
+    /// </param>
+    /// <param name="format">
+    /// <para>必填：否</para>
+    /// <para>需要获取的邮件内容</para>
+    /// <para>示例值：full</para>
+    /// <list type="bullet">
+    /// <item>full：全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息</item>
+    /// <item>plain_text_full：全文，只返回纯文本正文内容，不返回HTML。返回内容包括标签、文件夹、主题、收发件人、纯文本等信息</item>
+    /// <item>metadata：邮件元数据信息，包括标签、文件夹、主题、收发件人、摘要等信息，不返回正文内容</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/{thread_id}/messages")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdMessagesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdMessagesAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string thread_id,
+        [PathQuery] string? format = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【画板】获取画板主题</para>
     /// <para>接口ID：7545367804831612930</para>
     /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard/theme</para>
@@ -57622,6 +57668,202 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【邮箱】批量获取邮件详情</para>
+    /// <para>接口ID：7620282151846333660</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/batch_get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过指定邮件ID，获取对应邮件的标签、文件夹、摘要、正文、html、附件等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message.address:read</item>
+    /// <item>mail:user_mailbox.message.body:read</item>
+    /// <item>mail:user_mailbox.message.subject:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/batch_get")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGetResponseDto>> PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGetAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGetBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮箱文件信息</para>
+    /// <para>接口ID：7620478754624375740</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-folder/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过指定文件夹ID，获取文件夹信息，包括名称、类型等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.folder:read</item>
+    /// <item>mail:user_mailbox.folder:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="folder_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件文件夹唯一标识。可通过「获取邮箱文件夹列表」接口获取目标文件夹的 ID；若未传入该参数，默认返回根文件夹（收件箱）详情。</para>
+    /// <para>示例值：7620095646711680541</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/folders/{folder_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdFoldersByFolderIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string folder_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】更新标签</para>
+    /// <para>接口ID：7620478754624392124</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-label/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新用户指定标签的名字、颜色等信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="label_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得</para>
+    /// <para>示例值：7620003644728938013</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPatch("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/labels/{label_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PatchMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdResponseDto>> PatchMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string label_id,
+        [JsonContent] Mail.PatchMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】删除标签</para>
+    /// <para>接口ID：7620478754624408508</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-label/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除用户指定的标签</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，当使用user_access_token访问时，可以填写me</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="label_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得</para>
+    /// <para>示例值：7620003644728938013</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/labels/{label_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string label_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出标签</para>
+    /// <para>接口ID：7620478754624457660</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-label/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出邮件标签，包括ID、名称、颜色、未读信息等内容</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/labels")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdLabelsResponseDto>> GetMailV1UserMailboxesByUserMailboxIdLabelsAsync(
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取标签信息</para>
+    /// <para>接口ID：7620478754624539580</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-label/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据指定ID，获取邮件标签信息，包括名称、未读数据、颜色等信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="label_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>标签ID，创建标签成功后返回的标签ID，或可通过列出标签、获取邮件详情等接口获得</para>
+    /// <para>示例值：7620003644728938013</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/labels/{label_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdLabelsByLabelIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string label_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】创建标签</para>
+    /// <para>接口ID：7620478754624555964</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-label/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据用户指定的名称、颜色等信息，创建邮件标签</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/labels")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdLabelsResponseDto>> PostMailV1UserMailboxesByUserMailboxIdLabelsAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdLabelsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【应用信息】提交发布自建应用</para>
     /// <para>接口ID：7621030901518552023</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/application-v7/application-v7/application-publish/create</para>
@@ -57916,6 +58158,378 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string file_type,
         [JsonContent] Ccm.PostDriveV1FilesByFileTokenCommentsByCommentIdRepliesBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量修改邮件会话</para>
+    /// <para>接口ID：7626215228942846932</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/batch_modify</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量修改邮件会话的标签、所属文件夹和已读未读状态，支持为邮件会话添加旗标、归档、移入垃圾邮件文件夹。注意，接口不支持将邮件会话移入已删除文件夹，如需，请使用批量删除邮件会话接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/batch_modify")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdThreadsBatchModifyAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdThreadsBatchModifyBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮件会话</para>
+    /// <para>接口ID：7626215228942863316</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/trash</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>将指定的邮件会话移入已删除文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户。</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="thread_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。</para>
+    /// <para>示例值：th_xxxxxxxxxxxx</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/{thread_id}/trash")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdTrashAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string thread_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量修改邮件</para>
+    /// <para>接口ID：7626215228942879700</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/batch_modify</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量修改邮件标签、所属文件夹、已读未读状态，可进行加旗标、归档、移至垃圾邮件等操作。不支持移入邮件进入已删除文件夹，如需，请使用批量删除邮件接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：adc@abc.com</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/batch_modify")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesBatchModifyAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesBatchModifyBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出可发信邮箱</para>
+    /// <para>接口ID：7626215228942896084</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-setting/send_as</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取当前地址的可用于发信的邮箱地址列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox</item>
+    /// <item>mail:user_mailbox:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮箱地址。用户身份下可以输入me代表用户。</para>
+    /// <para>示例值：abc@abc.com</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/settings/send_as")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdSettingsSendAsResponseDto>> GetMailV1UserMailboxesByUserMailboxIdSettingsSendAsAsync(
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量删除邮件会话</para>
+    /// <para>接口ID：7626215228942912468</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/batch_trash</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量将指定的邮件会话移入已删除文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/batch_trash")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdThreadsBatchTrashAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdThreadsBatchTrashBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮件会话</para>
+    /// <para>接口ID：7626215228942928852</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出用户指定文件夹或标签下的邮件会话，按时间倒序分页获取</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：1</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="folder_id">
+    /// <para>必填：否</para>
+    /// <para>文件夹 id，支持INBOX、SENT、SPAM、ARCHIVED、SCHEDULED、TRASH、DRAFT以及自定义文件夹ID</para>
+    /// <para>示例值：INBOX 或者用户文件夹 id</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="only_unread">
+    /// <para>必填：否</para>
+    /// <para>是否只查询未读会话</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="label_id">
+    /// <para>必填：否</para>
+    /// <para>标签id，支持IMPORTANT、OTHER、FLAGGED以及自定义标签ID</para>
+    /// <para>示例值：FLAGGED</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdThreadsResponseDto>> GetMailV1UserMailboxesByUserMailboxIdThreadsAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? folder_id = null,
+        [PathQuery] bool? only_unread = null,
+        [PathQuery] string? label_id = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】修改邮件</para>
+    /// <para>接口ID：7626215228942945236</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/modify</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>修改邮件标签、所属文件夹、已读未读状态，可为邮件添加旗标、归档、移入垃圾邮件等操作。不支持移动邮件到已删除文件夹，如需，请使用删除邮件接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：abc@abc.com</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件ID，可通过列出邮件接口、收信事件通知等方式获得</para>
+    /// <para>示例值：bskfsxxcvve=</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/modify")]
+    System.Threading.Tasks.Task<FeishuResponse> PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】修改邮件会话</para>
+    /// <para>接口ID：7626215228942961620</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/modify</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>修改邮件会话的标签、所属文件夹和已读未读状态，支持为邮件会话添加旗标、归档、移入垃圾邮件文件夹。注意，接口不支持将邮件会话移入已删除文件夹，如需，请使用删除邮件会话接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="thread_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。</para>
+    /// <para>示例值：th_xxxxxxxxxxxx</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/{thread_id}/modify")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdModifyAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string thread_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdModifyBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量删除邮件</para>
+    /// <para>接口ID：7626215228942978004</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/batch_trash</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量将邮件移动到已删除文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/batch_trash")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesBatchTrashAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesBatchTrashBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出可访问的邮箱</para>
+    /// <para>接口ID：7626215228942994388</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/accessible_mailboxes</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出可访问的邮箱，包括拥有读信和发信权限的主账号、公共邮箱</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox</item>
+    /// <item>mail:user_mailbox:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，用户身份下可以填写me。注意不可以使用公共邮箱访问此接口。</para>
+    /// <para>示例值：abc@abc.com</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/accessible_mailboxes")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdAccessibleMailboxesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdAccessibleMailboxesAsync(
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮件</para>
+    /// <para>接口ID：7626215228943010772</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/trash</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>移动邮件到已删除文件夹</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件ID，可通过列出邮件接口获得</para>
+    /// <para>示例值：NzR3Zkd5NGhBTS9NVkZnSklidDVGT3VoQmM4PQ==</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/trash")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdTrashAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件会话详情</para>
+    /// <para>接口ID：7626215228943027156</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-thread/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定邮件会话下的邮件列表，包含邮件元数据及主题、正文等内容。支持获取会话中位于垃圾邮件文件夹和已删除文件夹的邮件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message.address:read</item>
+    /// <item>mail:user_mailbox.message.body:read</item>
+    /// <item>mail:user_mailbox.message.subject:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="thread_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件会话ID。可通过发送邮件、回复邮件的接口返回值或获取邮件详情接口查询获得。</para>
+    /// <para>示例值：th_xxxxxxxxxxxx</para>
+    /// </param>
+    /// <param name="format">
+    /// <para>必填：否</para>
+    /// <para>需要获取的邮件内容。支持选择full/plain_text_full/metadata</para>
+    /// <para>示例值：full</para>
+    /// <list type="bullet">
+    /// <item>full：全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息</item>
+    /// <item>plain_text_full：全文，只返回纯文本正文内容，不返回HTML。返回内容包括标签、文件夹、主题、收发件人、纯文本等信息</item>
+    /// <item>metadata：邮件元数据信息，包括标签、文件夹、主题、收发件人、摘要等信息，不返回正文内容</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="include_spam_trash">
+    /// <para>必填：否</para>
+    /// <para>获取包含来自 SPAM 和 TRASH 的邮件</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/threads/{thread_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string thread_id,
+        [PathQuery] string? format = null,
+        [PathQuery] bool? include_spam_trash = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
