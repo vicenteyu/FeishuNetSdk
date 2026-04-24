@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-12
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="GetHireV1ReferralsGetByApplicationResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,6 +15,10 @@ namespace FeishuNetSdk.Hire;
 /// <summary>
 /// 获取内推信息 响应体
 /// <para>根据投递 ID 获取内推信息，包含内推人信息、内推创建时间等。</para>
+/// <para>注意：</para>
+/// <para>1.本接口根据 application_id （投递ID）查询内推信息时，仅适用于内推时选择了具体职位的场景</para>
+/// <para>2.对于 无职位内推 （内推时未选择职位），内推信息中不存储投递ID，使用 application_id 查询将返回空结果</para>
+/// <para>3.查询无职位内推信息，请使用 referral_id （内推ID）或 talent_id （人才ID）作为查询条件</para>
 /// <para>接口ID：6964264269274595330</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/referral/get_by_application</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuMzM1YjLzMTN24yMzUjN%2fhire-v1%2freferral%2fget_by_application</para>
@@ -26,12 +30,12 @@ public record GetHireV1ReferralsGetByApplicationResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("referral")]
-    public GetHireV1ReferralsGetByApplicationResponseDtoReferral? Referral { get; set; }
+    public ReferralSuffix? Referral { get; set; }
 
     /// <summary>
     /// <para>内推信息</para>
     /// </summary>
-    public record GetHireV1ReferralsGetByApplicationResponseDtoReferral
+    public record ReferralSuffix
     {
         /// <summary>
         /// <para>内推 ID</para>

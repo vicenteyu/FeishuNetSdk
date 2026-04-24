@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -7346,7 +7346,6 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 当前身份为日程组织者时，可修改该接口内的所有可编辑字段。</para>
     /// <para>- 当前身份为日程参与者时，仅可编辑部分字段（包括 visibility、free_busy_status、color、reminders）。</para>
-    /// <para>- 重复日程如果存在例外日程，则可以通过该接口更新例外日程。如果重复日程没有例外日程，则无法通过该接口更新重复日程中的某一个日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar.event:update</item>
@@ -11205,6 +11204,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/get-candidates/referral/get_by_application</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>根据投递 ID 获取内推信息，包含内推人信息、内推创建时间等。</para>
+    /// <para>注意：</para>
+    /// <para>1.本接口根据 application_id （投递ID）查询内推信息时，仅适用于内推时选择了具体职位的场景</para>
+    /// <para>2.对于 无职位内推 （内推时未选择职位），内推信息中不存储投递ID，使用 application_id 查询将返回空结果</para>
+    /// <para>3.查询无职位内推信息，请使用 referral_id （内推ID）或 talent_id （人才ID）作为查询条件</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:referral</item>
     /// <item>hire:referral:readonly</item>

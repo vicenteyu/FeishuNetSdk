@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="Test_ImMessageReceiveV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -65,6 +65,7 @@ public class Test_ImMessageReceiveV1EventBodyDto : TestBase
                         "user_id": "e33ggbyz",
                         "open_id": "ou_84aad35d084aa403a838cf73ee18467"
                     },
+                    "mentioned_type": "user",
                     "name": "Tom",
                     "tenant_key": "736588c9260f175e"
                 }

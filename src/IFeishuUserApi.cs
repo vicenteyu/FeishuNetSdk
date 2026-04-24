@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -4829,7 +4829,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 使用限制</para>
     /// <para>- 当前身份为日程组织者时，可修改该接口内的所有可编辑字段。</para>
     /// <para>- 当前身份为日程参与者时，仅可编辑部分字段（包括 visibility、free_busy_status、color、reminders）。</para>
-    /// <para>- 重复日程如果存在例外日程，则可以通过该接口更新例外日程。如果重复日程没有例外日程，则无法通过该接口更新重复日程中的某一个日程。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>calendar:calendar</item>
     /// <item>calendar:calendar.event:update</item>
@@ -28692,6 +28691,89 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [JsonContent] Im.PostImMessagesReactionsBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】分片上传文件 - 创建上传请求</para>
+    /// <para>接口ID：7631245788191280086</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-storage/upload_initialize</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>发送初始化请求，以获取上传请求 ID和分片策略，为上传分片做准备。获取结果后可调用`上传分片`接口完成文件分片上传。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.storage:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/storage/upload/initialize")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdStorageUploadInitializeResponseDto>> PostSparkV1AppsByAppIdStorageUploadInitializeAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PostSparkV1AppsByAppIdStorageUploadInitializeBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】分片上传文件 - 上传分片</para>
+    /// <para>接口ID：7631245788191296470</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-storage/upload_part</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>根据`创建上传请求`接口返回的上传请求 ID 和分片策略上传对应的文件分片。全部上传完成后可调用`完成上传`接口完成文件分片上传。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.storage:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>对应分片文件的二进制内容，不限制文件格式，需要与`创建上传请求`接口中的文件 MIME 类型一致。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/storage/upload/part")]
+    System.Threading.Tasks.Task<FeishuResponse> PostSparkV1AppsByAppIdStorageUploadPartAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [FormDataContent] Miaoda.PostSparkV1AppsByAppIdStorageUploadPartBodyDto dto,
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】分片上传文件 - 完成上传</para>
+    /// <para>接口ID：7631245788191312854</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-storage/upload_complete</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>调用`上传分片`将分片全部上传完毕后，调用本接口触发完成上传。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.storage:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用 id，可从妙搭应用 URL 中获取，如 https://miaoda.feishu.cn/app/app_4jcn5n11bpf5v 中的 app_4jcn5n11bpf5v 即为 app_id</para>
+    /// <para>示例值：app_4jcn5n11bpf5v</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/storage/upload/complete")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdStorageUploadCompleteResponseDto>> PostSparkV1AppsByAppIdStorageUploadCompleteAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PostSparkV1AppsByAppIdStorageUploadCompleteBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 
