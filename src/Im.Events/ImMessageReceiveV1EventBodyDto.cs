@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="ImMessageReceiveV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -41,7 +41,7 @@ public record ImMessageReceiveV1EventBodyDto() : EventBodyDto("im.message.receiv
         public UserIdSuffix? SenderId { get; set; }
 
         /// <summary>
-        /// <para>消息发送者类型。目前只支持用户(user)发送的消息。</para>
+        /// <para>消息发送者类型。"user"（用户）或"bot"（机器人）</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("sender_type")]
@@ -165,6 +165,13 @@ public record ImMessageReceiveV1EventBodyDto() : EventBodyDto("im.message.receiv
             /// </summary>
             [JsonPropertyName("id")]
             public UserIdSuffix? Id { get; set; }
+
+            /// <summary>
+            /// <para>被at者身份，user（用户）或bot（机器人）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("mentioned_type")]
+            public string? MentionedType { get; set; }
 
             /// <summary>
             /// <para>被提及用户姓名</para>

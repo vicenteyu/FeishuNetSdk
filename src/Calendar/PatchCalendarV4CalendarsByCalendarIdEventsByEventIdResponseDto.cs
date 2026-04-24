@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-08
+// Last Modified On : 2026-04-25
 // ************************************************************************
 // <copyright file="PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -21,7 +21,6 @@ namespace FeishuNetSdk.Calendar;
 /// <para>## 使用限制</para>
 /// <para>- 当前身份为日程组织者时，可修改该接口内的所有可编辑字段。</para>
 /// <para>- 当前身份为日程参与者时，仅可编辑部分字段（包括 visibility、free_busy_status、color、reminders）。</para>
-/// <para>- 重复日程如果存在例外日程，则可以通过该接口更新例外日程。如果重复日程没有例外日程，则无法通过该接口更新重复日程中的某一个日程。</para>
 /// <para>接口ID：6952888507003043867</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/calendar-v4/calendar-event/patch</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcalendar-v4%2fcalendar-event%2fpatch</para>
@@ -123,12 +122,12 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("vchat")]
-        public CalendarEventVchat? Vchat { get; set; }
+        public VchatSuffix? Vchat { get; set; }
 
         /// <summary>
         /// <para>视频会议信息。</para>
         /// </summary>
-        public record CalendarEventVchat
+        public record VchatSuffix
         {
             /// <summary>
             /// <para>视频会议类型，可以为空，表示在首次添加日程参与人时，会自动生成飞书视频会议 URL。</para>
@@ -183,12 +182,12 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("meeting_settings")]
-            public CalendarEventVchatMeetingSettings? MeetingSettings { get; set; }
+            public MeetingSettingsSuffix? MeetingSettings { get; set; }
 
             /// <summary>
             /// <para>飞书视频会议（VC）的会前设置。</para>
             /// </summary>
-            public record CalendarEventVchatMeetingSettings
+            public record MeetingSettingsSuffix
             {
                 /// <summary>
                 /// <para>会议 owner 的用户 ID 信息。</para>
@@ -332,7 +331,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：1.100000023841858</para>
             /// </summary>
             [JsonPropertyName("latitude")]
-            public float? Latitude { get; set; }
+            public double? Latitude { get; set; }
 
             /// <summary>
             /// <para>地点坐标经度信息。</para>
@@ -342,7 +341,7 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
             /// <para>示例值：2.200000047683716</para>
             /// </summary>
             [JsonPropertyName("longitude")]
-            public float? Longitude { get; set; }
+            public double? Longitude { get; set; }
         }
 
         /// <summary>
@@ -484,12 +483,12 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("event_organizer")]
-        public CalendarEventEventOrganizer? EventOrganizer { get; set; }
+        public EventOrganizerSuffix? EventOrganizer { get; set; }
 
         /// <summary>
         /// <para>日程组织者信息。</para>
         /// </summary>
-        public record CalendarEventEventOrganizer
+        public record EventOrganizerSuffix
         {
             /// <summary>
             /// <para>日程组织者 user ID。</para>
@@ -566,12 +565,12 @@ public record PatchCalendarV4CalendarsByCalendarIdEventsByEventIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("event_check_in")]
-        public CalendarEventEventCheckIn? EventCheckIn { get; set; }
+        public EventCheckInSuffix? EventCheckIn { get; set; }
 
         /// <summary>
         /// <para>日程签到设置。</para>
         /// </summary>
-        public record CalendarEventEventCheckIn
+        public record EventCheckInSuffix
         {
             /// <summary>
             /// <para>是否启用日程签到。</para>
