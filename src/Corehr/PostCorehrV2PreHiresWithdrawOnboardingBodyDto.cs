@@ -4,7 +4,7 @@
 // Created          : 2024-12-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresWithdrawOnboardingBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,7 +32,7 @@ public record PostCorehrV2PreHiresWithdrawOnboardingBodyDto
     /// <summary>
     /// <para>撤销原因，上限为500字</para>
     /// <para>必填：是</para>
-    /// <para>示例值：withdraw reason</para>
+    /// <para>示例值：候选人主动放弃入职</para>
     /// </summary>
     [JsonPropertyName("withdraw_reason")]
     public string WithdrawReason { get; set; } = string.Empty;

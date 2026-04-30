@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -314,7 +314,7 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
         public string? CostCenterId { get; set; }
 
         /// <summary>
-        /// <para>创建时间</para>
+        /// <para>创建时间(版本创建时间)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -346,7 +346,7 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
         public string? UpdatedBy { get; set; }
 
         /// <summary>
-        /// <para>记录创建时间</para>
+        /// <para>记录创建时间(第一个版本的创建时间)</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>

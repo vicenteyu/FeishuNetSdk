@@ -4,7 +4,7 @@
 // Created          : 2026-03-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-01
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2LocationsQueryMultiTimelineBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -53,7 +53,20 @@ public record PostCorehrV2LocationsQueryMultiTimelineBodyDto
     public string? EndDate { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表，可选["location_name", "code", "active", "parent_location", "description", "effective_date", "expiration_date", "location_usage", "working_hours_type", "locale", "time_zone", "display_language", "address"]</para>
+    /// <para>返回数据的字段列表，可选值</para>
+    /// <para>- location_name：地点名称</para>
+    /// <para>- code：编码</para>
+    /// <para>- active ：是否启用</para>
+    /// <para>- parent_location：上级地点</para>
+    /// <para>- description：描述</para>
+    /// <para>- effective_date：当前版本生效日期</para>
+    /// <para>- expiration_date：当前版本失效日期</para>
+    /// <para>- location_usage：地点用途</para>
+    /// <para>- working_hours_type：工时制度</para>
+    /// <para>- locale：区域设置</para>
+    /// <para>- time_zone：时区</para>
+    /// <para>- display_language：默认语言</para>
+    /// <para>- address：地址</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：0</para>

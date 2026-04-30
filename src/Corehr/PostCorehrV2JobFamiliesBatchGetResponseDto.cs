@@ -4,12 +4,12 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-31
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2JobFamiliesBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>通过序列 ID 批量获取序列信息 响应体</summary>
+// <summary>根据条件批量获取序列信息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -102,7 +102,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public string[]? PathwayIds { get; set; }
 
         /// <summary>
-        /// <para>生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>当前版本生效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>必填：是</para>
         /// <para>示例值：2020-05-01 00:00:00</para>
         /// </summary>
@@ -110,7 +110,7 @@ public record PostCorehrV2JobFamiliesBatchGetResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
+        /// <para>当前版本失效时间，返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>必填：否</para>
         /// <para>示例值：2020-05-02 00:00:00</para>
         /// </summary>

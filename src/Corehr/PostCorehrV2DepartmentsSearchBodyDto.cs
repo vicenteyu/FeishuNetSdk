@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -103,11 +103,11 @@ public record PostCorehrV2DepartmentsSearchBodyDto
     /// <para>- custom_fields：自定义字段</para>
     /// <para>- staffing_model：岗职务模式</para>
     /// <para>- cost_center_id：部门默认成本中心</para>
-    /// <para>- created_time：创建时间</para>
+    /// <para>- created_time：创建时间(版本创建时间)</para>
     /// <para>- updated_time：更新时间</para>
     /// <para>- created_by：创建人</para>
     /// <para>- updated_by：更新人</para>
-    /// <para>- record_created_time：记录创建时间</para>
+    /// <para>- record_created_time：记录创建时间(第一个版本的创建时间)</para>
     /// <para>- record_updated_time：记录更新时间</para>
     /// <para>- record_created_by：记录创建人</para>
     /// <para>- record_updated_by：记录更新人</para>

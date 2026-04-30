@@ -4,7 +4,7 @@
 // Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCompensationV1LumpSumPaymentQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -249,7 +249,7 @@ public record PostCompensationV1LumpSumPaymentQueryResponseDto : IPageableRespon
         public string? ModifyTime { get; set; }
 
         /// <summary>
-        /// <para>所属期开始日期</para>
+        /// <para>一次性支付记录记录所属期开始日期</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024-08-01</para>
         /// <para>最大长度：255</para>
@@ -259,7 +259,7 @@ public record PostCompensationV1LumpSumPaymentQueryResponseDto : IPageableRespon
         public string? ReferencePeriodStartDate { get; set; }
 
         /// <summary>
-        /// <para>所属期结束日期</para>
+        /// <para>一次性支付记录记录所属期结束日期</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024-08-01</para>
         /// <para>最大长度：255</para>
@@ -419,6 +419,36 @@ public record PostCompensationV1LumpSumPaymentQueryResponseDto : IPageableRespon
             /// </summary>
             [JsonPropertyName("issuance_pay_group_id")]
             public string? IssuancePayGroupId { get; set; }
+
+            /// <summary>
+            /// <para>一次性支付明细所属期开始日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2024-08-01</para>
+            /// <para>最大长度：255</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("detail_reference_period_start_date")]
+            public string? DetailReferencePeriodStartDate { get; set; }
+
+            /// <summary>
+            /// <para>一次性支付明细所属期结束日期</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：2024-08-01</para>
+            /// <para>最大长度：255</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("detail_reference_period_end_date")]
+            public string? DetailReferencePeriodEndDate { get; set; }
         }
+
+        /// <summary>
+        /// <para>绑定期带小数</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：12</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("binding_period_decimal")]
+        public string? BindingPeriodDecimal { get; set; }
     }
 }

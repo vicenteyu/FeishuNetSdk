@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-11
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsQueryMultiTimelineResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -159,7 +159,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto : IPageableRe
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>生效日期</para>
+        /// <para>版本生效日期</para>
         /// <para>- 返回格式：YYYY-MM-DD（最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01～9999-12-31</para>
         /// <para>必填：否</para>
@@ -254,7 +254,7 @@ public record PostCorehrV2DepartmentsQueryMultiTimelineResponseDto : IPageableRe
         }
 
         /// <summary>
-        /// <para>失效日期</para>
+        /// <para>版本失效日期</para>
         /// <para>- 返回格式：YYYY-MM-DD （最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01 ～9999-12-31</para>
         /// <para>必填：否</para>

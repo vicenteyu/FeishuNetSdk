@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-30
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="GetCorehrV1CompaniesByCompanyIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -160,7 +160,7 @@ public record GetCorehrV1CompaniesByCompanyIdResponseDto
             public string? EffectiveTime { get; set; }
 
             /// <summary>
-            /// <para>当前失效日期</para>
+            /// <para>当前版本失效日期</para>
             /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
             /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
             /// <para>必填：否</para>

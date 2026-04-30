@@ -4,12 +4,12 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>搜索待入职人员信息 响应体</summary>
+// <summary>搜索待入职信息 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -1278,14 +1278,6 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             public record Dependent
             {
                 /// <summary>
-                /// <para>家庭成员数据ID</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：123</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -1412,14 +1404,6 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             public record EmergencyContact
             {
                 /// <summary>
-                /// <para>紧急联系人ID</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：123</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
                 /// <para>姓名</para>
                 /// <para>必填：否</para>
                 /// </summary>
@@ -1461,14 +1445,6 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
                 /// </summary>
                 [JsonPropertyName("custom_fields")]
                 public CustomFieldData[]? CustomFields { get; set; }
-
-                /// <summary>
-                /// <para>主要联系人,若有多个联系人，只能有一个联系人的「is_primary」为true</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：true</para>
-                /// </summary>
-                [JsonPropertyName("is_primary")]
-                public bool? IsPrimary { get; set; }
             }
 
             /// <summary>
@@ -2644,6 +2620,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("reused_feishu_account_id")]
             public string? ReusedFeishuAccountId { get; set; }
+
+            /// <summary>
+            /// <para>工作国家/地区id ，详细信息可通过【国家/地区】接口获得</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6977976687350924123</para>
+            /// </summary>
+            [JsonPropertyName("work_country_id")]
+            public string? WorkCountryId { get; set; }
         }
 
         /// <summary>
@@ -2846,6 +2830,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("check_in_method")]
             public Enum? CheckInMethod { get; set; }
+
+            /// <summary>
+            /// <para>撤销原因：当流程状态为撤销时,在fields中传入onboarding_info.withdrawn_reason字段，可获取撤销原因</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：撤销原因</para>
+            /// </summary>
+            [JsonPropertyName("withdrawn_reason")]
+            public string? WithdrawnReason { get; set; }
         }
 
         /// <summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-25
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -18189,7 +18189,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>路径参数</para>
     /// <para>必填：是</para>
     /// <para>需要查询的公司ID。ID获取方式：</para>
-    /// <para>- 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回部门ID</para>
+    /// <para>- 调用[【创建公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/create)[【批量查询公司】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/company/list)等接口可以返回公司ID</para>
     /// <para>示例值：151515</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -27873,6 +27873,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>zh-CN：中文</item>
     /// <item>en-US：英文</item>
     /// <item>ja-JP：日文</item>
+    /// <item>zh-HK：繁体中文（中国香港）</item>
+    /// <item>zh-TW：繁体中文（中国台湾）</item>
+    /// <item>de-DE：德语</item>
+    /// <item>es-ES：西班牙语</item>
+    /// <item>fr-FR：法语</item>
+    /// <item>id-ID：印度尼西亚语</item>
+    /// <item>it-IT：意大利语</item>
+    /// <item>ko-KR：韩语</item>
+    /// <item>pt-BR：葡萄牙语</item>
+    /// <item>th-TH：泰语</item>
+    /// <item>vi-VN：越南语</item>
+    /// <item>ms-MY：马来语</item>
+    /// <item>ru-RU：俄语</item>
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
@@ -27893,6 +27906,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="nested_mutable_group">
+    /// <para>必填：否</para>
+    /// <para>返回完整的多维表格控件</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/approval/v4/instances/{instance_id}")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4InstancesByInstanceIdResponseDto>> GetApprovalV4InstancesByInstanceIdAsync(
@@ -27900,6 +27919,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? locale = null,
         [PathQuery] string? user_id = null,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? nested_mutable_group = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -28159,6 +28179,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>zh-CN：中文</item>
     /// <item>en-US：英文</item>
     /// <item>ja-JP：日文</item>
+    /// <item>zh-HK：繁体中文（中国香港）</item>
+    /// <item>zh-TW：繁体中文（中国台湾）</item>
+    /// <item>de-DE：德语</item>
+    /// <item>es-ES：西班牙语</item>
+    /// <item>fr-FR：法语</item>
+    /// <item>id-ID：印度尼西亚语</item>
+    /// <item>it-IT：意大利语</item>
+    /// <item>ko-KR：韩语</item>
+    /// <item>pt-BR：葡萄牙语</item>
+    /// <item>th-TH：泰语</item>
+    /// <item>vi-VN：越南语</item>
+    /// <item>ms-MY：马来语</item>
+    /// <item>ru-RU：俄语</item>
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
@@ -28180,6 +28213,24 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_id</para>
     /// </param>
+    /// <param name="with_option">
+    /// <para>必填：否</para>
+    /// <para>可选是否返回外部数据源和假勤控件选项</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// <para>用户id</para>
+    /// <para>示例值：ou_7a4aaac5650dc0b77e85e96e7476ff1d</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="nested_mutable_group">
+    /// <para>必填：否</para>
+    /// <para>是否返回完整的多维表格控件</para>
+    /// <para>示例值：true</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/approval/v4/approvals/{approval_code}")]
     System.Threading.Tasks.Task<FeishuResponse<Approval.GetApprovalV4ApprovalsByApprovalCodeResponseDto>> GetApprovalV4ApprovalsByApprovalCodeAsync(
@@ -28187,6 +28238,9 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? locale = null,
         [PathQuery] bool? with_admin_id = null,
         [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] bool? with_option = null,
+        [PathQuery] string? user_id = null,
+        [PathQuery] bool? nested_mutable_group = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -30938,7 +30992,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7160511371865014276</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/corehr-v1/pre_hire/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用指定数据创建一个待入职人员。</para>
+    /// <para>使用指定数据创建一个待入职人员信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:corehr</item>
     /// <item>corehr:pre_hire:write</item>
@@ -40120,6 +40174,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:pre_hire.onboarding_address:read</item>
     /// <item>corehr:pre_hire.seniority_adjust_information:read</item>
     /// <item>corehr:pre_hire.suspected_rehiring:read</item>
+    /// <item>corehr:pre_hire.withdrawn_reason:read</item>
     /// <item>corehr:pre_hire.working_calendar:read</item>
     /// </list></para>
     /// </summary>
@@ -48998,6 +49053,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>corehr:pre_hire.onboarding_address:read</item>
     /// <item>corehr:pre_hire.seniority_adjust_information:read</item>
     /// <item>corehr:pre_hire.suspected_rehiring:read</item>
+    /// <item>corehr:pre_hire.withdrawn_reason:read</item>
     /// <item>corehr:pre_hire.working_calendar:read</item>
     /// </list></para>
     /// </summary>
@@ -58598,9 +58654,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/im/messages/reactions/batch_query")]
-    System.Threading.Tasks.Task<FeishuResponse<Im.PostImMessagesReactionsBatchQueryResponseDto>> PostImMessagesReactionsBatchQueryAsync(
-        [JsonContent] Im.PostImMessagesReactionsBatchQueryBodyDto dto,
+    [HttpPost("/open-apis/im/v1/messages/reactions/batch_query")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesReactionsBatchQueryResponseDto>> PostImV1MessagesReactionsBatchQueryAsync(
+        [JsonContent] Im.PostImV1MessagesReactionsBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 }

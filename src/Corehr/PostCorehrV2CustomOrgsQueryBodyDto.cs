@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-25
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2CustomOrgsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -31,15 +31,15 @@ public record PostCorehrV2CustomOrgsQueryBodyDto
 
     /// <summary>
     /// <para>需要返回的字段列表。字段可填写的列表如下：</para>
-    /// <para>- names</para>
-    /// <para>- code</para>
-    /// <para>- parent_id</para>
-    /// <para>- manager_ids</para>
-    /// <para>- description</para>
-    /// <para>- effective_time</para>
-    /// <para>- org_roles</para>
-    /// <para>- active</para>
-    /// <para>- org_id</para>
+    /// <para>- names： 组织名称</para>
+    /// <para>- code：编码</para>
+    /// <para>- parent_id：上级自定义组织 ID</para>
+    /// <para>- manager_ids：负责人 ID 列表</para>
+    /// <para>- description：自定义组织描述</para>
+    /// <para>- effective_time：当前版本生效日期</para>
+    /// <para>- org_roles：组织角色列表</para>
+    /// <para>- active：自定义组织是否启用</para>
+    /// <para>- org_id：自定义组织 ID</para>
     /// <para>- custom_fields(自定义字段，需传入具体的"custom_api_name")</para>
     /// <para>详细见[获取自定义字段列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/query) ,比如:"shifouleixing_7795__c"</para>
     /// <para>必填：否</para>

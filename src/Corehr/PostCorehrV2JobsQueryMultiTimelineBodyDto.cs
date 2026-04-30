@@ -4,7 +4,7 @@
 // Created          : 2025-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-01
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2JobsQueryMultiTimelineBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -56,7 +56,19 @@ public record PostCorehrV2JobsQueryMultiTimelineBodyDto
     public string? EndDate { get; set; }
 
     /// <summary>
-    /// <para>返回数据的字段列表，可选["job_name", "code", "active", "parent_job", "description", "effective_date", "expiration_date", "job_title", "job_family","job_level", "pathway","working_hours_type"]</para>
+    /// <para>返回数据的字段列表，可选</para>
+    /// <para>- job_name：职务名称</para>
+    /// <para>- code：编码</para>
+    /// <para>- active：是否启用</para>
+    /// <para>- parent_job：（该字段无效，请忽略）</para>
+    /// <para>- description：描述</para>
+    /// <para>- effective_date：当前版本生效日期</para>
+    /// <para>- expiration_date：当前版本失效日期</para>
+    /// <para>- job_title：职务头衔</para>
+    /// <para>- job_family：序列</para>
+    /// <para>- job_level：职级</para>
+    /// <para>- pathway：通道</para>
+    /// <para>- working_hours_type：工时制度</para>
     /// <para>注意事项：</para>
     /// <para>- 为空时只能查询到ID</para>
     /// <para>必填：否</para>

@@ -4,7 +4,7 @@
 // Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2PositionsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,7 +33,7 @@ public record PostCorehrV2PositionsQueryBodyDto
     public string[]? DepartmentIds { get; set; }
 
     /// <summary>
-    /// <para>生效日期，格式是 YYYY-MM-DD</para>
+    /// <para>版本生效日期，格式是 YYYY-MM-DD</para>
     /// <para>必填：否</para>
     /// <para>示例值：2020-01-01</para>
     /// <para>最大长度：10</para>

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="Test_PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -443,9 +443,9 @@ public class Test_PatchCorehrV2PreHiresByPreHireIdBodyDto : TestBase
         "job_level_id": "6977971894960145950",
         "job_grade_id": "6738317738688661772",
         "employee_type_id": "6977973225846343171",
-        "employee_subtype_id": "xxx",
+        "employee_subtype_id": "6150309523419405950",
         "direct_leader_id": "7032210902531327521",
-        "dotted_line_manager_id": "xxx",
+        "dotted_line_manager_id": "6829541172930572684",
         "department_id": "7147562782945478177",
         "social_security_city": "6977976687350924833",
         "work_location_id": "6977976687350924833",

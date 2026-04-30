@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -419,7 +419,6 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                     ],
                     "dependent_list": [
                         {
-                            "id": "123",
                             "name": {
                                 "local_primary": "黄",
                                 "local_first_name": "四",
@@ -638,7 +637,6 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                     ],
                     "emergency_contact_list": [
                         {
-                            "id": "123",
                             "name": {
                                 "local_primary": "黄",
                                 "local_first_name": "四",
@@ -787,8 +785,7 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                     "type": 1,
                                     "value": "\"231\""
                                 }
-                            ],
-                            "is_primary": true
+                            ]
                         }
                     ],
                     "date_entered_workforce": "2020-10-01",
@@ -1285,7 +1282,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                         ]
                     },
                     "reuse_feishu_account": "reuse",
-                    "reused_feishu_account_id": "6738317738688661772"
+                    "reused_feishu_account_id": "6738317738688661772",
+                    "work_country_id": "6977976687350924123"
                 },
                 "onboarding_info": {
                     "offer_id": "7032210902531327521",
@@ -1374,7 +1372,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                 "value": "中文示例"
                             }
                         ]
-                    }
+                    },
+                    "withdrawn_reason": "撤销原因"
                 },
                 "probation_info": {
                     "probation_start_date": "2022-07-29",
