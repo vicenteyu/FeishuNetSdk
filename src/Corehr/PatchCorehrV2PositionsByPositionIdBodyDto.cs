@@ -4,7 +4,7 @@
 // Created          : 2025-10-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-11
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PatchCorehrV2PositionsByPositionIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -174,7 +174,7 @@ public record PatchCorehrV2PositionsByPositionIdBodyDto
     public bool? IsKeyPosition { get; set; }
 
     /// <summary>
-    /// <para>生效日期</para>
+    /// <para>版本生效日期</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-05-01</para>
     /// </summary>

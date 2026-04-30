@@ -1383,8 +1383,8 @@
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCommentsByCommentIdReplies</td></tr>
 <tr><td rowspan="2">692</td><td rowspan="2">2026-04-09</td><td>&#10003;</td><td>云文档</td><td>添加/取消表情回应</td></tr>
 <tr><td colspan="3">PostDriveV2FilesByFileTokenCommentsReaction</td></tr>
-<tr><td rowspan="2">693</td><td rowspan="2">2026-04-10</td><td>&#10003;</td><td>消息与群组</td><td>批量获取消息表情回复</td></tr>
-<tr><td colspan="3">PostImMessagesReactionsBatchQuery</td></tr>
+<tr><td rowspan="2">693</td><td rowspan="2">2026-04-29</td><td>&#10003;</td><td>消息与群组</td><td>批量获取消息表情回复</td></tr>
+<tr><td colspan="3">PostImV1MessagesReactionsBatchQuery</td></tr>
 <tr><td rowspan="2">694</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>查询会话下邮件信息</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdMessages</td></tr>
 <tr><td rowspan="2">695</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件详情</td></tr>
@@ -1437,10 +1437,12 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdTrash</td></tr>
 <tr><td rowspan="2">719</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取邮件会话详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadId</td></tr>
-<tr><td rowspan="2">720</td><td rowspan="2">2026-04-23</td><td>新增</td><td>飞书妙搭</td><td>分片上传文件 - 创建上传请求</td></tr>
+<tr><td rowspan="2">720</td><td rowspan="2">2026-04-23</td><td>&#10003;</td><td>飞书妙搭</td><td>分片上传文件 - 创建上传请求</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdStorageUploadInitialize</td></tr>
-<tr><td rowspan="2">721</td><td rowspan="2">2026-04-23</td><td>新增</td><td>飞书妙搭</td><td>分片上传文件 - 上传分片</td></tr>
+<tr><td rowspan="2">721</td><td rowspan="2">2026-04-23</td><td>&#10003;</td><td>飞书妙搭</td><td>分片上传文件 - 上传分片</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdStorageUploadPart</td></tr>
-<tr><td rowspan="2">722</td><td rowspan="2">2026-04-23</td><td>新增</td><td>飞书妙搭</td><td>分片上传文件 - 完成上传</td></tr>
+<tr><td rowspan="2">722</td><td rowspan="2">2026-04-23</td><td>&#10003;</td><td>飞书妙搭</td><td>分片上传文件 - 完成上传</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdStorageUploadComplete</td></tr>
+<tr><td rowspan="2">723</td><td rowspan="2">2026-04-29</td><td>新增</td><td>妙记</td><td>搜索妙记</td></tr>
+<tr><td colspan="3">PostMinutesV1MinutesSearch</td></tr>
 </tbody></table>

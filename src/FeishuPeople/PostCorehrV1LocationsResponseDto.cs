@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-08
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV1LocationsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record PostCorehrV1LocationsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("location")]
-    public PostCorehrV1LocationsResponseDtoLocation? Location { get; set; }
+    public LocationSuffix? Location { get; set; }
 
     /// <summary>
     /// <para>4718803945687580505</para>
     /// </summary>
-    public record PostCorehrV1LocationsResponseDtoLocation
+    public record LocationSuffix
     {
         /// <summary>
         /// <para>实体在CoreHR内部的唯一键</para>
@@ -46,12 +46,12 @@ public record PostCorehrV1LocationsResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
-        public PostCorehrV1LocationsResponseDtoLocationHiberarchyCommon HiberarchyCommon { get; set; } = new();
+        public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
         /// <summary>
         /// <para>地点基本信息，该结构维护了地点的名称、编码、启用状态、上级地点 等基础信息。</para>
         /// </summary>
-        public record PostCorehrV1LocationsResponseDtoLocationHiberarchyCommon
+        public record HiberarchyCommonSuffix
         {
             /// <summary>
             /// <para>上级地点，在创建场景下， 该字段必填，枚举值及详细信息可通过[【查询地点列表】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)接口查询获得</para>
@@ -601,7 +601,7 @@ public record PostCorehrV1LocationsResponseDto
         public string? WorkingHoursTypeId { get; set; }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>版本生效时间</para>
         /// <para>- 填写格式： YY-MM-DD 00:00:00</para>
         /// <para>- 生效时间， 系统默认为填写日期当天的 00:00:00 生效</para>
         /// <para>必填：是</para>
@@ -611,7 +611,7 @@ public record PostCorehrV1LocationsResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>版本失效时间</para>
         /// <para>- 填写格式： YYYY-MM-DD 00:00:00</para>
         /// <para>- 本次编辑的记录版本失效的时间， 如果用户在本次操作的生效日期之后修改了地点信息，则系统会将下一次操作的日期作为当前记录的失效时间。</para>
         /// <para>- 系统默认为填写日期当天的 00:00:00 失效</para>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="GetApprovalV4ApprovalsByApprovalCodeResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -217,4 +217,12 @@ public record GetApprovalV4ApprovalsByApprovalCodeResponseDto
     /// </summary>
     [JsonPropertyName("approval_admin_ids")]
     public string[]? ApprovalAdminIds { get; set; }
+
+    /// <summary>
+    /// <para>组件之间值关联关系</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：{\"groups\":[{\"id\":\"1\",\"parent_widgets_ids\":[\"widget1\",\"widget4\"],\"children_widget_ids\":[\"widget2.widget3\"],\"conditions\":[{\"parents_expr\":{\"type\":\"Multi\",\"expr\":{\"type\":\"and\",\"exprs\":[{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget1\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_0\"},{\"value\":\"value_1\"}]}}},{\"type\":\"Const\",\"expr\":{\"value\":true,\"widget_ids\":[\"widget4\"]}}]}},\"children_rule\":{\"expr\":{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget2.widget3\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_5\"}]}}},\"actions\":[{\"type\":\"SetOptions\",\"widget_id\":\"widget2.widget3\",\"value\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_4\"}]}}]}}]}]}</para>
+    /// </summary>
+    [JsonPropertyName("form_widget_relation")]
+    public string? FormWidgetRelation { get; set; }
 }

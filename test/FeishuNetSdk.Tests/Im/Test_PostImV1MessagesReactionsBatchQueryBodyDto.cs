@@ -4,9 +4,9 @@
 // Created          : 2026-04-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-11
+// Last Modified On : 2026-05-01
 // ************************************************************************
-// <copyright file="Test_PostImMessagesReactionsBatchQueryBodyDto.cs" company="Vicente Yu">
+// <copyright file="Test_PostImV1MessagesReactionsBatchQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
 // <summary>测试 批量获取消息表情回复 请求体</summary>
@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Tests.Im;
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage-reaction%2fbatch_query</para>
 /// </summary>
 [TestClass]
-public class Test_PostImMessagesReactionsBatchQueryBodyDto : TestBase
+public class Test_PostImV1MessagesReactionsBatchQueryBodyDto : TestBase
 {
     [TestMethod]
     public void TestDto()
@@ -37,7 +37,7 @@ public class Test_PostImMessagesReactionsBatchQueryBodyDto : TestBase
     "reaction_type": "LAUGH"
 }
 """;
-        var result = Deserialize<FeishuNetSdk.Im.PostImMessagesReactionsBatchQueryBodyDto>(json);
+        var result = Deserialize<FeishuNetSdk.Im.PostImV1MessagesReactionsBatchQueryBodyDto>(json);
         Assert.IsNotNull(result);
     }
 }

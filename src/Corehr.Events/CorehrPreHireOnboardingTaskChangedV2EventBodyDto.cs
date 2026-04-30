@@ -4,7 +4,7 @@
 // Created          : 2024-09-20
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-19
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="CorehrPreHireOnboardingTaskChangedV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -109,12 +109,12 @@ public record CorehrPreHireOnboardingTaskChangedV2EventBodyDto() : EventBodyDto(
         /// <summary>
         /// <para>入职流程状态变更</para>
         /// <para>**可选值有**：</para>
-        /// <para>not_started:未开始,in_progress:进行中,completed:已完成（完成入职）,withdrawn:已撤销（撤销待入职）,others:其他(异常情况),expired:已失效(回退至Offer沟通阶段)</para>
+        /// <para>not_started:未开始,in_progress:进行中,completed:已完成（所有任务节点均已完成）,withdrawn:已撤销（撤销待入职）,others:其他(异常情况),expired:已失效(回退至Offer沟通阶段)</para>
         /// <para>必填：否</para>
         /// <para>可选值：<list type="bullet">
         /// <item>not_started：未开始</item>
         /// <item>in_progress：进行中</item>
-        /// <item>completed：已完成（完成入职）</item>
+        /// <item>completed：已完成（所有任务节点均已完成）</item>
         /// <item>withdrawn：已撤销（撤销待入职）</item>
         /// <item>others：其他(异常情况)</item>
         /// <item>expired：已失效(回退至Offer沟通阶段)</item>

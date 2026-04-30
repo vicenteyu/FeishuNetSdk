@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PreHiresBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,7 +40,7 @@ public class Test_PostCorehrV2PreHiresBodyDto : TestBase
         "phone_number": "138xxxx1234",
         "international_area_code": "86_china",
         "email": "xxxx@bytedance.com",
-        "date_of_birth": "2011-99-99",
+        "date_of_birth": "2011-09-09",
         "personal_id_number": "311xxxx23127",
         "date_entered_workforce": "2100-09-09",
         "gender_id": "male",

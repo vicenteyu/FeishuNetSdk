@@ -4,7 +4,7 @@
 // Created          : 2025-10-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-18
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCorehrV2PositionsActiveBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,7 +38,7 @@ public record PostCorehrV2PositionsActiveBodyDto
     public bool Active { get; set; }
 
     /// <summary>
-    /// <para>生效时间</para>
+    /// <para>版本生效时间</para>
     /// <para>必填：是</para>
     /// <para>示例值：2020-01-01</para>
     /// <para>最大长度：10</para>

@@ -4,12 +4,12 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PatchCorehrV2PreHiresByPreHireIdBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>更新待入职信息（推荐） 请求体</summary>
+// <summary>更新待入职信息 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -965,7 +965,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? PositionId { get; set; }
 
         /// <summary>
-        /// <para>试用期时长</para>
+        /// <para>试用期时长（单位：月）</para>
         /// <para>必填：否</para>
         /// <para>示例值：6</para>
         /// </summary>
@@ -1157,7 +1157,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <summary>
         /// <para>人员子类型</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：6150309523419405950</para>
         /// </summary>
         [JsonPropertyName("employee_subtype_id")]
         public string? EmployeeSubtypeId { get; set; }
@@ -1174,7 +1174,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         /// <para>虚线上级，可以通过[搜索员工信息](https://open.feishu.cn/document/server-docs/corehr-v1/employee/search)接口获取详情</para>
         /// <para>- 功能灰度中，如有需求请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xxx</para>
+        /// <para>示例值：6829541172930572684</para>
         /// </summary>
         [JsonPropertyName("dotted_line_manager_id")]
         public string? DottedLineManagerId { get; set; }
@@ -1951,7 +1951,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public string? CostCenterId { get; set; }
 
         /// <summary>
-        /// <para>分摊比例(整数)</para>
+        /// <para>分摊比例（%），大于0小于等于100的正整数</para>
         /// <para>必填：否</para>
         /// <para>示例值：100</para>
         /// </summary>
@@ -1959,7 +1959,7 @@ public record PatchCorehrV2PreHiresByPreHireIdBodyDto
         public int? Rate { get; set; }
 
         /// <summary>
-        /// <para>分摊比例</para>
+        /// <para>分摊比例（%）</para>
         /// <para>必填：否</para>
         /// <para>示例值：50.2</para>
         /// </summary>

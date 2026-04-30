@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="Test_GetApprovalV4ApprovalsByApprovalCodeResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -45,7 +45,7 @@ public class Test_GetApprovalV4ApprovalsByApprovalCodeResponseDto : TestBase
                     {
                         "approver_range_type": 2,
                         "approver_range_ids": [
-                            "ou_e03053f0541cecc3269d7a9dc34a0b21"
+                            "0"
                         ]
                     }
                 ],
@@ -61,7 +61,8 @@ public class Test_GetApprovalV4ApprovalsByApprovalCodeResponseDto : TestBase
         ],
         "approval_admin_ids": [
             "ou_3cda9c969f737aaa05e6915dce306cb9"
-        ]
+        ],
+        "form_widget_relation": "{\"groups\":[{\"id\":\"1\",\"parent_widgets_ids\":[\"widget1\",\"widget4\"],\"children_widget_ids\":[\"widget2.widget3\"],\"conditions\":[{\"parents_expr\":{\"type\":\"Multi\",\"expr\":{\"type\":\"and\",\"exprs\":[{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget1\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_0\"},{\"value\":\"value_1\"}]}}},{\"type\":\"Const\",\"expr\":{\"value\":true,\"widget_ids\":[\"widget4\"]}}]}},\"children_rule\":{\"expr\":{\"type\":\"SingleWidget\",\"expr\":{\"type\":\"in\",\"widget_id\":\"widget2.widget3\",\"expect\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_5\"}]}}},\"actions\":[{\"type\":\"SetOptions\",\"widget_id\":\"widget2.widget3\",\"value\":{\"type\":\"local\",\"value\":[{\"value\":\"value_3\"},{\"value\":\"value_4\"}]}}]}}]}]}"
     }
 }
 """;

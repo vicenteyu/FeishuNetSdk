@@ -4,7 +4,7 @@
 // Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="Test_PostCompensationV1LumpSumPaymentQueryDetailResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -46,7 +46,9 @@ public class Test_PostCompensationV1LumpSumPaymentQueryDetailResponseDto : TestB
                 "create_time": "2024-08-01 12:34:56",
                 "modify_time": "2024-08-01 12:34:56",
                 "issuance_country_region_id": "6862995757234914824",
-                "issuance_pay_group_id": "6862995757234914824"
+                "issuance_pay_group_id": "6862995757234914824",
+                "detail_reference_period_start_date": "2024-08-01",
+                "detail_reference_period_end_date": "2024-08-01"
             }
         ]
     }

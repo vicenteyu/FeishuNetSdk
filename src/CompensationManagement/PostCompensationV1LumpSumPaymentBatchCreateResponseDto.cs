@@ -4,7 +4,7 @@
 // Created          : 2025-08-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-22
+// Last Modified On : 2026-05-01
 // ************************************************************************
 // <copyright file="PostCompensationV1LumpSumPaymentBatchCreateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -88,6 +88,10 @@ public record PostCompensationV1LumpSumPaymentBatchCreateResponseDto
         /// <item>21270228："This bonus does not currently support custom binding periods. Please configure and write according to the rules for the binding period of the salary item" 该奖金暂不支持自定义绑定期，请按照薪酬项绑定期规则配置写入</item>
         /// <item>21270229："The application issuance date must not be later than the issuance date" 申请发放日期不得晚于发放日期</item>
         /// <item>21270230："The application payment date format of the bonus details is incorrect" 奖金明细的申请发放日期格式不正确</item>
+        /// <item>21270070："The binding period and the ownership period start and end dates do not match" 绑定期和所属期开始结束日期不匹配</item>
+        /// <item>21270239："One time payment detail reference period start date and One time payment detail reference period end date shall be filled in or left blank at the same time. Please confirm" 「一次性支付明细所属期开始日期」、「一次性支付明细所属期结束日期」需同时填写或同时为空，请确认</item>
+        /// <item>21270240："One time payment detail reference period start date must be earlier than or equal to One time payment detail reference period end date. Please confirm" 「一次性支付明细所属期开始日期」需早于等于「一次性支付明细结束日期」，请确认</item>
+        /// <item>21270241："One time payment detail reference period must fall within the scope of One time payment record reference period. Please adjust" 「一次性支付明细所属期」需包含在「一次性支付记录所属期」范围内，请调整</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("code")]
