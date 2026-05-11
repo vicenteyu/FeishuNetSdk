@@ -4,7 +4,7 @@
 // Created          : 2025-02-21
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-21
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserFlowsBatchDelBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PostAttendanceV1UserFlowsBatchDelBodyDto
 {
     /// <summary>
-    /// <para>打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_task/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)</para>
+    /// <para>打卡流水记录 ID，获取方式：1）[批量查询打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 2）[获取打卡结果](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/query) 3）[导入打卡流水记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/attendance-v1/user_flow/batch_create)</para>
     /// <para>必填：是</para>
     /// <para>最大长度：10</para>
     /// <para>最小长度：1</para>

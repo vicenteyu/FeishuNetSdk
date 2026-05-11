@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -7225,6 +7225,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -7398,6 +7399,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -7441,6 +7443,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -7490,6 +7493,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -7617,6 +7621,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -13165,7 +13170,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7106040876741345308</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/batch_query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件 token 获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
+    /// <para>该接口用于根据文件 token （文件的唯一标识）获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive.metadata:readonly</item>
@@ -22924,9 +22929,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
-    /// <para>* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
-    /// <para>* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id) * `employee_id`：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID * `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -24813,7 +24816,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的user_id。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -28822,6 +28825,189 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮件模板</para>
+    /// <para>接口ID：7636620599011871695</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>永久删除指定用户邮箱下的某个个人邮件模板。删除操作不可恢复，删除后该模板将无法在「列出邮件模板」「获取邮件模板」等接口中再返回，常用于清理已废弃或不再使用的模板。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取模板附件下载链接</para>
+    /// <para>接口ID：7636620599011888079</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/download_url</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定邮件模板下的附件下载链接。用于在已知模板 ID 与附件 ID 的场景下，二次获取附件的有效访问 URL，便于在用户端预览或下载邮件模板中的附件资源。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="attachment_ids">
+    /// <para>必填：是</para>
+    /// <para>待获取下载链接的附件 ID 列表。可通过获取个人邮件模板详情接口返回的 attachments 字段中的 id 获取。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}/attachments/download_url")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAttachmentsDownloadUrlResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAttachmentsDownloadUrlAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        [PathQuery] string[] attachment_ids,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】更新邮件模板</para>
+    /// <para>接口ID：7636620599011904463</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>以全量替换的方式更新指定邮件模板的所有字段（包括名称、主题、正文、附件、收件信息等）。本接口为「全量更新」语义：请求时需传入完整的模板对象，未携带的字段将被清空。**调用依赖**：如仅修改部分字段，请先调用获取个人邮件模板详情接口拿到完整模板，在本地修改后再传回本接口，以避免漏传字段导致数据丢失。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdResponseDto>> PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮件模板</para>
+    /// <para>接口ID：7636620599011920847</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出指定用户邮箱下的全部个人邮件模板基本信息（一次性返回，不分页），常用于在编辑或发送邮件场景下展示可选模板列表。如需获取模板正文与附件等完整字段，请通过获取个人邮件模板详情接口按 `template_id` 查询。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件模板</para>
+    /// <para>接口ID：7636620599011937231</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定邮件模板的完整详情，包括模板名称、主题、正文（HTML 或纯文本）、收件人/抄送/密送地址、附件信息等所有字段。常用于编辑模板前回填表单，或在发送邮件场景下读取模板内容做二次填充。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】创建邮件模板</para>
+    /// <para>接口ID：7636620599011953615</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在指定用户邮箱下创建一份可复用的个人邮件模板。请求时需传入完整的模板对象（含名称、主题、正文、收件信息、附件等），创建成功后返回完整模板内容（含系统生成的 template_id），适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto>> PostMailV1UserMailboxesByUserMailboxIdTemplatesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

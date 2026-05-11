@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_PostAttendanceV1UserApprovalsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -70,7 +70,18 @@ public class Test_PostAttendanceV1UserApprovalsBodyDto : TestBase
                 },
                 "default_locale": "ch",
                 "reason": "家里有事",
-                "idempotent_id": "1233432312"
+                "idempotent_id": "1233432312",
+                "leave_detail_range_objs": [
+                    {
+                        "day": 20220501,
+                        "time_ranges": [
+                            {
+                                "start_time_stamp": 1751385600,
+                                "end_time_stamp": 1751385600
+                            }
+                        ]
+                    }
+                ]
             }
         ],
         "overtime_works": [

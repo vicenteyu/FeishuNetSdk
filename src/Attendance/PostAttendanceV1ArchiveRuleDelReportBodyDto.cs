@@ -4,7 +4,7 @@
 // Created          : 2024-08-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1ArchiveRuleDelReportBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,7 @@ public record PostAttendanceV1ArchiveRuleDelReportBodyDto
     public string Month { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>操作者ID，对应employee_type</para>
+    /// <para>操作者ID，corresponding to employee_type</para>
     /// <para>必填：是</para>
     /// <para>示例值：a111xd</para>
     /// </summary>

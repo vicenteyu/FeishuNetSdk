@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserStatsDatasQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -116,14 +116,14 @@ public record PostAttendanceV1UserStatsDatasQueryResponseDto
             public string? Title { get; set; }
 
             /// <summary>
-            /// <para>时长，这个字段是一个map，key位时间单位，value为对应的时长值</para>
+            /// <para>时长，这个字段是一个map，key为时间单位，value为对应的时长值</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("duration_num")]
             public UserStatsDataDuration? DurationNum { get; set; }
 
             /// <summary>
-            /// <para>时长，这个字段是一个map，key位时间单位，value为对应的时长值</para>
+            /// <para>时长，这个字段是一个map，key为时间单位，value为对应的时长值</para>
             /// </summary>
             public record UserStatsDataDuration
             {

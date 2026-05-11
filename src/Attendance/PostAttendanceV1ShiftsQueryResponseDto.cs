@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-13
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1ShiftsQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -296,7 +296,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     }
 
     /// <summary>
-    /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+    /// <para>日期类型，【是否弹性打卡 = true】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -323,12 +323,12 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("shift_middle_time_rule")]
-    public PostAttendanceV1ShiftsQueryResponseDtoShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+    public ShiftMiddleTimeRuleSuffix? ShiftMiddleTimeRule { get; set; }
 
     /// <summary>
     /// <para>半天分割规则</para>
     /// </summary>
-    public record PostAttendanceV1ShiftsQueryResponseDtoShiftMiddleTimeRule
+    public record ShiftMiddleTimeRuleSuffix
     {
         /// <summary>
         /// <para>半天分割类型</para>
@@ -359,12 +359,12 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("shift_attendance_time_config")]
-    public PostAttendanceV1ShiftsQueryResponseDtoShiftAttendanceTimeConfig? ShiftAttendanceTimeConfig { get; set; }
+    public ShiftAttendanceTimeConfigSuffix? ShiftAttendanceTimeConfig { get; set; }
 
     /// <summary>
     /// <para>应出勤配置</para>
     /// </summary>
-    public record PostAttendanceV1ShiftsQueryResponseDtoShiftAttendanceTimeConfig
+    public record ShiftAttendanceTimeConfigSuffix
     {
         /// <summary>
         /// <para>应出勤时长</para>
@@ -375,7 +375,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("attendance_time")]
-        public float? AttendanceTime { get; set; }
+        public double? AttendanceTime { get; set; }
 
         /// <summary>
         /// <para>上半天应出勤时长</para>
@@ -386,7 +386,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("on_attendance_time")]
-        public float? OnAttendanceTime { get; set; }
+        public double? OnAttendanceTime { get; set; }
 
         /// <summary>
         /// <para>下半天应出勤时长</para>
@@ -397,7 +397,7 @@ public record PostAttendanceV1ShiftsQueryResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("off_attendance_time")]
-        public float? OffAttendanceTime { get; set; }
+        public double? OffAttendanceTime { get; set; }
     }
 
     /// <summary>
@@ -405,12 +405,12 @@ public record PostAttendanceV1ShiftsQueryResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("late_off_late_on_setting")]
-    public PostAttendanceV1ShiftsQueryResponseDtoLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+    public LateOffLateOnSettingSuffix? LateOffLateOnSetting { get; set; }
 
     /// <summary>
     /// <para>晚走次日晚到配置规则</para>
     /// </summary>
-    public record PostAttendanceV1ShiftsQueryResponseDtoLateOffLateOnSetting
+    public record LateOffLateOnSettingSuffix
     {
         /// <summary>
         /// <para>当日晚走时间计算规则</para>

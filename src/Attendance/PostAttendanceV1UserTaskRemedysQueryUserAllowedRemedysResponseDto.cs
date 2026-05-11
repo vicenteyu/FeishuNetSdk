@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,7 +34,7 @@ public record PostAttendanceV1UserTaskRemedysQueryUserAllowedRemedysResponseDto
     public record UserAllowedRemedy
     {
         /// <summary>
-        /// <para>用户 ID，对应employe_type</para>
+        /// <para>用户 ID，对应employee_type</para>
         /// <para>必填：是</para>
         /// <para>示例值：abd754f7</para>
         /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserFlowsQueryBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,7 +38,7 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     public string[] UserIds { get; set; } = [];
 
     /// <summary>
-    /// <para>查询的起始时间，秒级时间戳</para>
+    /// <para>查询的起始时间(包含)，秒级时间戳。[check_time_from, check_time_to) 为左闭右开区间</para>
     /// <para>必填：是</para>
     /// <para>示例值：1566641088</para>
     /// </summary>
@@ -46,7 +46,7 @@ public record PostAttendanceV1UserFlowsQueryBodyDto
     public string CheckTimeFrom { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>查询的结束时间，秒级时间戳</para>
+    /// <para>查询的结束时间(不包含)，秒级时间戳。[check_time_from, check_time_to) 为左闭右开区间</para>
     /// <para>必填：是</para>
     /// <para>示例值：1566641088</para>
     /// </summary>

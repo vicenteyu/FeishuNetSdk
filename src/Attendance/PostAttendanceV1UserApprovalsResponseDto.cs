@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-21
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserApprovalsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 写入审批结果 响应体
 /// <para>由于部分企业使用的是自己的审批系统，而不是飞书审批系统，因此员工的请假、加班等数据无法流入到飞书考勤系统中，导致员工在请假时间段内依然收到打卡提醒，并且被记为缺卡。</para>
-/// <para>对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。</para>
+/// <para>对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。（请注意，如果在飞书审批、自助服务或假勤应用中发起加班，请勿使用该接口写入和系统同一天生成的加班数据，否则写入的数据不计入）</para>
 /// <para>接口ID：7108645368100274178</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/user_approval/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fuser_approval%2fcreate</para>
@@ -27,12 +27,12 @@ public record PostAttendanceV1UserApprovalsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user_approval")]
-    public PostAttendanceV1UserApprovalsResponseDtoUserApproval? UserApproval { get; set; }
+    public UserApprovalSuffix? UserApproval { get; set; }
 
     /// <summary>
     /// <para>审批信息</para>
     /// </summary>
-    public record PostAttendanceV1UserApprovalsResponseDtoUserApproval
+    public record UserApprovalSuffix
     {
         /// <summary>
         /// <para>审批提交人 ID</para>
@@ -122,37 +122,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("i18n_names")]
-            public UserOutI18nNames I18nNames { get; set; } = new();
-
-            /// <summary>
-            /// <para>外出多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语</para>
-            /// </summary>
-            public record UserOutI18nNames
-            {
-                /// <summary>
-                /// <para>中文描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：中文描述</para>
-                /// </summary>
-                [JsonPropertyName("ch")]
-                public string? Ch { get; set; }
-
-                /// <summary>
-                /// <para>英语描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：English description</para>
-                /// </summary>
-                [JsonPropertyName("en")]
-                public string? En { get; set; }
-
-                /// <summary>
-                /// <para>日语描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：日本語の説明</para>
-                /// </summary>
-                [JsonPropertyName("ja")]
-                public string? Ja { get; set; }
-            }
+            public I18nNamesSuffix I18nNames { get; set; } = new();
 
             /// <summary>
             /// <para>默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称</para>
@@ -288,37 +258,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("i18n_names")]
-            public UserLeaveI18nNames I18nNames { get; set; } = new();
-
-            /// <summary>
-            /// <para>假期多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语</para>
-            /// </summary>
-            public record UserLeaveI18nNames
-            {
-                /// <summary>
-                /// <para>中文描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：中文描述</para>
-                /// </summary>
-                [JsonPropertyName("ch")]
-                public string? Ch { get; set; }
-
-                /// <summary>
-                /// <para>英语描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：English description</para>
-                /// </summary>
-                [JsonPropertyName("en")]
-                public string? En { get; set; }
-
-                /// <summary>
-                /// <para>日语描述</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：日本語の説明</para>
-                /// </summary>
-                [JsonPropertyName("ja")]
-                public string? Ja { get; set; }
-            }
+            public I18nNamesSuffix I18nNames { get; set; } = new();
 
             /// <summary>
             /// <para>默认语言类型，由于飞书客户端支持中、英、日三种语言，当用户切换语言时，如果假期名称没有所对应的语言，会使用默认语言的名称</para>
@@ -364,6 +304,66 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// </summary>
             [JsonPropertyName("idempotent_id")]
             public string? IdempotentId { get; set; }
+
+            /// <summary>
+            /// <para>根据班次计算出来的请假具体时间，格式为list</para>
+            /// <para>必填：否</para>
+            /// <para>最大长度：30</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("leave_detail_range_objs")]
+            public TimeRangeList[]? LeaveDetailRangeObjs { get; set; }
+
+            /// <summary>
+            /// <para>根据班次计算出来的请假具体时间，格式为list</para>
+            /// </summary>
+            public record TimeRangeList
+            {
+                /// <summary>
+                /// <para>日期day</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：20220501</para>
+                /// <para>最大值：20990101</para>
+                /// <para>最小值：17000101</para>
+                /// </summary>
+                [JsonPropertyName("day")]
+                public int? Day { get; set; }
+
+                /// <summary>
+                /// <para>时间范围，是一个list</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：20</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("time_ranges")]
+                public TimeRange[]? TimeRanges { get; set; }
+
+                /// <summary>
+                /// <para>时间范围，是一个list</para>
+                /// </summary>
+                public record TimeRange
+                {
+                    /// <summary>
+                    /// <para>开始时间</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1751385600</para>
+                    /// <para>最大值：9223372036</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("start_time_stamp")]
+                    public int? StartTimeStamp { get; set; }
+
+                    /// <summary>
+                    /// <para>结束时间</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1751385600</para>
+                    /// <para>最大值：9223372036</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("end_time_stamp")]
+                    public int? EndTimeStamp { get; set; }
+                }
+            }
         }
 
         /// <summary>
@@ -392,7 +392,7 @@ public record PostAttendanceV1UserApprovalsResponseDto
             /// <para>示例值：1.5</para>
             /// </summary>
             [JsonPropertyName("duration")]
-            public float Duration { get; set; }
+            public double Duration { get; set; }
 
             /// <summary>
             /// <para>加班时长单位</para>
@@ -649,5 +649,35 @@ public record PostAttendanceV1UserApprovalsResponseDto
         /// </summary>
         [JsonPropertyName("time_zone")]
         public string? TimeZone { get; set; }
+
+        /// <summary>
+        /// <para>多语言展示，格式为 map，key 为 ["ch"、"en"、"ja"]，其中 ch 代表中文、en 代表英语、ja 代表日语</para>
+        /// </summary>
+        public record I18nNamesSuffix
+        {
+            /// <summary>
+            /// <para>中文描述</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：中文描述</para>
+            /// </summary>
+            [JsonPropertyName("ch")]
+            public string? Ch { get; set; }
+
+            /// <summary>
+            /// <para>英语描述</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：English description</para>
+            /// </summary>
+            [JsonPropertyName("en")]
+            public string? En { get; set; }
+
+            /// <summary>
+            /// <para>日语描述</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：日本語の説明</para>
+            /// </summary>
+            [JsonPropertyName("ja")]
+            public string? Ja { get; set; }
+        }
     }
 }

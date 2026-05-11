@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetAttendanceV1GroupsByGroupIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -96,7 +96,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     public bool? AllowOutPunch { get; set; }
 
     /// <summary>
-    /// <para>外勤打卡需审批（需要允许外勤打卡才能设置生效）</para>
+    /// <para>外勤打卡需审批，先审批后打卡（需要允许外勤打卡才能设置生效）</para>
     /// <para>必填：否</para>
     /// <para>示例值：true</para>
     /// </summary>
@@ -288,7 +288,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>* false：开启活体验证</para>
     /// <para>* true：动作验证，仅在 face_punch_cfg = 1 时有效</para>
     /// <para>必填：否</para>
-    /// <para>示例值：false</para>
+    /// <para>示例值：true</para>
     /// </summary>
     [JsonPropertyName("face_live_need_action")]
     public bool? FaceLiveNeedAction { get; set; }
@@ -346,7 +346,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public bool? CheckBuddyPunch { get; set; }
 
         /// <summary>
-        /// <para>是否校验疑似模拟 WI-FI 打卡</para>
+        /// <para>Whether to check the suspected analog Wi-Fi clock in</para>
         /// <para>必填：否</para>
         /// <para>示例值：true</para>
         /// </summary>
@@ -469,7 +469,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         /// <para>示例值：30.28994</para>
         /// </summary>
         [JsonPropertyName("latitude")]
-        public float? Latitude { get; set; }
+        public double? Latitude { get; set; }
 
         /// <summary>
         /// <para>地址经度</para>
@@ -477,10 +477,10 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         /// <para>示例值：120.04509</para>
         /// </summary>
         [JsonPropertyName("longitude")]
-        public float? Longitude { get; set; }
+        public double? Longitude { get; set; }
 
         /// <summary>
-        /// <para>Wi-Fi 名称</para>
+        /// <para>Wi-Fi</para>
         /// <para>必填：否</para>
         /// <para>示例值：TP-Link-af12ca</para>
         /// </summary>
@@ -488,7 +488,7 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         public string? Ssid { get; set; }
 
         /// <summary>
-        /// <para>Wi-Fi 的 MAC 地址</para>
+        /// <para>Wi-Fi</para>
         /// <para>必填：否</para>
         /// <para>示例值：08:00:20:0A:8C:6D</para>
         /// </summary>
@@ -556,12 +556,12 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("free_punch_cfg")]
-    public GetAttendanceV1GroupsByGroupIdResponseDtoFreePunchCfg? FreePunchCfg { get; set; }
+    public FreePunchCfgSuffix? FreePunchCfg { get; set; }
 
     /// <summary>
     /// <para>配置自由班制</para>
     /// </summary>
-    public record GetAttendanceV1GroupsByGroupIdResponseDtoFreePunchCfg
+    public record FreePunchCfgSuffix
     {
         /// <summary>
         /// <para>自由班制打卡开始时间</para>
@@ -610,6 +610,39 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
         /// </summary>
         [JsonPropertyName("work_hours")]
         public int? WorkHours { get; set; }
+
+        /// <summary>
+        /// <para>自由班制的打卡配置</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("free_clock_setting")]
+        public FreeClockSettingSuffix? FreeClockSetting { get; set; }
+
+        /// <summary>
+        /// <para>自由班制的打卡配置</para>
+        /// </summary>
+        public record FreeClockSettingSuffix
+        {
+            /// <summary>
+            /// <para>打卡模式</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>最大值：1000000</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("clock_mode")]
+            public int? ClockMode { get; set; }
+
+            /// <summary>
+            /// <para>最小打卡间隔</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：100</para>
+            /// <para>最大值：1000000</para>
+            /// <para>最小值：0</para>
+            /// </summary>
+            [JsonPropertyName("clock_internal_hhmm")]
+            public int? ClockInternalHhmm { get; set; }
+        }
     }
 
     /// <summary>
@@ -735,12 +768,12 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("member_status_change")]
-    public GetAttendanceV1GroupsByGroupIdResponseDtoMemberStatusChange? MemberStatusChange { get; set; }
+    public MemberStatusChangeSuffix? MemberStatusChange { get; set; }
 
     /// <summary>
     /// <para>人员异动打卡设置</para>
     /// </summary>
-    public record GetAttendanceV1GroupsByGroupIdResponseDtoMemberStatusChange
+    public record MemberStatusChangeSuffix
     {
         /// <summary>
         /// <para>是否入职日上班无需打卡</para>
@@ -788,12 +821,12 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("leave_need_punch_cfg")]
-    public GetAttendanceV1GroupsByGroupIdResponseDtoLeaveNeedPunchCfg? LeaveNeedPunchCfg { get; set; }
+    public LeaveNeedPunchCfgSuffix? LeaveNeedPunchCfg { get; set; }
 
     /// <summary>
     /// <para>请假离岗或返岗打卡规则，单位：分钟</para>
     /// </summary>
-    public record GetAttendanceV1GroupsByGroupIdResponseDtoLeaveNeedPunchCfg
+    public record LeaveNeedPunchCfgSuffix
     {
         /// <summary>
         /// <para>晚到超过多久记为迟到，单位：分钟</para>
@@ -850,52 +883,6 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// </summary>
     [JsonPropertyName("go_out_need_punch_cfg")]
     public LeaveNeedPunchCfgSuffix? GoOutNeedPunchCfg { get; set; }
-
-    /// <summary>
-    /// <para>外出期间打卡规则，单位：分钟</para>
-    /// </summary>
-    public record LeaveNeedPunchCfgSuffix
-    {
-        /// <summary>
-        /// <para>晚到超过多久记为迟到，单位：分钟</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// </summary>
-        [JsonPropertyName("late_minutes_as_late")]
-        public int? LateMinutesAsLate { get; set; }
-
-        /// <summary>
-        /// <para>晚到超过多久记为缺卡，单位：分钟</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// </summary>
-        [JsonPropertyName("late_minutes_as_lack")]
-        public int? LateMinutesAsLack { get; set; }
-
-        /// <summary>
-        /// <para>早走超过多久记为早退，单位：分钟</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// </summary>
-        [JsonPropertyName("early_minutes_as_early")]
-        public int? EarlyMinutesAsEarly { get; set; }
-
-        /// <summary>
-        /// <para>早走超过多久记为缺卡，单位：分钟</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：0</para>
-        /// </summary>
-        [JsonPropertyName("early_minutes_as_lack")]
-        public int? EarlyMinutesAsLack { get; set; }
-
-        /// <summary>
-        /// <para>班次中间外出，无需在离岗前或返岗后打卡（仅灰度租户有效，如需使用请联系技术支持）</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：false</para>
-        /// </summary>
-        [JsonPropertyName("not_during_shift")]
-        public bool? NotDuringShift { get; set; }
-    }
 
     /// <summary>
     /// <para>出差期间是否需打卡</para>
@@ -1081,12 +1068,12 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("overtime_clock_cfg")]
-    public GetAttendanceV1GroupsByGroupIdResponseDtoOvertimeClockCfg? OvertimeClockCfg { get; set; }
+    public OvertimeClockCfgSuffix? OvertimeClockCfg { get; set; }
 
     /// <summary>
     /// <para>加班打卡规则</para>
     /// </summary>
-    public record GetAttendanceV1GroupsByGroupIdResponseDtoOvertimeClockCfg
+    public record OvertimeClockCfgSuffix
     {
         /// <summary>
         /// <para>是否允许在非打卡时段申请打卡（仅灰度租户可用）</para>
@@ -1126,12 +1113,12 @@ public record GetAttendanceV1GroupsByGroupIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("clock_in_abnormal_settings")]
-    public GetAttendanceV1GroupsByGroupIdResponseDtoClockInAbnormalSettings? ClockInAbnormalSettings { get; set; }
+    public ClockInAbnormalSettingsSuffix? ClockInAbnormalSettings { get; set; }
 
     /// <summary>
     /// <para>异常卡豁免配置</para>
     /// </summary>
-    public record GetAttendanceV1GroupsByGroupIdResponseDtoClockInAbnormalSettings
+    public record ClockInAbnormalSettingsSuffix
     {
         /// <summary>
         /// <para>在最晚下班打卡之前忽略异常卡（仅灰度租户有效）</para>

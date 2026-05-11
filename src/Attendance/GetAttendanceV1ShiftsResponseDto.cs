@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-26
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetAttendanceV1ShiftsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -312,7 +312,7 @@ public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendance
         }
 
         /// <summary>
-        /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+        /// <para>日期类型，【是否弹性打卡 = true】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// </summary>
@@ -339,12 +339,12 @@ public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendance
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("shift_middle_time_rule")]
-        public ShiftShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+        public ShiftMiddleTimeRuleSuffix? ShiftMiddleTimeRule { get; set; }
 
         /// <summary>
         /// <para>半天分割规则（仅飞书人事企业版可用）</para>
         /// </summary>
-        public record ShiftShiftMiddleTimeRule
+        public record ShiftMiddleTimeRuleSuffix
         {
             /// <summary>
             /// <para>半天分割类型</para>
@@ -375,12 +375,12 @@ public record GetAttendanceV1ShiftsResponseDto : IPageableResponse<GetAttendance
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("late_off_late_on_setting")]
-        public ShiftLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+        public LateOffLateOnSettingSuffix? LateOffLateOnSetting { get; set; }
 
         /// <summary>
         /// <para>晚走次日晚到配置规则</para>
         /// </summary>
-        public record ShiftLateOffLateOnSetting
+        public record LateOffLateOnSettingSuffix
         {
             /// <summary>
             /// <para>当日晚走时间计算规则</para>

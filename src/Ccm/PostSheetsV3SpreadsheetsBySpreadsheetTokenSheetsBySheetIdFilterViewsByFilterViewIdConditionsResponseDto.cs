@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterViewsByFilterViewIdConditionsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -43,7 +43,7 @@ public record PostSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetIdFilterVie
 
         /// <summary>
         /// <para>筛选类型。枚举值如下所示。了解更多，参考[筛选条件指南](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/sheets-v3/spreadsheet-sheet-filter_view-condition/filter-view-condition-user-guide)。</para>
-        /// <para>- hiddenValue：隐藏值筛选</para>
+        /// <para>- multiValue ：多值筛选</para>
         /// <para>- number：数字筛选</para>
         /// <para>- text：文本筛选</para>
         /// <para>- color：颜色筛选</para>

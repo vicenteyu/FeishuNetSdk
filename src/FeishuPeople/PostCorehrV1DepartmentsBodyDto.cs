@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostCorehrV1DepartmentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,12 +64,12 @@ public record PostCorehrV1DepartmentsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
-    public PostCorehrV1DepartmentsBodyDtoHiberarchyCommon HiberarchyCommon { get; set; } = new();
+    public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
     /// <summary>
     /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
     /// </summary>
-    public record PostCorehrV1DepartmentsBodyDtoHiberarchyCommon
+    public record HiberarchyCommonSuffix
     {
         /// <summary>
         /// <para>上级组织 ID，该字段为通用字段，若为部门维度则为必填。详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
@@ -120,8 +120,11 @@ public record PostCorehrV1DepartmentsBodyDto
 
         /// <summary>
         /// <para>部门编码 (不能与其他记录的编码重复)</para>
-        /// <para>- 开启自动编码时，以自动生成的编码值为准，传入值不生效</para>
-        /// <para>- 未开启自动编码时，编码字段值以传入值为准</para>
+        /// <para>它的生效规则和 is_prefer_manual_encoding (是否优先使用手动编码)相关：</para>
+        /// <para>- 当系统开启自动编码时：</para>
+        /// <para>若 is_prefer_manual_encoding=true：传入的 code 会生效，不传则自动生成编码。</para>
+        /// <para>若 is_prefer_manual_encoding=false：传的 code 会被忽略，以系统自动生成的编码为准。</para>
+        /// <para>- 当系统未开启自动编码时：无论 is_prefer_manual_encoding取值如何，均以传入的 code 为准。</para>
         /// <para>必填：否</para>
         /// <para>示例值：12456</para>
         /// </summary>
@@ -194,4 +197,15 @@ public record PostCorehrV1DepartmentsBodyDto
     /// </summary>
     [JsonPropertyName("staffing_model")]
     public Enum? StaffingModel { get; set; }
+
+    /// <summary>
+    /// <para>是否优先使用手动编码</para>
+    /// <para>- 设为 true：优先使用传入的 code。即使系统开启了自动编码，只要传了 code，以传入值为准；</para>
+    /// <para>未传code时，会回退到自动生成编码。</para>
+    /// <para>- 设为 false：遵循系统默认策略。此时若系统开启了自动编码，传入的 code 不会生效，以系统自动生成的编码为准</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("is_prefer_manual_encoding")]
+    public bool? IsPreferManualEncoding { get; set; }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -12204,6 +12204,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -12369,6 +12370,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -12410,6 +12412,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -12457,6 +12460,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -12578,6 +12582,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:write_only</item>
     /// </list></para>
     /// </summary>
     /// <param name="spreadsheet_token">
@@ -21655,7 +21660,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 和 creator_id 的员工id类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的user_id。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -21699,7 +21704,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773486593</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/attendance-v1/shift/get</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>通过班次 ID 获取班次详情。对应功能为假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)班次列表中的具体班次，班次信息可以点击班次名称查看</para>
+    /// <para>通过班次 ID 获取班次详情。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// <item>attendance:rule:readonly</item>
@@ -21728,7 +21733,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 打卡位置信息、时间信息</para>
     /// <para>* 打卡方式信息</para>
     /// <para>* GPS 打卡：location_name（定位地址信息）</para>
-    /// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
+    /// <para>* Wi-Fi 打卡：ssid（Wi-Fi名称）、bssid（mac地址）</para>
     /// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
     /// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
     /// <para>权限要求：<list type="bullet">
@@ -21845,7 +21850,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773601281</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/attendance-v1/shift/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>班次是描述一次考勤任务时间规则的统称，比如一天打多少次卡，每次卡的上下班时间，晚到多长时间算迟到，晚到多长时间算缺卡等。在假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)中点击班次名称可以进行班次详情查看。如果入参中传入了班次id，那么支持编辑班次的能力</para>
+    /// <para>该接口用于创建企业的考勤班次。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:rule</item>
     /// </list></para>
@@ -21855,7 +21860,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的user_id。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// <para>默认值：null</para>
@@ -21888,7 +21893,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型(user_ids的类型必须与本参数的取值一致)。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
     /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</item>
@@ -22018,7 +22023,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>部门 ID 的类型</para>
     /// <para>示例值：open_id</para>
     /// <list type="bullet">
-    /// <item>open_id：暂时只支持部门的 openid。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id</item>
+    /// <item>open_id：暂时只支持部门的 open_id。具体概念请参考[部门资源介绍](https://open.larkoffice.com/document/server-docs/contact-v3/department/field-overview)中的open_department_id</item>
     /// </list>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26950,7 +26955,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7106040876741345308</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/batch_query</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>该接口用于根据文件 token 获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
+    /// <para>该接口用于根据文件 token （文件的唯一标识）获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive.metadata:readonly</item>
@@ -27209,7 +27214,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/attendance-v1/user_approval/create</para>
     /// <para>Authorization：tenant_access_token</para>
     /// <para>由于部分企业使用的是自己的审批系统，而不是飞书审批系统，因此员工的请假、加班等数据无法流入到飞书考勤系统中，导致员工在请假时间段内依然收到打卡提醒，并且被记为缺卡。</para>
-    /// <para>对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。</para>
+    /// <para>对于这些只使用飞书考勤系统，而未使用飞书审批系统的企业，可以通过考勤开放接口的形式，将三方审批结果数据回写到飞书考勤系统中。（请注意，如果在飞书审批、自助服务或假勤应用中发起加班，请勿使用该接口写入和系统同一天生成的加班数据，否则写入的数据不计入）</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task</item>
     /// </list></para>
@@ -47290,9 +47295,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </summary>
     /// <param name="employee_type">
     /// <para>必填：是</para>
-    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
-    /// <para>* `employee_id `：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID</para>
-    /// <para>* `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
+    /// <para>请求体中的 user_ids 和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id) * `employee_id`：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID * `employee_no`：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</para>
     /// <para>示例值：employee_id</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -55097,7 +55100,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>请求体和响应体中的 user_id 的员工ID类型。如果没有后台管理权限，可使用[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)</para>
     /// <para>示例值：employee_id</para>
     /// <list type="bullet">
-    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的userid。</item>
+    /// <item>employee_id：员工 employee ID，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的用户 ID，或者[通过手机号或邮箱获取用户 ID](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/batch_get_id)获取的user_id。</item>
     /// <item>employee_no：员工工号，即[飞书管理后台](https://example.feishu.cn/admin/contacts/departmentanduser) &gt; 组织架构 &gt; 成员与部门 &gt; 成员详情中的工号</item>
     /// </list>
     /// </param>
@@ -58658,6 +58661,271 @@ public interface IFeishuTenantApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesReactionsBatchQueryResponseDto>> PostImV1MessagesReactionsBatchQueryAsync(
         [JsonContent] Im.PostImV1MessagesReactionsBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】删除邮件模板</para>
+    /// <para>接口ID：7636620599011871695</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>永久删除指定用户邮箱下的某个个人邮件模板。删除操作不可恢复，删除后该模板将无法在「列出邮件模板」「获取邮件模板」等接口中再返回，常用于清理已废弃或不再使用的模板。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取模板附件下载链接</para>
+    /// <para>接口ID：7636620599011888079</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/download_url</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定邮件模板下的附件下载链接。用于在已知模板 ID 与附件 ID 的场景下，二次获取附件的有效访问 URL，便于在用户端预览或下载邮件模板中的附件资源。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="attachment_ids">
+    /// <para>必填：是</para>
+    /// <para>待获取下载链接的附件 ID 列表。可通过获取个人邮件模板详情接口返回的 attachments 字段中的 id 获取。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}/attachments/download_url")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAttachmentsDownloadUrlResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAttachmentsDownloadUrlAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        [PathQuery] string[] attachment_ids,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】更新邮件模板</para>
+    /// <para>接口ID：7636620599011904463</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/update</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>以全量替换的方式更新指定邮件模板的所有字段（包括名称、主题、正文、附件、收件信息等）。本接口为「全量更新」语义：请求时需传入完整的模板对象，未携带的字段将被清空。**调用依赖**：如仅修改部分字段，请先调用获取个人邮件模板详情接口拿到完整模板，在本地修改后再传回本接口，以避免漏传字段导致数据丢失。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdResponseDto>> PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮件模板</para>
+    /// <para>接口ID：7636620599011920847</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>列出指定用户邮箱下的全部个人邮件模板基本信息（一次性返回，不分页），常用于在编辑或发送邮件场景下展示可选模板列表。如需获取模板正文与附件等完整字段，请通过获取个人邮件模板详情接口按 `template_id` 查询。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesAsync(
+        [PathQuery] string user_mailbox_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件模板</para>
+    /// <para>接口ID：7636620599011937231</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定邮件模板的完整详情，包括模板名称、主题、正文（HTML 或纯文本）、收件人/抄送/密送地址、附件信息等所有字段。常用于编辑模板前回填表单，或在发送邮件场景下读取模板内容做二次填充。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="template_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件模板 ID。可通过列出个人邮件模板接口或创建个人邮件模板接口的返回值获取。</para>
+    /// <para>示例值：7281187859195772947</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates/{template_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdResponseDto>> GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAsync(
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string template_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】创建邮件模板</para>
+    /// <para>接口ID：7636620599011953615</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在指定用户邮箱下创建一份可复用的个人邮件模板。请求时需传入完整的模板对象（含名称、主题、正文、收件信息、附件等），创建成功后返回完整模板内容（含系统生成的 template_id），适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/templates")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto>> PostMailV1UserMailboxesByUserMailboxIdTemplatesAsync(
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】批量查询成本中心版本信息</para>
+    /// <para>接口ID：7637139455451122649</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/query_multi_timeline</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>根据成本中心 ID 列表，批量查询开始结束时间内的所有成本中心版本信息，含成本中心名称、编码、上级成本中心、负责人、版本生效日期、版本失效日期、是否启用、描述等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_center:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/cost_centers/query_multi_timeline")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostCentersQueryMultiTimelineResponseDto>> PostCorehrV2CostCentersQueryMultiTimelineAsync(
+        [JsonContent] Corehr.PostCorehrV2CostCentersQueryMultiTimelineBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】查询指定生效日期的成本中心架构树</para>
+    /// <para>接口ID：7637139455451139033</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/cost_center/tree</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>支持传入成本中心ID，任意日期（不传默认当前日期）</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:cost_center:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：6891251722631890445</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/cost_centers/tree")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2CostCentersTreeResponseDto>> PostCorehrV2CostCentersTreeAsync(
+        [JsonContent] Corehr.PostCorehrV2CostCentersTreeBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "people_corehr_id",
         CancellationToken cancellation_token = default);
 }
 

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -54,7 +54,7 @@ public record GetAttendanceV1LeaveEmployExpireRecordsByLeaveIdBodyDto
     public string EndExpirationDate { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>时间偏移，东八区：480 8*60， 如果没有这个参数，默认东八区</para>
+    /// <para>Time offset, East Eighth District: 480 = 8 * 60, if this parameter is not provided, East Eighth District is used by default</para>
     /// <para>必填：否</para>
     /// <para>示例值：480</para>
     /// </summary>
