@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-18
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetAttendanceV1UserFlowsByUserFlowIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -20,7 +20,7 @@ namespace FeishuNetSdk.Attendance;
 /// <para>* 打卡位置信息、时间信息</para>
 /// <para>* 打卡方式信息</para>
 /// <para>* GPS 打卡：location_name（定位地址信息）</para>
-/// <para>* Wi-Fi 打卡：ssid（wifi名称）、bssid（mac地址）</para>
+/// <para>* Wi-Fi 打卡：ssid（Wi-Fi名称）、bssid（mac地址）</para>
 /// <para>* 考勤机打卡：device_id（考勤机设备id）</para>
 /// <para>对应页面功能打卡管理-[打卡记录](https://example.feishu.cn/people/workforce-management/manage/statistics/flow)</para>
 /// <para>接口ID：7044467124773535745</para>

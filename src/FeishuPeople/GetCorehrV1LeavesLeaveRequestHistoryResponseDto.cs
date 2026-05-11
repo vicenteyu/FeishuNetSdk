@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-11
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetCorehrV1LeavesLeaveRequestHistoryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -200,7 +200,7 @@ public record GetCorehrV1LeavesLeaveRequestHistoryResponseDto : IPageableRespons
         public string Notes { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>审批通过日期，格式为yyyy-MM-dd</para>
+        /// <para>（暂未开放）审批通过日期，格式为yyyy-MM-dd</para>
         /// <para>必填：否</para>
         /// <para>示例值：2022-09-09</para>
         /// </summary>

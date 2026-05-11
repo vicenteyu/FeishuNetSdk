@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Attendance;
 public record PatchAttendanceV1LeaveAccrualRecordByLeaveIdBodyDto
 {
     /// <summary>
-    /// <para>发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)</para>
+    /// <para>发放记录的唯一ID，可通过[创建假期发放记录](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/leave_granting_record/create)获取</para>
     /// <para>必填：是</para>
     /// <para>示例值：6893014062142064135</para>
     /// </summary>

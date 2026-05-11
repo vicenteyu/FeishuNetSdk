@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostCorehrV1DepartmentsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -113,12 +113,12 @@ public record PostCorehrV1DepartmentsResponseDto
         /// <para>必填：是</para>
         /// </summary>
         [JsonPropertyName("hiberarchy_common")]
-        public DepartmentCreateHiberarchyCommon HiberarchyCommon { get; set; } = new();
+        public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
         /// <summary>
         /// <para>组织实体公共字段，包括名称、描述、上级、启停用状态、生效日期、编码等基础信息</para>
         /// </summary>
-        public record DepartmentCreateHiberarchyCommon
+        public record HiberarchyCommonSuffix
         {
             /// <summary>
             /// <para>上级组织 ID，详细信息可通过[【查询单个部门】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/department/get)接口获得</para>
@@ -307,7 +307,7 @@ public record PostCorehrV1DepartmentsResponseDto
         }
 
         /// <summary>
-        /// <para>生效时间</para>
+        /// <para>版本生效时间</para>
         /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>- 和data.hiberarchy_common.effective_time值一致</para>
@@ -318,7 +318,7 @@ public record PostCorehrV1DepartmentsResponseDto
         public string EffectiveTime { get; set; } = string.Empty;
 
         /// <summary>
-        /// <para>失效时间</para>
+        /// <para>版本失效时间</para>
         /// <para>- 返回格式：YYYY-MM-DD 00:00:00（最小单位到日）</para>
         /// <para>- 日期范围:1900-01-01 00:00:00～9999-12-31 23:59:59</para>
         /// <para>- 和data.hiberarchy_common.expiration_time值一致</para>

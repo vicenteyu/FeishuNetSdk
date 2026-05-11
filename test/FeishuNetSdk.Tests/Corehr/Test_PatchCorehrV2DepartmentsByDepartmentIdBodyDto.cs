@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_PatchCorehrV2DepartmentsByDepartmentIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -60,7 +60,8 @@ public class Test_PatchCorehrV2DepartmentsByDepartmentIdBodyDto : TestBase
     "cost_center_id": "7142384817131652652",
     "staffing_model": {
         "enum_name": "job"
-    }
+    },
+    "is_prefer_manual_encoding": false
 }
 """;
         var result = Deserialize<FeishuNetSdk.Corehr.PatchCorehrV2DepartmentsByDepartmentIdBodyDto>(json);

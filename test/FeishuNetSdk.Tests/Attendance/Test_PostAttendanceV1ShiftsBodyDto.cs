@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_PostAttendanceV1ShiftsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -95,7 +95,13 @@ public class Test_PostAttendanceV1ShiftsBodyDto : TestBase
         "late_off_base_on_time_type": 0,
         "late_on_base_on_time_type": 0
     },
-    "id": "6919358778597097404"
+    "id": "6919358778597097404",
+    "rest_time_flexible_configs": [
+        {
+            "need_flexible": false,
+            "late_mins": 0
+        }
+    ]
 }
 """;
         var result = Deserialize<FeishuNetSdk.Attendance.PostAttendanceV1ShiftsBodyDto>(json);

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-13
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="GetAttendanceV1ShiftsByShiftIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Attendance;
 /// <summary>
 /// 按 ID 查询班次 响应体
-/// <para>通过班次 ID 获取班次详情。对应功能为假勤设置-[班次设置](https://example.feishu.cn/people/workforce-management/setting/group/shifts)班次列表中的具体班次，班次信息可以点击班次名称查看</para>
+/// <para>通过班次 ID 获取班次详情。</para>
 /// <para>接口ID：7044467124773486593</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/attendance-v1/shift/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fattendance-v1%2fshift%2fget</para>
@@ -53,7 +53,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     public string[]? SubShiftLeaderIds { get; set; }
 
     /// <summary>
-    /// <para>是否弹性打卡</para>
+    /// <para>是否弹性打卡。true为弹性，false是非弹性</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>
@@ -128,7 +128,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <summary>
         /// <para>下班时间，格式为hh:mm。如果是第二天凌晨2点， 则为26:00</para>
         /// <para>必填：是</para>
-        /// <para>示例值：18:00， 第二天凌晨2点， 26:00</para>
+        /// <para>示例值：18:00</para>
         /// </summary>
         [JsonPropertyName("off_time")]
         public string OffTime { get; set; } = string.Empty;
@@ -296,7 +296,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     }
 
     /// <summary>
-    /// <para>日期类型，【是否弹性打卡 = ture】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
+    /// <para>日期类型，【是否弹性打卡 = true】时，不可设置为“休息日” 可选值：1：工作日 2：休息日 示例值：（默认值）1</para>
     /// <para>必填：否</para>
     /// <para>示例值：1</para>
     /// </summary>
@@ -323,12 +323,12 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("shift_middle_time_rule")]
-    public GetAttendanceV1ShiftsByShiftIdResponseDtoShiftMiddleTimeRule? ShiftMiddleTimeRule { get; set; }
+    public ShiftMiddleTimeRuleSuffix? ShiftMiddleTimeRule { get; set; }
 
     /// <summary>
     /// <para>半天分割规则</para>
     /// </summary>
-    public record GetAttendanceV1ShiftsByShiftIdResponseDtoShiftMiddleTimeRule
+    public record ShiftMiddleTimeRuleSuffix
     {
         /// <summary>
         /// <para>半天分割类型</para>
@@ -359,15 +359,15 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("shift_attendance_time_config")]
-    public GetAttendanceV1ShiftsByShiftIdResponseDtoShiftAttendanceTimeConfig? ShiftAttendanceTimeConfig { get; set; }
+    public ShiftAttendanceTimeConfigSuffix? ShiftAttendanceTimeConfig { get; set; }
 
     /// <summary>
     /// <para>应出勤配置</para>
     /// </summary>
-    public record GetAttendanceV1ShiftsByShiftIdResponseDtoShiftAttendanceTimeConfig
+    public record ShiftAttendanceTimeConfigSuffix
     {
         /// <summary>
-        /// <para>应出勤时长</para>
+        /// <para>应出勤时长，单位为分钟。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>最大值：3</para>
@@ -375,10 +375,10 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("attendance_time")]
-        public float? AttendanceTime { get; set; }
+        public double? AttendanceTime { get; set; }
 
         /// <summary>
-        /// <para>上半天应出勤时长</para>
+        /// <para>上半天应出勤时长，单位为分钟。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>最大值：3</para>
@@ -386,10 +386,10 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("on_attendance_time")]
-        public float? OnAttendanceTime { get; set; }
+        public double? OnAttendanceTime { get; set; }
 
         /// <summary>
-        /// <para>下半天应出勤时长</para>
+        /// <para>下半天应出勤时长，单位为分钟。</para>
         /// <para>必填：否</para>
         /// <para>示例值：1</para>
         /// <para>最大值：3</para>
@@ -397,7 +397,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <para>默认值：1</para>
         /// </summary>
         [JsonPropertyName("off_attendance_time")]
-        public float? OffAttendanceTime { get; set; }
+        public double? OffAttendanceTime { get; set; }
     }
 
     /// <summary>
@@ -405,12 +405,12 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("late_off_late_on_setting")]
-    public GetAttendanceV1ShiftsByShiftIdResponseDtoLateOffLateOnSetting? LateOffLateOnSetting { get; set; }
+    public LateOffLateOnSettingSuffix? LateOffLateOnSetting { get; set; }
 
     /// <summary>
     /// <para>晚走次日晚到配置规则</para>
     /// </summary>
-    public record GetAttendanceV1ShiftsByShiftIdResponseDtoLateOffLateOnSetting
+    public record LateOffLateOnSettingSuffix
     {
         /// <summary>
         /// <para>当日晚走时间计算规则</para>
@@ -462,7 +462,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <summary>
         /// <para>是否开启休息弹性班次</para>
         /// <para>必填：否</para>
-        /// <para>示例值：false</para>
+        /// <para>示例值：alse</para>
         /// </summary>
         [JsonPropertyName("need_flexible")]
         public bool? NeedFlexible { get; set; }
@@ -470,7 +470,7 @@ public record GetAttendanceV1ShiftsByShiftIdResponseDto
         /// <summary>
         /// <para>休息弹性向后弹的分钟数</para>
         /// <para>必填：否</para>
-        /// <para>示例值：0</para>
+        /// <para>示例值：？</para>
         /// <para>最大值：1500</para>
         /// <para>最小值：0</para>
         /// </summary>

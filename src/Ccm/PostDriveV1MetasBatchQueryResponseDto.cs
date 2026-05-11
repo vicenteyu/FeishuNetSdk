@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostDriveV1MetasBatchQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Ccm;
 /// <summary>
 /// 获取文件元数据 响应体
-/// <para>该接口用于根据文件 token 获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
+/// <para>该接口用于根据文件 token （文件的唯一标识）获取其元数据，包括标题、所有者、创建时间、密级、访问链接等数据。</para>
 /// <para>接口ID：7106040876741345308</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/batch_query</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fdrive-v1%2fmeta%2fbatch_query</para>
@@ -104,6 +104,47 @@ public record PostDriveV1MetasBatchQueryResponseDto
         /// </summary>
         [JsonPropertyName("sec_label_name")]
         public string? SecLabelName { get; set; }
+
+        /// <summary>
+        /// <para>用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("request_doc_info")]
+        public RequestDoc? RequestDocInfo { get; set; }
+
+        /// <summary>
+        /// <para>用于回显入参(requst_doc_info中的字段信息即为为请求体中的request_docs字段信息)，如果入参中有相同token时无效</para>
+        /// </summary>
+        public record RequestDoc
+        {
+            /// <summary>
+            /// <para>文件的 token，获取方式见[概述](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/files/guide/introduction)</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：TLLKdcpDro9ijQxA33ycNMabcef</para>
+            /// </summary>
+            [JsonPropertyName("doc_token")]
+            public string DocToken { get; set; } = string.Empty;
+
+            /// <summary>
+            /// <para>文件类型</para>
+            /// <para>必填：是</para>
+            /// <para>示例值：docx</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>doc：飞书文档</item>
+            /// <item>sheet：飞书电子表格</item>
+            /// <item>bitable：飞书多维表格</item>
+            /// <item>mindnote：飞书思维笔记</item>
+            /// <item>file：飞书文件</item>
+            /// <item>wiki：飞书wiki</item>
+            /// <item>docx：飞书新版文档</item>
+            /// <item>folder：飞书文件夹</item>
+            /// <item>synced_block：文档同步块</item>
+            /// <item>slides：文档幻灯片</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("doc_type")]
+            public string DocType { get; set; } = string.Empty;
+        }
     }
 
     /// <summary>

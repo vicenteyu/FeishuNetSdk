@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_GetAttendanceV1GroupsByGroupIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -75,7 +75,7 @@ public class Test_GetAttendanceV1GroupsByGroupIdResponseDto : TestBase
         "hide_clock_in_rule": false,
         "face_punch": true,
         "face_punch_cfg": 1,
-        "face_live_need_action": false,
+        "face_live_need_action": true,
         "face_downgrade": true,
         "replace_basic_pic": true,
         "anti_cheat_punch_config": {
@@ -121,6 +121,7 @@ public class Test_GetAttendanceV1GroupsByGroupIdResponseDto : TestBase
             "work_day_no_punch_as_lack": true,
             "work_hours_demand": false,
             "work_hours": 480
+           
         },
         "calendar_id": 1,
         "need_punch_special_days": [

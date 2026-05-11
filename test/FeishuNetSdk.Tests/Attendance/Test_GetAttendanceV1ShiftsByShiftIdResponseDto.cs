@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-09-13
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_GetAttendanceV1ShiftsByShiftIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,88 +26,7 @@ public class Test_GetAttendanceV1ShiftsByShiftIdResponseDto : TestBase
     public void TestDto()
     {
         var json = """
-{
-    "code": 0,
-    "msg": "success",
-    "data": {
-        "shift_id": "6919358778597097404",
-        "shift_name": "早班",
-        "punch_times": 1,
-        "sub_shift_leader_ids": [
-            "dd31248a"
-        ],
-        "is_flexible": false,
-        "flexible_minutes": 60,
-        "flexible_rule": [
-            {
-                "flexible_early_minutes": 60,
-                "flexible_late_minutes": 60
-            }
-        ],
-        "no_need_off": true,
-        "punch_time_rule": [
-            {
-                "on_time": "9:00",
-                "off_time": "18:00， 第二天凌晨2点， 26:00",
-                "late_minutes_as_late": 30,
-                "late_minutes_as_lack": 60,
-                "on_advance_minutes": 60,
-                "early_minutes_as_early": 30,
-                "early_minutes_as_lack": 60,
-                "off_delay_minutes": 60,
-                "late_minutes_as_serious_late": 40,
-                "no_need_on": true,
-                "no_need_off": true
-            }
-        ],
-        "late_off_late_on_rule": [
-            {
-                "late_off_minutes": 60,
-                "late_on_minutes": 30
-            }
-        ],
-        "rest_time_rule": [
-            {
-                "rest_begin_time": "13:00",
-                "rest_end_time": "14:00"
-            }
-        ],
-        "overtime_rule": [
-            {
-                "on_overtime": "9:00",
-                "off_overtime": "18:00"
-            }
-        ],
-        "day_type": 1,
-        "overtime_rest_time_rule": [
-            {
-                "rest_begin_time": "13:00",
-                "rest_end_time": "14:00"
-            }
-        ],
-        "late_minutes_as_serious_late": 40,
-        "shift_middle_time_rule": {
-            "middle_time_type": 0,
-            "fixed_middle_time": "12:00"
-        },
-        "shift_attendance_time_config": {
-            "attendance_time": 1,
-            "on_attendance_time": 1,
-            "off_attendance_time": 1
-        },
-        "late_off_late_on_setting": {
-            "late_off_base_on_time_type": 0,
-            "late_on_base_on_time_type": 0
-        },
-        "id": "6919358778597097404",
-        "rest_time_flexible_configs": [
-            {
-                "need_flexible": false,
-                "late_mins": 0
-            }
-        ]
-    }
-}
+{ "code": 0, "msg": "success", "data": { "shift_id": "6919358778597097404", "shift_name": "早班", "punch_times": 1, "is_flexible": false, "flexible_minutes": 60, "flexible_rule": [ { "flexible_early_minutes": 60, "flexible_late_minutes": 60 } ], "no_need_off": true, "punch_time_rule": [ { "on_time": "9:00", "off_time": "18:00", "late_minutes_as_late": 30, "late_minutes_as_lack": 60, "on_advance_minutes": 60, "early_minutes_as_early": 30, "early_minutes_as_lack": 60, "off_delay_minutes": 60, "late_minutes_as_serious_late": 40, "no_need_on": true, "no_need_off": true } ], "late_off_late_on_rule": [ { "late_off_minutes": 60, "late_on_minutes": 30 } ], "rest_time_rule": [ { "rest_begin_time": "13:00", "rest_end_time": "14:00" } ], "overtime_rule": [ { "on_overtime": "9:00", "off_overtime": "18:00" } ], "day_type": 1, "overtime_rest_time_rule": [ { "rest_begin_time": "13:00", "rest_end_time": "14:00" } ], "late_minutes_as_serious_late": 40, "shift_middle_time_rule": { "middle_time_type": 0, "fixed_middle_time": "12:00" }, "shift_attendance_time_config": { "attendance_time": 1, "on_attendance_time": 1, "off_attendance_time": 1 }, "late_off_late_on_setting": { "late_off_base_on_time_type": 0, "late_on_base_on_time_type": 0 }, "id": "6919358778597097404", "rest_time_flexible_configs": [ { "need_flexible": false, "late_mins": 0 } ] } }
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Attendance.GetAttendanceV1ShiftsByShiftIdResponseDto>>(json);
         Assert.IsNotNull(result);

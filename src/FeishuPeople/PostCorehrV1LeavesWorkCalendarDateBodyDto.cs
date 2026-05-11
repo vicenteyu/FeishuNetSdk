@@ -4,7 +4,7 @@
 // Created          : 2024-09-12
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-12
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="PostCorehrV1LeavesWorkCalendarDateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -71,7 +71,7 @@ public record PostCorehrV1LeavesWorkCalendarDateBodyDto
     public int? Offset { get; set; }
 
     /// <summary>
-    /// <para>分页大小</para>
+    /// <para>分页大小，无默认值需手动设置</para>
     /// <para>必填：否</para>
     /// <para>示例值：10</para>
     /// </summary>

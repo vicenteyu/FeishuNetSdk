@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_PostDriveV1MetasBatchQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,7 +40,11 @@ public class Test_PostDriveV1MetasBatchQueryResponseDto : TestBase
                 "latest_modify_user": "ou_b13d41c02edc52ce66aaae67bf1abcef",
                 "latest_modify_time": "1652066345",
                 "url": "https://sample.feishu.cn/docs/doccnfYZzTlvXqZIGTdAHKabcef",
-                "sec_label_name": "L2-内部"
+                "sec_label_name": "L2-内部",
+                "request_doc_info": {
+                    "doc_token": "TLLKdcpDro9ijQxA33ycNMabcef",
+                    "doc_type": "docx"
+                }
             }
         ],
         "failed_list": [

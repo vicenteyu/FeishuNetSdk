@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-11
 // ************************************************************************
 // <copyright file="Test_PostCorehrV1DepartmentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,7 +59,8 @@ public class Test_PostCorehrV1DepartmentsBodyDto : TestBase
     "cost_center_id": "7142384817131652652",
     "staffing_model": {
         "enum_name": "position"
-    }
+    },
+    "is_prefer_manual_encoding": false
 }
 """;
         var result = Deserialize<FeishuNetSdk.FeishuPeople.PostCorehrV1DepartmentsBodyDto>(json);
