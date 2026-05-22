@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsBatchGetResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -150,10 +150,16 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
 
         /// <summary>
         /// <para>树形排序，代表同层级的部门排序序号</para>
+        /// <para>- 数据类型为字符串，实际按数值大小排序，数值越小，同层级部门展示越靠前；仅对同一父部门下的直接子部门生效</para>
+        /// <para>- 数值生成规则：</para>
+        /// <para>- 编号长度由同层级部门数量动态决定：同层级部门≤10 个为 6 位编号，10~20 个为 7 位编号，超过 100 个统一为 16 位编号，以此类推</para>
+        /// <para>- 新建部门时系统自动赋值：同层级下一个新部门编号，会在上一个部门编号基础上按固定数值自动累加；例如 6 位编号每次固定加 1000，7 位编号每次固定加 10000</para>
+        /// <para>- 重排触发：当同层级部门数量超出当前编号长度可容纳范围，或多次拖拽排序无法正常插入位置时，会触发同层级编号全局重新编排；所有部门编号会按新的长度和累加规则重新生成，数值可能出现明显变大</para>
+        /// <para>- 当同一父部门下的子部门数量超过 1000 个时，系统在维护排序编号时可能出现异常问题。</para>
+        /// <para>- 更新时机：</para>
         /// <para>- 创建部门场景tree_order不会实时生成，10分钟内更新完毕</para>
         /// <para>- 在页面拖动部门排序时tree_order可以实时生成</para>
-        /// <para>- 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕</para>
-        /// <para>- 同层部门（相同上级）数量超过1000时，该字段不再更新</para>
+        /// <para>- 变更部门上级时，会清空tree_order，并触发重算list_order和tree_order，10分钟内更新完毕（list_order由部门上级路径的所有tree_order用“-”拼接生成）</para>
         /// <para>必填：否</para>
         /// <para>示例值：001000</para>
         /// </summary>
@@ -180,7 +186,7 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
         public string? Code { get; set; }
 
         /// <summary>
-        /// <para>是否根部门</para>
+        /// <para>是否根部门(默认返回)</para>
         /// <para>必填：是</para>
         /// <para>示例值：false</para>
         /// </summary>
@@ -188,7 +194,7 @@ public record PostCorehrV2DepartmentsBatchGetResponseDto
         public bool IsRoot { get; set; }
 
         /// <summary>
-        /// <para>是否保密，该功能暂不支持，可以忽略</para>
+        /// <para>是否保密，(该功能暂不支持，可以忽略)</para>
         /// <para>必填：是</para>
         /// <para>示例值：false</para>
         /// </summary>

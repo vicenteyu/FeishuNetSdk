@@ -17,8 +17,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Security.Cryptography;
-using System.Text.Json;
-using System.Text.Json.Nodes;
 
 namespace FeishuNetSdk.Services;
 
@@ -241,7 +239,7 @@ public class EventCallbackServiceProvider(
             switch (dto)
             {
                 case null:
-                    return new HandleResult(Error: "反序列化事件体失败");
+                    return new HandleResult(Error: "反序列化事件体不能为空");
 
                 case UrlVerificationDto verificationDto:
                     return new HandleResult(true, Dto: verificationDto);

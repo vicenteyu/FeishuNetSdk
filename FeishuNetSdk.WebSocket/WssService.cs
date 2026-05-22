@@ -4,7 +4,7 @@
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-11-30
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="WssService.cs" company="Vicente Yu">
 //     MIT
@@ -14,209 +14,338 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System.Buffers;
+using System.Collections.Concurrent;
+using System.Net.WebSockets;
+using System.Reactive.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
-using WatsonWebsocket;
+using Websocket.Client;
 
-namespace FeishuNetSdk.WebSocket
+namespace FeishuNetSdk.WebSocket;
+
+/// <summary>
+/// 长连接服务
+/// <para>优势：</para>
+/// <para>测试阶段无需使用内网穿透工具，通过长连接模式在本地开发环境中即可接收事件回调。</para>
+/// <para>只在建连时进行鉴权，后续事件推送均为明文数据，无需再处理解密和验签逻辑。</para>
+/// <para>只需保证运行环境具备访问公网能力即可，无需提供公网 IP 或域名。</para>
+/// <para>无需部署防火墙和配置白名单。</para>
+/// <para></para>
+/// <para>注意事项：</para>
+/// <para>长连接模式仅支持企业自建应用。</para>
+/// <para>与 将事件发送至开发者服务器 方式的要求相同，长连接模式下接收到消息后，也需要在 3 秒内处理完成，否则会触发超时重推机制。</para>
+/// <para>每个应用最多建立 50 个连接（在配置长连接时，每初始化一个 client 就是一个连接）。</para>
+/// <para>长连接模式的消息推送为 集群模式，不支持广播。</para>
+/// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
+/// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
+/// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
+/// <para>务必注意：仅建议在测试环境使用长连接模式，不当使用则可能导致正式环境的事件消息被误收！！！</para>
+/// </summary>
+public class WssService(
+    IFeishuApi feishuApi,
+    IOptionsMonitor<FeishuNetSdkOptions> options,
+    ILogger<WssService> logger,
+    Services.IEventCallbackServiceProvider eventCallback) : BackgroundService
 {
-    /// <summary>
-    /// 长连接服务
-    /// <para>优势：</para>
-    /// <para>测试阶段无需使用内网穿透工具，通过长连接模式在本地开发环境中即可接收事件回调。</para>
-    /// <para>只在建连时进行鉴权，后续事件推送均为明文数据，无需再处理解密和验签逻辑。</para>
-    /// <para>只需保证运行环境具备访问公网能力即可，无需提供公网 IP 或域名。</para>
-    /// <para>无需部署防火墙和配置白名单。</para>
-    /// <para></para>
-    /// <para>注意事项：</para>
-    /// <para>长连接模式仅支持企业自建应用。</para>
-    /// <para>与 将事件发送至开发者服务器 方式的要求相同，长连接模式下接收到消息后，也需要在 3 秒内处理完成，否则会触发超时重推机制。</para>
-    /// <para>每个应用最多建立 50 个连接（在配置长连接时，每初始化一个 client 就是一个连接）。</para>
-    /// <para>长连接模式的消息推送为 集群模式，不支持广播。</para>
-    /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
-    /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
-    /// <para>如果同一应用部署了多个客户端（client），那么只有其中随机一个客户端会收到消息。</para>
-    /// <para>务必注意：仅建议在测试环境使用长连接模式，不当使用则可能导致正式环境的事件消息被误收！！！</para>
-    /// </summary>
-    public class WssService(
-        IFeishuApi feishuApi,
-        IOptionsMonitor<FeishuNetSdkOptions> options,
-        ILogger<WssService> logger,
-        Services.IEventCallbackServiceProvider eventCallback)
-        : BackgroundService
+    private bool _disposed = false;
+    private WebsocketClient? _wsClient;
+    private IDisposable? _messageSubscription;
+    private IDisposable? _disconnectionSubscription;
+
+    private readonly SemaphoreSlim _swapUrlSemaphore = new(1, 1);
+    private readonly SemaphoreSlim _reconnectSemaphore = new(1, 1);
+
+    private class MessageAssembleSlot
     {
-#if NET8_0
-        private readonly object _clientLock = new();
-#else 
-        private readonly Lock _clientLock = new();
-#endif
-        private WatsonWsClient? _wsClient;
-        private int _reconnectAttempts = 0;
-        private const int MaxReconnectAttempts = 10;
-        private const int ReconnectInterval = 5000;
-        private CancellationTokenSource? _messageProcessingCts;
-        private static readonly JsonSerializerOptions serializerOptions = new()
+        public int TotalCount { get; set; } = 1;
+        public Dictionary<int, (byte[] Buffer, int Length)> Chunks { get; } = [];
+        public Frame? LastArrivedFrame { get; set; }
+    }
+
+    private static readonly ConcurrentDictionary<string, MessageAssembleSlot> _assemblyPool = new();
+
+    private static readonly JsonSerializerOptions serializerOptions = new()
+    {
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+
+    /// <summary>
+    /// 服务启动
+    /// </summary>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    protected override async System.Threading.Tasks.Task ExecuteAsync(CancellationToken cancellationToken)
+    {
+        logger.LogInformation("【服务启动】长连接已就绪。");
+        await TryInitializeAndStartAsync(cancellationToken);
+
+        while (!cancellationToken.IsCancellationRequested)
         {
-            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
-        };
-        /// <summary>
-        /// 服务启动
-        /// </summary>
-        /// <param name="stoppingToken"></param>
-        /// <returns></returns>
-        protected override async System.Threading.Tasks.Task ExecuteAsync(CancellationToken stoppingToken)
-        {
-            // 创建与 stoppingToken 联动的取消令牌源
-            _messageProcessingCts = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken);
-            await StartConnectAsync(stoppingToken);
-        }
-        /// <summary>
-        /// 服务停止
-        /// </summary>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public override async System.Threading.Tasks.Task StopAsync(CancellationToken cancellationToken)
-        {
-            // 安全释放资源：先取消消息处理，再关闭连接
-            lock (_clientLock)
+            try
             {
-                if (_wsClient != null)
+                await System.Threading.Tasks.Task.Delay(10000, cancellationToken);
+
+                if (_wsClient == null || !_wsClient.IsRunning)
                 {
-                    _wsClient.ServerConnected -= ServerConnected;
-                    _wsClient.ServerDisconnected -= ServerDisconnected;
-                    _wsClient.MessageReceived -= MessageReceived;
+                    if (await _reconnectSemaphore.WaitAsync(0, cancellationToken))
+                    {
+                        try
+                        {
+                            if (_wsClient == null || !_wsClient.IsRunning)
+                            {
+                                logger.LogWarning("【长连接】检测到正处于「停止」状态，正在尝试连接...");
+                                await TryInitializeAndStartAsync(cancellationToken);
+                            }
+                        }
+                        finally
+                        {
+                            _reconnectSemaphore.Release();
+                        }
+                    }
                 }
             }
-            // 原子释放取消令牌源
-            var cts = _messageProcessingCts;
-            _messageProcessingCts = null;
-            cts?.Cancel();
-            cts?.Dispose();
-            // 关闭 WebSocket 连接
-            if (_wsClient?.Connected == true)
-            {
-                await _wsClient.StopAsync();
-            }
-            _wsClient?.Dispose();
-            _wsClient = null;
-            await base.StopAsync(cancellationToken);
-        }
-        private async Task<string> GetWssEndpointAsync(CancellationToken stoppingToken)
-        {
-            try
-            {
-                var result = await feishuApi.PostCallbackWsEndpointAsync(new()
-                {
-                    AppId = options.CurrentValue.AppId,
-                    AppSecret = options.CurrentValue.AppSecret
-                }, stoppingToken);
-                if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
-                    throw new InvalidOperationException(result?.Msg ?? "获取 WSS 端点失败");
-                return result.Data.Url;
-            }
+            catch (TaskCanceledException) { }
             catch (Exception ex)
             {
-                logger.LogError(ex, "获取 WSS 端点时出现异常");
-                throw;
+                logger.LogError(ex, "【长连接】巡检状态机发生未知错误。");
             }
         }
-        private async System.Threading.Tasks.Task StartConnectAsync(CancellationToken stoppingToken)
-        {
-            try
-            {
-                var endpoint = await GetWssEndpointAsync(stoppingToken);
-                var newClient = new WatsonWsClient(new Uri(endpoint));
+    }
 
-                // 订阅新客户端事件
-                newClient.ServerConnected += ServerConnected;
-                newClient.ServerDisconnected += ServerDisconnected;
-                newClient.MessageReceived += MessageReceived;
-                newClient.Logger = s =>
+    private async Task<bool> TryInitializeAndStartAsync(CancellationToken cancellationToken)
+    {
+        if (!await _swapUrlSemaphore.WaitAsync(0, CancellationToken.None)) return false;
+
+        try
+        {
+            logger.LogInformation("【长连接】正在尝试初始化...");
+
+            if (_wsClient != null)
+            {
+                await _wsClient.Stop(WebSocketCloseStatus.NormalClosure, "Re-init reset");
+            }
+
+            string initialUrl = await GetWssEndpointAsync(cancellationToken);
+
+            if (_wsClient == null)
+            {
+                var factory = new Func<ClientWebSocket>(() =>
+                    new ClientWebSocket { Options = { KeepAliveInterval = TimeSpan.FromSeconds(30) } });
+
+                _wsClient = new WebsocketClient(new Uri(initialUrl), factory)
                 {
-                    if (logger.IsEnabled(LogLevel.Information))
-                        logger.LogInformation("WsClient 消息：{s}", s);
+                    ReconnectTimeout = null
                 };
-                // 线程安全替换客户端
-                lock (_clientLock)
+
+                RegisterMessagePipeline(cancellationToken);
+                RegisterDisconnectionPipeline(cancellationToken);
+                await _wsClient.Start();
+                logger.LogInformation("【长连接】首次建立成功。");
+            }
+            else
+            {
+                _wsClient.Url = new Uri(initialUrl);
+                await _wsClient.Reconnect();
+                logger.LogInformation("【长连接】已成功切换至新端点。");
+            }
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError("【长连接】网络可能仍未恢复，遭遇异常: {Message}", ex.Message);
+            return false;
+        }
+        finally
+        {
+            _swapUrlSemaphore.Release();
+        }
+    }
+
+    private void RegisterMessagePipeline(CancellationToken cancellationToken)
+    {
+        _messageSubscription = _wsClient?.MessageReceived.Subscribe(msg =>
+        {
+            if (msg.MessageType == WebSocketMessageType.Binary && msg.Binary != null)
+            {
+                int dataLength = msg.Binary.Length;
+
+                byte[] rentedBuffer = ArrayPool<byte>.Shared.Rent(dataLength);
+                Array.Copy(msg.Binary, 0, rentedBuffer, 0, dataLength);
+
+                (Frame? completedFrame, string? eventId) = TryReassembleMessage(rentedBuffer, dataLength);
+
+                if (completedFrame != null)
                 {
-                    _wsClient?.Dispose(); // 释放旧客户端
-                    _wsClient = newClient;
+                    _ = System.Threading.Tasks.Task.Run(async () =>
+                        await ProcessMessageAsync(completedFrame, eventId, cancellationToken), cancellationToken);
                 }
-                await newClient.StartAsync();
             }
-            catch (Exception ex)
+            else if (msg.MessageType == WebSocketMessageType.Text && !string.IsNullOrEmpty(msg.Text))
             {
-                logger.LogError(ex, "启动连接时出现异常");
-                await TryReconnectAsync(stoppingToken);
+                if (msg.Text.Equals("ping", StringComparison.OrdinalIgnoreCase))
+                {
+                    logger.LogDebug("【长连接】收到 ping 帧。");
+                }
             }
-        }
+        });
+    }
 
-        private async void MessageReceived(object? sender, MessageReceivedEventArgs e)
+    private void RegisterDisconnectionPipeline(CancellationToken cancellationToken)
+    {
+        _disconnectionSubscription = _wsClient?.DisconnectionHappened.Subscribe(info =>
         {
-            if (sender is not WatsonWsClient client || e.Data.Count == 0) return;
-            // 复制数据避免事件参数生命周期问题
-            var dataCopy = new byte[e.Data.Count];
-            e.Data.CopyTo(dataCopy);
-            var dataSegment = new ArraySegment<byte>(dataCopy);
-            // 获取当前有效的取消令牌
-            var cts = _messageProcessingCts;
-            //cts?.CancelAfter(3000);
-            var cancellationToken = cts?.Token ?? CancellationToken.None;
-            try
-            {
-                await ProcessMessageAsync(client, dataSegment, cancellationToken);
-            }
-            catch (OperationCanceledException)
-            {
-                logger.LogInformation("消息处理已取消");
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "处理消息时出现异常");
-            }
-        }
+            if (info.Type == DisconnectionType.Exit || info.Type == DisconnectionType.ByUser)
+                return;
 
-        /// <summary>
-        /// 处理传入的 WebSocket 消息
-        /// </summary>
-        private async System.Threading.Tasks.Task ProcessMessageAsync(
-            WatsonWsClient client,
-            ArraySegment<byte> data,
-            CancellationToken cancellationToken)
+            logger.LogWarning("【长连接】遭遇意外断开，类型: {Type}。正在触发 Reconnect 重连...", info.Type);
+
+            _ = System.Threading.Tasks.Task.Run(async () =>
+            {
+                await TryInitializeAndStartAsync(cancellationToken);
+            }, cancellationToken);
+        });
+    }
+
+    private (Frame?, string?) TryReassembleMessage(byte[] rentedBuffer, int dataLength)
+    {
+        string? eventId = null;
+        try
         {
-            cancellationToken.ThrowIfCancellationRequested();
+            Frame frame;
+            var memorySource = new ReadOnlyMemory<byte>(rentedBuffer, 0, dataLength);
+            frame = ProtoBuf.Serializer.Deserialize<Frame>(memorySource);
 
-            // 1. 反序列化消息帧 
-            var frame = ProtoBuf.Serializer.Deserialize<Frame>(data.AsSpan());
-            if (frame?.Payload == null)
+            if (frame == null || frame.Payload.IsEmpty)
             {
-                if (logger.IsEnabled(LogLevel.Error))
-                    logger.LogError("消息帧反序列化失败，数据长度：{Length}", data.Count);
-                return;
+                ArrayPool<byte>.Shared.Return(rentedBuffer);
+                return (null, null);
             }
 
-            JsonNode jsonPayloadNode;
-            try
+            string? instanceId = null;
+            int totalChunks = 1;
+            int chunkIndex = 0;
+            bool isFragmented = false;
+
+            if (frame.Headers != null && frame.Headers.Length > 0)
             {
-                jsonPayloadNode = JsonNode.Parse(frame.Payload.AsSpan())
-                    ?? throw new InvalidDataException();
-            }
-            catch (Exception ex) when (ex is JsonException || ex is InvalidDataException)
-            {
-                logger.LogError(ex, "WSS payload 解析为 JsonNode 失败");
-                return;
+                var instanceIdHeader = frame.Headers.FirstOrDefault(h => h.Key == "instance_id");
+                var sumHeader = frame.Headers.FirstOrDefault(h => h.Key == "sum");
+                var seqHeader = frame.Headers.FirstOrDefault(h => h.Key == "seq");
+                var eventIdHeader = frame.Headers.FirstOrDefault(h => h.Key == "trace_id");
+
+                if (eventIdHeader != null) eventId = eventIdHeader.Value;
+                if (instanceIdHeader != null) instanceId = instanceIdHeader.Value;
+                if (sumHeader != null && seqHeader != null)
+                {
+                    isFragmented = true;
+                    totalChunks = int.Parse(sumHeader.Value);
+                    chunkIndex = int.Parse(seqHeader.Value);
+                }
             }
 
-            // 2. 业务处理
+            ReadOnlyMemory<byte> payloadMemory = frame.Payload;
+
+            if (string.IsNullOrEmpty(instanceId) || !isFragmented)
+            {
+                byte[] singlePayload = new byte[payloadMemory.Length];
+                payloadMemory.Span.CopyTo(singlePayload);
+
+                frame.Payload = new ReadOnlyMemory<byte>(singlePayload);
+
+                ArrayPool<byte>.Shared.Return(rentedBuffer);
+                return (frame, eventId);
+            }
+
+            var slot = _assemblyPool.GetOrAdd(instanceId, _ => new MessageAssembleSlot { TotalCount = totalChunks });
+
+            byte[] payloadChunkBuffer = ArrayPool<byte>.Shared.Rent(payloadMemory.Length);
+
+            payloadMemory.Span.CopyTo(payloadChunkBuffer);
+
+            ArrayPool<byte>.Shared.Return(rentedBuffer);
+
+            Frame? finalCombinedFrame = null;
+
+            lock (slot)
+            {
+                slot.Chunks[chunkIndex] = (payloadChunkBuffer, payloadMemory.Length);
+                slot.LastArrivedFrame = frame;
+
+                if (slot.Chunks.Count == slot.TotalCount)
+                {
+                    _assemblyPool.TryRemove(instanceId, out _);
+
+                    finalCombinedFrame = slot.LastArrivedFrame;
+
+                    int totalBytes = slot.Chunks.Values.Sum(c => c.Length);
+                    byte[] combinedPayload = new byte[totalBytes];
+
+                    int currentOffset = 0;
+                    for (int i = 0; i < slot.TotalCount; i++)
+                    {
+                        var chunk = slot.Chunks[i];
+
+                        chunk.Buffer.AsSpan(0, chunk.Length).CopyTo(combinedPayload.AsSpan(currentOffset));
+                        currentOffset += chunk.Length;
+
+                        ArrayPool<byte>.Shared.Return(chunk.Buffer);
+                    }
+
+                    finalCombinedFrame.Payload = new ReadOnlyMemory<byte>(combinedPayload);
+                }
+            }
+
+            return (finalCombinedFrame, eventId);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "【长连接】EventID: {eventId} 出现异常", eventId);
+            ArrayPool<byte>.Shared.Return(rentedBuffer);
+            return (null, null);
+        }
+    }
+
+    private async System.Threading.Tasks.Task ProcessMessageAsync(Frame completeFrame, string? eventId, CancellationToken cancellationToken)
+    {
+        try
+        {
+            string jsonText = Encoding.UTF8.GetString(completeFrame.Payload.Span).Trim();
+
+            if (jsonText.Equals("ping", StringComparison.OrdinalIgnoreCase)) return;
+            if (!jsonText.StartsWith('{') && !jsonText.StartsWith('[')) return;
+
+            var jsonPayloadNode = JsonNode.Parse(jsonText) ?? throw new InvalidDataException();
+
             var result = await eventCallback.HandleAsync(jsonPayloadNode, cancellationToken);
 
-            if (result.Error is not null && logger.IsEnabled(LogLevel.Debug))
+            if (result.Error is not null)
             {
-                logger.LogDebug("WSS 错误信息：{error}", result.Error);
+                throw new InvalidOperationException($"【长连接】事件回调执行失败: {result.Error}");
             }
 
+            cancellationToken.ThrowIfCancellationRequested();
+
+            await SendWebSocketAckAsync(completeFrame, result, cancellationToken);
+
+            if (logger.IsEnabled(LogLevel.Debug))
+                logger.LogDebug("【长连接】EventID: {eventid} 响应完成", eventId);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "【长连接】核心业务帧时发生未知崩塌");
+        }
+    }
+
+    private async System.Threading.Tasks.Task SendWebSocketAckAsync(Frame requestFrame,
+        Services.EventCallbackServiceProvider.HandleResult result,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
             byte[]? dto_bytes = null;
             if (result.Dto is not null)
             {
@@ -225,57 +354,98 @@ namespace FeishuNetSdk.WebSocket
             }
             var dto_response_body = new { code = 200, data = dto_bytes };
 
-            // 构建响应消息
             var responseJson = JsonSerializer.Serialize(dto_response_body, serializerOptions);
 
             if (logger.IsEnabled(LogLevel.Debug))
-                logger.LogDebug("WSS 出参：{json}", responseJson);
+                logger.LogDebug("【长连接】出参：{json}", responseJson);
 
             cancellationToken.ThrowIfCancellationRequested();
-            // 发送响应
+
+            var ackFrame = new Frame
+            {
+                SeqID = requestFrame.SeqID,
+                LogID = requestFrame.LogID,
+                LogIDNew = requestFrame.LogIDNew,
+                Service = requestFrame.Service,
+                Method = 2,
+                Headers = requestFrame.Headers,
+                Payload = new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes(responseJson))
+            };
+
+            // 序列化回包并送入网络物理通道
             using var messageStream = new MemoryStream();
-            frame.Payload = Encoding.UTF8.GetBytes(responseJson);
-            ProtoBuf.Serializer.Serialize(messageStream, frame);
+            ProtoBuf.Serializer.Serialize(messageStream, ackFrame);
 
-            if (messageStream.TryGetBuffer(out var arraySegment))
+            if (_wsClient != null && _wsClient.IsRunning)
             {
-                await client.SendAsync(arraySegment, System.Net.WebSockets.WebSocketMessageType.Binary, cancellationToken);
+                _wsClient.Send(messageStream.ToArray());
             }
         }
-
-        private async void ServerDisconnected(object? sender, EventArgs e)
+        catch (Exception ex)
         {
-            if (logger.IsEnabled(LogLevel.Warning))
-                logger.LogWarning("长连接已断开，尝试第 {Attempt} 次重连（间隔 {Interval}ms）", _reconnectAttempts + 1, ReconnectInterval);
-            var cts = _messageProcessingCts;
-            await TryReconnectAsync(cts?.Token ?? CancellationToken.None);
+            logger.LogError(ex, "【长连接】ACK 异常");
+        }
+    }
+
+    private async Task<string> GetWssEndpointAsync(CancellationToken cancellationToken)
+    {
+        try
+        {
+            var result = await feishuApi.PostCallbackWsEndpointAsync(new()
+            {
+                AppId = options.CurrentValue.AppId,
+                AppSecret = options.CurrentValue.AppSecret
+            }, cancellationToken);
+
+            if (result?.IsSuccess != true || string.IsNullOrEmpty(result?.Data?.Url))
+                throw new InvalidOperationException(result?.Msg ?? $"获取 WSS 端点失败，Code：{result?.Code}");
+
+            return result.Data.Url;
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "【长连接】获取 WSS 端点异常：{msg}", ex.Message);
+            throw;
+        }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public override void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+        base.Dispose();
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="disposing"></param>
+    protected virtual void Dispose(bool disposing)
+    {
+        if (_disposed) return;
+
+        if (disposing)
+        {
+            logger?.LogInformation("【服务注销】彻底销毁长连接网关，安全释放物理管道。");
+
+            _messageSubscription?.Dispose();
+            _disconnectionSubscription?.Dispose();
+            _wsClient?.Dispose();
+            _swapUrlSemaphore?.Dispose();
+            _reconnectSemaphore?.Dispose();
         }
 
-        private void ServerConnected(object? sender, EventArgs e)
-        {
-            logger.LogInformation("长连接已成功建立");
-            _reconnectAttempts = 0; // 重置重连计数器
-        }
+        _disposed = true;
+    }
 
-        private async System.Threading.Tasks.Task TryReconnectAsync(CancellationToken stoppingToken)
-        {
-            if (_reconnectAttempts >= MaxReconnectAttempts)
-            {
-                if (logger.IsEnabled(LogLevel.Error))
-                    logger.LogError("已达最大重连次数 ({Max})，停止重连", MaxReconnectAttempts);
-                return;
-            }
-            _reconnectAttempts++;
-            try
-            {
-                // 延迟重连，支持外部取消
-                await System.Threading.Tasks.Task.Delay(ReconnectInterval, stoppingToken);
-                await StartConnectAsync(stoppingToken);
-            }
-            catch (OperationCanceledException)
-            {
-                logger.LogError("重连过程被取消（服务可能正在停止）");
-            }
-        }
+    /// <summary>
+    /// 
+    /// </summary>
+    ~WssService()
+    {
+        Dispose(false);
     }
 }

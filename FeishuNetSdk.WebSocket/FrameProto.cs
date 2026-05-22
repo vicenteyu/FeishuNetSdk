@@ -4,7 +4,7 @@
 // Created          : 2024-09-07
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-07
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="FrameProto.cs" company="Vicente Yu">
 //     MIT
@@ -86,7 +86,7 @@ internal class Frame
     /// 
     /// </summary>
     [ProtoMember(8, Name = "payload")]
-    public byte[]? Payload { get; set; }
+    public ReadOnlyMemory<byte> Payload { get; set; }
 
     /// <summary>
     /// 

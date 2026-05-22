@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -29008,6 +29008,213 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】上传 HTML 代码并发布</para>
+    /// <para>接口ID：7642228089434852533</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/upload_html_code_and_release</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>上传 HTML 代码并发布</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:publish</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用唯一标识，通过应用创建接口或妙搭管理后台获取</para>
+    /// <para>示例值：app_4k6af8utt2s0n</para>
+    /// </param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>tar 格式的 HTML 文件</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/upload_and_release_html_code")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdUploadAndReleaseHtmlCodeResponseDto>> PostSparkV1AppsByAppIdUploadAndReleaseHtmlCodeAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】更新妙搭应用可用范围</para>
+    /// <para>接口ID：7642228089434868917</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/update_app_visibility</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>更新妙搭应用可用范围</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.access_scope:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用的唯一标识，用于指定需要更新可见范围的目标应用。可通过调用「获取妙搭应用列表」接口或在妙搭控制台应用详情页获取。</para>
+    /// <para>示例值：app_4k6af8utt2s0n</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/spark/v1/apps/{app_id}/access-scope")]
+    System.Threading.Tasks.Task<FeishuResponse> PutSparkV1AppsByAppIdAccessScopeAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PutSparkV1AppsByAppIdAccessScopeBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取妙搭应用可用范围</para>
+    /// <para>接口ID：7642228089434885301</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/get_app_visibility</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取妙搭应用可用范围</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app.access_scope:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用唯一标识，通过应用创建接口或妙搭管理后台获取</para>
+    /// <para>示例值：app_4k6af8utt2s0n</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/access-scope")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdAccessScopeResponseDto>> GetSparkV1AppsByAppIdAccessScopeAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】批量获取妙搭应用</para>
+    /// <para>接口ID：7642228089434901685</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量获取妙搭应用</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页返回的应用数量，取值范围为1-100，默认值为20</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsResponseDto>> GetSparkV1AppsAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】上传妙搭应用图标</para>
+    /// <para>接口ID：7642228089434918069</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/icon</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>上传妙搭应用图标</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>File 待上传的图标文件，multipart/form-data 的 file 部分</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/icon")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1IconResponseDto>> PostSparkV1IconAsync(
+        UserAccessToken access_token,
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】更新妙搭应用信息</para>
+    /// <para>接口ID：7642228089434934453</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/patch</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>更新妙搭应用信息</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用唯一标识，可通过「创建妙搭应用」或「查询妙搭应用列表」接口获取</para>
+    /// <para>示例值：app_4k6af8utt2s0n</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/spark/v1/apps/{app_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PatchSparkV1AppsByAppIdResponseDto>> PatchSparkV1AppsByAppIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PatchSparkV1AppsByAppIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】创建妙搭应用</para>
+    /// <para>接口ID：7642228089434950837</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/create</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>创建妙搭应用</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsResponseDto>> PostSparkV1AppsAsync(
+        UserAccessToken access_token,
+        [JsonContent] Miaoda.PostSparkV1AppsBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

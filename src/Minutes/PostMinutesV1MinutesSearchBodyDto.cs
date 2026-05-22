@@ -4,7 +4,7 @@
 // Created          : 2026-05-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="PostMinutesV1MinutesSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -90,15 +90,4 @@ public record PostMinutesV1MinutesSearchBodyDto
             public string? EndTime { get; set; }
         }
     }
-
-    /// <summary>
-    /// <para>排序参数，默认按照相关性规则排序</para>
-    /// <para>必填：否</para>
-    /// <para>示例值：create_time_desc</para>
-    /// <para>可选值：<list type="bullet">
-    /// <item>create_time_desc：按照妙记创建时间降序排序</item>
-    /// </list></para>
-    /// </summary>
-    [JsonPropertyName("sorter")]
-    public string? Sorter { get; set; }
 }
