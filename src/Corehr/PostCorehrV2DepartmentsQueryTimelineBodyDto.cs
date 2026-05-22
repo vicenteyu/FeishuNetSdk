@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="PostCorehrV2DepartmentsQueryTimelineBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -49,6 +49,12 @@ public record PostCorehrV2DepartmentsQueryTimelineBodyDto
     /// <para>需要返回的字段列表，字段可填写的列表如下：</para>
     /// <para>- department_name：部门名称</para>
     /// <para>- sub_type：部门子类型</para>
+    /// <para>- tree_order：树形排序</para>
+    /// <para>- list_order：列表排序</para>
+    /// <para>- is_root：是否根部门</para>
+    /// <para>- is_confidential：是否保密</para>
+    /// <para>- staffing_model：岗职务模式</para>
+    /// <para>- cost_center_id：部门默认成本中心</para>
     /// <para>- code：部门编码</para>
     /// <para>- active：是否启用</para>
     /// <para>- parent_department_id：上级部门ID</para>

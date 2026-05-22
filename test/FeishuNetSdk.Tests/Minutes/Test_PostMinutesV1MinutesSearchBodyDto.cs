@@ -39,8 +39,7 @@ public class Test_PostMinutesV1MinutesSearchBodyDto : TestBase
             "start_time": "2026-03-21T16:15:30+08:00",
             "end_time": "2026-03-21T16:15:30+08:00"
         }
-    },
-    "sorter": "create_time_desc"
+    }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Minutes.PostMinutesV1MinutesSearchBodyDto>(json);

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-05-22
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -45167,6 +45167,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:department.cost_center_id:read</item>
     /// <item>corehr:department.custom_fields:read</item>
     /// <item>corehr:department.manager:read</item>
     /// <item>corehr:department.organize:read</item>
@@ -47596,6 +47597,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:department.cost_center_id:read</item>
     /// <item>corehr:department.custom_fields:read</item>
     /// <item>corehr:department.manager:read</item>
     /// <item>corehr:department.organize:read</item>

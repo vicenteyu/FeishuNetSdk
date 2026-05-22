@@ -1,6 +1,7 @@
 ﻿using FeishuNetSdk;
 using FeishuNetSdk.Approval.Events;
 using FeishuNetSdk.CallbackEvents;
+using FeishuNetSdk.Ccm.Events;
 using FeishuNetSdk.Contact.Events;
 using FeishuNetSdk.Extensions;
 using FeishuNetSdk.Im.Dtos;
@@ -15,21 +16,42 @@ namespace WebApplication1
     /// 进入 https://open.feishu.cn/document/server-docs/contact-v3/user/patch，
     /// 右侧 API调试台 -> 路径参数 -> user_id -> 点击获取 -> 复制 OpenId
     /// </summary>
-    public class Class1(IFeishuTenantApi tenantApi) : BackgroundService
+    public class Class1(IFeishuTenantApi tenantApi, ILogger<Class1> logger) : BackgroundService
     {
         protected async override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
+            //await tenantApi.PostImV1MessagesAsync("open_id", new FeishuNetSdk.Im.PostImV1MessagesBodyDto()
+            //{
+            //    ReceiveId = "ou_9ef1*************ede896"
+            //}.SetContent(new ElementsCardV2Dto()
+            //{
+            //    Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
+            //    Body = new ElementsCardV2Dto.BodySuffix()
+            //    {
+            //        Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
+            //    }
+            //}), stoppingToken);
+
+            // 多维表订阅
+            //var result = await tenantApi.PostDriveV1FilesByFileTokenSubscribeAsync("K7UrbngpQaU0BVsiiOxc9tvknGf", "bitable", cancellation_token: stoppingToken);
+
+            //if (!result.IsSuccess)
+            //    Console.WriteLine($"操作异常：{result.Msg}");
+
+            //logger.LogInformation("{msg}", JsonSerializer.Serialize(result));
+        }
+    }
+
+    public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<DriveFileBitableRecordChangedV1EventBodyDto>, DriveFileBitableRecordChangedV1EventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV2Dto<DriveFileBitableRecordChangedV1EventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            foreach (var item in input.Event?.ActionList ?? [])
             {
-                ReceiveId = "ou_9ef1*************ede896"
-            }.SetContent(new ElementsCardV2Dto()
-            {
-                Header = new ElementsCardV2Dto.HeaderSuffix() { Title = new("Button-1") },
-                Body = new ElementsCardV2Dto.BodySuffix()
-                {
-                    Elements = [new FormButtonElement(Name: Guid.NewGuid().ToString(), Text: new($"xxx1{DateTime.Now}"), Behaviors: [new CallbackBehaviors(new { key = "CallbackBehaviors" })])]
-                }
-            }), stoppingToken);
+                logger.LogInformation("action: {item}", item.Action);
+                logger.LogInformation("BeforeValue: {value}", JsonSerializer.Serialize(item.BeforeValue));
+                logger.LogInformation("AfterValue: {value}", JsonSerializer.Serialize(item.AfterValue));
+            }
         }
     }
 
@@ -129,14 +151,14 @@ namespace WebApplication1
         }
     }
 
-    public class EventHandler2(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
+    public class EventHandler3(ILogger<EventHandler> logger) : IEventHandler<EventV2Dto<ImMessageReceiveV1EventBodyDto>, ImMessageReceiveV1EventBodyDto>
     {
         public async Task ExecuteAsync(EventV2Dto<ImMessageReceiveV1EventBodyDto> input, CancellationToken cancellationToken)
         {
             //await Task.Delay(3000, cancellationToken);
 
             if (logger.IsEnabled(LogLevel.Information))
-                logger.LogInformation("ExecuteAsync2: {info}", JsonSerializer.Serialize(input));
+                logger.LogInformation("ExecuteAsync3: {info}", JsonSerializer.Serialize(input));
         }
     }
 

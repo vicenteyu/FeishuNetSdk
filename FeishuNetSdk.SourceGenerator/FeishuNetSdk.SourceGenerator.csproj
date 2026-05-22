@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+        <IsRoslynComponent>true</IsRoslynComponent>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0" PrivateAssets="all" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.3.0" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <GetCustomAnalyzerProps>$(GetCustomAnalyzerProps);_AddJsonLibToPackage</GetCustomAnalyzerProps>
+    </PropertyGroup>
+    <Target Name="_AddJsonLibToPackage" DependsOnTargets="ResolveReferences">
+        <ItemGroup>
+            <TfmSpecificPackageFile Include="$(PkgSystem_Text_Json)\lib\netstandard2.0\*.dll" PackagePath="analyzers/dotnet/cs" />
+        </ItemGroup>
+    </Target>
+</Project>
