@@ -19,25 +19,6 @@ namespace FeishuNetSdk.WebSocket;
 /// 
 /// </summary>
 [ProtoContract]
-internal class Header
-{
-    /// <summary>
-    /// 
-    /// </summary>
-    [ProtoMember(1, Name = "key")]
-    public string Key { get; set; } = string.Empty;
-
-    /// <summary>
-    /// 
-    /// </summary>
-    [ProtoMember(2, Name = "value")]
-    public string Value { get; set; } = string.Empty;
-}
-
-/// <summary>
-/// 
-/// </summary>
-[ProtoContract]
 internal class Frame
 {
     /// <summary>
@@ -68,19 +49,19 @@ internal class Frame
     /// 
     /// </summary>
     [ProtoMember(5, Name = "headers")]
-    public Header[]? Headers { get; set; }
+    public Dictionary<string, string> Headers { get; set; } = [];
 
     /// <summary>
     /// 
     /// </summary>
     [ProtoMember(6, Name = "payload_encoding")]
-    public string? PayloadEncoding { get; set; } = string.Empty;
+    public string PayloadEncoding { get; set; } = string.Empty;
 
     /// <summary>
     /// 
     /// </summary>
     [ProtoMember(7, Name = "payload_type")]
-    public string? PayloadType { get; set; } = string.Empty;
+    public string PayloadType { get; set; } = string.Empty;
 
     /// <summary>
     /// 
@@ -92,7 +73,7 @@ internal class Frame
     /// 
     /// </summary>
     [ProtoMember(9)]
-    public string? LogIDNew { get; set; } = string.Empty;
+    public string LogIDNew { get; set; } = string.Empty;
 
     /// <summary>
     /// 
@@ -101,7 +82,7 @@ internal class Frame
     {
         get
         {
-            if (Headers is null || Headers.Length == 0) return MessageType.Unknown;
+            if (Headers is null || Headers.Count == 0) return MessageType.Unknown;
             if (Headers.Any(p => p.Key == "type" && p.Value == "ping")) return MessageType.Ping;
             if (Headers.Any(p => p.Key == "type" && p.Value == "pong")) return MessageType.Pong;
             if (Headers.Any(p => p.Key == "type" && p.Value == "card")) return MessageType.Card;
