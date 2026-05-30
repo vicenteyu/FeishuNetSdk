@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-22
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -21593,23 +21593,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7044467124773421057</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/attendance-v1/user_task/query</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>获取企业内员工的实际打卡结果，包括：</para>
-    /// <para>* 打卡任务列表</para>
-    /// <para>* 打卡记录id</para>
-    /// <para>* 用户信息</para>
-    /// <para>* 考勤组id</para>
-    /// <para>* 班次id</para>
-    /// <para>* 考勤记录</para>
-    /// <para>* 上班记录</para>
-    /// <para>* 下班记录</para>
-    /// <para>* 上班打卡结果</para>
-    /// <para>* 下班打卡结果</para>
-    /// <para>* 上班打卡结果补充</para>
-    /// <para>* 下班打卡结果补充</para>
-    /// <para>* 上班打卡时间</para>
-    /// <para>* 下班打卡时间</para>
-    /// <para>* 无效用户id列表</para>
-    /// <para>* 没有权限用户ID列表</para>
+    /// <para>获取企业内员工的实际打卡结果，包括： * 打卡任务列表 * 打卡记录id * 用户信息 * 考勤组ID * 班次 ID * 考勤记录 * 上班记录 * 下班记录 * 上班打卡结果 * 下班打卡结果 * 上班打卡结果补充 * 下班打卡结果补充 * 上班打卡时间 * 下班打卡时间 * 无效用户 ID 列表 * 没有权限用户ID列表</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>attendance:task:readonly</item>
     /// </list></para>
@@ -38416,9 +38400,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>更新一条评论。</para>
     /// <para>更新时，将`update_fields`字段中填写所有要修改的评论的字段名，同时在`comment`字段中填写要修改的字段的新值即可。更新接口规范详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-    /// <para>目前只支持更新评论的"conent"字段。</para>
+    /// <para>目前只支持更新评论的"content"字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:comment:write</item>
+    /// <item>task:comment:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="comment_id">
@@ -38476,6 +38461,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>创建清单后，创建人自动成为清单的所有者。如果请求同时将创建人设置为可编辑/可阅读角色，则最终该用户成为清单所有者，并自动从清单成员列表中消失。因为同一个用户在同一个清单只能拥有一个角色。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -38505,6 +38491,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>本接口不能用来设置清单所有者，如要设置，可以使用[更新清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/patch)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="tasklist_guid">
@@ -38614,6 +38601,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口功能除了额外需要输入父任务的GUID之外，和[创建任务](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/create)接口功能完全一致。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -38645,6 +38633,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个清单。</para>
     /// <para>删除清单后，不可对该清单做任何操作，也无法再访问到清单。清单被删除后不可恢复。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:tasklist:delete</item>
     /// <item>task:tasklist:write</item>
     /// </list></para>
     /// </summary>
@@ -38705,6 +38694,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>若要创建一个回复评论，需要在创建时设置`reply_to_comment_id`字段。被回复的评论和新建的评论必须属于同一个任务。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:comment:write</item>
+    /// <item>task:comment:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -38759,6 +38749,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个任务。</para>
     /// <para>删除后任务无法再被获取到。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:task:delete</item>
     /// <item>task:task:write</item>
     /// </list></para>
     /// </summary>
@@ -38820,6 +38811,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* 如要增删清单中的任务，可以使用[任务加入清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_tasklist)和[任务移出清单]( https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_tasklist)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="tasklist_guid">
@@ -38851,7 +38843,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>获取一个清单的任务列表，返回任务的摘要信息。</para>
     /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
     /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
-    /// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空情况。</para>
+    /// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空的情况。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:read</item>
     /// <item>task:tasklist:write</item>
@@ -38956,13 +38948,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一条评论。</para>
     /// <para>评论被删除后，将无法进行任何操作，也无法恢复。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:comment:delete</item>
     /// <item>task:comment:write</item>
     /// </list></para>
     /// </summary>
     /// <param name="comment_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>要删除的评论id</para>
+    /// <para>要删除的评论ID</para>
     /// <para>示例值：7198104824246747156</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -39042,6 +39035,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果任务不在清单中，接口将返回成功。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -39072,6 +39066,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>移除任务成员。一次性可以移除多个成员。可以移除任务的负责人或者关注人。移除时，如果要移除的成员不是任务成员，会被自动忽略。本接口返回移除成员后的任务数据，包含移除后的任务成员列表。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:personnel:writeonly</item>
     /// <item>task:task:write</item>
     /// </list></para>
     /// </summary>
@@ -39106,6 +39101,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果当前任务已经有提醒了，要更新提醒的设置，需要先调用[移除任务提醒](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/remove_reminders)接口移除原有提醒。再调用本接口添加提醒。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -39138,6 +39134,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如果要移除的提醒本来就不存在，本接口将直接返回成功。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -39172,6 +39169,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>该接口不能用于移除清单所有者。如果要移除的成员是清单所有者，则会被自动忽略。如要设置清单所有者，需要调用[更新清单](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/patch)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="tasklist_guid">
@@ -39202,7 +39200,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
     /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-    /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
+    /// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，OpenAPI对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
     /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
     /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
     /// <para>* 如要修改任务成员，需要使用[添加任务成员](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_members)</para>
@@ -39474,10 +39472,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/task-v2/section/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>为清单或我负责的任务列表创建一个自定义分组。创建时可以需要提供名称和可选的配置。如果不指定位置，新分组会放到指定resource的自定义分组列表的最后。</para>
-    /// <para>当在清单中创建自定义分组时，需要设置`resourse_type`为"tasklist", `resource_id`设为清单的GUID。</para>
+    /// <para>当在清单中创建自定义分组时，需要设置`resource_type`为"tasklist", `resource_id`设为清单的GUID。</para>
     /// <para>当为我负责任务列表中创建自定义分组时，需要设置`resource_type`为"my_tasks"，不需要设置`resource_id`。调用身份只能为自己的我负责的任务列表创建自定义分组。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:section:write</item>
+    /// <item>task:section:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -39533,7 +39532,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>更新时，将`update_fields`字段中填写所有要修改的字段名，同时在`section`字段中填写要修改的字段的新值即可。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
     /// <para>目前支持更新的字段包括：</para>
     /// <para>* `name` - 自定义字段名字;</para>
-    /// <para>* `insert_before` - 要让当前自定义分组放到某个自定义分组前面的secion_guid，用于改变当前自定义分组的位置;</para>
+    /// <para>* `insert_before` - 要让当前自定义分组放到某个自定义分组前面的section_guid，用于改变当前自定义分组的位置;</para>
     /// <para>* `insert_after` - 要让当前自定义分组放到某个自定义分组后面的secion_guid，用于改变当前自定义分组的位置。</para>
     /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
     /// <para>权限要求：<list type="bullet">
@@ -39570,6 +39569,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>删除一个自定义分组。删除后该自定义分组中的任务会被移动到被删除自定义分组所属资源的默认自定义分组中。</para>
     /// <para>不能删除默认的自定义分组。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:section:delete</item>
     /// <item>task:section:write</item>
     /// </list></para>
     /// </summary>
@@ -39682,6 +39682,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：1675742789470</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <para>默认值：open_id</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/task/v2/sections/{section_guid}/tasks")]
     System.Threading.Tasks.Task<FeishuResponse<Task.GetTaskV2SectionsBySectionGuidTasksResponseDto>> GetTaskV2SectionsBySectionGuidTasksAsync(
@@ -39691,6 +39697,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool? completed = null,
         [PathQuery] string? created_from = null,
         [PathQuery] string? created_to = null,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -40554,10 +40561,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口文档：https://open.feishu.cn/document/task-v2/custom_field/remove</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将自定义字段从资源中移出。移除后，该资源将无法再使用该字段。目前资源的类型支持"tasklist"。</para>
-    /// <para>如果要移除自定义字段本来就不存在于资源，本接口将正常返回。</para>
+    /// <para>如果要移除的自定义字段本来就不存在于资源中，本接口将正常返回。</para>
     /// <para>注意自定义字段是通过清单来实现授权的，如果将自定义字段从所有关联的清单中移除，就意味着任何调用身份都无法再访问改自定义字段。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:custom_field:write</item>
+    /// <item>task:custom_field:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="custom_field_guid">
@@ -40587,6 +40595,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>* `insert_before`: 将当前option放到同字段某个option之前的那个option_guid。</para>
     /// <para>* `insert_after`: 将当前option放到同字段某个option之后的那个option_guid。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:custom_field:writeonly</item>
     /// <item>task:tasklist:write</item>
     /// </list></para>
     /// </summary>
@@ -40687,14 +40696,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>```</para>
     /// <para>表示仅仅将小数位数从2改为4，其余的设置`format`, `separator`, `custom_field`等都不变。</para>
     /// <para>对于单选/多选类型的自定义字段，其设定是一个选项列表。更新时，使用方式接近使用App的界面。使用者不必传入字段的所有选项，而是只需要提供最终希望界面可见（is_hidden=false) 的选项。原有字段中的选项如果没有出现在输入中，则被置为`is_hidden=true`并放到所有可见选项之后。</para>
-    /// <para>对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在reponse中被返回)。</para>
+    /// <para>对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在response中被返回)。</para>
     /// <para>例如，一个单选字段原来有3个选项A，B，C，D。其中C是隐藏的。用户可以这样更新选项：</para>
     /// <para>```</para>
     /// <para>PATCH /task/v2/custom_fields/:custom_field_guid</para>
     /// <para>{</para>
     /// <para>"custom_field": {</para>
     /// <para>"single_select_setting": {</para>
-    /// <para>"optoins": [</para>
+    /// <para>"options": [</para>
     /// <para>{</para>
     /// <para>"name": "E",</para>
     /// <para>"color_index": 25</para>
@@ -40755,6 +40764,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如希望只更新单个选项，或者希望单独设置某个选项的is_hidden，本接口无法支持，但可以使用[更新自定义字段选项](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field-option/patch)接口实现。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:custom_field:write</item>
+    /// <item>task:custom_field:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -40827,7 +40837,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="resource_type">
     /// <para>必填：否</para>
-    /// <para>资源类型，如提供表示仅查询特定资源下的自定义字段。目前只支持tasklist。</para>
+    /// <para>资源类型，如提供则表示仅查询特定资源下的自定义字段。目前只支持tasklist。</para>
     /// <para>示例值：tasklist</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -40855,6 +40865,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>为单选或多选字段添加一个自定义选项。一个单选/多选字段最大支持100个选项。</para>
     /// <para>新添加的选项如果不隐藏，其名字不能和已存在的不隐藏选项的名字重复。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:custom_field:writeonly</item>
     /// <item>task:tasklist:read</item>
     /// <item>task:tasklist:write</item>
     /// </list></para>
@@ -40895,7 +40906,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>}</para>
     /// <para>}</para>
     /// <para>```</para>
-    /// <para>表示创建一个叫做“价格”的自定义字段，保留两位小数。在界面上显示时采用人民币的格式，并显示千分位分割符。</para>
+    /// <para>表示创建一个叫做“价格”的自定义字段，保留两位小数。在界面上显示时采用人民币的格式，并显示千分位分隔符。</para>
     /// <para>类似的，创建一个单选字段，可以这样调用接口：</para>
     /// <para>```</para>
     /// <para>POST /task/v2/custom_fields</para>
@@ -40925,6 +40936,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>表示创建一个叫“优先级”的单选，包含“高”，“中”，“低”三个选项，每个选项设置一个颜色值。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:custom_field:write</item>
+    /// <item>task:custom_field:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -41742,6 +41754,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>注意：添加的依赖的`task_guid`不能重复，也不能添加当前任务为自己的依赖。尝试添加一个已经存在的依赖会被自动忽略。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:task:write</item>
+    /// <item>task:task:writeonly</item>
     /// </list></para>
     /// </summary>
     /// <param name="task_guid">
@@ -42124,10 +42137,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>`update_fields`支持更新的字段包括：</para>
     /// <para>* name：订阅的名称</para>
     /// <para>* subscribers: 订阅者列表。如更新，会将旧的订阅者列表完全替换为新的订阅者列表。支持最大50个订阅者。并且订阅者必须是chat类型。</para>
-    /// <para>* include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event key (见字段描述）。</para>
+    /// <para>* include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event keys (见字段描述）。</para>
     /// <para>* disabled：修改订阅的开启/禁用状态。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -42173,6 +42187,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>给定一个清单的GUID和一个订阅的GUID，将其删除。删除后的数据不可恢复。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:tasklist:delete</item>
     /// <item>task:tasklist:write</item>
     /// </list></para>
     /// </summary>
@@ -42205,6 +42220,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>如有需要，创建时也可以直接将`disabled`设为true，创建一个禁止发送订阅通知的订阅。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:write</item>
+    /// <item>task:tasklist:writeonly</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -42241,7 +42257,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7288897051647016962</para>
     /// <para>接口文档：https://open.feishu.cn/document/task-v2/tasklist-activity_subscription/get</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event key列表等。</para>
+    /// <para>提供一个清单的GUID和一个订阅的GUID，获取该订阅的详细信息，包括名称，订阅者，可通知的event keys列表等。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>task:tasklist:read</item>
     /// <item>task:tasklist:write</item>
@@ -42710,6 +42726,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>提供一个附件GUID，删除该附件。删除后该附件不可再恢复。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>task:attachment:delete</item>
     /// <item>task:attachment:write</item>
     /// </list></para>
     /// </summary>
@@ -58928,6 +58945,142 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【画板】批量删除节点</para>
+    /// <para>接口ID：7642261728186174667</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/board-v1/whiteboard-node/batch_delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>画板批量删除节点，子节点会被递归删除。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>board:whiteboard:node:delete</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="whiteboard_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>画板唯一标识。可通过云文档下的文档接口[获取文档所有块](https://open.feishu.cn/document/ukTMukTMukTM/uUDN04SN0QjL1QDN/document-docx/docx-v1/document-block/list)获取正确的 whiteboard_id（block_type 为 43 的 block 对应的 block.token 即为 whiteboard_id）</para>
+    /// <para>示例值：Ru8nwrWFOhEmaFbEU2VbPRsHcxb</para>
+    /// </param>
+    /// <param name="client_token">
+    /// <para>必填：否</para>
+    /// <para>操作的唯一标识，与接口返回值的 client_token 相对应，用于幂等的进行更新操作。此值为空表示将发起一次新的请求，此值非空表示幂等的进行更新</para>
+    /// <para>示例值：fe599b60-450f-46ff-b2ef-9f6675625b97</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/board/v1/whiteboards/{whiteboard_id}/nodes/batch_delete")]
+    System.Threading.Tasks.Task<FeishuResponse<Board.DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDeleteResponseDto>> DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDeleteAsync(
+        [PathQuery] string whiteboard_id,
+        [JsonContent] Board.DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDeleteBodyDto dto,
+        [PathQuery] string? client_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】查询应用统计数据</para>
+    /// <para>接口ID：7644497349981572316</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/tenant-app_stat/list</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该 API 用于查询租户下的工作流/智能体应用使用情况的统计数据</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:stats:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="start_at">
+    /// <para>必填：是</para>
+    /// <para>统计起始时间，格式为秒级时间戳。</para>
+    /// <para>示例值：1698729600</para>
+    /// </param>
+    /// <param name="end_at">
+    /// <para>必填：是</para>
+    /// <para>统计结束时间，格式为秒级时间戳。</para>
+    /// <para>示例值：1701321599</para>
+    /// </param>
+    /// <param name="filter_type">
+    /// <para>必填：是</para>
+    /// <para>数据筛选类型，用于指定统计维度。可选值包括：</para>
+    /// <para>- `app`：返回工作流应用数据</para>
+    /// <para>- `agent`：返回智能体数据</para>
+    /// <para>示例值：agent</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：是</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZCI6IjE2OTg3Mjk2MDAifQ==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页返回的数据条数，默认值为20，最大值为100</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/aily/v1/app_stats")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AppStatsResponseDto>> GetAilyV1AppStatsAsync(
+        [PathQuery] string start_at,
+        [PathQuery] string end_at,
+        [PathQuery] string filter_type,
+        [PathQuery] string? page_token = null,
+        [PathQuery] int? page_size = 10,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【任务】订阅任务变更事件</para>
+    /// <para>接口ID：7645220598528150716</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task_v2/task_subscription</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>- 订阅范围</para>
+    /// <para>- 使用应用身份，订阅当前应用所负责的任务的变更事件</para>
+    /// <para>- 使用用户身份，订阅当前用户所创建、负责、关注的任务的变更事件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>task:task:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/task/v2/task_v2/task_subscription")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TaskV2TaskSubscriptionResponseDto>> PostTaskV2TaskV2TaskSubscriptionAsync(
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【任务】设置父任务</para>
+    /// <para>接口ID：7645220598528183484</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/set_ancestor_task</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>管理任务的父子关系，支持设置任务的父任务，或者将任务转为独立任务。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>task:task:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="task_guid">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>任务的GUID，可从任务详情字段获取</para>
+    /// <para>示例值：e297ddff-06ca-4166-b917-4ce57cd3a7a0</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/task/v2/tasks/{task_guid}/set_ancestor_task")]
+    System.Threading.Tasks.Task<FeishuResponse> PostTaskV2TasksByTaskGuidSetAncestorTaskAsync(
+        [PathQuery] string task_guid,
+        [JsonContent] Task.PostTaskV2TasksByTaskGuidSetAncestorTaskBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

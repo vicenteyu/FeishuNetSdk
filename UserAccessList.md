@@ -591,79 +591,79 @@
 <tr><td colspan="3">PostTaskV1TasksByTaskIdBatchDeleteCollaborator</td></tr>
 <tr><td rowspan="2">296</td><td rowspan="2">2024-04-15</td><td>&#10003;</td><td>任务</td><td>获取执行者列表</td></tr>
 <tr><td colspan="3">GetTaskV1TasksByTaskIdCollaborators</td></tr>
-<tr><td rowspan="2">297</td><td rowspan="2">2025-06-04</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
+<tr><td rowspan="2">297</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建任务</td></tr>
 <tr><td colspan="3">PostTaskV2Tasks</td></tr>
-<tr><td rowspan="2">298</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>任务</td><td>获取任务详情</td></tr>
+<tr><td rowspan="2">298</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取任务详情</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuid</td></tr>
-<tr><td rowspan="2">299</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>更新任务</td></tr>
+<tr><td rowspan="2">299</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新任务</td></tr>
 <tr><td colspan="3">PatchTaskV2TasksByTaskGuid</td></tr>
-<tr><td rowspan="2">300</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>删除任务</td></tr>
+<tr><td rowspan="2">300</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除任务</td></tr>
 <tr><td colspan="3">DeleteTaskV2TasksByTaskGuid</td></tr>
-<tr><td rowspan="2">301</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>添加任务成员</td></tr>
+<tr><td rowspan="2">301</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>添加任务成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidAddMembers</td></tr>
 <tr><td rowspan="2">302</td><td rowspan="2">2025-03-13</td><td>&#10003;</td><td>消息与群组</td><td>将用户或机器人移出群聊</td></tr>
 <tr><td colspan="3">DeleteImV1ChatsByChatIdMembers</td></tr>
-<tr><td rowspan="2">303</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>移除任务成员</td></tr>
+<tr><td rowspan="2">303</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>移除任务成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidRemoveMembers</td></tr>
-<tr><td rowspan="2">304</td><td rowspan="2">2024-08-22</td><td>&#10003;</td><td>任务</td><td>列取任务列表</td></tr>
+<tr><td rowspan="2">304</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2Tasks</td></tr>
-<tr><td rowspan="2">305</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>列取任务所在清单</td></tr>
+<tr><td rowspan="2">305</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取任务所在清单</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuidTasklists</td></tr>
-<tr><td rowspan="2">306</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>任务加入清单</td></tr>
+<tr><td rowspan="2">306</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>任务加入清单</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidAddTasklist</td></tr>
-<tr><td rowspan="2">307</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>任务移出清单</td></tr>
+<tr><td rowspan="2">307</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>任务移出清单</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidRemoveTasklist</td></tr>
-<tr><td rowspan="2">308</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>添加任务提醒</td></tr>
+<tr><td rowspan="2">308</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>添加任务提醒</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidAddReminders</td></tr>
-<tr><td rowspan="2">309</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>移除任务提醒</td></tr>
+<tr><td rowspan="2">309</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>移除任务提醒</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidRemoveReminders</td></tr>
-<tr><td rowspan="2">310</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>添加依赖</td></tr>
+<tr><td rowspan="2">310</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>添加依赖</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidAddDependencies</td></tr>
 <tr><td rowspan="2">311</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>移除依赖</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidRemoveDependencies</td></tr>
-<tr><td rowspan="2">312</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>创建子任务</td></tr>
+<tr><td rowspan="2">312</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建子任务</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidSubtasks</td></tr>
 <tr><td rowspan="2">313</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>获取群成员列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdMembers</td></tr>
-<tr><td rowspan="2">314</td><td rowspan="2">2023-07-20</td><td>&#10003;</td><td>任务</td><td>获取任务的子任务列表</td></tr>
+<tr><td rowspan="2">314</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取任务的子任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2TasksByTaskGuidSubtasks</td></tr>
-<tr><td rowspan="2">315</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>创建清单</td></tr>
+<tr><td rowspan="2">315</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建清单</td></tr>
 <tr><td colspan="3">PostTaskV2Tasklists</td></tr>
-<tr><td rowspan="2">316</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取清单详情</td></tr>
+<tr><td rowspan="2">316</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取清单详情</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuid</td></tr>
-<tr><td rowspan="2">317</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>更新清单</td></tr>
+<tr><td rowspan="2">317</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新清单</td></tr>
 <tr><td colspan="3">PatchTaskV2TasklistsByTasklistGuid</td></tr>
-<tr><td rowspan="2">318</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>删除清单</td></tr>
+<tr><td rowspan="2">318</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除清单</td></tr>
 <tr><td colspan="3">DeleteTaskV2TasklistsByTasklistGuid</td></tr>
-<tr><td rowspan="2">319</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>添加清单成员</td></tr>
+<tr><td rowspan="2">319</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>添加清单成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidAddMembers</td></tr>
-<tr><td rowspan="2">320</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>移除清单成员</td></tr>
+<tr><td rowspan="2">320</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>移除清单成员</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidRemoveMembers</td></tr>
-<tr><td rowspan="2">321</td><td rowspan="2">2025-10-24</td><td>&#10003;</td><td>任务</td><td>获取清单任务列表</td></tr>
+<tr><td rowspan="2">321</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取清单任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuidTasks</td></tr>
-<tr><td rowspan="2">322</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取清单列表</td></tr>
+<tr><td rowspan="2">322</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取清单列表</td></tr>
 <tr><td colspan="3">GetTaskV2Tasklists</td></tr>
-<tr><td rowspan="2">323</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>创建动态订阅</td></tr>
+<tr><td rowspan="2">323</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建动态订阅</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsByTasklistGuidActivitySubscriptions</td></tr>
 <tr><td rowspan="2">324</td><td rowspan="2">2025-01-02</td><td>&#10003;</td><td>消息与群组</td><td>判断用户或机器人是否在群里</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdMembersIsInChat</td></tr>
-<tr><td rowspan="2">325</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>获取动态订阅</td></tr>
+<tr><td rowspan="2">325</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取动态订阅</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuid</td></tr>
-<tr><td rowspan="2">326</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>列取动态订阅</td></tr>
+<tr><td rowspan="2">326</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取动态订阅</td></tr>
 <tr><td colspan="3">GetTaskV2TasklistsByTasklistGuidActivitySubscriptions</td></tr>
-<tr><td rowspan="2">327</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>更新动态订阅</td></tr>
+<tr><td rowspan="2">327</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新动态订阅</td></tr>
 <tr><td colspan="3">PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuid</td></tr>
-<tr><td rowspan="2">328</td><td rowspan="2">2023-11-09</td><td>&#10003;</td><td>任务</td><td>删除动态订阅</td></tr>
+<tr><td rowspan="2">328</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除动态订阅</td></tr>
 <tr><td colspan="3">DeleteTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuid</td></tr>
-<tr><td rowspan="2">329</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>创建评论</td></tr>
+<tr><td rowspan="2">329</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建评论</td></tr>
 <tr><td colspan="3">PostTaskV2Comments</td></tr>
-<tr><td rowspan="2">330</td><td rowspan="2">2023-07-17</td><td>&#10003;</td><td>任务</td><td>获取评论详情</td></tr>
+<tr><td rowspan="2">330</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取评论详情</td></tr>
 <tr><td colspan="3">GetTaskV2CommentsByCommentId</td></tr>
-<tr><td rowspan="2">331</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>更新评论</td></tr>
+<tr><td rowspan="2">331</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新评论</td></tr>
 <tr><td colspan="3">PatchTaskV2CommentsByCommentId</td></tr>
-<tr><td rowspan="2">332</td><td rowspan="2">2023-07-17</td><td>&#10003;</td><td>任务</td><td>删除评论</td></tr>
+<tr><td rowspan="2">332</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除评论</td></tr>
 <tr><td colspan="3">DeleteTaskV2CommentsByCommentId</td></tr>
-<tr><td rowspan="2">333</td><td rowspan="2">2023-07-17</td><td>&#10003;</td><td>任务</td><td>获取评论列表</td></tr>
+<tr><td rowspan="2">333</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取评论列表</td></tr>
 <tr><td colspan="3">GetTaskV2Comments</td></tr>
 <tr><td rowspan="2">334</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostTaskV2AttachmentsUpload</td></tr>
@@ -675,37 +675,37 @@
 <tr><td colspan="3">GetTaskV2Attachments</td></tr>
 <tr><td rowspan="2">338</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>获取附件</td></tr>
 <tr><td colspan="3">GetTaskV2AttachmentsByAttachmentGuid</td></tr>
-<tr><td rowspan="2">339</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>删除附件</td></tr>
+<tr><td rowspan="2">339</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除附件</td></tr>
 <tr><td colspan="3">DeleteTaskV2AttachmentsByAttachmentGuid</td></tr>
-<tr><td rowspan="2">340</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>创建自定义分组</td></tr>
+<tr><td rowspan="2">340</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建自定义分组</td></tr>
 <tr><td colspan="3">PostTaskV2Sections</td></tr>
-<tr><td rowspan="2">341</td><td rowspan="2">2023-08-08</td><td>&#10003;</td><td>任务</td><td>获取自定义分组详情</td></tr>
+<tr><td rowspan="2">341</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取自定义分组详情</td></tr>
 <tr><td colspan="3">GetTaskV2SectionsBySectionGuid</td></tr>
-<tr><td rowspan="2">342</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>更新自定义分组</td></tr>
+<tr><td rowspan="2">342</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新自定义分组</td></tr>
 <tr><td colspan="3">PatchTaskV2SectionsBySectionGuid</td></tr>
-<tr><td rowspan="2">343</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>删除自定义分组</td></tr>
+<tr><td rowspan="2">343</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>删除自定义分组</td></tr>
 <tr><td colspan="3">DeleteTaskV2SectionsBySectionGuid</td></tr>
-<tr><td rowspan="2">344</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>获取自定义分组列表</td></tr>
+<tr><td rowspan="2">344</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取自定义分组列表</td></tr>
 <tr><td colspan="3">GetTaskV2Sections</td></tr>
-<tr><td rowspan="2">345</td><td rowspan="2">2023-08-07</td><td>&#10003;</td><td>任务</td><td>获取自定义分组任务列表</td></tr>
+<tr><td rowspan="2">345</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取自定义分组任务列表</td></tr>
 <tr><td colspan="3">GetTaskV2SectionsBySectionGuidTasks</td></tr>
-<tr><td rowspan="2">346</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>任务</td><td>创建自定义字段</td></tr>
+<tr><td rowspan="2">346</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建自定义字段</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFields</td></tr>
 <tr><td rowspan="2">347</td><td rowspan="2">2025-05-26</td><td>&#10003;</td><td>消息与群组</td><td>获取群公告信息</td></tr>
 <tr><td colspan="3">GetImV1ChatsByChatIdAnnouncement</td></tr>
-<tr><td rowspan="2">348</td><td rowspan="2">2024-04-23</td><td>&#10003;</td><td>任务</td><td>获取自定义字段</td></tr>
+<tr><td rowspan="2">348</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>获取自定义字段</td></tr>
 <tr><td colspan="3">GetTaskV2CustomFieldsByCustomFieldGuid</td></tr>
-<tr><td rowspan="2">349</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>更新自定义字段</td></tr>
+<tr><td rowspan="2">349</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新自定义字段</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuid</td></tr>
-<tr><td rowspan="2">350</td><td rowspan="2">2023-10-12</td><td>&#10003;</td><td>任务</td><td>列取自定义字段</td></tr>
+<tr><td rowspan="2">350</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取自定义字段</td></tr>
 <tr><td colspan="3">GetTaskV2CustomFields</td></tr>
-<tr><td rowspan="2">351</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>任务</td><td>将自定义字段加入资源</td></tr>
+<tr><td rowspan="2">351</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>将自定义字段加入资源</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidAdd</td></tr>
-<tr><td rowspan="2">352</td><td rowspan="2">2023-11-06</td><td>&#10003;</td><td>任务</td><td>将自定义字段移出资源</td></tr>
+<tr><td rowspan="2">352</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>将自定义字段移出资源</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidRemove</td></tr>
-<tr><td rowspan="2">353</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>创建自定义任务选项</td></tr>
+<tr><td rowspan="2">353</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>创建自定义任务选项</td></tr>
 <tr><td colspan="3">PostTaskV2CustomFieldsByCustomFieldGuidOptions</td></tr>
-<tr><td rowspan="2">354</td><td rowspan="2">2023-09-11</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
+<tr><td rowspan="2">354</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>更新自定义字段选项</td></tr>
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
@@ -989,7 +989,7 @@
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
 <tr><td rowspan="2">495</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
-<tr><td rowspan="2">496</td><td rowspan="2">2026-03-16</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
+<tr><td rowspan="2">496</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>获取所有节点</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">497</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>飞书 aily</td><td>获取 Aily 消息</td></tr>
 <tr><td colspan="3">GetAilyV1SessionsByAilySessionIdMessagesByAilyMessageId</td></tr>
@@ -1041,7 +1041,7 @@
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleDelReport</td></tr>
 <tr><td rowspan="2">521</td><td rowspan="2">2025-06-12</td><td>&#10003;</td><td>云文档</td><td>获取知识空间成员列表</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceIdMembers</td></tr>
-<tr><td rowspan="2">522</td><td rowspan="2">2026-01-14</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
+<tr><td rowspan="2">522</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>获取画板缩略图片</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdDownloadAsImage</td></tr>
 <tr><td rowspan="2">523</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesSend</td></tr>
@@ -1263,15 +1263,15 @@
 <tr><td colspan="3">PostCalendarV4CalendarsMget</td></tr>
 <tr><td rowspan="2">632</td><td rowspan="2">2025-09-10</td><td>&#10003;</td><td>薪酬管理</td><td>创建薪资档案</td></tr>
 <tr><td colspan="3">PostCompensationV1Archives</td></tr>
-<tr><td rowspan="2">633</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
+<tr><td rowspan="2">633</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>获取画板主题</td></tr>
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
-<tr><td rowspan="2">634</td><td rowspan="2">2025-11-27</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
+<tr><td rowspan="2">634</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
 <tr><td rowspan="2">635</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取客户端设备认证信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>
-<tr><td rowspan="2">636</td><td rowspan="2">2025-10-29</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
+<tr><td rowspan="2">636</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
-<tr><td rowspan="2">637</td><td rowspan="2">2025-11-04</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
+<tr><td rowspan="2">637</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
 <tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
@@ -1305,7 +1305,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
 <tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>多维表格</td><td>升级表单</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
-<tr><td rowspan="2">654</td><td rowspan="2">2026-03-06</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td rowspan="2">654</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
 <tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
 <tr><td rowspan="2">655</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>搜索地理库信息</td></tr>
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
@@ -1457,18 +1457,34 @@
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateId</td></tr>
 <tr><td rowspan="2">729</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>创建邮件模板</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdTemplates</td></tr>
-<tr><td rowspan="2">730</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>上传 HTML 代码并发布</td></tr>
+<tr><td rowspan="2">730</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>上传 HTML 代码并发布</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdUploadAndReleaseHtmlCode</td></tr>
-<tr><td rowspan="2">731</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>更新妙搭应用可用范围</td></tr>
+<tr><td rowspan="2">731</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>更新妙搭应用可用范围</td></tr>
 <tr><td colspan="3">PutSparkV1AppsByAppIdAccessScope</td></tr>
-<tr><td rowspan="2">732</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>获取妙搭应用可用范围</td></tr>
+<tr><td rowspan="2">732</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>获取妙搭应用可用范围</td></tr>
 <tr><td colspan="3">GetSparkV1AppsByAppIdAccessScope</td></tr>
-<tr><td rowspan="2">733</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>批量获取妙搭应用</td></tr>
+<tr><td rowspan="2">733</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>批量获取妙搭应用</td></tr>
 <tr><td colspan="3">GetSparkV1Apps</td></tr>
-<tr><td rowspan="2">734</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>上传妙搭应用图标</td></tr>
+<tr><td rowspan="2">734</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>飞书妙搭</td><td>上传妙搭应用图标</td></tr>
 <tr><td colspan="3">PostSparkV1Icon</td></tr>
-<tr><td rowspan="2">735</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>更新妙搭应用信息</td></tr>
+<tr><td rowspan="2">735</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>飞书妙搭</td><td>更新妙搭应用信息</td></tr>
 <tr><td colspan="3">PatchSparkV1AppsByAppId</td></tr>
-<tr><td rowspan="2">736</td><td rowspan="2">2026-05-21</td><td>新增</td><td>飞书妙搭</td><td>创建妙搭应用</td></tr>
+<tr><td rowspan="2">736</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>创建妙搭应用</td></tr>
 <tr><td colspan="3">PostSparkV1Apps</td></tr>
+<tr><td rowspan="2">737</td><td rowspan="2">2026-05-25</td><td>新增</td><td>画板</td><td>批量删除节点</td></tr>
+<tr><td colspan="3">DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDelete</td></tr>
+<tr><td rowspan="2">738</td><td rowspan="2">2026-05-28</td><td>新增</td><td>视频会议</td><td>订阅会议变更事件</td></tr>
+<tr><td colspan="3">PostVcV1MeetingsSubscription</td></tr>
+<tr><td rowspan="2">739</td><td rowspan="2">2026-05-28</td><td>新增</td><td>视频会议</td><td>取消订阅会议变更事件</td></tr>
+<tr><td colspan="3">PostVcV1MeetingsUnsubscription</td></tr>
+<tr><td rowspan="2">740</td><td rowspan="2">2026-05-28</td><td>新增</td><td>妙记</td><td>订阅妙记变更事件</td></tr>
+<tr><td colspan="3">PostMinutesV1MinutesSubscription</td></tr>
+<tr><td rowspan="2">741</td><td rowspan="2">2026-05-28</td><td>新增</td><td>妙记</td><td>取消订阅妙记变更事件</td></tr>
+<tr><td colspan="3">PostMinutesV1MinutesUnsubscription</td></tr>
+<tr><td rowspan="2">742</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>订阅任务变更事件</td></tr>
+<tr><td colspan="3">PostTaskV2TaskV2TaskSubscription</td></tr>
+<tr><td rowspan="2">743</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>设置父任务</td></tr>
+<tr><td colspan="3">PostTaskV2TasksByTaskGuidSetAncestorTask</td></tr>
+<tr><td rowspan="2">744</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>列取与我相关的任务</td></tr>
+<tr><td colspan="3">GetTaskV2TaskV2ListRelatedTask</td></tr>
 </tbody></table>

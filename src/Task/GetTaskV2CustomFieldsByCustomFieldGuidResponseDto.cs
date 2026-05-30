@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="GetTaskV2CustomFieldsByCustomFieldGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_field")]
-    public GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomField? CustomField { get; set; }
+    public CustomFieldSuffix? CustomField { get; set; }
 
     /// <summary>
     /// <para>获取的自定义字段数据</para>
     /// </summary>
-    public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomField
+    public record CustomFieldSuffix
     {
         /// <summary>
         /// <para>自定义字段的GUID</para>
@@ -62,12 +62,12 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("number_setting")]
-        public GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldNumberSetting? NumberSetting { get; set; }
+        public NumberSettingSuffix? NumberSetting { get; set; }
 
         /// <summary>
         /// <para>数字类型的字段设置</para>
         /// </summary>
-        public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldNumberSetting
+        public record NumberSettingSuffix
         {
             /// <summary>
             /// <para>数字展示的格式</para>
@@ -136,12 +136,12 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("member_setting")]
-        public GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldMemberSetting? MemberSetting { get; set; }
+        public MemberSettingSuffix? MemberSetting { get; set; }
 
         /// <summary>
         /// <para>人员类型的字段设置</para>
         /// </summary>
-        public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldMemberSetting
+        public record MemberSettingSuffix
         {
             /// <summary>
             /// <para>是否支持多选</para>
@@ -158,12 +158,12 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("datetime_setting")]
-        public GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldDatetimeSetting? DatetimeSetting { get; set; }
+        public DatetimeSettingSuffix? DatetimeSetting { get; set; }
 
         /// <summary>
         /// <para>时间日期类型的字段设置</para>
         /// </summary>
-        public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldDatetimeSetting
+        public record DatetimeSettingSuffix
         {
             /// <summary>
             /// <para>日期显示格式</para>
@@ -227,7 +227,7 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
                 public int? ColorIndex { get; set; }
 
                 /// <summary>
-                /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。</para>
+                /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -249,39 +249,6 @@ public record GetTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>创建人</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：creator</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
 
         /// <summary>
         /// <para>自定义字段创建的时间戳(ms)</para>

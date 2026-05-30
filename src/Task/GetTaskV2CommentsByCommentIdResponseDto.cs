@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="GetTaskV2CommentsByCommentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,15 +26,15 @@ public record GetTaskV2CommentsByCommentIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("comment")]
-    public GetTaskV2CommentsByCommentIdResponseDtoComment? Comment { get; set; }
+    public CommentSuffix? Comment { get; set; }
 
     /// <summary>
     /// <para>评论详情</para>
     /// </summary>
-    public record GetTaskV2CommentsByCommentIdResponseDtoComment
+    public record CommentSuffix
     {
         /// <summary>
-        /// <para>评论id</para>
+        /// <para>评论ID</para>
         /// <para>必填：否</para>
         /// <para>示例值：7197020628442939411</para>
         /// </summary>
@@ -58,39 +58,7 @@ public record GetTaskV2CommentsByCommentIdResponseDto
         public Member? Creator { get; set; }
 
         /// <summary>
-        /// <para>评论创建人</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：creator</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
-
-        /// <summary>
-        /// <para>回复给评论的id。如果不是回复评论，则为空。</para>
+        /// <para>回复给评论的ID。如果不是回复评论，则为空。</para>
         /// <para>必填：否</para>
         /// <para>示例值：7166825117308174356</para>
         /// <para>最大长度：30</para>

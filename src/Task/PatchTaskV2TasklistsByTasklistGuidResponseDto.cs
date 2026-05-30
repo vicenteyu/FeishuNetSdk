@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2TasklistsByTasklistGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -34,12 +34,12 @@ public record PatchTaskV2TasklistsByTasklistGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("tasklist")]
-    public PatchTaskV2TasklistsByTasklistGuidResponseDtoTasklist? Tasklist { get; set; }
+    public TasklistSuffix? Tasklist { get; set; }
 
     /// <summary>
     /// <para>修改后的任务清单</para>
     /// </summary>
-    public record PatchTaskV2TasklistsByTasklistGuidResponseDtoTasklist
+    public record TasklistSuffix
     {
         /// <summary>
         /// <para>清单的全局唯一ID</para>
@@ -64,39 +64,6 @@ public record PatchTaskV2TasklistsByTasklistGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>清单创建者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：creator</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
 
         /// <summary>
         /// <para>清单所有者</para>

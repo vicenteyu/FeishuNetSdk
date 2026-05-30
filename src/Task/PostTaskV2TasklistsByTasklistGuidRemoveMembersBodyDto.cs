@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,42 +32,4 @@ public record PostTaskV2TasklistsByTasklistGuidRemoveMembersBodyDto
     /// </summary>
     [JsonPropertyName("members")]
     public Member[] Members { get; set; } = [];
-
-    /// <summary>
-    /// <para>要移除的member列表。关于member的格式，详见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 如何表示任务和清单的成员？”章节。</para>
-    /// </summary>
-    public record Member
-    {
-        /// <summary>
-        /// <para>表示member的id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-        /// <para>最大长度：100</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// <para>成员的类型</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：user</para>
-        /// <para>可选值：<list type="bullet">
-        /// <item>user：普通用户，此时member的id是一个表示用户的ID，比如open_id。具体格式取决于user_id_type参数</item>
-        /// <item>chat：群组，此时member的id是一个Open Chat ID</item>
-        /// <item>app：应用，此时member的id是一个应用的ID</item>
-        /// </list></para>
-        /// <para>默认值：user</para>
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
-        /// <para>清单角色。移除清单成员时该字段不需要填写。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：editor</para>
-        /// <para>最大长度：20</para>
-        /// </summary>
-        [JsonPropertyName("role")]
-        public string? Role { get; set; }
-    }
 }

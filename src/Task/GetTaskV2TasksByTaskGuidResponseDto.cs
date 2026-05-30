@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="GetTaskV2TasksByTaskGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetTaskV2TasksByTaskGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("task")]
-    public GetTaskV2TasksByTaskGuidResponseDtoTask? Task { get; set; }
+    public TaskSuffix? Task { get; set; }
 
     /// <summary>
     /// <para>获得的任务实体</para>
     /// </summary>
-    public record GetTaskV2TasksByTaskGuidResponseDtoTask
+    public record TaskSuffix
     {
         /// <summary>
         /// <para>任务guid，任务的唯一ID</para>
@@ -65,12 +65,12 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：1675742789470</para>
         /// </summary>
         [JsonPropertyName("due")]
-        public GetTaskV2TasksByTaskGuidResponseDtoTaskDue? Due { get; set; }
+        public DueSuffix? Due { get; set; }
 
         /// <summary>
         /// <para>任务截止时间</para>
         /// </summary>
-        public record GetTaskV2TasksByTaskGuidResponseDtoTaskDue
+        public record DueSuffix
         {
             /// <summary>
             /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。</para>
@@ -130,47 +130,6 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>任务创建者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：assignee</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-
-            /// <summary>
-            /// <para>成员名称</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：张明德（明德）</para>
-            /// </summary>
-            [JsonPropertyName("name")]
-            public string? Name { get; set; }
-        }
 
         /// <summary>
         /// <para>任务成员列表</para>
@@ -237,12 +196,12 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resource")]
-            public AttachmentResource? Resource { get; set; }
+            public ResourceSuffix? Resource { get; set; }
 
             /// <summary>
             /// <para>附件归属的资源</para>
             /// </summary>
-            public record AttachmentResource
+            public record ResourceSuffix
             {
                 /// <summary>
                 /// <para>资源类型</para>
@@ -269,47 +228,6 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             public Member? Uploader { get; set; }
 
             /// <summary>
-            /// <para>附件上传者</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>角色</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：assignee</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-
-                /// <summary>
-                /// <para>成员名称</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张明德（明德）</para>
-                /// </summary>
-                [JsonPropertyName("name")]
-                public string? Name { get; set; }
-            }
-
-            /// <summary>
             /// <para>是否是封面图</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
@@ -327,142 +245,35 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         }
 
         /// <summary>
-        /// <para>任务关联的第三方平台来源信息。创建是设置后就不可更改。</para>
+        /// <para>任务关联的第三方平台来源信息。创建时设置后就不可更改。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("origin")]
-        public GetTaskV2TasksByTaskGuidResponseDtoTaskOrigin? Origin { get; set; }
+        public OriginSuffix? Origin { get; set; }
 
         /// <summary>
-        /// <para>任务关联的第三方平台来源信息。创建是设置后就不可更改。</para>
+        /// <para>任务关联的第三方平台来源信息。创建时设置后就不可更改。</para>
         /// </summary>
-        public record GetTaskV2TasksByTaskGuidResponseDtoTaskOrigin
+        public record OriginSuffix
         {
             /// <summary>
             /// <para>任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("platform_i18n_name")]
-            public I18nText? PlatformI18nName { get; set; }
-
-            /// <summary>
-            /// <para>任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。</para>
-            /// </summary>
-            public record I18nText
-            {
-                /// <summary>
-                /// <para>英文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：workbench</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("en_us")]
-                public string? EnUs { get; set; }
-
-                /// <summary>
-                /// <para>中文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作台</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_cn")]
-                public string? ZhCn { get; set; }
-
-                /// <summary>
-                /// <para>中文（香港地区）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作臺</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_hk")]
-                public string? ZhHk { get; set; }
-
-                /// <summary>
-                /// <para>中文（台湾地区）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作臺</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_tw")]
-                public string? ZhTw { get; set; }
-
-                /// <summary>
-                /// <para>日语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：作業台</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("ja_jp")]
-                public string? JaJp { get; set; }
-
-                /// <summary>
-                /// <para>法语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：Table de travail</para>
-                /// </summary>
-                [JsonPropertyName("fr_fr")]
-                public string? FrFr { get; set; }
-
-                /// <summary>
-                /// <para>意大利语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：banco di lavoro</para>
-                /// </summary>
-                [JsonPropertyName("it_it")]
-                public string? ItIt { get; set; }
-
-                /// <summary>
-                /// <para>德语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：Werkbank</para>
-                /// </summary>
-                [JsonPropertyName("de_de")]
-                public string? DeDe { get; set; }
-
-                /// <summary>
-                /// <para>俄语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：верстак</para>
-                /// </summary>
-                [JsonPropertyName("ru_ru")]
-                public string? RuRu { get; set; }
-
-                /// <summary>
-                /// <para>泰语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：โต๊ะทำงาน</para>
-                /// </summary>
-                [JsonPropertyName("th_th")]
-                public string? ThTh { get; set; }
-
-                /// <summary>
-                /// <para>西班牙语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：banco de trabajo</para>
-                /// </summary>
-                [JsonPropertyName("es_es")]
-                public string? EsEs { get; set; }
-
-                /// <summary>
-                /// <para>韩语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：작업대</para>
-                /// </summary>
-                [JsonPropertyName("ko_kr")]
-                public string? KoKr { get; set; }
-            }
+            public I18nLanguage<string>? PlatformI18nName { get; set; }
 
             /// <summary>
             /// <para>任务关联的来源平台详情页链接</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("href")]
-            public GetTaskV2TasksByTaskGuidResponseDtoTaskOriginHref? Href { get; set; }
+            public HrefSuffix? Href { get; set; }
 
             /// <summary>
             /// <para>任务关联的来源平台详情页链接</para>
             /// </summary>
-            public record GetTaskV2TasksByTaskGuidResponseDtoTaskOriginHref
+            public record HrefSuffix
             {
                 /// <summary>
                 /// <para>链接对应的地址</para>
@@ -572,22 +383,22 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_complete")]
-        public GetTaskV2TasksByTaskGuidResponseDtoTaskCustomComplete? CustomComplete { get; set; }
+        public CustomCompleteSuffix? CustomComplete { get; set; }
 
         /// <summary>
         /// <para>任务的自定义完成配置</para>
         /// </summary>
-        public record GetTaskV2TasksByTaskGuidResponseDtoTaskCustomComplete
+        public record CustomCompleteSuffix
         {
             /// <summary>
-            /// <para>pc客户端自定义完成配置（含mac和windows）</para>
+            /// <para>PC客户端自定义完成配置（含Mac和Windows）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("pc")]
             public CustomCompleteItem? Pc { get; set; }
 
             /// <summary>
-            /// <para>pc客户端自定义完成配置（含mac和windows）</para>
+            /// <para>PC客户端自定义完成配置（含Mac和Windows）</para>
             /// </summary>
             public record CustomCompleteItem
             {
@@ -604,125 +415,18 @@ public record GetTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("tip")]
-                public I18nText? Tip { get; set; }
-
-                /// <summary>
-                /// <para>自定义完成的弹出提示为</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>英文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：workbench</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("en_us")]
-                    public string? EnUs { get; set; }
-
-                    /// <summary>
-                    /// <para>中文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作台</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_cn")]
-                    public string? ZhCn { get; set; }
-
-                    /// <summary>
-                    /// <para>中文（香港地区）</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作臺</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_hk")]
-                    public string? ZhHk { get; set; }
-
-                    /// <summary>
-                    /// <para>中文（台湾地区）</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作臺</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_tw")]
-                    public string? ZhTw { get; set; }
-
-                    /// <summary>
-                    /// <para>日语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：作業台</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("ja_jp")]
-                    public string? JaJp { get; set; }
-
-                    /// <summary>
-                    /// <para>法语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：Table de travail</para>
-                    /// </summary>
-                    [JsonPropertyName("fr_fr")]
-                    public string? FrFr { get; set; }
-
-                    /// <summary>
-                    /// <para>意大利语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：banco di lavoro</para>
-                    /// </summary>
-                    [JsonPropertyName("it_it")]
-                    public string? ItIt { get; set; }
-
-                    /// <summary>
-                    /// <para>德语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：Werkbank</para>
-                    /// </summary>
-                    [JsonPropertyName("de_de")]
-                    public string? DeDe { get; set; }
-
-                    /// <summary>
-                    /// <para>俄语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：верстак</para>
-                    /// </summary>
-                    [JsonPropertyName("ru_ru")]
-                    public string? RuRu { get; set; }
-
-                    /// <summary>
-                    /// <para>泰语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：โต๊ะทำงาน</para>
-                    /// </summary>
-                    [JsonPropertyName("th_th")]
-                    public string? ThTh { get; set; }
-
-                    /// <summary>
-                    /// <para>西班牙语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：banco de trabajo</para>
-                    /// </summary>
-                    [JsonPropertyName("es_es")]
-                    public string? EsEs { get; set; }
-
-                    /// <summary>
-                    /// <para>韩语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：작업대</para>
-                    /// </summary>
-                    [JsonPropertyName("ko_kr")]
-                    public string? KoKr { get; set; }
-                }
+                public I18nLanguage<string>? Tip { get; set; }
             }
 
             /// <summary>
-            /// <para>ios端的自定义完成配置</para>
+            /// <para>iOS端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("ios")]
             public CustomCompleteItem? Ios { get; set; }
 
             /// <summary>
-            /// <para>android端的自定义完成配置</para>
+            /// <para>Android端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("android")]
@@ -776,12 +480,12 @@ public record GetTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start")]
-        public GetTaskV2TasksByTaskGuidResponseDtoTaskStart? Start { get; set; }
+        public StartSuffix? Start { get; set; }
 
         /// <summary>
         /// <para>任务的开始时间</para>
         /// </summary>
-        public record GetTaskV2TasksByTaskGuidResponseDtoTaskStart
+        public record StartSuffix
         {
             /// <summary>
             /// <para>开始时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果开始时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -869,47 +573,6 @@ public record GetTaskV2TasksByTaskGuidResponseDto
             /// </summary>
             [JsonPropertyName("member_value")]
             public Member[]? MemberValues { get; set; }
-
-            /// <summary>
-            /// <para>人员类型的自定义字段值，可以设置1个或多个用户的id（遵循member格式，只支持user类型）。当该字段的设置为“不能多选”时只能输入一个值。设为空数组表示设为空。</para>
-            /// </summary>
-            public record Member
-            {
-                /// <summary>
-                /// <para>表示member的id</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-                /// <para>最大长度：100</para>
-                /// </summary>
-                [JsonPropertyName("id")]
-                public string? Id { get; set; }
-
-                /// <summary>
-                /// <para>成员的类型</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：user</para>
-                /// <para>默认值：user</para>
-                /// </summary>
-                [JsonPropertyName("type")]
-                public string? Type { get; set; }
-
-                /// <summary>
-                /// <para>成员角色</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：editor</para>
-                /// <para>最大长度：20</para>
-                /// </summary>
-                [JsonPropertyName("role")]
-                public string? Role { get; set; }
-
-                /// <summary>
-                /// <para>成员名称</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：张明德（明德）</para>
-                /// </summary>
-                [JsonPropertyName("name")]
-                public string? Name { get; set; }
-            }
 
             /// <summary>
             /// <para>单选类型字段值，填写一个字段选项的option_guid。设置为空字符串表示设为空。</para>

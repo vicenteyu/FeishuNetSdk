@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="Test_PostTaskV2TasksByTaskGuidSubtasksBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -59,7 +59,8 @@ public class Test_PostTaskV2TasksByTaskGuidSubtasksBodyDto : TestBase
         {
             "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
             "type": "user",
-            "role": "assignee"
+            "role": "assignee",
+            "name": "张明德（明德）"
         }
     ],
     "repeat_rule": "FREQ=WEEKLY;INTERVAL=1;BYDAY=MO,TU,WE,TH,FR",
@@ -131,7 +132,33 @@ public class Test_PostTaskV2TasksByTaskGuidSubtasksBodyDto : TestBase
         {
             "relative_fire_minute": 30
         }
-    ]
+    ],
+    "mode": 2,
+    "is_milestone": false,
+    "custom_fields": [
+        {
+            "guid": "73b21903-0041-4796-a11e-f8be919a7063",
+            "number_value": "10.23",
+            "member_value": [
+                {
+                    "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
+                    "type": "user",
+                    "role": "editor",
+                    "name": "张明德（明德）"
+                }
+            ],
+            "datetime_value": "1698192000000",
+            "single_select_value": "73b21903-0041-4796-a11e-f8be919a7063",
+            "multi_select_value": [
+                "73b21903-0041-4796-a11e-f8be919a7063"
+            ],
+            "text_value": "文本类型字段值。可以输入一段文本。空字符串表示清空。"
+        }
+    ],
+    "docx_source": {
+        "token": "SFZHdZLo2oXprexhDSrbtvmScHm",
+        "block_id": "O6wwd22uIoG8acxwxGtbljaUcfc"
+    }
 }
 """;
         var result = Deserialize<FeishuNetSdk.Task.PostTaskV2TasksByTaskGuidSubtasksBodyDto>(json);

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="GetTaskV2TasklistsByTasklistGuidTasksResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -17,7 +17,7 @@ namespace FeishuNetSdk.Task;
 /// <para>获取一个清单的任务列表，返回任务的摘要信息。</para>
 /// <para>本接口支持分页。清单中的任务以“自定义拖拽”的顺序返回。</para>
 /// <para>本接口支持简单的按照任务的完成状态或者任务的创建时间范围过滤。</para>
-/// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空情况。</para>
+/// <para>分页参数说明：是否还有分页数据的判断依据是has_more=true，并非items个数，由于历史原因可能出现当前分页items为空的情况。</para>
 /// <para>接口ID：7255580838154698780</para>
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist/tasks</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftasklist%2ftasks</para>
@@ -67,12 +67,12 @@ public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto : IPageableRespon
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start")]
-        public TaskSummaryStart? Start { get; set; }
+        public StartSuffix? Start { get; set; }
 
         /// <summary>
         /// <para>任务开始时间</para>
         /// </summary>
-        public record TaskSummaryStart
+        public record StartSuffix
         {
             /// <summary>
             /// <para>开始时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果开始时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -96,12 +96,12 @@ public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto : IPageableRespon
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("due")]
-        public TaskSummaryDue? Due { get; set; }
+        public DueSuffix? Due { get; set; }
 
         /// <summary>
         /// <para>任务截止时间</para>
         /// </summary>
-        public record TaskSummaryDue
+        public record DueSuffix
         {
             /// <summary>
             /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -126,47 +126,6 @@ public record GetTaskV2TasklistsByTasklistGuidTasksResponseDto : IPageableRespon
         /// </summary>
         [JsonPropertyName("members")]
         public Member[]? Members { get; set; }
-
-        /// <summary>
-        /// <para>任务成员列表</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：assignee</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-
-            /// <summary>
-            /// <para>成员名称</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：张明德（明德）</para>
-            /// </summary>
-            [JsonPropertyName("name")]
-            public string? Name { get; set; }
-        }
 
         /// <summary>
         /// <para>子任务的个数</para>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-05-30
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-05-29
+// ************************************************************************
+// <copyright file="GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>获取所有节点 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Board;
 /// <summary>
 /// 获取所有节点 响应体
@@ -1122,6 +1135,75 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("circular_ring")]
             public PieSuffix? CircularRing { get; set; }
+
+            /// <summary>
+            /// <para>梯形属性，type=trapezoid时可以设置</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("trapezoid")]
+            public TrapezoidSuffix? Trapezoid { get; set; }
+
+            /// <summary>
+            /// <para>梯形属性，type=trapezoid时可以设置</para>
+            /// </summary>
+            public record TrapezoidSuffix
+            {
+                /// <summary>
+                /// <para>梯形上底长（短边）。默认为下底边长度的2/3，不能超过下底边长度。</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：10</para>
+                /// <para>最大值：100000000</para>
+                /// <para>最小值：0</para>
+                /// </summary>
+                [JsonPropertyName("top_length")]
+                public double? TopLength { get; set; }
+            }
+
+            /// <summary>
+            /// <para>六面体属性，type=cube时可以设置</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("cube")]
+            public CubeSuffix? Cube { get; set; }
+
+            /// <summary>
+            /// <para>六面体属性，type=cube时可以设置</para>
+            /// </summary>
+            public record CubeSuffix
+            {
+                /// <summary>
+                /// <para>六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("control_point")]
+                public Point? ControlPoint { get; set; }
+
+                /// <summary>
+                /// <para>六面体控制点，相对六面体外接矩形的相对坐标。默认控制点为外接矩形长的0.8，宽的0.25</para>
+                /// </summary>
+                public record Point
+                {
+                    /// <summary>
+                    /// <para>点位置x坐标</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：10</para>
+                    /// <para>最大值：1000000000000000000</para>
+                    /// <para>最小值：-1000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("x")]
+                    public double? X { get; set; }
+
+                    /// <summary>
+                    /// <para>点位置y坐标</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：10</para>
+                    /// <para>最大值：100000000000000000000</para>
+                    /// <para>最小值：-10000000000000000000</para>
+                    /// </summary>
+                    [JsonPropertyName("y")]
+                    public double? Y { get; set; }
+                }
+            }
         }
 
         /// <summary>
@@ -2132,6 +2214,27 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("caption_position")]
             public double? CaptionPosition { get; set; }
+
+            /// <summary>
+            /// <para>指定连线坐标及长宽。为 true 时需要用户设置连线的坐标及长宽信息。为 false 时会根据连线的开始、结束端点自动计算连线的坐标及长宽信息</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// </summary>
+            [JsonPropertyName("specified_coordinate")]
+            public bool? SpecifiedCoordinate { get; set; }
+
+            /// <summary>
+            /// <para>文字相对连线的位置类型，0=OnLine，表示文字在连线那不；1=AboveLine，文字在连线的上方，文字在线的上方，连线走向的上边或左边；2=BellowLine，文字在连线的下方，文字在线的上方，连线走向的下边或右边</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：0</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：文字在线内</item>
+            /// <item>1：文字在线的上方，连线走向的上边或左边</item>
+            /// <item>2：文字在线的下方，连线走向的下边或右边</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("caption_position_type")]
+            public int? CaptionPositionType { get; set; }
         }
 
         /// <summary>
@@ -4076,7 +4179,7 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// <para>画笔粗细，单位px</para>
             /// <para>必填：否</para>
             /// <para>示例值：7</para>
-            /// <para>最大值：23</para>
+            /// <para>最大值：47</para>
             /// <para>最小值：1</para>
             /// </summary>
             [JsonPropertyName("width")]
@@ -4335,6 +4438,55 @@ public record GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto
             /// </summary>
             [JsonPropertyName("parent_id")]
             public string? ParentId { get; set; }
+        }
+
+        /// <summary>
+        /// <para>PlantUml/Mermaid的语法信息</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("syntax")]
+        public SyntaxSuffix? Syntax { get; set; }
+
+        /// <summary>
+        /// <para>PlantUml/Mermaid的语法信息</para>
+        /// </summary>
+        public record SyntaxSuffix
+        {
+            /// <summary>
+            /// <para>语法类别</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>0：未知</item>
+            /// <item>1：Plantuml解析</item>
+            /// <item>2：Mermaid解析</item>
+            /// <item>3：SVG 语法解析</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("syntax_type")]
+            public int? SyntaxType { get; set; }
+
+            /// <summary>
+            /// <para>PlantUml/Mermaid源码</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：@startuml\\nAlice -&gt; Bob: Authentication Request\\nBob --&gt; Alice: Authentication Response\\n@enduml</para>
+            /// <para>最大长度：5000</para>
+            /// <para>最小长度：0</para>
+            /// </summary>
+            [JsonPropertyName("code")]
+            public string? Code { get; set; }
+
+            /// <summary>
+            /// <para>语法样式（画板样式/经典样式）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：画板样式</item>
+            /// <item>2：经典样式</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("style_type")]
+            public int? StyleType { get; set; }
         }
     }
 }

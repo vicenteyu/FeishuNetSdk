@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-05-30
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-05-29
+// ************************************************************************
+// <copyright file="Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 获取所有节点 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Tests.Board;
 
 /// <summary>
@@ -140,6 +153,15 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                         "central_angle": 40.0,
                         "radius": 10,
                         "sector_ratio": 1
+                    },
+                    "trapezoid": {
+                        "top_length": 10
+                    },
+                    "cube": {
+                        "control_point": {
+                            "x": 10,
+                            "y": 10
+                        }
                     }
                 },
                 "connector": {
@@ -282,7 +304,9 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                         }
                     ],
                     "caption_auto_direction": true,
-                    "caption_position": 0.5
+                    "caption_position": 0.5,
+                    "specified_coordinate": false,
+                    "caption_position_type": 0
                 },
                 "width": 100,
                 "section": {
@@ -557,6 +581,11 @@ public class Test_GetBoardV1WhiteboardsByWhiteboardIdNodesResponseDto : TestBase
                 },
                 "mind_map": {
                     "parent_id": "z1:1"
+                },
+                "syntax": {
+                    "syntax_type": 1,
+                    "code": "@startuml\\nAlice -> Bob: Authentication Request\\nBob --> Alice: Authentication Response\\n@enduml",
+                    "style_type": 1
                 }
             }
         ]

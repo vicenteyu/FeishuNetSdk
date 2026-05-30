@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="GetTaskV2SectionsBySectionGuidTasksResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,12 +64,12 @@ public record GetTaskV2SectionsBySectionGuidTasksResponseDto : IPageableResponse
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start")]
-        public TaskSummaryStart? Start { get; set; }
+        public StartSuffix? Start { get; set; }
 
         /// <summary>
         /// <para>任务开始时间</para>
         /// </summary>
-        public record TaskSummaryStart
+        public record StartSuffix
         {
             /// <summary>
             /// <para>开始时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果开始时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -93,12 +93,12 @@ public record GetTaskV2SectionsBySectionGuidTasksResponseDto : IPageableResponse
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("due")]
-        public TaskSummaryDue? Due { get; set; }
+        public DueSuffix? Due { get; set; }
 
         /// <summary>
         /// <para>任务截止时间</para>
         /// </summary>
-        public record TaskSummaryDue
+        public record DueSuffix
         {
             /// <summary>
             /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -123,39 +123,6 @@ public record GetTaskV2SectionsBySectionGuidTasksResponseDto : IPageableResponse
         /// </summary>
         [JsonPropertyName("members")]
         public Member[]? Members { get; set; }
-
-        /// <summary>
-        /// <para>任务成员列表</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：editor</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
 
         /// <summary>
         /// <para>子任务的个数</para>

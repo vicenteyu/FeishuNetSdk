@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="Test_GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,7 +37,8 @@ public class Test_GetTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivit
                 {
                     "id": "oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                     "type": "chat",
-                    "role": "editor"
+                    "role": "editor",
+                    "name": "张明德（明德）"
                 }
             ],
             "include_keys": [

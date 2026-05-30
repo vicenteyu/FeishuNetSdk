@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="Test_PatchTaskV2TasklistsByTasklistGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,18 +36,21 @@ public class Test_PatchTaskV2TasklistsByTasklistGuidResponseDto : TestBase
             "creator": {
                 "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                 "type": "user",
-                "role": "creator"
+                "role": "creator",
+                "name": "张明德（明德）"
             },
             "owner": {
                 "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                 "type": "owner",
-                "role": "editor"
+                "role": "editor",
+                "name": "张明德（明德）"
             },
             "members": [
                 {
                     "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                     "type": "user",
-                    "role": "editor"
+                    "role": "editor",
+                    "name": "张明德（明德）"
                 }
             ],
             "url": "https://applink.feishu.cn/client/todo/task_list?guid=b45b360f-1961-4058-b338-7f50c96e1b52",

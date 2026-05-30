@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2TasksByTaskGuidRemoveMembersBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,37 +29,4 @@ public record PostTaskV2TasksByTaskGuidRemoveMembersBodyDto
     /// </summary>
     [JsonPropertyName("members")]
     public Member[] Members { get; set; } = [];
-
-    /// <summary>
-    /// <para>要移除的member列表</para>
-    /// </summary>
-    public record Member
-    {
-        /// <summary>
-        /// <para>表示member的id</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-        /// <para>最大长度：100</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string Id { get; set; } = string.Empty;
-
-        /// <summary>
-        /// <para>成员的类型</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：user</para>
-        /// <para>默认值：user</para>
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-
-        /// <summary>
-        /// <para>成员角色，支持"assignee"或者"follower"</para>
-        /// <para>必填：是</para>
-        /// <para>示例值：assignee</para>
-        /// <para>最大长度：20</para>
-        /// </summary>
-        [JsonPropertyName("role")]
-        public string Role { get; set; } = string.Empty;
-    }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivitySubscriptionGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>`update_fields`支持更新的字段包括：</para>
 /// <para>* name：订阅的名称</para>
 /// <para>* subscribers: 订阅者列表。如更新，会将旧的订阅者列表完全替换为新的订阅者列表。支持最大50个订阅者。并且订阅者必须是chat类型。</para>
-/// <para>* include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event key (见字段描述）。</para>
+/// <para>* include_keys ：订阅需要发送通知的key。如更新，会将旧的列表完全替换为新的include_keys列表。只能设置支持的event keys (见字段描述）。</para>
 /// <para>* disabled：修改订阅的开启/禁用状态。</para>
 /// <para>接口ID：7288897051646967810</para>
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/tasklist-activity_subscription/patch</para>
@@ -63,39 +63,6 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         public Member[]? Subscribers { get; set; }
 
         /// <summary>
-        /// <para>订阅者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：chat</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：editor</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
-
-        /// <summary>
         /// <para>要订阅的清单动态类型</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -103,7 +70,7 @@ public record PatchTaskV2TasklistsByTasklistGuidActivitySubscriptionsByActivityS
         public int[]? IncludeKeys { get; set; }
 
         /// <summary>
-        /// <para>该订阅是否为停用</para>
+        /// <para>该订阅是否停用</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>
