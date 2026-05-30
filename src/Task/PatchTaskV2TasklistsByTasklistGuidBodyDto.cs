@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2TasklistsByTasklistGuidBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -55,39 +55,6 @@ public record PatchTaskV2TasklistsByTasklistGuidBodyDto
         /// </summary>
         [JsonPropertyName("owner")]
         public Member? Owner { get; set; }
-
-        /// <summary>
-        /// <para>更新的清单所有者。</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型，可以是"user"或者"app"。所有者的类型不可以是"chat"。</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色，此时必须是"owner"</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：owner</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
     }
 
     /// <summary>

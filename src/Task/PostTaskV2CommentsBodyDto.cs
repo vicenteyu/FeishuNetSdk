@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2CommentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,7 +23,7 @@ namespace FeishuNetSdk.Task;
 public record PostTaskV2CommentsBodyDto
 {
     /// <summary>
-    /// <para>评论内容。不允许为空，最长3000个utf8字符。</para>
+    /// <para>评论内容。不允许为空，最长3000个UTF-8字符。</para>
     /// <para>必填：是</para>
     /// <para>示例值：这是一条评论。</para>
     /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-02
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2TasksByTaskGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -16,7 +16,7 @@ namespace FeishuNetSdk.Task;
 /// 更新任务 响应体
 /// <para>该接口用于修改任务的标题、描述、截止时间等信息。</para>
 /// <para>更新时，将`update_fields`字段中填写所有要修改的任务字段名，同时在`task`字段中填写要修改的字段的新值即可。如果`update_fields`中设置了要变更一个字段的名字，但是task里没设置新的值，则表示将该字段清空。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
-/// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，oapi对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
+/// <para>该接口可以用于完成任务和将任务恢复至未完成，只需要修改`completed_at`字段即可。但留意，目前不管任务本身是会签任务还是或签任务，OpenAPI对任务进行完成只能实现“整体完成”，不支持个人单独完成。此外，不能对已经完成的任务再次完成，但可以将其恢复到未完成的状态(设置`completed_at`为"0")。</para>
 /// <para>如更新自定义字段的值，需要调用身份同时拥有任务的编辑权限和自定义字段的编辑权限。详情见[自定义字段功能概览](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/custom_field/custom-field-overview)。更新时，只有填写在`task.custom_fields`的自定义字段值会被更新，不填写的不会被改变。</para>
 /// <para>任务成员/提醒/清单数据不能使用本接口进行更新。</para>
 /// <para>* 如要修改任务成员，需要使用[添加任务成员](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/add_members)</para>
@@ -34,12 +34,12 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("task")]
-    public PatchTaskV2TasksByTaskGuidResponseDtoTask? Task { get; set; }
+    public TaskSuffix? Task { get; set; }
 
     /// <summary>
     /// <para>更新后的任务</para>
     /// </summary>
-    public record PatchTaskV2TasksByTaskGuidResponseDtoTask
+    public record TaskSuffix
     {
         /// <summary>
         /// <para>任务guid，任务的唯一ID</para>
@@ -73,12 +73,12 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         /// <para>示例值：1675742789470</para>
         /// </summary>
         [JsonPropertyName("due")]
-        public PatchTaskV2TasksByTaskGuidResponseDtoTaskDue? Due { get; set; }
+        public DueSuffix? Due { get; set; }
 
         /// <summary>
         /// <para>任务截止时间</para>
         /// </summary>
-        public record PatchTaskV2TasksByTaskGuidResponseDtoTaskDue
+        public record DueSuffix
         {
             /// <summary>
             /// <para>截止时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果截止时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>
@@ -133,47 +133,6 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>成员信息</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员的角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：assignee</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-
-            /// <summary>
-            /// <para>成员名称</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：张明德（明德）</para>
-            /// </summary>
-            [JsonPropertyName("name")]
-            public string? Name { get; set; }
-        }
 
         /// <summary>
         /// <para>任务成员列表</para>
@@ -240,12 +199,12 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("resource")]
-            public AttachmentResource? Resource { get; set; }
+            public ResourceSuffix? Resource { get; set; }
 
             /// <summary>
             /// <para>附件归属的资源</para>
             /// </summary>
-            public record AttachmentResource
+            public record ResourceSuffix
             {
                 /// <summary>
                 /// <para>资源类型</para>
@@ -289,142 +248,35 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         }
 
         /// <summary>
-        /// <para>任务关联的第三方平台来源信息。创建是设置后就不可更改。</para>
+        /// <para>任务关联的第三方平台来源信息。创建时设置后就不可更改。</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("origin")]
-        public PatchTaskV2TasksByTaskGuidResponseDtoTaskOrigin? Origin { get; set; }
+        public OriginSuffix? Origin { get; set; }
 
         /// <summary>
-        /// <para>任务关联的第三方平台来源信息。创建是设置后就不可更改。</para>
+        /// <para>任务关联的第三方平台来源信息。创建时设置后就不可更改。</para>
         /// </summary>
-        public record PatchTaskV2TasksByTaskGuidResponseDtoTaskOrigin
+        public record OriginSuffix
         {
             /// <summary>
             /// <para>任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("platform_i18n_name")]
-            public I18nText? PlatformI18nName { get; set; }
-
-            /// <summary>
-            /// <para>任务导入来源的名称，用于在任务中心详情页展示。需提供多语言版本。</para>
-            /// </summary>
-            public record I18nText
-            {
-                /// <summary>
-                /// <para>英文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：workbench</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("en_us")]
-                public string? EnUs { get; set; }
-
-                /// <summary>
-                /// <para>中文</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作台</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_cn")]
-                public string? ZhCn { get; set; }
-
-                /// <summary>
-                /// <para>中文（香港地区）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作臺</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_hk")]
-                public string? ZhHk { get; set; }
-
-                /// <summary>
-                /// <para>中文（台湾地区）</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：工作臺</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("zh_tw")]
-                public string? ZhTw { get; set; }
-
-                /// <summary>
-                /// <para>日语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：作業台</para>
-                /// <para>最大长度：1000</para>
-                /// </summary>
-                [JsonPropertyName("ja_jp")]
-                public string? JaJp { get; set; }
-
-                /// <summary>
-                /// <para>法语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：Table de travail</para>
-                /// </summary>
-                [JsonPropertyName("fr_fr")]
-                public string? FrFr { get; set; }
-
-                /// <summary>
-                /// <para>意大利语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：banco di lavoro</para>
-                /// </summary>
-                [JsonPropertyName("it_it")]
-                public string? ItIt { get; set; }
-
-                /// <summary>
-                /// <para>德语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：Werkbank</para>
-                /// </summary>
-                [JsonPropertyName("de_de")]
-                public string? DeDe { get; set; }
-
-                /// <summary>
-                /// <para>俄语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：верстак</para>
-                /// </summary>
-                [JsonPropertyName("ru_ru")]
-                public string? RuRu { get; set; }
-
-                /// <summary>
-                /// <para>泰语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：โต๊ะทำงาน</para>
-                /// </summary>
-                [JsonPropertyName("th_th")]
-                public string? ThTh { get; set; }
-
-                /// <summary>
-                /// <para>西班牙语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：banco de trabajo</para>
-                /// </summary>
-                [JsonPropertyName("es_es")]
-                public string? EsEs { get; set; }
-
-                /// <summary>
-                /// <para>韩语</para>
-                /// <para>必填：否</para>
-                /// <para>示例值：작업대</para>
-                /// </summary>
-                [JsonPropertyName("ko_kr")]
-                public string? KoKr { get; set; }
-            }
+            public I18nLanguage<string>? PlatformI18nName { get; set; }
 
             /// <summary>
             /// <para>任务关联的来源平台详情页链接</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("href")]
-            public PatchTaskV2TasksByTaskGuidResponseDtoTaskOriginHref? Href { get; set; }
+            public HrefSuffix? Href { get; set; }
 
             /// <summary>
             /// <para>任务关联的来源平台详情页链接</para>
             /// </summary>
-            public record PatchTaskV2TasksByTaskGuidResponseDtoTaskOriginHref
+            public record HrefSuffix
             {
                 /// <summary>
                 /// <para>链接对应的地址，如填写必须以https://或http://开头</para>
@@ -534,22 +386,22 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_complete")]
-        public PatchTaskV2TasksByTaskGuidResponseDtoTaskCustomComplete? CustomComplete { get; set; }
+        public CustomCompleteSuffix? CustomComplete { get; set; }
 
         /// <summary>
         /// <para>任务的自定义完成配置</para>
         /// </summary>
-        public record PatchTaskV2TasksByTaskGuidResponseDtoTaskCustomComplete
+        public record CustomCompleteSuffix
         {
             /// <summary>
-            /// <para>pc客户端自定义完成配置（含mac和windows）</para>
+            /// <para>PC客户端自定义完成配置（含Mac和Windows）</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("pc")]
             public CustomCompleteItem? Pc { get; set; }
 
             /// <summary>
-            /// <para>pc客户端自定义完成配置（含mac和windows）</para>
+            /// <para>PC客户端自定义完成配置（含Mac和Windows）</para>
             /// </summary>
             public record CustomCompleteItem
             {
@@ -566,125 +418,18 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("tip")]
-                public I18nText? Tip { get; set; }
-
-                /// <summary>
-                /// <para>自定义完成的弹出提示为</para>
-                /// </summary>
-                public record I18nText
-                {
-                    /// <summary>
-                    /// <para>英文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：workbench</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("en_us")]
-                    public string? EnUs { get; set; }
-
-                    /// <summary>
-                    /// <para>中文</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作台</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_cn")]
-                    public string? ZhCn { get; set; }
-
-                    /// <summary>
-                    /// <para>中文（香港地区）</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作臺</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_hk")]
-                    public string? ZhHk { get; set; }
-
-                    /// <summary>
-                    /// <para>中文（台湾地区）</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：工作臺</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("zh_tw")]
-                    public string? ZhTw { get; set; }
-
-                    /// <summary>
-                    /// <para>日语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：作業台</para>
-                    /// <para>最大长度：1000</para>
-                    /// </summary>
-                    [JsonPropertyName("ja_jp")]
-                    public string? JaJp { get; set; }
-
-                    /// <summary>
-                    /// <para>法语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：Table de travail</para>
-                    /// </summary>
-                    [JsonPropertyName("fr_fr")]
-                    public string? FrFr { get; set; }
-
-                    /// <summary>
-                    /// <para>意大利语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：banco di lavoro</para>
-                    /// </summary>
-                    [JsonPropertyName("it_it")]
-                    public string? ItIt { get; set; }
-
-                    /// <summary>
-                    /// <para>德语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：Werkbank</para>
-                    /// </summary>
-                    [JsonPropertyName("de_de")]
-                    public string? DeDe { get; set; }
-
-                    /// <summary>
-                    /// <para>俄语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：верстак</para>
-                    /// </summary>
-                    [JsonPropertyName("ru_ru")]
-                    public string? RuRu { get; set; }
-
-                    /// <summary>
-                    /// <para>泰语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：โต๊ะทำงาน</para>
-                    /// </summary>
-                    [JsonPropertyName("th_th")]
-                    public string? ThTh { get; set; }
-
-                    /// <summary>
-                    /// <para>西班牙语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：banco de trabajo</para>
-                    /// </summary>
-                    [JsonPropertyName("es_es")]
-                    public string? EsEs { get; set; }
-
-                    /// <summary>
-                    /// <para>韩语</para>
-                    /// <para>必填：否</para>
-                    /// <para>示例值：작업대</para>
-                    /// </summary>
-                    [JsonPropertyName("ko_kr")]
-                    public string? KoKr { get; set; }
-                }
+                public I18nLanguage<string>? Tip { get; set; }
             }
 
             /// <summary>
-            /// <para>ios端的自定义完成配置</para>
+            /// <para>iOS端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("ios")]
             public CustomCompleteItem? Ios { get; set; }
 
             /// <summary>
-            /// <para>android端的自定义完成配置</para>
+            /// <para>Android端的自定义完成配置</para>
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("android")]
@@ -738,12 +483,12 @@ public record PatchTaskV2TasksByTaskGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("start")]
-        public PatchTaskV2TasksByTaskGuidResponseDtoTaskStart? Start { get; set; }
+        public StartSuffix? Start { get; set; }
 
         /// <summary>
         /// <para>任务的开始时间</para>
         /// </summary>
-        public record PatchTaskV2TasksByTaskGuidResponseDtoTaskStart
+        public record StartSuffix
         {
             /// <summary>
             /// <para>开始时间/日期的时间戳，距1970-01-01 00:00:00的毫秒数。如果开始时间是一个日期，需要把日期转换成时间戳，并设置 is_all_day=true</para>

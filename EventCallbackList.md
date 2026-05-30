@@ -105,6 +105,7 @@
 <tr><td>meeting_room.meeting_room.status_changed_v1</td><td>EventV2Dto&lt;MeetingRoom.Events.MeetingRoomMeetingRoomStatusChangedV1EventBodyDto&gt;</td><td>【会议室】会议室状态信息变更</td></tr>
 <tr><td>performance.stage_task.open_result_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceStageTaskOpenResultV2EventBodyDto&gt;</td><td>【绩效】绩效结果开通</td></tr>
 <tr><td>performance.review_data.changed_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceReviewDataChangedV2EventBodyDto&gt;</td><td>【绩效】绩效详情变更</td></tr>
+<tr><td>minutes.minute.generated_v1</td><td>EventV2Dto&lt;Minutes.Events.MinutesMinuteGeneratedV1EventBodyDto&gt;</td><td>【妙记】妙记生成</td></tr>
 <tr><td>task.task.comment.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskCommentUpdatedV1EventBodyDto&gt;</td><td>【任务】任务评论信息变更</td></tr>
 <tr><td>task.task.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdatedV1EventBodyDto&gt;</td><td>【任务】任务信息变更（应用维度）</td></tr>
 <tr><td>task.task.update_tenant_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdateTenantV1EventBodyDto&gt;</td><td>【任务】任务信息变更（租户维度）</td></tr>
@@ -120,6 +121,7 @@
 <tr><td>leave_approvalV2</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalV2EventBodyDto&gt;</td><td>【审批】请假审批</td></tr>
 <tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
 <tr><td>out_approval</td><td>EventV1Dto&lt;Approval.Events.OutApprovalEventBodyDto&gt;</td><td>【审批】外出审批</td></tr>
+<tr><td>vc.meeting.participant_meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingParticipantMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】参与的会议结束</td></tr>
 <tr><td>vc.room.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室</td></tr>
 <tr><td>vc.room_level.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室层级</td></tr>
 <tr><td>vc.room.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室</td></tr>

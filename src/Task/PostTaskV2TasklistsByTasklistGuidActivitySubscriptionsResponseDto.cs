@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -60,39 +60,6 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto
         public Member[]? Subscribers { get; set; }
 
         /// <summary>
-        /// <para>订阅者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：editor</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
-
-        /// <summary>
         /// <para>要订阅的清单动态类型</para>
         /// <para>必填：否</para>
         /// </summary>
@@ -100,7 +67,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsResponseDto
         public int[]? IncludeKeys { get; set; }
 
         /// <summary>
-        /// <para>该订阅是否为停用</para>
+        /// <para>该订阅是否停用</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

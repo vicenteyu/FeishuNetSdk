@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -24,11 +24,11 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsBodyDto
 {
     /// <summary>
     /// <para>选项名称，最大50个字符。</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// <para>示例值：高优</para>
     /// </summary>
     [JsonPropertyName("name")]
-    public string? Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>颜色索引值，支持0～54中的一个数字。如果不填写，则会随机选一个。</para>

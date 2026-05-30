@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-02
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2SectionsBySectionGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Task;
 /// <para>更新时，将`update_fields`字段中填写所有要修改的字段名，同时在`section`字段中填写要修改的字段的新值即可。调用约定详情见[功能概述](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/overview)中的“ 关于资源的更新”章节。</para>
 /// <para>目前支持更新的字段包括：</para>
 /// <para>* `name` - 自定义字段名字;</para>
-/// <para>* `insert_before` - 要让当前自定义分组放到某个自定义分组前面的secion_guid，用于改变当前自定义分组的位置;</para>
+/// <para>* `insert_before` - 要让当前自定义分组放到某个自定义分组前面的section_guid，用于改变当前自定义分组的位置;</para>
 /// <para>* `insert_after` - 要让当前自定义分组放到某个自定义分组后面的secion_guid，用于改变当前自定义分组的位置。</para>
 /// <para>`insert_before`和`insert_after`如果填写，必须是同一个资源的合法section_guid。注意不能同时设置`insert_before`和`insert_after`。</para>
 /// <para>接口ID：7259330038033842204</para>
@@ -32,12 +32,12 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("section")]
-    public PatchTaskV2SectionsBySectionGuidResponseDtoSection? Section { get; set; }
+    public SectionSuffix? Section { get; set; }
 
     /// <summary>
     /// <para>更新后的自定义分组</para>
     /// </summary>
-    public record PatchTaskV2SectionsBySectionGuidResponseDtoSection
+    public record SectionSuffix
     {
         /// <summary>
         /// <para>自定义分组的guid</para>
@@ -77,47 +77,6 @@ public record PatchTaskV2SectionsBySectionGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>自定义分组的创建者</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：editor</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-
-            /// <summary>
-            /// <para>成员名称</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：张明德（明德）</para>
-            /// </summary>
-            [JsonPropertyName("name")]
-            public string? Name { get; set; }
-        }
 
         /// <summary>
         /// <para>如果该分组归属于清单，展示清单的简要信息</para>

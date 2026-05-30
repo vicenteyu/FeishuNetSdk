@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2SectionsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -15,7 +15,7 @@ namespace FeishuNetSdk.Task;
 /// <summary>
 /// 创建自定义分组 请求体
 /// <para>为清单或我负责的任务列表创建一个自定义分组。创建时可以需要提供名称和可选的配置。如果不指定位置，新分组会放到指定resource的自定义分组列表的最后。</para>
-/// <para>当在清单中创建自定义分组时，需要设置`resourse_type`为"tasklist", `resource_id`设为清单的GUID。</para>
+/// <para>当在清单中创建自定义分组时，需要设置`resource_type`为"tasklist", `resource_id`设为清单的GUID。</para>
 /// <para>当为我负责任务列表中创建自定义分组时，需要设置`resource_type`为"my_tasks"，不需要设置`resource_id`。调用身份只能为自己的我负责的任务列表创建自定义分组。</para>
 /// <para>接口ID：7259330038033809436</para>
 /// <para>文档地址：https://open.feishu.cn/document/task-v2/section/create</para>
@@ -24,7 +24,7 @@ namespace FeishuNetSdk.Task;
 public record PostTaskV2SectionsBodyDto
 {
     /// <summary>
-    /// <para>自定义分组名。不允许为空，最大100个utf8字符。</para>
+    /// <para>自定义分组名。不允许为空，最大100个UTF-8字符。</para>
     /// <para>必填：是</para>
     /// <para>示例值：已经审核过的任务</para>
     /// </summary>

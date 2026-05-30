@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,12 +27,12 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("option")]
-    public PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDtoOption? Option { get; set; }
+    public OptionSuffix? Option { get; set; }
 
     /// <summary>
     /// <para>创建的选项</para>
     /// </summary>
-    public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDtoOption
+    public record OptionSuffix
     {
         /// <summary>
         /// <para>选项的GUID</para>
@@ -61,7 +61,7 @@ public record PostTaskV2CustomFieldsByCustomFieldGuidOptionsResponseDto
         public int? ColorIndex { get; set; }
 
         /// <summary>
-        /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。</para>
+        /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。</para>
         /// <para>必填：否</para>
         /// <para>示例值：false</para>
         /// </summary>

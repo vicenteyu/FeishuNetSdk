@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,31 +40,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     public Member[] Subscribers { get; set; } = [];
 
     /// <summary>
-    /// <para>订阅者列表</para>
-    /// </summary>
-    public record Member
-    {
-        /// <summary>
-        /// <para>表示member的id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：oc_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-        /// <para>最大长度：100</para>
-        /// </summary>
-        [JsonPropertyName("id")]
-        public string? Id { get; set; }
-
-        /// <summary>
-        /// <para>成员的类型 （目前仅支持chat）</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：chat</para>
-        /// <para>默认值：user</para>
-        /// </summary>
-        [JsonPropertyName("type")]
-        public string? Type { get; set; }
-    }
-
-    /// <summary>
-    /// <para>订阅的event key列表。每个event key用一个数字表示。目前支持下列event key：</para>
+    /// <para>订阅的event keys列表。每个event key用一个数字表示。目前支持下列event key：</para>
     /// <para>- 100: 任务添加入清单</para>
     /// <para>- 101: 任务从清单被移除</para>
     /// <para>- 103: 任务被完成</para>
@@ -86,7 +62,7 @@ public record PostTaskV2TasklistsByTasklistGuidActivitySubscriptionsBodyDto
     public int[] IncludeKeys { get; set; } = [];
 
     /// <summary>
-    /// <para>该订阅是否为停用</para>
+    /// <para>该订阅是否停用</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// </summary>

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-27
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,14 +47,14 @@ namespace FeishuNetSdk.Task;
 /// <para>```</para>
 /// <para>表示仅仅将小数位数从2改为4，其余的设置`format`, `separator`, `custom_field`等都不变。</para>
 /// <para>对于单选/多选类型的自定义字段，其设定是一个选项列表。更新时，使用方式接近使用App的界面。使用者不必传入字段的所有选项，而是只需要提供最终希望界面可见（is_hidden=false) 的选项。原有字段中的选项如果没有出现在输入中，则被置为`is_hidden=true`并放到所有可见选项之后。</para>
-/// <para>对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在reponse中被返回)。</para>
+/// <para>对于某一个更新的选项，如果提供了option_guid，将视作更新该选项（此时option_guid必须存在于当前字段，否则会返回错误）；如果不提供，将视作新建一个选项（新的选项的option_guid会在response中被返回)。</para>
 /// <para>例如，一个单选字段原来有3个选项A，B，C，D。其中C是隐藏的。用户可以这样更新选项：</para>
 /// <para>```</para>
 /// <para>PATCH /task/v2/custom_fields/:custom_field_guid</para>
 /// <para>{</para>
 /// <para>"custom_field": {</para>
 /// <para>"single_select_setting": {</para>
-/// <para>"optoins": [</para>
+/// <para>"options": [</para>
 /// <para>{</para>
 /// <para>"name": "E",</para>
 /// <para>"color_index": 25</para>
@@ -124,12 +124,12 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("custom_field")]
-    public PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomField? CustomField { get; set; }
+    public CustomFieldSuffix? CustomField { get; set; }
 
     /// <summary>
     /// <para>修改后的自定义字段设置</para>
     /// </summary>
-    public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomField
+    public record CustomFieldSuffix
     {
         /// <summary>
         /// <para>自定义字段的GUID</para>
@@ -160,12 +160,12 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("number_setting")]
-        public PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldNumberSetting? NumberSetting { get; set; }
+        public NumberSettingSuffix? NumberSetting { get; set; }
 
         /// <summary>
         /// <para>数字类型的字段设置</para>
         /// </summary>
-        public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldNumberSetting
+        public record NumberSettingSuffix
         {
             /// <summary>
             /// <para>数字展示的格式</para>
@@ -234,12 +234,12 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("member_setting")]
-        public PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldMemberSetting? MemberSetting { get; set; }
+        public MemberSettingSuffix? MemberSetting { get; set; }
 
         /// <summary>
         /// <para>人员类型的字段设置</para>
         /// </summary>
-        public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldMemberSetting
+        public record MemberSettingSuffix
         {
             /// <summary>
             /// <para>是否支持多选</para>
@@ -256,12 +256,12 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("datetime_setting")]
-        public PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldDatetimeSetting? DatetimeSetting { get; set; }
+        public DatetimeSettingSuffix? DatetimeSetting { get; set; }
 
         /// <summary>
         /// <para>时间日期类型的字段设置</para>
         /// </summary>
-        public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDtoCustomFieldDatetimeSetting
+        public record DatetimeSettingSuffix
         {
             /// <summary>
             /// <para>日期显示格式。支持</para>
@@ -331,7 +331,7 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
                 public int? ColorIndex { get; set; }
 
                 /// <summary>
-                /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openapi将字段值设为该选项。</para>
+                /// <para>选项是否隐藏。隐藏后的选项在界面不可见，也不可以再通过openAPI将字段值设为该选项。</para>
                 /// <para>必填：否</para>
                 /// <para>示例值：false</para>
                 /// </summary>
@@ -353,39 +353,6 @@ public record PatchTaskV2CustomFieldsByCustomFieldGuidResponseDto
         /// </summary>
         [JsonPropertyName("creator")]
         public Member? Creator { get; set; }
-
-        /// <summary>
-        /// <para>创建人</para>
-        /// </summary>
-        public record Member
-        {
-            /// <summary>
-            /// <para>表示member的id</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f</para>
-            /// <para>最大长度：100</para>
-            /// </summary>
-            [JsonPropertyName("id")]
-            public string? Id { get; set; }
-
-            /// <summary>
-            /// <para>成员的类型</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：user</para>
-            /// <para>默认值：user</para>
-            /// </summary>
-            [JsonPropertyName("type")]
-            public string? Type { get; set; }
-
-            /// <summary>
-            /// <para>成员角色</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：editor</para>
-            /// <para>最大长度：20</para>
-            /// </summary>
-            [JsonPropertyName("role")]
-            public string? Role { get; set; }
-        }
 
         /// <summary>
         /// <para>自定义字段创建的时间戳(ms)</para>

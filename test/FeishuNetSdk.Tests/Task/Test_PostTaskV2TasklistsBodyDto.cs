@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="Test_PostTaskV2TasklistsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,7 +32,8 @@ public class Test_PostTaskV2TasklistsBodyDto : TestBase
         {
             "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
             "type": "user",
-            "role": "editor"
+            "role": "editor",
+            "name": "张明德（明德）"
         }
     ]
 }

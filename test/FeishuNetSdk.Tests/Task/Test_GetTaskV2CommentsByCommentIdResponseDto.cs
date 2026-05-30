@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-05-29
 // ************************************************************************
 // <copyright file="Test_GetTaskV2CommentsByCommentIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,7 +36,8 @@ public class Test_GetTaskV2CommentsByCommentIdResponseDto : TestBase
             "creator": {
                 "id": "ou_2cefb2f014f8d0c6c2d2eb7bafb0e54f",
                 "type": "user",
-                "role": "creator"
+                "role": "creator",
+                "name": "张明德（明德）"
             },
             "reply_to_comment_id": "7166825117308174356",
             "created_at": "1675742789470",
