@@ -4,7 +4,7 @@
 // Created          : 2026-01-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-11
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="Test_PostSearchV2DocWikiSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,7 +48,9 @@ public class Test_PostSearchV2DocWikiSearchResponseDto : TestBase
                     "last_open_time": 1766567446,
                     "edit_user_id": "ou-1122334455aabbcc",
                     "edit_user_name": "李四",
-                    "token": "dox_9876543210fedcba"
+                    "token": "dox_9876543210fedcba",
+                    "file_type": "pdf",
+                    "icon_info": "{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}"
                 }
             }
         ],

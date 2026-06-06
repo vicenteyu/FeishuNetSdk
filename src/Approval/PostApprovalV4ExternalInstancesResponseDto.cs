@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-18
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="PostApprovalV4ExternalInstancesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -410,7 +410,6 @@ public record PostApprovalV4ExternalInstancesResponseDto
             {
                 /// <summary>
                 /// <para>操作类型。每个任务都可以配置两个操作（同意、拒绝或任意中的两个），操作会展示审批列表中。当用户操作时，回调请求会包含该字段，三方审批可接受到审批人的操作数据。</para>
-                /// <para>**可能值有**：</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：APPROVE</para>
                 /// <para>可选值：<list type="bullet">
@@ -735,12 +734,12 @@ public record PostApprovalV4ExternalInstancesResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("trusteeship_urls")]
-        public ExternalInstanceTrusteeshipUrls? TrusteeshipUrls { get; set; }
+        public TrusteeshipUrlsSuffix? TrusteeshipUrls { get; set; }
 
         /// <summary>
         /// <para>单据托管回调接入方的接口 URL 地址</para>
         /// </summary>
-        public record ExternalInstanceTrusteeshipUrls
+        public record TrusteeshipUrlsSuffix
         {
             /// <summary>
             /// <para>获取表单 schema 相关数据的 URL 地址</para>

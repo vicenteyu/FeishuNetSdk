@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="PostCorehrV1AssignedUsersSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,14 +30,18 @@ public record PostCorehrV1AssignedUsersSearchBodyDto
     public string RoleId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>管理范围信息</para>
+    /// <para>管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：</para>
+    /// <para>- 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}]</para>
+    /// <para>- 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]</para>
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("management_scope_list")]
     public ManagementScope[] ManagementScopeLists { get; set; } = [];
 
     /// <summary>
-    /// <para>管理范围信息</para>
+    /// <para>管理范围信息，支持多个维度同时查，但同一维度只支持传一个 obj_id。具体例子：</para>
+    /// <para>- 支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"location","obj_id":"7023318326176771234"}]</para>
+    /// <para>- 不支持：[{"management_dimension":"department","obj_id":"7023318326176777742"},{"management_dimension":"department","obj_id":"7023318326176775678"}]</para>
     /// </summary>
     public record ManagementScope
     {

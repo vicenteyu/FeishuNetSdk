@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-06-06
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-06-06
+// ************************************************************************
+// <copyright file="ContactUserDeletedV3EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>员工离职 事件体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.Contact.Events;
 /// <summary>
 /// 员工离职 事件体

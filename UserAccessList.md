@@ -963,7 +963,7 @@
 <tr><td colspan="3">PostJssdkTicketGet</td></tr>
 <tr><td rowspan="2">482</td><td rowspan="2">2023-11-24</td><td><span style="color:red;">删除</span></td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">483</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">483</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">484</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>回复日程</td></tr>
 <tr><td colspan="3">PostCalendarV4CalendarsByCalendarIdEventsByEventIdReply</td></tr>
@@ -1297,7 +1297,7 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableName</td></tr>
 <tr><td rowspan="2">649</td><td rowspan="2">2025-12-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取工作空间下的自定义枚举列表</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
-<tr><td rowspan="2">650</td><td rowspan="2">2026-03-12</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
+<tr><td rowspan="2">650</td><td rowspan="2">2026-06-05</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
 <tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出工作流</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
@@ -1337,7 +1337,7 @@
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
 <tr><td rowspan="2">669</td><td rowspan="2">2026-03-28</td><td>&#10003;</td><td>视频会议</td><td>搜索会议记录</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsSearch</td></tr>
-<tr><td rowspan="2">670</td><td rowspan="2">2026-03-27</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
+<tr><td rowspan="2">670</td><td rowspan="2">2026-06-02</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
 <tr><td rowspan="2">671</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>飞书妙搭</td><td>向数据表中添加或更新记录</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
@@ -1471,20 +1471,88 @@
 <tr><td colspan="3">PatchSparkV1AppsByAppId</td></tr>
 <tr><td rowspan="2">736</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>创建妙搭应用</td></tr>
 <tr><td colspan="3">PostSparkV1Apps</td></tr>
-<tr><td rowspan="2">737</td><td rowspan="2">2026-05-25</td><td>新增</td><td>画板</td><td>批量删除节点</td></tr>
+<tr><td rowspan="2">737</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>批量删除节点</td></tr>
 <tr><td colspan="3">DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDelete</td></tr>
-<tr><td rowspan="2">738</td><td rowspan="2">2026-05-28</td><td>新增</td><td>视频会议</td><td>订阅会议变更事件</td></tr>
+<tr><td rowspan="2">738</td><td rowspan="2">2026-05-28</td><td>&#10003;</td><td>视频会议</td><td>订阅会议变更事件</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsSubscription</td></tr>
-<tr><td rowspan="2">739</td><td rowspan="2">2026-05-28</td><td>新增</td><td>视频会议</td><td>取消订阅会议变更事件</td></tr>
+<tr><td rowspan="2">739</td><td rowspan="2">2026-05-28</td><td>&#10003;</td><td>视频会议</td><td>取消订阅会议变更事件</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsUnsubscription</td></tr>
-<tr><td rowspan="2">740</td><td rowspan="2">2026-05-28</td><td>新增</td><td>妙记</td><td>订阅妙记变更事件</td></tr>
+<tr><td rowspan="2">740</td><td rowspan="2">2026-05-28</td><td>&#10003;</td><td>妙记</td><td>订阅妙记变更事件</td></tr>
 <tr><td colspan="3">PostMinutesV1MinutesSubscription</td></tr>
-<tr><td rowspan="2">741</td><td rowspan="2">2026-05-28</td><td>新增</td><td>妙记</td><td>取消订阅妙记变更事件</td></tr>
+<tr><td rowspan="2">741</td><td rowspan="2">2026-05-28</td><td>&#10003;</td><td>妙记</td><td>取消订阅妙记变更事件</td></tr>
 <tr><td colspan="3">PostMinutesV1MinutesUnsubscription</td></tr>
-<tr><td rowspan="2">742</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>订阅任务变更事件</td></tr>
+<tr><td rowspan="2">742</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>订阅任务变更事件</td></tr>
 <tr><td colspan="3">PostTaskV2TaskV2TaskSubscription</td></tr>
-<tr><td rowspan="2">743</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>设置父任务</td></tr>
+<tr><td rowspan="2">743</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>任务</td><td>设置父任务</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidSetAncestorTask</td></tr>
-<tr><td rowspan="2">744</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>列取与我相关的任务</td></tr>
+<tr><td rowspan="2">744</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取与我相关的任务</td></tr>
 <tr><td colspan="3">GetTaskV2TaskV2ListRelatedTask</td></tr>
+<tr><td rowspan="2">745</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>更新量化指标</td></tr>
+<tr><td colspan="3">PatchOkrV2IndicatorsByIndicatorId</td></tr>
+<tr><td rowspan="2">746</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的对齐信息</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
+<tr><td rowspan="2">747</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>在目标下创建关键结果</td></tr>
+<tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
+<tr><td rowspan="2">748</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑关键结果</td></tr>
+<tr><td colspan="3">PatchOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">749</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期内的目标</td></tr>
+<tr><td colspan="3">GetOkrV2CyclesByCycleIdObjectives</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建目标对齐关系</td></tr>
+<tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
+<tr><td rowspan="2">751</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取 OKR 对齐</td></tr>
+<tr><td colspan="3">GetOkrV2AlignmentsByAlignmentId</td></tr>
+<tr><td rowspan="2">752</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标位置</td></tr>
+<tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesPosition</td></tr>
+<tr><td rowspan="2">753</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标权重</td></tr>
+<tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesWeight</td></tr>
+<tr><td rowspan="2">754</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的进展记录</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdProgresses</td></tr>
+<tr><td rowspan="2">755</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果下的进展记录</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdProgresses</td></tr>
+<tr><td rowspan="2">756</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的量化指标</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdIndicators</td></tr>
+<tr><td rowspan="2">757</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果的量化指标</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdIndicators</td></tr>
+<tr><td rowspan="2">758</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 对齐</td></tr>
+<tr><td colspan="3">DeleteOkrV2AlignmentsByAlignmentId</td></tr>
+<tr><td rowspan="2">759</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑 OKR 目标</td></tr>
+<tr><td colspan="3">PatchOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">760</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 目标</td></tr>
+<tr><td colspan="3">DeleteOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">761</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取所有 OKR 分类</td></tr>
+<tr><td colspan="3">GetOkrV2Categories</td></tr>
+<tr><td rowspan="2">762</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果位置</td></tr>
+<tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsPosition</td></tr>
+<tr><td rowspan="2">763</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果权重</td></tr>
+<tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsWeight</td></tr>
+<tr><td rowspan="2">764</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的所有关键结果</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
+<tr><td rowspan="2">765</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">766</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除关键结果</td></tr>
+<tr><td colspan="3">DeleteOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">767</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标详细信息</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">768</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建 OKR 目标</td></tr>
+<tr><td colspan="3">PostOkrV2CyclesByCycleIdObjectives</td></tr>
+<tr><td rowspan="2">769</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期列表</td></tr>
+<tr><td colspan="3">GetOkrV2Cycles</td></tr>
+<tr><td rowspan="2">770</td><td rowspan="2">2026-06-01</td><td>新增</td><td>任务</td><td>搜索任务</td></tr>
+<tr><td colspan="3">PostTaskV2TasksSearch</td></tr>
+<tr><td rowspan="2">771</td><td rowspan="2">2026-06-01</td><td>新增</td><td>任务</td><td>搜索清单</td></tr>
+<tr><td colspan="3">PostTaskV2TasklistsSearch</td></tr>
+<tr><td rowspan="2">772</td><td rowspan="2">2026-06-02</td><td>新增</td><td>视频会议</td><td>订阅纪要变更事件</td></tr>
+<tr><td colspan="3">PostVcV1NotesSubscription</td></tr>
+<tr><td rowspan="2">773</td><td rowspan="2">2026-06-02</td><td>新增</td><td>视频会议</td><td>取消订阅纪要变更事件</td></tr>
+<tr><td colspan="3">PostVcV1NotesUnsubscription</td></tr>
+<tr><td rowspan="2">774</td><td rowspan="2">2026-06-04</td><td>新增</td><td>飞书 aily</td><td>上传附件</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
+<tr><td rowspan="2">775</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>获取会话结果</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2026-06-04</td><td>新增</td><td>飞书 aily</td><td>发起智能体会话</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
+<tr><td rowspan="2">777</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
+<tr><td rowspan="2">778</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
 </tbody></table>

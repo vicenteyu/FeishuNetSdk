@@ -13,7 +13,6 @@
 <tr><td>attendance.user_flow.created_v1</td><td>EventV2Dto&lt;Attendance.Events.AttendanceUserFlowCreatedV1EventBodyDto&gt;</td><td>【考勤打卡】打卡流水</td></tr>
 <tr><td>security_and_compliance.device_apply_record.device_apply_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto&gt;</td><td>【安全合规】设备申报事件</td></tr>
 <tr><td>security_and_compliance.device_record.device_change_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto&gt;</td><td>【安全合规】设备信息变更事件</td></tr>
-<tr><td>apaas.workspace.record_change_v1</td><td>EventV2Dto&lt;AppEngine.Events.ApaasWorkspaceRecordChangeV1EventBodyDto&gt;</td><td>【飞书 aPaaS】数据记录变更</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
 <tr><td>corehr.department.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建部门V2</td></tr>
 <tr><td>corehr.cost_center.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建成本中心</td></tr>
@@ -106,6 +105,7 @@
 <tr><td>performance.stage_task.open_result_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceStageTaskOpenResultV2EventBodyDto&gt;</td><td>【绩效】绩效结果开通</td></tr>
 <tr><td>performance.review_data.changed_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceReviewDataChangedV2EventBodyDto&gt;</td><td>【绩效】绩效详情变更</td></tr>
 <tr><td>minutes.minute.generated_v1</td><td>EventV2Dto&lt;Minutes.Events.MinutesMinuteGeneratedV1EventBodyDto&gt;</td><td>【妙记】妙记生成</td></tr>
+<tr><td>task.task.update_user_access_v2</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdateUserAccessV2EventBodyDto&gt;</td><td>【任务】任务更新事件</td></tr>
 <tr><td>task.task.comment.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskCommentUpdatedV1EventBodyDto&gt;</td><td>【任务】任务评论信息变更</td></tr>
 <tr><td>task.task.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdatedV1EventBodyDto&gt;</td><td>【任务】任务信息变更（应用维度）</td></tr>
 <tr><td>task.task.update_tenant_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdateTenantV1EventBodyDto&gt;</td><td>【任务】任务信息变更（租户维度）</td></tr>
@@ -129,6 +129,7 @@
 <tr><td>vc.reserve_config.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcReserveConfigUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室预定限制</td></tr>
 <tr><td>vc.meeting.meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】会议结束</td></tr>
 <tr><td>vc.meeting.meeting_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingStartedV1EventBodyDto&gt;</td><td>【视频会议】会议开始</td></tr>
+<tr><td>vc.note.generated_v1</td><td>EventV2Dto&lt;Vc.Events.VcNoteGeneratedV1EventBodyDto&gt;</td><td>【视频会议】纪要生成</td></tr>
 <tr><td>vc.meeting.join_meeting_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingJoinMeetingV1EventBodyDto&gt;</td><td>【视频会议】加入会议</td></tr>
 <tr><td>vc.meeting.share_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingShareEndedV1EventBodyDto&gt;</td><td>【视频会议】结束屏幕共享</td></tr>
 <tr><td>vc.meeting.recording_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingRecordingStartedV1EventBodyDto&gt;</td><td>【视频会议】开始录制</td></tr>

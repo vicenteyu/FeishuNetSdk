@@ -4,7 +4,7 @@
 // Created          : 2026-05-30
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-29
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="PostTaskV2TasksByTaskGuidSetAncestorTaskBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,10 +28,4 @@ public record PostTaskV2TasksByTaskGuidSetAncestorTaskBodyDto
     /// </summary>
     [JsonPropertyName("ancestor_guid")]
     public string? AncestorGuid { get; set; }
-
-    /// <summary>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("user_id_type")]
-    public string? UserIdType { get; set; }
 }

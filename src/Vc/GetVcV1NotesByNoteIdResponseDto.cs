@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="GetVcV1NotesByNoteIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -126,6 +126,38 @@ public record GetVcV1NotesByNoteIdResponseDto
             /// </summary>
             [JsonPropertyName("doc_token")]
             public string DocToken { get; set; } = string.Empty;
+        }
+
+        /// <summary>
+        /// <para>纪要来源。目前只有**会议来源**的会返回数据。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("note_source")]
+        public GeneratedSource? NoteSource { get; set; }
+
+        /// <summary>
+        /// <para>纪要来源。目前只有**会议来源**的会返回数据。</para>
+        /// </summary>
+        public record GeneratedSource
+        {
+            /// <summary>
+            /// <para>来源类型</para>
+            /// <para>**可选值有:**</para>
+            /// <para>-`meeting`: 会议来源</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：meeting</para>
+            /// </summary>
+            [JsonPropertyName("source_type")]
+            public string? SourceType { get; set; }
+
+            /// <summary>
+            /// <para>来源实体id。</para>
+            /// <para>-`meeting`: 对应的是会议ID（meeting id）</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：6911188411934433028</para>
+            /// </summary>
+            [JsonPropertyName("source_entity_id")]
+            public string? SourceEntityId { get; set; }
         }
     }
 }
