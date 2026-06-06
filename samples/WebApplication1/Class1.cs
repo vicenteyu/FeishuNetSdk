@@ -8,6 +8,7 @@ using FeishuNetSdk.Im.Dtos;
 using FeishuNetSdk.Im.Events;
 using FeishuNetSdk.Services;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace WebApplication1
 {
@@ -53,6 +54,85 @@ namespace WebApplication1
                 logger.LogInformation("AfterValue: {value}", JsonSerializer.Serialize(item.AfterValue));
             }
         }
+    }
+
+    public class EventHandler1ApprovalAsync(IFeishuTenantApi tenantApi, ILogger<EventHandler> logger) : IEventHandler<EventV1Dto<ApprovalEventBodyDto>, ApprovalEventBodyDto>
+    {
+        public async Task ExecuteAsync(EventV1Dto<ApprovalEventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            if (logger.IsEnabled(LogLevel.Information))
+                logger.LogInformation("ApprovalEventBodyDto: {msg}", JsonSerializer.Serialize(input.Event));
+
+            if (string.IsNullOrEmpty(input.Event?.InstanceCode)) return;
+
+            var instance = await tenantApi.GetApprovalV4InstancesByInstanceIdAsync(input.Event.InstanceCode, "zh-CN", null, cancellation_token: cancellationToken);
+
+            if (!instance.IsSuccess || instance.Data == null)
+                return;
+
+            var formitems = JsonSerializer.Deserialize<ApprovalInstancesFormItem[]>(instance.Data.Form) ?? [];
+            var employee = GetValueByName(formitems, "申请人");
+            var action = GetValueByName(formitems, "操作", false);
+
+            logger.LogInformation("Form Content: {json}",
+                JsonSerializer.Serialize(new { employee, action }));
+        }
+
+        public static string? GetValueByName(IEnumerable<ApprovalInstancesFormItem>? items, string name, bool exactMatch = true)
+        {
+            if (items == null) return null;
+
+            var match = exactMatch
+                ? items.FirstOrDefault(p => p.Name == name)
+                : items.FirstOrDefault(p => p.Name?.Contains(name) == true);
+
+            return match?.StringValue;
+        }
+        public record ApprovalInstancesFormItem
+        {
+            [JsonPropertyName("name")]
+            public string? Name { get; set; }
+
+            [JsonPropertyName("value")]
+            public JsonElement? Value { get; set; }
+
+            [JsonPropertyName("open_ids"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+            public string[]? OpenIds { get; set; }
+
+            [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
+            public string? OpenId => OpenIds?.FirstOrDefault();
+
+            public string? StringValue => Value?.ValueKind switch
+            {
+                JsonValueKind.Array => string.Join("、", Value?.Deserialize<List<string>>() ?? []),
+                JsonValueKind.String => Value?.GetString(),
+                _ => Value?.ToString(),
+            };
+        }
+    }
+
+    public class EventHandler2ApprovalAsync(ILogger<EventHandler> logger) : IEventHandler<EventV1Dto<ApprovalInstanceEventBodyDto>, ApprovalInstanceEventBodyDto>
+    {
+        public Task ExecuteAsync(EventV1Dto<ApprovalInstanceEventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            if (logger.IsEnabled(LogLevel.Information))
+                logger.LogInformation("ApprovalInstanceEventBodyDto: {msg}", JsonSerializer.Serialize(input.Event));
+
+            return Task.CompletedTask;
+        }
+    }
+
+    public class EventHandler3ApprovalAsync(ILogger<EventHandler> logger) : IEventHandler<EventV1Dto<ApprovalTaskEventBodyDto>, ApprovalTaskEventBodyDto>
+    {
+        public Task ExecuteAsync(EventV1Dto<ApprovalTaskEventBodyDto> input, CancellationToken cancellationToken = default)
+        {
+            if (logger.IsEnabled(LogLevel.Information))
+                logger.LogInformation("ApprovalTaskEventBodyDto: {msg}", JsonSerializer.Serialize(input.Event));
+
+            return Task.CompletedTask;
+        }
+
+
     }
 
     /// <summary>

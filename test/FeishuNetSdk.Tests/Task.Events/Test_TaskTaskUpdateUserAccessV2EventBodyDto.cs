@@ -1,0 +1,50 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-06-06
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-06-06
+// ************************************************************************
+// <copyright file="Test_TaskTaskUpdateUserAccessV2EventBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>测试 任务更新事件 事件体</summary>
+// ************************************************************************
+namespace FeishuNetSdk.Tests.Task.Events;
+
+/// <summary>
+/// 测试 任务更新事件 事件体
+/// <para>接口ID：7645220598528167100</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/events/update_user_access</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2ftask-v2%2ftask%2fevents%2fupdate_user_access</para>
+/// </summary>
+[TestClass]
+public class Test_TaskTaskUpdateUserAccessV2EventBodyDto : TestBase
+{
+    [TestMethod]
+    public void TestDto()
+    {
+        var json = """
+{
+    "schema": "2.0",
+    "header": {
+        "event_id": "5e3702a84e847582be8db7fb73283c02",
+        "event_type": "task.task.update_user_access_v2",
+        "create_time": "1608725989000",
+        "token": "rvaYgkND1GOiu5MM0E1rncYC6PLtF7JV",
+        "app_id": "cli_9f5343c580712544",
+        "tenant_key": "2ca1d211f64f6438"
+    },
+    "event": {
+        "event_types": [
+            "task_summary_update"
+        ],
+        "task_guid": "2451a8fb-024e-4f92-9843-2b27e31a7881"
+    }
+}
+""";
+        var result = Deserialize<EventV2Dto<FeishuNetSdk.Task.Events.TaskTaskUpdateUserAccessV2EventBodyDto>>(json);
+        Assert.IsNotNull(result);
+    }
+}

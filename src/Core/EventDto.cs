@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-29
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -58,8 +58,6 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Acs.Events.AcsAccessRecordCreatedV1EventBodyDto>), typeDiscriminator: "acs.access_record.created_v1")]
 //【智能门禁】用户信息变更
 [JsonDerivedType(typeof(EventV2Dto<Acs.Events.AcsUserUpdatedV1EventBodyDto>), typeDiscriminator: "acs.user.updated_v1")]
-//【飞书 aPaaS】数据记录变更
-[JsonDerivedType(typeof(EventV2Dto<AppEngine.Events.ApaasWorkspaceRecordChangeV1EventBodyDto>), typeDiscriminator: "apaas.workspace.record_change_v1")]
 //【应用信息】应用审核
 [JsonDerivedType(typeof(EventV2Dto<Application.Events.ApplicationApplicationAppVersionAuditV6EventBodyDto>), typeDiscriminator: "application.application.app_version.audit_v6")]
 //【应用信息】申请发布应用
@@ -382,6 +380,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskUpdatedV1EventBodyDto>), typeDiscriminator: "task.task.updated_v1")]
 //【任务】任务信息变更（租户维度）
 [JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskUpdateTenantV1EventBodyDto>), typeDiscriminator: "task.task.update_tenant_v1")]
+//【任务】任务更新事件
+[JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskUpdateUserAccessV2EventBodyDto>), typeDiscriminator: "task.task.update_user_access_v2")]
 //【视频会议】企业会议结束
 [JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcMeetingAllMeetingEndedV1EventBodyDto>), typeDiscriminator: "vc.meeting.all_meeting_ended_v1")]
 //【视频会议】企业会议开始
@@ -406,6 +406,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcMeetingShareEndedV1EventBodyDto>), typeDiscriminator: "vc.meeting.share_ended_v1")]
 //【视频会议】开始屏幕共享
 [JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcMeetingShareStartedV1EventBodyDto>), typeDiscriminator: "vc.meeting.share_started_v1")]
+//【视频会议】纪要生成
+[JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcNoteGeneratedV1EventBodyDto>), typeDiscriminator: "vc.note.generated_v1")]
 //【视频会议】更新会议室预定限制
 [JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcReserveConfigUpdatedV1EventBodyDto>), typeDiscriminator: "vc.reserve_config.updated_v1")]
 //【视频会议】创建会议室

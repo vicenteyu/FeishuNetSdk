@@ -4,7 +4,7 @@
 // Created          : 2026-01-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-11
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="PostSearchV2DocWikiSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -198,6 +198,22 @@ public record PostSearchV2DocWikiSearchResponseDto : IPageableResponse<PostSearc
             /// </summary>
             [JsonPropertyName("token")]
             public string? Token { get; set; }
+
+            /// <summary>
+            /// <para>文件类型</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：pdf</para>
+            /// </summary>
+            [JsonPropertyName("file_type")]
+            public string? FileType { get; set; }
+
+            /// <summary>
+            /// <para>文档icon</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：{\"type\":0,\"key\":\"\",\"obj_type\":22,\"file_type\":null,\"token\":\"FM78ddvYPo11I1xN7gjcSo1Ynuh\",\"version\":10191}</para>
+            /// </summary>
+            [JsonPropertyName("icon_info")]
+            public string? IconInfo { get; set; }
         }
     }
 

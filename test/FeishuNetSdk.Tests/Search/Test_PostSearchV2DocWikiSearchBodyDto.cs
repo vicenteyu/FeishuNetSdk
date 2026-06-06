@@ -4,7 +4,7 @@
 // Created          : 2026-01-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-11
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="Test_PostSearchV2DocWikiSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,7 +47,25 @@ public class Test_PostSearchV2DocWikiSearchBodyDto : TestBase
         "create_time": {
             "start": 1742348544,
             "end": 1742348544
-        }
+        },
+        "chat_ids": [
+            "ou-7890123456"
+        ],
+        "sharer_ids": [
+            "ou_789012"
+        ],
+        "only_comment": false,
+        "my_edit_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        },
+        "my_comment_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        },
+        "original_creator_ids": [
+            "ou_789012"
+        ]
     },
     "wiki_filter": {
         "creator_ids": [
@@ -68,7 +86,25 @@ public class Test_PostSearchV2DocWikiSearchBodyDto : TestBase
         "create_time": {
             "start": 1742348544,
             "end": 1742348544
-        }
+        },
+        "chat_ids": [
+            "ou-7890123456"
+        ],
+        "sharer_ids": [
+            "ou_789012"
+        ],
+        "only_comment": false,
+        "my_edit_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        },
+        "my_comment_time": {
+            "start": 1742348544,
+            "end": 1742348544
+        },
+        "original_creator_ids": [
+            "ou_789012"
+        ]
     },
     "page_token": "token_1234567890fedcba",
     "page_size": 15

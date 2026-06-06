@@ -1405,7 +1405,7 @@
 <tr><td colspan="3">PostImV1MessagesMergeForward</td></tr>
 <tr><td rowspan="2">703</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>通过公司 ID 批量获取公司信息</td></tr>
 <tr><td colspan="3">PostCorehrV2CompaniesBatchGet</td></tr>
-<tr><td rowspan="2">704</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事</td><td>创建公司</td></tr>
+<tr><td rowspan="2">704</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>飞书人事</td><td>创建公司</td></tr>
 <tr><td colspan="3">PostCorehrV1Companies</td></tr>
 <tr><td rowspan="2">705</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>飞书人事</td><td>删除公司</td></tr>
 <tr><td colspan="3">DeleteCorehrV1CompaniesByCompanyId</td></tr>
@@ -1525,7 +1525,7 @@
 <tr><td colspan="3">GetCorehrV2Bps</td></tr>
 <tr><td rowspan="2">763</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事</td><td>查询部门 / 地点的 HRBP / 属地 BP</td></tr>
 <tr><td colspan="3">PostCorehrV1SecurityGroupsQuery</td></tr>
-<tr><td rowspan="2">764</td><td rowspan="2">2024-12-17</td><td>&#10003;</td><td>飞书人事</td><td>获取组织类角色授权列表</td></tr>
+<tr><td rowspan="2">764</td><td rowspan="2">2026-06-05</td><td>&#10003;</td><td>飞书人事</td><td>获取组织类角色授权列表</td></tr>
 <tr><td colspan="3">PostCorehrV1AssignedUsersSearch</td></tr>
 <tr><td rowspan="2">765</td><td rowspan="2">2024-07-29</td><td>&#10003;</td><td>飞书人事</td><td>批量获取角色列表</td></tr>
 <tr><td colspan="3">GetCorehrV1SecurityGroups</td></tr>
@@ -1989,7 +1989,7 @@
 <tr><td colspan="3">GetBotV3Info</td></tr>
 <tr><td rowspan="2">995</td><td rowspan="2">2024-03-08</td><td>&#10003;</td><td>词典</td><td>删除免审词条</td></tr>
 <tr><td colspan="3">DeleteLingoV1EntitiesByEntityId</td></tr>
-<tr><td rowspan="2">996</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
+<tr><td rowspan="2">996</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>飞书人事</td><td>更新公司</td></tr>
 <tr><td colspan="3">PatchCorehrV1CompaniesByCompanyId</td></tr>
 <tr><td rowspan="2">997</td><td rowspan="2">2025-12-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询流程实例列表</td></tr>
 <tr><td colspan="3">GetCorehrV2Processes</td></tr>
@@ -3089,12 +3089,64 @@
 <tr><td colspan="3">PostCorehrV2CostCentersQueryMultiTimeline</td></tr>
 <tr><td rowspan="2">1545</td><td rowspan="2">2026-05-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询指定生效日期的成本中心架构树</td></tr>
 <tr><td colspan="3">PostCorehrV2CostCentersTree</td></tr>
-<tr><td rowspan="2">1546</td><td rowspan="2">2026-05-25</td><td>新增</td><td>画板</td><td>批量删除节点</td></tr>
+<tr><td rowspan="2">1546</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>批量删除节点</td></tr>
 <tr><td colspan="3">DeleteBoardV1WhiteboardsByWhiteboardIdNodesBatchDelete</td></tr>
-<tr><td rowspan="2">1547</td><td rowspan="2">2026-05-28</td><td>新增</td><td>飞书 aily</td><td>查询应用统计数据</td></tr>
+<tr><td rowspan="2">1547</td><td rowspan="2">2026-06-04</td><td>&#10003;</td><td>飞书 aily</td><td>查询应用统计数据</td></tr>
 <tr><td colspan="3">GetAilyV1AppStats</td></tr>
-<tr><td rowspan="2">1548</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>订阅任务变更事件</td></tr>
+<tr><td rowspan="2">1548</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>订阅任务变更事件</td></tr>
 <tr><td colspan="3">PostTaskV2TaskV2TaskSubscription</td></tr>
-<tr><td rowspan="2">1549</td><td rowspan="2">2026-05-29</td><td>新增</td><td>任务</td><td>设置父任务</td></tr>
+<tr><td rowspan="2">1549</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>任务</td><td>设置父任务</td></tr>
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidSetAncestorTask</td></tr>
+<tr><td rowspan="2">1550</td><td rowspan="2">2026-06-05</td><td>新增</td><td>搜索</td><td>搜索文档</td></tr>
+<tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
+<tr><td rowspan="2">1551</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>更新量化指标</td></tr>
+<tr><td colspan="3">PatchOkrV2IndicatorsByIndicatorId</td></tr>
+<tr><td rowspan="2">1552</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的对齐信息</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
+<tr><td rowspan="2">1553</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>在目标下创建关键结果</td></tr>
+<tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
+<tr><td rowspan="2">1554</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑关键结果</td></tr>
+<tr><td colspan="3">PatchOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">1555</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期内的目标</td></tr>
+<tr><td colspan="3">GetOkrV2CyclesByCycleIdObjectives</td></tr>
+<tr><td rowspan="2">1556</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建目标对齐关系</td></tr>
+<tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
+<tr><td rowspan="2">1557</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取 OKR 对齐</td></tr>
+<tr><td colspan="3">GetOkrV2AlignmentsByAlignmentId</td></tr>
+<tr><td rowspan="2">1558</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标位置</td></tr>
+<tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesPosition</td></tr>
+<tr><td rowspan="2">1559</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标权重</td></tr>
+<tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesWeight</td></tr>
+<tr><td rowspan="2">1560</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的进展记录</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdProgresses</td></tr>
+<tr><td rowspan="2">1561</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果下的进展记录</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdProgresses</td></tr>
+<tr><td rowspan="2">1562</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的量化指标</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdIndicators</td></tr>
+<tr><td rowspan="2">1563</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果的量化指标</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdIndicators</td></tr>
+<tr><td rowspan="2">1564</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 对齐</td></tr>
+<tr><td colspan="3">DeleteOkrV2AlignmentsByAlignmentId</td></tr>
+<tr><td rowspan="2">1565</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑 OKR 目标</td></tr>
+<tr><td colspan="3">PatchOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">1566</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 目标</td></tr>
+<tr><td colspan="3">DeleteOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">1567</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取所有 OKR 分类</td></tr>
+<tr><td colspan="3">GetOkrV2Categories</td></tr>
+<tr><td rowspan="2">1568</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果位置</td></tr>
+<tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsPosition</td></tr>
+<tr><td rowspan="2">1569</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果权重</td></tr>
+<tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsWeight</td></tr>
+<tr><td rowspan="2">1570</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的所有关键结果</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
+<tr><td rowspan="2">1571</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果</td></tr>
+<tr><td colspan="3">GetOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">1572</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除关键结果</td></tr>
+<tr><td colspan="3">DeleteOkrV2KeyResultsByKeyResultId</td></tr>
+<tr><td rowspan="2">1573</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标详细信息</td></tr>
+<tr><td colspan="3">GetOkrV2ObjectivesByObjectiveId</td></tr>
+<tr><td rowspan="2">1574</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建 OKR 目标</td></tr>
+<tr><td colspan="3">PostOkrV2CyclesByCycleIdObjectives</td></tr>
+<tr><td rowspan="2">1575</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期列表</td></tr>
+<tr><td colspan="3">GetOkrV2Cycles</td></tr>
 </tbody></table>

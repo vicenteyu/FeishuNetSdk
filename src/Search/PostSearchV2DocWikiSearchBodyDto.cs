@@ -4,7 +4,7 @@
 // Created          : 2026-01-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-01-30
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="PostSearchV2DocWikiSearchBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -25,7 +25,7 @@ public record PostSearchV2DocWikiSearchBodyDto
     /// <para>搜索关键词（query至少搭配一种doc/wiki筛选器）</para>
     /// <para>必填：是</para>
     /// <para>示例值：飞书文档使用指南</para>
-    /// <para>最大长度：50</para>
+    /// <para>最大长度：30</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("query")]
@@ -151,6 +151,56 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// </summary>
         [JsonPropertyName("create_time")]
         public TimeRange? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>搜索在会话内的文档</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("chat_ids")]
+        public string[]? ChatIds { get; set; }
+
+        /// <summary>
+        /// <para>文档分享者OpenID</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("sharer_ids")]
+        public string[]? SharerIds { get; set; }
+
+        /// <summary>
+        /// <para>仅搜文档评论</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("only_comment")]
+        public bool? OnlyComment { get; set; }
+
+        /// <summary>
+        /// <para>【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("my_edit_time")]
+        public TimeRange? MyEditTime { get; set; }
+
+        /// <summary>
+        /// <para>【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("my_comment_time")]
+        public TimeRange? MyCommentTime { get; set; }
+
+        /// <summary>
+        /// <para>文档创建者者OpenID，注意和creator_ids区分开</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("original_creator_ids")]
+        public string[]? OriginalCreatorIds { get; set; }
     }
 
     /// <summary>
@@ -272,6 +322,56 @@ public record PostSearchV2DocWikiSearchBodyDto
         /// </summary>
         [JsonPropertyName("create_time")]
         public TimeRange? CreateTime { get; set; }
+
+        /// <summary>
+        /// <para>搜索在会话内的文档</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("chat_ids")]
+        public string[]? ChatIds { get; set; }
+
+        /// <summary>
+        /// <para>文档分享者OpenID</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("sharer_ids")]
+        public string[]? SharerIds { get; set; }
+
+        /// <summary>
+        /// <para>仅搜文档评论</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("only_comment")]
+        public bool? OnlyComment { get; set; }
+
+        /// <summary>
+        /// <para>【我编辑的文档】的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("my_edit_time")]
+        public TimeRange? MyEditTime { get; set; }
+
+        /// <summary>
+        /// <para>【我评论的文档】的时间范围（秒级时间戳，包含start和end字段）</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("my_comment_time")]
+        public TimeRange? MyCommentTime { get; set; }
+
+        /// <summary>
+        /// <para>文档创建者者OpenID，注意和creator_ids区分开</para>
+        /// <para>必填：否</para>
+        /// <para>最大长度：20</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("original_creator_ids")]
+        public string[]? OriginalCreatorIds { get; set; }
     }
 
     /// <summary>

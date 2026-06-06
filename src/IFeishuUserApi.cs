@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-29
+// Last Modified On : 2026-06-06
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -26618,7 +26618,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【搜索】搜索文档</para>
     /// <para>接口ID：7589313298248600535</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/search-v2/doc_wiki/search</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于根据搜索关键词（query）对当前用户可见的云文档进行搜索</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>search:docs:read</item>
@@ -29284,6 +29284,1143 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【OKR】更新量化指标</para>
+    /// <para>接口ID：7644764969658207180</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-indicator/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新现有量化指标的配置和数值，包括计算方式、状态、当前值、目标值和单位设置。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="indicator_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>指标 ID。获取方式：调用「获取目标的量化指标」或「获取关键结果的量化指标」接口。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/okr/v2/indicators/{indicator_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PatchOkrV2IndicatorsByIndicatorIdResponseDto>> PatchOkrV2IndicatorsByIndicatorIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string indicator_id,
+        [JsonContent] Okr.PatchOkrV2IndicatorsByIndicatorIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取目标的对齐信息</para>
+    /// <para>接口ID：7644764969658223564</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-alignment/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>分页获取指定目标的对齐关系列表，包含被其他目标对齐（被对齐）和对齐到其他目标（对齐）两种类型的对齐信息，以及发起方和被对齐方的负责人与实体详情。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期内的目标」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="align_type">
+    /// <para>必填：否</para>
+    /// <para>对齐类型，留空则同时返回被对齐和对齐的关系</para>
+    /// <para>示例值：aligned</para>
+    /// <list type="bullet">
+    /// <item>aligned：被对齐</item>
+    /// <item>aligning：对齐</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/objectives/{objective_id}/alignments")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2ObjectivesByObjectiveIdAlignmentsResponseDto>> GetOkrV2ObjectivesByObjectiveIdAlignmentsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? align_type = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】在目标下创建关键结果</para>
+    /// <para>接口ID：7644764969658239948</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-key_result/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在指定目标下创建一个新的关键结果。使用富文本结构定义关键结果内容，设置截止时间和打分。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期内的目标」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/okr/v2/objectives/{objective_id}/key_results")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV2ObjectivesByObjectiveIdKeyResultsResponseDto>> PostOkrV2ObjectivesByObjectiveIdKeyResultsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [JsonContent] Okr.PostOkrV2ObjectivesByObjectiveIdKeyResultsBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】编辑关键结果</para>
+    /// <para>接口ID：7644764969658256332</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-key_result/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>修改指定目标下现有关键结果的内容、分数和截止时间，更新其内容。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="key_result_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>关键结果 ID。可通过 [获取目标下的所有关键结果] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/okr/v2/key_results/{key_result_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PatchOkrV2KeyResultsByKeyResultIdResponseDto>> PatchOkrV2KeyResultsByKeyResultIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string key_result_id,
+        [JsonContent] Okr.PatchOkrV2KeyResultsByKeyResultIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取用户 OKR 周期内的目标</para>
+    /// <para>接口ID：7644764969658272716</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-cycle-objective/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定用户 OKR 周期内的所有目标列表，包含目标内容、负责人、分数和进度状态等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cycle_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户周期 ID，ID 类型需与 user_id_type 参数值保持一致。获取方式：调用「获取用户 OKR 周期列表」接口获取</para>
+    /// <para>示例值：7342342398472398471</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门，ID 类型需与 department_id_type 参数值保持一致</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/cycles/{cycle_id}/objectives")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2CyclesByCycleIdObjectivesResponseDto>> GetOkrV2CyclesByCycleIdObjectivesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string cycle_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】创建目标对齐关系</para>
+    /// <para>接口ID：7644764969658289100</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-alignment/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>为指定目标与另一个目标创建对齐关系，在 OKR 结构中建立层级对齐。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。可通过 [获取用户 OKR 周期内的目标] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/okr/v2/objectives/{objective_id}/alignments")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV2ObjectivesByObjectiveIdAlignmentsResponseDto>> PostOkrV2ObjectivesByObjectiveIdAlignmentsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [JsonContent] Okr.PostOkrV2ObjectivesByObjectiveIdAlignmentsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取 OKR 对齐</para>
+    /// <para>接口ID：7644764969658305484</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-alignment/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取特定 OKR 对齐的详细信息，包括对齐关系中涉及的两个实体、它们的所有者以及创建/更新时间戳。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="alignment_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对齐 ID。获取方式：调用「获取目标的对齐信息」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/alignments/{alignment_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2AlignmentsByAlignmentIdResponseDto>> GetOkrV2AlignmentsByAlignmentIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string alignment_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】修改 OKR 目标位置</para>
+    /// <para>接口ID：7644764969658321868</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-cycle/objectives_position</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过提供按顺序排列的目标 ID 列表，在指定的 OKR 周期内重新排序目标。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cycle_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户周期 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期列表」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/okr/v2/cycles/{cycle_id}/objectives_position")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV2CyclesByCycleIdObjectivesPositionResponseDto>> PutOkrV2CyclesByCycleIdObjectivesPositionAsync(
+        UserAccessToken access_token,
+        [PathQuery] string cycle_id,
+        [JsonContent] Okr.PutOkrV2CyclesByCycleIdObjectivesPositionBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】修改 OKR 目标权重</para>
+    /// <para>接口ID：7644764969658338252</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-cycle/objectives_weight</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>批量修改指定 OKR 周期下多个目标的权重。权重取值范围为 0 到 1，支持最多三位小数。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cycle_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户周期 ID。ID 类型必须与 user_id_type 参数的取值保持一致。获取方式：调用「获取用户 OKR 周期列表」接口。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/okr/v2/cycles/{cycle_id}/objectives_weight")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV2CyclesByCycleIdObjectivesWeightResponseDto>> PutOkrV2CyclesByCycleIdObjectivesWeightAsync(
+        UserAccessToken access_token,
+        [PathQuery] string cycle_id,
+        [JsonContent] Okr.PutOkrV2CyclesByCycleIdObjectivesWeightBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取目标下的进展记录</para>
+    /// <para>接口ID：7644764969658354636</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-progress/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>分页获取指定目标下的进展记录列表，包含进展内容、创建/更新时间戳、负责人信息以及进展百分比和状态。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.progress:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期内的目标」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/objectives/{objective_id}/progresses")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2ObjectivesByObjectiveIdProgressesResponseDto>> GetOkrV2ObjectivesByObjectiveIdProgressesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取关键结果下的进展记录</para>
+    /// <para>接口ID：7644764969658371020</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-key_result-progress/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定关键结果的分页进展更新记录。每条记录包括进展内容、完成百分比、状态指示器、所有者信息和时间戳。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.progress:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="key_result_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>关键结果 ID。获取方式：调用「获取目标下的所有关键结果」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/key_results/{key_result_id}/progresses")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2KeyResultsByKeyResultIdProgressesResponseDto>> GetOkrV2KeyResultsByKeyResultIdProgressesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string key_result_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取目标的量化指标</para>
+    /// <para>接口ID：7644764969658387404</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-indicator/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定目标的量化指标数据，包括其起始值、当前值、目标值、状态、计算方式和单位信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。可通过 [获取用户 OKR 周期内的目标] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/objectives/{objective_id}/indicators")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2ObjectivesByObjectiveIdIndicatorsResponseDto>> GetOkrV2ObjectivesByObjectiveIdIndicatorsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取关键结果的量化指标</para>
+    /// <para>接口ID：7644764969658403788</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-key_result-indicator/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定关键结果的量化指标数据，包括其当前值、目标值、状态、计算方式和单位信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="key_result_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>关键结果 ID。可通过 [获取目标下的所有关键结果] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/key_results/{key_result_id}/indicators")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2KeyResultsByKeyResultIdIndicatorsResponseDto>> GetOkrV2KeyResultsByKeyResultIdIndicatorsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string key_result_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】删除 OKR 对齐</para>
+    /// <para>接口ID：7644764969658420172</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-alignment/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除两个目标之间现有的 OKR 对齐关系。移除对齐连接的同时保留目标本身。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="alignment_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>对齐 ID。获取方式：调用「获取目标的对齐信息」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/okr/v2/alignments/{alignment_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.DeleteOkrV2AlignmentsByAlignmentIdResponseDto>> DeleteOkrV2AlignmentsByAlignmentIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string alignment_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】编辑 OKR 目标</para>
+    /// <para>接口ID：7644764969658436556</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective/patch</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>更新 OKR 周期中已存在目标的内容、分数、备注、截止时间和分类，支持对指定字段进行部分更新。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。你可以通过「获取用户 OKR 周期内的目标」接口获取。ID 类型必须与 user_id_type 参数的值保持一致。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPatch("/open-apis/okr/v2/objectives/{objective_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PatchOkrV2ObjectivesByObjectiveIdResponseDto>> PatchOkrV2ObjectivesByObjectiveIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [JsonContent] Okr.PatchOkrV2ObjectivesByObjectiveIdBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】删除 OKR 目标</para>
+    /// <para>接口ID：7644764969658452940</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>从 OKR 周期中删除已存在的目标，将目标及其关联的关键结果从 OKR 结构中移除。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。你可以通过「获取用户 OKR 周期内的目标」接口获取。ID 类型必须与 user_id_type 参数的值保持一致。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/okr/v2/objectives/{objective_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.DeleteOkrV2ObjectivesByObjectiveIdResponseDto>> DeleteOkrV2ObjectivesByObjectiveIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取所有 OKR 分类</para>
+    /// <para>接口ID：7644764969658469324</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-category/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取系统中所有可用的 OKR 分类的分页列表。每个分类包括 ID、名称（多语言）、颜色、类型、启用状态以及创建/更新时间戳等元数据。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.setting:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="owner_type">
+    /// <para>必填：否</para>
+    /// <para>分类的所属类型</para>
+    /// <para>示例值：user</para>
+    /// <list type="bullet">
+    /// <item>user：员工</item>
+    /// <item>department：部门</item>
+    /// </list>
+    /// <para>默认值：user</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/categories")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2CategoriesResponseDto>> GetOkrV2CategoriesAsync(
+        UserAccessToken access_token,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? owner_type = "user",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】修改关键结果位置</para>
+    /// <para>接口ID：7644764969658485708</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective/key_results_position</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过提供按顺序排列的关键结果 ID 列表，对指定目标下的关键结果进行重新排序，并相应更新其序号。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。你可以通过「获取用户 OKR 周期内的目标」接口获取。ID 类型必须与 user_id_type 参数的值保持一致。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/okr/v2/objectives/{objective_id}/key_results_position")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV2ObjectivesByObjectiveIdKeyResultsPositionResponseDto>> PutOkrV2ObjectivesByObjectiveIdKeyResultsPositionAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [JsonContent] Okr.PutOkrV2ObjectivesByObjectiveIdKeyResultsPositionBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】修改关键结果权重</para>
+    /// <para>接口ID：7644764969658502092</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective/key_results_weight</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>调整指定目标下各关键结果的权重分配。为每个关键结果设置权重值，以反映其在计算目标整体得分时的相对重要性。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期内的目标」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/okr/v2/objectives/{objective_id}/key_results_weight")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PutOkrV2ObjectivesByObjectiveIdKeyResultsWeightResponseDto>> PutOkrV2ObjectivesByObjectiveIdKeyResultsWeightAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [JsonContent] Okr.PutOkrV2ObjectivesByObjectiveIdKeyResultsWeightBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取目标下的所有关键结果</para>
+    /// <para>接口ID：7644764969658518476</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective-key_result/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>分页获取指定目标下的所有关键结果列表，包括关键结果的内容、进度、分数和负责人信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。ID 类型必须与 user_id_type 参数的取值保持一致。获取方式：调用「获取用户 OKR 周期内的目标」接口。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/objectives/{objective_id}/key_results")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2ObjectivesByObjectiveIdKeyResultsResponseDto>> GetOkrV2ObjectivesByObjectiveIdKeyResultsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取关键结果</para>
+    /// <para>接口ID：7644764969658534860</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-key_result/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定关键结果的详细信息，包括其内容、负责人、分数、权重、截止时间和相关指标。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="key_result_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>关键结果 ID。可通过 [获取目标下的所有关键结果] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/key_results/{key_result_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2KeyResultsByKeyResultIdResponseDto>> GetOkrV2KeyResultsByKeyResultIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string key_result_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】删除关键结果</para>
+    /// <para>接口ID：7644764969658551244</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-key_result/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>删除目标下指定的关键结果。此操作将永久删除该关键结果及其关联的所有数据，包括进展记录和量化指标。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="key_result_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>关键结果 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取目标下的所有关键结果」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/okr/v2/key_results/{key_result_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.DeleteOkrV2KeyResultsByKeyResultIdResponseDto>> DeleteOkrV2KeyResultsByKeyResultIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string key_result_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取目标详细信息</para>
+    /// <para>接口ID：7644764969658567628</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-objective/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定目标的详细信息，包括其内容、负责人、分数、权重、截止时间及分类。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="objective_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>目标 ID。可通过 [获取用户 OKR 周期内的目标] 接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/objectives/{objective_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2ObjectivesByObjectiveIdResponseDto>> GetOkrV2ObjectivesByObjectiveIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string objective_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【视频会议】订阅会议变更事件</para>
     /// <para>接口ID：7644841241633967051</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/subscription</para>
@@ -29357,6 +30494,110 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostMinutesV1MinutesUnsubscriptionAsync(
         UserAccessToken access_token,
         [JsonContent] Minutes.PostMinutesV1MinutesUnsubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】创建 OKR 目标</para>
+    /// <para>接口ID：7644863390543973340</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-cycle-objective/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>在指定的 OKR 周期下创建一个新的目标。使用富文本结构定义目标内容，添加可选备注，设置截止时间，并配置权重、分类和初始分数。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.content:writeonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cycle_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户周期 ID。ID 类型必须与 user_id_type 或 department_id_type 参数值一致。获取方式：调用「获取用户 OKR 周期列表」接口获取。</para>
+    /// <para>示例值：7342342398472398473</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>department_id：以department_id来识别部门</item>
+    /// <item>open_department_id：以open_department_id来识别部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/okr/v2/cycles/{cycle_id}/objectives")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.PostOkrV2CyclesByCycleIdObjectivesResponseDto>> PostOkrV2CyclesByCycleIdObjectivesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string cycle_id,
+        [JsonContent] Okr.PostOkrV2CyclesByCycleIdObjectivesBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【OKR】获取用户 OKR 周期列表</para>
+    /// <para>接口ID：7644863390543989724</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/okr-v2/okr-cycle/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定用户的 OKR 周期列表，包含周期状态、时间范围和分数等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>okr:okr.period:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id">
+    /// <para>必填：是</para>
+    /// <para>用户 ID，ID 类型需与 user_id_type 参数值保持一致</para>
+    /// <para>示例值：ou_3bbe8a09c20e89cce9bff989ed840674</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/okr/v2/cycles")]
+    System.Threading.Tasks.Task<FeishuResponse<Okr.GetOkrV2CyclesResponseDto>> GetOkrV2CyclesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -29471,6 +30712,285 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] bool? completed = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【任务】搜索任务</para>
+    /// <para>接口ID：7645347118866533319</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/task/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>通过任务关键词搜索任务的信息，包括任务名称、任务链接、任务ID、任务描述</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>task:task:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>一次搜索获取的任务数量，默认值15，最大30</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/task/v2/tasks/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasksSearchResponseDto>> PostTaskV2TasksSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Task.PostTaskV2TasksSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【任务】搜索清单</para>
+    /// <para>接口ID：7645347118866549703</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/task-v2/tasklist/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>通过清单关键词搜索清单的信息，包括清单名称、清单ID、清单链接、清单描述</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>task:tasklist:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>一页获取的清单个数，最小值1，默认值15，最大值30</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/task/v2/tasklists/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Task.PostTaskV2TasklistsSearchResponseDto>> PostTaskV2TasklistsSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Task.PostTaskV2TasklistsSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】订阅纪要变更事件</para>
+    /// <para>接口ID：7646314141168291027</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/note/subscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>订阅当前用户身份相关的纪要资源变更事件。通过指定事件类型，来订阅纪要资源不同的事件变更。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:note:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/notes/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostVcV1NotesSubscriptionAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1NotesSubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】取消订阅纪要变更事件</para>
+    /// <para>接口ID：7646314141168307411</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/note/unsubscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>取消订阅当前用户身份相关的纪要资源变更事件。通过指定事件类型，来取消订阅纪要资源对应的事件变更。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:note:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/notes/unsubscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostVcV1NotesUnsubscriptionAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1NotesUnsubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】上传附件</para>
+    /// <para>接口ID：7646811253679787187</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>本接口用于上传需智能体分析的文件，上传成功后返回附件 ID。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_attachment:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：否</para>
+    /// <para>文件，仅在type=file时需要传入，支持png/jpg/pdf格式，文件最大支持40M，图片最大支持5M</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/aily/v1/agents/{agent_id}/attachments")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdAttachmentsResponseDto>> PostAilyV1AgentsByAgentIdAttachmentsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [FormDataContent] Aily.PostAilyV1AgentsByAgentIdAttachmentsBodyDto dto,
+        [FormDataContent] FormDataFile? file,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】获取会话结果</para>
+    /// <para>接口ID：7646811253679803571</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>本接口用于获取智能体的对话回复，内容包括文字和产物等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="agent_chat_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体对话ID，通过[发起对话](https://open.larkoffice.com/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/create)接口获取</para>
+    /// <para>示例值：7640186506971926032</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/agents/{agent_id}/chats/{agent_chat_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdChatsByAgentChatIdResponseDto>> GetAilyV1AgentsByAgentIdChatsByAgentChatIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [PathQuery] string agent_chat_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】发起智能体会话</para>
+    /// <para>接口ID：7646811253679819955</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/create</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>异步发起一轮智能体会话，提交用户消息后立即返回对话ID，触发智能体在后台运行。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/aily/v1/agents/{agent_id}/chats")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdChatsResponseDto>> PostAilyV1AgentsByAgentIdChatsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [JsonContent] Aily.PostAilyV1AgentsByAgentIdChatsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】获取当前用户的可见性</para>
+    /// <para>接口ID：7646811253679836339</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_visibility/check</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询当前调用用户对指定智能体的可见性。接口根据UserAccessToken(用户身份凭证)解析出当前用户,结合传入的 channel_type(渠道类型),返回可见性。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_visibility:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/aily/v1/agents/{agent_id}/agent_visibility/check")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdAgentVisibilityCheckResponseDto>> PostAilyV1AgentsByAgentIdAgentVisibilityCheckAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [JsonContent] Aily.PostAilyV1AgentsByAgentIdAgentVisibilityCheckBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】下载智能体产物</para>
+    /// <para>接口ID：7646811253679852723</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_artifact/get</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>根据产物 ID(agent_artifact_id)获取该产物的下载地址及基础信息(名称、URL),用于开发者拉取智能体在会话中生成的图片、文件、云文档等产物。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_artifact:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k6jukr5skfax</para>
+    /// </param>
+    /// <param name="agent_artifact_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体产物ID，调用[获取会话结果](https://open.larkoffice.com/document//uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/get)接口获取</para>
+    /// <para>示例值：artifact_4k6m2dbmrjeqf</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/agents/{agent_id}/artifacts/{agent_artifact_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactIdResponseDto>> GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [PathQuery] string agent_artifact_id,
         CancellationToken cancellation_token = default);
 }
 
