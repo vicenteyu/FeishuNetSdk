@@ -249,15 +249,20 @@ public class EventCallbackServiceProvider(
                         logger.LogDebug("反序列化成功 {EventType}", dto.Discriminator);
 
                     if (!string.IsNullOrWhiteSpace(dto.Token) && dto.Token != options.CurrentValue.VerificationToken)
+                    {
+                        if (logger.IsEnabled(LogLevel.Error))
+                            logger.LogError("应用标识不一致");
+
                         return new HandleResult(Error: "应用标识不一致");
+                    }
 
                     return await ProcessEventDtoAsync(dto, cts.Token);
             }
         }
         catch (Exception ex)
         {
-            if (logger.IsEnabled(LogLevel.Debug))
-                logger.LogDebug("事件处理入口异常：{input}", input.ToString());
+            if (logger.IsEnabled(LogLevel.Error))
+                logger.LogError(ex, "事件处理入口异常：{input}", input.ToString());
 
             return new HandleResult(Error: $"事件处理失败：{UnwrapException(ex).Message}");
         }
