@@ -11,9 +11,9 @@
 // </copyright>
 // <summary>响应体</summary>
 // ************************************************************************
-global using System.Text.Json.Serialization;
-global using FeishuNetSdk.Services;
 global using FeishuNetSdk.Core;
+global using FeishuNetSdk.Services;
+global using System.Text.Json.Serialization;
 namespace FeishuNetSdk;
 /// <summary>
 /// 响应体
@@ -69,6 +69,31 @@ public record FeishuResponse<T>
         public record FieldViolation([property: JsonPropertyName("field")] string Field,
             [property: JsonPropertyName("value")] string Value,
             [property: JsonPropertyName("description")] string Description);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    /// <exception cref="FeishuBusinessException"></exception>
+    public FeishuResponse<T> EnsureSuccess()
+    {
+        if (!IsSuccess)
+        {
+            // 优先读取 error 节点中的详细信息，读不到则降级使用顶层的 msg
+            string errorMsg = Error?.Message ?? Msg;
+
+            // 因为泛型不匹配，这里做一个安全强转，把 FieldViolation 传递过去
+            var violations = Error?.FieldViolations as FeishuResponse<object>.ErrorSuffix.FieldViolation[];
+
+            throw new FeishuBusinessException(
+                Code ?? -1,
+                errorMsg,
+                Error?.LogId,
+                violations
+            );
+        }
+        return this;
     }
 }
 
