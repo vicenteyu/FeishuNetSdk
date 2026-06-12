@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -22,7 +22,7 @@ namespace FeishuNetSdk.Mail;
 public record PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyBodyDto
 {
     /// <summary>
-    /// <para>待添加的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。</para>
+    /// <para>待添加的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 remove_label_ids、add_folder 均为可选且可组合；与 remove_label_ids 同时设置时，会在同一次请求中分别添加和移除对应标签，请勿在两个列表中传入同一标签 ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// <para>最小长度：0</para>
@@ -31,7 +31,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyBody
     public string[]? AddLabelIds { get; set; }
 
     /// <summary>
-    /// <para>待移除的标签。可选值包括：UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。</para>
+    /// <para>待移除的标签 ID 列表。可选值包括 UNREAD、IMPORTANT、OTHER、FLAGGED，以及自定义标签 ID。该参数与 add_label_ids、add_folder 均为可选且可组合；与 add_label_ids 同时设置时，会在同一次请求中分别移除和添加对应标签，请勿在两个列表中传入同一标签 ID。</para>
     /// <para>必填：否</para>
     /// <para>最大长度：20</para>
     /// <para>最小长度：0</para>
@@ -40,7 +40,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModifyBody
     public string[]? RemoveLabelIds { get; set; }
 
     /// <summary>
-    /// <para>需要移入的文件夹。支持INBOX、SENT、SPAM、ARCHIVED以及自定义文件夹ID</para>
+    /// <para>需要移入的文件夹 ID。支持 INBOX、SENT、SPAM、ARCHIVED 以及自定义文件夹 ID。该参数与 add_label_ids、remove_label_ids 均为可选且可组合；设置后会在同一次请求中将邮件移动到指定文件夹，若仅需调整标签可不传该字段。</para>
     /// <para>必填：否</para>
     /// <para>示例值：INBOX</para>
     /// <para>最大长度：100</para>

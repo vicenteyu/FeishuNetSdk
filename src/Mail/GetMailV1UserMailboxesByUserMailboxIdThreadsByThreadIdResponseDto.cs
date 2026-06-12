@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -36,7 +36,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto
         /// <summary>
         /// <para>会话ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：xx</para>
+        /// <para>示例值：197c5d72e22e1d78</para>
         /// </summary>
         [JsonPropertyName("id")]
         public string? Id { get; set; }
@@ -124,7 +124,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto
             /// <summary>
             /// <para>正文(base64url)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxx</para>
+            /// <para>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-</para>
             /// </summary>
             [JsonPropertyName("body_html")]
             public string? BodyHtml { get; set; }
@@ -225,7 +225,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto
             /// <summary>
             /// <para>正文纯文本(base64url)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxxx</para>
+            /// <para>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4</para>
             /// </summary>
             [JsonPropertyName("body_plain_text")]
             public string? BodyPlainText { get; set; }
@@ -241,7 +241,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdResponseDto
             /// <summary>
             /// <para>邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxxx</para>
+            /// <para>示例值：Hello, this is a draft email.</para>
             /// </summary>
             [JsonPropertyName("body_preview")]
             public string? BodyPreview { get; set; }
