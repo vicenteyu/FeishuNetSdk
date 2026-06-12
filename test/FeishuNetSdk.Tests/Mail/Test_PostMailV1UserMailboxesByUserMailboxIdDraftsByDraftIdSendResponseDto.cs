@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="Test_PostMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdSendResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,8 +30,8 @@ public class Test_PostMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdSendRespo
     "code": 0,
     "msg": "success",
     "data": {
-        "message_id": "xxxx",
-        "thread_id": "xxxx"
+        "message_id": "197c5d72e22e1d79",
+        "thread_id": "197c5d72e22e1d78"
     }
 }
 """;

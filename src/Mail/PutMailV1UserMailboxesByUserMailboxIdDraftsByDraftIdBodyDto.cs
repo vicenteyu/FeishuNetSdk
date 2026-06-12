@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="PutMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 更新草稿 请求体
-/// <para>更新草稿内容</para>
+/// <para>更新指定草稿的邮件内容，包括主题、正文、收件人、抄送人、密送人和附件等信息。适用于发送前继续编辑已保存的草稿，更新成功后返回最新草稿内容。</para>
 /// <para>接口ID：7620478754624490428</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/update</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-draft%2fupdate</para>

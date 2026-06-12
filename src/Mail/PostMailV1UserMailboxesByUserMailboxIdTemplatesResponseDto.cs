@@ -4,7 +4,7 @@
 // Created          : 2026-05-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="PostMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件模板 响应体
-/// <para>在指定用户邮箱下创建一份可复用的个人邮件模板。请求时需传入完整的模板对象（含名称、主题、正文、收件信息、附件等），创建成功后返回完整模板内容（含系统生成的 template_id），适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+/// <para>**功能说明**：在指定用户邮箱下创建一份可复用的个人邮件模板，适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+/// <para>**请求要求**：请求时需传入完整的模板对象，包括名称、主题、正文、收件信息、附件等。</para>
+/// <para>**返回内容**：创建成功后返回完整模板内容，包含系统生成的模板 ID（template_id）。</para>
 /// <para>接口ID：7636620599011953615</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-template%2fcreate</para>
@@ -34,7 +36,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesResponseDto
     public record TemplateSuffix
     {
         /// <summary>
-        /// <para>模板 id</para>
+        /// <para>系统生成的模板 ID（template_id）。</para>
         /// <para>必填：否</para>
         /// <para>示例值：7281187859195772947</para>
         /// </summary>

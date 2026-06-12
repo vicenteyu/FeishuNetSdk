@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="Test_GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -56,7 +56,7 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDt
                     "mail_address": "mike@outlook.com",
                     "name": "Mike"
                 },
-                "body_html": "xxxx",
+                "body_html": "PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-",
                 "internal_date": "1682377086000",
                 "message_state": 1,
                 "smtp_message_id": "ay0azrJDvbs3FJAg@outlook.com",
@@ -70,9 +70,9 @@ public class Test_GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDt
                         "cid": "image1@example.com"
                     }
                 ],
-                "body_plain_text": "xxxxx",
+                "body_plain_text": "SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4",
                 "thread_id": "tfuh9N4WnzU6jdDw=",
-                "body_preview": "xxxxx",
+                "body_preview": "Hello, this is a draft email.",
                 "label_ids": [
                     "FLAGGED"
                 ],

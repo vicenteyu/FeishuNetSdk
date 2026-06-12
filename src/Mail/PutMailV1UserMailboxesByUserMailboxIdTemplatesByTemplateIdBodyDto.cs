@@ -4,7 +4,7 @@
 // Created          : 2026-05-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -120,7 +120,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto
         public MailAddress[]? Bccs { get; set; }
 
         /// <summary>
-        /// <para>模板附件与内嵌图片列表</para>
+        /// <para>模板附件与内嵌图片列表。添加单个附件时，通常需填写附件文件名 filename 和附件 ID id；若附件为内联图片，还需将 is_inline 设为 true 并填写 cid。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -129,7 +129,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto
         public TemplateAttachment[]? Attachments { get; set; }
 
         /// <summary>
-        /// <para>模板附件与内嵌图片列表</para>
+        /// <para>模板附件与内嵌图片列表。添加单个附件时，通常需填写附件文件名 filename 和附件 ID id；若附件为内联图片，还需将 is_inline 设为 true 并填写 cid。</para>
         /// </summary>
         public record TemplateAttachment
         {
@@ -151,7 +151,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>附件类型</para>
+            /// <para>附件类型。默认值为 1，表示普通附件；设置为 2 时表示超大附件。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>最大值：2</para>
@@ -165,7 +165,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto
             public int? AttachmentType { get; set; }
 
             /// <summary>
-            /// <para>是否为内联图片，true 表示是内联图片</para>
+            /// <para>是否为内联图片。true 表示内联图片，可在 HTML 正文中通过 cid 引用；false 表示普通非内联附件。默认 false。</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// <para>默认值：false</para>
@@ -174,7 +174,7 @@ public record PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdBodyDto
             public bool? IsInline { get; set; }
 
             /// <summary>
-            /// <para>内容 ID，HTML 中通过 cid: 协议引用该图片</para>
+            /// <para>内容 ID。仅当 is_inline 为 true 时需要填写，用于在 HTML 正文中通过 cid: 协议引用该内联图片。</para>
             /// <para>必填：否</para>
             /// <para>示例值：image1@example.com</para>
             /// <para>最大长度：255</para>

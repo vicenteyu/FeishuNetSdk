@@ -4,7 +4,7 @@
 // Created          : 2026-05-11
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,9 @@
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 创建邮件模板 请求体
-/// <para>在指定用户邮箱下创建一份可复用的个人邮件模板。请求时需传入完整的模板对象（含名称、主题、正文、收件信息、附件等），创建成功后返回完整模板内容（含系统生成的 template_id），适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+/// <para>**功能说明**：在指定用户邮箱下创建一份可复用的个人邮件模板，适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+/// <para>**请求要求**：请求时需传入完整的模板对象，包括名称、主题、正文、收件信息、附件等。</para>
+/// <para>**返回内容**：创建成功后返回完整模板内容，包含系统生成的模板 ID（template_id）。</para>
 /// <para>接口ID：7636620599011953615</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-template%2fcreate</para>
@@ -93,7 +95,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
             public string MailAddressSuffix { get; set; } = string.Empty;
 
             /// <summary>
-            /// <para>名称</para>
+            /// <para>收件人名称，不超过 255 个字符。</para>
             /// <para>必填：否</para>
             /// <para>示例值：Mike</para>
             /// </summary>
@@ -120,7 +122,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
         public MailAddress[]? Bccs { get; set; }
 
         /// <summary>
-        /// <para>模板附件与内嵌图片列表</para>
+        /// <para>模板附件与内嵌图片列表。添加单个附件时，通常需填写附件文件名 filename 和附件 ID id；若附件为内联图片，还需将 is_inline 设为 true 并填写 cid。</para>
         /// <para>必填：否</para>
         /// <para>最大长度：50</para>
         /// <para>最小长度：0</para>
@@ -129,12 +131,12 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
         public TemplateAttachment[]? Attachments { get; set; }
 
         /// <summary>
-        /// <para>模板附件与内嵌图片列表</para>
+        /// <para>模板附件与内嵌图片列表。添加单个附件时，通常需填写附件文件名 filename 和附件 ID id；若附件为内联图片，还需将 is_inline 设为 true 并填写 cid。</para>
         /// </summary>
         public record TemplateAttachment
         {
             /// <summary>
-            /// <para>附件文件名</para>
+            /// <para>附件文件名。添加附件时需与附件 ID id 一起填写，文件名不超过 255 个字符。</para>
             /// <para>必填：否</para>
             /// <para>示例值：plan.xlsx</para>
             /// <para>最大长度：255</para>
@@ -143,7 +145,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
             public string? Filename { get; set; }
 
             /// <summary>
-            /// <para>附件 id（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）</para>
+            /// <para>附件 ID（Drive file_key，用于引用 Drive medias 上传接口返回的 file_key）。添加附件时需与附件文件名 filename 一起填写。</para>
             /// <para>必填：否</para>
             /// <para>示例值：boxcnrHpsg1QDqXPrJXWPwbqsKh</para>
             /// </summary>
@@ -151,7 +153,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
             public string? Id { get; set; }
 
             /// <summary>
-            /// <para>附件类型</para>
+            /// <para>附件类型。默认值为 1，表示普通附件；设置为 2 时表示超大附件。</para>
             /// <para>必填：否</para>
             /// <para>示例值：1</para>
             /// <para>最大值：2</para>
@@ -165,7 +167,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
             public int? AttachmentType { get; set; }
 
             /// <summary>
-            /// <para>是否为内联图片，true 表示是内联图片</para>
+            /// <para>是否为内联图片。true 表示内联图片，可在 HTML 正文中通过 cid 引用；false 表示普通非内联附件。默认 false。</para>
             /// <para>必填：否</para>
             /// <para>示例值：false</para>
             /// <para>默认值：false</para>
@@ -174,7 +176,7 @@ public record PostMailV1UserMailboxesByUserMailboxIdTemplatesBodyDto
             public bool? IsInline { get; set; }
 
             /// <summary>
-            /// <para>内容 ID，HTML 中通过 cid: 协议引用该图片</para>
+            /// <para>内容 ID。仅当 is_inline 为 true 时需要填写，用于在 HTML 正文中通过 cid: 协议引用该内联图片。</para>
             /// <para>必填：否</para>
             /// <para>示例值：image1@example.com</para>
             /// <para>最大长度：255</para>

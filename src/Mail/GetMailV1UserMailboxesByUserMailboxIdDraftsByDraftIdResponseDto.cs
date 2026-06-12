@@ -4,7 +4,7 @@
 // Created          : 2026-04-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-18
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Mail;
 /// <summary>
 /// 获取草稿内容 响应体
-/// <para>更具用户指定的草稿ID，获取草稿详细信息</para>
+/// <para>根据草稿 ID 获取指定草稿的详细内容，包括草稿所属邮件、主题、正文、收件人、抄送人、密送人、附件和安全信息等。适用于在发送前回显草稿内容或进入编辑页面前加载草稿详情。</para>
 /// <para>接口ID：7620478754624506812</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/get</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fmail-v1%2fuser_mailbox-draft%2fget</para>
@@ -116,7 +116,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDto
             /// <summary>
             /// <para>正文(base64url)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxx</para>
+            /// <para>示例值：PHA-SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC48L3A-</para>
             /// </summary>
             [JsonPropertyName("body_html")]
             public string? BodyHtml { get; set; }
@@ -217,7 +217,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDto
             /// <summary>
             /// <para>正文纯文本(base64url)</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxxx</para>
+            /// <para>示例值：SGVsbG8sIHRoaXMgaXMgYSBkcmFmdCBlbWFpbC4</para>
             /// </summary>
             [JsonPropertyName("body_plain_text")]
             public string? BodyPlainText { get; set; }
@@ -233,7 +233,7 @@ public record GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdResponseDto
             /// <summary>
             /// <para>邮件正文纯文本内容的前100个字符，基于base64url编码，用于快速预览邮件核心内容，无需解码完整正文</para>
             /// <para>必填：否</para>
-            /// <para>示例值：xxxxx</para>
+            /// <para>示例值：Hello, this is a draft email.</para>
             /// </summary>
             [JsonPropertyName("body_preview")]
             public string? BodyPreview { get; set; }

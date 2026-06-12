@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-06-13
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -19825,7 +19825,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址 或 输入me代表当前调用接口用户</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="message_id">
@@ -19868,7 +19868,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -20062,7 +20062,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，使用 user_access_token 时可使用 me</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：user@xxx.xx 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26804,7 +26804,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：me</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -26815,6 +26815,30 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string user_mailbox_id,
         [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGetBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取用户邮箱信息</para>
+    /// <para>接口ID：7620282151846448348</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/profile</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>用于在用户身份下获取自己的邮箱主地址</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>只支持填写me</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/profile")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdProfileResponseDto>> GetMailV1UserMailboxesByUserMailboxIdProfileAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -26918,7 +26942,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7620478754624424892</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/send</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>将指定的草稿发送出去</para>
+    /// <para>发送指定草稿，并生成对应的已发送邮件和邮件会话。适用于在创建或更新草稿后触发实际发送，发送成功后返回已发送邮件 ID 和所属会话 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>mail:user_mailbox.message:send</item>
     /// </list></para>
@@ -26957,7 +26981,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：aba@aac.com 或 me</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -27038,7 +27062,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7620478754624490428</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/update</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>更新草稿内容</para>
+    /// <para>更新指定草稿的邮件内容，包括主题、正文、收件人、抄送人、密送人和附件等信息。适用于发送前继续编辑已保存的草稿，更新成功后返回最新草稿内容。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>mail:user_mailbox.message:modify</item>
     /// </list></para>
@@ -27071,7 +27095,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7620478754624506812</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/get</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>更具用户指定的草稿ID，获取草稿详细信息</para>
+    /// <para>根据草稿 ID 获取指定草稿的详细内容，包括草稿所属邮件、主题、正文、收件人、抄送人、密送人、附件和安全信息等。适用于在发送前回显草稿内容或进入编辑页面前加载草稿详情。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>mail:user_mailbox.message:readonly</item>
     /// </list></para>
@@ -27079,13 +27103,13 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，使用用户身份时可填写me</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：aba@aac.com</para>
     /// </param>
     /// <param name="draft_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>草稿ID，可通过列出草稿列表接口获得</para>
+    /// <para>草稿 ID。可通过列出草稿列表接口获取。</para>
     /// <para>示例值：268dce11-85f7-427d-8756-6be3abc850fd</para>
     /// </param>
     /// <param name="format">
@@ -28466,7 +28490,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：abc@abc.com</para>
     /// </param>
     /// <param name="message_id">
@@ -28559,8 +28583,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，用户身份下可以填写me。注意不可以使用公共邮箱访问此接口。</para>
-    /// <para>示例值：abc@abc.com</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。 注意：不支持使用公共邮箱访问此接口。</para>
+    /// <para>示例值：user@example.com</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -28630,7 +28654,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="format">
     /// <para>必填：否</para>
-    /// <para>需要获取的邮件内容。支持选择full/plain_text_full/metadata</para>
+    /// <para>指定返回的邮件内容格式。支持 full、plain_text_full、metadata。默认值为 full，即返回标签、文件夹、主题、发件人、HTML 正文、纯文本正文等完整内容。</para>
     /// <para>示例值：full</para>
     /// <list type="bullet">
     /// <item>full：全文，包括标签、文件夹、主题、收发件人、纯文本、HTML等信息</item>
@@ -28641,8 +28665,8 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="include_spam_trash">
     /// <para>必填：否</para>
-    /// <para>获取包含来自 SPAM 和 TRASH 的邮件</para>
-    /// <para>示例值：true</para>
+    /// <para>是否包含垃圾邮件文件夹（SPAM）和已删除文件夹（TRASH）中的邮件。true 表示包含，false 表示不包含。默认 false。</para>
+    /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
@@ -28727,6 +28751,94 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [JsonContent] Im.PostImV1MessagesReactionsBatchQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取邮件撤回进度</para>
+    /// <para>接口ID：7629252749259918546</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-sent_message/get_recall_detail</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>查询指定邮件的撤回结果详情，包括整体撤回进度、成功/失败/处理中的收件人数量，以及每个收件人的撤回状态和失败原因。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识，最大长度 255 字符。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要查询撤回结果的邮件 ID。可通过撤回已发送邮件接口中使用的邮件 ID 获取。</para>
+    /// <para>示例值：om_6f8c3b2d4a9e1f0c</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/recall")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecallResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecallAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】撤回已发送邮件</para>
+    /// <para>接口ID：7629252749259934930</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-sent_message/recall</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>撤回指定邮件。</para>
+    /// <para>前置条件：邮件须已投递，且发送时间在 24 小时以内；搬家中的域名不支持撤回。</para>
+    /// <para>返回说明：若用户或邮件不满足撤回条件，接口仍返回 200，响应体中 recall_status 为 unavailable，recall_restriction_reason 标明具体原因。返回成功仅表示撤回请求已受理，实际撤回结果请调用「查询邮件撤回进度」接口获取。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>需要撤回的邮件ID，即调用接口[发送草稿](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/send)返回的参数message_id</para>
+    /// <para>示例值：xxx</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/recall")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecallResponseDto>> PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecallAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】列出邮件签名</para>
+    /// <para>接口ID：7629252749259951314</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-setting/get_signatures</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取用户的签名列表</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：user@example.com</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/settings/signatures")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdSettingsSignaturesResponseDto>> GetMailV1UserMailboxesByUserMailboxIdSettingsSignaturesAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -28999,7 +29111,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：user@example.com</para>
     /// </param>
     /// <param name="template_id">
@@ -29022,7 +29134,9 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7636620599011953615</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-template/create</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>在指定用户邮箱下创建一份可复用的个人邮件模板。请求时需传入完整的模板对象（含名称、主题、正文、收件信息、附件等），创建成功后返回完整模板内容（含系统生成的 template_id），适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+    /// <para>**功能说明**：在指定用户邮箱下创建一份可复用的个人邮件模板，适用于将常用邮件内容沉淀为模板以便后续快速发送同类型邮件。</para>
+    /// <para>**请求要求**：请求时需传入完整的模板对象，包括名称、主题、正文、收件信息、附件等。</para>
+    /// <para>**返回内容**：创建成功后返回完整模板内容，包含系统生成的模板 ID（template_id）。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>mail:user_mailbox.message:modify</item>
     /// </list></para>
@@ -29030,7 +29144,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="user_mailbox_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>用户邮箱地址，作为用户邮箱身份标识。使用 user_access_token 调用时，可使用占位符 `me` 表示当前授权用户的主邮箱。</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱。</para>
     /// <para>示例值：user@example.com</para>
     /// </param>
     /// <param name="dto">请求体</param>
@@ -30991,6 +31105,240 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string agent_id,
         [PathQuery] string agent_artifact_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】多实体搜索</para>
+    /// <para>接口ID：7648865505080413417</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/multi_entity/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>多实体搜索，适用于写信联系人搜索</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/multi_entity/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1MultiEntitySearchResponseDto>> PostMailV1MultiEntitySearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Mail.PostMailV1MultiEntitySearchBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】搜索邮件</para>
+    /// <para>接口ID：7648865505080429801</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>搜索用户当前账户下的邮件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：user@xxx.xx or me</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>翻页参数：单页返回结果数量。</para>
+    /// <para>默认值：15。</para>
+    /// <para>范围：1～15。</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdSearchResponseDto>> PostMailV1UserMailboxesByUserMailboxIdSearchAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】查询邮件发送状态</para>
+    /// <para>接口ID：7649297073556982987</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-message/send_status</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>查询指定邮件的发送状态，返回邮件业务标识 ID 及各收件人的投递状态、最后更新时间。调用前需先通过发送邮件接口获取返回的邮件业务标识 ID（message_id），再使用该 ID 查询发送状态。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可直接填写用户邮箱地址；使用 user_access_token 调用时，也可填写 me 表示当前授权用户的主邮箱。</para>
+    /// <para>示例值：aba@aac.com</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>邮件业务标识 ID。可通过发送邮件接口的返回值获取。</para>
+    /// <para>示例值：197c5d72e22e1d78</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/send_status")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdSendStatusResponseDto>> GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdSendStatusAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】搜索机器人</para>
+    /// <para>接口ID：7649652220287716543</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v4/bot/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>用户可以通过关键字搜索可见的机器人，可见性和套件内搜索一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>search:bot</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/bot/v4/bot/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.PostBotV4BotSearchResponseDto>> PostBotV4BotSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Application.PostBotV4BotSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】搜索群组</para>
+    /// <para>接口ID：7649732836954606572</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/group/im-v2/chat/search</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>用户可以通过关键字搜索可见群组，可见性和套件内搜索一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:chat</item>
+    /// <item>im:chat:read</item>
+    /// <item>im:chat:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/im/v2/chats/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV2ChatsSearchResponseDto>> PostImV2ChatsSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Im.PostImV2ChatsSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】取消定时发送</para>
+    /// <para>接口ID：7650148595703123124</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-draft/cancel_scheduled_send</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>取消定时发送的邮件，被取消的邮件将变成草稿</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:send</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址。当使用用户身份访问时，可以输入"me"代表当前调用接口用户</para>
+    /// <para>示例值：aba@aac.com</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>已设置定时发送的邮件 ID</para>
+    /// <para>示例值：268dce11-85f7-427d-8756-6be3abc850fd</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/messages/{message_id}/cancel_scheduled_send")]
+    System.Threading.Tasks.Task<FeishuResponse> PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdCancelScheduledSendAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string message_id,
         CancellationToken cancellation_token = default);
 }
 

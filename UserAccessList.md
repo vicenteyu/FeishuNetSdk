@@ -447,7 +447,7 @@
 <tr><td colspan="3">PostVcV1RoomsMget</td></tr>
 <tr><td rowspan="2">224</td><td rowspan="2">2025-07-15</td><td>&#10003;</td><td>通讯录</td><td>批量获取用户信息</td></tr>
 <tr><td colspan="3">GetContactV3UsersBatch</td></tr>
-<tr><td rowspan="2">225</td><td rowspan="2">2025-03-27</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
+<tr><td rowspan="2">225</td><td rowspan="2">2026-06-11</td><td>&#10003;</td><td>消息与群组</td><td>搜索对用户或机器人可见的群列表</td></tr>
 <tr><td colspan="3">GetImV1ChatsSearch</td></tr>
 <tr><td rowspan="2">226</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>查询会议室列表</td></tr>
 <tr><td colspan="3">GetVcV1Rooms</td></tr>
@@ -1153,9 +1153,9 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
 <tr><td rowspan="2">577</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出邮箱文件夹</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFolders</td></tr>
-<tr><td rowspan="2">578</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
+<tr><td rowspan="2">578</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>获取邮件详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageId</td></tr>
-<tr><td rowspan="2">579</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
+<tr><td rowspan="2">579</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>订阅事件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventSubscribe</td></tr>
 <tr><td rowspan="2">580</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>创建收信规则</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRules</td></tr>
@@ -1163,11 +1163,11 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdRulesReorder</td></tr>
 <tr><td rowspan="2">582</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>修改邮箱文件夹</td></tr>
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
-<tr><td rowspan="2">583</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
+<tr><td rowspan="2">583</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>列出邮件</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessages</td></tr>
 <tr><td rowspan="2">584</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>获取订阅状态</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdEventSubscription</td></tr>
-<tr><td rowspan="2">585</td><td rowspan="2">2025-04-28</td><td>&#10003;</td><td>邮箱</td><td>取消订阅</td></tr>
+<tr><td rowspan="2">585</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>取消订阅</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdEventUnsubscribe</td></tr>
 <tr><td rowspan="2">586</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>更新收信规则</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdRulesByRuleId</td></tr>
@@ -1297,7 +1297,7 @@
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdTablesByTableName</td></tr>
 <tr><td rowspan="2">649</td><td rowspan="2">2025-12-29</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取工作空间下的自定义枚举列表</td></tr>
 <tr><td colspan="3">GetApaasV1WorkspacesByWorkspaceIdEnums</td></tr>
-<tr><td rowspan="2">650</td><td rowspan="2">2026-06-05</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
+<tr><td rowspan="2">650</td><td rowspan="2">2026-06-08</td><td>&#10003;</td><td>搜索</td><td>搜索文档</td></tr>
 <tr><td colspan="3">PostSearchV2DocWikiSearch</td></tr>
 <tr><td rowspan="2">651</td><td rowspan="2">2026-02-11</td><td>&#10003;</td><td>多维表格</td><td>列出工作流</td></tr>
 <tr><td colspan="3">GetBitableV1AppsByAppTokenBlockWorkflows</td></tr>
@@ -1387,7 +1387,7 @@
 <tr><td colspan="3">PostImV1MessagesReactionsBatchQuery</td></tr>
 <tr><td rowspan="2">694</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>查询会话下邮件信息</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdMessages</td></tr>
-<tr><td rowspan="2">695</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件详情</td></tr>
+<tr><td rowspan="2">695</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>批量获取邮件详情</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesBatchGet</td></tr>
 <tr><td rowspan="2">696</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取邮箱文件信息</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdFoldersByFolderId</td></tr>
@@ -1395,17 +1395,17 @@
 <tr><td colspan="3">PatchMailV1UserMailboxesByUserMailboxIdLabelsByLabelId</td></tr>
 <tr><td rowspan="2">698</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>删除标签</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdLabelsByLabelId</td></tr>
-<tr><td rowspan="2">699</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>发送草稿</td></tr>
+<tr><td rowspan="2">699</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>发送草稿</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdDraftsByDraftIdSend</td></tr>
-<tr><td rowspan="2">700</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>创建草稿</td></tr>
+<tr><td rowspan="2">700</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>创建草稿</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdDrafts</td></tr>
 <tr><td rowspan="2">701</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出标签</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdLabels</td></tr>
 <tr><td rowspan="2">702</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出草稿列表</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdDrafts</td></tr>
-<tr><td rowspan="2">703</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>更新草稿</td></tr>
+<tr><td rowspan="2">703</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>更新草稿</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdDraftsByDraftId</td></tr>
-<tr><td rowspan="2">704</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取草稿内容</td></tr>
+<tr><td rowspan="2">704</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>获取草稿内容</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdDraftsByDraftId</td></tr>
 <tr><td rowspan="2">705</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>删除草稿</td></tr>
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdDraftsByDraftId</td></tr>
@@ -1425,17 +1425,17 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsBatchTrash</td></tr>
 <tr><td rowspan="2">713</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出邮件会话</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreads</td></tr>
-<tr><td rowspan="2">714</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>修改邮件</td></tr>
+<tr><td rowspan="2">714</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>修改邮件</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdModify</td></tr>
 <tr><td rowspan="2">715</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>修改邮件会话</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdThreadsByThreadIdModify</td></tr>
 <tr><td rowspan="2">716</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>批量删除邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesBatchTrash</td></tr>
-<tr><td rowspan="2">717</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>列出可访问的邮箱</td></tr>
+<tr><td rowspan="2">717</td><td rowspan="2">2026-06-12</td><td>&#10003;</td><td>邮箱</td><td>列出可访问的邮箱</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdAccessibleMailboxes</td></tr>
 <tr><td rowspan="2">718</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>删除邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdTrash</td></tr>
-<tr><td rowspan="2">719</td><td rowspan="2">2026-04-13</td><td>&#10003;</td><td>邮箱</td><td>获取邮件会话详情</td></tr>
+<tr><td rowspan="2">719</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>获取邮件会话详情</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdThreadsByThreadId</td></tr>
 <tr><td rowspan="2">720</td><td rowspan="2">2026-04-23</td><td>&#10003;</td><td>飞书妙搭</td><td>分片上传文件 - 创建上传请求</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdStorageUploadInitialize</td></tr>
@@ -1449,13 +1449,13 @@
 <tr><td colspan="3">DeleteMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateId</td></tr>
 <tr><td rowspan="2">725</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>获取模板附件下载链接</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateIdAttachmentsDownloadUrl</td></tr>
-<tr><td rowspan="2">726</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>更新邮件模板</td></tr>
+<tr><td rowspan="2">726</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>更新邮件模板</td></tr>
 <tr><td colspan="3">PutMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateId</td></tr>
 <tr><td rowspan="2">727</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>列出邮件模板</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdTemplates</td></tr>
-<tr><td rowspan="2">728</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>获取邮件模板</td></tr>
+<tr><td rowspan="2">728</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>获取邮件模板</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdTemplatesByTemplateId</td></tr>
-<tr><td rowspan="2">729</td><td rowspan="2">2026-05-06</td><td>&#10003;</td><td>邮箱</td><td>创建邮件模板</td></tr>
+<tr><td rowspan="2">729</td><td rowspan="2">2026-06-10</td><td>&#10003;</td><td>邮箱</td><td>创建邮件模板</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdTemplates</td></tr>
 <tr><td rowspan="2">730</td><td rowspan="2">2026-05-27</td><td>&#10003;</td><td>飞书妙搭</td><td>上传 HTML 代码并发布</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdUploadAndReleaseHtmlCode</td></tr>
@@ -1487,72 +1487,92 @@
 <tr><td colspan="3">PostTaskV2TasksByTaskGuidSetAncestorTask</td></tr>
 <tr><td rowspan="2">744</td><td rowspan="2">2026-05-29</td><td>&#10003;</td><td>任务</td><td>列取与我相关的任务</td></tr>
 <tr><td colspan="3">GetTaskV2TaskV2ListRelatedTask</td></tr>
-<tr><td rowspan="2">745</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>更新量化指标</td></tr>
+<tr><td rowspan="2">745</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>更新量化指标</td></tr>
 <tr><td colspan="3">PatchOkrV2IndicatorsByIndicatorId</td></tr>
-<tr><td rowspan="2">746</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的对齐信息</td></tr>
+<tr><td rowspan="2">746</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取目标的对齐信息</td></tr>
 <tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
-<tr><td rowspan="2">747</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>在目标下创建关键结果</td></tr>
+<tr><td rowspan="2">747</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>在目标下创建关键结果</td></tr>
 <tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
-<tr><td rowspan="2">748</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑关键结果</td></tr>
+<tr><td rowspan="2">748</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>编辑关键结果</td></tr>
 <tr><td colspan="3">PatchOkrV2KeyResultsByKeyResultId</td></tr>
-<tr><td rowspan="2">749</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期内的目标</td></tr>
+<tr><td rowspan="2">749</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取用户 OKR 周期内的目标</td></tr>
 <tr><td colspan="3">GetOkrV2CyclesByCycleIdObjectives</td></tr>
-<tr><td rowspan="2">750</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建目标对齐关系</td></tr>
+<tr><td rowspan="2">750</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>创建目标对齐关系</td></tr>
 <tr><td colspan="3">PostOkrV2ObjectivesByObjectiveIdAlignments</td></tr>
-<tr><td rowspan="2">751</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取 OKR 对齐</td></tr>
+<tr><td rowspan="2">751</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取 OKR 对齐</td></tr>
 <tr><td colspan="3">GetOkrV2AlignmentsByAlignmentId</td></tr>
-<tr><td rowspan="2">752</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标位置</td></tr>
+<tr><td rowspan="2">752</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>修改 OKR 目标位置</td></tr>
 <tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesPosition</td></tr>
-<tr><td rowspan="2">753</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改 OKR 目标权重</td></tr>
+<tr><td rowspan="2">753</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>修改 OKR 目标权重</td></tr>
 <tr><td colspan="3">PutOkrV2CyclesByCycleIdObjectivesWeight</td></tr>
-<tr><td rowspan="2">754</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的进展记录</td></tr>
+<tr><td rowspan="2">754</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取目标下的进展记录</td></tr>
 <tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdProgresses</td></tr>
-<tr><td rowspan="2">755</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果下的进展记录</td></tr>
+<tr><td rowspan="2">755</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取关键结果下的进展记录</td></tr>
 <tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdProgresses</td></tr>
-<tr><td rowspan="2">756</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标的量化指标</td></tr>
+<tr><td rowspan="2">756</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取目标的量化指标</td></tr>
 <tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdIndicators</td></tr>
-<tr><td rowspan="2">757</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果的量化指标</td></tr>
+<tr><td rowspan="2">757</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取关键结果的量化指标</td></tr>
 <tr><td colspan="3">GetOkrV2KeyResultsByKeyResultIdIndicators</td></tr>
-<tr><td rowspan="2">758</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 对齐</td></tr>
+<tr><td rowspan="2">758</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 对齐</td></tr>
 <tr><td colspan="3">DeleteOkrV2AlignmentsByAlignmentId</td></tr>
-<tr><td rowspan="2">759</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>编辑 OKR 目标</td></tr>
+<tr><td rowspan="2">759</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>编辑 OKR 目标</td></tr>
 <tr><td colspan="3">PatchOkrV2ObjectivesByObjectiveId</td></tr>
-<tr><td rowspan="2">760</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除 OKR 目标</td></tr>
+<tr><td rowspan="2">760</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 目标</td></tr>
 <tr><td colspan="3">DeleteOkrV2ObjectivesByObjectiveId</td></tr>
-<tr><td rowspan="2">761</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取所有 OKR 分类</td></tr>
+<tr><td rowspan="2">761</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取所有 OKR 分类</td></tr>
 <tr><td colspan="3">GetOkrV2Categories</td></tr>
-<tr><td rowspan="2">762</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果位置</td></tr>
+<tr><td rowspan="2">762</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>修改关键结果位置</td></tr>
 <tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsPosition</td></tr>
-<tr><td rowspan="2">763</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>修改关键结果权重</td></tr>
+<tr><td rowspan="2">763</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>修改关键结果权重</td></tr>
 <tr><td colspan="3">PutOkrV2ObjectivesByObjectiveIdKeyResultsWeight</td></tr>
-<tr><td rowspan="2">764</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标下的所有关键结果</td></tr>
+<tr><td rowspan="2">764</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取目标下的所有关键结果</td></tr>
 <tr><td colspan="3">GetOkrV2ObjectivesByObjectiveIdKeyResults</td></tr>
-<tr><td rowspan="2">765</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取关键结果</td></tr>
+<tr><td rowspan="2">765</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取关键结果</td></tr>
 <tr><td colspan="3">GetOkrV2KeyResultsByKeyResultId</td></tr>
-<tr><td rowspan="2">766</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>删除关键结果</td></tr>
+<tr><td rowspan="2">766</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>删除关键结果</td></tr>
 <tr><td colspan="3">DeleteOkrV2KeyResultsByKeyResultId</td></tr>
-<tr><td rowspan="2">767</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取目标详细信息</td></tr>
+<tr><td rowspan="2">767</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取目标详细信息</td></tr>
 <tr><td colspan="3">GetOkrV2ObjectivesByObjectiveId</td></tr>
-<tr><td rowspan="2">768</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>创建 OKR 目标</td></tr>
+<tr><td rowspan="2">768</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>创建 OKR 目标</td></tr>
 <tr><td colspan="3">PostOkrV2CyclesByCycleIdObjectives</td></tr>
-<tr><td rowspan="2">769</td><td rowspan="2">2026-06-03</td><td>新增</td><td>OKR</td><td>获取用户 OKR 周期列表</td></tr>
+<tr><td rowspan="2">769</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取用户 OKR 周期列表</td></tr>
 <tr><td colspan="3">GetOkrV2Cycles</td></tr>
-<tr><td rowspan="2">770</td><td rowspan="2">2026-06-01</td><td>新增</td><td>任务</td><td>搜索任务</td></tr>
+<tr><td rowspan="2">770</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>任务</td><td>搜索任务</td></tr>
 <tr><td colspan="3">PostTaskV2TasksSearch</td></tr>
-<tr><td rowspan="2">771</td><td rowspan="2">2026-06-01</td><td>新增</td><td>任务</td><td>搜索清单</td></tr>
+<tr><td rowspan="2">771</td><td rowspan="2">2026-06-01</td><td>&#10003;</td><td>任务</td><td>搜索清单</td></tr>
 <tr><td colspan="3">PostTaskV2TasklistsSearch</td></tr>
-<tr><td rowspan="2">772</td><td rowspan="2">2026-06-02</td><td>新增</td><td>视频会议</td><td>订阅纪要变更事件</td></tr>
+<tr><td rowspan="2">772</td><td rowspan="2">2026-06-02</td><td>&#10003;</td><td>视频会议</td><td>订阅纪要变更事件</td></tr>
 <tr><td colspan="3">PostVcV1NotesSubscription</td></tr>
-<tr><td rowspan="2">773</td><td rowspan="2">2026-06-02</td><td>新增</td><td>视频会议</td><td>取消订阅纪要变更事件</td></tr>
+<tr><td rowspan="2">773</td><td rowspan="2">2026-06-02</td><td>&#10003;</td><td>视频会议</td><td>取消订阅纪要变更事件</td></tr>
 <tr><td colspan="3">PostVcV1NotesUnsubscription</td></tr>
-<tr><td rowspan="2">774</td><td rowspan="2">2026-06-04</td><td>新增</td><td>飞书 aily</td><td>上传附件</td></tr>
+<tr><td rowspan="2">774</td><td rowspan="2">2026-06-04</td><td>&#10003;</td><td>飞书 aily</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
-<tr><td rowspan="2">775</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>获取会话结果</td></tr>
+<tr><td rowspan="2">775</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>获取会话结果</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
-<tr><td rowspan="2">776</td><td rowspan="2">2026-06-04</td><td>新增</td><td>飞书 aily</td><td>发起智能体会话</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2026-06-04</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
-<tr><td rowspan="2">777</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td rowspan="2">777</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
-<tr><td rowspan="2">778</td><td rowspan="2">2026-06-03</td><td>新增</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
+<tr><td rowspan="2">778</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
+<tr><td rowspan="2">779</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>获取用户邮箱信息</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdProfile</td></tr>
+<tr><td rowspan="2">780</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>获取邮件撤回进度</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecall</td></tr>
+<tr><td rowspan="2">781</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>撤回已发送邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecall</td></tr>
+<tr><td rowspan="2">782</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>列出邮件签名</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdSettingsSignatures</td></tr>
+<tr><td rowspan="2">783</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>多实体搜索</td></tr>
+<tr><td colspan="3">PostMailV1MultiEntitySearch</td></tr>
+<tr><td rowspan="2">784</td><td rowspan="2">2026-06-08</td><td>新增</td><td>邮箱</td><td>搜索邮件</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdSearch</td></tr>
+<tr><td rowspan="2">785</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>查询邮件发送状态</td></tr>
+<tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdSendStatus</td></tr>
+<tr><td rowspan="2">786</td><td rowspan="2">2026-06-11</td><td>新增</td><td>应用信息</td><td>搜索机器人</td></tr>
+<tr><td colspan="3">PostBotV4BotSearch</td></tr>
+<tr><td rowspan="2">787</td><td rowspan="2">2026-06-11</td><td>新增</td><td>消息与群组</td><td>搜索群组</td></tr>
+<tr><td colspan="3">PostImV2ChatsSearch</td></tr>
+<tr><td rowspan="2">788</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>取消定时发送</td></tr>
+<tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdCancelScheduledSend</td></tr>
 </tbody></table>
