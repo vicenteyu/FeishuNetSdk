@@ -1393,7 +1393,7 @@
 <tr><td colspan="3">GetCorehrV1Departments</td></tr>
 <tr><td rowspan="2">697</td><td rowspan="2">2026-02-09</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>通过地点 ID 批量获取地点信息</td></tr>
 <tr><td colspan="3">PostCorehrV2LocationsBatchGet</td></tr>
-<tr><td rowspan="2">698</td><td rowspan="2">2026-04-27</td><td>&#10003;</td><td>飞书人事</td><td>创建地点</td></tr>
+<tr><td rowspan="2">698</td><td rowspan="2">2026-06-16</td><td>&#10003;</td><td>飞书人事</td><td>创建地点</td></tr>
 <tr><td colspan="3">PostCorehrV1Locations</td></tr>
 <tr><td rowspan="2">699</td><td rowspan="2">2024-09-13</td><td>&#10003;</td><td>飞书人事</td><td>删除地点</td></tr>
 <tr><td colspan="3">DeleteCorehrV1LocationsByLocationId</td></tr>
@@ -2387,7 +2387,7 @@
 <tr><td colspan="3">PostCorehrV1LeavesWorkCalendarDate</td></tr>
 <tr><td rowspan="2">1194</td><td rowspan="2">2025-12-04</td><td>&#10003;</td><td>飞书人事</td><td>获取工作日历</td></tr>
 <tr><td colspan="3">PostCorehrV1LeavesWorkCalendar</td></tr>
-<tr><td rowspan="2">1195</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划明细信息（不支持自定义组织）</td></tr>
+<tr><td rowspan="2">1195</td><td rowspan="2">2026-06-16</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划明细信息（不支持自定义组织）</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailsBatch</td></tr>
 <tr><td rowspan="2">1196</td><td rowspan="2">2025-02-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询生效信息变更部门</td></tr>
 <tr><td colspan="3">GetCorehrV2DepartmentsQueryRecentChange</td></tr>
@@ -2675,7 +2675,7 @@
 <tr><td colspan="3">PostHireV1ApplicationsByApplicationIdCancelOnboard</td></tr>
 <tr><td rowspan="2">1338</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>删除打卡流水</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserFlowsBatchDel</td></tr>
-<tr><td rowspan="2">1339</td><td rowspan="2">2026-03-25</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划明细信息（支持自定义组织）</td></tr>
+<tr><td rowspan="2">1339</td><td rowspan="2">2026-06-16</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询编制规划明细信息（支持自定义组织）</td></tr>
 <tr><td colspan="3">PostCorehrV2WorkforcePlanDetailsBatchV2</td></tr>
 <tr><td rowspan="2">1340</td><td rowspan="2">2025-06-18</td><td>&#10003;</td><td>妙记</td><td>导出妙记文字记录</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenTranscript</td></tr>
@@ -3021,7 +3021,7 @@
 <tr><td colspan="3">GetCorehrV2CustomOrgEmploymentCustomOrgRecord</td></tr>
 <tr><td rowspan="2">1511</td><td rowspan="2">2026-03-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新人员自定义组织变更记录</td></tr>
 <tr><td colspan="3">PostCorehrV2CustomOrgEditEmpCustomOrg</td></tr>
-<tr><td rowspan="2">1512</td><td rowspan="2">2026-04-02</td><td>&#10003;</td><td>云文档</td><td>订阅用户云文档事件</td></tr>
+<tr><td rowspan="2">1512</td><td rowspan="2">2026-06-16</td><td>&#10003;</td><td>云文档</td><td>订阅用户云文档事件</td></tr>
 <tr><td colspan="3">PostDriveV1UserSubscription</td></tr>
 <tr><td rowspan="2">1513</td><td rowspan="2">2026-04-02</td><td>&#10003;</td><td>云文档</td><td>取消用户云文档事件订阅</td></tr>
 <tr><td colspan="3">DeleteDriveV1UserRemoveSubscription</td></tr>
@@ -3149,10 +3149,12 @@
 <tr><td colspan="3">PostOkrV2CyclesByCycleIdObjectives</td></tr>
 <tr><td rowspan="2">1575</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>OKR</td><td>获取用户 OKR 周期列表</td></tr>
 <tr><td colspan="3">GetOkrV2Cycles</td></tr>
-<tr><td rowspan="2">1576</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>获取邮件撤回进度</td></tr>
+<tr><td rowspan="2">1576</td><td rowspan="2">2026-06-12</td><td>&#10003;</td><td>邮箱</td><td>获取邮件撤回进度</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecall</td></tr>
-<tr><td rowspan="2">1577</td><td rowspan="2">2026-06-12</td><td>新增</td><td>邮箱</td><td>撤回已发送邮件</td></tr>
+<tr><td rowspan="2">1577</td><td rowspan="2">2026-06-12</td><td>&#10003;</td><td>邮箱</td><td>撤回已发送邮件</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecall</td></tr>
-<tr><td rowspan="2">1578</td><td rowspan="2">2026-06-11</td><td>新增</td><td>消息与群组</td><td>搜索群组</td></tr>
+<tr><td rowspan="2">1578</td><td rowspan="2">2026-06-11</td><td>&#10003;</td><td>消息与群组</td><td>搜索群组</td></tr>
 <tr><td colspan="3">PostImV2ChatsSearch</td></tr>
+<tr><td rowspan="2">1579</td><td rowspan="2">2026-06-17</td><td>新增</td><td>事件订阅</td><td>获取长连接在线数量</td></tr>
+<tr><td colspan="3">GetEventV1Connection</td></tr>
 </tbody></table>
