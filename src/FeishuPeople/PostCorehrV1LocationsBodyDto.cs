@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-10-08
+// Last Modified On : 2026-06-19
 // ************************************************************************
 // <copyright file="PostCorehrV1LocationsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,16 +26,17 @@ public record PostCorehrV1LocationsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("hiberarchy_common")]
-    public PostCorehrV1LocationsBodyDtoHiberarchyCommon HiberarchyCommon { get; set; } = new();
+    public HiberarchyCommonSuffix HiberarchyCommon { get; set; } = new();
 
     /// <summary>
     /// <para>地点基本信息，该结构维护了地点的名称、编码、启用状态、上级地点等基础信息。</para>
     /// </summary>
-    public record PostCorehrV1LocationsBodyDtoHiberarchyCommon
+    public record HiberarchyCommonSuffix
     {
         /// <summary>
         /// <para>上级地点ID。ID获取方式：</para>
         /// <para>- 调用[【创建地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/create)[【批量分页查询地点】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/location/list)等接口可以返回地点ID</para>
+        /// <para>- 当地点用途是“办公地点”时，上级地点必填，仅可选择用途为「工作地点」或「办公地点」的上级地点</para>
         /// <para>必填：否</para>
         /// <para>示例值：4719168654814483759</para>
         /// </summary>
@@ -103,14 +104,18 @@ public record PostCorehrV1LocationsBodyDto
     }
 
     /// <summary>
-    /// <para>地点用途(当地点用途是"工作地点"时，地址必填)</para>
+    /// <para>地点用途</para>
+    /// <para>- 当地点用途是"工作地点"时，地址必填</para>
+    /// <para>- 当地点用途是“办公地点”时，上级地点必填，仅可选择用途为「工作地点」或「办公地点」的上级地点</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("location_usage_list")]
     public Enum[]? LocationUsageLists { get; set; }
 
     /// <summary>
-    /// <para>地点用途(当地点用途是"工作地点"时，地址必填)</para>
+    /// <para>地点用途</para>
+    /// <para>- 当地点用途是"工作地点"时，地址必填</para>
+    /// <para>- 当地点用途是“办公地点”时，上级地点必填，仅可选择用途为「工作地点」或「办公地点」的上级地点</para>
     /// </summary>
     public record Enum
     {
@@ -126,6 +131,7 @@ public record PostCorehrV1LocationsBodyDto
 
     /// <summary>
     /// <para>地址</para>
+    /// <para>- 当地点用途是"工作地点"时，地址必填</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("address")]
@@ -133,6 +139,7 @@ public record PostCorehrV1LocationsBodyDto
 
     /// <summary>
     /// <para>地址</para>
+    /// <para>- 当地点用途是"工作地点"时，地址必填</para>
     /// </summary>
     public record Address
     {

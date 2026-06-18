@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-13
+// Last Modified On : 2026-06-19
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -58130,9 +58130,9 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7623827135371201487</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>订阅用户云文档的各类通知事件，调用后目前可获取接收者视角的云文档评论、回复添加事件 ，未来 还会陆续扩充其它通知事件。</para>
+    /// <para>订阅用户云文档的各类通知事件，调用后目前可获取接收者视角的云文档评论、回复添加事件。</para>
     /// <para>## 注意事项</para>
-    /// <para>仅用户身份订阅“用户云文档事件”时，需要调用该接口。应用身份无需调用。</para>
+    /// <para>仅用户身份订阅“用户云文档事件”时，需要调用该接口，应用身份无需调用。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:event:subscribe</item>
     /// </list></para>
@@ -60398,6 +60398,19 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【事件订阅】获取长连接在线数量</para>
+    /// <para>接口ID：7652298771384404951</para>
+    /// <para>接口文档：https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-v1/connection/get</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>查询应用的长连接在线数量。应用由请求头中的 tenant_access_token 确定。</para>
+    /// <para>长连接配置与接入方式请参考[使用长连接接收事件](https://open.feishu.cn/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/event-subscription-configure-/request-url-configuration-case)</para>
+    /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/event/v1/connection")]
+    System.Threading.Tasks.Task<FeishuResponse<Event.GetEventV1ConnectionResponseDto>> GetEventV1ConnectionAsync(
         CancellationToken cancellation_token = default);
 }
 

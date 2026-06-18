@@ -4,12 +4,12 @@
 // Created          : 2024-09-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2026-06-19
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>查询编制规划明细信息 请求体</summary>
+// <summary>查询编制规划明细信息（不支持自定义组织） 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Corehr;
 /// <summary>
@@ -32,6 +32,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchBodyDto
     /// <summary>
     /// <para>是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。</para>
     /// <para>**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read)</para>
+    /// <para>该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
@@ -42,6 +43,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchBodyDto
     /// <summary>
     /// <para>编制规划集中填报项目 ID。ID可根据集中填报链接获取。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，将以集中填报ID为准，无需填写编制规划方案 ID。</para>
     /// <para>**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read)</para>
+    /// <para>该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
     /// <para>必填：否</para>
     /// <para>示例值：7140964208476371111</para>
     /// <para>最大长度：1000</para>

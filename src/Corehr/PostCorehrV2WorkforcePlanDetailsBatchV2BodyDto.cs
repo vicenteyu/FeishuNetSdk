@@ -4,7 +4,7 @@
 // Created          : 2025-02-28
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2026-06-19
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,6 +32,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto
     /// <summary>
     /// <para>是否为集中填报项目。如果租户未使用集中填报功能，将此参数置空即可。如果查询集中填报明细，将此参数设置为true。</para>
     /// <para>**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read)</para>
+    /// <para>该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
     /// <para>必填：否</para>
     /// <para>示例值：false</para>
     /// <para>默认值：false</para>
@@ -42,6 +43,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2BodyDto
     /// <summary>
     /// <para>编制规划集中填报项目ID，ID可通过访问集中填报页面，从URL中提取report_id参数。如果租户未使用集中填报功能，将此参数置空即可。查询集中填报信息时，集中填报项目ID必填，是否为集中填报项目设置为true，不填写编制规划方案ID（是否填写不影响返回结果）</para>
     /// <para>**字段权限要求**：获取编制规划集中填报明细信息(corehr:workforce_plan_centralized_reporting_project_detail:read)</para>
+    /// <para>该字段权限灰度中，如有需要请联系[飞书开放平台技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
     /// <para>必填：否</para>
     /// <para>示例值：7140964208476371111</para>
     /// </summary>
