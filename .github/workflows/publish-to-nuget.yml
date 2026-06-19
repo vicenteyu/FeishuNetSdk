@@ -55,7 +55,9 @@ jobs:
     runs-on: ubuntu-latest
     
     permissions:
-      id-token: write
+      id-token: write      # NuGet 可信发布必需
+      contents: write      # 创建 GitHub Release 必需
+      packages: write      # 修复 403 必需：赋予向 GitHub Packages 推送包的权限
 
     steps:
       - name: Checkout code
