@@ -54,8 +54,6 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     
-    # 🔴 修改点 1：必须添加 id-token 的 write 权限，用于获取 NuGet 临时密钥
-    # 同时也需要 contents 和 packages 的相应权限来维持后面的 GitHub Release 和 GitHub Packages 推送
     permissions:
       id-token: write
       contents: write
@@ -73,25 +71,32 @@ jobs:
           name: nuget-package
           path: ./nupkg
 
-      - name: Generate Commit Log
-        run: |
-          echo "### 📜 详细更新记录 (Detailed Changes)" > auto_gen_log.txt
-          
-          # 获取上一个标签
-          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)
-          
-          git log $PREV_TAG..HEAD --format="%B" | \
-            grep -ivE "^v?[0-9]+(\.[0-9]+)+$" | \
-            grep -ivE "Merge branch|Merge pull request" | \
-            sed '/^[[:space:]]*$/d' >> auto_gen_log.txt || true
+      # 🟢 核心改动：在独立发布的 Job 里，初始化一次 .NET 10 环境并绑定官方源
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+          source-url: https://api.nuget.org/v3/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
 
+      # 🟢 核心改动：安全登录换取 OIDC Token
       - name: NuGet login
         uses: NuGet/login@v1
         with:
-          user: vicente # 填入你的 NuGet 用户名
+          user: vicente 
 
+      # 🟢 核心改动：极简推送（不带任何干扰参数，防止 V2 降级 Bug）
       - name: Push to NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ env.NUGET_AUTH_TOKEN }} --skip-duplicate
+        run: dotnet nuget push ./nupkg/*.nupkg --skip-duplicate
+
+      # -------------------------------------------------------------
+      # 保持你原本的 GitHub Packages 和 Release 逻辑完全不动
+      - name: Generate Commit Log
+        run: |
+          echo "### 📜 详细更新记录 (Detailed Changes)" > auto_gen_log.txt
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || git rev-list --max-parents=0 HEAD)
+          git log $PREV_TAG..HEAD --format="%B" | grep -ivE "^v?[0-9]+(\.[0-9]+)+$" | grep -ivE "Merge branch|Merge pull request" | sed '/^[[:space:]]*$/d' >> auto_gen_log.txt || true
 
       - name: Push to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
@@ -103,7 +108,6 @@ jobs:
           body_path: changelog.md
           append_body: true
           body: |
-            
             $(cat auto_gen_log.txt)
           prerelease: ${{ contains(github.ref_name, 'preview') || contains(github.ref_name, 'beta') || contains(github.ref_name, 'rc') }}
         env:
