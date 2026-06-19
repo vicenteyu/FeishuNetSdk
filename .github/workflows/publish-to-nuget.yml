@@ -88,7 +88,7 @@ jobs:
 
       # 🟢 核心改动：极简推送（不带任何干扰参数，防止 V2 降级 Bug）
       - name: Push to NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --skip-duplicate
+      run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3-index/index.json --api-key $NUGET_AUTH_TOKEN --skip-duplicate
 
       # -------------------------------------------------------------
       # 保持你原本的 GitHub Packages 和 Release 逻辑完全不动
