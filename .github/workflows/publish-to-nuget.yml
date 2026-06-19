@@ -53,6 +53,14 @@ jobs:
     name: Publish NuGet & Release
     needs: build-and-test
     runs-on: ubuntu-latest
+    
+    # 🔴 修改点 1：必须添加 id-token 的 write 权限，用于获取 NuGet 临时密钥
+    # 同时也需要 contents 和 packages 的相应权限来维持后面的 GitHub Release 和 GitHub Packages 推送
+    permissions:
+      id-token: write
+      contents: write
+      packages: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -77,9 +85,17 @@ jobs:
             grep -ivE "Merge branch|Merge pull request" | \
             sed '/^[[:space:]]*$/d' >> auto_gen_log.txt || true
 
-      - name: Push to NuGet
-        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+      # 🔴 修改点 2：在推送前使用官方 Action 登录 NuGet
+      - name: NuGet login
+        uses: NuGet/login@v1
+        with:
+          user: vicente # 填入你的 NuGet 用户名
 
+      # 🔴 修改点 3：去掉了原本的 --api-key ${{ secrets.NUGET_API_KEY }} 
+      - name: Push to NuGet
+        run: dotnet nuget push ./nupkg/*.nupkg --source https://api.nuget.org/v3/index.json --skip-duplicate
+
+      # 🟢 提示：发往 GitHub Packages 的密钥不需要变，依旧保持使用内置的 ${{ secrets.GITHUB_TOKEN }}
       - name: Push to GitHub Packages
         run: dotnet nuget push ./nupkg/*.nupkg --source https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 
