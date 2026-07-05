@@ -4,17 +4,17 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-07-05
 // ************************************************************************
 // <copyright file="PostAilyV1AgentsByAgentIdChatsBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>发起智能体会话 请求体</summary>
+// <summary>发起智能体对话 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Aily;
 /// <summary>
-/// 发起智能体会话 请求体
-/// <para>异步发起一轮智能体会话，提交用户消息后立即返回对话ID，触发智能体在后台运行。</para>
+/// 发起智能体对话 请求体
+/// <para>异步发起一轮智能体对话，提交用户消息后立即返回对话ID，触发智能体在后台运行。</para>
 /// <para>接口ID：7646811253679819955</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2faily-v1%2fagent-agent_chat%2fcreate</para>
@@ -47,7 +47,7 @@ public record PostAilyV1AgentsByAgentIdChatsBodyDto
         {
             /// <summary>
             /// <para>内容类型</para>
-            /// <para>- 支持text</para>
+            /// <para>- 目前仅支持text</para>
             /// <para>必填：是</para>
             /// <para>示例值：text</para>
             /// <para>最大长度：64</para>

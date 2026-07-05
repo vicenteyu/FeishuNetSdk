@@ -4,16 +4,16 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-07-05
 // ************************************************************************
 // <copyright file="GetAilyV1AgentsByAgentIdChatsByAgentChatIdResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取会话结果 响应体</summary>
+// <summary>获取对话结果 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Aily;
 /// <summary>
-/// 获取会话结果 响应体
+/// 获取对话结果 响应体
 /// <para>本接口用于获取智能体的对话回复，内容包括文字和产物等信息。</para>
 /// <para>接口ID：7646811253679803571</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/get</para>

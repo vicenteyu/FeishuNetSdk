@@ -45,11 +45,11 @@
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetToken</td></tr>
 <tr><td rowspan="2">23</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>云文档</td><td>创建电子表格</td></tr>
 <tr><td colspan="3">PostSheetsV3Spreadsheets</td></tr>
-<tr><td rowspan="2">24</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
+<tr><td rowspan="2">24</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
 <tr><td rowspan="2">25</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>通讯录</td><td>获取租户职务列表</td></tr>
 <tr><td colspan="3">GetContactV3JobTitles</td></tr>
-<tr><td rowspan="2">26</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
+<tr><td rowspan="2">26</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
 <tr><td rowspan="2">27</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
@@ -403,7 +403,7 @@
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingStop</td></tr>
 <tr><td rowspan="2">202</td><td rowspan="2">2024-12-18</td><td>&#10003;</td><td>消息与群组</td><td>撤销群置顶</td></tr>
 <tr><td colspan="3">PostImV1ChatsByChatIdTopNoticeDeleteTopNotice</td></tr>
-<tr><td rowspan="2">203</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
+<tr><td rowspan="2">203</td><td rowspan="2">2026-06-22</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingIdRecording</td></tr>
 <tr><td rowspan="2">204</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>视频会议</td><td>授权录制文件</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdRecordingSetPermission</td></tr>
@@ -709,7 +709,7 @@
 <tr><td colspan="3">PatchTaskV2CustomFieldsByCustomFieldGuidOptionsByOptionGuid</td></tr>
 <tr><td rowspan="2">355</td><td rowspan="2">2026-03-20</td><td>&#10003;</td><td>邮箱</td><td>查询所有公共邮箱</td></tr>
 <tr><td colspan="3">GetMailV1PublicMailboxes</td></tr>
-<tr><td rowspan="2">356</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
+<tr><td rowspan="2">356</td><td rowspan="2">2026-06-30</td><td>&#10003;</td><td>搜索</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostSearchV2Message</td></tr>
 <tr><td rowspan="2">357</td><td rowspan="2">2023-11-27</td><td>&#10003;</td><td>搜索</td><td>搜索应用</td></tr>
 <tr><td colspan="3">PostSearchV2App</td></tr>
@@ -1545,15 +1545,15 @@
 <tr><td colspan="3">PostVcV1NotesSubscription</td></tr>
 <tr><td rowspan="2">773</td><td rowspan="2">2026-06-02</td><td>&#10003;</td><td>视频会议</td><td>取消订阅纪要变更事件</td></tr>
 <tr><td colspan="3">PostVcV1NotesUnsubscription</td></tr>
-<tr><td rowspan="2">774</td><td rowspan="2">2026-06-04</td><td>&#10003;</td><td>飞书 aily</td><td>上传附件</td></tr>
+<tr><td rowspan="2">774</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
-<tr><td rowspan="2">775</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>获取会话结果</td></tr>
+<tr><td rowspan="2">775</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>获取对话结果</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
-<tr><td rowspan="2">776</td><td rowspan="2">2026-06-04</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体会话</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2026-07-03</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
-<tr><td rowspan="2">777</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td rowspan="2">777</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
-<tr><td rowspan="2">778</td><td rowspan="2">2026-06-03</td><td>&#10003;</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
+<tr><td rowspan="2">778</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
 <tr><td rowspan="2">779</td><td rowspan="2">2026-06-12</td><td>&#10003;</td><td>邮箱</td><td>获取用户邮箱信息</td></tr>
 <tr><td colspan="3">GetMailV1UserMailboxesByUserMailboxIdProfile</td></tr>
@@ -1575,26 +1575,42 @@
 <tr><td colspan="3">PostImV2ChatsSearch</td></tr>
 <tr><td rowspan="2">788</td><td rowspan="2">2026-06-12</td><td>&#10003;</td><td>邮箱</td><td>取消定时发送</td></tr>
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdCancelScheduledSend</td></tr>
-<tr><td rowspan="2">789</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>抄送审批实例（用户级）</td></tr>
+<tr><td rowspan="2">789</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>抄送审批实例（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesAddCc</td></tr>
-<tr><td rowspan="2">790</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>查询用户的已发起审批列表</td></tr>
+<tr><td rowspan="2">790</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>查询用户的已发起审批列表</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesInitiated</td></tr>
-<tr><td rowspan="2">791</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>同意审批任务（用户级）</td></tr>
+<tr><td rowspan="2">791</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>同意审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksPass</td></tr>
-<tr><td rowspan="2">792</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>撤回审批实例（用户级）</td></tr>
+<tr><td rowspan="2">792</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>撤回审批实例（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesRecall</td></tr>
-<tr><td rowspan="2">793</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>单据催办</td></tr>
+<tr><td rowspan="2">793</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>单据催办</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesRemind</td></tr>
-<tr><td rowspan="2">794</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>获取单个审批实例详情（用户级）</td></tr>
+<tr><td rowspan="2">794</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>获取单个审批实例详情（用户级）</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesDetail</td></tr>
-<tr><td rowspan="2">795</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>查询审批任务列表</td></tr>
+<tr><td rowspan="2">795</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>查询审批任务列表</td></tr>
 <tr><td colspan="3">GetApprovalV4Tasks</td></tr>
-<tr><td rowspan="2">796</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>拒绝审批任务（用户级）</td></tr>
+<tr><td rowspan="2">796</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>拒绝审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksRefuse</td></tr>
-<tr><td rowspan="2">797</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>转交审批任务（用户级）</td></tr>
+<tr><td rowspan="2">797</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>转交审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksForward</td></tr>
-<tr><td rowspan="2">798</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>退回审批任务（用户级）</td></tr>
+<tr><td rowspan="2">798</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>退回审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksRollback</td></tr>
-<tr><td rowspan="2">799</td><td rowspan="2">2026-06-15</td><td>新增</td><td>审批</td><td>审批任务加签（用户级）</td></tr>
+<tr><td rowspan="2">799</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>审批任务加签（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksAddSign</td></tr>
+<tr><td rowspan="2">800</td><td rowspan="2">2026-06-30</td><td>新增</td><td>飞书 aPaaS</td><td>获取应用运营数据</td></tr>
+<tr><td colspan="3">PostApaasV1TenantAppMetricsQuery</td></tr>
+<tr><td rowspan="2">801</td><td rowspan="2">2026-06-30</td><td>新增</td><td>消息与群组</td><td>搜索消息</td></tr>
+<tr><td colspan="3">PostImV1MessagesSearch</td></tr>
+<tr><td rowspan="2">802</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>查询会话列表</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdSessions</td></tr>
+<tr><td rowspan="2">803</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
+<tr><td rowspan="2">804</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>删除会话</td></tr>
+<tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
+<tr><td rowspan="2">805</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>创建会话</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
+<tr><td rowspan="2">806</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td colspan="3">GetVcV1BotsEvents</td></tr>
+<tr><td rowspan="2">807</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 </tbody></table>

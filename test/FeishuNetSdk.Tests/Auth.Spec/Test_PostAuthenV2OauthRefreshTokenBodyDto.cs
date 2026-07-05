@@ -4,17 +4,17 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-07-05
 // ************************************************************************
 // <copyright file="Test_PostAuthenV2OauthRefreshTokenBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>测试 刷新 user_access_token 请求体</summary>
+// <summary>测试 刷新 user_access_token（v2 版本） 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Tests.Auth.Spec;
 
 /// <summary>
-/// 测试 刷新 user_access_token 请求体
+/// 测试 刷新 user_access_token（v2 版本） 请求体
 /// <para>接口ID：7435312925587898371</para>
 /// <para>文档地址：https://open.feishu.cn/document/authentication-management/access-token/refresh-user-access-token</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2frefresh-user-access-token</para>

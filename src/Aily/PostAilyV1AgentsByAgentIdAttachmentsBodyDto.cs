@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-07-05
 // ************************************************************************
 // <copyright file="PostAilyV1AgentsByAgentIdAttachmentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,8 +23,8 @@ public record PostAilyV1AgentsByAgentIdAttachmentsBodyDto
 {
     /// <summary>
     /// <para>附件类型</para>
-    /// <para>- 当设置为 `image`或者`file` 时，file必传</para>
-    /// <para>- 当设置为 `feishu_doc`或者`bitable` 时，doc_url必传</para>
+    /// <para>- 当设置为 `image`或者`file` 时，file必传，doc_url不生效</para>
+    /// <para>- 当设置为 `feishu_doc`或者`bitable` 时，doc_url必传，file不生效</para>
     /// <para>- 可选类型，image、file、feishu_doc、bitable</para>
     /// <para>必填：是</para>
     /// <para>示例值：image</para>
