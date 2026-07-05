@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-19
+// Last Modified On : 2026-07-05
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -6654,7 +6654,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>- 会议结束后并且收到了[录制完成](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/meeting/events/recording_ready)的事件方可获取录制文件。</para>
     /// <para>- 请求头 Authorization 参数不同 Token 说明：</para>
-    /// <para>- 使用 user_access_token 时，只有会议归属人有权限获取录制文件。会议归属人是指[预约会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/reserve/apply)时，请求参数传入的归属人（owner_id）。</para>
+    /// <para>- 使用 user_access_token 时，当前用户需在会议历史中可见该会议，才可获取录制文件。例如：未拒绝或未被移除的会议日程参与者、参加过该会议的用户、被该会议呼叫过的用户。</para>
     /// <para>- 使用 tenant_access_token 时，可获取租户范围下的录制文件。</para>
     /// <para>- 录制时间太短（小于 5s）有可能无法生成录制文件。</para>
     /// <para>权限要求：<list type="bullet">
@@ -14007,6 +14007,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -14045,6 +14046,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
     /// <item>sheets:spreadsheet</item>
+    /// <item>sheets:spreadsheet:read</item>
     /// <item>sheets:spreadsheet:readonly</item>
     /// </list></para>
     /// </summary>
@@ -26634,6 +26636,25 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书 aPaaS】获取应用运营数据</para>
+    /// <para>接口ID：7600074707548146916</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/apaas-v1/tenant_app_metrics/query</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取 aPaaS 应用活跃数据、存储或运行资源用量数据。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>app_engine:tenant_app_metrics:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/apaas/v1/tenant_app_metrics/query")]
+    System.Threading.Tasks.Task<FeishuResponse<AppEngine.PostApaasV1TenantAppMetricsQueryResponseDto>> PostApaasV1TenantAppMetricsQueryAsync(
+        UserAccessToken access_token,
+        [JsonContent] AppEngine.PostApaasV1TenantAppMetricsQueryBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【多维表格】创建字段编组</para>
     /// <para>接口ID：7600708368865856725</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/bitable-v1/app-table-field_group/create</para>
@@ -31286,7 +31307,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【飞书 aily】上传附件</para>
     /// <para>接口ID：7646811253679787187</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_attachment/create</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>本接口用于上传需智能体分析的文件，上传成功后返回附件 ID。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_attachment:write</item>
@@ -31314,10 +31335,10 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 aily】获取会话结果</para>
+    /// <para>【飞书 aily】获取对话结果</para>
     /// <para>接口ID：7646811253679803571</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>本接口用于获取智能体的对话回复，内容包括文字和产物等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_chat:read</item>
@@ -31345,11 +31366,11 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 aily】发起智能体会话</para>
+    /// <para>【飞书 aily】发起智能体对话</para>
     /// <para>接口ID：7646811253679819955</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat/create</para>
-    /// <para>Authorization：user_access_token</para>
-    /// <para>异步发起一轮智能体会话，提交用户消息后立即返回对话ID，触发智能体在后台运行。</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>异步发起一轮智能体对话，提交用户消息后立即返回对话ID，触发智能体在后台运行。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_chat:write</item>
     /// </list></para>
@@ -31374,7 +31395,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【飞书 aily】获取当前用户的可见性</para>
     /// <para>接口ID：7646811253679836339</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_visibility/check</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询当前调用用户对指定智能体的可见性。接口根据UserAccessToken(用户身份凭证)解析出当前用户,结合传入的 channel_type(渠道类型),返回可见性。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_visibility:read</item>
@@ -31400,7 +31421,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【飞书 aily】下载智能体产物</para>
     /// <para>接口ID：7646811253679852723</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_artifact/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据产物 ID(agent_artifact_id)获取该产物的下载地址及基础信息(名称、URL),用于开发者拉取智能体在会话中生成的图片、文件、云文档等产物。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_artifact:read</item>
@@ -31501,6 +31522,53 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdSearchBodyDto dto,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】搜索消息</para>
+    /// <para>接口ID：7649057980096580572</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/search</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>用户可以通过关键字搜索可见消息，可见性和套件内搜索一致。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>search:message</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>示例值：15 (默认15，最大30)</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/im/v1/messages/search")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessagesSearchResponseDto>> PostImV1MessagesSearchAsync(
+        UserAccessToken access_token,
+        [JsonContent] Im.PostImV1MessagesSearchBodyDto dto,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -31745,6 +31813,236 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksAddSignAsync(
         UserAccessToken access_token,
         [JsonContent] Approval.PostApprovalV4TasksAddSignBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】查询会话列表</para>
+    /// <para>接口ID：7657118382231506113</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat_session/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于查询智能体的会话列表。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体ID，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions")]
+    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】获取指定会话信息</para>
+    /// <para>接口ID：7657118382231522497</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat_session/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于查询智能体某次指定会话的详细信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体ID，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_ashcascsa</para>
+    /// </param>
+    /// <param name="agent_chat_session_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>会话ID，发起对话、创建会话或查询会话列表获取</para>
+    /// <para>示例值：conversation_asdasda</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions/{agent_chat_session_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [PathQuery] string agent_chat_session_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】删除会话</para>
+    /// <para>接口ID：7657118382231538881</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat_session/delete</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于删除智能体的某次会话。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体ID，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_asdsad</para>
+    /// </param>
+    /// <param name="agent_chat_session_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>会话ID，发起对话、创建会话或查询会话列表获取</para>
+    /// <para>示例值：conversation_assadasd</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/aily/v1/agents/{agent_id}/sessions/{agent_chat_session_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [PathQuery] string agent_chat_session_id,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书 aily】创建会话</para>
+    /// <para>接口ID：7657118382231555265</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_chat_session/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>本接口用于智能体创建空白会话</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>aily:agent_chat:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="agent_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>智能体ID，通过智能体后台详情的地址栏中获取</para>
+    /// <para>示例值：agent_4k4ue29hpwrx2</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/aily/v1/agents/{agent_id}/sessions")]
+    System.Threading.Tasks.Task<FeishuResponse> PostAilyV1AgentsByAgentIdSessionsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string agent_id,
+        [JsonContent] Aily.PostAilyV1AgentsByAgentIdSessionsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】获取会议事件</para>
+    /// <para>接口ID：7657481714696588519</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.meetingevent:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="meeting_id">
+    /// <para>必填：是</para>
+    /// <para>会议唯一标识，可通过创建会议接口或会议列表查询接口获取。</para>
+    /// <para>示例值：7628568141510692381</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：否</para>
+    /// <para>待查询历史信息的起始时间</para>
+    /// <para>示例值：1609296809</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：否</para>
+    /// <para>待查询历史信息的结束时间</para>
+    /// <para>示例值：160929690</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：20</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/vc/v1/bots/events")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1BotsEventsResponseDto>> GetVcV1BotsEventsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string meeting_id,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? start_time = null,
+        [PathQuery] string? end_time = null,
+        [PathQuery] int? page_size = 20,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】获取用户活跃会议</para>
+    /// <para>接口ID：7657481714696604903</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.meetingevent:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// <para>目标用户的 open_id，格式为 ou_ 开头；应用身份调用时必填。</para>
+    /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/vc/v1/bots/user_active_meeting")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1BotsUserActiveMeetingResponseDto>> GetVcV1BotsUserActiveMeetingAsync(
+        UserAccessToken access_token,
+        [PathQuery] string? user_id = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 }

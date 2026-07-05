@@ -227,9 +227,9 @@
 <tr><td colspan="3">GetContactV3Scopes</td></tr>
 <tr><td rowspan="2">114</td><td rowspan="2">2026-04-07</td><td>&#10003;</td><td>通讯录</td><td>删除人员类型</td></tr>
 <tr><td colspan="3">DeleteContactV3EmployeeTypeEnumsByEnumId</td></tr>
-<tr><td rowspan="2">115</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
+<tr><td rowspan="2">115</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>云文档</td><td>查询工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsBySheetId</td></tr>
-<tr><td rowspan="2">116</td><td rowspan="2">2024-10-23</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
+<tr><td rowspan="2">116</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>云文档</td><td>获取工作表</td></tr>
 <tr><td colspan="3">GetSheetsV3SpreadsheetsBySpreadsheetTokenSheetsQuery</td></tr>
 <tr><td rowspan="2">117</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>操作工作表</td></tr>
 <tr><td colspan="3">PostSheetsV2SpreadsheetsBySpreadsheetTokenSheetsBatchUpdate</td></tr>
@@ -551,7 +551,7 @@
 <tr><td colspan="3">GetVcV1MeetingsByMeetingId</td></tr>
 <tr><td rowspan="2">276</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>视频会议</td><td>获取与会议号关联的会议列表</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsListByNo</td></tr>
-<tr><td rowspan="2">277</td><td rowspan="2">2024-08-07</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
+<tr><td rowspan="2">277</td><td rowspan="2">2026-06-22</td><td>&#10003;</td><td>视频会议</td><td>获取录制文件</td></tr>
 <tr><td colspan="3">GetVcV1MeetingsByMeetingIdRecording</td></tr>
 <tr><td rowspan="2">278</td><td rowspan="2">2024-04-29</td><td>&#10003;</td><td>视频会议</td><td>获取会议报告</td></tr>
 <tr><td colspan="3">GetVcV1ReportsGetDaily</td></tr>
@@ -3155,6 +3155,28 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdRecall</td></tr>
 <tr><td rowspan="2">1578</td><td rowspan="2">2026-06-11</td><td>&#10003;</td><td>消息与群组</td><td>搜索群组</td></tr>
 <tr><td colspan="3">PostImV2ChatsSearch</td></tr>
-<tr><td rowspan="2">1579</td><td rowspan="2">2026-06-17</td><td>新增</td><td>事件订阅</td><td>获取长连接在线数量</td></tr>
+<tr><td rowspan="2">1579</td><td rowspan="2">2026-06-17</td><td>&#10003;</td><td>事件订阅</td><td>获取长连接在线数量</td></tr>
 <tr><td colspan="3">GetEventV1Connection</td></tr>
+<tr><td rowspan="2">1580</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>上传附件</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
+<tr><td rowspan="2">1581</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取对话结果</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
+<tr><td rowspan="2">1582</td><td rowspan="2">2026-07-03</td><td>新增</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
+<tr><td rowspan="2">1583</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
+<tr><td rowspan="2">1584</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
+<tr><td rowspan="2">1585</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>查询会话列表</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdSessions</td></tr>
+<tr><td rowspan="2">1586</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
+<tr><td colspan="3">GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
+<tr><td rowspan="2">1587</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>删除会话</td></tr>
+<tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
+<tr><td rowspan="2">1588</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>创建会话</td></tr>
+<tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
+<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td colspan="3">GetVcV1BotsEvents</td></tr>
+<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 </tbody></table>

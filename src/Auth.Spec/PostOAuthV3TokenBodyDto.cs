@@ -1,31 +1,25 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-12-08
+// Created          : 2026-07-05
 //
 // Last Modified By : yxr
 // Last Modified On : 2026-07-05
 // ************************************************************************
-// <copyright file="PostAuthenV2OauthTokenBodyDto.cs" company="Vicente Yu">
+// <copyright file="PostOAuthV3TokenBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取 user_access_token（v2 版本） 请求体</summary>
+// <summary>获取 user_access_token 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
-/// 获取 user_access_token（v2 版本） 请求体
-/// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[获取 user_access_token ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token-v3)。</para>
-/// <para>迁移到 v3 时，主要关注以下变化：</para>
-/// <para>- 令牌端点由 `https://open.feishu.cn/open-apis/authen/v2/oauth/token` 变更为 `https://accounts.feishu.cn/oauth/v3/token`。</para>
-/// <para>- 新增 v3 的一个重要原因，是修正 v2 在 PKCE 校验上的兼容性问题：如果授权阶段未传递 `code_challenge`，但换取 token 时传递了 `code_verifier`，v2 不会拒绝该请求；v3 会按 PKCE 语义拒绝这类请求。</para>
-/// <para>- `code_verifier` 的使用方式与 v2 保持一致：未启用 PKCE 时可继续不传；已启用且正确使用 PKCE 时，可沿用现有 `code_verifier` 生成和传递逻辑直接迁移到 v3。</para>
-/// <para>- 除上述差异外，请求参数和响应结构与 v2 保持一致。迁移时，需要切换接口地址，并确认 `client_secret`、`code_verifier` 的传参方式符合 v3 要求。</para>
-/// <para>如果你当前没有启用 PKCE，或者已经正确使用 PKCE，可以直接迁移到 v3；如果你当前存在“未传 `code_challenge`，但传了 `code_verifier`”的情况，则需要先修正 PKCE 参数传递逻辑后再迁移。</para>
-/// <para>接口ID：7435312925587914755</para>
-/// <para>文档地址：https://open.feishu.cn/document/authentication-management/access-token/get-user-access-token</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2fget-user-access-token</para>
+/// 获取 user_access_token 请求体
+/// <para>OAuth 令牌接口，可用于获取 &lt;code&gt;user_access_token&lt;/code&gt; 以及 &lt;code&gt;refresh_token&lt;/code&gt;。&lt;code&gt;user_access_token&lt;/code&gt; 为用户访问凭证，使用该凭证可以以用户身份调用 OpenAPI。&lt;code&gt;refresh_token&lt;/code&gt; 为刷新凭证，可以用来获取新的 &lt;code&gt;user_access_token&lt;/code&gt;。</para>
+/// <para>接口ID：7637802672208973014</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/get-user-access-token-v3</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2fget-user-access-token-v3</para>
 /// </summary>
-public record PostAuthenV2OauthTokenBodyDto
+public record PostOAuthV3TokenBodyDto
 {
     /// <summary>
     /// <para>授权类型。</para>
@@ -33,7 +27,7 @@ public record PostAuthenV2OauthTokenBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; } = "authorization_code";
+    public string GrantType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>应用的 App ID。应用凭证 App ID 和 App Secret 获取方式：</para>
@@ -47,15 +41,18 @@ public record PostAuthenV2OauthTokenBodyDto
     public string ClientId { get; set; } = string.Empty;
 
     /// <summary>
-    /// <para>应用的 App Secret。应用凭证 App ID 和 App Secret 获取方式：</para>
+    /// <para>应用的 App Secret。Public Client 属性的应用无需填入，但必须使用 PKCE（Proof Key for Code Exchange）流程；Confidential Client 属性的应用必填。应用凭证 App ID 和 App Secret 获取方式：</para>
+    /// <para>说明：</para>
+    /// <para>- 通过飞书开放平台创建的应用均属于 Confidential Client，需要填写 `client_secret`。</para>
+    /// <para>- Public Client 未开放注册，仅飞书官方 MCP 应用是 Public Client；该类型应用无法安全保存密钥，因此必须使用 PKCE 流程。</para>
     /// <para>1. 登录[飞书开发者后台](https://open.feishu.cn/app)。</para>
     /// <para>2. 进入应用详情页，在左侧导航栏，单击 **凭证与基础信息**。</para>
     /// <para>3. 在 **应用凭证** 区域，获取并保存 **App ID** 和 **App Secret**。</para>
     /// <para>**示例值：**`baBqE5um9LbFGDy3X7LcfxQX1sqpXlwy`</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("client_secret")]
-    public string ClientSecret { get; set; } = string.Empty;
+    public string? ClientSecret { get; set; }
 
     /// <summary>
     /// <para>授权码，详见[获取授权码](https://open.feishu.cn/document/common-capabilities/sso/api/obtain-oauth-code)。</para>

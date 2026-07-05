@@ -1,26 +1,25 @@
 // ************************************************************************
 // Assembly         : FeishuNetSdk
 // Author           : yxr
-// Created          : 2024-12-08
+// Created          : 2026-07-05
 //
 // Last Modified By : yxr
 // Last Modified On : 2026-07-05
 // ************************************************************************
-// <copyright file="PostAuthenV2OauthRefreshTokenBodyDto.cs" company="Vicente Yu">
+// <copyright file="PostOAuthV3RefreshTokenBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>刷新 user_access_token（v2 版本） 请求体</summary>
+// <summary>刷新 user_access_token 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Auth.Spec;
 /// <summary>
-/// 刷新 user_access_token（v2 版本） 请求体
-/// <para>本接口已成为历史版本，不推荐使用。请使用最新版本：[刷新 user_access_token](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token-v3)</para>
-/// <para>。</para>
-/// <para>接口ID：7435312925587898371</para>
-/// <para>文档地址：https://open.feishu.cn/document/authentication-management/access-token/refresh-user-access-token</para>
-/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2frefresh-user-access-token</para>
+/// 刷新 user_access_token 请求体
+/// <para>OAuth 令牌接口，可用于刷新 &lt;code&gt;user_access_token&lt;/code&gt; 以及获取新的 &lt;code&gt;refresh_token&lt;/code&gt;。</para>
+/// <para>接口ID：7637802672208956630</para>
+/// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/authentication-management/access-token/refresh-user-access-token-v3</para>
+/// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fauthentication-management%2faccess-token%2frefresh-user-access-token-v3</para>
 /// </summary>
-public record PostAuthenV2OauthRefreshTokenBodyDto
+public record PostOAuthV3RefreshTokenBodyDto
 {
     /// <summary>
     /// <para>授权类型。</para>
@@ -28,7 +27,7 @@ public record PostAuthenV2OauthRefreshTokenBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; } = "refresh_token";
+    public string GrantType { get; set; } = string.Empty;
 
     /// <summary>
     /// <para>应用的 App ID，可以在开发者后台中的应用详情页面找到该值。</para>
