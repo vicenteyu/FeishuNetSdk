@@ -1333,7 +1333,7 @@
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">667</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
-<tr><td rowspan="2">668</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td rowspan="2">668</td><td rowspan="2">2026-07-07</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
 <tr><td rowspan="2">669</td><td rowspan="2">2026-03-28</td><td>&#10003;</td><td>视频会议</td><td>搜索会议记录</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsSearch</td></tr>
@@ -1547,11 +1547,11 @@
 <tr><td colspan="3">PostVcV1NotesUnsubscription</td></tr>
 <tr><td rowspan="2">774</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
-<tr><td rowspan="2">775</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>获取对话结果</td></tr>
+<tr><td rowspan="2">775</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>获取对话结果</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
-<tr><td rowspan="2">776</td><td rowspan="2">2026-07-03</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
+<tr><td rowspan="2">776</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
-<tr><td rowspan="2">777</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td rowspan="2">777</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
 <tr><td rowspan="2">778</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
@@ -1597,20 +1597,20 @@
 <tr><td colspan="3">PostApprovalV4TasksRollback</td></tr>
 <tr><td rowspan="2">799</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>审批任务加签（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksAddSign</td></tr>
-<tr><td rowspan="2">800</td><td rowspan="2">2026-06-30</td><td>新增</td><td>飞书 aPaaS</td><td>获取应用运营数据</td></tr>
+<tr><td rowspan="2">800</td><td rowspan="2">2026-06-30</td><td>&#10003;</td><td>飞书 aPaaS</td><td>获取应用运营数据</td></tr>
 <tr><td colspan="3">PostApaasV1TenantAppMetricsQuery</td></tr>
-<tr><td rowspan="2">801</td><td rowspan="2">2026-06-30</td><td>新增</td><td>消息与群组</td><td>搜索消息</td></tr>
+<tr><td rowspan="2">801</td><td rowspan="2">2026-06-30</td><td>&#10003;</td><td>消息与群组</td><td>搜索消息</td></tr>
 <tr><td colspan="3">PostImV1MessagesSearch</td></tr>
-<tr><td rowspan="2">802</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>查询会话列表</td></tr>
+<tr><td rowspan="2">802</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>查询会话列表</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">803</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
+<tr><td rowspan="2">803</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
-<tr><td rowspan="2">804</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>删除会话</td></tr>
+<tr><td rowspan="2">804</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>删除会话</td></tr>
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
-<tr><td rowspan="2">805</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>创建会话</td></tr>
+<tr><td rowspan="2">805</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">806</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td rowspan="2">806</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">807</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td rowspan="2">807</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 </tbody></table>

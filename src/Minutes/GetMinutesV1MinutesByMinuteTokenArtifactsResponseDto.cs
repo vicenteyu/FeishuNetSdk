@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -112,5 +112,44 @@ public record GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto
         /// </summary>
         [JsonPropertyName("assignees")]
         public string[]? Assignees { get; set; }
+
+        /// <summary>
+        /// <para>待办是否完成</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_done")]
+        public bool? IsDone { get; set; }
+
+        /// <summary>
+        /// <para>待办id</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：&lt;string&gt;</para>
+        /// </summary>
+        [JsonPropertyName("todo_id")]
+        public string? TodoId { get; set; }
+
+        /// <summary>
+        /// <para>待办操作符</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：&lt;string&gt;</para>
+        /// </summary>
+        [JsonPropertyName("operation")]
+        public string? Operation { get; set; }
     }
+
+    /// <summary>
+    /// <para>妙记推荐关键词</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("keywords")]
+    public string[]? Keywords { get; set; }
+
+    /// <summary>
+    /// <para>妙记逐字稿</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：&lt;string&gt;</para>
+    /// </summary>
+    [JsonPropertyName("transcript")]
+    public string? Transcript { get; set; }
 }

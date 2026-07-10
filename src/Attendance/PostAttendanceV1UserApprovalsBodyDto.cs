@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="PostAttendanceV1UserApprovalsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -197,7 +197,7 @@ public record PostAttendanceV1UserApprovalsBodyDto
             public int Unit { get; set; }
 
             /// <summary>
-            /// <para>无效字段，暂时不支持</para>
+            /// <para>关联审批单假期时长，单位为秒，与unit无关。</para>
             /// <para>必填：是</para>
             /// <para>示例值：3600</para>
             /// </summary>

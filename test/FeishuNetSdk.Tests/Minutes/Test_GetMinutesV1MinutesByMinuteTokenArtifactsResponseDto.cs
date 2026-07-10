@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-27
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="Test_GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,8 +37,13 @@ public class Test_GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto : TestBas
     "content": "提交资源保障方案",
     "assignees": [
         "张三"
-    ]
-}]}}
+    ],
+    "is_done": true,
+    "todo_id": "<string>",
+    "operation": "<string>"
+}],
+"keywords":["<string>"],
+"transcript":"<string>"}}
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Minutes.GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto>>(json);
         Assert.IsNotNull(result);
