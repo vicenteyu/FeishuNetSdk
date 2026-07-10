@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -28002,7 +28002,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【妙记】获取妙记AI产物</para>
     /// <para>接口ID：7621494177948142790</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：user_access_token</para>
     /// <para>通过妙记唯一标识minute_token获取AI产物</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>minutes:minutes.artifacts:read</item>
@@ -31395,7 +31395,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【飞书 aily】获取当前用户的可见性</para>
     /// <para>接口ID：7646811253679836339</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_visibility/check</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：user_access_token</para>
     /// <para>查询当前调用用户对指定智能体的可见性。接口根据UserAccessToken(用户身份凭证)解析出当前用户,结合传入的 channel_type(渠道类型),返回可见性。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>aily:agent_visibility:read</item>
@@ -31846,7 +31846,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions")]
-    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdSessionsResponseDto>> GetAilyV1AgentsByAgentIdSessionsAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_id,
         [PathQuery] int? page_size = 10,
@@ -31878,7 +31878,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions/{agent_chat_session_id}")]
-    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdResponseDto>> GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_id,
         [PathQuery] string agent_chat_session_id,
@@ -31935,7 +31935,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpPost("/open-apis/aily/v1/agents/{agent_id}/sessions")]
-    System.Threading.Tasks.Task<FeishuResponse> PostAilyV1AgentsByAgentIdSessionsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdSessionsResponseDto>> PostAilyV1AgentsByAgentIdSessionsAsync(
         UserAccessToken access_token,
         [PathQuery] string agent_id,
         [JsonContent] Aily.PostAilyV1AgentsByAgentIdSessionsBodyDto dto,

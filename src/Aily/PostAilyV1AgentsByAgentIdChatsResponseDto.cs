@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="PostAilyV1AgentsByAgentIdChatsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,4 +28,12 @@ public record PostAilyV1AgentsByAgentIdChatsResponseDto
     /// </summary>
     [JsonPropertyName("agent_chat_id")]
     public string AgentChatId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// <para>会话ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：conversation_dsfsdas</para>
+    /// </summary>
+    [JsonPropertyName("session_id")]
+    public string? SessionId { get; set; }
 }

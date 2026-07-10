@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="Test_PostAilyV1AgentsByAgentIdChatsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,7 +37,9 @@ public class Test_PostAilyV1AgentsByAgentIdChatsBodyDto : TestBase
         "agent_attachment_ids": [
             "3d058789-6952-4697-bf9c-1add1ebc206e"
         ]
-    }
+    },
+    "stream": true,
+    "session_id": "conversation_6521651561561"
 }
 """;
         var result = Deserialize<FeishuNetSdk.Aily.PostAilyV1AgentsByAgentIdChatsBodyDto>(json);

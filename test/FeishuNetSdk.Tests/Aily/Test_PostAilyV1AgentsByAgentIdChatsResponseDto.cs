@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="Test_PostAilyV1AgentsByAgentIdChatsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,7 +30,8 @@ public class Test_PostAilyV1AgentsByAgentIdChatsResponseDto : TestBase
     "code": 0,
     "msg": "success",
     "data": {
-        "agent_chat_id": "7640186506971926032"
+        "agent_chat_id": "7640186506971926032",
+        "session_id": "conversation_dsfsdas"
     }
 }
 """;

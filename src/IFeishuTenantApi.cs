@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-10
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -58106,28 +58106,6 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【妙记】获取妙记AI产物</para>
-    /// <para>接口ID：7621494177948142790</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过妙记唯一标识minute_token获取AI产物</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>minutes:minutes.artifacts:read</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="minute_token">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx</para>
-    /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
-    /// </param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/artifacts")]
-    System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto>> GetMinutesV1MinutesByMinuteTokenArtifactsAsync(
-        [PathQuery] string minute_token,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
     /// <para>【云文档】订阅用户云文档事件</para>
     /// <para>接口ID：7623827135371201487</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/user/subscription</para>
@@ -60438,30 +60416,6 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【飞书 aily】获取当前用户的可见性</para>
-    /// <para>接口ID：7646811253679836339</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_visibility/check</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>查询当前调用用户对指定智能体的可见性。接口根据UserAccessToken(用户身份凭证)解析出当前用户,结合传入的 channel_type(渠道类型),返回可见性。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>aily:agent_visibility:read</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="agent_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>智能体id，通过智能体后台详情的地址栏中获取</para>
-    /// <para>示例值：agent_4k4ue29hpwrx2</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/aily/v1/agents/{agent_id}/agent_visibility/check")]
-    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdAgentVisibilityCheckResponseDto>> PostAilyV1AgentsByAgentIdAgentVisibilityCheckAsync(
-        [PathQuery] string agent_id,
-        [JsonContent] Aily.PostAilyV1AgentsByAgentIdAgentVisibilityCheckBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
     /// <para>【飞书 aily】下载智能体产物</para>
     /// <para>接口ID：7646811253679852723</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/aily-v1/agent-agent_artifact/get</para>
@@ -60579,7 +60533,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions")]
-    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdSessionsResponseDto>> GetAilyV1AgentsByAgentIdSessionsAsync(
         [PathQuery] string agent_id,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
@@ -60609,7 +60563,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/aily/v1/agents/{agent_id}/sessions/{agent_chat_session_id}")]
-    System.Threading.Tasks.Task<FeishuResponse> GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdResponseDto>> GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionIdAsync(
         [PathQuery] string agent_id,
         [PathQuery] string agent_chat_session_id,
         CancellationToken cancellation_token = default);
@@ -60662,9 +60616,101 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/aily/v1/agents/{agent_id}/sessions")]
-    System.Threading.Tasks.Task<FeishuResponse> PostAilyV1AgentsByAgentIdSessionsAsync(
+    System.Threading.Tasks.Task<FeishuResponse<Aily.PostAilyV1AgentsByAgentIdSessionsResponseDto>> PostAilyV1AgentsByAgentIdSessionsAsync(
         [PathQuery] string agent_id,
         [JsonContent] Aily.PostAilyV1AgentsByAgentIdSessionsBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】创建COT</para>
+    /// <para>接口ID：7657479549125069790</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/create</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>调用该接口支持创建一条COT消息，用于与Agent交互时展示Agent的思考过程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="receive_id_type">
+    /// <para>必填：是</para>
+    /// <para>消息接收者 ID 类型。支持 open_id/union_id/user_id/email/chat_id</para>
+    /// <para>**可选值**</para>
+    /// <para>**open_id**</para>
+    /// <para>标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
+    /// <para>**union_id**</para>
+    /// <para>标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
+    /// <para>**user_id**</para>
+    /// <para>标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
+    /// <para>**email**</para>
+    /// <para>以用户的真实邮箱来标识用户。</para>
+    /// <para>**chat_id**</para>
+    /// <para>以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;</para>
+    /// <para>示例值：chat_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/im/v1/message_cot")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessageCotResponseDto>> PostImV1MessageCotAsync(
+        [PathQuery] string receive_id_type,
+        [JsonContent] Im.PostImV1MessageCotBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】完成COT</para>
+    /// <para>接口ID：7657479549125102558</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/complete</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口主要用于将COT写入状态结束。当COT状态为写入完成态，将无法继续追加COT事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cot_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>思考过程ID，这里的思考过程ID直接取用CreateCOT接口返回的cot_id</para>
+    /// <para>示例值：7633695736571366941</para>
+    /// </param>
+    /// <param name="message_id">
+    /// <para>必填：是</para>
+    /// <para>消息ID，这里的消息ID直接取用CreateCOT接口返回的message_id</para>
+    /// <para>示例值：om_x100b6cd766729880c3a7d8560446871</para>
+    /// </param>
+    /// <param name="reason">
+    /// <para>必填：否</para>
+    /// <para>完成原因，支持done/error/timeout</para>
+    /// <para>done - 代表cot状态为执行成功</para>
+    /// <para>error - 代表cot状态为执行出错</para>
+    /// <para>timeout - 代表cot状态为执行超时</para>
+    /// <para>示例值：done</para>
+    /// <para>默认值：done</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/im/v1/message_cot/complete/{cot_id}")]
+    System.Threading.Tasks.Task<FeishuResponse> PostImV1MessageCotCompleteByCotIdAsync(
+        [PathQuery] string cot_id,
+        [PathQuery] string message_id,
+        [PathQuery] string? reason = "done",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】COT事件写入</para>
+    /// <para>接口ID：7657479549125118942</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于持续写入COT(思考过程)事件，写入后客户端可以流式开始思考过程。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:send_as_bot</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/im/v1/message_cot")]
+    System.Threading.Tasks.Task<FeishuResponse> PutImV1MessageCotAsync(
+        [JsonContent] Im.PutImV1MessageCotBodyDto dto,
         CancellationToken cancellation_token = default);
 
     /// <summary>

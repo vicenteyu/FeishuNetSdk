@@ -673,7 +673,7 @@
 <tr><td colspan="3">GetContactV3Unit</td></tr>
 <tr><td rowspan="2">337</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>获取审批数据</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovalsQuery</td></tr>
-<tr><td rowspan="2">338</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
+<tr><td rowspan="2">338</td><td rowspan="2">2026-07-07</td><td>&#10003;</td><td>考勤打卡</td><td>写入审批结果</td></tr>
 <tr><td colspan="3">PostAttendanceV1UserApprovals</td></tr>
 <tr><td rowspan="2">339</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>通知审批状态更新</td></tr>
 <tr><td colspan="3">PostAttendanceV1ApprovalInfosProcess</td></tr>
@@ -3009,7 +3009,7 @@
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">1505</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
-<tr><td rowspan="2">1506</td><td rowspan="2">2026-03-26</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td rowspan="2">1506</td><td rowspan="2">2026-03-26</td><td><span style="color:red;">删除</span></td><td>妙记</td><td>获取妙记AI产物</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
 <tr><td rowspan="2">1507</td><td rowspan="2">2026-03-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除人员自定义组织变更记录</td></tr>
 <tr><td colspan="3">PostCorehrV2CustomOrgDel</td></tr>
@@ -3157,26 +3157,32 @@
 <tr><td colspan="3">PostImV2ChatsSearch</td></tr>
 <tr><td rowspan="2">1579</td><td rowspan="2">2026-06-17</td><td>&#10003;</td><td>事件订阅</td><td>获取长连接在线数量</td></tr>
 <tr><td colspan="3">GetEventV1Connection</td></tr>
-<tr><td rowspan="2">1580</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>上传附件</td></tr>
+<tr><td rowspan="2">1580</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>上传附件</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAttachments</td></tr>
-<tr><td rowspan="2">1581</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取对话结果</td></tr>
+<tr><td rowspan="2">1581</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>获取对话结果</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdChatsByAgentChatId</td></tr>
-<tr><td rowspan="2">1582</td><td rowspan="2">2026-07-03</td><td>新增</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
+<tr><td rowspan="2">1582</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>发起智能体对话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdChats</td></tr>
-<tr><td rowspan="2">1583</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
+<tr><td rowspan="2">1583</td><td rowspan="2">2026-07-01</td><td><span style="color:red;">删除</span></td><td>飞书 aily</td><td>获取当前用户的可见性</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdAgentVisibilityCheck</td></tr>
-<tr><td rowspan="2">1584</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
+<tr><td rowspan="2">1584</td><td rowspan="2">2026-07-01</td><td>&#10003;</td><td>飞书 aily</td><td>下载智能体产物</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdArtifactsByAgentArtifactId</td></tr>
-<tr><td rowspan="2">1585</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>查询会话列表</td></tr>
+<tr><td rowspan="2">1585</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>查询会话列表</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">1586</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
+<tr><td rowspan="2">1586</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>获取指定会话信息</td></tr>
 <tr><td colspan="3">GetAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
-<tr><td rowspan="2">1587</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>删除会话</td></tr>
+<tr><td rowspan="2">1587</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>删除会话</td></tr>
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
-<tr><td rowspan="2">1588</td><td rowspan="2">2026-07-01</td><td>新增</td><td>飞书 aily</td><td>创建会话</td></tr>
+<tr><td rowspan="2">1588</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-02</td><td>新增</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
+<tr><td rowspan="2">1591</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>创建COT</td></tr>
+<tr><td colspan="3">PostImV1MessageCot</td></tr>
+<tr><td rowspan="2">1592</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>完成COT</td></tr>
+<tr><td colspan="3">PostImV1MessageCotCompleteByCotId</td></tr>
+<tr><td rowspan="2">1593</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>COT事件写入</td></tr>
+<tr><td colspan="3">PutImV1MessageCot</td></tr>
 </tbody></table>
