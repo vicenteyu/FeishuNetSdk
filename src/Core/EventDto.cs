@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -76,6 +76,10 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Application.Events.ApplicationBotMenuV6EventBodyDto>), typeDiscriminator: "application.bot.menu_v6")]
 //【审批】审批定义更新
 [JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto>), typeDiscriminator: "approval.approval.updated_v4")]
+//【审批】审批实例状态变更事件
+[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalInstanceStatusChangedV4EventBodyDto>), typeDiscriminator: "approval.instance.status_changed_v4")]
+//【审批】审批任务状态变更事件
+[JsonDerivedType(typeof(EventV2Dto<Approval.Events.ApprovalTaskStatusChangedV4EventBodyDto>), typeDiscriminator: "approval.task.status_changed_v4")]
 //【身份验证】撤销用户授权事件
 [JsonDerivedType(typeof(EventV2Dto<Auth.Events.AuthUserAccessTokenRevokedV4EventBodyDto>), typeDiscriminator: "auth.user_access_token.revoked_v4")]
 //【日历】创建 ACL

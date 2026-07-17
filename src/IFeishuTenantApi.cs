@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-10
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -19868,11 +19868,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="space_type">
+    /// <para>必填：否</para>
+    /// <para>空间类型，不填时默认返回团队空间和个人空间列表；传入 my_library_resigned 返回离职文档库列表</para>
+    /// <para>示例值：my_library_resigned</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/wiki/v2/spaces")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.GetWikiV2SpacesResponseDto>> GetWikiV2SpacesAsync(
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? space_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -60622,104 +60629,13 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【消息与群组】创建COT</para>
-    /// <para>接口ID：7657479549125069790</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/create</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>调用该接口支持创建一条COT消息，用于与Agent交互时展示Agent的思考过程。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>im:message</item>
-    /// <item>im:message:send_as_bot</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="receive_id_type">
-    /// <para>必填：是</para>
-    /// <para>消息接收者 ID 类型。支持 open_id/union_id/user_id/email/chat_id</para>
-    /// <para>**可选值**</para>
-    /// <para>**open_id**</para>
-    /// <para>标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</para>
-    /// <para>**union_id**</para>
-    /// <para>标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</para>
-    /// <para>**user_id**</para>
-    /// <para>标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)。</para>
-    /// <para>**email**</para>
-    /// <para>以用户的真实邮箱来标识用户。</para>
-    /// <para>**chat_id**</para>
-    /// <para>以群 ID 来标识群聊。[了解更多：如何获取群 ID ](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/chat-id-description)&lt;/md-enum-item&gt;</para>
-    /// <para>示例值：chat_id</para>
-    /// </param>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/im/v1/message_cot")]
-    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1MessageCotResponseDto>> PostImV1MessageCotAsync(
-        [PathQuery] string receive_id_type,
-        [JsonContent] Im.PostImV1MessageCotBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【消息与群组】完成COT</para>
-    /// <para>接口ID：7657479549125102558</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/complete</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口主要用于将COT写入状态结束。当COT状态为写入完成态，将无法继续追加COT事件。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>im:message</item>
-    /// <item>im:message:send_as_bot</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="cot_id">
-    /// <para>路径参数</para>
-    /// <para>必填：是</para>
-    /// <para>思考过程ID，这里的思考过程ID直接取用CreateCOT接口返回的cot_id</para>
-    /// <para>示例值：7633695736571366941</para>
-    /// </param>
-    /// <param name="message_id">
-    /// <para>必填：是</para>
-    /// <para>消息ID，这里的消息ID直接取用CreateCOT接口返回的message_id</para>
-    /// <para>示例值：om_x100b6cd766729880c3a7d8560446871</para>
-    /// </param>
-    /// <param name="reason">
-    /// <para>必填：否</para>
-    /// <para>完成原因，支持done/error/timeout</para>
-    /// <para>done - 代表cot状态为执行成功</para>
-    /// <para>error - 代表cot状态为执行出错</para>
-    /// <para>timeout - 代表cot状态为执行超时</para>
-    /// <para>示例值：done</para>
-    /// <para>默认值：done</para>
-    /// </param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPost("/open-apis/im/v1/message_cot/complete/{cot_id}")]
-    System.Threading.Tasks.Task<FeishuResponse> PostImV1MessageCotCompleteByCotIdAsync(
-        [PathQuery] string cot_id,
-        [PathQuery] string message_id,
-        [PathQuery] string? reason = "done",
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【消息与群组】COT事件写入</para>
-    /// <para>接口ID：7657479549125118942</para>
-    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message_cot/update</para>
-    /// <para>Authorization：tenant_access_token</para>
-    /// <para>该接口用于持续写入COT(思考过程)事件，写入后客户端可以流式开始思考过程。</para>
-    /// <para>权限要求：<list type="bullet">
-    /// <item>im:message</item>
-    /// <item>im:message:send_as_bot</item>
-    /// </list></para>
-    /// </summary>
-    /// <param name="dto">请求体</param>
-    /// <param name="cancellation_token">取消操作的令牌</param>
-    [HttpPut("/open-apis/im/v1/message_cot")]
-    System.Threading.Tasks.Task<FeishuResponse> PutImV1MessageCotAsync(
-        [JsonContent] Im.PutImV1MessageCotBodyDto dto,
-        CancellationToken cancellation_token = default);
-
-    /// <summary>
-    /// <para>【视频会议】获取会议事件</para>
+    /// <para>【视频会议】获取会议事件列表</para>
     /// <para>接口ID：7657481714696588519</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
     /// <item>vc:meeting.meetingevent:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -60778,12 +60694,13 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【视频会议】获取用户活跃会议</para>
+    /// <para>【视频会议】获取用户活跃会议列表</para>
     /// <para>接口ID：7657481714696604903</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
     /// <item>vc:meeting.meetingevent:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">

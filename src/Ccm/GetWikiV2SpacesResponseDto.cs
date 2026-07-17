@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-07-22
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="GetWikiV2SpacesResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -69,6 +69,7 @@ public record GetWikiV2SpacesResponseDto : IPageableResponse<GetWikiV2SpacesResp
         /// <item>team：团队空间，归团队（多人）管理，可添加多个管理员</item>
         /// <item>person：个人空间（旧版，已下线），归个人管理。一人仅可拥有一个，无法添加其他管理员</item>
         /// <item>my_library：我的文档库，归个人管理。一人仅可拥有一个，无法添加其他管理员</item>
+        /// <item>my_library_resigned：离职文档库，离职成员的个人文档库，成员离职后将转移给指定成员管理。</item>
         /// </list></para>
         /// </summary>
         [JsonPropertyName("space_type")]

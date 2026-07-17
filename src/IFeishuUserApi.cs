@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-10
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -10767,6 +10767,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：1565676577122621</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="space_type">
+    /// <para>必填：否</para>
+    /// <para>空间类型，不填时默认返回团队空间和个人空间列表；传入 my_library_resigned 返回离职文档库列表</para>
+    /// <para>示例值：my_library_resigned</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/wiki/v2/spaces")]
@@ -10774,6 +10780,7 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? space_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -29461,6 +29468,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="start_timestamp">
+    /// <para>必填：否</para>
+    /// <para>按发起时间查询单据，时间范围的开始区间时间戳，精确到秒</para>
+    /// <para>示例值：1783528081</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="end_timestamp">
+    /// <para>必填：否</para>
+    /// <para>按发起时间查询单据，时间范围的结束区间时间戳，精确到秒</para>
+    /// <para>示例值：1783528081</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
@@ -29481,6 +29500,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? locale = null,
         [PathQuery] string? definition_code = null,
+        [PathQuery] string? start_timestamp = null,
+        [PathQuery] string? end_timestamp = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
@@ -29662,6 +29683,18 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：7C468A54-8745-2245-9675-08B7C63E7A85</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="start_timestamp">
+    /// <para>必填：否</para>
+    /// <para>按时间查询任务，时间范围的开始区间时间戳，精确到秒</para>
+    /// <para>示例值：1783528081</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="end_timestamp">
+    /// <para>必填：否</para>
+    /// <para>按时间查询任务，时间范围的结束区间时间戳，精确到秒</para>
+    /// <para>示例值：1783528081</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="user_id_type">
     /// <para>必填：否</para>
     /// <para>用户 ID 类型</para>
@@ -29683,6 +29716,8 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? locale = null,
         [PathQuery] string? definition_code = null,
+        [PathQuery] string? start_timestamp = null,
+        [PathQuery] string? end_timestamp = null,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
@@ -31942,12 +31977,13 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【视频会议】获取会议事件</para>
+    /// <para>【视频会议】获取会议事件列表</para>
     /// <para>接口ID：7657481714696588519</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
     /// <item>vc:meeting.meetingevent:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -32008,12 +32044,13 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【视频会议】获取用户活跃会议</para>
+    /// <para>【视频会议】获取用户活跃会议列表</para>
     /// <para>接口ID：7657481714696604903</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
     /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
     /// <item>vc:meeting.meetingevent:read</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
@@ -32044,6 +32081,102 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string? user_id = null,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】订阅审批任务状态变更事件</para>
+    /// <para>接口ID：7663359183039761673</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/subscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>当应用[订阅审批事件](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)后，对于事件type为[审批任务状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/events/status_changed)的事件</para>
+    /// <para>需要调用该接口指定需要接收通知的审批任务范围，指定后才可以接收到对应范围内的事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:task:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/approval/v4/tasks/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4TasksSubscriptionAsync(
+        UserAccessToken access_token,
+        [JsonContent] Approval.PostApprovalV4TasksSubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】退订审批任务状态变更事件</para>
+    /// <para>接口ID：7663359183039778057</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/unsubscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>当不再希望收到任务状态变更事件时，调用此接口，该接口用于撤销[订阅审批任务状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/task/subscription)中的操作</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:task:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="subscription_type">
+    /// <para>必填：否</para>
+    /// <para>需取消订阅的审批类型，支持指定取消参与审批或管理审批的订阅关系。未传入该字段时表示取消所有类别订阅</para>
+    /// <para>示例值：INVOLVED_APPROVAL</para>
+    /// <list type="bullet">
+    /// <item>INVOLVED_APPROVAL：参与审批订阅</item>
+    /// <item>MANAGED_APPROVAL：管理审批订阅</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/approval/v4/tasks/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteApprovalV4TasksSubscriptionAsync(
+        UserAccessToken access_token,
+        [PathQuery] string? subscription_type = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】订阅审批实例状态变更事件</para>
+    /// <para>接口ID：7663359183039794441</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/subscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>当应用[订阅审批事件](https://open.feishu.cn/document/ukTMukTMukTM/uUTNz4SN1MjL1UzM)后，对于事件type为[审批实例状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/events/status_changed)的事件</para>
+    /// <para>需要调用该接口指定需要接收通知的审批任务范围，指定后才可以接收到对应范围内的事件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:instance:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/approval/v4/instances/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> PostApprovalV4InstancesSubscriptionAsync(
+        UserAccessToken access_token,
+        [JsonContent] Approval.PostApprovalV4InstancesSubscriptionBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】退订审批实例状态变更事件</para>
+    /// <para>接口ID：7663359183039810825</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/unsubscription</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>当不再希望收到任务状态变更事件时，调用此接口，该接口用于撤销[订阅审批实例状态变更事件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/instance/subscription)中的操作</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:instance:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="subscription_type">
+    /// <para>必填：否</para>
+    /// <para>需取消订阅的审批类型，支持指定取消参与审批或管理审批的订阅关系。未传入该字段时表示取消所有类别订阅</para>
+    /// <para>示例值：INVOLVED_APPROVAL</para>
+    /// <list type="bullet">
+    /// <item>INVOLVED_APPROVAL：参与审批订阅</item>
+    /// <item>MANAGED_APPROVAL：管理审批订阅</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpDelete("/open-apis/approval/v4/instances/subscription")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteApprovalV4InstancesSubscriptionAsync(
+        UserAccessToken access_token,
+        [PathQuery] string? subscription_type = null,
         CancellationToken cancellation_token = default);
 }
 

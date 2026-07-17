@@ -257,7 +257,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembers</td></tr>
 <tr><td rowspan="2">129</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>多维表格</td><td>删除协作者</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">130</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
+<tr><td rowspan="2">130</td><td rowspan="2">2026-07-13</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
 <tr><td rowspan="2">131</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
@@ -1577,7 +1577,7 @@
 <tr><td colspan="3">PostMailV1UserMailboxesByUserMailboxIdMessagesByMessageIdCancelScheduledSend</td></tr>
 <tr><td rowspan="2">789</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>抄送审批实例（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesAddCc</td></tr>
-<tr><td rowspan="2">790</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>查询用户的已发起审批列表</td></tr>
+<tr><td rowspan="2">790</td><td rowspan="2">2026-07-14</td><td>&#10003;</td><td>审批</td><td>查询用户的已发起审批列表</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesInitiated</td></tr>
 <tr><td rowspan="2">791</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>同意审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksPass</td></tr>
@@ -1587,7 +1587,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesRemind</td></tr>
 <tr><td rowspan="2">794</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>获取单个审批实例详情（用户级）</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesDetail</td></tr>
-<tr><td rowspan="2">795</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>查询审批任务列表</td></tr>
+<tr><td rowspan="2">795</td><td rowspan="2">2026-07-14</td><td>&#10003;</td><td>审批</td><td>查询审批任务列表</td></tr>
 <tr><td colspan="3">GetApprovalV4Tasks</td></tr>
 <tr><td rowspan="2">796</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>拒绝审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksRefuse</td></tr>
@@ -1609,8 +1609,16 @@
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
 <tr><td rowspan="2">805</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">806</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td rowspan="2">806</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">807</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td rowspan="2">807</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
+<tr><td rowspan="2">808</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>订阅审批任务状态变更事件</td></tr>
+<tr><td colspan="3">PostApprovalV4TasksSubscription</td></tr>
+<tr><td rowspan="2">809</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>退订审批任务状态变更事件</td></tr>
+<tr><td colspan="3">DeleteApprovalV4TasksSubscription</td></tr>
+<tr><td rowspan="2">810</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>订阅审批实例状态变更事件</td></tr>
+<tr><td colspan="3">PostApprovalV4InstancesSubscription</td></tr>
+<tr><td rowspan="2">811</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>退订审批实例状态变更事件</td></tr>
+<tr><td colspan="3">DeleteApprovalV4InstancesSubscription</td></tr>
 </tbody></table>
