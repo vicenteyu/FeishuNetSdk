@@ -4,16 +4,16 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="GetVcV1BotsUserActiveMeetingResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取用户活跃会议 响应体</summary>
+// <summary>获取用户活跃会议列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Vc;
 /// <summary>
-/// 获取用户活跃会议 响应体
+/// 获取用户活跃会议列表 响应体
 /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
 /// <para>接口ID：7657481714696604903</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>

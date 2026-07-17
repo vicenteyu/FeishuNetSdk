@@ -120,6 +120,8 @@
 <tr><td>work_approval</td><td>EventV1Dto&lt;Approval.Events.WorkApprovalEventBodyDto&gt;</td><td>【审批】加班审批</td></tr>
 <tr><td>leave_approvalV2</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalV2EventBodyDto&gt;</td><td>【审批】请假审批</td></tr>
 <tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
+<tr><td>approval.task.status_changed_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalTaskStatusChangedV4EventBodyDto&gt;</td><td>【审批】审批任务状态变更事件</td></tr>
+<tr><td>approval.instance.status_changed_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalInstanceStatusChangedV4EventBodyDto&gt;</td><td>【审批】审批实例状态变更事件</td></tr>
 <tr><td>out_approval</td><td>EventV1Dto&lt;Approval.Events.OutApprovalEventBodyDto&gt;</td><td>【审批】外出审批</td></tr>
 <tr><td>vc.meeting.participant_meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingParticipantMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】参与的会议结束</td></tr>
 <tr><td>vc.room.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室</td></tr>

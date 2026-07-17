@@ -4,16 +4,16 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="GetVcV1BotsEventsResponseDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>获取会议事件 响应体</summary>
+// <summary>获取会议事件列表 响应体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Vc;
 /// <summary>
-/// 获取会议事件 响应体
+/// 获取会议事件列表 响应体
 /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
 /// <para>接口ID：7657481714696588519</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>

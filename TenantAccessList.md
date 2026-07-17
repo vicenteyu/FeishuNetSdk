@@ -435,7 +435,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenRolesByRoleIdMembers</td></tr>
 <tr><td rowspan="2">218</td><td rowspan="2">2025-01-21</td><td>&#10003;</td><td>多维表格</td><td>删除协作者</td></tr>
 <tr><td colspan="3">DeleteBitableV1AppsByAppTokenRolesByRoleIdMembersByMemberId</td></tr>
-<tr><td rowspan="2">219</td><td rowspan="2">2025-08-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
+<tr><td rowspan="2">219</td><td rowspan="2">2026-07-13</td><td>&#10003;</td><td>云文档</td><td>获取知识空间列表</td></tr>
 <tr><td colspan="3">GetWikiV2Spaces</td></tr>
 <tr><td rowspan="2">220</td><td rowspan="2">2025-07-22</td><td>&#10003;</td><td>云文档</td><td>获取知识空间信息</td></tr>
 <tr><td colspan="3">GetWikiV2SpacesBySpaceId</td></tr>
@@ -3175,14 +3175,14 @@
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
 <tr><td rowspan="2">1588</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件</td></tr>
+<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-02</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议</td></tr>
+<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
-<tr><td rowspan="2">1591</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>创建COT</td></tr>
+<tr><td rowspan="2">1591</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>创建COT</td></tr>
 <tr><td colspan="3">PostImV1MessageCot</td></tr>
-<tr><td rowspan="2">1592</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>完成COT</td></tr>
+<tr><td rowspan="2">1592</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>完成COT</td></tr>
 <tr><td colspan="3">PostImV1MessageCotCompleteByCotId</td></tr>
-<tr><td rowspan="2">1593</td><td rowspan="2">2026-07-10</td><td>新增</td><td>消息与群组</td><td>COT事件写入</td></tr>
+<tr><td rowspan="2">1593</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>COT事件写入</td></tr>
 <tr><td colspan="3">PutImV1MessageCot</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-04-25
+// Last Modified On : 2026-07-17
 // ************************************************************************
 // <copyright file="ImMessageReceiveV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Im.Events;
 /// <summary>
 /// 接收消息 事件体
-/// <para>机器人接收到用户发送的消息后触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=im&amp;version=v1&amp;resource=message&amp;event=receive)</para>
+/// <para>机器人接收到用户/机器人发送的消息后触发此事件。{使用示例}(url=/api/tools/api_explore/api_explore_config?project=im&amp;version=v1&amp;resource=message&amp;event=receive)</para>
 /// <para>接口ID：6946222929790402588</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/im-v1/message/events/receive</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fim-v1%2fmessage%2fevents%2freceive</para>
