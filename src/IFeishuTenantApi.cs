@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -7971,7 +7971,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="target_geo">
     /// <para>必填：否</para>
-    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通FG（cn、us、sg、jp），每次只能查一个Geo数据</para>
+    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG（cn、us、sg、jp），每次只能查一个Geo数据</para>
     /// <para>示例值：cn</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -8038,12 +8038,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="page_token">
     /// <para>必填：否</para>
     /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
-    /// <para>示例值："2"</para>
+    /// <para>示例值：2</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="target_geo">
     /// <para>必填：否</para>
-    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通FG(cn、sg、jp、us)</para>
+    /// <para>需跨域访问的Geo数据，每个Geo仅包含本Geo数据，不传默认查本地数据，调用前需要先开通MG(cn、sg、jp、us)</para>
     /// <para>示例值：cn</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -16900,10 +16900,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【招聘】获取职位列表</para>
     /// <para>接口ID：7001051759612919811</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/list-2</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取职位列表，仅支持获取默认字段信息，获取详细信息可调用[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)接口。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job:readonly</item>
+    /// <item>hire:people_cli</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -16974,6 +16975,34 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：people_admin_job_category_id</para>
     /// </param>
+    /// <param name="recruiter_id_list">
+    /// <para>必填：否</para>
+    /// <para>招聘负责人 ID，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="hiring_manager_id_list">
+    /// <para>必填：否</para>
+    /// <para>用人经理 ID 列表，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="assistant_id_list">
+    /// <para>必填：否</para>
+    /// <para>招聘协助人 ID 列表，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id">
+    /// <para>必填：否</para>
+    /// <para>部门 ID，与入参中的department_id_type类型一致</para>
+    /// <para>示例值：od-ba304fa94bae01f1a28e3ad04b536b554</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_sub_department">
+    /// <para>必填：否</para>
+    /// <para>是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true 时，返回该部门及所有下属部门的职位。</para>
+    /// <para>当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/hire/v1/jobs")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobsResponseDto>> GetHireV1JobsAsync(
@@ -16985,6 +17014,11 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
         [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string[]? recruiter_id_list = null,
+        [PathQuery] string[]? hiring_manager_id_list = null,
+        [PathQuery] string[]? assistant_id_list = null,
+        [PathQuery] string? department_id = null,
+        [PathQuery] bool? with_sub_department = false,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -19301,11 +19335,19 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：100</para>
     /// <para>默认值：10</para>
     /// </param>
+    /// <param name="effective_date">
+    /// <para>必填：否</para>
+    /// <para>生效日期，格式为 yyyy-MM-dd</para>
+    /// <para>传入后，接口按该日期对应时间点查询公司数据，仅返回在该时间点有效的公司；晚于该日期生效的公司不会被查询到。</para>
+    /// <para>示例值：2022-01-01</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/corehr/v1/companies")]
     System.Threading.Tasks.Task<FeishuResponse<FeishuPeople.GetCorehrV1CompaniesResponseDto>> GetCorehrV1CompaniesAsync(
         [PathQuery] string? page_token = null,
         [PathQuery] int page_size = 10,
+        [PathQuery] string? effective_date = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -50156,11 +50198,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【招聘】获取投递详情</para>
     /// <para>接口ID：7397703144758165532</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/application/get_detail</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据投递 ID 获取投递信息并通过参数按需获取该投递相关的实体信息，如「职位」、「人才」、「评估」、「面试」、「Offer」、「猎头」、「内推」、「官网」等实体的信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:application</item>
     /// <item>hire:application:readonly</item>
+    /// <item>hire:people_cli</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -50177,6 +50220,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>hire:offer</item>
     /// <item>hire:offer_salary:readonly</item>
     /// <item>hire:offer:readonly</item>
+    /// <item>hire:people_cli</item>
     /// <item>hire:referral</item>
     /// <item>hire:referral:readonly</item>
     /// <item>hire:site</item>

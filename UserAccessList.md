@@ -1305,7 +1305,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
 <tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>多维表格</td><td>升级表单</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
-<tr><td rowspan="2">654</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td rowspan="2">654</td><td rowspan="2">2026-07-22</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
 <tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
 <tr><td rowspan="2">655</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>搜索地理库信息</td></tr>
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
@@ -1613,12 +1613,16 @@
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
 <tr><td rowspan="2">807</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
-<tr><td rowspan="2">808</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>订阅审批任务状态变更事件</td></tr>
+<tr><td rowspan="2">808</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>订阅审批任务状态变更事件</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksSubscription</td></tr>
-<tr><td rowspan="2">809</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>退订审批任务状态变更事件</td></tr>
+<tr><td rowspan="2">809</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>退订审批任务状态变更事件</td></tr>
 <tr><td colspan="3">DeleteApprovalV4TasksSubscription</td></tr>
-<tr><td rowspan="2">810</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>订阅审批实例状态变更事件</td></tr>
+<tr><td rowspan="2">810</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>订阅审批实例状态变更事件</td></tr>
 <tr><td colspan="3">PostApprovalV4InstancesSubscription</td></tr>
-<tr><td rowspan="2">811</td><td rowspan="2">2026-07-17</td><td>新增</td><td>审批</td><td>退订审批实例状态变更事件</td></tr>
+<tr><td rowspan="2">811</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>退订审批实例状态变更事件</td></tr>
 <tr><td colspan="3">DeleteApprovalV4InstancesSubscription</td></tr>
+<tr><td rowspan="2">812</td><td rowspan="2">2026-07-24</td><td>新增</td><td>招聘</td><td>获取职位列表</td></tr>
+<tr><td colspan="3">GetHireV1Jobs</td></tr>
+<tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>新增</td><td>招聘</td><td>获取投递详情</td></tr>
+<tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
 </tbody></table>

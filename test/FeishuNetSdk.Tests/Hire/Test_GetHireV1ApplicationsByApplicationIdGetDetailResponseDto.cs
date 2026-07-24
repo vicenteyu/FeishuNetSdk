@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="Test_GetHireV1ApplicationsByApplicationIdGetDetailResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -103,12 +103,40 @@ public class Test_GetHireV1ApplicationsByApplicationIdGetDetailResponseDto : Tes
                 "owner_id": "ou_ce913028fe74123221f5dc320bb9c709",
                 "terminator_id": "ou_ce913028fe74123221f5dc320bb9c709",
                 "create_time": "1632990774278",
-                "modify_time": "1634801678103"
+                "modify_time": "1634801678103",
+                "lock_status": 1,
+                "termination_reason_note": "其他投递已入职"
             },
             "job": {
                 "id": "6956499586395523359",
                 "name": "后端研发工程师",
-                "code": "A75256"
+                "code": "A75256",
+                "description": "职位描述文本",
+                "requirement": "职位要求文本",
+                "recruitment_type": {
+                    "id": "6001",
+                    "name": {
+                        "zh_cn": "测试",
+                        "en_us": "test"
+                    },
+                    "active_status": 1
+                },
+                "department": {
+                    "id": "od-xxxx",
+                    "name": {
+                        "zh_cn": "测试",
+                        "en_us": "test"
+                    }
+                },
+                "process_type": 1,
+                "process_id": "1",
+                "city_list": {
+                    "code": "1111",
+                    "name": {
+                        "zh_cn": "测试",
+                        "en_us": "test"
+                    }
+                }
             },
             "talent": {
                 "id": "6956499586395523359",
@@ -189,7 +217,11 @@ public class Test_GetHireV1ApplicationsByApplicationIdGetDetailResponseDto : Tes
                                                         "zh_cn": "选项一",
                                                         "en_us": "Option 1"
                                                     },
-                                                    "score_val": 10
+                                                    "score_val": 10,
+                                                    "alias_name": {
+                                                        "zh_cn": "测试",
+                                                        "en_us": "test"
+                                                    }
                                                 },
                                                 "dimension_options": [
                                                     {
@@ -198,7 +230,11 @@ public class Test_GetHireV1ApplicationsByApplicationIdGetDetailResponseDto : Tes
                                                             "zh_cn": "选项一",
                                                             "en_us": "Option 1"
                                                         },
-                                                        "score_val": 10
+                                                        "score_val": 10,
+                                                        "alias_name": {
+                                                            "zh_cn": "测试",
+                                                            "en_us": "test"
+                                                        }
                                                     }
                                                 ],
                                                 "dimension_score": 10,
@@ -237,6 +273,13 @@ public class Test_GetHireV1ApplicationsByApplicationIdGetDetailResponseDto : Tes
                                                                 }
                                                             }
                                                         ]
+                                                    }
+                                                ],
+                                                "ability_assessments": [
+                                                    {
+                                                        "id": "6949805467799537964",
+                                                        "ability_id": "7270798542321666366",
+                                                        "content": "能力项评价"
                                                     }
                                                 ]
                                             }
