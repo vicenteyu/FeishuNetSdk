@@ -4,7 +4,7 @@
 // Created          : 2026-03-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-03-06
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="PostSparkV1DirectoryUserIdConvertBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,7 +27,7 @@ public record PostSparkV1DirectoryUserIdConvertBodyDto
 {
     /// <summary>
     /// <para>ID 转换类型，枚举</para>
-    /// <para>设置为10、11时，ids需要传入妙搭用户 ID</para>
+    /// <para>设置为10、11、40时，ids需要传入妙搭用户 ID</para>
     /// <para>设置为20时，需要传入飞书开平 OpenID</para>
     /// <para>设置为21时，需要传入飞书开平 UnionID</para>
     /// <para>必填：是</para>
@@ -37,6 +37,7 @@ public record PostSparkV1DirectoryUserIdConvertBodyDto
     /// <item>11：妙搭用户 ID 转飞书开放平台 Union ID</item>
     /// <item>20：飞书开放平台 Open ID 转妙搭用户 ID</item>
     /// <item>21：飞书开放平台 Union ID 转妙搭用户 ID</item>
+    /// <item>40：妙搭用户 ID 转飞书用户 ID</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("id_convert_type")]

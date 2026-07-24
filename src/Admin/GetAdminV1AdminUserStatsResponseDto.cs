@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="GetAdminV1AdminUserStatsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -247,7 +247,7 @@ public record GetAdminV1AdminUserStatsResponseDto : IPageableResponse<GetAdminV1
         /// <summary>
         /// <para>飞书的应用类型名称</para>
         /// <para>必填：否</para>
-        /// <para>示例值：Feishu，Lark</para>
+        /// <para>示例值：Feishu,Lark</para>
         /// </summary>
         [JsonPropertyName("app_package_type")]
         public string? AppPackageType { get; set; }

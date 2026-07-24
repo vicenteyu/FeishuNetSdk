@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -10298,6 +10298,133 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [JsonContent] Performance.PostPerformanceV1ReviewDatasQueryBodyDto dto,
         [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【招聘】获取职位列表</para>
+    /// <para>接口ID：7001051759612919811</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/hire-v1/recruitment-related-configuration/job/list-2</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取职位列表，仅支持获取默认字段信息，获取详细信息可调用[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)接口。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:job:readonly</item>
+    /// <item>hire:people_cli</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="update_start_time">
+    /// <para>必填：否</para>
+    /// <para>最早更新时间，毫秒时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="update_end_time">
+    /// <para>必填：否</para>
+    /// <para>最晚更新时间，毫秒时间戳</para>
+    /// <para>示例值：1618500278663</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：10</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：eyJvZmZzZXQiOjEwLCJ0aW1lc3RhbXAiOjE2Mjc1NTUyMjM2NzIsImlkIjpudWxsfQ==</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>指定查询结果中的部门 ID 类型。关于部门 ID 的详细介绍，可参见[部门资源介绍](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/field-overview)。</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：由系统自动生成的部门 ID，ID 前缀固定为 od-，在租户内全局唯一。</item>
+    /// <item>department_id：支持用户自定义配置的部门 ID。自定义配置时可复用已删除的 department_id，因此在未删除的部门范围内 department_id 具有唯一性。</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：people_admin_job_level_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，可通过[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：people_admin_job_category_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[「获取租户序列列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_family/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="recruiter_id_list">
+    /// <para>必填：否</para>
+    /// <para>招聘负责人 ID，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="hiring_manager_id_list">
+    /// <para>必填：否</para>
+    /// <para>用人经理 ID 列表，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="assistant_id_list">
+    /// <para>必填：否</para>
+    /// <para>招聘协助人 ID 列表，与入参user_id_type类型一致</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="department_id">
+    /// <para>必填：否</para>
+    /// <para>部门 ID，与入参中的department_id_type类型一致</para>
+    /// <para>示例值：od-ba304fa94bae01f1a28e3ad04b536b554</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="with_sub_department">
+    /// <para>必填：否</para>
+    /// <para>是否包含子部门的职位。默认 false，仅返回指定部门的直属职位；设为 true 时，返回该部门及所有下属部门的职位。</para>
+    /// <para>当前该功能正在灰度中，如需使用请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：false</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v1/jobs")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobsResponseDto>> GetHireV1JobsAsync(
+        UserAccessToken access_token,
+        [PathQuery] string? update_start_time = null,
+        [PathQuery] string? update_end_time = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
+        [PathQuery] string[]? recruiter_id_list = null,
+        [PathQuery] string[]? hiring_manager_id_list = null,
+        [PathQuery] string[]? assistant_id_list = null,
+        [PathQuery] string? department_id = null,
+        [PathQuery] bool? with_sub_department = false,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -23373,6 +23500,120 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdToBeResignedBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【招聘】获取投递详情</para>
+    /// <para>接口ID：7397703144758165532</para>
+    /// <para>接口文档：https://open.feishu.cn/document/hire-v1/candidate-management/delivery-process-management/application/get_detail</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据投递 ID 获取投递信息并通过参数按需获取该投递相关的实体信息，如「职位」、「人才」、「评估」、「面试」、「Offer」、「猎头」、「内推」、「官网」等实体的信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:application</item>
+    /// <item>hire:application:readonly</item>
+    /// <item>hire:people_cli</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>hire:agency</item>
+    /// <item>hire:agency_salary:readonly</item>
+    /// <item>hire:agency:readonly</item>
+    /// <item>hire:employee</item>
+    /// <item>hire:employee:readonly</item>
+    /// <item>hire:evaluation:readonly</item>
+    /// <item>hire:interview</item>
+    /// <item>hire:interview:readonly</item>
+    /// <item>hire:job</item>
+    /// <item>hire:job:readonly</item>
+    /// <item>hire:offer</item>
+    /// <item>hire:offer_salary:readonly</item>
+    /// <item>hire:offer:readonly</item>
+    /// <item>hire:people_cli</item>
+    /// <item>hire:referral</item>
+    /// <item>hire:referral:readonly</item>
+    /// <item>hire:site</item>
+    /// <item>hire:site:readonly</item>
+    /// <item>hire:talent</item>
+    /// <item>hire:talent:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="application_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>投递 ID，可通过[获取投递列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/application/list)接口获取</para>
+    /// <para>示例值：6956499586395523359</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户,即将下线字段,不建议使用</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门，通过[批量获取部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/batch)接口获取</item>
+    /// <item>department_id：以 department_id 来标识部门，通过[批量获取部门信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/department/batch)接口获取</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：job_level_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[获取租户职级列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_level/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：job_family_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[获取租户序列列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/job_family/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：job_family_id</para>
+    /// </param>
+    /// <param name="employee_type_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「人员类型 ID」的类型</para>
+    /// <para>示例值：employee_type_enum_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_employee_type_id：「人力系统管理后台」适用的人员类型 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>employee_type_enum_id：「飞书管理后台」适用的人员类型 ID，通过[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/employee_type_enum/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：employee_type_enum_id</para>
+    /// </param>
+    /// <param name="options">
+    /// <para>必填：否</para>
+    /// <para>关联实体信息获取参数，用于指定获取哪些关联实体信息，不传时默认只返回投递基本信息（`basic_info`）。如需一次查询多个实体信息，可通过将同一参数名多次传递，并且每次传递不同的参数值。</para>
+    /// <para> </para>
+    /// <para>例如：https://{url}?options=with_job&amp;options=with_talent</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v1/applications/{application_id}/get_detail")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1ApplicationsByApplicationIdGetDetailResponseDto>> GetHireV1ApplicationsByApplicationIdGetDetailAsync(
+        UserAccessToken access_token,
+        [PathQuery] string application_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "job_level_id",
+        [PathQuery] string? job_family_id_type = "job_family_id",
+        [PathQuery] string? employee_type_id_type = "employee_type_enum_id",
+        [PathQuery] string[]? options = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>

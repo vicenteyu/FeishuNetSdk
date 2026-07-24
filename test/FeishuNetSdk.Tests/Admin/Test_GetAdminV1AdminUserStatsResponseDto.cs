@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-07-24
 // ************************************************************************
 // <copyright file="Test_GetAdminV1AdminUserStatsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -55,7 +55,7 @@ public class Test_GetAdminV1AdminUserStatsResponseDto : TestBase
                 "active_os": "'ios 14.2,-','ios 14.2,feishu 3.40.0-alpha'",
                 "create_task_num": 0,
                 "vc_num": 0,
-                "app_package_type": "Feishu，Lark",
+                "app_package_type": "Feishu,Lark",
                 "os_name": "iOS,Andorid,Windows",
                 "email_send_count": "2",
                 "email_receive_count": "3",
