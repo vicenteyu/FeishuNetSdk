@@ -1133,7 +1133,7 @@
 <tr><td colspan="3">GetApplicationV6ApplicationsUnderauditlist</td></tr>
 <tr><td rowspan="2">567</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>应用信息</td><td>获取应用信息</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppId</td></tr>
-<tr><td rowspan="2">568</td><td rowspan="2">2025-02-18</td><td>&#10003;</td><td>应用信息</td><td>获取应用版本信息</td></tr>
+<tr><td rowspan="2">568</td><td rowspan="2">2026-07-30</td><td>&#10003;</td><td>应用信息</td><td>获取应用版本信息</td></tr>
 <tr><td colspan="3">GetApplicationV6ApplicationsByAppIdAppVersionsByVersionId</td></tr>
 <tr><td rowspan="2">569</td><td rowspan="2">2026-04-07</td><td>&#10003;</td><td>通讯录</td><td>更新序列</td></tr>
 <tr><td colspan="3">PutContactV3JobFamiliesByJobFamilyId</td></tr>
@@ -3005,7 +3005,7 @@
 <tr><td colspan="3">PostApplicationV7AppAvatarUpload</td></tr>
 <tr><td rowspan="2">1503</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用基础信息配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdBase</td></tr>
-<tr><td rowspan="2">1504</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用能力配置</td></tr>
+<tr><td rowspan="2">1504</td><td rowspan="2">2026-07-30</td><td>&#10003;</td><td>应用信息</td><td>更新应用能力配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">1505</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
@@ -3185,4 +3185,6 @@
 <tr><td colspan="3">PostImV1MessageCotCompleteByCotId</td></tr>
 <tr><td rowspan="2">1593</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>COT事件写入</td></tr>
 <tr><td colspan="3">PutImV1MessageCot</td></tr>
+<tr><td rowspan="2">1594</td><td rowspan="2">2026-07-28</td><td>新增</td><td>帐号</td><td>重置登录密码</td></tr>
+<tr><td colspan="3">PutPassportV1Password</td></tr>
 </tbody></table>

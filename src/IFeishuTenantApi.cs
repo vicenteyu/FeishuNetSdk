@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-24
+// Last Modified On : 2026-07-31
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -57417,6 +57417,38 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string user_mailbox_id,
         [PathQuery] string thread_id,
         [PathQuery] string? format = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【帐号】重置登录密码</para>
+    /// <para>接口ID：7537665430859382787</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/passport-v1/password/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>当用户忘记密码、密码已过期或账号存在安全风险时，管理员可以为用户重置密码。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>passport:password:full</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/passport/v1/password")]
+    System.Threading.Tasks.Task<FeishuResponse> PutPassportV1PasswordAsync(
+        [JsonContent] Passport.PutPassportV1PasswordBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>

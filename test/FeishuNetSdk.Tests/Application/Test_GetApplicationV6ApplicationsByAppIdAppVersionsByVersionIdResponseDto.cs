@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-07-31
 // ************************************************************************
 // <copyright file="Test_GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -82,7 +82,31 @@ public class Test_GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdRespo
                     "mobile_url": "https://www.example.com"
                 },
                 "bot": {
-                    "card_request_url": "https://www.example.com"
+                    "card_request_url": "https://www.example.com",
+                    "bot_menu_enable": true,
+                    "bot_menus": [
+                        {
+                            "menu_id": "menu_1",
+                            "parent_menu_id": "menu_parent",
+                            "sort": 1,
+                            "default_name": "菜单名称",
+                            "i18n_name": {
+                                "en_us": "New topic"
+                            },
+                            "redirect_link": {
+                                "pc_url": "https://www.example.com",
+                                "mobile_url": "xxx"
+                            },
+                            "event_key": "event_key",
+                            "icon_file_key": "file_key",
+                            "ud_icon": {
+                                "token": "app_outlined",
+                                "color": "blue"
+                            },
+                            "menu_content_type": 1
+                        }
+                    ],
+                    "bot_menu_display_strategy": 1
                 },
                 "workplace_widgets": [
                     {
