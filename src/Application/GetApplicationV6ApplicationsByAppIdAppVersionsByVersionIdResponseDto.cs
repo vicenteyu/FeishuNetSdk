@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-02-21
+// Last Modified On : 2026-07-31
 // ************************************************************************
 // <copyright file="GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -277,12 +277,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("gadget")]
-            public AppAbilityGadget? Gadget { get; set; }
+            public GadgetSuffix? Gadget { get; set; }
 
             /// <summary>
             /// <para>小程序能力</para>
             /// </summary>
-            public record AppAbilityGadget
+            public record GadgetSuffix
             {
                 /// <summary>
                 /// <para>pc 支持的小程序模式，bit 位表示</para>
@@ -354,12 +354,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("web_app")]
-            public AppAbilityWebApp? WebApp { get; set; }
+            public WebAppSuffix? WebApp { get; set; }
 
             /// <summary>
             /// <para>网页能力</para>
             /// </summary>
-            public record AppAbilityWebApp
+            public record WebAppSuffix
             {
                 /// <summary>
                 /// <para>pc 端 url</para>
@@ -383,12 +383,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("bot")]
-            public AppAbilityBot? Bot { get; set; }
+            public BotSuffix? Bot { get; set; }
 
             /// <summary>
             /// <para>机器人能力</para>
             /// </summary>
-            public record AppAbilityBot
+            public record BotSuffix
             {
                 /// <summary>
                 /// <para>消息卡片回调地址</para>
@@ -397,6 +397,174 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
                 /// </summary>
                 [JsonPropertyName("card_request_url")]
                 public string? CardRequestUrl { get; set; }
+
+                /// <summary>
+                /// <para>是否启用机器人菜单</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：true</para>
+                /// </summary>
+                [JsonPropertyName("bot_menu_enable")]
+                public bool? BotMenuEnable { get; set; }
+
+                /// <summary>
+                /// <para>机器人菜单选项列表</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：999</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("bot_menus")]
+                public BotMenuNode[]? BotMenus { get; set; }
+
+                /// <summary>
+                /// <para>机器人菜单选项列表</para>
+                /// </summary>
+                public record BotMenuNode
+                {
+                    /// <summary>
+                    /// <para>节点唯一标识，同一次请求内唯一</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：menu_1</para>
+                    /// </summary>
+                    [JsonPropertyName("menu_id")]
+                    public string? MenuId { get; set; }
+
+                    /// <summary>
+                    /// <para>父节点 menu_id，为空表示一级菜单</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：menu_parent</para>
+                    /// </summary>
+                    [JsonPropertyName("parent_menu_id")]
+                    public string? ParentMenuId { get; set; }
+
+                    /// <summary>
+                    /// <para>同层级内排序，数值越小越靠前</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// <para>最大值：999999</para>
+                    /// <para>最小值：0</para>
+                    /// </summary>
+                    [JsonPropertyName("sort")]
+                    public int? Sort { get; set; }
+
+                    /// <summary>
+                    /// <para>默认名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：菜单名称</para>
+                    /// </summary>
+                    [JsonPropertyName("default_name")]
+                    public string? DefaultName { get; set; }
+
+                    /// <summary>
+                    /// <para>国际化名称配置。了解支持语种，参考配置卡片多语言</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值："en_us": "New topic"</para>
+                    /// </summary>
+                    [JsonPropertyName("i18n_name")]
+                    public object? I18nName { get; set; }
+
+                    /// <summary>
+                    /// <para>在客户端内打开链接。当 menu_content_type = 1 时必填。</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("redirect_link")]
+                    public BotMenuRedirectLink? RedirectLink { get; set; }
+
+                    /// <summary>
+                    /// <para>在客户端内打开链接。当 menu_content_type = 1 时必填。</para>
+                    /// </summary>
+                    public record BotMenuRedirectLink
+                    {
+                        /// <summary>
+                        /// <para>PC 端链接</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：https://www.example.com</para>
+                        /// </summary>
+                        [JsonPropertyName("pc_url")]
+                        public string? PcUrl { get; set; }
+
+                        /// <summary>
+                        /// <para>移动端链接</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：xxx</para>
+                        /// </summary>
+                        [JsonPropertyName("mobile_url")]
+                        public string? MobileUrl { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>向注册的事件回调地址发送事件 key。当 menu_content_type = 2时必填。</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：event_key</para>
+                    /// </summary>
+                    [JsonPropertyName("event_key")]
+                    public string? EventKey { get; set; }
+
+                    /// <summary>
+                    /// <para>自定义icon,自定义图标的图片 key。</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：file_key</para>
+                    /// </summary>
+                    [JsonPropertyName("icon_file_key")]
+                    public string? IconFileKey { get; set; }
+
+                    /// <summary>
+                    /// <para>图标库中的图标。</para>
+                    /// <para>必填：否</para>
+                    /// </summary>
+                    [JsonPropertyName("ud_icon")]
+                    public BotMenuUdIcon? UdIcon { get; set; }
+
+                    /// <summary>
+                    /// <para>图标库中的图标。</para>
+                    /// </summary>
+                    public record BotMenuUdIcon
+                    {
+                        /// <summary>
+                        /// <para>图标的 token</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：app_outlined</para>
+                        /// </summary>
+                        [JsonPropertyName("token")]
+                        public string? Token { get; set; }
+
+                        /// <summary>
+                        /// <para>图标的颜色</para>
+                        /// <para>必填：否</para>
+                        /// <para>示例值：blue</para>
+                        /// </summary>
+                        [JsonPropertyName("color")]
+                        public string? Color { get; set; }
+                    }
+
+                    /// <summary>
+                    /// <para>菜单响应动作类型.0:未知，1：跳转链接，2：事件通知，3展开子菜单，4：发消息</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// <para>可选值：<list type="bullet">
+                    /// <item>0：未知,不推荐用</item>
+                    /// <item>1：跳转链接</item>
+                    /// <item>2：事件</item>
+                    /// <item>3：展开子菜单</item>
+                    /// <item>4：发送消息</item>
+                    /// </list></para>
+                    /// </summary>
+                    [JsonPropertyName("menu_content_type")]
+                    public int? MenuContentType { get; set; }
+                }
+
+                /// <summary>
+                /// <para>菜单展示类型</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：1</para>
+                /// <para>可选值：<list type="bullet">
+                /// <item>0：未知,不推荐用</item>
+                /// <item>1：可切换菜单-默认展示菜单</item>
+                /// <item>2：可切换菜单-默认展示输入框</item>
+                /// <item>3：悬浮菜单</item>
+                /// </list></para>
+                /// </summary>
+                [JsonPropertyName("bot_menu_display_strategy")]
+                public int? BotMenuDisplayStrategy { get; set; }
             }
 
             /// <summary>
@@ -425,12 +593,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("navigate")]
-            public AppAbilityNavigate? Navigate { get; set; }
+            public NavigateSuffix? Navigate { get; set; }
 
             /// <summary>
             /// <para>主导航小程序</para>
             /// </summary>
-            public record AppAbilityNavigate
+            public record NavigateSuffix
             {
                 /// <summary>
                 /// <para>pc 端主导航信息</para>
@@ -483,12 +651,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("cloud_doc")]
-            public AppAbilityCloudDoc? CloudDoc { get; set; }
+            public CloudDocSuffix? CloudDoc { get; set; }
 
             /// <summary>
             /// <para>云文档应用</para>
             /// </summary>
-            public record AppAbilityCloudDoc
+            public record CloudDocSuffix
             {
                 /// <summary>
                 /// <para>云空间重定向 url</para>
@@ -648,12 +816,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("message_action")]
-            public AppAbilityMessageAction? MessageAction { get; set; }
+            public MessageActionSuffix? MessageAction { get; set; }
 
             /// <summary>
             /// <para>消息快捷操作</para>
             /// </summary>
-            public record AppAbilityMessageAction
+            public record MessageActionSuffix
             {
                 /// <summary>
                 /// <para>pc 端链接</para>
@@ -713,12 +881,12 @@ public record GetApplicationV6ApplicationsByAppIdAppVersionsByVersionIdResponseD
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("plus_menu")]
-            public AppAbilityPlusMenu? PlusMenu { get; set; }
+            public PlusMenuSuffix? PlusMenu { get; set; }
 
             /// <summary>
             /// <para>加号菜单</para>
             /// </summary>
-            public record AppAbilityPlusMenu
+            public record PlusMenuSuffix
             {
                 /// <summary>
                 /// <para>pc 端链接</para>

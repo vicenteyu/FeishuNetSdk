@@ -1329,7 +1329,7 @@
 <tr><td colspan="3">PostApplicationV7AppAvatarUpload</td></tr>
 <tr><td rowspan="2">665</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用基础信息配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdBase</td></tr>
-<tr><td rowspan="2">666</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用能力配置</td></tr>
+<tr><td rowspan="2">666</td><td rowspan="2">2026-07-30</td><td>&#10003;</td><td>应用信息</td><td>更新应用能力配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">667</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
@@ -1621,8 +1621,8 @@
 <tr><td colspan="3">PostApprovalV4InstancesSubscription</td></tr>
 <tr><td rowspan="2">811</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>退订审批实例状态变更事件</td></tr>
 <tr><td colspan="3">DeleteApprovalV4InstancesSubscription</td></tr>
-<tr><td rowspan="2">812</td><td rowspan="2">2026-07-24</td><td>新增</td><td>招聘</td><td>获取职位列表</td></tr>
+<tr><td rowspan="2">812</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
-<tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>新增</td><td>招聘</td><td>获取投递详情</td></tr>
+<tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
 </tbody></table>
