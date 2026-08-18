@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="Test_GetVcV1BotsEventsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,115 +27,37 @@ public class Test_GetVcV1BotsEventsResponseDto : TestBase
     {
         var json = """
 {
-    "code": 0,
-    "msg": "success",
-    "data": {
-        "has_more": true,
-        "page_token": "eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=",
-        "events": [
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "has_more": false,
+    "events": [
+      {
+        "event_id": "evt_20240520143000_123456",
+        "event_type": "meeting.activity",
+        "event_time": "2024-05-20T14:30:00+08:00",
+        "payload": {
+          "meeting": {
+            "id": "7628148899983674909",
+            "topic": "周会",
+            "meeting_no": "123456789"
+          },
+          "activity_event_type": "participant_joined",
+          "participant_joined_items": [
             {
-                "event_id": "evt_20240520143000_123456",
-                "event_type": "meeting.created",
-                "event_time": "2024-05-20T14:30:00+08:00",
-                "payload": {
-                    "meeting": {
-                        "id": "7628148899983674909",
-                        "topic": "周会",
-                        "meeting_no": "123456789",
-                        "start_time": "1712345678",
-                        "end_time": "1712349278",
-                        "host_user": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                            "user_type": 1,
-                            "user_role": 1,
-                            "user_name": "张三"
-                        }
-                    },
-                    "activity_event_type": "participant_joined",
-                    "participant_joined_items": [
-                        {
-                            "participant": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "join_time": "1712345678000"
-                        }
-                    ],
-                    "participant_left_items": [
-                        {
-                            "participant": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "leave_reason": 1,
-                            "leave_time": "1712349200000"
-                        }
-                    ],
-                    "transcript_received_items": [
-                        {
-                            "speaker": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "text": "大家好，今天的会议主题是……",
-                            "language": "zh",
-                            "start_time_ms": "1712345678000",
-                            "end_time_ms": "1712345682000",
-                            "sentence_id": "1001"
-                        }
-                    ],
-                    "chat_received_items": [
-                        {
-                            "operator": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "message_id": "m_1001",
-                            "message_type": 1,
-                            "content": "你好",
-                            "send_time": "1712345678000"
-                        }
-                    ],
-                    "magic_share_started_items": [
-                        {
-                            "operator": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "share_id": "share_abc_123",
-                            "share_doc": {
-                                "url": "https://example.feishu.cn/docx/xxx",
-                                "title": "会议讨论稿"
-                            },
-                            "time": "1712345678000"
-                        }
-                    ],
-                    "magic_share_ended_items": [
-                        {
-                            "operator": {
-                                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
-                                "user_type": 1,
-                                "user_role": 1,
-                                "user_name": "张三"
-                            },
-                            "share_id": "share_abc_123",
-                            "time": "1712349200000"
-                        }
-                    ]
-                }
+              "participant": {
+                "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                "user_type": 1,
+                "user_role": 1,
+                "user_name": "张三"
+              },
+              "join_time": "1716186600000"
             }
-        ]
-    }
+          ]
+        }
+      }
+    ]
+  }
 }
 """;
         var result = Deserialize<FeishuResponse<FeishuNetSdk.Vc.GetVcV1BotsEventsResponseDto>>(json);

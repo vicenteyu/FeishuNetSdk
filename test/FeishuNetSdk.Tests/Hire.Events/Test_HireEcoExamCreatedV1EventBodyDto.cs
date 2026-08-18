@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="Test_HireEcoExamCreatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,6 +47,54 @@ public class Test_HireEcoExamCreatedV1EventBodyDto : TestBase
                 "number": "18900001111"
             },
             "email": "xxx@abc.vom"
+        },
+        "talent_id": "7579072355659172140",
+        "application_id": "7576566753091537196",
+        "job_info": {
+            "department": {
+                "id": "sample_department_id",
+                "name": {
+                    "zh_cn": "985",
+                    "en_us": "985"
+                }
+            },
+            "addresses": [
+                {
+                    "id": "6583482347283472832",
+                    "name": {
+                        "zh_cn": "985",
+                        "en_us": "985"
+                    },
+                    "district": {
+                        "code": "1111",
+                        "name": {
+                            "zh_cn": "985",
+                            "en_us": "985"
+                        }
+                    },
+                    "city": {
+                        "code": "1111",
+                        "name": {
+                            "zh_cn": "985",
+                            "en_us": "985"
+                        }
+                    },
+                    "state": {
+                        "code": "1111",
+                        "name": {
+                            "zh_cn": "985",
+                            "en_us": "985"
+                        }
+                    },
+                    "country": {
+                        "code": "1111",
+                        "name": {
+                            "zh_cn": "985",
+                            "en_us": "985"
+                        }
+                    }
+                }
+            ]
         }
     }
 }

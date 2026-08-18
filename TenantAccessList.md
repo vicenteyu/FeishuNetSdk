@@ -643,7 +643,7 @@
 <tr><td colspan="3">PostAttendanceV1ShiftsQuery</td></tr>
 <tr><td rowspan="2">322</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>查询所有班次</td></tr>
 <tr><td colspan="3">GetAttendanceV1Shifts</td></tr>
-<tr><td rowspan="2">323</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
+<tr><td rowspan="2">323</td><td rowspan="2">2026-08-20</td><td>&#10003;</td><td>考勤打卡</td><td>创建或修改考勤组</td></tr>
 <tr><td colspan="3">PostAttendanceV1Groups</td></tr>
 <tr><td rowspan="2">324</td><td rowspan="2">2024-07-05</td><td>&#10003;</td><td>通讯录</td><td>获取单位信息</td></tr>
 <tr><td colspan="3">GetContactV3UnitByUnitId</td></tr>
@@ -1473,7 +1473,7 @@
 <tr><td colspan="3">PostCorehrV1Contracts</td></tr>
 <tr><td rowspan="2">737</td><td rowspan="2">2024-07-23</td><td>&#10003;</td><td>飞书人事</td><td>删除合同</td></tr>
 <tr><td colspan="3">DeleteCorehrV1ContractsByContractId</td></tr>
-<tr><td rowspan="2">738</td><td rowspan="2">2025-02-19</td><td>&#10003;</td><td>飞书人事</td><td>更新合同</td></tr>
+<tr><td rowspan="2">738</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>飞书人事</td><td>更新合同</td></tr>
 <tr><td colspan="3">PatchCorehrV1ContractsByContractId</td></tr>
 <tr><td rowspan="2">739</td><td rowspan="2">2024-08-26</td><td>&#10003;</td><td>飞书人事</td><td>查询单个合同</td></tr>
 <tr><td colspan="3">GetCorehrV1ContractsByContractId</td></tr>
@@ -2947,7 +2947,7 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">1474</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
-<tr><td rowspan="2">1475</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td rowspan="2">1475</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
 <tr><td rowspan="2">1476</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签模板列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureTemplateInfoWithThumbnails</td></tr>
@@ -3175,9 +3175,9 @@
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
 <tr><td rowspan="2">1588</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">1589</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
+<tr><td rowspan="2">1589</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">1590</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
+<tr><td rowspan="2">1590</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 <tr><td rowspan="2">1591</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>创建COT</td></tr>
 <tr><td colspan="3">PostImV1MessageCot</td></tr>
@@ -3185,6 +3185,12 @@
 <tr><td colspan="3">PostImV1MessageCotCompleteByCotId</td></tr>
 <tr><td rowspan="2">1593</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>COT事件写入</td></tr>
 <tr><td colspan="3">PutImV1MessageCot</td></tr>
-<tr><td rowspan="2">1594</td><td rowspan="2">2026-07-28</td><td>新增</td><td>帐号</td><td>重置登录密码</td></tr>
+<tr><td rowspan="2">1594</td><td rowspan="2">2026-07-28</td><td>&#10003;</td><td>帐号</td><td>重置登录密码</td></tr>
 <tr><td colspan="3">PutPassportV1Password</td></tr>
+<tr><td rowspan="2">1595</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>发送会中消息</td></tr>
+<tr><td colspan="3">PostVcV1BotsMessage</td></tr>
+<tr><td rowspan="2">1596</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>离开会议</td></tr>
+<tr><td colspan="3">PostVcV1BotsLeave</td></tr>
+<tr><td rowspan="2">1597</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td colspan="3">PostVcV1BotsJoin</td></tr>
 </tbody></table>

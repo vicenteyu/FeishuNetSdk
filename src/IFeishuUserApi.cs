@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-24
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -23181,13 +23181,13 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="update_time_start">
     /// <para>必填：否</para>
-    /// <para>更新时间早于等于某个时间点，按照东八区时区</para>
+    /// <para>更新时间晚于等于某个时间点，按照东八区时区</para>
     /// <para>示例值：2022-01-01 00:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="update_time_end">
     /// <para>必填：否</para>
-    /// <para>更新时间晚于等于某个时间点，按照东八区时区</para>
+    /// <para>更新时间早于等于某个时间点，按照东八区时区</para>
     /// <para>示例值：2022-01-01 00:00:00</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -29902,7 +29902,6 @@ public interface IFeishuUserApi : IHttpApi
     /// <list type="bullet">
     /// <item>1：待办审批</item>
     /// <item>2：已办审批</item>
-    /// <item>3：已发起审批</item>
     /// <item>17：未读知会</item>
     /// <item>18：已读知会</item>
     /// </list>
@@ -32244,14 +32243,14 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="start_time">
     /// <para>必填：否</para>
-    /// <para>待查询历史信息的起始时间</para>
+    /// <para>待查询历史信息的起始时间，为秒级 Unix 时间戳字符串（10 位）。不传入时不限制查询的起始时间；同时传入 end_time 时，start_time 不得晚于 end_time。</para>
     /// <para>示例值：1609296809</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="end_time">
     /// <para>必填：否</para>
-    /// <para>待查询历史信息的结束时间</para>
-    /// <para>示例值：160929690</para>
+    /// <para>待查询历史信息的结束时间，为秒级 Unix 时间戳字符串（10 位）。不传入时不限制查询的结束时间；同时传入 start_time 时，end_time 不得早于 start_time。</para>
+    /// <para>示例值：1609297809</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="page_size">
@@ -32300,7 +32299,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </summary>
     /// <param name="user_id">
     /// <para>必填：否</para>
-    /// <para>目标用户的 open_id，格式为 ou_ 开头；应用身份调用时必填。</para>
+    /// <para>目标用户的 ID。其类型由 user_id_type 指定：open_id（以 ou_ 开头）、union_id 或 user_id。user_id 的格式必须与 user_id_type 的取值一致；应用身份调用时必填。</para>
     /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
     /// <para>默认值：null</para>
     /// </param>
@@ -32418,6 +32417,63 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> DeleteApprovalV4InstancesSubscriptionAsync(
         UserAccessToken access_token,
         [PathQuery] string? subscription_type = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】发送会中消息</para>
+    /// <para>接口ID：7672664994766982391</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/message</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>向指定的视频会议发送会中消息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.message:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/bots/message")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1BotsMessageResponseDto>> PostVcV1BotsMessageAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1BotsMessageBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】离开会议</para>
+    /// <para>接口ID：7672664994766998775</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/leave</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>机器人可通过会议 ID 主动离开指定的视频会议。调用成功后，将返回该机器人对应的用户信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/bots/leave")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1BotsLeaveResponseDto>> PostVcV1BotsLeaveAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1BotsLeaveBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】加入会议</para>
+    /// <para>接口ID：7672664994767015159</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/join</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过会议号将机器人加入指定的视频会议。调用成功后会返回会议 ID，该 ID 可用于后续的机器人离会、发送会中消息等操作。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.bot.join:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/bots/join")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1BotsJoinResponseDto>> PostVcV1BotsJoinAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1BotsJoinBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

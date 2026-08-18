@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="HireEcoExamCreatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -94,5 +94,136 @@ public record HireEcoExamCreatedV1EventBodyDto() : EventBodyDto("hire.eco_exam.c
         /// </summary>
         [JsonPropertyName("email")]
         public string? Email { get; set; }
+    }
+
+    /// <summary>
+    /// <para>人才ID。灰度字段，灰度内才会返回。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("talent_id")]
+    public string? TalentId { get; set; }
+
+    /// <summary>
+    /// <para>投递ID。灰度字段，灰度内才会返回。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("application_id")]
+    public string? ApplicationId { get; set; }
+
+    /// <summary>
+    /// <para>职位信息。灰度字段，灰度内才会返回。</para>
+    /// <para>必填：否</para>
+    /// </summary>
+    [JsonPropertyName("job_info")]
+    public EcoExamCreateEventJobInfo? JobInfo { get; set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public record EcoExamCreateEventJobInfo
+    {
+        /// <summary>
+        /// <para>职位部门。ID 为招聘系统 ATS/SaaS 部门 ID。</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("department")]
+        public EcoExamCreateEventJobDepartment? Department { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record EcoExamCreateEventJobDepartment
+        {
+            /// <summary>
+            /// <para>招聘系统 ATS/SaaS 部门 ID，不做 Open Department ID 转换。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>部门名称。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public I18nLanguage<string>? Name { get; set; }
+        }
+
+        /// <summary>
+        /// <para>职位地址列表，顺序与职位配置一致。</para>
+        /// <para>**数据校验规则**：</para>
+        /// <para>- 长度范围：`0` ～ `1000`</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("addresses")]
+        public CommonAddress[]? Addresses { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record CommonAddress
+        {
+            /// <summary>
+            /// <para>ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>名称</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("name")]
+            public I18nLanguage<string>? Name { get; set; }
+
+            /// <summary>
+            /// <para>区域信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("district")]
+            public CodeNameObject? District { get; set; }
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public record CodeNameObject
+            {
+                /// <summary>
+                /// <para>编码</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("code")]
+                public string? Code { get; set; }
+
+                /// <summary>
+                /// <para>名称</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("name")]
+                public I18nLanguage<string>? Name { get; set; }
+            }
+
+            /// <summary>
+            /// <para>城市信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("city")]
+            public CodeNameObject? City { get; set; }
+
+            /// <summary>
+            /// <para>省信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("state")]
+            public CodeNameObject? State { get; set; }
+
+            /// <summary>
+            /// <para>国家信息</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("country")]
+            public CodeNameObject? Country { get; set; }
+        }
     }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-11
+// Last Modified On : 2026-08-23
 // ************************************************************************
 // <copyright file="PostAttendanceV1GroupsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -551,8 +551,8 @@ public record PostAttendanceV1GroupsBodyDto
         /// <summary>
         /// <para>考勤类型</para>
         /// <para>**可选值有：**</para>
-        /// <para>* 1：固定班制</para>
-        /// <para>* 2：排班制</para>
+        /// <para>* 0：固定班制</para>
+        /// <para>* 1/2：排班制</para>
         /// <para>* 3：自由班制</para>
         /// <para>必填：是</para>
         /// <para>示例值：1</para>

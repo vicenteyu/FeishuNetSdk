@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-05
+// Last Modified On : 2026-08-23
 // ************************************************************************
 // <copyright file="PostOAuthV3RefreshTokenResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -68,7 +68,8 @@ public record PostOAuthV3RefreshTokenResponseDto
     public string? TokenType { get; set; }
 
     /// <summary>
-    /// <para>本次请求所获得的 `access_token` 实际具备的权限列表，以空格分隔。服务端会根据情况对申请的 scope 进行裁剪，最终实际授予的权限范围请以该字段为准。该字段仅在请求成功时返回。</para>
+    /// <para>本次请求所获得的 `access_token` 实际具备的权限列表，以空格分隔。</para>
+    /// <para>**注意：** 服务端会根据情况对申请的 scope 进行裁剪，返回的 Scope 不一定等于授权时申请的 Scope，最终实际授予的权限范围请以该字段为准。该字段仅在请求成功时返回。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("scope")]
