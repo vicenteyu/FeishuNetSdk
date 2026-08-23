@@ -1273,7 +1273,7 @@
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
 <tr><td rowspan="2">637</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>解析画板语法</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodesPlantuml</td></tr>
-<tr><td rowspan="2">638</td><td rowspan="2">2025-11-28</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
+<tr><td rowspan="2">638</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>获取电子签文件列表</td></tr>
 <tr><td colspan="3">GetCorehrV2SignatureFiles</td></tr>
 <tr><td rowspan="2">639</td><td rowspan="2">2025-12-01</td><td>&#10003;</td><td>飞书 aPaaS</td><td>执行SQL</td></tr>
 <tr><td colspan="3">PostApaasV1WorkspacesByWorkspaceIdSqlCommands</td></tr>
@@ -1587,7 +1587,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesRemind</td></tr>
 <tr><td rowspan="2">794</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>获取单个审批实例详情（用户级）</td></tr>
 <tr><td colspan="3">GetApprovalV4InstancesDetail</td></tr>
-<tr><td rowspan="2">795</td><td rowspan="2">2026-07-14</td><td>&#10003;</td><td>审批</td><td>查询审批任务列表</td></tr>
+<tr><td rowspan="2">795</td><td rowspan="2">2026-08-05</td><td>&#10003;</td><td>审批</td><td>查询审批任务列表</td></tr>
 <tr><td colspan="3">GetApprovalV4Tasks</td></tr>
 <tr><td rowspan="2">796</td><td rowspan="2">2026-06-15</td><td>&#10003;</td><td>审批</td><td>拒绝审批任务（用户级）</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksRefuse</td></tr>
@@ -1609,9 +1609,9 @@
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
 <tr><td rowspan="2">805</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">806</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
+<tr><td rowspan="2">806</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">807</td><td rowspan="2">2026-07-16</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
+<tr><td rowspan="2">807</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 <tr><td rowspan="2">808</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>订阅审批任务状态变更事件</td></tr>
 <tr><td colspan="3">PostApprovalV4TasksSubscription</td></tr>
@@ -1625,4 +1625,10 @@
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
 <tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
+<tr><td rowspan="2">814</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>发送会中消息</td></tr>
+<tr><td colspan="3">PostVcV1BotsMessage</td></tr>
+<tr><td rowspan="2">815</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>离开会议</td></tr>
+<tr><td colspan="3">PostVcV1BotsLeave</td></tr>
+<tr><td rowspan="2">816</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td colspan="3">PostVcV1BotsJoin</td></tr>
 </tbody></table>

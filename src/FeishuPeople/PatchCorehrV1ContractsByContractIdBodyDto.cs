@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="PatchCorehrV1ContractsByContractIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -121,7 +121,7 @@ public record PatchCorehrV1ContractsByContractIdBodyDto
     public Enum? DurationType { get; set; }
 
     /// <summary>
-    /// <para>合同预计的结束日期</para>
+    /// <para>合同预计的结束日期，如果不需要预计结束日期，传9999-12-31</para>
     /// <para>必填：否</para>
     /// <para>示例值：2006-01-02</para>
     /// </summary>

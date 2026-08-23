@@ -130,7 +130,10 @@
 <tr><td>vc.room_level.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室层级</td></tr>
 <tr><td>vc.reserve_config.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcReserveConfigUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室预定限制</td></tr>
 <tr><td>vc.meeting.meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】会议结束</td></tr>
+<tr><td>vc.bot.meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】会议结束</td></tr>
 <tr><td>vc.meeting.meeting_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingStartedV1EventBodyDto&gt;</td><td>【视频会议】会议开始</td></tr>
+<tr><td>vc.bot.meeting_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingStartedV1EventBodyDto&gt;</td><td>【视频会议】会议开始</td></tr>
+<tr><td>vc.bot.meeting_activity_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingActivityV1EventBodyDto&gt;</td><td>【视频会议】会中事件</td></tr>
 <tr><td>vc.note.generated_v1</td><td>EventV2Dto&lt;Vc.Events.VcNoteGeneratedV1EventBodyDto&gt;</td><td>【视频会议】纪要生成</td></tr>
 <tr><td>vc.meeting.join_meeting_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingJoinMeetingV1EventBodyDto&gt;</td><td>【视频会议】加入会议</td></tr>
 <tr><td>vc.meeting.share_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingShareEndedV1EventBodyDto&gt;</td><td>【视频会议】结束屏幕共享</td></tr>
@@ -143,6 +146,7 @@
 <tr><td>vc.room.deleted_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomDeletedV1EventBodyDto&gt;</td><td>【视频会议】删除会议室</td></tr>
 <tr><td>vc.room_level.deleted_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelDeletedV1EventBodyDto&gt;</td><td>【视频会议】删除会议室层级</td></tr>
 <tr><td>vc.meeting.recording_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingRecordingEndedV1EventBodyDto&gt;</td><td>【视频会议】停止录制</td></tr>
+<tr><td>vc.bot.meeting_invited_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingInvitedV1EventBodyDto&gt;</td><td>【视频会议】邀请机器人入会</td></tr>
 <tr><td>contact.department.deleted_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentDeletedV3EventBodyDto&gt;</td><td>【通讯录】部门被删除</td></tr>
 <tr><td>contact.department.created_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentCreatedV3EventBodyDto&gt;</td><td>【通讯录】部门新建</td></tr>
 <tr><td>contact.department.updated_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentUpdatedV3EventBodyDto&gt;</td><td>【通讯录】部门信息变化</td></tr>

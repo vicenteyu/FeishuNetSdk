@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="GetVcV1BotsEventsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -72,7 +72,7 @@ public record GetVcV1BotsEventsResponseDto : IPageableResponse<GetVcV1BotsEvents
         public string? EventType { get; set; }
 
         /// <summary>
-        /// <para>事件发生的时间戳，格式为 RFC3339 标准（YYYY-MM-DDTHH:mm:ssZ）</para>
+        /// <para>事件发生时间，RFC 3339 格式的日期时间字符串，例如 2024-05-20T14:30:00+08:00。</para>
         /// <para>必填：否</para>
         /// <para>示例值：2024-05-20T14:30:00+08:00</para>
         /// </summary>

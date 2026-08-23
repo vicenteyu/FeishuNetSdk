@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-08-19
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -386,6 +386,14 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskUpdateTenantV1EventBodyDto>), typeDiscriminator: "task.task.update_tenant_v1")]
 //【任务】任务更新事件
 [JsonDerivedType(typeof(EventV2Dto<Task.Events.TaskTaskUpdateUserAccessV2EventBodyDto>), typeDiscriminator: "task.task.update_user_access_v2")]
+//【视频会议】会中事件
+[JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcBotMeetingActivityV1EventBodyDto>), typeDiscriminator: "vc.bot.meeting_activity_v1")]
+//【视频会议】会议结束
+[JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcBotMeetingEndedV1EventBodyDto>), typeDiscriminator: "vc.bot.meeting_ended_v1")]
+//【视频会议】邀请机器人入会
+[JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcBotMeetingInvitedV1EventBodyDto>), typeDiscriminator: "vc.bot.meeting_invited_v1")]
+//【视频会议】会议开始
+[JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcBotMeetingStartedV1EventBodyDto>), typeDiscriminator: "vc.bot.meeting_started_v1")]
 //【视频会议】企业会议结束
 [JsonDerivedType(typeof(EventV2Dto<Vc.Events.VcMeetingAllMeetingEndedV1EventBodyDto>), typeDiscriminator: "vc.meeting.all_meeting_ended_v1")]
 //【视频会议】企业会议开始
