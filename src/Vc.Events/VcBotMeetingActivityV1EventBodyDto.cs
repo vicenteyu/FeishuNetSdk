@@ -31,7 +31,7 @@ public record VcBotMeetingActivityV1EventBodyDto() : EventBodyDto("vc.bot.meetin
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; }
+        public UserIdSuffix? Id { get; set; }
 
         /// <summary>
         /// <para>用户类型</para>

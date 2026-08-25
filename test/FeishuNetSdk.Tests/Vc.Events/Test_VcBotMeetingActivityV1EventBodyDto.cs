@@ -46,7 +46,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     "start_time": "1712345678",
                     "end_time": "1712349278",
                     "host_user": {
-                        "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                        "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                         "user_type": 1,
                         "user_role": 1,
                         "user_name": "张三"
@@ -56,7 +60,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "participant_joined_items": [
                     {
                         "participant": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -67,7 +75,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "participant_left_items": [
                     {
                         "participant": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -79,7 +91,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "transcript_received_items": [
                     {
                         "speaker": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -94,7 +110,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "chat_received_items": [
                     {
                         "operator": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -108,7 +128,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "magic_share_started_items": [
                     {
                         "operator": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -124,7 +148,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "magic_share_ended_items": [
                     {
                         "operator": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -136,7 +164,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                 "document_context_changed_items": [
                     {
                         "operator": {
-                            "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"

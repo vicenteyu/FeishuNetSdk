@@ -86,7 +86,7 @@ public record PostVcV1BotsJoinResponseDto
         /// <para>示例值：ou_3ec3f6a28a0d08c45d895276e8e5e19b</para>
         /// </summary>
         [JsonPropertyName("id")]
-        public string? Id { get; set; }
+        public long? Id { get; set; }
 
         /// <summary>
         /// <para>用户类型</para>
