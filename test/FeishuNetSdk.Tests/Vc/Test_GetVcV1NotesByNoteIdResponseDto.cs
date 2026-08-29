@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-08-29
 // ************************************************************************
 // <copyright file="Test_GetVcV1NotesByNoteIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -49,7 +49,8 @@ public class Test_GetVcV1NotesByNoteIdResponseDto : TestBase
             "note_source": {
                 "source_type": "meeting",
                 "source_entity_id": "6911188411934433028"
-            }
+            },
+            "note_display_type": 1
         }
     }
 }

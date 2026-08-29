@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-08-29
 // ************************************************************************
 // <copyright file="GetVcV1NotesByNoteIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -159,5 +159,19 @@ public record GetVcV1NotesByNoteIdResponseDto
             [JsonPropertyName("source_entity_id")]
             public string? SourceEntityId { get; set; }
         }
+
+        /// <summary>
+        /// <para>纪要展示类型</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// <para>最大值：100</para>
+        /// <para>最小值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>1：普通纪要</item>
+        /// <item>2：集成展示纪要</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("note_display_type")]
+        public int? NoteDisplayType { get; set; }
     }
 }

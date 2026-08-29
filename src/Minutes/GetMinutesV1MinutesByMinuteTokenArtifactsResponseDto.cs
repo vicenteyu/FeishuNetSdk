@@ -4,7 +4,7 @@
 // Created          : 2026-03-27
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-10
+// Last Modified On : 2026-08-29
 // ************************************************************************
 // <copyright file="GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Minutes;
 /// <summary>
 /// 获取妙记AI产物 响应体
-/// <para>通过妙记唯一标识minute_token获取AI产物</para>
+/// <para>通过妙记唯一标识minute_token获取妙记总结、章节、待办、关键词、逐字稿等AI产物</para>
 /// <para>接口ID：7621494177948142790</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fminutes-v1%2fminute%2fartifacts</para>

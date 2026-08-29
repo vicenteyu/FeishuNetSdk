@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-08-29
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2868,6 +2868,78 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【消息与群组】上传图片</para>
+    /// <para>接口ID：6946222931479445505</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/image/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>调用本接口将图片上传至飞书开放平台，支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片，但需要注意 TIFF、HEIC 上传后会被转为 JPG 格式。</para>
+    /// <para>## 使用场景</para>
+    /// <para>如果需要发送图片消息，或者将图片作为头像，则需要先调用本接口将图片上传至开放平台，平台会返回一个图片标识（image_key），后续使用该 Key 值调用其他 API。例如：</para>
+    /// <para>- [发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)时，如果需要发送图片，则需要先调用本接口上传图片（上传时图片类型需要选择 **用于发送消息**），并使用返回结果中的 image_key 发送图片消息。</para>
+    /// <para>- [创建用户](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/contact-v3/user/create)时，如果需要设置用户头像，则需要先调用本接口将头像上传（上传时图片类型需要选择 **用于设置头像**），并使用返回结果中的 image_key 设置头像。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 上传的图片大小不能超过 10 MB，且不支持上传大小为 0 的图片。</para>
+    /// <para>- 上传图片的分辨率限制：</para>
+    /// <para>- GIF 图片分辨率不能超过 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。</para>
+    /// <para>- 用于设置头像的图片分辨率不能超过 4096 x 4096。</para>
+    /// <para>如需上传高分辨率图片，可使用[上传文件](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/file/create)接口，将图片作为文件进行上传。注意该方式不支持将图片文件设置为头像。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:resource</item>
+    /// <item>im:resource:upload</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="image">
+    /// <para>必填：是</para>
+    /// <para>图片内容。传值方式可以参考请求体示例。</para>
+    /// <para>**注意**：</para>
+    /// <para>- 上传的图片大小不能超过 10 MB，也不能上传大小为 0 的图片。</para>
+    /// <para>- 分辨率限制：</para>
+    /// <para>- GIF 图片分辨率不能超过 2000 x 2000，其他图片分辨率不能超过 12000 x 12000。</para>
+    /// <para>- 用于设置头像的图片分辨率不能超过 4096 x 4096。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/im/v1/images")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1ImagesResponseDto>> PostImV1ImagesAsync(
+        UserAccessToken access_token,
+        [FormDataContent] Im.PostImV1ImagesBodyDto dto,
+        [FormDataContent] FormDataFile image,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】上传文件</para>
+    /// <para>接口ID：6946222931479461889</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/file/create</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>调用该接口将本地文件上传至开放平台，支持上传音频、视频、文档等文件类型。上传后接口会返回文件的 Key，使用该 Key 值可以调用其他 OpenAPI。例如，调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口，发送文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>## 使用限制</para>
+    /// <para>文件大小不得超过 30 MB，且不允许上传空文件。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:resource</item>
+    /// <item>im:resource:upload</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="file">
+    /// <para>必填：是</para>
+    /// <para>文件内容，具体的传值方式可参考请求体示例。</para>
+    /// <para>**注意**：文件大小不得超过 30 MB，且不允许上传空文件。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/im/v1/files")]
+    System.Threading.Tasks.Task<FeishuResponse<Im.PostImV1FilesResponseDto>> PostImV1FilesAsync(
+        UserAccessToken access_token,
+        [FormDataContent] Im.PostImV1FilesBodyDto dto,
+        [FormDataContent] FormDataFile file,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【消息与群组】获取群信息</para>
     /// <para>接口ID：6946222931479478273</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/group/chat/get-2</para>
@@ -3135,6 +3207,61 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] int? page_size = 20,
         [PathQuery] string? page_token = null,
         [PathQuery] string? card_msg_content_type = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【消息与群组】获取消息中的资源文件</para>
+    /// <para>接口ID：6946222931479576577</para>
+    /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/get-2</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。</para>
+    /// <para>## 前提条件</para>
+    /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
+    /// <para>- 机器人和待操作的消息需要在同一会话内。</para>
+    /// <para>## 使用限制</para>
+    /// <para>- 当 `type=file` 时，未使用 Range 分片下载仅支持下载小于 100 MB 的资源文件。对于 100 MB 及以上的文件，请在请求头中设置 `Range: bytes=&lt;start&gt;-&lt;end&gt;` 分片下载，并在本地合并；单次请求的分片大小不得超过 32 MB。</para>
+    /// <para>- 当 `type=image` 时，不支持 Range 分片下载，仅支持完整下载小于 100 MB 的图片资源。</para>
+    /// <para>- 暂不支持获取表情包资源。</para>
+    /// <para>- 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>im:message</item>
+    /// <item>im:message:readonly</item>
+    /// <item>im:message.history:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="message_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>待查询的消息 ID。ID 获取方式：</para>
+    /// <para>- 调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口后，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>- 监听[接收消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive)事件，当触发该事件后可以从事件体内获取消息的 `message_id`。</para>
+    /// <para>- 调用[获取会话历史消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/list)接口，从响应结果的 `message_id` 参数获取。</para>
+    /// <para>示例值：om_dc13264520392913993dd051dba21dcf</para>
+    /// </param>
+    /// <param name="file_key">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>待查询资源的 Key。你可以调用[获取指定消息的内容](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/get)接口，通过消息 ID 获取消息内容中的资源 Key。</para>
+    /// <para>**注意**：路径参数 `file_key` 和 `message_id` 需要匹配。</para>
+    /// <para>示例值：file_456a92d6-c6ea-4de4-ac3f-7afcf44ac78g</para>
+    /// </param>
+    /// <param name="type">
+    /// <para>必填：是</para>
+    /// <para>资源类型</para>
+    /// <para>**可选值有：**</para>
+    /// <para>- `image`：对应消息中的图片或富文本消息中的图片。</para>
+    /// <para>- `file`：对应消息中的文件、音频、视频（表情包除外）。</para>
+    /// <para>示例值：image</para>
+    /// </param>
+    /// <returns>返回文件二进制流</returns>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/im/v1/messages/{message_id}/resources/{file_key}")]
+    System.Threading.Tasks.Task<HttpResponseMessage> GetImV1MessagesByMessageIdResourcesByFileKeyAsync(
+        UserAccessToken access_token,
+        [PathQuery] string message_id,
+        [PathQuery] string file_key,
+        [PathQuery] string type,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -28250,8 +28377,8 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【妙记】获取妙记AI产物</para>
     /// <para>接口ID：7621494177948142790</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
-    /// <para>Authorization：user_access_token</para>
-    /// <para>通过妙记唯一标识minute_token获取AI产物</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过妙记唯一标识minute_token获取妙记总结、章节、待办、关键词、逐字稿等AI产物</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>minutes:minutes.artifacts:read</item>
     /// </list></para>
@@ -28308,7 +28435,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【视频会议】获取纪要详情</para>
     /// <para>接口ID：7621600266278522080</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/note/get</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取一篇纪要的详细数据。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:note:read</item>
@@ -32474,6 +32601,70 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Vc.PostVcV1BotsJoinResponseDto>> PostVcV1BotsJoinAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1BotsJoinBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【妙记】云空间文件生成妙记</para>
+    /// <para>接口ID：7673720420097412036</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/upload</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>先获取云空间文件的token，再根据给定的云空间文件token生成妙记。云空间文件token的获取方式请参考[云空间文件概述](https://open.feishu.cn/document/docs/drive-v1/file/file-overview)</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minutes.upload:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/minutes/v1/minutes/upload")]
+    System.Threading.Tasks.Task<FeishuResponse<Minutes.PostMinutesV1MinutesUploadResponseDto>> PostMinutesV1MinutesUploadAsync(
+        UserAccessToken access_token,
+        [JsonContent] Minutes.PostMinutesV1MinutesUploadBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【妙记】创建妙记片段</para>
+    /// <para>接口ID：7676147106222902224</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/clip</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>基于一篇已完成的妙记及指定的时间范围，创建一篇新的妙记片段。接口成功响应表示妙记片段已提交创建，不代表文字记录和媒体文件已生成完成，文字记录和媒体文件将在后台异步生成。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minutes.clip:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="minute_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx</para>
+    /// <para>示例值：obcnq3b9jl72l83w4f14xxxx</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/minutes/v1/minutes/{minute_token}/clip")]
+    System.Threading.Tasks.Task<FeishuResponse<Minutes.PostMinutesV1MinutesByMinuteTokenClipResponseDto>> PostMinutesV1MinutesByMinuteTokenClipAsync(
+        UserAccessToken access_token,
+        [PathQuery] string minute_token,
+        [JsonContent] Minutes.PostMinutesV1MinutesByMinuteTokenClipBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【审批】搜索可发起的审批定义</para>
+    /// <para>接口ID：7678280659161042125</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/approval/search_launchable</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>搜索当前用户身份可发起的审批定义。该接口适合在用户只提供审批关键词、还没有 approval_code 时调用，用于定位可发起的原生审批定义或三方审批发起链接。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>approval:approval:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/approval/v4/approvals/search_launchable")]
+    System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ApprovalsSearchLaunchableResponseDto>> PostApprovalV4ApprovalsSearchLaunchableAsync(
+        UserAccessToken access_token,
+        [JsonContent] Approval.PostApprovalV4ApprovalsSearchLaunchableBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 
