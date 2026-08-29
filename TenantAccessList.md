@@ -1467,7 +1467,7 @@
 <tr><td colspan="3">GetCorehrV1PreHires</td></tr>
 <tr><td rowspan="2">734</td><td rowspan="2">2025-01-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>搜索合同</td></tr>
 <tr><td colspan="3">PostCorehrV2ContractsSearch</td></tr>
-<tr><td rowspan="2">735</td><td rowspan="2">2025-06-03</td><td>&#10003;</td><td>消息与群组</td><td>获取消息中的资源文件</td></tr>
+<tr><td rowspan="2">735</td><td rowspan="2">2026-08-27</td><td>&#10003;</td><td>消息与群组</td><td>获取消息中的资源文件</td></tr>
 <tr><td colspan="3">GetImV1MessagesByMessageIdResourcesByFileKey</td></tr>
 <tr><td rowspan="2">736</td><td rowspan="2">2025-01-15</td><td>&#10003;</td><td>飞书人事</td><td>新建合同</td></tr>
 <tr><td colspan="3">PostCorehrV1Contracts</td></tr>
@@ -1667,7 +1667,7 @@
 <tr><td colspan="3">PostHireV1EcoBackgroundCheckPackages</td></tr>
 <tr><td rowspan="2">834</td><td rowspan="2">2024-07-30</td><td>&#10003;</td><td>招聘</td><td>更新背调套餐和附加调查项</td></tr>
 <tr><td colspan="3">PatchHireV1EcoBackgroundCheckPackagesBatchUpdate</td></tr>
-<tr><td rowspan="2">835</td><td rowspan="2">2024-08-21</td><td>&#10003;</td><td>消息与群组</td><td>上传图片</td></tr>
+<tr><td rowspan="2">835</td><td rowspan="2">2026-08-27</td><td>&#10003;</td><td>消息与群组</td><td>上传图片</td></tr>
 <tr><td colspan="3">PostImV1Images</td></tr>
 <tr><td rowspan="2">836</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>招聘</td><td>删除背调套餐和附加调查项</td></tr>
 <tr><td colspan="3">PostHireV1EcoBackgroundCheckPackagesBatchDelete</td></tr>
@@ -1711,7 +1711,7 @@
 <tr><td colspan="3">PostOkrV1ProgressRecords</td></tr>
 <tr><td rowspan="2">856</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>删除 OKR 进展记录</td></tr>
 <tr><td colspan="3">DeleteOkrV1ProgressRecordsByProgressId</td></tr>
-<tr><td rowspan="2">857</td><td rowspan="2">2024-08-21</td><td>&#10003;</td><td>消息与群组</td><td>上传文件</td></tr>
+<tr><td rowspan="2">857</td><td rowspan="2">2026-08-27</td><td>&#10003;</td><td>消息与群组</td><td>上传文件</td></tr>
 <tr><td colspan="3">PostImV1Files</td></tr>
 <tr><td rowspan="2">858</td><td rowspan="2">2025-07-25</td><td>&#10003;</td><td>OKR</td><td>更新 OKR 进展记录</td></tr>
 <tr><td colspan="3">PutOkrV1ProgressRecordsByProgressId</td></tr>
@@ -3009,7 +3009,7 @@
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">1505</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
-<tr><td rowspan="2">1506</td><td rowspan="2">2026-03-26</td><td><span style="color:red;">删除</span></td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td rowspan="2">1506</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
 <tr><td rowspan="2">1507</td><td rowspan="2">2026-03-30</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>删除人员自定义组织变更记录</td></tr>
 <tr><td colspan="3">PostCorehrV2CustomOrgDel</td></tr>
@@ -3187,10 +3187,12 @@
 <tr><td colspan="3">PutImV1MessageCot</td></tr>
 <tr><td rowspan="2">1594</td><td rowspan="2">2026-07-28</td><td>&#10003;</td><td>帐号</td><td>重置登录密码</td></tr>
 <tr><td colspan="3">PutPassportV1Password</td></tr>
-<tr><td rowspan="2">1595</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>发送会中消息</td></tr>
+<tr><td rowspan="2">1595</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>发送会中消息</td></tr>
 <tr><td colspan="3">PostVcV1BotsMessage</td></tr>
-<tr><td rowspan="2">1596</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>离开会议</td></tr>
+<tr><td rowspan="2">1596</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>离开会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsLeave</td></tr>
-<tr><td rowspan="2">1597</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td rowspan="2">1597</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsJoin</td></tr>
+<tr><td rowspan="2">1598</td><td rowspan="2">2026-08-25</td><td>新增</td><td>视频会议</td><td>获取纪要详情</td></tr>
+<tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
 </tbody></table>

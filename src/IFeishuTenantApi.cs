@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-08-29
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -4834,7 +4834,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】上传图片</para>
     /// <para>接口ID：6946222931479445505</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/image/create</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用本接口将图片上传至飞书开放平台，支持上传 JPG、JPEG、PNG、WEBP、GIF、BMP、ICO、TIFF、HEIC 格式的图片，但需要注意 TIFF、HEIC 上传后会被转为 JPG 格式。</para>
     /// <para>## 使用场景</para>
     /// <para>如果需要发送图片消息，或者将图片作为头像，则需要先调用本接口将图片上传至开放平台，平台会返回一个图片标识（image_key），后续使用该 Key 值调用其他 API。例如：</para>
@@ -4874,7 +4874,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】上传文件</para>
     /// <para>接口ID：6946222931479461889</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/file/create</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>调用该接口将本地文件上传至开放平台，支持上传音频、视频、文档等文件类型。上传后接口会返回文件的 Key，使用该 Key 值可以调用其他 OpenAPI。例如，调用[发送消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/create)接口，发送文件。</para>
     /// <para>## 前提条件</para>
     /// <para>应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
@@ -5162,15 +5162,15 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【消息与群组】获取消息中的资源文件</para>
     /// <para>接口ID：6946222931479576577</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/im-v1/message/get-2</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>获取指定消息内包含的资源文件，包括音频、视频、图片和文件。成功调用后，返回二进制文件流下载文件。</para>
     /// <para>## 前提条件</para>
     /// <para>- 应用需要开启[机器人能力](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-enable-bot-ability)。</para>
     /// <para>- 机器人和待操作的消息需要在同一会话内。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 仅支持下载 100 MB 以内的资源文件。</para>
+    /// <para>- 当 `type=file` 时，未使用 Range 分片下载仅支持下载小于 100 MB 的资源文件。对于 100 MB 及以上的文件，请在请求头中设置 `Range: bytes=&lt;start&gt;-&lt;end&gt;` 分片下载，并在本地合并；单次请求的分片大小不得超过 32 MB。</para>
+    /// <para>- 当 `type=image` 时，不支持 Range 分片下载，仅支持完整下载小于 100 MB 的图片资源。</para>
     /// <para>- 暂不支持获取表情包资源。</para>
-    /// <para>- 暂不支持获取合并转发消息中的子消息、卡片消息中的资源文件。如果请求时传入了合并转发消息或子消息的 ID、卡片消息 ID，则会返回错误码 234043。</para>
     /// <para>- 不支持在当前接口内调整文件格式，你可以获取资源文件后，在本地自行调整。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>im:message</item>
@@ -58185,6 +58185,65 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [JsonContent] Application.PatchApplicationV7ApplicationsByAppIdConfigBodyDto dto,
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【妙记】获取妙记AI产物</para>
+    /// <para>接口ID：7621494177948142790</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/minutes-v1/minute/artifacts</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>通过妙记唯一标识minute_token获取妙记总结、章节、待办、关键词、逐字稿等AI产物</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>minutes:minutes.artifacts:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="minute_token">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙记唯一标识。可从妙记的 URL 链接中获取，一般为最后一串字符：https://sample.feishu.cn/minutes/obcnq3b9jl72l83w4f14xxxx</para>
+    /// <para>示例值：obcnq3b9jl72l83w4f149w9c</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/minutes/v1/minutes/{minute_token}/artifacts")]
+    System.Threading.Tasks.Task<FeishuResponse<Minutes.GetMinutesV1MinutesByMinuteTokenArtifactsResponseDto>> GetMinutesV1MinutesByMinuteTokenArtifactsAsync(
+        [PathQuery] string minute_token,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】获取纪要详情</para>
+    /// <para>接口ID：7621600266278522080</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/note/get</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取一篇纪要的详细数据。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:note:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="note_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>纪要ID</para>
+    /// <para>示例值：6943848821689040898</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/vc/v1/notes/{note_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Vc.GetVcV1NotesByNoteIdResponseDto>> GetVcV1NotesByNoteIdAsync(
+        [PathQuery] string note_id,
         [PathQuery] string? user_id_type = "open_id",
         CancellationToken cancellation_token = default);
 

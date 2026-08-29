@@ -1333,11 +1333,11 @@
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdAbility</td></tr>
 <tr><td rowspan="2">667</td><td rowspan="2">2026-05-21</td><td>&#10003;</td><td>应用信息</td><td>更新应用开发配置</td></tr>
 <tr><td colspan="3">PatchApplicationV7ApplicationsByAppIdConfig</td></tr>
-<tr><td rowspan="2">668</td><td rowspan="2">2026-07-07</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
+<tr><td rowspan="2">668</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>妙记</td><td>获取妙记AI产物</td></tr>
 <tr><td colspan="3">GetMinutesV1MinutesByMinuteTokenArtifacts</td></tr>
 <tr><td rowspan="2">669</td><td rowspan="2">2026-03-28</td><td>&#10003;</td><td>视频会议</td><td>搜索会议记录</td></tr>
 <tr><td colspan="3">PostVcV1MeetingsSearch</td></tr>
-<tr><td rowspan="2">670</td><td rowspan="2">2026-06-02</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
+<tr><td rowspan="2">670</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
 <tr><td rowspan="2">671</td><td rowspan="2">2026-04-03</td><td>&#10003;</td><td>飞书妙搭</td><td>向数据表中添加或更新记录</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdTablesByTableNameRecords</td></tr>
@@ -1625,10 +1625,22 @@
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
 <tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
-<tr><td rowspan="2">814</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>发送会中消息</td></tr>
+<tr><td rowspan="2">814</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>发送会中消息</td></tr>
 <tr><td colspan="3">PostVcV1BotsMessage</td></tr>
-<tr><td rowspan="2">815</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>离开会议</td></tr>
+<tr><td rowspan="2">815</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>离开会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsLeave</td></tr>
-<tr><td rowspan="2">816</td><td rowspan="2">2026-08-17</td><td>新增</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td rowspan="2">816</td><td rowspan="2">2026-08-17</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsJoin</td></tr>
+<tr><td rowspan="2">817</td><td rowspan="2">2026-08-27</td><td>新增</td><td>消息与群组</td><td>上传图片</td></tr>
+<tr><td colspan="3">PostImV1Images</td></tr>
+<tr><td rowspan="2">818</td><td rowspan="2">2026-08-27</td><td>新增</td><td>消息与群组</td><td>上传文件</td></tr>
+<tr><td colspan="3">PostImV1Files</td></tr>
+<tr><td rowspan="2">819</td><td rowspan="2">2026-08-27</td><td>新增</td><td>消息与群组</td><td>获取消息中的资源文件</td></tr>
+<tr><td colspan="3">GetImV1MessagesByMessageIdResourcesByFileKey</td></tr>
+<tr><td rowspan="2">820</td><td rowspan="2">2026-08-25</td><td>新增</td><td>妙记</td><td>云空间文件生成妙记</td></tr>
+<tr><td colspan="3">PostMinutesV1MinutesUpload</td></tr>
+<tr><td rowspan="2">821</td><td rowspan="2">2026-08-25</td><td>新增</td><td>妙记</td><td>创建妙记片段</td></tr>
+<tr><td colspan="3">PostMinutesV1MinutesByMinuteTokenClip</td></tr>
+<tr><td rowspan="2">822</td><td rowspan="2">2026-08-27</td><td>新增</td><td>审批</td><td>搜索可发起的审批定义</td></tr>
+<tr><td colspan="3">PostApprovalV4ApprovalsSearchLaunchable</td></tr>
 </tbody></table>
