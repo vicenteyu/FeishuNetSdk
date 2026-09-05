@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-07
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="PostCorehrV2PersonsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -25,10 +25,10 @@ public record PostCorehrV2PersonsBodyDto
     /// <para>姓名列表，当用于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create) 的离职重聘时，该字段必填</para>
     /// <para>字段权限要求：</para>
     /// <para>读写法定姓名信息(corehr:person.legal_name:write)</para>
-    /// <para>必填：否</para>
+    /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("name_list")]
-    public PersonName[]? NameLists { get; set; }
+    public PersonName[] NameLists { get; set; } = [];
 
     /// <summary>
     /// <para>姓名列表，当用于[【创建雇佣】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employment/create) 的离职重聘时，该字段必填</para>
@@ -178,6 +178,14 @@ public record PostCorehrV2PersonsBodyDto
         public string? Secondary { get; set; }
 
         /// <summary>
+        /// <para>婚后姓氏</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：王</para>
+        /// </summary>
+        [JsonPropertyName("tertiary")]
+        public string? Tertiary { get; set; }
+
+        /// <summary>
         /// <para>尊称，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
         /// <para>- custom_api_name：social</para>
         /// <para>- object_api_name：person_name</para>
@@ -186,14 +194,6 @@ public record PostCorehrV2PersonsBodyDto
         /// </summary>
         [JsonPropertyName("social")]
         public Enum? Social { get; set; }
-
-        /// <summary>
-        /// <para>婚后姓氏</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：王</para>
-        /// </summary>
-        [JsonPropertyName("tertiary")]
-        public string? Tertiary { get; set; }
 
         /// <summary>
         /// <para>头衔，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
@@ -260,6 +260,14 @@ public record PostCorehrV2PersonsBodyDto
     /// </summary>
     [JsonPropertyName("date_of_birth")]
     public string? DateOfBirth { get; set; }
+
+    /// <summary>
+    /// <para>国籍 ID，可通过[【查询国籍信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-nationality/search)接口查询</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：6862995757234914821</para>
+    /// </summary>
+    [JsonPropertyName("nationality_id_v2")]
+    public string? NationalityIdV2 { get; set; }
 
     /// <summary>
     /// <para>民族 / 种族，枚举值 api_name 可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口查询，查询参数如下：</para>
@@ -1072,10 +1080,42 @@ public record PostCorehrV2PersonsBodyDto
         public Enum? BankAccountType { get; set; }
 
         /// <summary>
+        /// <para>分配方式，枚举值可通过文档【飞书人事枚举常量】分配方式（Payment Type）枚举定义部分获得</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：balance</para>
+        /// </summary>
+        [JsonPropertyName("payment_type")]
+        public Enum? PaymentType { get; set; }
+
+        /// <summary>
+        /// <para>分配比例</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：70.21</para>
+        /// </summary>
+        [JsonPropertyName("payment_rate")]
+        public string? PaymentRate { get; set; }
+
+        /// <summary>
+        /// <para>分配金额</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：5000</para>
+        /// </summary>
+        [JsonPropertyName("payment_amount")]
+        public string? PaymentAmount { get; set; }
+
+        /// <summary>
+        /// <para>分配优先级</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1</para>
+        /// </summary>
+        [JsonPropertyName("priority")]
+        public int? Priority { get; set; }
+
+        /// <summary>
         /// <para>货币 ID</para>
         /// <para>- 详细信息可通过[【查询货币信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-currency/search)接口查询获得</para>
         /// <para>必填：否</para>
-        /// <para>示例值：12QueryCountryRegionSubdivisionDataReq</para>
+        /// <para>示例值：12</para>
         /// </summary>
         [JsonPropertyName("currency_id")]
         public string? CurrencyId { get; set; }
@@ -1453,12 +1493,12 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("phone")]
-        public DependentPhone? Phone { get; set; }
+        public PhoneSuffix? Phone { get; set; }
 
         /// <summary>
         /// <para>电话</para>
         /// </summary>
-        public record DependentPhone
+        public record PhoneSuffix
         {
             /// <summary>
             /// <para>国家区号，可通过[【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)获取，按如下参数查询即可：</para>
@@ -1499,12 +1539,12 @@ public record PostCorehrV2PersonsBodyDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("address")]
-        public DependentAddress? Address { get; set; }
+        public AddressSuffix? Address { get; set; }
 
         /// <summary>
         /// <para>联系地址</para>
         /// </summary>
-        public record DependentAddress
+        public record AddressSuffix
         {
             /// <summary>
             /// <para>地址 ID，在[【创建个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/create)、[【更新个人信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/person/patch)时可获得</para>
@@ -1907,6 +1947,14 @@ public record PostCorehrV2PersonsBodyDto
             public string? Secondary { get; set; }
 
             /// <summary>
+            /// <para>婚后姓氏</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：王</para>
+            /// </summary>
+            [JsonPropertyName("tertiary")]
+            public string? Tertiary { get; set; }
+
+            /// <summary>
             /// <para>尊称，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>
             /// <para>- custom_api_name：social</para>
             /// <para>- object_api_name：person_name</para>
@@ -1915,14 +1963,6 @@ public record PostCorehrV2PersonsBodyDto
             /// </summary>
             [JsonPropertyName("social")]
             public Enum? Social { get; set; }
-
-            /// <summary>
-            /// <para>婚后姓氏</para>
-            /// <para>必填：否</para>
-            /// <para>示例值：王</para>
-            /// </summary>
-            [JsonPropertyName("tertiary")]
-            public string? Tertiary { get; set; }
 
             /// <summary>
             /// <para>头衔，可通过 [【获取字段详情】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom_field/get_by_param)接口获取，按如下参数查询即可：</para>

@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="PostVcV1BotsJoinBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 加入会议 请求体
-/// <para>通过会议号将机器人加入指定的视频会议。调用成功后会返回会议 ID，该 ID 可用于后续的机器人离会、发送会中消息等操作。</para>
+/// <para>通过会议号将机器人加入指定的视频会议。调用成功后会返回会议 ID，该 ID 可用于后续的[离开会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/leave)、[发送会中消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/message)等操作。</para>
 /// <para>接口ID：7672664994767015159</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/join</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fbot%2fjoin</para>

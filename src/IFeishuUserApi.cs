@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-29
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -29666,7 +29666,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【飞书妙搭】批量获取妙搭应用</para>
     /// <para>接口ID：7642228089434901685</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/list</para>
-    /// <para>Authorization：user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>批量获取妙搭应用</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>spark:app:read</item>
@@ -29684,6 +29684,43 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：eyJwYWdlX251bWJlciI6MiwiY29udGVudF9pZHMiOlsiMTIzNCIsIjU2NzgiXX0=</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="app_type">
+    /// <para>必填：否</para>
+    /// <para>筛选应用类型，仅返回指定类型的应用。</para>
+    /// <para>可选值例如：</para>
+    /// <para>- `frontend`：纯前端应用；</para>
+    /// <para>- `full_stack`：全栈应用；</para>
+    /// <para>示例值：full_stack</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>用于模糊匹配应用名称或描述。输入后将返回名称或描述中包含该关键词的应用，为空时返回全部有权限查看的应用</para>
+    /// <para>示例值：我的应用</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="scope">
+    /// <para>必填：否</para>
+    /// <para>应用归属范围过滤，用于筛选不同权限范围内的应用。</para>
+    /// <para>可选值：</para>
+    /// <para>- `all`：返回所有有权限查看的应用，包含自己创建的和共享给自己的</para>
+    /// <para>- `created_by_me`：仅返回当前用户创建的应用</para>
+    /// <para>- `shared_with_me`：仅返回其他用户共享给当前用户的应用</para>
+    /// <para>默认值为 `all`，不传此参数等同于传入 `all`</para>
+    /// <para>示例值：created_by_me</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="ownership">
+    /// <para>必填：否</para>
+    /// <para>Ownership 应用归属过滤。</para>
+    /// <para>可选值：</para>
+    /// <para>- `all `：所有；</para>
+    /// <para>- `mine`：我创建的；</para>
+    /// <para>- `shared`：共享给我的；</para>
+    /// <para>默认 all（不传等同 all）。</para>
+    /// <para>示例值：all</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
     [HttpGet("/open-apis/spark/v1/apps")]
@@ -29691,6 +29728,10 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
+        [PathQuery] string? app_type = null,
+        [PathQuery] string? keyword = null,
+        [PathQuery] string? scope = null,
+        [PathQuery] string? ownership = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -32348,7 +32389,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7657481714696588519</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
+    /// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件。调用前请根据鉴权身份完成准备：使用 user_access_token 时，授权用户需已在目标会议中，并通过[获取用户活跃会议列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting)获取 meeting_id；使用 tenant_access_token 时，应用 Bot 需先通过[加入会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/join)接口进入目标会议，并使用入会接口返回的 meeting_id。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting.bot.join:write</item>
     /// <item>vc:meeting.meetingevent:read</item>
@@ -32589,7 +32630,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>接口ID：7672664994767015159</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/join</para>
     /// <para>Authorization：tenant_access_token、user_access_token</para>
-    /// <para>通过会议号将机器人加入指定的视频会议。调用成功后会返回会议 ID，该 ID 可用于后续的机器人离会、发送会中消息等操作。</para>
+    /// <para>通过会议号将机器人加入指定的视频会议。调用成功后会返回会议 ID，该 ID 可用于后续的[离开会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/leave)、[发送会中消息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/message)等操作。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting.bot.join:write</item>
     /// </list></para>
@@ -32665,6 +32706,159 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse<Approval.PostApprovalV4ApprovalsSearchLaunchableResponseDto>> PostApprovalV4ApprovalsSearchLaunchableAsync(
         UserAccessToken access_token,
         [JsonContent] Approval.PostApprovalV4ApprovalsSearchLaunchableBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取妙搭应用消耗 AI 额度</para>
+    /// <para>接口ID：7679858182357978054</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/open_api_credit_usage</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取妙搭应用消耗 AI 额度</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用 ID</para>
+    /// <para>示例值：app_4jbp6bx8fwjgm</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：是</para>
+    /// <para>时间范围起始时间戳，单位：秒（Unix 时间戳）</para>
+    /// <para>示例值：1717286400</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：是</para>
+    /// <para>时间范围结束时间戳，单位：秒（Unix 时间戳）。须满足 end_time &gt;= start_time</para>
+    /// <para>示例值：1717372800</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/credit_usage")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdCreditUsageResponseDto>> GetSparkV1AppsByAppIdCreditUsageAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string start_time,
+        [PathQuery] string end_time,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取妙搭应用运营数据总览</para>
+    /// <para>接口ID：7679858182357994438</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/open_api_analytics_overview</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取妙搭应用运营数据总览</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用 ID</para>
+    /// <para>示例值：app_4jbp6bx8fwjgm</para>
+    /// </param>
+    /// <param name="start_time">
+    /// <para>必填：是</para>
+    /// <para>运营分析区间起始时间戳，单位：秒（Unix 时间戳）</para>
+    /// <para>示例值：1690000000</para>
+    /// </param>
+    /// <param name="end_time">
+    /// <para>必填：是</para>
+    /// <para>运营分析区间结束时间戳，单位：秒（Unix 时间戳）。须满足 end_time &gt;= start_time</para>
+    /// <para>示例值：1690086400</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/apps/{app_id}/analytics/overview")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AppsByAppIdAnalyticsOverviewResponseDto>> GetSparkV1AppsByAppIdAnalyticsOverviewAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [PathQuery] string start_time,
+        [PathQuery] string end_time,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取妙搭应用运营数据趋势</para>
+    /// <para>接口ID：7679858182358010822</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/query_analytics_data</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>获取妙搭应用运营数据趋势</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>应用ID</para>
+    /// <para>示例值：app_4jbp6bx8fwjgm</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/{app_id}/query_analytics_data")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PostSparkV1AppsByAppIdQueryAnalyticsDataResponseDto>> PostSparkV1AppsByAppIdQueryAnalyticsDataAsync(
+        UserAccessToken access_token,
+        [PathQuery] string app_id,
+        [JsonContent] Miaoda.PostSparkV1AppsByAppIdQueryAnalyticsDataBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】获取妙搭产品使用权限</para>
+    /// <para>接口ID：7679858182358027206</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-available_scope/open_api_get_miaoda_available_scope</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取妙搭产品当前生效的使用权限配置 (可用范围模式 + 允许 / 禁用名单)</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:admin:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/spark/v1/available_scope")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.GetSparkV1AvailableScopeResponseDto>> GetSparkV1AvailableScopeAsync(
+        UserAccessToken access_token,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】修改妙搭产品使用权限</para>
+    /// <para>接口ID：7679858182358043590</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-available_scope/open_api_update_miaoda_available_scope</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>修改妙搭产品的使用权限，即配置哪些部门 / 成员被允许 (或禁止) 使用妙搭产品</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:admin:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/spark/v1/available_scope")]
+    System.Threading.Tasks.Task<FeishuResponse> PutSparkV1AvailableScopeAsync(
+        UserAccessToken access_token,
+        [JsonContent] Miaoda.PutSparkV1AvailableScopeBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【视频会议】会中倒计时</para>
+    /// <para>接口ID：7680486345160821966</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/countdown</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>该接口用于会中操作倒计时，支持自定义时长、设置/延长/提前结束倒计时、关闭倒计时窗口。适用于会议控场场景</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>vc:meeting.interaction:write</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/vc/v1/bots/countdown")]
+    System.Threading.Tasks.Task<FeishuResponse> PostVcV1BotsCountdownAsync(
+        UserAccessToken access_token,
+        [JsonContent] Vc.PostVcV1BotsCountdownBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

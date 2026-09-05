@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="GetVcV1BotsUserActiveMeetingResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -44,7 +44,7 @@ public record GetVcV1BotsUserActiveMeetingResponseDto
         /// <summary>
         /// <para>会议ID</para>
         /// <para>必填：否</para>
-        /// <para>示例值：mt_123e4567-e89b-12d3-a456-426614174000</para>
+        /// <para>示例值：7628568141510692381</para>
         /// </summary>
         [JsonPropertyName("meeting_id")]
         public string? MeetingId { get; set; }

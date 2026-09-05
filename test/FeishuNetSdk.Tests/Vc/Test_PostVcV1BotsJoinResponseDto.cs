@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_PostVcV1BotsJoinResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,12 +32,12 @@ public class Test_PostVcV1BotsJoinResponseDto : TestBase
   "data": {
     "meeting": {
       "id": "7628568141510692381",
-      "meeting_no": "MTG202405201030001",
+      "meeting_no": "123456789",
       "start_time": "2024-05-20 10:30:00",
       "topic": "产品规划评审会"
     },
     "join_user": {
-      "id": "ou_3ec3f6a28a0d08c45d895276e8e5e19b",
+      "id": 7678750516091849680,
       "user_type": 1
     }
   }

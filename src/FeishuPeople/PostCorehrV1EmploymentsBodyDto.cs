@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="PostCorehrV1EmploymentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -217,7 +217,7 @@ public record PostCorehrV1EmploymentsBodyDto
 
         /// <summary>
         /// <para>自定义字段</para>
-        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+        /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("custom_fields")]
@@ -225,7 +225,7 @@ public record PostCorehrV1EmploymentsBodyDto
 
         /// <summary>
         /// <para>自定义字段</para>
-        /// <para>- 请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
+        /// <para>- 当前为预留字段，返回值为空。具体支持的对象请参考[【自定义字段说明】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/custom-fields-guide)</para>
         /// </summary>
         public record ObjectFieldData
         {

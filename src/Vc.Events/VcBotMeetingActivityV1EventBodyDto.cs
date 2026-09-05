@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="VcBotMeetingActivityV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -372,6 +372,13 @@ public record VcBotMeetingActivityV1EventBodyDto() : EventBodyDto("vc.bot.meetin
             /// </summary>
             [JsonPropertyName("time")]
             public string? Time { get; set; }
+
+            /// <summary>
+            /// <para>共享开始原因。share_started 表示真实共享开始；share_detected 表示开启 Agent 入会能力时发现已有共享。字段缺失按 share_started 处理。</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("start_reason")]
+            public string? StartReason { get; set; }
         }
 
         /// <summary>
@@ -557,6 +564,88 @@ public record VcBotMeetingActivityV1EventBodyDto() : EventBodyDto("vc.bot.meetin
                 [JsonPropertyName("block_id")]
                 public string? BlockId { get; set; }
             }
+        }
+
+        /// <summary>
+        /// <para>倒计时状态变化内容（activity_event_type = countdown_changed 时填充）</para>
+        /// <para>**数据校验规则**：</para>
+        /// <para>- 长度范围：`1` ～ `1`</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("countdown_items")]
+        public CountdownItem[]? CountdownItems { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public record CountdownItem
+        {
+            /// <summary>
+            /// <para>倒计时动作；取值 SET / PROLONG / END_IN_ADVANCE / CLOSE / ENDED / REMIND</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("action")]
+            public string? Action { get; set; }
+
+            /// <summary>
+            /// <para>操作倒计时的用户；action 为 ENDED / REMIND 时为空</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("operator")]
+            public MeetingAgentEventUser? Operator { get; set; }
+
+            /// <summary>
+            /// <para>倒计时结束时间（毫秒级时间戳）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("end_time")]
+            public string? EndTime { get; set; }
+
+            /// <summary>
+            /// <para>倒计时事件发生时间（毫秒级时间戳）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("event_time")]
+            public string? EventTime { get; set; }
+
+            /// <summary>
+            /// <para>倒计时结束时是否播放提示音</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("need_play_audio_at_end")]
+            public bool? NeedPlayAudioAtEnd { get; set; }
+
+            /// <summary>
+            /// <para>倒计时结束前提醒时间列表，单位为秒</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 长度范围：`1` ～ `10`</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("reminders_before_end_in_second")]
+            public int[]? RemindersBeforeEndInSecond { get; set; }
+
+            /// <summary>
+            /// <para>倒计时序列 ID</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("seq_id")]
+            public string? SeqId { get; set; }
+
+            /// <summary>
+            /// <para>倒计时设置时间（毫秒级时间戳）</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("countdown_set_time")]
+            public string? CountdownSetTime { get; set; }
+
+            /// <summary>
+            /// <para>距离倒计时结束的剩余分钟数；仅 action 为 REMIND 时填充</para>
+            /// <para>**数据校验规则**：</para>
+            /// <para>- 取值范围：`0` ～ `1440`</para>
+            /// <para>必填：否</para>
+            /// </summary>
+            [JsonPropertyName("remain_minutes")]
+            public int? RemainMinutes { get; set; }
         }
     }
 }

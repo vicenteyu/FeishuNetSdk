@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-17
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_GetVcV1BotsUserActiveMeetingResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -33,7 +33,7 @@ public class Test_GetVcV1BotsUserActiveMeetingResponseDto : TestBase
         "meetings": [
             {
                 "meeting_no": "987654321",
-                "meeting_id": "mt_123e4567-e89b-12d3-a456-426614174000",
+                "meeting_id": "7628568141510692381",
                 "meeting_title": "Q3季度产品迭代评审会"
             }
         ]

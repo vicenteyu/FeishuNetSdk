@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_VcBotMeetingActivityV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -142,7 +142,8 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                             "url": "https://example.feishu.cn/docx/xxx",
                             "title": "会议讨论稿"
                         },
-                        "time": "1712345678000"
+                        "time": "1712345678000",
+                        "start_reason": "share_started"
                     }
                 ],
                 "magic_share_ended_items": [
@@ -196,6 +197,30 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                             "element_token": "element_xxx",
                             "block_id": "block_xxx"
                         }
+                    }
+                ],
+                "countdown_items": [
+                    {
+                        "action": "SET",
+                        "operator": {
+                            "id": {
+  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
+  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
+  "user_id": null
+},
+                            "user_type": 1,
+                            "user_role": 1,
+                            "user_name": "张三"
+                        },
+                        "end_time": "1712349200000",
+                        "event_time": "1712348900000",
+                        "need_play_audio_at_end": true,
+                        "reminders_before_end_in_second": [
+                            10
+                        ],
+                        "seq_id": "12345",
+                        "countdown_set_time": "1712348600000",
+                        "remain_minutes": 5
                     }
                 ]
             }

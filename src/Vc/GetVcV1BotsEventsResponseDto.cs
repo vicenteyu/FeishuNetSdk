@@ -4,7 +4,7 @@
 // Created          : 2026-07-05
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="GetVcV1BotsEventsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.Vc;
 /// <summary>
 /// 获取会议事件列表 响应体
-/// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件</para>
+/// <para>获取会议中的事件列表，包括参会人加入或离开、发言、聊天、共享等事件。调用前请根据鉴权身份完成准备：使用 user_access_token 时，授权用户需已在目标会议中，并通过[获取用户活跃会议列表](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting)获取 meeting_id；使用 tenant_access_token 时，应用 Bot 需先通过[加入会议](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/join)接口进入目标会议，并使用入会接口返回的 meeting_id。</para>
 /// <para>接口ID：7657481714696588519</para>
 /// <para>文档地址：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/events</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fvc-v1%2fbot%2fevents</para>
