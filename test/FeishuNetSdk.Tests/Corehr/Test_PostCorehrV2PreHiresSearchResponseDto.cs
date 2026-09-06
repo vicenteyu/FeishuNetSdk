@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -96,7 +96,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                             "local_secondary": "王",
                             "display_name_local_and_western_script": "王大帅",
                             "display_name_local_script": "王大帅",
-                            "display_name_western_script": "王大帅"
+                            "display_name_western_script": "王大帅",
+                            "wk_id": "7631172813931613916"
                         }
                     ],
                     "gender": {
@@ -414,7 +415,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                     "type": 1,
                                     "value": "\"231\""
                                 }
-                            ]
+                            ],
+                            "wk_id": "7475686493613920050"
                         }
                     ],
                     "dependent_list": [
@@ -475,7 +477,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                 "local_secondary": "王",
                                 "display_name_local_and_western_script": "王大帅",
                                 "display_name_local_script": "王大帅",
-                                "display_name_western_script": "王大帅"
+                                "display_name_western_script": "王大帅",
+                                "wk_id": "7631172813931613916"
                             },
                             "relationship": {
                                 "enum_name": "phone_type",
@@ -514,7 +517,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                             "type": 1,
                                             "value": "\"231\""
                                         }
-                                    ]
+                                    ],
+                                    "wk_id": "7475686493613920050"
                                 }
                             ],
                             "spouses_working_status": {
@@ -632,6 +636,36 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                     "id": "150018109586e8ea745e47ae8feb3722dbe1d03a181336393633393133303431393831343930373235150200",
                                     "name": "document.txt"
                                 }
+                            ],
+                            "reason": {
+                                "enum_name": "phone_type",
+                                "display": [
+                                    {
+                                        "lang": "zh-CN",
+                                        "value": "中文示例"
+                                    }
+                                ]
+                            },
+                            "modify_date": "2020-01-01",
+                            "citizenship_statuses": [
+                                {
+                                    "id": "6891251722631890445",
+                                    "country_region_id": "6891251722631890445",
+                                    "active": true,
+                                    "name": [
+                                        {
+                                            "lang": "zh-CN",
+                                            "value": "中文示例"
+                                        }
+                                    ],
+                                    "citizenship_status": [
+                                        {
+                                            "lang": "zh-CN",
+                                            "value": "中文示例"
+                                        }
+                                    ],
+                                    "view_order": "1"
+                                }
                             ]
                         }
                     ],
@@ -693,7 +727,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                                 "local_secondary": "王",
                                 "display_name_local_and_western_script": "王大帅",
                                 "display_name_local_script": "王大帅",
-                                "display_name_western_script": "王大帅"
+                                "display_name_western_script": "王大帅",
+                                "wk_id": "7631172813931613916"
                             },
                             "relationship": {
                                 "enum_name": "phone_type",
@@ -1301,7 +1336,8 @@ public class Test_PostCorehrV2PreHiresSearchResponseDto : TestBase
                             "task_name": "task_1",
                             "task_status": "abc",
                             "operator_id": "7032210902531327521",
-                            "task_code": "task_11"
+                            "task_code": "task_11",
+                            "rejection_reason": "不符合要求，审批拒绝"
                         }
                     ],
                     "onboarding_address": {

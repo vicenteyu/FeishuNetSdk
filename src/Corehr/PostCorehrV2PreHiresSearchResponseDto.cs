@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-01
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresSearchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -366,6 +366,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("display_name_western_script")]
             public string? DisplayNameWesternScript { get; set; }
+
+            /// <summary>
+            /// <para>ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7631172813931613916</para>
+            /// </summary>
+            [JsonPropertyName("wk_id")]
+            public string? WkId { get; set; }
         }
 
         /// <summary>
@@ -792,6 +800,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
             /// </summary>
             [JsonPropertyName("custom_fields")]
             public CustomFieldData[]? CustomFields { get; set; }
+
+            /// <summary>
+            /// <para>ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7475686493613920050</para>
+            /// </summary>
+            [JsonPropertyName("wk_id")]
+            public string? WkId { get; set; }
         }
 
         /// <summary>
@@ -1389,6 +1405,86 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
                 /// </summary>
                 [JsonPropertyName("birth_certificate_of_child")]
                 public File[]? BirthCertificateOfChilds { get; set; }
+
+                /// <summary>
+                /// <para>变更原因</para>
+                /// <para>必填：否</para>
+                /// </summary>
+                [JsonPropertyName("reason")]
+                public Enum? Reason { get; set; }
+
+                /// <summary>
+                /// <para>变更日期</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：2020-01-01</para>
+                /// </summary>
+                [JsonPropertyName("modify_date")]
+                public string? ModifyDate { get; set; }
+
+                /// <summary>
+                /// <para>居民身份列表</para>
+                /// <para>必填：否</para>
+                /// <para>最大长度：100</para>
+                /// <para>最小长度：0</para>
+                /// </summary>
+                [JsonPropertyName("citizenship_statuses")]
+                public CitizenshipStatus[]? CitizenshipStatuses { get; set; }
+
+                /// <summary>
+                /// <para>居民身份列表</para>
+                /// </summary>
+                public record CitizenshipStatus
+                {
+                    /// <summary>
+                    /// <para>公民身份id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6891251722631890445</para>
+                    /// </summary>
+                    [JsonPropertyName("id")]
+                    public string? Id { get; set; }
+
+                    /// <summary>
+                    /// <para>国家/地区id</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：6891251722631890445</para>
+                    /// </summary>
+                    [JsonPropertyName("country_region_id")]
+                    public string? CountryRegionId { get; set; }
+
+                    /// <summary>
+                    /// <para>是否启用</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：true</para>
+                    /// </summary>
+                    [JsonPropertyName("active")]
+                    public bool? Active { get; set; }
+
+                    /// <summary>
+                    /// <para>名称</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：255</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("name")]
+                    public I18n[]? Names { get; set; }
+
+                    /// <summary>
+                    /// <para>公民身份</para>
+                    /// <para>必填：否</para>
+                    /// <para>最大长度：255</para>
+                    /// <para>最小长度：0</para>
+                    /// </summary>
+                    [JsonPropertyName("citizenship_status")]
+                    public I18n[]? CitizenshipStatusSuffixs { get; set; }
+
+                    /// <summary>
+                    /// <para>排序</para>
+                    /// <para>必填：否</para>
+                    /// <para>示例值：1</para>
+                    /// </summary>
+                    [JsonPropertyName("view_order")]
+                    public string? ViewOrder { get; set; }
+                }
             }
 
             /// <summary>
@@ -2790,6 +2886,14 @@ public record PostCorehrV2PreHiresSearchResponseDto : IPageableResponse<PostCore
                 /// </summary>
                 [JsonPropertyName("task_code")]
                 public string? TaskCode { get; set; }
+
+                /// <summary>
+                /// <para>审批拒绝时的拒绝原因</para>
+                /// <para>必填：否</para>
+                /// <para>示例值：不符合要求，审批拒绝</para>
+                /// </summary>
+                [JsonPropertyName("rejection_reason")]
+                public string? RejectionReason { get; set; }
             }
 
             /// <summary>

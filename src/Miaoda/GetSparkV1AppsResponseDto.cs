@@ -4,7 +4,7 @@
 // Created          : 2026-05-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-22
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="GetSparkV1AppsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -50,7 +50,7 @@ public record GetSparkV1AppsResponseDto : IPageableResponse<GetSparkV1AppsRespon
         public string? AppId { get; set; }
 
         /// <summary>
-        /// <para>应用类型</para>
+        /// <para>应用类型,full_stack或者html</para>
         /// <para>必填：否</para>
         /// <para>示例值：HTML</para>
         /// </summary>
@@ -96,6 +96,74 @@ public record GetSparkV1AppsResponseDto : IPageableResponse<GetSparkV1AppsRespon
         /// </summary>
         [JsonPropertyName("updated_at")]
         public string? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// <para>应用是否已发布</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：true</para>
+        /// </summary>
+        [JsonPropertyName("is_published")]
+        public bool? IsPublished { get; set; }
+
+        /// <summary>
+        /// <para>应用发布后的访问地址</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：http://www.tos.dlxka.com</para>
+        /// </summary>
+        [JsonPropertyName("online_url")]
+        public string? OnlineUrl { get; set; }
+
+        /// <summary>
+        /// <para>应用对应的文档 token</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：wfjgyiyN2Fk17H8cgfFanWe</para>
+        /// </summary>
+        [JsonPropertyName("meta_token")]
+        public string? MetaToken { get; set; }
+
+        /// <summary>
+        /// <para>应用启用状态：启用(enabled) / 停用(disabled)</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：enabled</para>
+        /// </summary>
+        [JsonPropertyName("status")]
+        public string? Status { get; set; }
+
+        /// <summary>
+        /// <para>应用所有者 UserID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7615135553960283664</para>
+        /// </summary>
+        [JsonPropertyName("owner_id")]
+        public string? OwnerId { get; set; }
+
+        /// <summary>
+        /// <para>应用创建者 UserID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7615135553960283664</para>
+        /// </summary>
+        [JsonPropertyName("creator_id")]
+        public string? CreatorId { get; set; }
+
+        /// <summary>
+        /// <para>应用管理员 UserID 列表</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：["7615135553960283664"]</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("admin_ids")]
+        public string[]? AdminIds { get; set; }
+
+        /// <summary>
+        /// <para>应用开发者 UserID 列表</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：["7615135553960283664"]</para>
+        /// <para>最大长度：100</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("developer_ids")]
+        public string[]? DeveloperIds { get; set; }
     }
 
     /// <summary>

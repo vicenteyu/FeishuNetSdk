@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_PostCorehrV2PersonsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -70,6 +70,7 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                     "middle_name": "大",
                     "name_primary": "王",
                     "secondary": "王",
+                    "tertiary": "王",
                     "social": {
                         "enum_name": "example",
                         "display": [
@@ -79,7 +80,6 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                             }
                         ]
                     },
-                    "tertiary": "王",
                     "title": {
                         "enum_name": "example",
                         "display": [
@@ -106,6 +106,7 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                 ]
             },
             "date_of_birth": "2020-01-01",
+            "nationality_id_v2": "6862995757234914821",
             "race": {
                 "enum_name": "example",
                 "display": [
@@ -364,7 +365,19 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                             }
                         ]
                     },
-                    "currency_id": "12QueryCountryRegionSubdivisionDataReq",
+                    "payment_type": {
+                        "enum_name": "phone_type",
+                        "display": [
+                            {
+                                "lang": "zh-CN",
+                                "value": "中文示例"
+                            }
+                        ]
+                    },
+                    "payment_rate": "70.21",
+                    "payment_amount": "5000",
+                    "priority": 1,
+                    "currency_id": "12",
                     "custom_fields": [
                         {
                             "custom_api_name": "name",
@@ -433,6 +446,7 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                         "middle_name": "大",
                         "name_primary": "王",
                         "secondary": "王",
+                        "tertiary": "王",
                         "social": {
                             "enum_name": "example",
                             "display": [
@@ -442,7 +456,6 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                                 }
                             ]
                         },
-                        "tertiary": "王",
                         "title": {
                             "enum_name": "example",
                             "display": [
@@ -649,6 +662,7 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                         "middle_name": "大",
                         "name_primary": "王",
                         "secondary": "王",
+                        "tertiary": "王",
                         "social": {
                             "enum_name": "example",
                             "display": [
@@ -658,7 +672,6 @@ public class Test_PostCorehrV2PersonsResponseDto : TestBase
                                 }
                             ]
                         },
-                        "tertiary": "王",
                         "title": {
                             "enum_name": "example",
                             "display": [

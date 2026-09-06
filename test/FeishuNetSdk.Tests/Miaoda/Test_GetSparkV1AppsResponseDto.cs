@@ -4,7 +4,7 @@
 // Created          : 2026-05-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-05-22
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_GetSparkV1AppsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -39,7 +39,19 @@ public class Test_GetSparkV1AppsResponseDto : TestBase
                 "description": "提供7×24小时智能对话服务，支持常见问题自动解答与工单流转",
                 "icon_url": "https://example.com/app-icons/customer-service.png",
                 "created_at": "2026-05-18T10:00:00Z",
-                "updated_at": "2026-06-20T14:30:00Z"
+                "updated_at": "2026-06-20T14:30:00Z",
+                "is_published": true,
+                "online_url": "http://www.tos.dlxka.com",
+                "meta_token": "wfjgyiyN2Fk17H8cgfFanWe",
+                "status": "enabled",
+                "owner_id": "7615135553960283664",
+                "creator_id": "7615135553960283664",
+                "admin_ids": [
+                    "7615135553960283664"
+                ],
+                "developer_ids": [
+                    "7615135553960283664"
+                ]
             }
         ],
         "has_more": true

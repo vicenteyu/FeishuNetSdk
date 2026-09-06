@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-05
 // ************************************************************************
 // <copyright file="Test_PostVcV1BotsJoinBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -29,7 +29,7 @@ public class Test_PostVcV1BotsJoinBodyDto : TestBase
 {
     "join_type": 1,
     "join_identify": {
-        "meeting_no": "MTG202405201030001"
+        "meeting_no": "123456789"
     },
     "password": "******",
     "call_id": "7c9e6679-7425-40de-944b-e07fc1f90ae7"
