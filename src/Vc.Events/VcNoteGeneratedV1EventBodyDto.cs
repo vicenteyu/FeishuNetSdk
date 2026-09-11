@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-09-11
 // ************************************************************************
 // <copyright file="VcNoteGeneratedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -38,5 +38,5 @@ public record VcNoteGeneratedV1EventBodyDto() : EventBodyDto("vc.note.generated_
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("subscriber_ids")]
-    public UserIdSuffix[]? SubscriberIds { get; set; }
+    public UserIdKey[]? SubscriberIds { get; set; }
 }

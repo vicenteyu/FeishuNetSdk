@@ -807,7 +807,7 @@
 <tr><td colspan="3">GetHelpdeskV1CustomizedFields</td></tr>
 <tr><td rowspan="2">404</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>发送工单消息</td></tr>
 <tr><td colspan="3">PostHelpdeskV1TicketsByTicketIdMessages</td></tr>
-<tr><td rowspan="2">405</td><td rowspan="2">2023-08-15</td><td>&#10003;</td><td>服务台</td><td>获取工单消息详情</td></tr>
+<tr><td rowspan="2">405</td><td rowspan="2">2026-09-08</td><td>&#10003;</td><td>服务台</td><td>获取工单消息详情</td></tr>
 <tr><td colspan="3">GetHelpdeskV1TicketsByTicketIdMessages</td></tr>
 <tr><td rowspan="2">406</td><td rowspan="2">2025-05-09</td><td>&#10003;</td><td>服务台</td><td>服务台机器人向工单绑定的群内发送消息</td></tr>
 <tr><td colspan="3">PostHelpdeskV1Message</td></tr>
@@ -3195,14 +3195,14 @@
 <tr><td colspan="3">PostVcV1BotsJoin</td></tr>
 <tr><td rowspan="2">1598</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
-<tr><td rowspan="2">1599</td><td rowspan="2">2026-08-31</td><td>新增</td><td>飞书妙搭</td><td>批量获取妙搭应用</td></tr>
+<tr><td rowspan="2">1599</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>飞书妙搭</td><td>批量获取妙搭应用</td></tr>
 <tr><td colspan="3">GetSparkV1Apps</td></tr>
-<tr><td rowspan="2">1600</td><td rowspan="2">2026-08-31</td><td>新增</td><td>飞书妙搭</td><td>获取妙搭应用消耗 AI 额度</td></tr>
+<tr><td rowspan="2">1600</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>飞书妙搭</td><td>获取妙搭应用消耗 AI 额度</td></tr>
 <tr><td colspan="3">GetSparkV1AppsByAppIdCreditUsage</td></tr>
-<tr><td rowspan="2">1601</td><td rowspan="2">2026-08-31</td><td>新增</td><td>飞书妙搭</td><td>获取妙搭应用运营数据总览</td></tr>
+<tr><td rowspan="2">1601</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>飞书妙搭</td><td>获取妙搭应用运营数据总览</td></tr>
 <tr><td colspan="3">GetSparkV1AppsByAppIdAnalyticsOverview</td></tr>
-<tr><td rowspan="2">1602</td><td rowspan="2">2026-08-31</td><td>新增</td><td>飞书妙搭</td><td>获取妙搭应用运营数据趋势</td></tr>
+<tr><td rowspan="2">1602</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>飞书妙搭</td><td>获取妙搭应用运营数据趋势</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdQueryAnalyticsData</td></tr>
-<tr><td rowspan="2">1603</td><td rowspan="2">2026-09-02</td><td>新增</td><td>视频会议</td><td>会中倒计时</td></tr>
+<tr><td rowspan="2">1603</td><td rowspan="2">2026-09-02</td><td>&#10003;</td><td>视频会议</td><td>会中倒计时</td></tr>
 <tr><td colspan="3">PostVcV1BotsCountdown</td></tr>
 </tbody></table>
