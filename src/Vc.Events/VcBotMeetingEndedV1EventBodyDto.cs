@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-09-11
 // ************************************************************************
 // <copyright file="VcBotMeetingEndedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -85,7 +85,7 @@ public record VcBotMeetingEndedV1EventBodyDto() : EventBodyDto("vc.bot.meeting_e
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("id")]
-            public UserIdSuffix? Id { get; set; }
+            public UserIdKey? Id { get; set; }
 
             /// <summary>
             /// <para>用户类型</para>

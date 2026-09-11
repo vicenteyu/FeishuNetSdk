@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-05
+// Last Modified On : 2026-09-11
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -9765,18 +9765,18 @@ public interface IFeishuTenantApi : IHttpApi
     /// <param name="ticket_id">
     /// <para>路径参数</para>
     /// <para>必填：是</para>
-    /// <para>工单ID</para>
+    /// <para>工单 ID。可通过「获取工单列表」接口返回的工单 ID 获取，也可从工单相关事件回调中的工单 ID 字段获取。</para>
     /// <para>示例值：6948728206392295444</para>
     /// </param>
     /// <param name="time_start">
     /// <para>必填：否</para>
-    /// <para>起始时间</para>
+    /// <para>查询起始时间，Unix 时间戳，单位为秒。不支持毫秒时间戳。若不传，默认从 Unix 时间起点开始查询。</para>
     /// <para>示例值：1617960686</para>
     /// <para>默认值：null</para>
     /// </param>
     /// <param name="time_end">
     /// <para>必填：否</para>
-    /// <para>结束时间</para>
+    /// <para>查询结束时间，Unix 时间戳，单位为秒。不支持毫秒时间戳；不传时默认为当前时间</para>
     /// <para>示例值：1617960687</para>
     /// <para>默认值：null</para>
     /// </param>

@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-05
+// Last Modified On : 2026-09-11
 // ************************************************************************
 // <copyright file="Test_VcBotMeetingActivityV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -47,10 +47,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     "end_time": "1712349278",
                     "host_user": {
                         "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                            "union_id": "on_8ed6aa67826108097d9ee143816345",
+                            "user_id": "e33ggbyz",
+                            "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                            "user_key": "749112601802809xxxx"
+                        },
                         "user_type": 1,
                         "user_role": 1,
                         "user_name": "张三"
@@ -61,10 +62,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "participant": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -76,10 +78,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "participant": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -92,10 +95,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "speaker": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -111,10 +115,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "operator": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -129,10 +134,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "operator": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -150,10 +156,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "operator": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -166,10 +173,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                     {
                         "operator": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"
@@ -204,10 +212,11 @@ public class Test_VcBotMeetingActivityV1EventBodyDto : TestBase
                         "action": "SET",
                         "operator": {
                             "id": {
-  "open_id": "ou_e31286c2456c474524768abcd295ca1b",
-  "union_id": "on_4ceee576601af6e38fe40fc5b60c6ee2",
-  "user_id": null
-},
+                                "union_id": "on_8ed6aa67826108097d9ee143816345",
+                                "user_id": "e33ggbyz",
+                                "open_id": "ou_84aad35d084aa403a838cf73ee18467",
+                                "user_key": "749112601802809xxxx"
+                            },
                             "user_type": 1,
                             "user_role": 1,
                             "user_name": "张三"

@@ -4,7 +4,7 @@
 // Created          : 2026-06-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-06-06
+// Last Modified On : 2026-09-11
 // ************************************************************************
 // <copyright file="Test_VcNoteGeneratedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -42,7 +42,8 @@ public class Test_VcNoteGeneratedV1EventBodyDto : TestBase
             {
                 "union_id": "on_785a8cda5345f665f7187d7d876cb790",
                 "user_id": "f3e15a6a",
-                "open_id": "ou_2cc0462a0597358575e771bea74e3304"
+                "open_id": "ou_2cc0462a0597358575e771bea74e3304",
+                "user_key": "749112601802809xxxx"
             }
         ]
     }
