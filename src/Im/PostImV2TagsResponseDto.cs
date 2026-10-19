@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostImV2TagsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,25 +28,4 @@ public record PostImV2TagsResponseDto
     /// </summary>
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
-    /// <summary>
-    /// <para>创建失败原因</para>
-    /// <para>必填：否</para>
-    /// </summary>
-    [JsonPropertyName("create_tag_fail_reason")]
-    public PostImV2TagsResponseDtoCreateTagFailReason? CreateTagFailReason { get; set; }
-
-    /// <summary>
-    /// <para>创建失败原因</para>
-    /// </summary>
-    public record PostImV2TagsResponseDtoCreateTagFailReason
-    {
-        /// <summary>
-        /// <para>名称重复的标签id</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：716168xxxxx</para>
-        /// </summary>
-        [JsonPropertyName("duplicate_id")]
-        public string? DuplicateId { get; set; }
-    }
 }

@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("device_record")]
-    public GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDtoDeviceRecord? DeviceRecord { get; set; }
+    public DeviceRecordSuffix? DeviceRecord { get; set; }
 
     /// <summary>
     /// <para>设备记录</para>
     /// </summary>
-    public record GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDtoDeviceRecord
+    public record DeviceRecordSuffix
     {
         /// <summary>
         /// <para>设备认证编码</para>
@@ -237,5 +237,92 @@ public record GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDto
         /// </summary>
         [JsonPropertyName("mdm_provider_name")]
         public string? MdmProviderName { get; set; }
+
+        /// <summary>
+        /// <para>终端管控客户端（包含 lsaclientid、在线状态、绑定时间、最近在线时间、版本号）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1</para>
+        /// </summary>
+        [JsonPropertyName("lsa_info")]
+        public string? LsaInfo { get; set; }
+
+        /// <summary>
+        /// <para>设备环境检测（状态，应用名称、应用状态、上报时间）</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00</para>
+        /// </summary>
+        [JsonPropertyName("device_env_info")]
+        public string? DeviceEnvInfo { get; set; }
+
+        /// <summary>
+        /// <para>注册时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1767172154</para>
+        /// <para>最大值：99999999999</para>
+        /// <para>最小值：0</para>
+        /// </summary>
+        [JsonPropertyName("created_at")]
+        public long? CreatedAt { get; set; }
+
+        /// <summary>
+        /// <para>更新时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1767172154</para>
+        /// <para>最大值：99999999999</para>
+        /// <para>最小值：0</para>
+        /// </summary>
+        [JsonPropertyName("updated_at")]
+        public long? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// <para>是否为公共设备</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// <para>默认值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool? IsPublic { get; set; }
+
+        /// <summary>
+        /// <para>注册方式</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：0</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：未知</item>
+        /// <item>1：预注册</item>
+        /// <item>2：系统注册</item>
+        /// </list></para>
+        /// <para>默认值：0</para>
+        /// </summary>
+        [JsonPropertyName("source")]
+        public int? Source { get; set; }
+
+        /// <summary>
+        /// <para>证书认证时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：1772344920000</para>
+        /// </summary>
+        [JsonPropertyName("cert_verified_at_unix")]
+        public string? CertVerifiedAtUnix { get; set; }
+
+        /// <summary>
+        /// <para>证书序列号</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：140112030923876027756448774661898183576236633676</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("cert_serial_number")]
+        public string? CertSerialNumber { get; set; }
+
+        /// <summary>
+        /// <para>证书颁发者</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：Root-CA</para>
+        /// <para>最大长度：255</para>
+        /// <para>最小长度：0</para>
+        /// </summary>
+        [JsonPropertyName("cert_issuer")]
+        public string? CertIssuer { get; set; }
     }
 }

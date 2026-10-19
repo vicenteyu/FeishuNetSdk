@@ -387,7 +387,7 @@
 <tr><td colspan="3">GetVcV1ReservesByReserveId</td></tr>
 <tr><td rowspan="2">194</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>视频会议</td><td>获取活跃会议</td></tr>
 <tr><td colspan="3">GetVcV1ReservesByReserveIdGetActiveMeeting</td></tr>
-<tr><td rowspan="2">195</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>邀请参会人</td></tr>
+<tr><td rowspan="2">195</td><td rowspan="2">2026-09-23</td><td>&#10003;</td><td>视频会议</td><td>邀请参会人</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdInvite</td></tr>
 <tr><td rowspan="2">196</td><td rowspan="2">2023-08-23</td><td>&#10003;</td><td>视频会议</td><td>设置主持人</td></tr>
 <tr><td colspan="3">PatchVcV1MeetingsByMeetingIdSetHost</td></tr>
@@ -423,7 +423,7 @@
 <tr><td colspan="3">PostVcV1RoomLevels</td></tr>
 <tr><td rowspan="2">212</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>删除会议室层级</td></tr>
 <tr><td colspan="3">PostVcV1RoomLevelsDel</td></tr>
-<tr><td rowspan="2">213</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
+<tr><td rowspan="2">213</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>消息与群组</td><td>获取用户或机器人所在的群列表</td></tr>
 <tr><td colspan="3">GetImV1Chats</td></tr>
 <tr><td rowspan="2">214</td><td rowspan="2">2023-07-14</td><td><span style="color:red;">删除</span></td><td>视频会议</td><td>更新会议室层级</td></tr>
 <tr><td colspan="3">PatchVcV1RoomLevelsByRoomLevelId</td></tr>
@@ -1267,7 +1267,7 @@
 <tr><td colspan="3">GetBoardV1WhiteboardsByWhiteboardIdTheme</td></tr>
 <tr><td rowspan="2">634</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>创建节点</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdNodes</td></tr>
-<tr><td rowspan="2">635</td><td rowspan="2">2025-10-21</td><td>&#10003;</td><td>安全合规</td><td>获取客户端设备认证信息</td></tr>
+<tr><td rowspan="2">635</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>安全合规</td><td>通过授权获取设备信息</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV2DeviceRecordsMine</td></tr>
 <tr><td rowspan="2">636</td><td rowspan="2">2026-05-25</td><td>&#10003;</td><td>画板</td><td>更新画板主题</td></tr>
 <tr><td colspan="3">PostBoardV1WhiteboardsByWhiteboardIdUpdateTheme</td></tr>
@@ -1305,7 +1305,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFieldGroups</td></tr>
 <tr><td rowspan="2">653</td><td rowspan="2">2026-03-03</td><td>&#10003;</td><td>多维表格</td><td>升级表单</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdFormsByFormIdUpgrade</td></tr>
-<tr><td rowspan="2">654</td><td rowspan="2">2026-07-22</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
+<tr><td rowspan="2">654</td><td rowspan="2">2026-10-16</td><td>&#10003;</td><td>飞书妙搭</td><td>妙搭和飞书用户 ID 转换</td></tr>
 <tr><td colspan="3">PostSparkV1DirectoryUserIdConvert</td></tr>
 <tr><td rowspan="2">655</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>搜索地理库信息</td></tr>
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
@@ -1655,4 +1655,6 @@
 <tr><td colspan="3">PutSparkV1AvailableScope</td></tr>
 <tr><td rowspan="2">828</td><td rowspan="2">2026-09-02</td><td>&#10003;</td><td>视频会议</td><td>会中倒计时</td></tr>
 <tr><td colspan="3">PostVcV1BotsCountdown</td></tr>
+<tr><td rowspan="2">829</td><td rowspan="2">2026-10-08</td><td>新增</td><td>飞书妙搭</td><td>导出妙搭应用代码包</td></tr>
+<tr><td colspan="3">PostSparkV1AppsExport</td></tr>
 </tbody></table>
