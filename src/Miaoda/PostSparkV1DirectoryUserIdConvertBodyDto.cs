@@ -4,7 +4,7 @@
 // Created          : 2026-03-06
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-07-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostSparkV1DirectoryUserIdConvertBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -27,9 +27,11 @@ public record PostSparkV1DirectoryUserIdConvertBodyDto
 {
     /// <summary>
     /// <para>ID 转换类型，枚举</para>
-    /// <para>设置为10、11、40时，ids需要传入妙搭用户 ID</para>
+    /// <para>设置为10、11、30、40时，ids需要传入妙搭用户 ID</para>
     /// <para>设置为20时，需要传入飞书开平 OpenID</para>
     /// <para>设置为21时，需要传入飞书开平 UnionID</para>
+    /// <para>设置为31时，需要传入飞书 EmployeeID</para>
+    /// <para>设置为41时，需要传入飞书 LarkUserID</para>
     /// <para>必填：是</para>
     /// <para>示例值：10</para>
     /// <para>可选值：<list type="bullet">
@@ -37,14 +39,17 @@ public record PostSparkV1DirectoryUserIdConvertBodyDto
     /// <item>11：妙搭用户 ID 转飞书开放平台 Union ID</item>
     /// <item>20：飞书开放平台 Open ID 转妙搭用户 ID</item>
     /// <item>21：飞书开放平台 Union ID 转妙搭用户 ID</item>
+    /// <item>30：妙搭用户 ID 转飞书 Employee ID</item>
+    /// <item>31：飞书 Employee ID 转妙搭用户ID</item>
     /// <item>40：妙搭用户 ID 转飞书用户 ID</item>
+    /// <item>41：飞书用户 ID 转妙搭用户 ID</item>
     /// </list></para>
     /// </summary>
     [JsonPropertyName("id_convert_type")]
     public int IdConvertType { get; set; }
 
     /// <summary>
-    /// <para>默认为空，为空时不返回</para>
+    /// <para>默认为空，为空时不返回，数组的元素个数不超过100，传入的 ID 类型需与 id_convert_type 保持匹配</para>
     /// <para>必填：否</para>
     /// <para>最大长度：100</para>
     /// <para>最小长度：1</para>

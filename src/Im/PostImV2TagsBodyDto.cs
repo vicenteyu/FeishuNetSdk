@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostImV2TagsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record PostImV2TagsBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("create_tag")]
-    public PostImV2TagsBodyDtoCreateTag CreateTag { get; set; } = new();
+    public CreateTagSuffix CreateTag { get; set; } = new();
 
     /// <summary>
     /// <para>创建标签</para>
     /// </summary>
-    public record PostImV2TagsBodyDtoCreateTag
+    public record CreateTagSuffix
     {
         /// <summary>
         /// <para>标签类型</para>
@@ -76,11 +76,11 @@ public record PostImV2TagsBodyDto
 
             /// <summary>
             /// <para>名称</para>
-            /// <para>必填：否</para>
+            /// <para>必填：是</para>
             /// <para>示例值：标签1</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public string? Name { get; set; }
+            public string Name { get; set; } = string.Empty;
         }
     }
 }

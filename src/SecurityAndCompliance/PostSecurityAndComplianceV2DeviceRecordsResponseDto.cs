@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostSecurityAndComplianceV2DeviceRecordsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -14,7 +14,7 @@
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 新增设备 响应体
-/// <para>使用该接口在设备管理中新增一台设备。新增设备的类型为管理员导入</para>
+/// <para>使用该接口在设备管理中新增一台设备。新增设备的注册方式为预注册</para>
 /// <para>接口ID：7430737008881614850</para>
 /// <para>文档地址：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/create</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2fsecurity_and_compliance-v2%2fdevice_record%2fcreate</para>

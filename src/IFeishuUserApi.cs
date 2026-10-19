@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-05
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2852,7 +2852,7 @@ public interface IFeishuUserApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小，用来限制一次请求返回的数据条目数。</para>
+    /// <para>分页大小，用于指定单次请求最多返回的数据条目数。受查询耗时限制等因素影响，实际返回数量可能少于该值。是否遍历完成应以响应体中的 has_more 为准；当其为 true 时，可使用返回的 page_token 继续查询。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -26360,11 +26360,11 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
-    /// <para>【安全合规】获取客户端设备认证信息</para>
+    /// <para>【安全合规】通过授权获取设备信息</para>
     /// <para>接口ID：7563551656446263298</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/security_and_compliance-v2/device_record/mine</para>
     /// <para>Authorization：user_access_token</para>
-    /// <para>通过客户端授权信息获取对应设备认证信息，包含设备归属、可信状态等</para>
+    /// <para>通过用户授权获取对应授权端的设备信息，包含设备认证编码、当前设备归属、当前可信状态</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>security_and_compliance:device_record:read</item>
     /// </list></para>
@@ -32859,6 +32859,30 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<FeishuResponse> PostVcV1BotsCountdownAsync(
         UserAccessToken access_token,
         [JsonContent] Vc.PostVcV1BotsCountdownBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】导出妙搭应用代码包</para>
+    /// <para>接口ID：7692846107466206181</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/export</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>导出妙搭应用的代码快照，以 zip 压缩包的二进制流形式直接返回，调用方可直接落盘为 `.zip` 文件。</para>
+    /// <para>按应用类型，导出内容有所不同：</para>
+    /// <para>| 应用类型 | 导出内容 |</para>
+    /// <para>| --- | --- |</para>
+    /// <para>| 全栈应用、前端应用等（代码托管在妙搭代码仓库） | 代码仓库中某次提交的快照。定位优先级：`release_id` &gt; `checkpoint_id` &gt; 默认分支最新提交。**不包含**沙箱中尚未保存为检查点的改动 |</para>
+    /// <para>| 静态 HTML 应用、豆包网页应用（仅托管构建产物） | 最近一次发布成功版本的构建产物（非原始源码），忽略 `checkpoint_id` 与 `release_id`。应用从未发布成功时无法导出 |</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/spark/v1/apps/export")]
+    System.Threading.Tasks.Task<HttpResponseMessage> PostSparkV1AppsExportAsync(
+        UserAccessToken access_token,
+        [JsonContent] Miaoda.PostSparkV1AppsExportBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

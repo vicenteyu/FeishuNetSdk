@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="Test_GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -54,7 +54,16 @@ public class Test_GetSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdRespons
             ],
             "is_managed": true,
             "mdm_device_id": "123abc",
-            "mdm_provider_name": "Workspace_ONE"
+            "mdm_provider_name": "Workspace_ONE",
+            "lsa_info": "7522053803906960914,离线,2025/07/09 13:42:42 UTC,2025/07/18 05:09:21 UTC,v1.2.1",
+            "device_env_info": "安全;飞连,已安装,正在运行,2025/12/11 12:00:00;lsa,已安装,未运行,2025/12/11 12:00:00",
+            "created_at": 1767172154,
+            "updated_at": 1767172154,
+            "is_public": false,
+            "source": 0,
+            "cert_verified_at_unix": "1772344920000",
+            "cert_serial_number": "140112030923876027756448774661898183576236633676",
+            "cert_issuer": "Root-CA"
         }
     }
 }

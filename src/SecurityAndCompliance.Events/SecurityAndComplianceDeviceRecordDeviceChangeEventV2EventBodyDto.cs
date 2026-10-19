@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-11-14
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -238,12 +238,34 @@ public record SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto()
         /// </summary>
         [JsonPropertyName("mdm_provider_name")]
         public string? MdmProviderName { get; set; }
-    }    
+
+        /// <summary>
+        /// <para>设备环境检测状态</para>
+        /// <para>**可选值有**：</para>
+        /// <para>0:未知,1:安全,2:不安全</para>
+        /// <para>必填：否</para>
+        /// <para>可选值：<list type="bullet">
+        /// <item>0：未知</item>
+        /// <item>1：安全</item>
+        /// <item>2：不安全</item>
+        /// </list></para>
+        /// </summary>
+        [JsonPropertyName("device_env_detect_status")]
+        public int? DeviceEnvDetectStatus { get; set; }
+
+        /// <summary>
+        /// <para>是否为公共设备</para>
+        /// <para>**默认值**：`false`</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("is_public")]
+        public bool? IsPublic { get; set; }
+    }
 
     /// <summary>
     /// <para>变更后数据</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("after")]
-    public DeviceChangeEvent? After { get; set; }    
+    public DeviceChangeEvent? After { get; set; }
 }

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostApprovalV1MessageUpdateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -18,7 +18,7 @@ namespace FeishuNetSdk.Approval.Spec;
 /// <para>使用限制：</para>
 /// <para>- 只能更新审批状态，以及审批同意或拒绝后的标题或者查看详情的文案。</para>
 /// <para>- 只能更新模板为 1008「收到审批待办」的卡片。</para>
-/// <para>- 只支持更新 30 天以内的审批 bot 消息。</para>
+/// <para>- 只支持更新 30 天以内的审批 Bot 消息。</para>
 /// <para>接口ID：6907569743419752450</para>
 /// <para>文档地址：https://open.feishu.cn/document/server-docs/approval-v4/message/update-bot-messages</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fukTMukTMukTM%2fuAjNyYjLwYjM24CM2IjN</para>

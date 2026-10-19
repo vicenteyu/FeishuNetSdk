@@ -4,7 +4,7 @@
 // Created          : 2024-07-18
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-05
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostCorehrV2PreHiresQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -108,7 +108,32 @@ public record PostCorehrV2PreHiresQueryResponseDto : IPageableResponse<PostCoreh
             public int? Type { get; set; }
 
             /// <summary>
-            /// <para>字段值，是 json 转义后的字符串，根据元数据定义不同，字段格式不同（如 123, 123.23, "true", ["id1","id2"], "2006-01-02 15:04:05"）</para>
+            /// <para>value：字段值，类型为 string，内容是实际字段值 JSON 序列化后的结果。以下示例均为接口响应中的 value 字符串。</para>
+            /// <para>- 1：文本 Text / 超链接</para>
+            /// <para>示例：`"\"张三\""`；超链接示例：`"\"https://example.com\""`</para>
+            /// <para>- 2：布尔 Boolean</para>
+            /// <para>示例：`"\"true\""` 或 `"\"false\""`</para>
+            /// <para>- 3：数字 Number</para>
+            /// <para>示例：`"\"123\""`、`"\"123.23\""`</para>
+            /// <para>- 4：枚举 Option</para>
+            /// <para>单选示例：`"{\"api_name\":\"option_a\"}"`</para>
+            /// <para>多选示例：`"[{\"api_name\":\"option_a\"},{\"api_name\":\"option_b\"}]"`</para>
+            /// <para>- 5：查找 Lookup</para>
+            /// <para>人员单选示例：`"{\"wk_id\":\"wk_person_001\"}"`</para>
+            /// <para>人员多选示例：`"[{\"wk_id\":\"wk_person_001\"},{\"wk_id\":\"wk_person_002\"}]"`</para>
+            /// <para>自定义分组示例：`"{\"field_a\":\"value_a\",\"field_b\":\"value_b\"}"`；多选时为对象数组。</para>
+            /// <para>- 6：自动编码 Autonumber</para>
+            /// <para>示例：`"\"PRE-20261013-0001\""`</para>
+            /// <para>- 7：日期时间 Datetime</para>
+            /// <para>示例：`"\"2006-01-02\""` 或 `"\"2006-01-02 15:04:05\""`</para>
+            /// <para>- 8：附件 Attachment</para>
+            /// <para>示例：`"[{\"file_id\":\"file_001\",\"name\":\"resume.pdf\",\"mime_type\":\"application/pdf\",\"token\":\"token_001\",\"size\":1024}]"`</para>
+            /// <para>- 9：图片 Image</para>
+            /// <para>示例：`"[{\"file_id\":\"image_001\",\"name\":\"avatar.png\",\"mime_type\":\"image/png\",\"token\":\"token_001\",\"size\":2048}]"`</para>
+            /// <para>- 10：计算字段 Calculated</para>
+            /// <para>示例：计算结果为数字时：`"\"123.45\""`；计算结果为枚举时：`"{\"api_name\":\"option_a\"}"`。具体结构由计算字段结果类型决定。</para>
+            /// <para>- 11：反向查找 Backlookup</para>
+            /// <para>示例：结构不固定，以关联对象实际返回结果为准。</para>
             /// <para>必填：是</para>
             /// <para>示例值：\"231\"</para>
             /// </summary>
@@ -2976,7 +3001,7 @@ public record PostCorehrV2PreHiresQueryResponseDto : IPageableResponse<PostCoreh
             public string? ProbationEndDate { get; set; }
 
             /// <summary>
-            /// <para>试用期时长（单位：天）</para>
+            /// <para>试用期时长（默认单位：月）</para>
             /// <para>必填：否</para>
             /// <para>示例值：6</para>
             /// </summary>

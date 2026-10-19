@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="Test_SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,7 +64,9 @@ public class Test_SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyD
             "device_terminal_type": 0,
             "is_managed": true,
             "mdm_device_id": "123abc",
-            "mdm_provider_name": "Workspace_ONE"
+            "mdm_provider_name": "Workspace_ONE",
+            "device_env_detect_status": 0,
+            "is_public": false
         },
         "after": {
             "device_record_id": "7089353870308032531",
@@ -90,7 +92,9 @@ public class Test_SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyD
             "device_terminal_type": 0,
             "is_managed": true,
             "mdm_device_id": "123abc",
-            "mdm_provider_name": "Workspace_ONE"
+            "mdm_provider_name": "Workspace_ONE",
+            "device_env_detect_status": 0,
+            "is_public": false
         }
     }
 }

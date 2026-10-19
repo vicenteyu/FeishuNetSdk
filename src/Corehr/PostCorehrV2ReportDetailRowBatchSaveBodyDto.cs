@@ -4,7 +4,7 @@
 // Created          : 2024-12-12
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-03-29
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostCorehrV2ReportDetailRowBatchSaveBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -170,7 +170,7 @@ public record PostCorehrV2ReportDetailRowBatchSaveBodyDto
         public record WorkforcePlanMultiPeriodValue
         {
             /// <summary>
-            /// <para>周期的最后一天。注意需要在填报选择的周期范围内。</para>
+            /// <para>周期的最后一天。注意需要在填报选择的周期范围内。“填写自然周期编制规划信息时，此字段必填”</para>
             /// <para>必填：否</para>
             /// <para>示例值：2022-10-31</para>
             /// </summary>

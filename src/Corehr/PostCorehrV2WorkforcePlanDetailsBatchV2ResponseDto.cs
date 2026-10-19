@@ -4,7 +4,7 @@
 // Created          : 2025-02-28
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-06
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -117,11 +117,11 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : IPageableResp
                 /// <para>- employee_type_id：可从[查询人员类型](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/corehr-v1/employee_type/list)获得。</para>
                 /// <para>- position_id：可从[查询岗位](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/position/query)获得。</para>
                 /// <para>- pathway_id: 可从[查询通道](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/pathway/batch_get)获得。</para>
-                /// <para>- custom_org_01_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-                /// <para>- custom_org_02_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-                /// <para>- custom_org_03_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-                /// <para>- custom_org_04_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
-                /// <para>- custom_org_05_id：自定义组织，功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+                /// <para>- custom_org_01_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+                /// <para>- custom_org_02_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+                /// <para>- custom_org_03_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+                /// <para>- custom_org_04_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
+                /// <para>- custom_org_05_id：可从[查询自定义组织](https://open.feishu.cn/document/corehr-v1/organization-management/custom_org/query)获得。</para>
                 /// <para>必填：是</para>
                 /// <para>示例值：“123456”</para>
                 /// </summary>
@@ -223,7 +223,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : IPageableResp
         }
 
         /// <summary>
-        /// <para>自然周期的编制规划信息。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>自然周期的编制规划信息</para>
         /// <para>必填：否</para>
         /// <para>最大长度：15</para>
         /// <para>最小长度：0</para>
@@ -232,7 +232,7 @@ public record PostCorehrV2WorkforcePlanDetailsBatchV2ResponseDto : IPageableResp
         public WorkforcePlanMultiPeriodValue[]? MultiPeriodValues { get; set; }
 
         /// <summary>
-        /// <para>自然周期的编制规划信息。功能灰度中，有需要请联系[技术支持](https://applink.feishu.cn/TLJpeNdW)</para>
+        /// <para>自然周期的编制规划信息</para>
         /// </summary>
         public record WorkforcePlanMultiPeriodValue
         {

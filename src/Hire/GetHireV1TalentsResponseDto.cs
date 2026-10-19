@@ -4,7 +4,7 @@
 // Created          : 2024-06-26
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="GetHireV1TalentsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -352,6 +352,7 @@ public record GetHireV1TalentsResponseDto : IPageableResponse<GetHireV1TalentsRe
             /// <item>5：大专</item>
             /// <item>6：本科</item>
             /// <item>7：硕士</item>
+            /// <item>11：MBA</item>
             /// <item>8：博士</item>
             /// <item>9：其他</item>
             /// </list></para>
@@ -525,6 +526,7 @@ public record GetHireV1TalentsResponseDto : IPageableResponse<GetHireV1TalentsRe
             /// <item>5：百度/阿里/腾讯</item>
             /// <item>6：头条/美团/滴滴</item>
             /// <item>14：互联网 100 强</item>
+            /// <item>10：互联网大厂</item>
             /// </list></para>
             /// </summary>
             [JsonPropertyName("tag_list")]

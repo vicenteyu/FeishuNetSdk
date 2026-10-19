@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-11
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -1598,7 +1598,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>使用限制：</para>
     /// <para>- 只能更新审批状态，以及审批同意或拒绝后的标题或者查看详情的文案。</para>
     /// <para>- 只能更新模板为 1008「收到审批待办」的卡片。</para>
-    /// <para>- 只支持更新 30 天以内的审批 bot 消息。</para>
+    /// <para>- 只支持更新 30 天以内的审批 Bot 消息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>approval:approval:readonly</item>
     /// </list></para>
@@ -4895,7 +4895,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
-    /// <para>分页大小，用来限制一次请求返回的数据条目数。</para>
+    /// <para>分页大小，用于指定单次请求最多返回的数据条目数。受查询耗时限制等因素影响，实际返回数量可能少于该值。是否遍历完成应以响应体中的 has_more 为准；当其为 true 时，可使用返回的 page_token 继续查询。</para>
     /// <para>示例值：10</para>
     /// <para>默认值：20</para>
     /// </param>
@@ -17176,6 +17176,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="talent_pool_id">
+    /// <para>必填：否</para>
+    /// <para>人才库 ID，用于筛选人才列表</para>
+    /// <para>示例值：6891560630172518670</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/hire/v1/talents")]
     System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1TalentsResponseDto>> GetHireV1TalentsAsync(
@@ -17187,6 +17193,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? page_token = null,
         [PathQuery] string? user_id_type = "people_admin_id",
         [PathQuery] string? query_option = null,
+        [PathQuery] string? talent_pool_id = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -53502,7 +53509,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>接口ID：7430737008881614850</para>
     /// <para>接口文档：https://open.feishu.cn/document/security_and_compliance-v1/security_and_compliance-v2/device_record/create</para>
     /// <para>Authorization：tenant_access_token</para>
-    /// <para>使用该接口在设备管理中新增一台设备。新增设备的类型为管理员导入</para>
+    /// <para>使用该接口在设备管理中新增一台设备。新增设备的注册方式为预注册</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>security_and_compliance:device_record:write</item>
     /// </list></para>
@@ -53688,6 +53695,56 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：Workspace_ONE</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="lsa_client_status">
+    /// <para>必填：否</para>
+    /// <para>终端管控客户端状态</para>
+    /// <para>示例值：1</para>
+    /// <list type="bullet">
+    /// <item>1：已绑定</item>
+    /// <item>2：未绑定</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="device_env_detect_status">
+    /// <para>必填：否</para>
+    /// <para>设备环境检测状态</para>
+    /// <para>示例值：0</para>
+    /// <list type="bullet">
+    /// <item>0：未知</item>
+    /// <item>1：安全</item>
+    /// <item>2：不安全</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="is_public">
+    /// <para>必填：否</para>
+    /// <para>是否为公共设备</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="source">
+    /// <para>必填：否</para>
+    /// <para>注册方式</para>
+    /// <para>示例值：2</para>
+    /// <list type="bullet">
+    /// <item>0：未知</item>
+    /// <item>1：预注册</item>
+    /// <item>2：系统注册</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cert_serial_number">
+    /// <para>必填：否</para>
+    /// <para>证书序列号</para>
+    /// <para>示例值：140112030923876027756448774661898183576236633676</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cert_issuer">
+    /// <para>必填：否</para>
+    /// <para>证书颁发人</para>
+    /// <para>示例值：Root-CA</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpGet("/open-apis/security_and_compliance/v2/device_records")]
     System.Threading.Tasks.Task<FeishuResponse<SecurityAndCompliance.GetSecurityAndComplianceV2DeviceRecordsResponseDto>> GetSecurityAndComplianceV2DeviceRecordsAsync(
@@ -53713,6 +53770,12 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] bool? is_managed = null,
         [PathQuery] string? mdm_device_id = null,
         [PathQuery] string? mdm_provider_name = null,
+        [PathQuery] int? lsa_client_status = null,
+        [PathQuery] int? device_env_detect_status = null,
+        [PathQuery] bool? is_public = null,
+        [PathQuery] int? source = null,
+        [PathQuery] string? cert_serial_number = null,
+        [PathQuery] string? cert_issuer = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -61176,6 +61239,66 @@ public interface IFeishuTenantApi : IHttpApi
     [HttpPost("/open-apis/vc/v1/bots/countdown")]
     System.Threading.Tasks.Task<FeishuResponse> PostVcV1BotsCountdownAsync(
         [JsonContent] Vc.PostVcV1BotsCountdownBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】导出妙搭应用代码包</para>
+    /// <para>接口ID：7692846107466206181</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app/export</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>导出妙搭应用的代码快照，以 zip 压缩包的二进制流形式直接返回，调用方可直接落盘为 `.zip` 文件。</para>
+    /// <para>按应用类型，导出内容有所不同：</para>
+    /// <para>| 应用类型 | 导出内容 |</para>
+    /// <para>| --- | --- |</para>
+    /// <para>| 全栈应用、前端应用等（代码托管在妙搭代码仓库） | 代码仓库中某次提交的快照。定位优先级：`release_id` &gt; `checkpoint_id` &gt; 默认分支最新提交。**不包含**沙箱中尚未保存为检查点的改动 |</para>
+    /// <para>| 静态 HTML 应用、豆包网页应用（仅托管构建产物） | 最近一次发布成功版本的构建产物（非原始源码），忽略 `checkpoint_id` 与 `release_id`。应用从未发布成功时无法导出 |</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/spark/v1/apps/export")]
+    System.Threading.Tasks.Task<HttpResponseMessage> PostSparkV1AppsExportAsync(
+        [JsonContent] Miaoda.PostSparkV1AppsExportBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书妙搭】回写发布节点状态</para>
+    /// <para>接口ID：7692846107466222565</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/spark-v1/app-release/update</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>外部审核系统收到妙搭发布流水线的 webhook 通知后，调用本接口对处于等待态（`PENDING`）的发布节点做出裁决（通过 / 拒绝 / 撤回），或仅回填审核单链接、操作人与审批意见，供开发者在妙搭发布详情页查看审核进度。</para>
+    /// <para>一次调用只操作一个节点，节点允许的状态流转如下：</para>
+    /// <para>| 当前状态 | 动作 | 流转后状态 | 说明 |</para>
+    /// <para>| --- | --- | --- | --- |</para>
+    /// <para>| PENDING | approve | APPROVED | 审核通过，流水线继续执行 |</para>
+    /// <para>| PENDING | reject | REJECTED | 审核拒绝，本次发布终止 |</para>
+    /// <para>| PENDING | cancel | CANCELED | 外部撤回，本次发布终止（等价于开发者在妙搭内手动撤回） |</para>
+    /// <para>| PENDING | 不传 | PENDING | 不改变节点状态，仅回写 result（例如先回填审核单链接） |</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>spark:app:publish</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="app_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>妙搭应用的唯一标识，可从 webhook 请求 payload 或妙搭应用详情页获取。</para>
+    /// <para>示例值：app_4ka4egt4j2y6p</para>
+    /// </param>
+    /// <param name="release_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>发布记录 ID，取自 webhook 请求 payload 中的 `data.release_id`。</para>
+    /// <para>示例值：7683140375070166555</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPut("/open-apis/spark/v1/apps/{app_id}/releases/{release_id}")]
+    System.Threading.Tasks.Task<FeishuResponse<Miaoda.PutSparkV1AppsByAppIdReleasesByReleaseIdResponseDto>> PutSparkV1AppsByAppIdReleasesByReleaseIdAsync(
+        [PathQuery] string app_id,
+        [PathQuery] string release_id,
+        [JsonContent] Miaoda.PutSparkV1AppsByAppIdReleasesByReleaseIdBodyDto dto,
         CancellationToken cancellation_token = default);
 }
 

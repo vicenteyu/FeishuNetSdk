@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="Test_PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -28,7 +28,8 @@ public class Test_PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto
         var json = """
 {
     "device_ownership": 0,
-    "device_status": 0
+    "device_status": 0,
+    "is_public": false
 }
 """;
         var result = Deserialize<FeishuNetSdk.SecurityAndCompliance.PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto>(json);

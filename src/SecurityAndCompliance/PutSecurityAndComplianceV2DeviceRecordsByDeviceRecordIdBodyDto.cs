@@ -4,7 +4,7 @@
 // Created          : 2025-10-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-10-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -23,7 +23,7 @@ public record PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto
 {
     /// <summary>
     /// <para>设备归属</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// <para>可选值：<list type="bullet">
     /// <item>0：未知设备</item>
@@ -32,11 +32,11 @@ public record PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("device_ownership")]
-    public int DeviceOwnership { get; set; }
+    public int? DeviceOwnership { get; set; }
 
     /// <summary>
     /// <para>可信状态</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>示例值：0</para>
     /// <para>可选值：<list type="bullet">
     /// <item>0：未知状态</item>
@@ -45,5 +45,13 @@ public record PutSecurityAndComplianceV2DeviceRecordsByDeviceRecordIdBodyDto
     /// </list></para>
     /// </summary>
     [JsonPropertyName("device_status")]
-    public int DeviceStatus { get; set; }
+    public int? DeviceStatus { get; set; }
+
+    /// <summary>
+    /// <para>是否为公共设备</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：false</para>
+    /// </summary>
+    [JsonPropertyName("is_public")]
+    public bool? IsPublic { get; set; }
 }

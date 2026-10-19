@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-10-17
 // ************************************************************************
 // <copyright file="Test_PostImV2TagsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -30,10 +30,7 @@ public class Test_PostImV2TagsResponseDto : TestBase
     "code": 0,
     "msg": "success",
     "data": {
-        "id": "716168xxxxx",
-        "create_tag_fail_reason": {
-            "duplicate_id": "716168xxxxx"
-        }
+        "id": "716168xxxxx"
     }
 }
 """;
