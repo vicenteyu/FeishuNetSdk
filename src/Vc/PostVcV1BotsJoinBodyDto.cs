@@ -4,7 +4,7 @@
 // Created          : 2026-08-19
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-09-05
+// Last Modified On : 2026-10-25
 // ************************************************************************
 // <copyright file="PostVcV1BotsJoinBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -46,7 +46,7 @@ public record PostVcV1BotsJoinBodyDto
         /// <summary>
         /// <para>会议号，用于定位需加入的目标会议。可通过会议创建接口或会议列表查询接口获取。</para>
         /// <para>必填：否</para>
-        /// <para>示例值：MTG202405201030001</para>
+        /// <para>示例值：123456789</para>
         /// </summary>
         [JsonPropertyName("meeting_no")]
         public string? MeetingNo { get; set; }
@@ -61,7 +61,7 @@ public record PostVcV1BotsJoinBodyDto
     public string? Password { get; set; }
 
     /// <summary>
-    /// <para>邀请-入会链路的关联标识。从[邀请机器人入会](https://open.feishu.cn/document/server-docs/vc-v1/supportEventsList/meeting_invited)事件获取；仅在响应邀请入会时原样回传。未传入时按普通入会链路处理，不进行邀请关联。</para>
+    /// <para>邀请入会链路的可选关联标识。仅在已取得该标识并响应对应邀请入会时原样回传；主动通过会议号入会时无需传入。未传入时按普通入会链路处理，不进行邀请关联。</para>
     /// <para>必填：否</para>
     /// <para>示例值：7c9e6679-7425-40de-944b-e07fc1f90ae7</para>
     /// </summary>

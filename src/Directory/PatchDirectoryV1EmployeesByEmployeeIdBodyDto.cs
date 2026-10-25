@@ -4,12 +4,12 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-11
+// Last Modified On : 2026-10-25
 // ************************************************************************
 // <copyright file="PatchDirectoryV1EmployeesByEmployeeIdBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>更新员工 请求体</summary>
+// <summary>更新员工信息 请求体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Directory;
 /// <summary>
@@ -48,10 +48,10 @@ public record PatchDirectoryV1EmployeesByEmployeeIdBodyDto
         {
             /// <summary>
             /// <para>员工的姓名。</para>
-            /// <para>必填：是</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18nText Name { get; set; } = new();
+            public I18nText? Name { get; set; }
 
             /// <summary>
             /// <para>员工的姓名。</para>

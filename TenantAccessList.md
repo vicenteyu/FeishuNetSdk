@@ -2811,13 +2811,13 @@
 <tr><td colspan="3">PatchDirectoryV1DepartmentsByDepartmentId</td></tr>
 <tr><td rowspan="2">1406</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>搜索部门</td></tr>
 <tr><td colspan="3">PostDirectoryV1DepartmentsSearch</td></tr>
-<tr><td rowspan="2">1407</td><td rowspan="2">2025-06-13</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
+<tr><td rowspan="2">1407</td><td rowspan="2">2026-10-22</td><td>&#10003;</td><td>组织架构</td><td>离职员工</td></tr>
 <tr><td colspan="3">DeleteDirectoryV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">1408</td><td rowspan="2">2025-08-20</td><td>&#10003;</td><td>组织架构</td><td>搜索员工信息</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesSearch</td></tr>
-<tr><td rowspan="2">1409</td><td rowspan="2">2026-02-26</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
+<tr><td rowspan="2">1409</td><td rowspan="2">2026-10-22</td><td>&#10003;</td><td>组织架构</td><td>创建员工</td></tr>
 <tr><td colspan="3">PostDirectoryV1Employees</td></tr>
-<tr><td rowspan="2">1410</td><td rowspan="2">2026-02-26</td><td>&#10003;</td><td>组织架构</td><td>更新员工信息</td></tr>
+<tr><td rowspan="2">1410</td><td rowspan="2">2026-10-21</td><td>&#10003;</td><td>组织架构</td><td>更新员工信息</td></tr>
 <tr><td colspan="3">PatchDirectoryV1EmployeesByEmployeeId</td></tr>
 <tr><td rowspan="2">1411</td><td rowspan="2">2025-07-10</td><td>&#10003;</td><td>组织架构</td><td>批量获取员工列表</td></tr>
 <tr><td colspan="3">PostDirectoryV1EmployeesFilter</td></tr>
@@ -3191,7 +3191,7 @@
 <tr><td colspan="3">PostVcV1BotsMessage</td></tr>
 <tr><td rowspan="2">1596</td><td rowspan="2">2026-09-04</td><td>&#10003;</td><td>视频会议</td><td>离开会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsLeave</td></tr>
-<tr><td rowspan="2">1597</td><td rowspan="2">2026-09-04</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td rowspan="2">1597</td><td rowspan="2">2026-10-20</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsJoin</td></tr>
 <tr><td rowspan="2">1598</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
@@ -3203,10 +3203,10 @@
 <tr><td colspan="3">GetSparkV1AppsByAppIdAnalyticsOverview</td></tr>
 <tr><td rowspan="2">1602</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>飞书妙搭</td><td>获取妙搭应用运营数据趋势</td></tr>
 <tr><td colspan="3">PostSparkV1AppsByAppIdQueryAnalyticsData</td></tr>
-<tr><td rowspan="2">1603</td><td rowspan="2">2026-09-02</td><td>&#10003;</td><td>视频会议</td><td>会中倒计时</td></tr>
+<tr><td rowspan="2">1603</td><td rowspan="2">2026-10-20</td><td>&#10003;</td><td>视频会议</td><td>会中倒计时</td></tr>
 <tr><td colspan="3">PostVcV1BotsCountdown</td></tr>
-<tr><td rowspan="2">1604</td><td rowspan="2">2026-10-08</td><td>新增</td><td>飞书妙搭</td><td>导出妙搭应用代码包</td></tr>
+<tr><td rowspan="2">1604</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>飞书妙搭</td><td>导出妙搭应用代码包</td></tr>
 <tr><td colspan="3">PostSparkV1AppsExport</td></tr>
-<tr><td rowspan="2">1605</td><td rowspan="2">2026-10-08</td><td>新增</td><td>飞书妙搭</td><td>回写发布节点状态</td></tr>
+<tr><td rowspan="2">1605</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>飞书妙搭</td><td>回写发布节点状态</td></tr>
 <tr><td colspan="3">PutSparkV1AppsByAppIdReleasesByReleaseId</td></tr>
 </tbody></table>

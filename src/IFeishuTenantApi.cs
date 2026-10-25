@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-17
+// Last Modified On : 2026-10-25
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -46737,6 +46737,16 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="user_auth_type">
+    /// <para>必填：否</para>
+    /// <para>UAT鉴权身份，默认管理员</para>
+    /// <para>示例值：admin</para>
+    /// <list type="bullet">
+    /// <item>user：普通员工</item>
+    /// <item>admin_user：管理员身份</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPatch("/open-apis/directory/v1/employees/{employee_id}")]
@@ -46745,6 +46755,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? user_auth_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
