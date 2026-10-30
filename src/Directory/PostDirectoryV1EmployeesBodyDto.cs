@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-11
+// Last Modified On : 2026-10-25
 // ************************************************************************
 // <copyright file="PostDirectoryV1EmployeesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -484,7 +484,7 @@ public record PostDirectoryV1EmployeesBodyDto
         public string? GeoName { get; set; }
 
         /// <summary>
-        /// <para>分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。当在混合license模式下，此字段为必填。</para>
+        /// <para>分配给员工的席位ID列表。可通过下方接口获取到该租户的可用席位ID，参见[获取席位信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/tenant-v2/tenant-product_assign_info/query)。</para>
         /// <para>需要申请以下权限才能写入：</para>
         /// <para>- directory:employee.base.subscription_ids:write : 写入员工席位信息</para>
         /// <para>必填：否</para>

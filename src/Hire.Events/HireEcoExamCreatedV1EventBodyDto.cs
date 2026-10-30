@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="HireEcoExamCreatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -97,21 +97,21 @@ public record HireEcoExamCreatedV1EventBodyDto() : EventBodyDto("hire.eco_exam.c
     }
 
     /// <summary>
-    /// <para>人才ID。灰度字段，灰度内才会返回。</para>
+    /// <para>人才ID。灰度字段，仅字节可用。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("talent_id")]
     public string? TalentId { get; set; }
 
     /// <summary>
-    /// <para>投递ID。灰度字段，灰度内才会返回。</para>
+    /// <para>投递ID。灰度字段，仅字节可用。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("application_id")]
     public string? ApplicationId { get; set; }
 
     /// <summary>
-    /// <para>职位信息。灰度字段，灰度内才会返回。</para>
+    /// <para>职位信息。灰度字段，仅字节可用。</para>
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_info")]

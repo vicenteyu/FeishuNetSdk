@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-17
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -8534,7 +8534,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云空间中的资源文件。要下载云文档中的素材（如图片、附件等），需调用[下载素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download)接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -11233,14 +11233,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】删除文件或文件夹</para>
     /// <para>接口ID：7029475705897828354</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/delete</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
     /// <para>## 前提条件</para>
     /// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
     /// <para>- 该应用或用户是文件所有者并且具有该文件所在父文件夹的编辑权限。</para>
     /// <para>- 该应用或用户并非文件所有者，但是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:delete</item>
@@ -11268,7 +11268,14 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>mindnote：思维笔记类型</item>
     /// <item>shortcut：快捷方式类型</item>
     /// <item>slides：幻灯片</item>
+    /// <item>apps：妙搭创意设计</item>
+    /// <item>miaoda_apps：妙搭应用开发</item>
     /// </list>
+    /// </param>
+    /// <param name="async">
+    /// <para>必填：否</para>
+    /// <para>是否异步删除，如果传true，则直接异步处理</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -11277,6 +11284,7 @@ public interface IFeishuUserApi : IHttpApi
         UserAccessToken access_token,
         [PathQuery] string file_token,
         [PathQuery] string type,
+        [PathQuery] bool? async = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -12496,7 +12504,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将文件或者文件夹移动到用户云空间的其他位置。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:move</item>
@@ -12637,10 +12645,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】新建文件夹</para>
     /// <para>接口ID：7086652480830914563</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/create_folder</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过新建节点到其它节点中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
     /// <para>权限要求：<list type="bullet">
@@ -12667,7 +12675,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>- 不支持复制文件夹。</para>
     /// <para>- 云空间中文件夹（包括根文件夹，即根目录）的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
-    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:copy</item>
     /// <item>drive:drive</item>
@@ -16635,10 +16643,10 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】创建文件快捷方式</para>
     /// <para>接口ID：7216001760515112961</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/create_shortcut</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:shortcut</item>
@@ -21138,6 +21146,41 @@ public interface IFeishuUserApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【薪酬管理】批量查询薪资方案</para>
+    /// <para>接口ID：7314129756769812484</para>
+    /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/plan/list</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>- 此接口将返回全部薪资方案信息，包括薪资方案 ID、生效日期、薪资项/薪资统计指标等</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:compensation_plan:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>corehr:compensation_plan_detail.indicators:read</item>
+    /// <item>corehr:compensation_plan_detail.items:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：100</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：213432123</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/compensation/v1/plans")]
+    System.Threading.Tasks.Task<FeishuResponse<CompensationManagement.GetCompensationV1PlansResponseDto>> GetCompensationV1PlansAsync(
+        UserAccessToken access_token,
+        [PathQuery] int page_size = 100,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【日历】回复日程</para>
     /// <para>接口ID：7317471576948834305</para>
     /// <para>接口文档：https://open.feishu.cn/document/calendar-v4/calendar-event/reply</para>
@@ -22864,6 +22907,16 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="user_auth_type">
+    /// <para>必填：否</para>
+    /// <para>UAT鉴权身份，默认管理员</para>
+    /// <para>示例值：admin</para>
+    /// <list type="bullet">
+    /// <item>user：普通员工</item>
+    /// <item>admin_user：管理员身份</item>
+    /// </list>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -22874,6 +22927,7 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? user_auth_type = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -32455,7 +32509,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【视频会议】获取用户活跃会议列表</para>
     /// <para>接口ID：7657481714696604903</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：invalid token type、tenant_access_token、user_access_token</para>
     /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting.bot.join:write</item>

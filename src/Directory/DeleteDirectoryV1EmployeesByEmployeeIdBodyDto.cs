@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-05-31
+// Last Modified On : 2026-10-25
 // ************************************************************************
 // <copyright file="DeleteDirectoryV1EmployeesByEmployeeIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -65,7 +65,7 @@ public record DeleteDirectoryV1EmployeesByEmployeeIdBodyDto
 
             /// <summary>
             /// <para>文档接收者。ID值与查询参数中的employee_id_type 对应。</para>
-            /// <para>用户被删除时，其拥有的文档转让给接收者。不指定接收者则将文档资源保留在该用户名下。</para>
+            /// <para>用户被删除时，其拥有的文档转让给接收者。不指定接收者则默认转让给该用户的直属上级。</para>
             /// <para>必填：否</para>
             /// <para>示例值：eehsdna</para>
             /// </summary>

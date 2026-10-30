@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="Test_GetCompensationV1PlansResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -99,7 +99,8 @@ public class Test_GetCompensationV1PlansResponseDto : TestBase
                         "locale": "zh_cn",
                         "value": "中文名称"
                     }
-                ]
+                ],
+                "expiration_date": "2026-01-01"
             }
         ],
         "page_token": "123412344",
