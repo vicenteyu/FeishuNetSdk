@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="GetCompensationV1PlansResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -78,12 +78,12 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("plan_scope")]
-        public PlanDetailPlanScope? PlanScope { get; set; }
+        public PlanScopeSuffix? PlanScope { get; set; }
 
         /// <summary>
         /// <para>薪资方案适用范围</para>
         /// </summary>
-        public record PlanDetailPlanScope
+        public record PlanScopeSuffix
         {
             /// <summary>
             /// <para>是否全部范围</para>
@@ -238,12 +238,12 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("formula")]
-                public AdjustmentLogicFormula? Formula { get; set; }
+                public FormulaSuffix? Formula { get; set; }
 
                 /// <summary>
                 /// <para>公式配置</para>
                 /// </summary>
-                public record AdjustmentLogicFormula
+                public record FormulaSuffix
                 {
                     /// <summary>
                     /// <para>公式表达式</para>
@@ -362,12 +362,12 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("formula")]
-                public AdjustmentLogicFormula? Formula { get; set; }
+                public FormulaSuffix? Formula { get; set; }
 
                 /// <summary>
                 /// <para>公式配置</para>
                 /// </summary>
-                public record AdjustmentLogicFormula
+                public record FormulaSuffix
                 {
                     /// <summary>
                     /// <para>公式表达式</para>
@@ -454,6 +454,14 @@ public record GetCompensationV1PlansResponseDto : IPageableResponse<GetCompensat
         /// </summary>
         [JsonPropertyName("i18n_descriptions")]
         public I18nContent[] I18nDescriptions { get; set; } = [];
+
+        /// <summary>
+        /// <para>薪资方案失效时间</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：2026-01-01</para>
+        /// </summary>
+        [JsonPropertyName("expiration_date")]
+        public string? ExpirationDate { get; set; }
     }
 
     /// <summary>

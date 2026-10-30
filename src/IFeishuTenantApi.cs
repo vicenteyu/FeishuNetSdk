@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-25
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -13380,7 +13380,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>## 注意事项</para>
     /// <para>本接口仅支持下载云空间中的资源文件。要下载云文档中的素材（如图片、附件等），需调用[下载素材](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/drive-v1/media/download)接口。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>drive:drive:readonly</item>
@@ -20553,14 +20553,14 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除文件或文件夹</para>
     /// <para>接口ID：7029475705897828354</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/delete</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
     /// <para>## 前提条件</para>
     /// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
     /// <para>- 该应用或用户是文件所有者并且具有该文件所在父文件夹的编辑权限。</para>
     /// <para>- 该应用或用户并非文件所有者，但是该文件所在父文件夹的所有者或者拥有该父文件夹的所有权限（full access）。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:delete</item>
@@ -20588,13 +20588,21 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>mindnote：思维笔记类型</item>
     /// <item>shortcut：快捷方式类型</item>
     /// <item>slides：幻灯片</item>
+    /// <item>apps：妙搭创意设计</item>
+    /// <item>miaoda_apps：妙搭应用开发</item>
     /// </list>
+    /// </param>
+    /// <param name="async">
+    /// <para>必填：否</para>
+    /// <para>是否异步删除，如果传true，则直接异步处理</para>
+    /// <para>默认值：null</para>
     /// </param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpDelete("/open-apis/drive/v1/files/{file_token}")]
     System.Threading.Tasks.Task<FeishuResponse<Ccm.DeleteDriveV1FilesByFileTokenResponseDto>> DeleteDriveV1FilesByFileTokenAsync(
         [PathQuery] string file_token,
         [PathQuery] string type,
+        [PathQuery] bool? async = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -24616,7 +24624,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>将文件或者文件夹移动到用户云空间的其他位置。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:move</item>
@@ -25074,10 +25082,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】新建文件夹</para>
     /// <para>接口ID：7086652480830914563</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/create_folder</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
     /// <para>## 使用限制</para>
-    /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS 以及 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>- 云空间中根目录或文件夹的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过新建节点到其它节点中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
     /// <para>权限要求：<list type="bullet">
@@ -25102,7 +25110,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>- 不支持复制文件夹。</para>
     /// <para>- 云空间中文件夹（包括根文件夹，即根目录）的单层节点上限为 1500 个。超过此限制时，接口将返回 1062507 错误码。可通过将文件复制到不同文件夹中解决。</para>
     /// <para>- 云空间中所有层级的节点总和的上限为 40 万个。</para>
-    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS 且 10000次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>- 该接口不支持并发调用，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>docs:document:copy</item>
     /// <item>drive:drive</item>
@@ -35495,10 +35503,10 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建文件快捷方式</para>
     /// <para>接口ID：7216001760515112961</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/create_shortcut</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
     /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
     /// <para>## 使用限制</para>
-    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS，10000 次/天。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
+    /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>drive:drive</item>
     /// <item>space:document:shortcut</item>
@@ -43738,7 +43746,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【薪酬管理】批量查询薪资方案</para>
     /// <para>接口ID：7314129756769812484</para>
     /// <para>接口文档：https://open.feishu.cn/document/corehr-v1/basic-compensation/plan/list</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>- 此接口将返回全部薪资方案信息，包括薪资方案 ID、生效日期、薪资项/薪资统计指标等</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>corehr:compensation_plan:read</item>
@@ -57757,6 +57765,106 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【应用信息】获取千人千面菜单</para>
+    /// <para>接口ID：7570924844655591443</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v3/bot_menu/get_bot_menu</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>获取指定用户可见的机器人菜单信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:bot.menu:readonly</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id">
+    /// <para>必填：否</para>
+    /// <para>示例值：ou_7d8a6e6df7621556ce0d21922b676706ccs</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpGet("/open-apis/bot/v3/bot_menu")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.GetBotV3BotMenuResponseDto>> GetBotV3BotMenuAsync(
+        [PathQuery] string? user_id = null,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】删除千人千面菜单</para>
+    /// <para>接口ID：7570924844655607827</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v3/bot_menu/delete_bot_menu</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>删除指定用户可见的千人千面菜单。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:bot.menu:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpDelete("/open-apis/bot/v3/bot_menu")]
+    System.Threading.Tasks.Task<FeishuResponse> DeleteBotV3BotMenuAsync(
+        [JsonContent] Application.DeleteBotV3BotMenuBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【应用信息】创建千人千面菜单</para>
+    /// <para>接口ID：7570924844655640595</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/bot-v3/bot_menu/set_bot_menu</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>为指定用户创建仅其可见的机器人菜单。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>application:bot.menu:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/bot/v3/bot_menu")]
+    System.Threading.Tasks.Task<FeishuResponse<Application.PostBotV3BotMenuResponseDto>> PostBotV3BotMenuAsync(
+        [JsonContent] Application.PostBotV3BotMenuBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【审批】搜索地理库信息</para>
     /// <para>接口ID：7579169568158502093</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/approval-v4/district/search</para>
@@ -61058,7 +61166,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【视频会议】获取用户活跃会议列表</para>
     /// <para>接口ID：7657481714696604903</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/user_active_meeting</para>
-    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>Authorization：invalid token type、tenant_access_token、user_access_token</para>
     /// <para>查询指定用户当前正在参与的所有会议，返回该用户处于活跃状态的会议列表，包含会议号、会议 ID 及会议标题等核心信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>vc:meeting.bot.join:write</item>

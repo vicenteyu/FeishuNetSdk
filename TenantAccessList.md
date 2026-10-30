@@ -75,21 +75,21 @@
 <tr><td colspan="3">GetDriveV1Files</td></tr>
 <tr><td rowspan="2">38</td><td rowspan="2">2024-11-28</td><td>&#10003;</td><td>云文档</td><td>获取文件夹元数据</td></tr>
 <tr><td colspan="3">GetDriveExplorerV2FolderByFolderTokenMeta</td></tr>
-<tr><td rowspan="2">39</td><td rowspan="2">2025-05-07</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
+<tr><td rowspan="2">39</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>新建文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateFolder</td></tr>
 <tr><td rowspan="2">40</td><td rowspan="2">2026-05-08</td><td>&#10003;</td><td>云文档</td><td>获取文件元数据</td></tr>
 <tr><td colspan="3">PostDriveV1MetasBatchQuery</td></tr>
 <tr><td rowspan="2">41</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>云文档</td><td><span style="color:red;">[不推荐]</span> 新建文件</td></tr>
 <tr><td colspan="3">PostDriveExplorerV2FileByFolderToken</td></tr>
-<tr><td rowspan="2">42</td><td rowspan="2">2025-07-02</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
+<tr><td rowspan="2">42</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>复制文件</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenCopy</td></tr>
-<tr><td rowspan="2">43</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>云文档</td><td>移动文件或文件夹</td></tr>
+<tr><td rowspan="2">43</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>移动文件或文件夹</td></tr>
 <tr><td colspan="3">PostDriveV1FilesByFileTokenMove</td></tr>
-<tr><td rowspan="2">44</td><td rowspan="2">2024-09-20</td><td>&#10003;</td><td>云文档</td><td>删除文件或文件夹</td></tr>
+<tr><td rowspan="2">44</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>删除文件或文件夹</td></tr>
 <tr><td colspan="3">DeleteDriveV1FilesByFileToken</td></tr>
 <tr><td rowspan="2">45</td><td rowspan="2">2024-11-14</td><td>&#10003;</td><td>云文档</td><td>获取文件统计信息</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenStatistics</td></tr>
-<tr><td rowspan="2">46</td><td rowspan="2">2024-05-29</td><td>&#10003;</td><td>云文档</td><td>创建文件快捷方式</td></tr>
+<tr><td rowspan="2">46</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>创建文件快捷方式</td></tr>
 <tr><td colspan="3">PostDriveV1FilesCreateShortcut</td></tr>
 <tr><td rowspan="2">47</td><td rowspan="2">2026-04-07</td><td>&#10003;</td><td>通讯录</td><td>更新用户组</td></tr>
 <tr><td colspan="3">PatchContactV3GroupByGroupId</td></tr>
@@ -123,7 +123,7 @@
 <tr><td colspan="3">PostDriveV1FilesUploadPart</td></tr>
 <tr><td rowspan="2">62</td><td rowspan="2">2025-01-03</td><td>&#10003;</td><td>云文档</td><td>分片上传文件-完成上传</td></tr>
 <tr><td colspan="3">PostDriveV1FilesUploadFinish</td></tr>
-<tr><td rowspan="2">63</td><td rowspan="2">2025-04-16</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
+<tr><td rowspan="2">63</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>云文档</td><td>下载文件</td></tr>
 <tr><td colspan="3">GetDriveV1FilesByFileTokenDownload</td></tr>
 <tr><td rowspan="2">64</td><td rowspan="2">2024-10-11</td><td>&#10003;</td><td>云文档</td><td>创建导入任务</td></tr>
 <tr><td colspan="3">PostDriveV1ImportTasks</td></tr>
@@ -2123,7 +2123,7 @@
 <tr><td colspan="3">GetCompensationV1Items</td></tr>
 <tr><td rowspan="2">1062</td><td rowspan="2">2024-05-14</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询薪资统计指标</td></tr>
 <tr><td colspan="3">GetCompensationV1Indicators</td></tr>
-<tr><td rowspan="2">1063</td><td rowspan="2">2025-04-30</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询薪资方案</td></tr>
+<tr><td rowspan="2">1063</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询薪资方案</td></tr>
 <tr><td colspan="3">GetCompensationV1Plans</td></tr>
 <tr><td rowspan="2">1064</td><td rowspan="2">2024-10-15</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>查询职等</td></tr>
 <tr><td colspan="3">PostCorehrV2JobGradesQuery</td></tr>
@@ -2485,7 +2485,7 @@
 <tr><td colspan="3">PostCorehrV2CompaniesActive</td></tr>
 <tr><td rowspan="2">1243</td><td rowspan="2">2024-10-30</td><td>&#10003;</td><td>帐号</td><td>退出登录</td></tr>
 <tr><td colspan="3">PostPassportV1SessionsLogout</td></tr>
-<tr><td rowspan="2">1244</td><td rowspan="2">2025-12-11</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加地点地址</td></tr>
+<tr><td rowspan="2">1244</td><td rowspan="2">2026-10-29</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>添加地点地址</td></tr>
 <tr><td colspan="3">PostCorehrV2LocationsByLocationIdAddresses</td></tr>
 <tr><td rowspan="2">1245</td><td rowspan="2">2025-12-08</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>更新地点地址</td></tr>
 <tr><td colspan="3">PatchCorehrV2LocationsByLocationIdAddressesByAddressId</td></tr>
@@ -3175,9 +3175,9 @@
 <tr><td colspan="3">DeleteAilyV1AgentsByAgentIdSessionsByAgentChatSessionId</td></tr>
 <tr><td rowspan="2">1588</td><td rowspan="2">2026-07-08</td><td>&#10003;</td><td>飞书 aily</td><td>创建会话</td></tr>
 <tr><td colspan="3">PostAilyV1AgentsByAgentIdSessions</td></tr>
-<tr><td rowspan="2">1589</td><td rowspan="2">2026-09-04</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
+<tr><td rowspan="2">1589</td><td rowspan="2">2026-10-30</td><td>&#10003;</td><td>视频会议</td><td>获取会议事件列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsEvents</td></tr>
-<tr><td rowspan="2">1590</td><td rowspan="2">2026-09-04</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
+<tr><td rowspan="2">1590</td><td rowspan="2">2026-10-30</td><td>&#10003;</td><td>视频会议</td><td>获取用户活跃会议列表</td></tr>
 <tr><td colspan="3">GetVcV1BotsUserActiveMeeting</td></tr>
 <tr><td rowspan="2">1591</td><td rowspan="2">2026-07-10</td><td><span style="color:red;">删除</span></td><td>消息与群组</td><td>创建COT</td></tr>
 <tr><td colspan="3">PostImV1MessageCot</td></tr>
@@ -3187,11 +3187,11 @@
 <tr><td colspan="3">PutImV1MessageCot</td></tr>
 <tr><td rowspan="2">1594</td><td rowspan="2">2026-07-28</td><td>&#10003;</td><td>帐号</td><td>重置登录密码</td></tr>
 <tr><td colspan="3">PutPassportV1Password</td></tr>
-<tr><td rowspan="2">1595</td><td rowspan="2">2026-08-31</td><td>&#10003;</td><td>视频会议</td><td>发送会中消息</td></tr>
+<tr><td rowspan="2">1595</td><td rowspan="2">2026-10-30</td><td>&#10003;</td><td>视频会议</td><td>发送会中消息</td></tr>
 <tr><td colspan="3">PostVcV1BotsMessage</td></tr>
-<tr><td rowspan="2">1596</td><td rowspan="2">2026-09-04</td><td>&#10003;</td><td>视频会议</td><td>离开会议</td></tr>
+<tr><td rowspan="2">1596</td><td rowspan="2">2026-10-30</td><td>&#10003;</td><td>视频会议</td><td>离开会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsLeave</td></tr>
-<tr><td rowspan="2">1597</td><td rowspan="2">2026-10-20</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
+<tr><td rowspan="2">1597</td><td rowspan="2">2026-10-30</td><td>&#10003;</td><td>视频会议</td><td>加入会议</td></tr>
 <tr><td colspan="3">PostVcV1BotsJoin</td></tr>
 <tr><td rowspan="2">1598</td><td rowspan="2">2026-08-25</td><td>&#10003;</td><td>视频会议</td><td>获取纪要详情</td></tr>
 <tr><td colspan="3">GetVcV1NotesByNoteId</td></tr>
@@ -3209,4 +3209,10 @@
 <tr><td colspan="3">PostSparkV1AppsExport</td></tr>
 <tr><td rowspan="2">1605</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>飞书妙搭</td><td>回写发布节点状态</td></tr>
 <tr><td colspan="3">PutSparkV1AppsByAppIdReleasesByReleaseId</td></tr>
+<tr><td rowspan="2">1606</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>获取千人千面菜单</td></tr>
+<tr><td colspan="3">GetBotV3BotMenu</td></tr>
+<tr><td rowspan="2">1607</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>删除千人千面菜单</td></tr>
+<tr><td colspan="3">DeleteBotV3BotMenu</td></tr>
+<tr><td rowspan="2">1608</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>创建千人千面菜单</td></tr>
+<tr><td colspan="3">PostBotV3BotMenu</td></tr>
 </tbody></table>

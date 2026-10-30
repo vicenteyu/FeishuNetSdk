@@ -4,7 +4,7 @@
 // Created          : 2024-11-03
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-12-12
+// Last Modified On : 2026-10-30
 // ************************************************************************
 // <copyright file="PostCorehrV2LocationsByLocationIdAddressesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -50,12 +50,13 @@ public record PostCorehrV2LocationsByLocationIdAddressesBodyDto
 
     /// <summary>
     /// <para>区/县ID</para>
+    /// <para>- 当「国家/地区」是“中国香港”时，该字段必填</para>
     /// <para>- 详情可通过[【查询区县信息】](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/basic_info-district/search)接口获取</para>
-    /// <para>必填：是</para>
+    /// <para>必填：否</para>
     /// <para>示例值：6863333556291110408</para>
     /// </summary>
     [JsonPropertyName("distinct_id")]
-    public string DistinctId { get; set; } = string.Empty;
+    public string? DistinctId { get; set; }
 
     /// <summary>
     /// <para>地址行 1</para>
