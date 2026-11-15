@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-11-15
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-11-15
+// ************************************************************************
+// <copyright file="PostSecurityAndComplianceV1UserMigrationsResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>迁移用户 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 迁移用户 响应体
@@ -11,7 +24,7 @@ public record PostSecurityAndComplianceV1UserMigrationsResponseDto
     /// <summary>
     /// <para>用户迁移列表</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：100</para>
+    /// <para>最大长度：50</para>
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("user_migrations")]

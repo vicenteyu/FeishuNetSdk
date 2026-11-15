@@ -1311,15 +1311,15 @@
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
 <tr><td rowspan="2">656</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>查询地理库信息</td></tr>
 <tr><td colspan="3">GetApprovalV4Districts</td></tr>
-<tr><td rowspan="2">657</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>取消用户迁移</td></tr>
+<tr><td rowspan="2">657</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>取消用户迁移</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsCancel</td></tr>
 <tr><td rowspan="2">658</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取地理位置列表</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1MultiGeoEntityTenant</td></tr>
-<tr><td rowspan="2">659</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>迁移用户</td></tr>
+<tr><td rowspan="2">659</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>迁移用户</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrations</td></tr>
 <tr><td rowspan="2">660</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取单个用户迁移状态</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1UserMigrationsByUserId</td></tr>
-<tr><td rowspan="2">661</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
+<tr><td rowspan="2">661</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsSearch</td></tr>
 <tr><td rowspan="2">662</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
 <tr><td colspan="3">PostContactV3UsersBasicBatch</td></tr>
@@ -1621,7 +1621,7 @@
 <tr><td colspan="3">PostApprovalV4InstancesSubscription</td></tr>
 <tr><td rowspan="2">811</td><td rowspan="2">2026-07-17</td><td>&#10003;</td><td>审批</td><td>退订审批实例状态变更事件</td></tr>
 <tr><td colspan="3">DeleteApprovalV4InstancesSubscription</td></tr>
-<tr><td rowspan="2">812</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
+<tr><td rowspan="2">812</td><td rowspan="2">2026-11-03</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
 <tr><td rowspan="2">813</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
@@ -1657,6 +1657,8 @@
 <tr><td colspan="3">PostVcV1BotsCountdown</td></tr>
 <tr><td rowspan="2">829</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>飞书妙搭</td><td>导出妙搭应用代码包</td></tr>
 <tr><td colspan="3">PostSparkV1AppsExport</td></tr>
-<tr><td rowspan="2">830</td><td rowspan="2">2026-10-27</td><td>新增</td><td>薪酬管理</td><td>批量查询薪资方案</td></tr>
+<tr><td rowspan="2">830</td><td rowspan="2">2026-10-27</td><td>&#10003;</td><td>薪酬管理</td><td>批量查询薪资方案</td></tr>
 <tr><td colspan="3">GetCompensationV1Plans</td></tr>
+<tr><td rowspan="2">831</td><td rowspan="2">2026-11-03</td><td>新增</td><td>招聘</td><td>获取职位详情</td></tr>
+<tr><td colspan="3">GetHireV1JobsByJobIdGetDetail</td></tr>
 </tbody></table>

@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-10
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_GetHireV1InterviewFeedbackFormsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -121,7 +121,8 @@ public class Test_GetHireV1InterviewFeedbackFormsResponseDto : TestBase
                             }
                         ]
                     }
-                ]
+                ],
+                "biz_id": "3453137186734393644"
             }
         ],
         "page_token": "eVQrYzJBNDNONlk4VFZBZVlSdzlKdFJ4bVVHVExENDNKVHoxaVdiVnViQT0=",

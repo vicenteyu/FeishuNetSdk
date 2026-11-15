@@ -1535,15 +1535,15 @@
 <tr><td colspan="3">GetCorehrV1CompensationStandardsMatch</td></tr>
 <tr><td rowspan="2">768</td><td rowspan="2">2024-09-25</td><td>&#10003;</td><td>消息与群组</td><td>发送短信加急</td></tr>
 <tr><td colspan="3">PatchImV1MessagesByMessageIdUrgentSms</td></tr>
-<tr><td rowspan="2">769</td><td rowspan="2">2025-12-02</td><td>&#10003;</td><td>招聘</td><td>新建职位</td></tr>
+<tr><td rowspan="2">769</td><td rowspan="2">2026-11-03</td><td>&#10003;</td><td>招聘</td><td>新建职位</td></tr>
 <tr><td colspan="3">PostHireV1JobsCombinedCreate</td></tr>
-<tr><td rowspan="2">770</td><td rowspan="2">2024-12-11</td><td>&#10003;</td><td>招聘</td><td>获取职位信息</td></tr>
+<tr><td rowspan="2">770</td><td rowspan="2">2026-11-03</td><td>&#10003;</td><td>招聘</td><td>获取职位信息</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobId</td></tr>
 <tr><td rowspan="2">771</td><td rowspan="2">2025-02-21</td><td>&#10003;</td><td>招聘</td><td>获取职位设置</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobIdConfig</td></tr>
 <tr><td rowspan="2">772</td><td rowspan="2">2024-09-10</td><td>&#10003;</td><td>招聘</td><td>更新职位</td></tr>
 <tr><td colspan="3">PostHireV1JobsByJobIdCombinedUpdate</td></tr>
-<tr><td rowspan="2">773</td><td rowspan="2">2024-12-24</td><td>&#10003;</td><td>招聘</td><td>更新职位设置</td></tr>
+<tr><td rowspan="2">773</td><td rowspan="2">2026-11-05</td><td>&#10003;</td><td>招聘</td><td>更新职位设置</td></tr>
 <tr><td colspan="3">PostHireV1JobsByJobIdUpdateConfig</td></tr>
 <tr><td rowspan="2">774</td><td rowspan="2">2024-08-28</td><td>&#10003;</td><td>招聘</td><td>获取职位类别列表</td></tr>
 <tr><td colspan="3">GetHireV1JobTypes</td></tr>
@@ -2051,7 +2051,7 @@
 <tr><td colspan="3">PostImV1ThreadsByThreadIdForward</td></tr>
 <tr><td rowspan="2">1026</td><td rowspan="2">2024-07-16</td><td>&#10003;</td><td>日历</td><td>查询日程视图</td></tr>
 <tr><td colspan="3">GetCalendarV4CalendarsByCalendarIdEventsInstanceView</td></tr>
-<tr><td rowspan="2">1027</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
+<tr><td rowspan="2">1027</td><td rowspan="2">2026-11-03</td><td>&#10003;</td><td>招聘</td><td>获取职位列表</td></tr>
 <tr><td colspan="3">GetHireV1Jobs</td></tr>
 <tr><td rowspan="2">1028</td><td rowspan="2">2025-05-08</td><td>&#10003;</td><td>多维表格</td><td>查询记录</td></tr>
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsSearch</td></tr>
@@ -2333,7 +2333,7 @@
 <tr><td colspan="3">PostHireV1ReferralsSearch</td></tr>
 <tr><td rowspan="2">1167</td><td rowspan="2">2024-11-18</td><td>&#10003;</td><td>招聘</td><td>导入外部内推奖励</td></tr>
 <tr><td colspan="3">PostHireV1ExternalReferralRewards</td></tr>
-<tr><td rowspan="2">1168</td><td rowspan="2">2025-08-05</td><td>&#10003;</td><td>招聘</td><td>获取面试评价表列表</td></tr>
+<tr><td rowspan="2">1168</td><td rowspan="2">2026-11-05</td><td>&#10003;</td><td>招聘</td><td>获取面试评价表列表</td></tr>
 <tr><td colspan="3">GetHireV1InterviewFeedbackForms</td></tr>
 <tr><td rowspan="2">1169</td><td rowspan="2">2024-09-09</td><td>&#10003;</td><td>招聘</td><td>删除外部内推奖励</td></tr>
 <tr><td colspan="3">DeleteHireV1ExternalReferralRewardsByExternalReferralRewardId</td></tr>
@@ -2341,7 +2341,7 @@
 <tr><td colspan="3">PostBitableV1AppsByAppTokenTablesByTableIdRecordsBatchGet</td></tr>
 <tr><td rowspan="2">1171</td><td rowspan="2">2024-08-23</td><td>&#10003;</td><td>应用信息</td><td>获取消息推送概览</td></tr>
 <tr><td colspan="3">PostApplicationV6ApplicationsByAppIdAppUsageMessagePushOverview</td></tr>
-<tr><td rowspan="2">1172</td><td rowspan="2">2026-02-02</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>通过/拒绝审批任务</td></tr>
+<tr><td rowspan="2">1172</td><td rowspan="2">2026-11-10</td><td>&#10003;</td><td>飞书人事（企业版）</td><td>通过/拒绝审批任务</td></tr>
 <tr><td colspan="3">PutCorehrV2ProcessesByProcessIdApproversByApproverId</td></tr>
 <tr><td rowspan="2">1173</td><td rowspan="2">2026-05-07</td><td>&#10003;</td><td>考勤打卡</td><td>查询归档报表表头</td></tr>
 <tr><td colspan="3">PostAttendanceV1ArchiveRuleUserStatsFieldsQuery</td></tr>
@@ -2527,7 +2527,7 @@
 <tr><td colspan="3">PostApaasV1ApplicationsByNamespaceFlowsByFlowIdExecute</td></tr>
 <tr><td rowspan="2">1264</td><td rowspan="2">2024-12-03</td><td>&#10003;</td><td>招聘</td><td>批量加入/移除人才库中人才</td></tr>
 <tr><td colspan="3">PostHireV1TalentPoolsByTalentPoolIdBatchChangeTalentPool</td></tr>
-<tr><td rowspan="2">1265</td><td rowspan="2">2024-12-04</td><td>&#10003;</td><td>招聘</td><td>获取职位详情</td></tr>
+<tr><td rowspan="2">1265</td><td rowspan="2">2026-11-03</td><td>&#10003;</td><td>招聘</td><td>获取职位详情</td></tr>
 <tr><td colspan="3">GetHireV1JobsByJobIdGetDetail</td></tr>
 <tr><td rowspan="2">1266</td><td rowspan="2">2026-07-24</td><td>&#10003;</td><td>招聘</td><td>获取投递详情</td></tr>
 <tr><td colspan="3">GetHireV1ApplicationsByApplicationIdGetDetail</td></tr>
@@ -2895,7 +2895,7 @@
 <tr><td colspan="3">GetCompensationV1SocialPlans</td></tr>
 <tr><td rowspan="2">1448</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量创建经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchCreate</td></tr>
-<tr><td rowspan="2">1449</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>查询经常性支付记录</td></tr>
+<tr><td rowspan="2">1449</td><td rowspan="2">2026-11-10</td><td>&#10003;</td><td>薪酬管理</td><td>查询经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentQuery</td></tr>
 <tr><td rowspan="2">1450</td><td rowspan="2">2025-08-28</td><td>&#10003;</td><td>薪酬管理</td><td>批量更正经常性支付记录</td></tr>
 <tr><td colspan="3">PostCompensationV1RecurringPaymentBatchUpdate</td></tr>
@@ -2987,15 +2987,15 @@
 <tr><td colspan="3">PostApprovalV4DistrictsSearch</td></tr>
 <tr><td rowspan="2">1494</td><td rowspan="2">2026-03-13</td><td>&#10003;</td><td>审批</td><td>查询地理库信息</td></tr>
 <tr><td colspan="3">GetApprovalV4Districts</td></tr>
-<tr><td rowspan="2">1495</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>取消用户迁移</td></tr>
+<tr><td rowspan="2">1495</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>取消用户迁移</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsCancel</td></tr>
 <tr><td rowspan="2">1496</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取地理位置列表</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1MultiGeoEntityTenant</td></tr>
-<tr><td rowspan="2">1497</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>迁移用户</td></tr>
+<tr><td rowspan="2">1497</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>迁移用户</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrations</td></tr>
 <tr><td rowspan="2">1498</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>获取单个用户迁移状态</td></tr>
 <tr><td colspan="3">GetSecurityAndComplianceV1UserMigrationsByUserId</td></tr>
-<tr><td rowspan="2">1499</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
+<tr><td rowspan="2">1499</td><td rowspan="2">2026-11-04</td><td>&#10003;</td><td>安全合规</td><td>批量获取用户迁移状态</td></tr>
 <tr><td colspan="3">PostSecurityAndComplianceV1UserMigrationsSearch</td></tr>
 <tr><td rowspan="2">1500</td><td rowspan="2">2026-03-17</td><td>&#10003;</td><td>通讯录</td><td>通过 ID 获取用户姓名</td></tr>
 <tr><td colspan="3">PostContactV3UsersBasicBatch</td></tr>
@@ -3209,10 +3209,16 @@
 <tr><td colspan="3">PostSparkV1AppsExport</td></tr>
 <tr><td rowspan="2">1605</td><td rowspan="2">2026-10-08</td><td>&#10003;</td><td>飞书妙搭</td><td>回写发布节点状态</td></tr>
 <tr><td colspan="3">PutSparkV1AppsByAppIdReleasesByReleaseId</td></tr>
-<tr><td rowspan="2">1606</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>获取千人千面菜单</td></tr>
+<tr><td rowspan="2">1606</td><td rowspan="2">2026-10-28</td><td>&#10003;</td><td>应用信息</td><td>获取千人千面菜单</td></tr>
 <tr><td colspan="3">GetBotV3BotMenu</td></tr>
-<tr><td rowspan="2">1607</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>删除千人千面菜单</td></tr>
+<tr><td rowspan="2">1607</td><td rowspan="2">2026-10-28</td><td>&#10003;</td><td>应用信息</td><td>删除千人千面菜单</td></tr>
 <tr><td colspan="3">DeleteBotV3BotMenu</td></tr>
-<tr><td rowspan="2">1608</td><td rowspan="2">2026-10-28</td><td>新增</td><td>应用信息</td><td>创建千人千面菜单</td></tr>
+<tr><td rowspan="2">1608</td><td rowspan="2">2026-10-28</td><td>&#10003;</td><td>应用信息</td><td>创建千人千面菜单</td></tr>
 <tr><td colspan="3">PostBotV3BotMenu</td></tr>
+<tr><td rowspan="2">1609</td><td rowspan="2">2026-11-11</td><td>新增</td><td>飞书人事（企业版）</td><td>搜索被动解除补偿金信息</td></tr>
+<tr><td colspan="3">PostCorehrV2SeverancePaysQuery</td></tr>
+<tr><td rowspan="2">1610</td><td rowspan="2">2026-11-11</td><td>新增</td><td>飞书人事（企业版）</td><td>发起被动解除补偿金流程</td></tr>
+<tr><td colspan="3">PostCorehrV2SeverancePaysSubmit</td></tr>
+<tr><td rowspan="2">1611</td><td rowspan="2">2026-11-11</td><td>新增</td><td>飞书人事（企业版）</td><td>编辑被动解除补偿金信息</td></tr>
+<tr><td colspan="3">PostCorehrV2SeverancePaysEdit</td></tr>
 </tbody></table>

@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-11-15
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-11-15
+// ************************************************************************
+// <copyright file="PostSecurityAndComplianceV1UserMigrationsSearchResponseDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>批量获取用户迁移状态 响应体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 批量获取用户迁移状态 响应体
@@ -11,7 +24,7 @@ public record PostSecurityAndComplianceV1UserMigrationsSearchResponseDto
     /// <summary>
     /// <para>用户迁移列表</para>
     /// <para>必填：否</para>
-    /// <para>最大长度：500</para>
+    /// <para>最大长度：50</para>
     /// <para>最小长度：0</para>
     /// </summary>
     [JsonPropertyName("items")]

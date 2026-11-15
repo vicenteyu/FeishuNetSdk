@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_PostHireV1JobsCombinedCreateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -77,7 +77,8 @@ public class Test_PostHireV1JobsCombinedCreateBodyDto : TestBase
     "target_major_id_list": [
         "MDMJ00000067"
     ],
-    "portal_website_apply_form_schema_id": "7397638158859323692"
+    "portal_website_apply_form_schema_id": "7397638158859323692",
+    "brand_id": "7316896731624212780"
 }
 """;
         var result = Deserialize<FeishuNetSdk.Hire.PostHireV1JobsCombinedCreateBodyDto>(json);

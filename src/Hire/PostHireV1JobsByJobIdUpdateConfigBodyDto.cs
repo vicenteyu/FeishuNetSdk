@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="PostHireV1JobsByJobIdUpdateConfigBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -70,7 +70,7 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     public int[] UpdateOptionList { get; set; } = [];
 
     /// <summary>
-    /// <para>面试评价表 ID，可通过[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口获取，当同时满足以下两个条件时，该参数必填：</para>
+    /// <para>面试评价表 biz_id，可通过[获取面试评价表列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/interview_feedback_form/list)接口获取，当同时满足以下两个条件时，该参数必填：</para>
     /// <para>- `update_option_list`包含`更新面试评价表`</para>
     /// <para>- 「飞书招聘」-「设置」-「面试轮次类型设置」-「启用面试轮次类型」开关关闭</para>
     /// <para>必填：否</para>
@@ -184,12 +184,12 @@ public record PostHireV1JobsByJobIdUpdateConfigBodyDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("interview_appointment_config")]
-    public PostHireV1JobsByJobIdUpdateConfigBodyDtoInterviewAppointmentConfig? InterviewAppointmentConfig { get; set; }
+    public InterviewAppointmentConfigSuffix? InterviewAppointmentConfig { get; set; }
 
     /// <summary>
     /// <para>自助约面配置，当`update_option_list`包含`更新面试官安排面试配置`时，该参数必填</para>
     /// </summary>
-    public record PostHireV1JobsByJobIdUpdateConfigBodyDtoInterviewAppointmentConfig
+    public record InterviewAppointmentConfigSuffix
     {
         /// <summary>
         /// <para>是否开启面试官自助约面</para>

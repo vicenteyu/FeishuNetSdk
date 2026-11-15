@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_GetHireV1JobsByJobIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -164,7 +164,14 @@ public class Test_GetHireV1JobsByJobIdResponseDto : TestBase
                     "zh_name": "考古",
                     "en_name": "archeology"
                 }
-            ]
+            ],
+            "brand": {
+                "id": "7316896731624212780",
+                "zh_name": "ByteDance",
+                "en_name": "ByteDance",
+                "i18n_name": "ByteDance",
+                "active_status": 1
+            }
         }
     }
 }

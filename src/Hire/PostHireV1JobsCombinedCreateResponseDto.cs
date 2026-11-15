@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="PostHireV1JobsCombinedCreateResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -50,12 +50,12 @@ public record PostHireV1JobsCombinedCreateResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job")]
-    public PostHireV1JobsCombinedCreateResponseDtoJob? Job { get; set; }
+    public JobSuffix? Job { get; set; }
 
     /// <summary>
     /// <para>职位</para>
     /// </summary>
-    public record PostHireV1JobsCombinedCreateResponseDtoJob
+    public record JobSuffix
     {
         /// <summary>
         /// <para>职位 ID，详情请查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>
@@ -318,12 +318,12 @@ public record PostHireV1JobsCombinedCreateResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_category")]
-        public PostHireV1JobsCombinedCreateResponseDtoJobJobCategory? JobCategory { get; set; }
+        public JobCategorySuffix? JobCategory { get; set; }
 
         /// <summary>
         /// <para>职位序列</para>
         /// </summary>
-        public record PostHireV1JobsCombinedCreateResponseDtoJobJobCategory
+        public record JobCategorySuffix
         {
             /// <summary>
             /// <para>职位序列 ID，与入参`job_family_id_type` 类型一致</para>
@@ -367,12 +367,12 @@ public record PostHireV1JobsCombinedCreateResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
-        public PostHireV1JobsCombinedCreateResponseDtoJobJobType? JobType { get; set; }
+        public JobTypeSuffix? JobType { get; set; }
 
         /// <summary>
         /// <para>职位类别</para>
         /// </summary>
-        public record PostHireV1JobsCombinedCreateResponseDtoJobJobType
+        public record JobTypeSuffix
         {
             /// <summary>
             /// <para>职位类别 ID，详情请查看：[获取职位类别列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job_type/list)</para>
@@ -913,6 +913,63 @@ public record PostHireV1JobsCombinedCreateResponseDto
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
         }
+
+        /// <summary>
+        /// <para>职位品牌</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("brand")]
+        public JobBrand? Brand { get; set; }
+
+        /// <summary>
+        /// <para>职位品牌</para>
+        /// </summary>
+        public record JobBrand
+        {
+            /// <summary>
+            /// <para>职位品牌 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7316896731624212780</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌中文名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("zh_name")]
+            public string? ZhName { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌英文名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("en_name")]
+            public string? EnName { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌国际化名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("i18n_name")]
+            public string? I18nName { get; set; }
+
+            /// <summary>
+            /// <para>启用状态</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：启用</item>
+            /// <item>2：未启用</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("active_status")]
+            public int? ActiveStatus { get; set; }
+        }
     }
 
     /// <summary>
@@ -920,12 +977,12 @@ public record PostHireV1JobsCombinedCreateResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job_manager")]
-    public PostHireV1JobsCombinedCreateResponseDtoJobManager? JobManager { get; set; }
+    public JobManagerSuffix? JobManager { get; set; }
 
     /// <summary>
     /// <para>职位负责人</para>
     /// </summary>
-    public record PostHireV1JobsCombinedCreateResponseDtoJobManager
+    public record JobManagerSuffix
     {
         /// <summary>
         /// <para>职位 ID，详情请查看：[获取职位信息](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/get)</para>

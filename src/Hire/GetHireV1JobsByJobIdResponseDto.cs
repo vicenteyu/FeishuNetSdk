@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-08-02
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="GetHireV1JobsByJobIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -26,12 +26,12 @@ public record GetHireV1JobsByJobIdResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("job")]
-    public GetHireV1JobsByJobIdResponseDtoJob? Job { get; set; }
+    public JobSuffix? Job { get; set; }
 
     /// <summary>
     /// <para>职位数据</para>
     /// </summary>
-    public record GetHireV1JobsByJobIdResponseDtoJob
+    public record JobSuffix
     {
         /// <summary>
         /// <para>职位 ID</para>
@@ -294,12 +294,12 @@ public record GetHireV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_category")]
-        public GetHireV1JobsByJobIdResponseDtoJobJobCategory? JobCategory { get; set; }
+        public JobCategorySuffix? JobCategory { get; set; }
 
         /// <summary>
         /// <para>职位序列</para>
         /// </summary>
-        public record GetHireV1JobsByJobIdResponseDtoJobJobCategory
+        public record JobCategorySuffix
         {
             /// <summary>
             /// <para>职位序列 ID</para>
@@ -343,12 +343,12 @@ public record GetHireV1JobsByJobIdResponseDto
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("job_type")]
-        public GetHireV1JobsByJobIdResponseDtoJobJobType? JobType { get; set; }
+        public JobTypeSuffix? JobType { get; set; }
 
         /// <summary>
         /// <para>职位类别</para>
         /// </summary>
-        public record GetHireV1JobsByJobIdResponseDtoJobJobType
+        public record JobTypeSuffix
         {
             /// <summary>
             /// <para>职位类别 ID</para>
@@ -888,6 +888,63 @@ public record GetHireV1JobsByJobIdResponseDto
             /// </summary>
             [JsonPropertyName("en_name")]
             public string? EnName { get; set; }
+        }
+
+        /// <summary>
+        /// <para>职位品牌</para>
+        /// <para>必填：否</para>
+        /// </summary>
+        [JsonPropertyName("brand")]
+        public JobBrand? Brand { get; set; }
+
+        /// <summary>
+        /// <para>职位品牌</para>
+        /// </summary>
+        public record JobBrand
+        {
+            /// <summary>
+            /// <para>职位品牌 ID</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：7316896731624212780</para>
+            /// </summary>
+            [JsonPropertyName("id")]
+            public string? Id { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌中文名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("zh_name")]
+            public string? ZhName { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌英文名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("en_name")]
+            public string? EnName { get; set; }
+
+            /// <summary>
+            /// <para>职位品牌国际化名称</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：ByteDance</para>
+            /// </summary>
+            [JsonPropertyName("i18n_name")]
+            public string? I18nName { get; set; }
+
+            /// <summary>
+            /// <para>启用状态</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：1</para>
+            /// <para>可选值：<list type="bullet">
+            /// <item>1：启用</item>
+            /// <item>2：未启用</item>
+            /// </list></para>
+            /// </summary>
+            [JsonPropertyName("active_status")]
+            public int? ActiveStatus { get; set; }
         }
     }
 }

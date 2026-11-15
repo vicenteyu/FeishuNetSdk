@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-12-27
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="PostHireV1JobsCombinedCreateBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -357,4 +357,12 @@ public record PostHireV1JobsCombinedCreateBodyDto
     /// </summary>
     [JsonPropertyName("portal_website_apply_form_schema_id")]
     public string? PortalWebsiteApplyFormSchemaId { get; set; }
+
+    /// <summary>
+    /// <para>职位品牌 ID</para>
+    /// <para>必填：否</para>
+    /// <para>示例值：7316896731624212780</para>
+    /// </summary>
+    [JsonPropertyName("brand_id")]
+    public string? BrandId { get; set; }
 }
