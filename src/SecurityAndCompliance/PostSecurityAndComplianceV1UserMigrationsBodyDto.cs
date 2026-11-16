@@ -1,3 +1,16 @@
+// ************************************************************************
+// Assembly         : FeishuNetSdk
+// Author           : yxr
+// Created          : 2026-11-15
+//
+// Last Modified By : yxr
+// Last Modified On : 2026-11-15
+// ************************************************************************
+// <copyright file="PostSecurityAndComplianceV1UserMigrationsBodyDto.cs" company="Vicente Yu">
+//     MIT
+// </copyright>
+// <summary>迁移用户 请求体</summary>
+// ************************************************************************
 namespace FeishuNetSdk.SecurityAndCompliance;
 /// <summary>
 /// 迁移用户 请求体
@@ -12,7 +25,7 @@ public record PostSecurityAndComplianceV1UserMigrationsBodyDto
     /// <para>迁移用户 ID 列表，ID类型必须与查询参数user_id_type的取值一致</para>
     /// <para>必填：是</para>
     /// <para>示例值：123</para>
-    /// <para>最大长度：100</para>
+    /// <para>最大长度：50</para>
     /// <para>最小长度：1</para>
     /// </summary>
     [JsonPropertyName("user_ids")]

@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-30
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -20553,7 +20553,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】删除文件或文件夹</para>
     /// <para>接口ID：7029475705897828354</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/delete</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
     /// <para>## 前提条件</para>
     /// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
@@ -25082,7 +25082,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】新建文件夹</para>
     /// <para>接口ID：7086652480830914563</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/create_folder</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
     /// <para>## 使用限制</para>
     /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
@@ -35503,7 +35503,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【云文档】创建文件快捷方式</para>
     /// <para>接口ID：7216001760515112961</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/create_shortcut</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
     /// <para>## 使用限制</para>
     /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
@@ -50235,10 +50235,11 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>【招聘】获取职位详情</para>
     /// <para>接口ID：7397677441935884289</para>
     /// <para>接口文档：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/job/get_detail</para>
-    /// <para>Authorization：tenant_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>根据职位 ID 获取职位详情，包含职位基本信息、职位负责人、协助人、用人经理、职位地址列表、职位设置、关联招需、门店列表及标签列表等信息。</para>
     /// <para>权限要求：<list type="bullet">
     /// <item>hire:job.composite_info:readonly</item>
+    /// <item>hire:people_cli</item>
     /// </list></para>
     /// <para>字段权限要求：<list type="bullet">
     /// <item>contact:user.employee_id:readonly</item>
@@ -61201,6 +61202,197 @@ public interface IFeishuTenantApi : IHttpApi
         CancellationToken cancellation_token = default);
 
     /// <summary>
+    /// <para>【飞书人事（企业版）】搜索被动解除补偿金信息</para>
+    /// <para>接口ID：7667872540325727194</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/severance_pay/query</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于按员工、补偿金记录 ID、状态、测算状态、时间范围和返回字段搜索被动解除补偿金记录。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:severance_pay:read</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// <item>corehr:severance_pay.actual_excess_amount:read</item>
+    /// <item>corehr:severance_pay.actual_notice_payment_amount:read</item>
+    /// <item>corehr:severance_pay.actual_other_floating_amount:read</item>
+    /// <item>corehr:severance_pay.actual_standard_amount:read</item>
+    /// <item>corehr:severance_pay.apply_finish_time:read</item>
+    /// <item>corehr:severance_pay.apply_initiating_time:read</item>
+    /// <item>corehr:severance_pay.calculate_status:read</item>
+    /// <item>corehr:severance_pay.created_time:read</item>
+    /// <item>corehr:severance_pay.currency:read</item>
+    /// <item>corehr:severance_pay.custom_field:read</item>
+    /// <item>corehr:severance_pay.evaluation_result:read</item>
+    /// <item>corehr:severance_pay.exceeding_base_end_month:read</item>
+    /// <item>corehr:severance_pay.exceeding_base_start_month:read</item>
+    /// <item>corehr:severance_pay.exceeding_compensation_base:read</item>
+    /// <item>corehr:severance_pay.exceeding_compensation_coefficient:read</item>
+    /// <item>corehr:severance_pay.exceeding_compensation_unit:read</item>
+    /// <item>corehr:severance_pay.exceeding_severance_pay_amount:read</item>
+    /// <item>corehr:severance_pay.expect_severance_pay_amount:read</item>
+    /// <item>corehr:severance_pay.followers:read</item>
+    /// <item>corehr:severance_pay.initiator_id:read</item>
+    /// <item>corehr:severance_pay.offboarding_date:read</item>
+    /// <item>corehr:severance_pay.other_compensation_amount:read</item>
+    /// <item>corehr:severance_pay.other_compensation_base:read</item>
+    /// <item>corehr:severance_pay.other_compensation_coefficient:read</item>
+    /// <item>corehr:severance_pay.other_compensation_end_month:read</item>
+    /// <item>corehr:severance_pay.other_compensation_start_month:read</item>
+    /// <item>corehr:severance_pay.other_compensation_unit:read</item>
+    /// <item>corehr:severance_pay.other_floating_amount:read</item>
+    /// <item>corehr:severance_pay.other_floating_base_end_month:read</item>
+    /// <item>corehr:severance_pay.other_floating_base_start_month:read</item>
+    /// <item>corehr:severance_pay.other_floating_base:read</item>
+    /// <item>corehr:severance_pay.other_floating_coefficient:read</item>
+    /// <item>corehr:severance_pay.other_floating_unit:read</item>
+    /// <item>corehr:severance_pay.provident_fund_end_date:read</item>
+    /// <item>corehr:severance_pay.reason_explanation:read</item>
+    /// <item>corehr:severance_pay.reason:read</item>
+    /// <item>corehr:severance_pay.severance_pay_amount:read</item>
+    /// <item>corehr:severance_pay.severance_pay_calculate_explanation:read</item>
+    /// <item>corehr:severance_pay.severance_pay_info:read</item>
+    /// <item>corehr:severance_pay.severance_pay_type:read</item>
+    /// <item>corehr:severance_pay.severance_pay_upper_limit:read</item>
+    /// <item>corehr:severance_pay.sign_type:read</item>
+    /// <item>corehr:severance_pay.signature_file_ids:read</item>
+    /// <item>corehr:severance_pay.social_insurance_end_date:read</item>
+    /// <item>corehr:severance_pay.standard_compensation_base:read</item>
+    /// <item>corehr:severance_pay.standard_compensation_coefficient:read</item>
+    /// <item>corehr:severance_pay.standard_compensation_end_month:read</item>
+    /// <item>corehr:severance_pay.standard_compensation_start_month:read</item>
+    /// <item>corehr:severance_pay.standard_compensation_unit:read</item>
+    /// <item>corehr:severance_pay.standard_severance_pay_amount:read</item>
+    /// <item>corehr:severance_pay.status:read</item>
+    /// <item>corehr:severance_pay.updated_time:read</item>
+    /// <item>corehr:severance_pay.withdrawn_reason:read</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="page_size">
+    /// <para>必填：是</para>
+    /// <para>分页大小，最大 100</para>
+    /// <para>示例值：100</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：page_token_xxx</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门 ID 类型</para>
+    /// <para>示例值：open_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/severance_pays/query")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2SeverancePaysQueryResponseDto>> PostCorehrV2SeverancePaysQueryAsync(
+        [JsonContent] Corehr.PostCorehrV2SeverancePaysQueryBodyDto dto,
+        [PathQuery] int page_size = 10,
+        [PathQuery] string? page_token = null,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】发起被动解除补偿金流程</para>
+    /// <para>接口ID：7667872540325743578</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/severance_pay/submit</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于为指定员工发起被动解除补偿金流程，并返回补偿金记录 ID、流程实例 ID 和当前状态。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:severance_pay:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// <item>people_corehr_id：以飞书人事的ID来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>部门 ID 类型</para>
+    /// <para>示例值：people_corehr_department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// <item>people_corehr_department_id：以 people_corehr_department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：people_corehr_department_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/severance_pays/submit")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2SeverancePaysSubmitResponseDto>> PostCorehrV2SeverancePaysSubmitAsync(
+        [JsonContent] Corehr.PostCorehrV2SeverancePaysSubmitBodyDto dto,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "people_corehr_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】编辑被动解除补偿金信息</para>
+    /// <para>接口ID：7667872540325759962</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/severance_pay/edit</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>该接口用于编辑已创建的被动解除补偿金记录。调用方需要传入补偿金记录 ID 和待更新字段列表，字段名使用补偿金对象字段 APIName。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:severance_pay:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/severance_pays/edit")]
+    System.Threading.Tasks.Task<FeishuResponse<Corehr.PostCorehrV2SeverancePaysEditResponseDto>> PostCorehrV2SeverancePaysEditAsync(
+        [JsonContent] Corehr.PostCorehrV2SeverancePaysEditBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
     /// <para>【视频会议】发送会中消息</para>
     /// <para>接口ID：7672664994766982391</para>
     /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/vc-v1/bot/message</para>
@@ -61375,6 +61567,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>spark:app:read</item>
     /// </list></para>
     /// </summary>
+    /// <returns>返回文件二进制流</returns>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/spark/v1/apps/export")]

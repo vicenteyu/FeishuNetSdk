@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_GetHireV1JobsByJobIdGetDetailResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -176,7 +176,14 @@ public class Test_GetHireV1JobsByJobIdGetDetailResponseDto : TestBase
                         }
                     }
                 ],
-                "storefront_mode": 1
+                "storefront_mode": 1,
+                "brand": {
+                    "id": "7316896731624212780",
+                    "zh_name": "ByteDance",
+                    "en_name": "ByteDance",
+                    "i18n_name": "ByteDance",
+                    "active_status": 1
+                }
             },
             "recruiter": {
                 "id": "ou_efk39117c300506837def50545420c6a",
@@ -428,6 +435,17 @@ public class Test_GetHireV1JobsByJobIdGetDetailResponseDto : TestBase
                         "en_us": "985、211"
                     },
                     "order": 1
+                }
+            ],
+            "stage_count_list": [
+                {
+                    "count": 1,
+                    "stage": {
+                        "id": "614218419274131",
+                        "zh_name": "面试",
+                        "en_name": "Interview",
+                        "type": 1
+                    }
                 }
             ]
         }

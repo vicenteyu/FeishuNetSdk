@@ -4,7 +4,7 @@
 // Created          : 2025-08-30
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-30
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_PostCompensationV1RecurringPaymentQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -40,8 +40,8 @@ public class Test_PostCompensationV1RecurringPaymentQueryResponseDto : TestBase
                 "item_id": "7411039006180312620",
                 "issuance_type": "with_salary",
                 "each_amount": "24.00",
-                "start_date": "2024-01-10",
-                "end_date": "2025-01-20",
+                "start_date": "1722441600000",
+                "end_date": "1742400000000",
                 "issuance_period": "year",
                 "currency_id": "6863329932261459464",
                 "remark": "这是个备注",

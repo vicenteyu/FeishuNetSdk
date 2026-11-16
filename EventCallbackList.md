@@ -13,6 +13,8 @@
 <tr><td>attendance.user_flow.created_v1</td><td>EventV2Dto&lt;Attendance.Events.AttendanceUserFlowCreatedV1EventBodyDto&gt;</td><td>【考勤打卡】打卡流水</td></tr>
 <tr><td>security_and_compliance.device_apply_record.device_apply_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceApplyRecordDeviceApplyEventV2EventBodyDto&gt;</td><td>【安全合规】设备申报事件</td></tr>
 <tr><td>security_and_compliance.device_record.device_change_event_v2</td><td>EventV2Dto&lt;SecurityAndCompliance.Events.SecurityAndComplianceDeviceRecordDeviceChangeEventV2EventBodyDto&gt;</td><td>【安全合规】设备信息变更事件</td></tr>
+<tr><td>corehr.severance_pay.calculate_status_update_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrSeverancePayCalculateStatusUpdateV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】被动离职补偿金计算状态变更</td></tr>
+<tr><td>corehr.severance_pay.status_update_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrSeverancePayStatusUpdateV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】被动离职补偿金信息状态变更</td></tr>
 <tr><td>corehr.process.cc.updated_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrProcessCcUpdatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】抄送单据状态变更</td></tr>
 <tr><td>corehr.department.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrDepartmentCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建部门V2</td></tr>
 <tr><td>corehr.cost_center.created_v2</td><td>EventV2Dto&lt;Corehr.Events.CorehrCostCenterCreatedV2EventBodyDto&gt;</td><td>【飞书人事（企业版）】创建成本中心</td></tr>
@@ -104,8 +106,6 @@
 <tr><td>meeting_room.meeting_room.status_changed_v1</td><td>EventV2Dto&lt;MeetingRoom.Events.MeetingRoomMeetingRoomStatusChangedV1EventBodyDto&gt;</td><td>【会议室】会议室状态信息变更</td></tr>
 <tr><td>performance.stage_task.open_result_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceStageTaskOpenResultV2EventBodyDto&gt;</td><td>【绩效】绩效结果开通</td></tr>
 <tr><td>performance.review_data.changed_v2</td><td>EventV2Dto&lt;Performance.Events.PerformanceReviewDataChangedV2EventBodyDto&gt;</td><td>【绩效】绩效详情变更</td></tr>
-<tr><td>minutes.minute.generated_v1</td><td>EventV2Dto&lt;Minutes.Events.MinutesMinuteGeneratedV1EventBodyDto&gt;</td><td>【妙记】妙记生成</td></tr>
-<tr><td>task.task.update_user_access_v2</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdateUserAccessV2EventBodyDto&gt;</td><td>【任务】任务更新事件</td></tr>
 <tr><td>task.task.comment.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskCommentUpdatedV1EventBodyDto&gt;</td><td>【任务】任务评论信息变更</td></tr>
 <tr><td>task.task.updated_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdatedV1EventBodyDto&gt;</td><td>【任务】任务信息变更（应用维度）</td></tr>
 <tr><td>task.task.update_tenant_v1</td><td>EventV2Dto&lt;Task.Events.TaskTaskUpdateTenantV1EventBodyDto&gt;</td><td>【任务】任务信息变更（租户维度）</td></tr>
@@ -121,20 +121,15 @@
 <tr><td>leave_approvalV2</td><td>EventV1Dto&lt;Approval.Events.LeaveApprovalV2EventBodyDto&gt;</td><td>【审批】请假审批</td></tr>
 <tr><td>approval.approval.updated_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalApprovalUpdatedV4EventBodyDto&gt;</td><td>【审批】审批定义更新</td></tr>
 <tr><td>approval.task.status_changed_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalTaskStatusChangedV4EventBodyDto&gt;</td><td>【审批】审批任务状态变更事件</td></tr>
-<tr><td>approval.instance.status_changed_v4</td><td>EventV2Dto&lt;Approval.Events.ApprovalInstanceStatusChangedV4EventBodyDto&gt;</td><td>【审批】审批实例状态变更事件</td></tr>
 <tr><td>out_approval</td><td>EventV1Dto&lt;Approval.Events.OutApprovalEventBodyDto&gt;</td><td>【审批】外出审批</td></tr>
-<tr><td>vc.meeting.participant_meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingParticipantMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】参与的会议结束</td></tr>
 <tr><td>vc.room.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室</td></tr>
 <tr><td>vc.room_level.created_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelCreatedV1EventBodyDto&gt;</td><td>【视频会议】创建会议室层级</td></tr>
 <tr><td>vc.room.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室</td></tr>
 <tr><td>vc.room_level.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室层级</td></tr>
 <tr><td>vc.reserve_config.updated_v1</td><td>EventV2Dto&lt;Vc.Events.VcReserveConfigUpdatedV1EventBodyDto&gt;</td><td>【视频会议】更新会议室预定限制</td></tr>
 <tr><td>vc.meeting.meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】会议结束</td></tr>
-<tr><td>vc.bot.meeting_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingEndedV1EventBodyDto&gt;</td><td>【视频会议】会议结束</td></tr>
 <tr><td>vc.meeting.meeting_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingMeetingStartedV1EventBodyDto&gt;</td><td>【视频会议】会议开始</td></tr>
 <tr><td>vc.bot.meeting_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingStartedV1EventBodyDto&gt;</td><td>【视频会议】会议开始</td></tr>
-<tr><td>vc.bot.meeting_activity_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingActivityV1EventBodyDto&gt;</td><td>【视频会议】会中事件</td></tr>
-<tr><td>vc.note.generated_v1</td><td>EventV2Dto&lt;Vc.Events.VcNoteGeneratedV1EventBodyDto&gt;</td><td>【视频会议】纪要生成</td></tr>
 <tr><td>vc.meeting.join_meeting_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingJoinMeetingV1EventBodyDto&gt;</td><td>【视频会议】加入会议</td></tr>
 <tr><td>vc.meeting.share_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingShareEndedV1EventBodyDto&gt;</td><td>【视频会议】结束屏幕共享</td></tr>
 <tr><td>vc.meeting.recording_started_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingRecordingStartedV1EventBodyDto&gt;</td><td>【视频会议】开始录制</td></tr>
@@ -146,7 +141,6 @@
 <tr><td>vc.room.deleted_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomDeletedV1EventBodyDto&gt;</td><td>【视频会议】删除会议室</td></tr>
 <tr><td>vc.room_level.deleted_v1</td><td>EventV2Dto&lt;Vc.Events.VcRoomLevelDeletedV1EventBodyDto&gt;</td><td>【视频会议】删除会议室层级</td></tr>
 <tr><td>vc.meeting.recording_ended_v1</td><td>EventV2Dto&lt;Vc.Events.VcMeetingRecordingEndedV1EventBodyDto&gt;</td><td>【视频会议】停止录制</td></tr>
-<tr><td>vc.bot.meeting_invited_v1</td><td>EventV2Dto&lt;Vc.Events.VcBotMeetingInvitedV1EventBodyDto&gt;</td><td>【视频会议】邀请机器人入会</td></tr>
 <tr><td>contact.department.deleted_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentDeletedV3EventBodyDto&gt;</td><td>【通讯录】部门被删除</td></tr>
 <tr><td>contact.department.created_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentCreatedV3EventBodyDto&gt;</td><td>【通讯录】部门新建</td></tr>
 <tr><td>contact.department.updated_v3</td><td>EventV2Dto&lt;Contact.Events.ContactDepartmentUpdatedV3EventBodyDto&gt;</td><td>【通讯录】部门信息变化</td></tr>

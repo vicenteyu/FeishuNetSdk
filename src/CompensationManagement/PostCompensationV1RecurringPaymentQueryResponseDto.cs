@@ -4,7 +4,7 @@
 // Created          : 2025-08-30
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-30
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="PostCompensationV1RecurringPaymentQueryResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -122,7 +122,7 @@ public record PostCompensationV1RecurringPaymentQueryResponseDto : IPageableResp
         /// <summary>
         /// <para>发放开始日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2024-01-10</para>
+        /// <para>示例值：1722441600000</para>
         /// <para>最大长度：255</para>
         /// <para>最小长度：0</para>
         /// </summary>
@@ -132,7 +132,7 @@ public record PostCompensationV1RecurringPaymentQueryResponseDto : IPageableResp
         /// <summary>
         /// <para>发放结束日期</para>
         /// <para>必填：否</para>
-        /// <para>示例值：2025-01-20</para>
+        /// <para>示例值：1742400000000</para>
         /// <para>最大长度：255</para>
         /// <para>最小长度：0</para>
         /// </summary>

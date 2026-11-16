@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-08-19
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -218,6 +218,10 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessStatusUpdateV2EventBodyDto>), typeDiscriminator: "corehr.process.status.update_v2")]
 //【飞书人事（企业版）】流程实例信息变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProcessUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.process.updated_v2")]
+//【飞书人事（企业版）】被动离职补偿金计算状态变更
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrSeverancePayCalculateStatusUpdateV2EventBodyDto>), typeDiscriminator: "corehr.severance_pay.calculate_status_update_v2")]
+//【飞书人事（企业版）】被动离职补偿金信息状态变更
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrSeverancePayStatusUpdateV2EventBodyDto>), typeDiscriminator: "corehr.severance_pay.status_update_v2")]
 //【飞书人事（企业版）】电子签文件状态发生变更事件
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrSignatureFileStatusUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.signature_file.status_updated_v2")]
 //【eLearning】课程学习进度新增事件

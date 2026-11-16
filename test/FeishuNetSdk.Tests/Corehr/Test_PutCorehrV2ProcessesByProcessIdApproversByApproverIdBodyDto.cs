@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-02-06
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -58,7 +58,14 @@ public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : 
                     "open_file_id": "66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53",
                     "file_name": "file_name.jpg",
                     "length": 65535
-                }
+                },
+                "record_values": [
+                    {
+                        "variable_api_name": "city_v2",
+                        "sub_value_key": "key1",
+                        "record_id": "6863326263210149383"
+                    }
+                ]
             },
             "sub_values": [
                 {
@@ -87,7 +94,14 @@ public class Test_PutCorehrV2ProcessesByProcessIdApproversByApproverIdBodyDto : 
                             "open_file_id": "66867ed00740ddd4a0bad4a5_c99b5322dc744fe4b99b76426ffe5d53",
                             "file_name": "file_name.jpg",
                             "length": 65535
-                        }
+                        },
+                        "record_values": [
+                            {
+                                "variable_api_name": "city_v2",
+                                "sub_value_key": "key1",
+                                "record_id": "6863326263210149383"
+                            }
+                        ]
                     }
                 }
             ]

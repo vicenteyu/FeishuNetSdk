@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-30
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -11233,7 +11233,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】删除文件或文件夹</para>
     /// <para>接口ID：7029475705897828354</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/delete</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>删除用户在云空间内的文件或者文件夹。文件或文件夹被删除后，会进入回收站中。</para>
     /// <para>## 前提条件</para>
     /// <para>要删除文件，需要确保应用或用户具有以下两种权限之一：</para>
@@ -12645,7 +12645,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】新建文件夹</para>
     /// <para>接口ID：7086652480830914563</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/folder/create_folder</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>该接口用于在用户云空间指定文件夹中创建一个空文件夹。</para>
     /// <para>## 使用限制</para>
     /// <para>- 该接口不支持并发创建，且调用频率上限为 5QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
@@ -16643,7 +16643,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>【云文档】创建文件快捷方式</para>
     /// <para>接口ID：7216001760515112961</para>
     /// <para>接口文档：https://open.feishu.cn/document/server-docs/docs/drive-v1/file/create_shortcut</para>
-    /// <para>Authorization：agent_access_token、tenant_access_token、user_access_token</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
     /// <para>创建指定文件的快捷方式到云空间的其它文件夹中。</para>
     /// <para>## 使用限制</para>
     /// <para>该接口不支持并发调用，且调用频率上限为 5 QPS。否则会返回 1061045 错误码，可通过稍后重试解决。</para>
@@ -23681,6 +23681,80 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Directory.PatchDirectoryV1EmployeesByEmployeeIdToBeResignedBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【招聘】获取职位详情</para>
+    /// <para>接口ID：7397677441935884289</para>
+    /// <para>接口文档：https://open.feishu.cn/document/hire-v1/recruitment-related-configuration/job/get_detail</para>
+    /// <para>Authorization：tenant_access_token、user_access_token</para>
+    /// <para>根据职位 ID 获取职位详情，包含职位基本信息、职位负责人、协助人、用人经理、职位地址列表、职位设置、关联招需、门店列表及标签列表等信息。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>hire:job.composite_info:readonly</item>
+    /// <item>hire:people_cli</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="job_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>职位 ID，可通过[获取职位列表](https://open.feishu.cn/document/ukTMukTMukTM/uMzM1YjLzMTN24yMzUjN/hire-v1/job/list)接口获取</para>
+    /// <para>示例值：7281257045172308287</para>
+    /// </param>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：open_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_admin_id：以people_admin_id来识别用户</item>
+    /// </list>
+    /// <para>默认值：open_id</para>
+    /// </param>
+    /// <param name="department_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的部门 ID 的类型</para>
+    /// <para>示例值：department_id</para>
+    /// <list type="bullet">
+    /// <item>open_department_id：以 open_department_id 来标识部门</item>
+    /// <item>department_id：以 department_id 来标识部门</item>
+    /// </list>
+    /// <para>默认值：open_department_id</para>
+    /// </param>
+    /// <param name="job_level_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「职级 ID」的类型</para>
+    /// <para>示例值：job_level_id_type</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_level_id：「人力系统管理后台」适用的职级 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_level_id：「飞书管理后台」适用的职级 ID，通过[「获取租户职级列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_level/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_level_id</para>
+    /// </param>
+    /// <param name="job_family_id_type">
+    /// <para>必填：否</para>
+    /// <para>此次调用中使用的「序列 ID」的类型</para>
+    /// <para>示例值：people_admin_job_category_id</para>
+    /// <list type="bullet">
+    /// <item>people_admin_job_category_id：「人力系统管理后台」适用的序列 ID。人力系统管理后台逐步下线中，建议不继续使用此 ID。</item>
+    /// <item>job_family_id：「飞书管理后台」适用的序列 ID，通过[「获取租户序列列表」](https://open.feishu.cn/document/server-docs/contact-v3/job_family/list)接口获取</item>
+    /// </list>
+    /// <para>默认值：people_admin_job_category_id</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/hire/v1/jobs/{job_id}/get_detail")]
+    System.Threading.Tasks.Task<FeishuResponse<Hire.GetHireV1JobsByJobIdGetDetailResponseDto>> GetHireV1JobsByJobIdGetDetailAsync(
+        UserAccessToken access_token,
+        [PathQuery] string job_id,
+        [PathQuery] string? user_id_type = "open_id",
+        [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] string? job_level_id_type = "people_admin_job_level_id",
+        [PathQuery] string? job_family_id_type = "people_admin_job_category_id",
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -32930,6 +33004,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>spark:app:read</item>
     /// </list></para>
     /// </summary>
+    /// <returns>返回文件二进制流</returns>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>

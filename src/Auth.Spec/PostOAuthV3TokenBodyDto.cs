@@ -27,7 +27,7 @@ public record PostOAuthV3TokenBodyDto
     /// <para>必填：是</para>
     /// </summary>
     [JsonPropertyName("grant_type")]
-    public string GrantType { get; set; } = string.Empty;
+    public string GrantType { get; set; } = "authorization_code";
 
     /// <summary>
     /// <para>应用的 App ID。应用凭证 App ID 和 App Secret 获取方式：</para>

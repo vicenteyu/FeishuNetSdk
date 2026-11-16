@@ -4,7 +4,7 @@
 // Created          : 2024-07-22
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-08-10
+// Last Modified On : 2026-11-15
 // ************************************************************************
 // <copyright file="GetHireV1InterviewFeedbackFormsResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -100,12 +100,12 @@ public record GetHireV1InterviewFeedbackFormsResponseDto : IPageableResponse<Get
         /// <para>必填：否</para>
         /// </summary>
         [JsonPropertyName("score_calculation_config")]
-        public InterviewFeedbackFormScoreCalculationConfig? ScoreCalculationConfig { get; set; }
+        public ScoreCalculationConfigSuffix? ScoreCalculationConfig { get; set; }
 
         /// <summary>
         /// <para>面试评价表打分计算配置，当评价表类型为打分评价表（type=2）时，该字段生效</para>
         /// </summary>
-        public record InterviewFeedbackFormScoreCalculationConfig
+        public record ScoreCalculationConfigSuffix
         {
             /// <summary>
             /// <para>是否启用</para>
@@ -324,12 +324,12 @@ public record GetHireV1InterviewFeedbackFormsResponseDto : IPageableResponse<Get
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("score_dimension_config")]
-                public InterviewFeedbackFormDimensionScoreDimensionConfig? ScoreDimensionConfig { get; set; }
+                public ScoreDimensionConfigSuffix? ScoreDimensionConfig { get; set; }
 
                 /// <summary>
                 /// <para>评价维度的分数配置，适用于打分题(type = 6 或者 type =7)</para>
                 /// </summary>
-                public record InterviewFeedbackFormDimensionScoreDimensionConfig
+                public record ScoreDimensionConfigSuffix
                 {
                     /// <summary>
                     /// <para>分数维度类型，属于打分题的子维度类型，包括固定分值、自定义分值</para>
@@ -495,12 +495,12 @@ public record GetHireV1InterviewFeedbackFormsResponseDto : IPageableResponse<Get
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("related_dimension_config")]
-                public InterviewFeedbackFormDimensionRelatedDimensionConfig? RelatedDimensionConfig { get; set; }
+                public RelatedDimensionConfigSuffix? RelatedDimensionConfig { get; set; }
 
                 /// <summary>
                 /// <para>维度间关联配置</para>
                 /// </summary>
-                public record InterviewFeedbackFormDimensionRelatedDimensionConfig
+                public record RelatedDimensionConfigSuffix
                 {
                     /// <summary>
                     /// <para>关联配置类型</para>
@@ -566,6 +566,14 @@ public record GetHireV1InterviewFeedbackFormsResponseDto : IPageableResponse<Get
                 }
             }
         }
+
+        /// <summary>
+        /// <para>面试评价表业务ID</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：3453137186734393644</para>
+        /// </summary>
+        [JsonPropertyName("biz_id")]
+        public string? BizId { get; set; }
     }
 
     /// <summary>
