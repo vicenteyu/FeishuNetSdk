@@ -4,17 +4,17 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="Test_CorehrPreHireUpdatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>测试 入职信息变更 事件体</summary>
+// <summary>测试 入职信息变更(不推荐) 事件体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.Tests.FeishuPeople.Events;
 
 /// <summary>
-/// 测试 入职信息变更 事件体
+/// 测试 入职信息变更(不推荐) 事件体
 /// <para>接口ID：7254931997880598529</para>
 /// <para>文档地址：https://open.feishu.cn/document/corehr-v1/pre_hire/pre-hire-events/updated</para>
 /// <para>JSON地址：https://open.feishu.cn/document_portal/v1/document/get_detail?fullPath=%2fuAjLw4CM%2fukTMukTMukTM%2freference%2fcorehr-v1%2fpre_hire%2fevents%2fupdated</para>

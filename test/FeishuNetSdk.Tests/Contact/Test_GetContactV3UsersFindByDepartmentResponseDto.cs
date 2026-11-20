@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="Test_GetContactV3UsersFindByDepartmentResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -44,7 +44,6 @@ public class Test_GetContactV3UsersFindByDepartmentResponseDto : TestBase
                 "mobile": "13011111111",
                 "mobile_visible": false,
                 "gender": 1,
-                "avatar_key": "2500c7a9-5fff-4d9a-a2de-3d59614ae28g",
                 "avatar": {
                     "avatar_72": "https://foo.icon.com/xxxx",
                     "avatar_240": "https://foo.icon.com/xxxx",

@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-07-11
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="PostDirectoryV1EmployeesFilterResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -64,12 +64,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
             /// <para>必填：是</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public EmployeeBaseEntityName Name { get; set; } = new();
+            public NameSuffix Name { get; set; } = new();
 
             /// <summary>
             /// <para>姓名</para>
             /// </summary>
-            public record EmployeeBaseEntityName
+            public record NameSuffix
             {
                 /// <summary>
                 /// <para>员工的姓名</para>
@@ -156,12 +156,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("department_count")]
-                public DepartmentDepartmentCount? DepartmentCount { get; set; }
+                public DepartmentCountSuffix? DepartmentCount { get; set; }
 
                 /// <summary>
                 /// <para>部门成员与子部门计数</para>
                 /// </summary>
-                public record DepartmentDepartmentCount
+                public record DepartmentCountSuffix
                 {
                     /// <summary>
                     /// <para>递归成员数量</para>
@@ -615,7 +615,15 @@ public record PostDirectoryV1EmployeesFilterResponseDto
             /// <para>最小长度：0</para>
             /// </summary>
             [JsonPropertyName("subscription_ids")]
-            public string[]? SubscriptionIds { get; set; }
+            public long[]? SubscriptionIds { get; set; }
+
+            /// <summary>
+            /// <para>是否智能体员工</para>
+            /// <para>必填：否</para>
+            /// <para>示例值：false</para>
+            /// </summary>
+            [JsonPropertyName("is_agent")]
+            public bool? IsAgent { get; set; }
         }
 
         /// <summary>
@@ -742,12 +750,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_title")]
-            public EmployeeWorkEntityJobTitle? JobTitle { get; set; }
+            public JobTitleSuffix? JobTitle { get; set; }
 
             /// <summary>
             /// <para>职务</para>
             /// </summary>
-            public record EmployeeWorkEntityJobTitle
+            public record JobTitleSuffix
             {
                 /// <summary>
                 /// <para>ID，不存在时默认返回"0"</para>
@@ -786,12 +794,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("job_level")]
-            public EmployeeWorkEntityJobLevel? JobLevel { get; set; }
+            public JobLevelSuffix? JobLevel { get; set; }
 
             /// <summary>
             /// <para>职级</para>
             /// </summary>
-            public record EmployeeWorkEntityJobLevel
+            public record JobLevelSuffix
             {
                 /// <summary>
                 /// <para>ID</para>
@@ -847,12 +855,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
             /// <para>示例值：1</para>
             /// </summary>
             [JsonPropertyName("job_family")]
-            public EmployeeWorkEntityJobFamily? JobFamily { get; set; }
+            public JobFamilySuffix? JobFamily { get; set; }
 
             /// <summary>
             /// <para>序列</para>
             /// </summary>
-            public record EmployeeWorkEntityJobFamily
+            public record JobFamilySuffix
             {
                 /// <summary>
                 /// <para>序列ID</para>
@@ -1163,12 +1171,12 @@ public record PostDirectoryV1EmployeesFilterResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("page_response")]
-    public PostDirectoryV1EmployeesFilterResponseDtoPageResponse? PageResponse { get; set; }
+    public PageResponseSuffix? PageResponse { get; set; }
 
     /// <summary>
     /// <para>分页结果</para>
     /// </summary>
-    public record PostDirectoryV1EmployeesFilterResponseDtoPageResponse
+    public record PageResponseSuffix
     {
         /// <summary>
         /// <para>是否还有后续结果，如果has_more为true，代表还有数据没有完全返回，需要使用响应结果中的page_token，并再次请求才能取得剩下的数据。</para>

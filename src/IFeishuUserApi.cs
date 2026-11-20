@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-11-15
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="IFeishuUserApi.cs" company="Vicente Yu">
 //     MIT
@@ -2007,6 +2007,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id">
@@ -11322,6 +11323,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -11445,6 +11447,12 @@ public interface IFeishuUserApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="with_agent_department">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含智能体员工部门</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
@@ -11466,6 +11474,7 @@ public interface IFeishuUserApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] bool? fetch_child = null,
+        [PathQuery] bool? with_agent_department = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
@@ -17121,6 +17130,7 @@ public interface IFeishuUserApi : IHttpApi
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.subscription_ids:write</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_ids">
@@ -23033,6 +23043,12 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="with_agent">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含agent员工</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -23042,6 +23058,7 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Directory.PostDirectoryV1EmployeesFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] bool? with_agent = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -23091,6 +23108,12 @@ public interface IFeishuUserApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="with_agent_department">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含智能体员工部门</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     /// <param name="access_token">用户凭证</param>
@@ -23100,6 +23123,7 @@ public interface IFeishuUserApi : IHttpApi
         [JsonContent] Directory.PostDirectoryV1DepartmentsFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] bool? with_agent_department = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -33012,6 +33036,281 @@ public interface IFeishuUserApi : IHttpApi
     System.Threading.Tasks.Task<HttpResponseMessage> PostSparkV1AppsExportAsync(
         UserAccessToken access_token,
         [JsonContent] Miaoda.PostSparkV1AppsExportBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取拦截发件人列表</para>
+    /// <para>接口ID：7695747058686905557</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-blocked_sender/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取指定用户邮箱的拦截发件人名单，支持分页查询。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>搜索关键词，按发件人地址或域名做前缀匹配。空值或省略表示返回全部条目</para>
+    /// <para>示例值：marketing</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页返回的最大条数。取值范围 1-100，默认 20</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：1710000000</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/blocked_senders")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdBlockedSendersResponseDto>> GetMailV1UserMailboxesByUserMailboxIdBlockedSendersAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string? keyword = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取信任发件人列表</para>
+    /// <para>接口ID：7695747058686921941</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-allow_sender/list</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取指定用户邮箱的信任发件人名单，支持分页查询。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="keyword">
+    /// <para>必填：否</para>
+    /// <para>搜索关键词，按发件人地址或域名做前缀匹配。空值或省略表示返回全部条目</para>
+    /// <para>示例值：marketing</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="page_size">
+    /// <para>必填：否</para>
+    /// <para>每页返回的最大条数。取值范围 1-100，默认 20</para>
+    /// <para>示例值：20</para>
+    /// <para>默认值：10</para>
+    /// </param>
+    /// <param name="page_token">
+    /// <para>必填：否</para>
+    /// <para>分页标记，第一次请求不填，表示从头开始遍历；分页查询结果还有更多项时会同时返回新的 page_token，下次遍历可采用该 page_token 获取查询结果</para>
+    /// <para>示例值：1710000000</para>
+    /// <para>默认值：null</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/allow_senders")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdAllowSendersResponseDto>> GetMailV1UserMailboxesByUserMailboxIdAllowSendersAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string? keyword = null,
+        [PathQuery] int? page_size = 10,
+        [PathQuery] string? page_token = null,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量创建信任发件人</para>
+    /// <para>接口ID：7695747058686938325</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-allow_sender/batch_create</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量将发件人加入指定用户邮箱的信任发件人名单。支持按完整邮箱地址或邮箱域名添加，单次最多 100 项。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/allow_senders/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchCreateResponseDto>> PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchCreateAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchCreateBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量删除拦截发件人</para>
+    /// <para>接口ID：7695747058686954709</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-blocked_sender/batch_remove</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量从指定用户邮箱的拦截发件人名单中移除发件人。支持按完整邮箱地址或邮箱域名删除，单次最多 100 项。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/blocked_senders/batch_remove")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchRemoveResponseDto>> PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchRemoveAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchRemoveBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量创建拦截发件人</para>
+    /// <para>接口ID：7695747058686971093</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-blocked_sender/batch_create</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量将发件人加入指定用户邮箱的拦截发件人名单。支持按完整邮箱地址或邮箱域名添加，单次最多 100 项。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/blocked_senders/batch_create")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchCreateResponseDto>> PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchCreateAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdBlockedSendersBatchCreateBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】批量删除信任发件人</para>
+    /// <para>接口ID：7695747058686987477</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-allow_sender/batch_remove</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>批量从指定用户邮箱的信任发件人名单中移除发件人。支持按完整邮箱地址或邮箱域名删除，单次最多 100 项。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：user@xxx.xx 或 me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPost("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/allow_senders/batch_remove")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchRemoveResponseDto>> PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchRemoveAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PostMailV1UserMailboxesByUserMailboxIdAllowSendersBatchRemoveBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取自动回复图片下载链接</para>
+    /// <para>接口ID：7695747058687003861</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-setting/download_url_auto_reply_image</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取指定用户邮箱自动回复图片的临时下载链接。请先调用「获取自动回复」接口，从自动回复图片附件中获取 file_key，再调用本接口批量获取下载链接。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="file_keys">
+    /// <para>必填：是</para>
+    /// <para>待获取下载链接的自动回复图片 file_key 列表，可通过获取自动回复接口获取，每次支持传入 1～20 个。</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/settings/auto_reply/images/download_url")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyImagesDownloadUrlResponseDto>> GetMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyImagesDownloadUrlAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [PathQuery] string[] file_keys,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】更新自动回复</para>
+    /// <para>接口ID：7695747058687020245</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-setting/update_auto_reply</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>更新指定用户邮箱的自动回复设置，包括启用状态、回复时段与回复内容。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:modify</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpPut("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/settings/auto_reply")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.PutMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyResponseDto>> PutMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
+        [JsonContent] Mail.PutMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【邮箱】获取自动回复</para>
+    /// <para>接口ID：7695747058687036629</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/reference/mail-v1/user_mailbox-setting/get_auto_reply</para>
+    /// <para>Authorization：user_access_token</para>
+    /// <para>获取指定用户邮箱的自动回复设置及回复内容。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>mail:user_mailbox.message:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_mailbox_id">
+    /// <para>路径参数</para>
+    /// <para>必填：是</para>
+    /// <para>用户邮箱地址，作为用户邮箱身份标识。可通过获取用户邮箱信息接口获取用户主邮箱地址；使用 user_access_token 调用时，也可使用占位符 me 表示当前授权用户的主邮箱</para>
+    /// <para>示例值：me</para>
+    /// </param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    /// <param name="access_token">用户凭证</param>
+    [HttpGet("/open-apis/mail/v1/user_mailboxes/{user_mailbox_id}/settings/auto_reply")]
+    System.Threading.Tasks.Task<FeishuResponse<Mail.GetMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyResponseDto>> GetMailV1UserMailboxesByUserMailboxIdSettingsAutoReplyAsync(
+        UserAccessToken access_token,
+        [PathQuery] string user_mailbox_id,
         CancellationToken cancellation_token = default);
 }
 

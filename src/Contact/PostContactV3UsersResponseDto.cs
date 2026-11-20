@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="PostContactV3UsersResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -32,12 +32,12 @@ public record PostContactV3UsersResponseDto
     /// <para>必填：否</para>
     /// </summary>
     [JsonPropertyName("user")]
-    public PostContactV3UsersResponseDtoUser? User { get; set; }
+    public UserSuffix? User { get; set; }
 
     /// <summary>
     /// <para>用户信息</para>
     /// </summary>
-    public record PostContactV3UsersResponseDtoUser
+    public record UserSuffix
     {
         /// <summary>
         /// <para>用户的 union_id，是应用开发商发布的不同应用中同一用户的标识。不同用户 ID 的说明参见 [用户相关的 ID 概念](https://open.feishu.cn/document/home/user-identity-introduction/introduction)。</para>
@@ -128,14 +128,6 @@ public record PostContactV3UsersResponseDto
         /// </summary>
         [JsonPropertyName("gender")]
         public int? Gender { get; set; }
-
-        /// <summary>
-        /// <para>头像的文件 Key。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
-        /// </summary>
-        [JsonPropertyName("avatar_key")]
-        public string? AvatarKey { get; set; }
 
         /// <summary>
         /// <para>用户头像信息。</para>

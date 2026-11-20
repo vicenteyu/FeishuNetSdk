@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="Test_PostContactV3DepartmentsBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -37,9 +37,6 @@ public class Test_PostContactV3DepartmentsBodyDto : TestBase
     "department_id": "D096",
     "leader_user_id": "ou_7dab8a3d3cdcc9da365777c7ad535d62",
     "order": "100",
-    "unit_ids": [
-        "custom_unit_id"
-    ],
     "create_group_chat": false,
     "leaders": [
         {

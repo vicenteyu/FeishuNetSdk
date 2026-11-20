@@ -4,7 +4,7 @@
 // Created          : 2025-05-25
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-10-25
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="PostDirectoryV1EmployeesBodyDto.cs" company="Vicente Yu">
 //     MIT
@@ -48,10 +48,10 @@ public record PostDirectoryV1EmployeesBodyDto
         {
             /// <summary>
             /// <para>员工的姓名，最多可输入 64 字</para>
-            /// <para>必填：是</para>
+            /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("name")]
-            public I18nText Name { get; set; } = new();
+            public I18nText? Name { get; set; }
 
             /// <summary>
             /// <para>别名，最多可输入 64 字</para>

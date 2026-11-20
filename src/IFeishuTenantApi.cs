@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-11-15
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="IFeishuTenantApi.cs" company="Vicente Yu">
 //     MIT
@@ -3743,6 +3743,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -3815,6 +3816,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id">
@@ -20640,6 +20642,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.job_level:readonly</item>
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_id_type">
@@ -20761,6 +20764,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// <para>示例值：false</para>
     /// <para>默认值：null</para>
     /// </param>
+    /// <param name="with_agent_department">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含智能体员工部门</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="page_size">
     /// <para>必填：否</para>
     /// <para>分页大小，用于限制一次请求所返回的数据条目数。</para>
@@ -20780,6 +20789,7 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string? user_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
         [PathQuery] bool? fetch_child = null,
+        [PathQuery] bool? with_agent_department = null,
         [PathQuery] int? page_size = 10,
         [PathQuery] string? page_token = null,
         CancellationToken cancellation_token = default);
@@ -36883,6 +36893,7 @@ public interface IFeishuTenantApi : IHttpApi
     /// <item>contact:user.phone:readonly</item>
     /// <item>contact:user.subscription_ids:write</item>
     /// <item>contact:user.user_geo</item>
+    /// <item>directory:employee.base.email:read</item>
     /// </list></para>
     /// </summary>
     /// <param name="user_ids">
@@ -46869,6 +46880,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="with_agent">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含agent员工</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/directory/v1/employees/filter")]
@@ -46876,6 +46893,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Directory.PostDirectoryV1EmployeesFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] bool? with_agent = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -46925,6 +46943,12 @@ public interface IFeishuTenantApi : IHttpApi
     /// </list>
     /// <para>默认值：open_department_id</para>
     /// </param>
+    /// <param name="with_agent_department">
+    /// <para>必填：否</para>
+    /// <para>查询结果是否包含智能体员工部门</para>
+    /// <para>示例值：false</para>
+    /// <para>默认值：null</para>
+    /// </param>
     /// <param name="dto">请求体</param>
     /// <param name="cancellation_token">取消操作的令牌</param>
     [HttpPost("/open-apis/directory/v1/departments/filter")]
@@ -46932,6 +46956,7 @@ public interface IFeishuTenantApi : IHttpApi
         [JsonContent] Directory.PostDirectoryV1DepartmentsFilterBodyDto dto,
         [PathQuery] string? employee_id_type = "open_id",
         [PathQuery] string? department_id_type = "open_department_id",
+        [PathQuery] bool? with_agent_department = null,
         CancellationToken cancellation_token = default);
 
     /// <summary>
@@ -61611,6 +61636,42 @@ public interface IFeishuTenantApi : IHttpApi
         [PathQuery] string app_id,
         [PathQuery] string release_id,
         [JsonContent] Miaoda.PutSparkV1AppsByAppIdReleasesByReleaseIdBodyDto dto,
+        CancellationToken cancellation_token = default);
+
+    /// <summary>
+    /// <para>【飞书人事（企业版）】撤销被动解除补偿金业务单</para>
+    /// <para>接口ID：7709381754305826087</para>
+    /// <para>接口文档：https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/severance_pay/revoke</para>
+    /// <para>Authorization：tenant_access_token</para>
+    /// <para>撤销指定的被动解除补偿金业务单，将单据状态更新为已撤销（`withdrawn`）。每次调用处理一张单据。</para>
+    /// <para>## 业务限制</para>
+    /// <para>仅审批中（`approving`）和审批通过（`approved`）的单据支持撤销。审批中，同一审批流程关联多张补偿金单据时，不支持单独撤销其中一张；审批通过后，可逐张撤销。已拒绝（`rejected`）或其他不允许撤销的状态返回 `1163402`。</para>
+    /// <para>调用前后均可通过[搜索被动解除补偿金信息](https://open.feishu.cn/document/uAjLw4CM/ukTMukTMukTM/corehr-v2/severance_pay/query)确认单据 ID 和状态。</para>
+    /// <para>权限要求：<list type="bullet">
+    /// <item>corehr:severance_pay:write</item>
+    /// </list></para>
+    /// <para>字段权限要求：<list type="bullet">
+    /// <item>contact:user.employee_id:readonly</item>
+    /// </list></para>
+    /// </summary>
+    /// <param name="user_id_type">
+    /// <para>必填：否</para>
+    /// <para>用户 ID 类型</para>
+    /// <para>示例值：people_corehr_id</para>
+    /// <list type="bullet">
+    /// <item>open_id：标识一个用户在某个应用中的身份。同一个用户在不同应用中的 Open ID 不同。[了解更多：如何获取 Open ID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)</item>
+    /// <item>union_id：标识一个用户在某个应用开发商下的身份。同一用户在同一开发商下的应用中的 Union ID 是相同的，在不同开发商下的应用中的 Union ID 是不同的。通过 Union ID，应用开发商可以把同个用户在多个应用中的身份关联起来。[了解更多：如何获取 Union ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-union-id)</item>
+    /// <item>user_id：标识一个用户在某个租户内的身份。同一个用户在租户 A 和租户 B 内的 User ID 是不同的。在同一个租户内，一个用户的 User ID 在所有应用（包括商店应用）中都保持一致。User ID 主要用于在不同的应用间打通用户数据。[了解更多：如何获取 User ID？](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-user-id)</item>
+    /// <item>people_corehr_id：以飞书人事的雇佣 ID 来识别用户</item>
+    /// </list>
+    /// <para>默认值：people_corehr_id</para>
+    /// </param>
+    /// <param name="dto">请求体</param>
+    /// <param name="cancellation_token">取消操作的令牌</param>
+    [HttpPost("/open-apis/corehr/v2/severance_pays/revoke")]
+    System.Threading.Tasks.Task<FeishuResponse> PostCorehrV2SeverancePaysRevokeAsync(
+        [JsonContent] Corehr.PostCorehrV2SeverancePaysRevokeBodyDto dto,
+        [PathQuery] string? user_id_type = "people_corehr_id",
         CancellationToken cancellation_token = default);
 }
 
