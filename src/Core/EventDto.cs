@@ -4,7 +4,7 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2026-11-15
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="EventDto.cs" company="Vicente Yu">
 //     MIT
@@ -204,6 +204,8 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrPositionUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.position.updated_v2")]
 //【飞书人事（企业版）】入职流程状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrPreHireOnboardingTaskChangedV2EventBodyDto>), typeDiscriminator: "corehr.pre_hire.onboarding_task_changed_v2")]
+//【飞书人事（企业版）】入职信息变更
+[JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrPreHireUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.pre_hire.updated_v2")]
 //【飞书人事（企业版）】试用期状态变更
 [JsonDerivedType(typeof(EventV2Dto<Corehr.Events.CorehrProbationUpdatedV2EventBodyDto>), typeDiscriminator: "corehr.probation.updated_v2")]
 //【飞书人事（企业版）】审批任务状态变更
@@ -284,7 +286,7 @@ namespace FeishuNetSdk.Core;
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrPersonDeletedV1EventBodyDto>), typeDiscriminator: "corehr.person.deleted_v1")]
 //【飞书人事】【事件】更新个人信息
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrPersonUpdatedV1EventBodyDto>), typeDiscriminator: "corehr.person.updated_v1")]
-//【飞书人事】入职信息变更
+//【飞书人事】入职信息变更(不推荐)
 [JsonDerivedType(typeof(EventV2Dto<FeishuPeople.Events.CorehrPreHireUpdatedV1EventBodyDto>), typeDiscriminator: "corehr.pre_hire.updated_v1")]
 //【服务台】推送审核通知
 [JsonDerivedType(typeof(EventV2Dto<Helpdesk.Events.HelpdeskNotificationApproveV1EventBodyDto>), typeDiscriminator: "helpdesk.notification.approve_v1")]

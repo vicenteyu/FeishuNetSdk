@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="GetContactV3UsersFindByDepartmentResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -143,14 +143,6 @@ public record GetContactV3UsersFindByDepartmentResponseDto : IPageableResponse<G
         /// </summary>
         [JsonPropertyName("gender")]
         public int? Gender { get; set; }
-
-        /// <summary>
-        /// <para>头像的文件 Key。该参数实际无返回值，请忽略，获取头像信息可使用 `avatar` 参数。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
-        /// </summary>
-        [JsonPropertyName("avatar_key")]
-        public string? AvatarKey { get; set; }
 
         /// <summary>
         /// <para>用户头像信息。</para>
@@ -669,12 +661,12 @@ public record GetContactV3UsersFindByDepartmentResponseDto : IPageableResponse<G
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("department_path")]
-            public DepartmentDetailDepartmentPath? DepartmentPath { get; set; }
+            public DepartmentPathSuffix? DepartmentPath { get; set; }
 
             /// <summary>
             /// <para>部门路径。</para>
             /// </summary>
-            public record DepartmentDetailDepartmentPath
+            public record DepartmentPathSuffix
             {
                 /// <summary>
                 /// <para>部门路径 ID 列表。</para>
@@ -688,12 +680,12 @@ public record GetContactV3UsersFindByDepartmentResponseDto : IPageableResponse<G
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("department_path_name")]
-                public DepartmentDetailDepartmentPathDepartmentPathName? DepartmentPathName { get; set; }
+                public DepartmentPathNameSuffix? DepartmentPathName { get; set; }
 
                 /// <summary>
                 /// <para>部门路径名字信息。</para>
                 /// </summary>
-                public record DepartmentDetailDepartmentPathDepartmentPathName
+                public record DepartmentPathNameSuffix
                 {
                     /// <summary>
                     /// <para>部门名。</para>

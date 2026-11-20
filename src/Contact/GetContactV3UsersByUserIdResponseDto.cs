@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="GetContactV3UsersByUserIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -798,5 +798,13 @@ public record GetContactV3UsersByUserIdResponseDto
         /// </summary>
         [JsonPropertyName("dotted_line_leader_user_ids")]
         public string[]? DottedLineLeaderUserIds { get; set; }
+
+        /// <summary>
+        /// <para>是否智能体员工</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_agent")]
+        public bool? IsAgent { get; set; }
     }
 }

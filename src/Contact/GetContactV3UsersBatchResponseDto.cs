@@ -4,7 +4,7 @@
 // Created          : 2024-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="GetContactV3UsersBatchResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -126,14 +126,6 @@ public record GetContactV3UsersBatchResponseDto
         /// </summary>
         [JsonPropertyName("gender")]
         public int? Gender { get; set; }
-
-        /// <summary>
-        /// <para>头像的文件 Key。</para>
-        /// <para>必填：否</para>
-        /// <para>示例值：2500c7a9-5fff-4d9a-a2de-3d59614ae28g</para>
-        /// </summary>
-        [JsonPropertyName("avatar_key")]
-        public string? AvatarKey { get; set; }
 
         /// <summary>
         /// <para>用户头像信息。</para>
@@ -755,12 +747,12 @@ public record GetContactV3UsersBatchResponseDto
             /// <para>必填：否</para>
             /// </summary>
             [JsonPropertyName("department_path")]
-            public DepartmentDetailDepartmentPath? DepartmentPath { get; set; }
+            public DepartmentPathSuffix? DepartmentPath { get; set; }
 
             /// <summary>
             /// <para>部门路径。</para>
             /// </summary>
-            public record DepartmentDetailDepartmentPath
+            public record DepartmentPathSuffix
             {
                 /// <summary>
                 /// <para>部门路径 ID 列表。</para>
@@ -774,12 +766,12 @@ public record GetContactV3UsersBatchResponseDto
                 /// <para>必填：否</para>
                 /// </summary>
                 [JsonPropertyName("department_path_name")]
-                public DepartmentDetailDepartmentPathDepartmentPathName? DepartmentPathName { get; set; }
+                public DepartmentPathNameSuffix? DepartmentPathName { get; set; }
 
                 /// <summary>
                 /// <para>部门路径名字信息。</para>
                 /// </summary>
-                public record DepartmentDetailDepartmentPathDepartmentPathName
+                public record DepartmentPathNameSuffix
                 {
                     /// <summary>
                     /// <para>部门名。</para>
@@ -835,5 +827,13 @@ public record GetContactV3UsersBatchResponseDto
         /// </summary>
         [JsonPropertyName("dotted_line_leader_user_ids")]
         public string[]? DottedLineLeaderUserIds { get; set; }
+
+        /// <summary>
+        /// <para>是否智能体员工</para>
+        /// <para>必填：否</para>
+        /// <para>示例值：false</para>
+        /// </summary>
+        [JsonPropertyName("is_agent")]
+        public bool? IsAgent { get; set; }
     }
 }

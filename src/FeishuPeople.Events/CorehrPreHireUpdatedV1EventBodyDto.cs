@@ -4,16 +4,16 @@
 // Created          : 2024-09-01
 //
 // Last Modified By : yxr
-// Last Modified On : 2024-09-01
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="CorehrPreHireUpdatedV1EventBodyDto.cs" company="Vicente Yu">
 //     MIT
 // </copyright>
-// <summary>入职信息变更 事件体</summary>
+// <summary>入职信息变更(不推荐) 事件体</summary>
 // ************************************************************************
 namespace FeishuNetSdk.FeishuPeople.Events;
 /// <summary>
-/// 入职信息变更 事件体
+/// 入职信息变更(不推荐) 事件体
 /// <para>待入职人员任职信息更新后，触发此事件，包括两种场景：</para>
 /// <para>- 通过开放平台接口创建待入职、更新待入职</para>
 /// <para>- 在飞书人事-入职系统，HR 补充任职信息</para>

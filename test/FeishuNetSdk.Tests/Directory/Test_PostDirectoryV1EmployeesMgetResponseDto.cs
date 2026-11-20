@@ -243,7 +243,7 @@ public class Test_PostDirectoryV1EmployeesMgetResponseDto : TestBase
                     "geo_name": "boe",
                     "subscription_ids":
                     [
-                        "458694723562"
+                        458694723562
                     ]
                 },
                 "work_info":

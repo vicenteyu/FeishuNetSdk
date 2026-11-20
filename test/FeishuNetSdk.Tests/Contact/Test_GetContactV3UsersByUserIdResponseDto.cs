@@ -4,7 +4,7 @@
 // Created          : 2025-06-24
 //
 // Last Modified By : yxr
-// Last Modified On : 2025-06-24
+// Last Modified On : 2026-11-20
 // ************************************************************************
 // <copyright file="Test_GetContactV3UsersByUserIdResponseDto.cs" company="Vicente Yu">
 //     MIT
@@ -138,7 +138,8 @@ public class Test_GetContactV3UsersByUserIdResponseDto : TestBase
             ],
             "dotted_line_leader_user_ids": [
                 "ou_7dab8a3d3cdcc9da365777c7ad535d62"
-            ]
+            ],
+            "is_agent": false
         }
     }
 }
